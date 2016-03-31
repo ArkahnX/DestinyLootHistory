@@ -1,0 +1,142 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>DIM</title>
+	<script type="text/javascript" src="DestinyDatabase/DestinyActivityDefinition.json"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyInventoryItemDefinition.json"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyInventoryBucketDefinition.json"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyActivityTypeDefinition.json"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyStatDefinition.json"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyTalentGridDefinition.json"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyDamageTypeDefinition.json"></script>
+	<script type="text/javascript" src="scripts/vendor/lzstring.min.js"></script>
+	<script type="text/javascript" src="scripts/vendor/sorttable.min.js"></script>
+	<script type="text/javascript" src="scripts/vendor/tabs.microlib-1.1.0.min.js"></script>
+	<script type="text/javascript" src="scripts/statdef.json"></script>
+	<script type="text/javascript" src="scripts/itemdef.json"></script>
+	<script type="text/javascript" src="scripts/collection.json"></script>
+	<script type="text/javascript" src="scripts/bungie.js"></script>
+	<script type="text/javascript" src="scripts/options.js"></script>
+	<script type="text/javascript" src="scripts/items.js"></script>
+	<script type="text/javascript" src="scripts/sort.js"></script>
+	<script type="text/javascript" src="scripts/armor.js"></script>
+	<script type="text/javascript" src="scripts/table.js"></script>
+	<script type="text/javascript" src="scripts/index.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="tabs" data-micro="tabs">
+			<div class="tab" data-title="Options">
+				<fieldset class="optionContainer">
+					<legend>Historical Data</legend>
+					<label for="historicalGameMode">Game Mode: <select id="historicalGameMode">
+						<optgroup label="All Activities">
+							<option value="None">All Activities</option>
+							<option value="AllPvE">All PVE Activities</option>
+							<option value="AllPvP">All PVP Activities</option>
+							<option value="AllStrikes">All Strike Activities</option>
+							<option value="AllArena">All Arena Activities</option>
+						</optgroup>
+						<optgroup label="PVP Activities">
+							<option value="Rift">Rift</option>
+							<option value="Control">Control</option>
+							<option value="Team">Clash</option>
+							<option value="ThreeVsThree">Skirmish</option>
+							<option value="Lockdown">Salvage</option>
+							<option value="FreeForAll">Rumble</option>
+							<option value="TrialsOfOsiris">Trials of Osiris</option>
+							<option value="IronBanner">Iron Banner</option>
+							<option value="Elimination">Elimination</option>
+							<option value="Mayhem">Mayhem</option>
+							<option value="ZoneControl">Zone Control</option>
+							<option value="Racing">Sparrow Racing</option>
+						</optgroup>
+						<optgroup label="PVE Activities">
+							<option value="Story">Story Activities</option>
+							<option value="Strike">Strike Playlists</option>
+							<option value="Raid">Raids</option>
+							<option value="Patrol">Patrols</option>
+							<option value="Heroic">Heroic Strikes</option>
+							<option value="Nightfall">Nightfall Strikes</option>
+							<option value="Arena">Prison of Elders</option>
+							<option value="ArenaChallenge">Heroic Prison of Elders</option>
+						</optgroup>
+					</select></label>
+					<label for="historicalMinDate">Start Date: <input type="datetime-local" id="historicalMinDate"></label>
+					<label for="historicalMaxDate">End Date: <input type="datetime-local" id="historicalMaxDate"></label>
+					<input type="button" value="Lookup Data" id="lookupData" />
+				</fieldset>
+				<fieldset class="optionContainer">
+					<legend>Manual Tracking</legend>
+					<label for="currentGameMode">Game Mode: <select id="currentGameMode">
+						<optgroup label="All Activities">
+							<option value="None">All Activities</option>
+							<option value="AllPvE">All PVE Activities</option>
+							<option value="AllPvP">All PVP Activities</option>
+							<option value="AllStrikes">All Strike Activities</option>
+							<option value="AllArena">All Arena Activities</option>
+						</optgroup>
+						<optgroup label="PVP Activities">
+							<option value="Rift">Rift</option>
+							<option value="Control">Control</option>
+							<option value="Team">Clash</option>
+							<option value="ThreeVsThree">Skirmish</option>
+							<option value="Lockdown">Salvage</option>
+							<option value="FreeForAll">Rumble</option>
+							<option value="TrialsOfOsiris">Trials of Osiris</option>
+							<option value="IronBanner">Iron Banner</option>
+							<option value="Elimination">Elimination</option>
+							<option value="Mayhem">Mayhem</option>
+							<option value="ZoneControl">Zone Control</option>
+							<option value="Racing">Sparrow Racing</option>
+						</optgroup>
+						<optgroup label="PVE Activities">
+							<option value="Story">Story Activities</option>
+							<option value="Strike">Strike Playlists</option>
+							<option value="Raid">Raids</option>
+							<option value="Patrol">Patrols</option>
+							<option value="Heroic">Heroic Strikes</option>
+							<option value="Nightfall">Nightfall Strikes</option>
+							<option value="Arena">Prison of Elders</option>
+							<option value="ArenaChallenge">Heroic Prison of Elders</option>
+						</optgroup>
+					</select></label>
+					<input type="button" value="Begin Tracking" id="startTracking" />
+				</fieldset>
+				<fieldset class="optionContainer">
+					<legend>Other Stuff</legend>
+					<label for="gameConsole">Console: <select id="gameConsole">
+						<option value="1">Xbox</option>
+						<option value="2">Playstation</option>
+					</select></label>
+					<label for="friends">Friends: <textarea id="friends" disabled wrap="off"></textarea></label>
+					<input type="hidden" id="version">
+					<input type="hidden" id="currentMinDate">
+					<input type="hidden" id="currentMaxDate">
+					<input type="hidden" id="type">
+				</fieldset>
+			</div>
+			<div class="tab" data-title="Match Data">
+				<h1>Loading</h1>
+				<table id="matchData"></table>
+			</div>
+			<div class="tab" data-title="Loot Data">
+				<h1>Tab 2</h1>
+			</div>
+			<div class="tab" data-title="Weapon Stats">
+				<h1>Tab 3</h1>
+			</div>
+			<div class="tab" data-title="Bests">
+				<h1>Tab 4</h1>
+			</div>
+			<div class="tab" data-title="Stats">
+				<h1>Tab 4</h1>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
