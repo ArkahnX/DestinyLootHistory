@@ -18,6 +18,7 @@
       "DestinyDatabase/DestinyStatDefinition.json",
       "DestinyDatabase/DestinyTalentGridDefinition.json",
       "DestinyDatabase/DestinyDamageTypeDefinition.json",
+      "DestinyDatabase/DestinyProgressionDefinition.json",
       "scripts/vendor/sorttable.min.js",
       "scripts/armor.js",
       "scripts/report.js",

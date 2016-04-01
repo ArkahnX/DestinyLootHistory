@@ -296,6 +296,13 @@ function Bungie() {
 			complete: callback
 		});
 	}
+	this.factions = function(characterId, callback) {
+		_request({
+			route: '/Destiny/' + active.type + '/Account/' + membershipId + '/Character/' + characterId + '/Progression/?definitions=false',
+			method: 'GET',
+			complete: callback
+		});
+	}
 	this.getItem = function(characterId, itemId, callback) {
 		_request({
 			route: '/Destiny/' + active.type + '/Account/' + membershipId + '/Character/' + characterId + '/Inventory/' + itemId,

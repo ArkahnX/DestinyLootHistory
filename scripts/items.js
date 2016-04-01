@@ -1,7 +1,9 @@
 var items = {};
 var characterInventories = {};
 var newCharacterInventories = {};
+var factionData = {};
 var itemChanges = [];
+var factionChanges = [];
 var characterIdList = ["vault"];
 
 function recursive(index, array, networkTask, resultTask, endRecursion) {
@@ -34,23 +36,25 @@ function initItems(callback) {
 				characterIdList.push(avatars[c].characterBase.characterId);
 			}
 
-			sequence(characterIdList, networkTask, resultTask).then(function() {
-				chrome.storage.local.get("itemData", function(result) {
-					if (result.itemData) {
-						if (typeof result.itemData === "string") {
-							itemChanges = JSON.parse(result.itemData);
-						} else {
-							itemChanges = result.itemData;
+			sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
+				sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
+					chrome.storage.local.get("itemData", function(result) {
+						if (result.itemData) {
+							if (typeof result.itemData === "string") {
+								itemChanges = JSON.parse(result.itemData);
+							} else {
+								itemChanges = result.itemData;
+							}
 						}
-					}
+					});
+					callback();
 				});
-				callback();
 			});
 		});
 	});
 }
 
-function networkTask(characterId, callback) {
+function itemNetworkTask(characterId, callback) {
 	if (characterId === "vault") {
 		bungie.vault(callback);
 	} else {
@@ -58,11 +62,24 @@ function networkTask(characterId, callback) {
 	}
 }
 
-function resultTask(result, characterId) {
+function factionNetworkTask(characterId, callback) {
+	if (characterId !== "vault") {
+		bungie.factions(characterId, callback);
+	}
+}
+
+function itemResultTask(result, characterId) {
 	if (!characterInventories[characterId]) {
 		characterInventories[characterId] = [];
 	}
 	characterInventories[characterId] = concatItems(result.data.buckets);
+}
+
+function factionResultTask(result, characterId) {
+	if (!factionData[characterId]) {
+		factionData[characterId] = [];
+	}
+	factionData[characterId] = result.data;
 }
 
 function saveInventory(characterId) {
@@ -200,6 +217,12 @@ function calculateDifference(characterId, callback) {
 	}
 }
 
+function checkFactionRank(characterId, callback) {
+	if (characterId !== "vault") {
+		bungie.factions(characterId, callback);
+	}
+}
+
 function parseNewItems(itemData, characterId) {
 	var newItems = concatItems(itemData.data.buckets);
 	newCharacterInventories[characterId] = newItems;
@@ -234,6 +257,59 @@ function _internalDiffCheck(itemData, characterId) {
 	}
 }
 
+function checkFactionDiff(sourceArray, newArray) {
+	var itemsRemovedFromSource = [];
+	for (var i = 0; i < sourceArray.length; i++) {
+		for (var e = 0; e < newArray.length; e++) {
+			var diff = false;
+			if (newArray[e].progressionHash == sourceArray[i].progressionHash) {
+				var newItem = {
+					progressionHash: newArray[e].progressionHash,
+					name: DestinyProgressionDefinition[newArray[e].progressionHash].name
+				};
+				for (var attr in newArray[e]) {
+					if (newArray[e][attr] !== sourceArray[i][attr]) {
+						diff = true;
+						newItem[attr] = sourceArray[i][attr] - newArray[e][attr];
+					}
+				}
+				if (diff) {
+					itemsRemovedFromSource.push(newItem);
+				}
+			}
+		}
+	}
+	return itemsRemovedFromSource;
+}
+
+function factionRepChanges(factionRep, characterId) {
+	var newRep = factionRep.data;
+	var d = new Date();
+	d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
+	var currentDate = new Date(d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2) + ":" + ('0' + d.getSeconds()).slice(-2));
+	if (factionChanges[factionChanges.length - 1]) {
+		var oldDate = new Date(factionChanges[factionChanges.length - 1].timestamp) || currentDate;
+	} else {
+		var oldDate = currentDate;
+	}
+	var diff = {
+		destinyGameId: 0,
+		timestamp: currentDate,
+		secondsSinceLastDiff: (currentDate - oldDate) / 1000,
+		characterId: characterId,
+		factionChanges: checkFactionDiff(newRep.progressions, factionData[characterId].progressions),
+		level: newRep.levelProgression
+	};
+	factionData[characterId] = newRep;
+	if (diff.factionChanges.length > 0) {
+		trackIdle();
+		factionChanges.push(diff);
+		console.log(diff)
+	} else {
+		// console.log("No Changes For", characterId)
+	}
+}
+
 // function checkDiffs
 
 var listenLoop = null;
@@ -242,10 +318,12 @@ var stopLoop = null;
 function checkInventory() {
 	// sequence(characterIdList, calculateDifference, parseNewItems).then(function() {
 	sequence(characterIdList, calculateDifference, _internalDiffCheck).then(function() {
-		chrome.storage.local.set({
-			"itemData": JSON.stringify(itemChanges)
+		sequence(characterIdList, checkFactionRank, factionRepChanges).then(function() {
+			chrome.storage.local.set({
+				"itemData": JSON.stringify(itemChanges)
+			});
+			// loadGameData();
 		});
-		// loadGameData();
 	});
 	// for (var c = 0; c < avatars.length; c++) {
 	// 	if (avatars[c] === "vault") {
