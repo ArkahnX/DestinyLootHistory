@@ -65,21 +65,28 @@ function itemNetworkTask(characterId, callback) {
 function factionNetworkTask(characterId, callback) {
 	if (characterId !== "vault") {
 		bungie.factions(characterId, callback);
+	} else {
+		callback();
 	}
 }
 
 function itemResultTask(result, characterId) {
-	if (!characterInventories[characterId]) {
-		characterInventories[characterId] = [];
+	if (result) {
+		if (!characterInventories[characterId]) {
+			characterInventories[characterId] = [];
+		}
+		characterInventories[characterId] = concatItems(result.data.buckets);
 	}
-	characterInventories[characterId] = concatItems(result.data.buckets);
 }
 
 function factionResultTask(result, characterId) {
-	if (!factionData[characterId]) {
-		factionData[characterId] = [];
+	if (result) {
+		console.log(characterId, result)
+		if (!factionData[characterId]) {
+			factionData[characterId] = [];
+		}
+		factionData[characterId] = result.data;
 	}
-	factionData[characterId] = result.data;
 }
 
 function saveInventory(characterId) {
@@ -220,6 +227,8 @@ function calculateDifference(characterId, callback) {
 function checkFactionRank(characterId, callback) {
 	if (characterId !== "vault") {
 		bungie.factions(characterId, callback);
+	} else {
+		callback();
 	}
 }
 
@@ -283,30 +292,32 @@ function checkFactionDiff(sourceArray, newArray) {
 }
 
 function factionRepChanges(factionRep, characterId) {
-	var newRep = factionRep.data;
-	var d = new Date();
-	d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
-	var currentDate = new Date(d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2) + ":" + ('0' + d.getSeconds()).slice(-2));
-	if (factionChanges[factionChanges.length - 1]) {
-		var oldDate = new Date(factionChanges[factionChanges.length - 1].timestamp) || currentDate;
-	} else {
-		var oldDate = currentDate;
-	}
-	var diff = {
-		destinyGameId: 0,
-		timestamp: currentDate,
-		secondsSinceLastDiff: (currentDate - oldDate) / 1000,
-		characterId: characterId,
-		factionChanges: checkFactionDiff(newRep.progressions, factionData[characterId].progressions),
-		level: newRep.levelProgression
-	};
-	factionData[characterId] = newRep;
-	if (diff.factionChanges.length > 0) {
-		trackIdle();
-		factionChanges.push(diff);
-		console.log(diff)
-	} else {
-		// console.log("No Changes For", characterId)
+	if (factionRep) {
+		var newRep = factionRep.data;
+		var d = new Date();
+		d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
+		var currentDate = new Date(d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2) + ":" + ('0' + d.getSeconds()).slice(-2));
+		if (factionChanges[factionChanges.length - 1]) {
+			var oldDate = new Date(factionChanges[factionChanges.length - 1].timestamp) || currentDate;
+		} else {
+			var oldDate = currentDate;
+		}
+		var diff = {
+			destinyGameId: 0,
+			timestamp: currentDate,
+			secondsSinceLastDiff: (currentDate - oldDate) / 1000,
+			characterId: characterId,
+			factionChanges: checkFactionDiff(newRep.progressions, factionData[characterId].progressions),
+			level: newRep.levelProgression
+		};
+		factionData[characterId] = newRep;
+		if (diff.factionChanges.length > 0) {
+			trackIdle();
+			factionChanges.push(diff);
+			console.log(diff)
+		} else {
+			// console.log("No Changes For", characterId)
+		}
 	}
 }
 
