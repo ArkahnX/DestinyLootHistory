@@ -38,12 +38,40 @@ function initItems(callback) {
 
 			sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
 				sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
-					chrome.storage.local.get("itemData", function(result) {
+					chrome.storage.local.get(["itemData","itemChanges","factionData","factionChanges","characterInventories"], function(result) {
 						if (result.itemData) {
 							if (typeof result.itemData === "string") {
 								itemChanges = JSON.parse(result.itemData);
 							} else {
 								itemChanges = result.itemData;
+							}
+						}
+						if (result.itemChanges) {
+							if (typeof result.itemChanges === "string") {
+								itemChanges = JSON.parse(result.itemChanges);
+							} else {
+								itemChanges = result.itemChanges;
+							}
+						}
+						if (result.factionData) {
+							if (typeof result.factionData === "string") {
+								factionData = JSON.parse(result.factionData);
+							} else {
+								factionData = result.factionData;
+							}
+						}
+						if (result.characterInventories) {
+							if (typeof result.characterInventories === "string") {
+								characterInventories = JSON.parse(result.characterInventories);
+							} else {
+								itemChanges = result.itemData;
+							}
+						}
+						if (result.factionChanges) {
+							if (typeof result.factionChanges === "string") {
+								factionChanges = JSON.parse(result.factionChanges);
+							} else {
+								factionChanges = result.factionChanges;
 							}
 						}
 					});
@@ -81,7 +109,6 @@ function itemResultTask(result, characterId) {
 
 function factionResultTask(result, characterId) {
 	if (result) {
-		console.log(characterId, result)
 		if (!factionData[characterId]) {
 			factionData[characterId] = [];
 		}
@@ -331,7 +358,10 @@ function checkInventory() {
 	sequence(characterIdList, calculateDifference, _internalDiffCheck).then(function() {
 		sequence(characterIdList, checkFactionRank, factionRepChanges).then(function() {
 			chrome.storage.local.set({
-				"itemData": JSON.stringify(itemChanges)
+				"characterInventories": JSON.stringify(characterInventories),
+				"itemChanges": JSON.stringify(itemChanges),
+				"factionData": JSON.stringify(factionData),
+				"factionChanges": JSON.stringify(factionChanges)
 			});
 			// loadGameData();
 		});
