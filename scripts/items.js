@@ -1,9 +1,11 @@
-var items = {};
-var characterInventories = {};
-var newCharacterInventories = {};
-var factionData = {};
-var itemChanges = [];
-var factionChanges = [];
+var data = {
+	inventories: {},
+	progression: {},
+	itemChanges: [],
+	factionChanges: []
+};
+var newInventories = {};
+var newProgression = {};
 var characterIdList = ["vault"];
 
 function recursive(index, array, networkTask, resultTask, endRecursion) {
@@ -25,6 +27,16 @@ function sequence(array, networkTask, resultTask) {
 	});
 }
 
+function handleInput(source, alt) {
+	if (typeof source !== "undefined") {
+		if (typeof source === "string") {
+			return JSON.parse(source);
+		}
+		return source;
+	}
+	return alt;
+}
+
 
 function initItems(callback) {
 	bungie.user(function(u) {
@@ -38,42 +50,12 @@ function initItems(callback) {
 
 			sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
 				sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
-					chrome.storage.local.get(["itemData","itemChanges","factionData","factionChanges","characterInventories"], function(result) {
-						if (result.itemData) {
-							if (typeof result.itemData === "string") {
-								itemChanges = JSON.parse(result.itemData);
-							} else {
-								itemChanges = result.itemData;
-							}
-						}
-						if (result.itemChanges) {
-							if (typeof result.itemChanges === "string") {
-								itemChanges = JSON.parse(result.itemChanges);
-							} else {
-								itemChanges = result.itemChanges;
-							}
-						}
-						if (result.factionData) {
-							if (typeof result.factionData === "string") {
-								factionData = JSON.parse(result.factionData);
-							} else {
-								factionData = result.factionData;
-							}
-						}
-						if (result.characterInventories) {
-							if (typeof result.characterInventories === "string") {
-								characterInventories = JSON.parse(result.characterInventories);
-							} else {
-								itemChanges = result.itemData;
-							}
-						}
-						if (result.factionChanges) {
-							if (typeof result.factionChanges === "string") {
-								factionChanges = JSON.parse(result.factionChanges);
-							} else {
-								factionChanges = result.factionChanges;
-							}
-						}
+					chrome.storage.local.get(["itemData", "itemChanges", "progression", "factionChanges", "inventories"], function(result) {
+						data.itemChanges = handleInput(result.itemData, data.itemChanges);
+						data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
+						data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
+						data.progression = handleInput(result.progression, data.progression);
+						data.inventories = handleInput(result.inventories, data.inventories);
 					});
 					callback();
 				});
@@ -100,19 +82,19 @@ function factionNetworkTask(characterId, callback) {
 
 function itemResultTask(result, characterId) {
 	if (result) {
-		if (!characterInventories[characterId]) {
-			characterInventories[characterId] = [];
+		if (!data.inventories[characterId]) {
+			data.inventories[characterId] = [];
 		}
-		characterInventories[characterId] = concatItems(result.data.buckets);
+		data.inventories[characterId] = concatItems(result.data.buckets);
 	}
 }
 
 function factionResultTask(result, characterId) {
 	if (result) {
-		if (!factionData[characterId]) {
-			factionData[characterId] = [];
+		if (!data.progression[characterId]) {
+			data.progression[characterId] = [];
 		}
-		factionData[characterId] = result.data;
+		data.progression[characterId] = result.data;
 	}
 }
 
@@ -261,7 +243,7 @@ function checkFactionRank(characterId, callback) {
 
 function parseNewItems(itemData, characterId) {
 	var newItems = concatItems(itemData.data.buckets);
-	newCharacterInventories[characterId] = newItems;
+	newInventories[characterId] = newItems;
 }
 
 function _internalDiffCheck(itemData, characterId) {
@@ -269,8 +251,9 @@ function _internalDiffCheck(itemData, characterId) {
 	var d = new Date();
 	d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
 	var currentDate = new Date(d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2) + ":" + ('0' + d.getSeconds()).slice(-2));
-	if (itemChanges[itemChanges.length - 1]) {
-		var oldDate = new Date(itemChanges[itemChanges.length - 1].timestamp) || currentDate;
+	var previous = data.itemChanges[data.itemChanges.length - 1]
+	if (previous) {
+		var oldDate = new Date(previous.timestamp) || currentDate;
 	} else {
 		var oldDate = currentDate;
 	}
@@ -279,14 +262,14 @@ function _internalDiffCheck(itemData, characterId) {
 		timestamp: currentDate,
 		secondsSinceLastDiff: (currentDate - oldDate) / 1000,
 		characterId: characterId,
-		removed: checkDiff(characterInventories[characterId], newItems),
-		added: checkDiff(newItems, characterInventories[characterId]),
+		removed: checkDiff(data.inventories[characterId], newItems),
+		added: checkDiff(newItems, data.inventories[characterId]),
 		transfered: []
 	};
-	characterInventories[characterId] = newItems;
+	data.inventories[characterId] = newItems;
 	if (diff.added.length > 0 || diff.removed.length > 0) {
 		trackIdle();
-		itemChanges.push(diff);
+		data.itemChanges.push(diff);
 		console.log(diff)
 	} else {
 		// console.log("No Changes For", characterId)
@@ -324,8 +307,9 @@ function factionRepChanges(factionRep, characterId) {
 		var d = new Date();
 		d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
 		var currentDate = new Date(d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2) + ":" + ('0' + d.getSeconds()).slice(-2));
-		if (factionChanges[factionChanges.length - 1]) {
-			var oldDate = new Date(factionChanges[factionChanges.length - 1].timestamp) || currentDate;
+		var previous = data.factionChanges[data.factionChanges.length-1];
+		if (previous) {
+			var oldDate = new Date(previous.timestamp) || currentDate;
 		} else {
 			var oldDate = currentDate;
 		}
@@ -334,13 +318,13 @@ function factionRepChanges(factionRep, characterId) {
 			timestamp: currentDate,
 			secondsSinceLastDiff: (currentDate - oldDate) / 1000,
 			characterId: characterId,
-			factionChanges: checkFactionDiff(newRep.progressions, factionData[characterId].progressions),
+			changes: checkFactionDiff(newRep.progressions, data.progression[characterId].progressions),
 			level: newRep.levelProgression
 		};
-		factionData[characterId] = newRep;
-		if (diff.factionChanges.length > 0) {
+		data.progression[characterId] = newRep;
+		if (diff.changes.length > 0) {
 			trackIdle();
-			factionChanges.push(diff);
+			data.factionChanges.push(diff);
 			console.log(diff)
 		} else {
 			// console.log("No Changes For", characterId)
@@ -357,12 +341,7 @@ function checkInventory() {
 	// sequence(characterIdList, calculateDifference, parseNewItems).then(function() {
 	sequence(characterIdList, calculateDifference, _internalDiffCheck).then(function() {
 		sequence(characterIdList, checkFactionRank, factionRepChanges).then(function() {
-			chrome.storage.local.set({
-				"characterInventories": JSON.stringify(characterInventories),
-				"itemChanges": JSON.stringify(itemChanges),
-				"factionData": JSON.stringify(factionData),
-				"factionChanges": JSON.stringify(factionChanges)
-			});
+			chrome.storage.local.set(data);
 			// loadGameData();
 		});
 	});
