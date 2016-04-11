@@ -86,35 +86,29 @@ function factionResultTask(result, characterId) {
 	}
 }
 
+function _concat(list) {
+	var sortedItems = {};
+	for (var item of list) {
+		if (!sortedItems[item.itemHash]) {
+			sortedItems[item.itemHash] = buildCompactItem(item, bucket.bucketHash);
+			sortedItems[item.itemHash].bucketHash = bucket.bucketHash;
+		} else {
+			sortedItems[item.itemHash].stackSize += item.stackSize;
+		}
+	}
+	return sortedItems;
+}
+
 function concatItems(itemBucketList) {
 	var sortedItems = {};
 	var unsortedItems = [];
-	if (Array.isArray(itemBucketList)) {
-		for (var i = 0; i < itemBucketList.length; i++) {
-			var bucket = itemBucketList[i];
-			for (var e = 0; e < bucket.items.length; e++) {
-				var item = bucket.items[e];
-				if (!sortedItems[item.itemHash]) {
-					sortedItems[item.itemHash] = buildCompactItem(item, bucket.bucketHash);
-					sortedItems[item.itemHash].bucketHash = bucket.bucketHash;
-				} else {
-					sortedItems[item.itemHash].stackSize += item.stackSize;
-				}
-			}
-		}
-	} else {
-		for (var attr in itemBucketList) {
-			var bucketList = itemBucketList[attr];
-			for (var i = 0; i < bucketList.length; i++) {
-				var bucket = bucketList[i];
-				for (var e = 0; e < bucket.items.length; e++) {
-					var item = bucket.items[e];
-					if (!sortedItems[item.itemHash]) {
-						sortedItems[item.itemHash] = buildCompactItem(item, bucket.bucketHash);
-						sortedItems[item.itemHash].bucketHash = bucket.bucketHash;
-					} else {
-						sortedItems[item.itemHash].stackSize += item.stackSize;
-					}
+	for (var category of itemBucketList) {
+		if (category.items) {
+			sortedItems=_concat(category.items);
+		} else {
+			for (var bucket of category) {
+				if (bucket.items) {
+					sortedItems=_concat(bucket.items);
 				}
 			}
 		}
