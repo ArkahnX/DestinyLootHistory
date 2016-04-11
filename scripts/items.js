@@ -217,15 +217,6 @@ function buildCompactItem(itemData, bucketHash) {
 }
 
 function calculateDifference(characterId, callback) {
-	// if (characterId === "vault") {
-	// 	bungie.vault(function(itemData) {
-	// 		_internalDiffCheck(itemData, characterId, callback);
-	// 	});
-	// } else {
-	// 	bungie.inventory(characterId, function(itemData) {
-	// 		_internalDiffCheck(itemData, characterId, callback);
-	// 	});
-	// }
 	if (characterId === "vault") {
 		bungie.vault(callback);
 	} else {
