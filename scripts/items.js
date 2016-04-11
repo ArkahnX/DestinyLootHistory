@@ -4,6 +4,8 @@ var data = {
 	itemChanges: [],
 	factionChanges: []
 };
+var oldInventories = {};
+var oldProgression = {};
 var relevantStats = ["itemHash", "itemInstanceId", "isEquipped", "itemInstanceId", "stackSize", "itemLevel", "qualityLevel", "stats", "primaryStat", "equipRequiredLevel", "damageTypeHash", "progression", "talentGridHash", "nodes", "isGridComplete"];
 var characterIdList = ["vault"];
 
@@ -38,12 +40,14 @@ function initItems(callback) {
 
 			sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
 				sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
-					chrome.storage.local.get(["itemData", "itemChanges", "progression", "factionChanges", "inventories"], function(result) {
-						data.itemChanges = handleInput(result.itemData, data.itemChanges);
+					chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
 						data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
 						data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
-						data.progression = handleInput(result.progression, data.progression);
-						data.inventories = handleInput(result.inventories, data.inventories);
+						// data.progression = handleInput(result.progression, data.progression);
+						// data.inventories = handleInput(result.inventories, data.inventories);
+						oldProgression = handleInput(result.progression, data.progression);
+						oldInventories = handleInput(result.inventories, data.inventories);
+						//insert function to compare new to old inventories here
 					});
 					callback();
 				});
