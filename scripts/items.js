@@ -38,20 +38,24 @@ function initItems(callback) {
 				characterIdList.push(avatars[c].characterBase.characterId);
 			}
 
-			sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
-				sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
-					chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
-						data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
-						data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
-						// data.progression = handleInput(result.progression, data.progression);
-						// data.inventories = handleInput(result.inventories, data.inventories);
-						oldProgression = handleInput(result.progression, data.progression);
-						oldInventories = handleInput(result.inventories, data.inventories);
-						//insert function to compare new to old inventories here
-					});
-					callback();
-				});
+			processInventory(callback);
+		});
+	});
+}
+
+function processInventory(callback) {
+	sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
+		sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
+			chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
+				data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
+				data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
+				// data.progression = handleInput(result.progression, data.progression);
+				// data.inventories = handleInput(result.inventories, data.inventories);
+				oldProgression = handleInput(result.progression, data.progression);
+				oldInventories = handleInput(result.inventories, data.inventories);
+				processDifference();
 			});
+			callback();
 		});
 	});
 }
@@ -90,12 +94,12 @@ function factionResultTask(result, characterId) {
 	}
 }
 
-function _concat(list) {
+function _concat(list,bucketHash) {
 	var sortedItems = {};
 	for (var item of list) {
 		if (!sortedItems[item.itemHash]) {
-			sortedItems[item.itemHash] = buildCompactItem(item, bucket.bucketHash);
-			sortedItems[item.itemHash].bucketHash = bucket.bucketHash;
+			sortedItems[item.itemHash] = buildCompactItem(item, bucketHash);
+			sortedItems[item.itemHash].bucketHash = bucketHash;
 		} else {
 			sortedItems[item.itemHash].stackSize += item.stackSize;
 		}
@@ -108,11 +112,11 @@ function concatItems(itemBucketList) {
 	var unsortedItems = [];
 	for (var category of itemBucketList) {
 		if (category.items) {
-			sortedItems=_concat(category.items);
+			sortedItems = _concat(category.items,category.bucketHash);
 		} else {
 			for (var bucket of category) {
 				if (bucket.items) {
-					sortedItems=_concat(bucket.items);
+					sortedItems = _concat(bucket.items,bucket.bucketHash);
 				}
 			}
 		}
@@ -181,4 +185,140 @@ function handleInput(source, alt) {
 		return source;
 	}
 	return alt;
+}
+
+function checkDiff(sourceArray, newArray) {
+	var itemsRemovedFromSource = [];
+	for (var i = 0; i < sourceArray.length; i++) {
+		var found = false;
+		for (var e = 0; e < newArray.length; e++) {
+			if ((newArray[e].itemInstanceId != 0 && newArray[e].itemInstanceId == sourceArray[i].itemInstanceId) || newArray[e].itemHash == sourceArray[i].itemHash) {
+				found = true;
+				if (newArray[e].stackSize !== sourceArray[i].stackSize) {
+					var newItem = JSON.parse(JSON.stringify(sourceArray[i]));
+					newItem.stackSize = sourceArray[i].stackSize - newArray[e].stackSize;
+					if (newItem.stackSize > 0) {
+						itemsRemovedFromSource.push(newItem);
+					}
+				}
+			}
+		}
+		if (found === false) {
+			itemsRemovedFromSource.push(sourceArray[i]);
+		}
+	}
+	return itemsRemovedFromSource;
+}
+
+function checkFactionDiff(sourceArray, newArray) {
+	var itemsRemovedFromSource = [];
+	for (var i = 0; i < sourceArray.length; i++) {
+		for (var e = 0; e < newArray.length; e++) {
+			var diff = false;
+			if (newArray[e].progressionHash == sourceArray[i].progressionHash) {
+				var newItem = {
+					progressionHash: newArray[e].progressionHash,
+					name: DestinyProgressionDefinition[newArray[e].progressionHash].name
+				};
+				for (var attr in newArray[e]) {
+					if (newArray[e][attr] !== sourceArray[i][attr]) {
+						diff = true;
+						newItem[attr] = sourceArray[i][attr] - newArray[e][attr];
+					}
+				}
+				if (diff) {
+					itemsRemovedFromSource.push(newItem);
+				}
+			}
+		}
+	}
+	return itemsRemovedFromSource;
+}
+
+function _internalDiffCheck(itemData, characterId) {
+	var newItems = concatItems(itemData.data.buckets);
+	var d = new Date();
+	d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
+	var currentDate = new Date(d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2) + ":" + ('0' + d.getSeconds()).slice(-2));
+	var previous = data.itemChanges[data.itemChanges.length - 1]
+	if (previous) {
+		var oldDate = new Date(previous.timestamp) || currentDate;
+	} else {
+		var oldDate = currentDate;
+	}
+	var diff = {
+		destinyGameId: 0,
+		timestamp: currentDate,
+		secondsSinceLastDiff: (currentDate - oldDate) / 1000,
+		characterId: characterId,
+		removed: "",
+		added: "",
+		transfered: []
+	};
+	data.inventories[characterId] = newItems;
+	if (diff.added.length > 0 || diff.removed.length > 0) {
+		trackIdle();
+		data.itemChanges.push(diff);
+		console.log(diff)
+	} else {
+		// console.log("No Changes For", characterId)
+	}
+}
+
+
+
+function factionRepChanges(factionRep, characterId) {
+	if (factionRep) {
+		var newRep = factionRep.data;
+
+		var diff = {
+			destinyGameId: 0,
+			timestamp: currentDate,
+			secondsSinceLastDiff: (currentDate - oldDate) / 1000,
+			characterId: characterId,
+			changes: checkFactionDiff(newRep.progressions, data.progression[characterId].progressions),
+			level: newRep.levelProgression
+		};
+		data.progression[characterId] = newRep;
+		if (diff.changes.length > 0) {
+			trackIdle();
+			data.factionChanges.push(diff);
+			console.log(diff)
+		} else {
+			// console.log("No Changes For", characterId)
+		}
+	}
+}
+
+function processDifference() {
+	var d = new Date();
+	d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
+	var currentDate = new Date(d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2) + ":" + ('0' + d.getSeconds()).slice(-2));
+	var previousFaction = data.factionChanges[data.factionChanges.length - 1];
+	var previousItem = data.itemChanges[data.itemChanges.length - 1];
+	var previousFactionDate = currentDate;
+	var previousItemDate = currentDate;
+	if (previousFaction) {
+		previousFactionDate = new Date(previousFaction.timestamp);
+	}
+	if (previousItem) {
+		previousItemDate = new Date(previousItem.timestamp);
+	}
+	if (oldInventories) {
+		for (var character of oldInventories) {
+			var additions = checkDiff(data.inventories[characterId], character);
+			var removals = checkDiff(character, data.inventories[characterId]);
+			console.log(additions,removals);
+		}
+	}
+	if (oldProgression) {
+		for (var character of oldProgression) {
+
+		}
+	}
+	oldProgression = data.progression;
+	oldInventories = data.inventories;
+	chrome.storage.local.set(data,function() {
+
+	});
 }
