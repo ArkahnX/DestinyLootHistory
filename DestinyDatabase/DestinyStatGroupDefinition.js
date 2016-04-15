@@ -147,7 +147,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 27412306,
 		"index": 0
 	},
@@ -202,7 +202,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 363072480,
 		"index": 0
 	},
@@ -257,7 +257,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 434908299,
 		"index": 0
 	},
@@ -421,7 +421,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 438217175,
 		"index": 0
 	},
@@ -476,7 +476,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 548191128,
 		"index": 0
 	},
@@ -658,7 +658,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 660767731,
 		"index": 0
 	},
@@ -686,7 +686,7 @@ var DestinyStatGroupDefinition = {
 				"displayInterpolation": []
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 662199250,
 		"index": 0
 	},
@@ -814,7 +814,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 715017193,
 		"index": 0
 	},
@@ -938,7 +938,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 770484158,
 		"index": 0
 	},
@@ -1090,7 +1090,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 788703518,
 		"index": 0
 	},
@@ -1246,7 +1246,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 1069606838,
 		"index": 0
 	},
@@ -1438,7 +1438,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 1099468801,
 		"index": 0
 	},
@@ -1493,7 +1493,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 1116828683,
 		"index": 0
 	},
@@ -1657,7 +1657,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 1232481893,
 		"index": 0
 	},
@@ -1931,7 +1931,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 1263777500,
 		"index": 0
 	},
@@ -2095,7 +2095,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 1266037067,
 		"index": 0
 	},
@@ -2259,7 +2259,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 1333147639,
 		"index": 0
 	},
@@ -2359,7 +2359,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 1466988355,
 		"index": 0
 	},
@@ -2415,7 +2415,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 1499111337,
 		"index": 0
 	},
@@ -2669,7 +2669,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 1810215857,
 		"index": 0
 	},
@@ -2783,7 +2783,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 2025709351,
 		"index": 0
 	},
@@ -3087,7 +3087,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 2453149525,
 		"index": 0
 	},
@@ -3251,7 +3251,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 3014173054,
 		"index": 0
 	},
@@ -3391,7 +3391,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 3050455863,
 		"index": 0
 	},
@@ -3446,7 +3446,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 3128068143,
 		"index": 0
 	},
@@ -3529,7 +3529,7 @@ var DestinyStatGroupDefinition = {
 		"maximumValue": 100,
 		"uiPosition": 0,
 		"scaledStats": [],
-		"overrides": [],
+		"overrides": {},
 		"hash": 3184640469,
 		"index": 0
 	},
@@ -3557,7 +3557,7 @@ var DestinyStatGroupDefinition = {
 				"displayInterpolation": []
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 3284755031,
 		"index": 0
 	},
@@ -3686,7 +3686,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 3568793270,
 		"index": 0
 	},
@@ -3838,7 +3838,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 3773775587,
 		"index": 0
 	},
@@ -4012,7 +4012,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 3832607053,
 		"index": 0
 	},
@@ -4164,7 +4164,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 3941551777,
 		"index": 0
 	},
@@ -4219,7 +4219,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 4023194814,
 		"index": 0
 	},
@@ -4343,7 +4343,7 @@ var DestinyStatGroupDefinition = {
 				]
 			}
 		],
-		"overrides": [],
+		"overrides": {},
 		"hash": 4183860178,
 		"index": 0
 	}

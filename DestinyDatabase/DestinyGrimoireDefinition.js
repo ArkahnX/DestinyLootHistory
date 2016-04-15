@@ -1458,6 +1458,11 @@ var DestinyGrimoireDefinition = {
 								"totalPoints": 0
 							},
 							{
+								"cardId": 790010,
+								"points": 15,
+								"totalPoints": 15
+							},
+							{
 								"cardId": 303200,
 								"points": 5,
 								"totalPoints": 20
@@ -1869,6 +1874,11 @@ var DestinyGrimoireDefinition = {
 							},
 							{
 								"cardId": 750020,
+								"points": 5,
+								"totalPoints": 5
+							},
+							{
+								"cardId": 790020,
 								"points": 5,
 								"totalPoints": 5
 							}
@@ -2856,6 +2866,11 @@ var DestinyGrimoireDefinition = {
 								"cardId": 770120,
 								"points": 15,
 								"totalPoints": 15
+							},
+							{
+								"cardId": 790030,
+								"points": 10,
+								"totalPoints": 10
 							}
 						]
 					}
@@ -5366,6 +5381,36 @@ var DestinyGrimoireDefinition = {
 								"cardId": 701350,
 								"points": 15,
 								"totalPoints": 15
+							},
+							{
+								"cardId": 770010,
+								"points": 15,
+								"totalPoints": 15
+							},
+							{
+								"cardId": 790040,
+								"points": 15,
+								"totalPoints": 15
+							},
+							{
+								"cardId": 790050,
+								"points": 15,
+								"totalPoints": 15
+							},
+							{
+								"cardId": 790060,
+								"points": 15,
+								"totalPoints": 15
+							},
+							{
+								"cardId": 790070,
+								"points": 15,
+								"totalPoints": 15
+							},
+							{
+								"cardId": 790080,
+								"points": 5,
+								"totalPoints": 5
 							}
 						]
 					}
@@ -7152,6 +7197,11 @@ var DestinyGrimoireDefinition = {
 								"cardId": 701560,
 								"points": 5,
 								"totalPoints": 5
+							},
+							{
+								"cardId": 790090,
+								"points": 10,
+								"totalPoints": 10
 							}
 						]
 					},
@@ -7295,6 +7345,11 @@ var DestinyGrimoireDefinition = {
 							},
 							{
 								"cardId": 701650,
+								"points": 5,
+								"totalPoints": 5
+							},
+							{
+								"cardId": 770020,
 								"points": 5,
 								"totalPoints": 5
 							}

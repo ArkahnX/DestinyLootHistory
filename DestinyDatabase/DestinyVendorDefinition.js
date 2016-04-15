@@ -4,10 +4,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1990950,
 			"vendorName": "Titan Vanguard",
 			"vendorDescription": "A veteran Titan who coordinates the defense of the City, Zavala helps to outfit and mentor other Titans.",
-			"vendorIcon": "/common/destiny_content/icons/bc2b5fd4040b8d58ac54ab9a838b513e.png",
+			"vendorIcon": "/common/destiny_content/icons/c05ab21e07762bb71473f1bee6307e31.png",
 			"vendorOrder": 70,
 			"factionName": "Vanguard Reputation",
-			"factionIcon": "/common/destiny_content/icons/b1d3536fffa1f32cd2b81b2ca08e7f5e.png",
+			"factionIcon": "/common/destiny_content/icons/8a1d5e42a0b03a6dd1b91182385c1f43.png",
 			"factionHash": 468098704,
 			"factionDescription": "Complete Vanguard Bounties to unlock powerful gear for purchase.\n\nAchieve high Rank to earn rewards.",
 			"resetIntervalMinutes": 180,
@@ -35,7 +35,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 300
+			"vendorSubcategoryHash": 300,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -884,7 +885,7 @@ var DestinyVendorDefinition = {
 		"summary": {
 			"vendorHash": 44395194,
 			"vendorName": "Vehicles",
-			"vendorIcon": "/common/destiny_content/icons/d11d3ab5b23cf29c6f0b541056c5f1a1.png",
+			"vendorIcon": "/common/destiny_content/icons/5bdc2497a6bc1383ccbd2abbc2e8e708.png",
 			"vendorOrder": 31,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -910,7 +911,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 800
+			"vendorSubcategoryHash": 800,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -1039,6 +1041,34 @@ var DestinyVendorDefinition = {
 				"overlayIcon": "/img/misc/missing_icon.png",
 				"hasOverlay": false,
 				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1369610000,
+				"displayTitle": "Eververse Trading Company",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1212215231,
+				"displayTitle": "The Taken King",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
 			}
 		],
 		"failureStrings": [
@@ -1063,7 +1093,10 @@ var DestinyVendorDefinition = {
 			"Completing \"SRL: Class S License\"",
 			"SRL Record Book, Vol. 1 Achievement",
 			"Completing \"With Finesse and Speed\"",
-			"Eververse Purchase from Custom Horn Kit"
+			"Eververse Purchase from Custom Horn Kit",
+			"Sterling Treasure",
+			"House of Judgment Packages",
+			"Complete \"Fight Fire with Fire\""
 		],
 		"unlockValueHash": 0,
 		"hash": 44395194,
@@ -1074,7 +1107,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 134701236,
 			"vendorName": "Guardian Outfitter",
 			"vendorDescription": "An artist with micromaterial programs, Eva provides Guardians ways to customize their appearance.",
-			"vendorIcon": "/common/destiny_content/icons/978f1bccfa0a7916621ea1e6b625d97f.png",
+			"vendorIcon": "/common/destiny_content/icons/9252eb8713e8dbe3e7b4b3646757fe00.png",
 			"vendorOrder": 230,
 			"factionHash": 0,
 			"resetIntervalMinutes": 1440,
@@ -1100,7 +1133,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 600
+			"vendorSubcategoryHash": 600,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -1476,15 +1510,52 @@ var DestinyVendorDefinition = {
 		"hash": 134701236,
 		"index": 0
 	},
+	"163657562": {
+		"summary": {
+			"vendorHash": 163657562,
+			"vendorName": "Taken Sterling Treasure",
+			"vendorDescription": "\"A friend at the Reef helped me with this delivery, my dear niece. Open with caution.\" —Fenchurch Everis\nContains 1 Guaranteed Taken Item and may contain 1 Taken Class Item.",
+			"vendorIcon": "/common/destiny_content/icons/6fe1ee9602dc8eb46b5b412b723a0765.png",
+			"vendorOrder": -1,
+			"factionHash": 0,
+			"resetIntervalMinutes": 0,
+			"resetOffsetMinutes": 0,
+			"vendorIdentifier": "",
+			"positionX": -1,
+			"positionY": -1,
+			"transitionNodeIdentifier": "",
+			"visible": false,
+			"progressionHash": 0,
+			"sellString": "Preview",
+			"buyString": "Preview",
+			"vendorPortrait": "",
+			"vendorBanner": "",
+			"unlockFlagHashes": [],
+			"enabledUnlockFlagHashes": [],
+			"mapSectionOrder": 0,
+			"showOnMap": false,
+			"eventHash": 0,
+			"vendorCategoryHash": 0,
+			"vendorCategoryHashes": [],
+			"vendorSubcategoryHash": 0,
+			"inhibitBuying": true
+		},
+		"acceptedItems": [],
+		"categories": [],
+		"failureStrings": [],
+		"unlockValueHash": 0,
+		"hash": 163657562,
+		"index": 0
+	},
 	"174528503": {
 		"summary": {
 			"vendorHash": 174528503,
 			"vendorName": "Eris Morn",
 			"vendorDescription": "Among the last of those Guardians who faced Crota, Eris works in the shadows to bring about his end.",
-			"vendorIcon": "/common/destiny_content/icons/7c3105794a4b447adfe35c6209292272.png",
+			"vendorIcon": "/common/destiny_content/icons/7c3c5b739e874cd0c8febd0021f1f48c.png",
 			"vendorOrder": 30,
 			"factionName": "Crota's Bane",
-			"factionIcon": "/common/destiny_content/icons/3bcfdf42b9e0e5c2689d6b5311c0be94.png",
+			"factionIcon": "/common/destiny_content/icons/53bbf98eeafd245d4aa925de6ce01e00.png",
 			"factionHash": 174528503,
 			"factionDescription": "Face the Court of Oryx, the Taken Trials, and complete Quests for Eris to unlock special gear and upgrade materials.",
 			"resetIntervalMinutes": 10080,
@@ -1510,7 +1581,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 400
+			"vendorSubcategoryHash": 400,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -2238,20 +2310,6 @@ var DestinyVendorDefinition = {
 				"hideFromRegularPurchase": true
 			},
 			{
-				"categoryHash": 1409275752,
-				"displayTitle": "",
-				"overlayCurrencyItemHash": 0,
-				"quantityAvailable": 0,
-				"showUnavailableItems": false,
-				"hideIfNoCurrency": false,
-				"overlayTitle": "",
-				"overlayDescription": "",
-				"overlayChoice": "",
-				"overlayIcon": "/img/misc/missing_icon.png",
-				"hasOverlay": false,
-				"hideFromRegularPurchase": true
-			},
-			{
 				"categoryHash": 1395086922,
 				"displayTitle": "",
 				"overlayCurrencyItemHash": 0,
@@ -2334,10 +2392,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 242140165,
 			"vendorName": "Iron Banner",
 			"vendorDescription": "The Iron Banner seeks to forge ever stronger Guardians in the fires of the Crucible.",
-			"vendorIcon": "/common/destiny_content/icons/92be561cced5fb59283d8667989b6057.png",
+			"vendorIcon": "/common/destiny_content/icons/6fe1ee9602dc8eb46b5b412b723a0765.png",
 			"vendorOrder": 30,
 			"factionName": "Iron Banner",
-			"factionIcon": "/common/destiny_content/icons/7a4ccf5cdb01d4a93d0b4225a6d2b39d.png",
+			"factionIcon": "/common/destiny_content/icons/47f607bdd9f6de298fe7b9256273d789.png",
 			"factionHash": 2161005788,
 			"factionDescription": "The Iron Banner summons Guardians to prove their worth in the Crucible.\n\nEvent Standing starts anew with every Iron Banner.",
 			"resetIntervalMinutes": 1440,
@@ -2363,7 +2421,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 100
+			"vendorSubcategoryHash": 100,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -2562,15 +2621,1410 @@ var DestinyVendorDefinition = {
 		"hash": 242140165,
 		"index": 0
 	},
+	"415161769": {
+		"summary": {
+			"vendorHash": 415161769,
+			"vendorName": "",
+			"vendorDescription": "",
+			"vendorOrder": -1,
+			"factionHash": 0,
+			"resetIntervalMinutes": 0,
+			"resetOffsetMinutes": 0,
+			"vendorIdentifier": "",
+			"positionX": -1,
+			"positionY": -1,
+			"transitionNodeIdentifier": "",
+			"visible": false,
+			"progressionHash": 0,
+			"sellString": "Acquire",
+			"buyString": "Acquire",
+			"vendorPortrait": "",
+			"vendorBanner": "",
+			"unlockFlagHashes": [],
+			"enabledUnlockFlagHashes": [],
+			"mapSectionOrder": 0,
+			"showOnMap": false,
+			"eventHash": 0,
+			"vendorCategoryHash": 0,
+			"vendorCategoryHashes": [],
+			"vendorSubcategoryHash": 0,
+			"inhibitBuying": false
+		},
+		"acceptedItems": [],
+		"categories": [
+			{
+				"categoryHash": 2887135587,
+				"displayTitle": "",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3251537717,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2451114813,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 3,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2451114814,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 4,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1736786598,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 6,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3430452175,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 6,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 4210334936,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 6,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 281666484,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 7,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2843507888,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 7,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2021485489,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 7,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1049907874,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 10,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 556526637,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 236529542,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 10,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2806417817,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1431365647,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 10,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1454658032,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2507548598,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 4,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2507548599,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 4,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 766929730,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 4,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 766929731,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 4,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 551710509,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 4,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 551710508,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 4,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3512668494,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 9,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2664375465,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 9,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3894626424,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 9,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3778754002,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 9,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 918821792,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 9,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 4230373151,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 9,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 719190350,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2763027976,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 3,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3752560989,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 8,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1797285877,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 3,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 4234197745,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 3,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 4195482834,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 17,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2155266255,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 4,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2423052032,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2423052033,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2423052034,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3086593448,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3878760274,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 11,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 893105964,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 3,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 868815953,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 10,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1024523346,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 12,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2490444671,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 6,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1486391794,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 3,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 458741198,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 1,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2744502361,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 6,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2233223013,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 6,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 761532050,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 35362590,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 9,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3943821270,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1332283972,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3136611169,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 641924574,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 6,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3420868728,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 5,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1145552421,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2694000914,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 677711641,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 8,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2983869134,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 10,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 447067225,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 11,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2045461165,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 7,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 625511881,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 19,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1072035740,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 13,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 21306483,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 4179627481,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1282060684,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3690749379,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3690749378,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 6,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3690749377,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 4,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3690749376,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 13,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3690749383,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3690749382,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3690749381,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 5,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3690749380,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1525061505,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 6,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1525061504,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 6,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1525061507,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 6,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2404615930,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 6,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2404615931,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 6,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2404615928,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 6,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 4009463910,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 6,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 4009463911,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 6,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 4009463908,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 6,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2899545553,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 3,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3751963925,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 3,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 411170933,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 3,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2074243054,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2074243053,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2074243055,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3814409805,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1241856781,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 8,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 22457969,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 6,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 65692836,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 4,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2930341697,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 351794320,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 6,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3152423018,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 5,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3672468945,
+				"displayTitle": "Abandoned Quests",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			}
+		],
+		"failureStrings": [],
+		"unlockValueHash": 0,
+		"hash": 415161769,
+		"index": 0
+	},
 	"459708109": {
 		"summary": {
 			"vendorHash": 459708109,
 			"vendorName": "Shipwright",
 			"vendorDescription": "The shipwrights of the Tower repair and recommission the ships of the City's Guardians.",
-			"vendorIcon": "/common/destiny_content/icons/d11d3ab5b23cf29c6f0b541056c5f1a1.png",
+			"vendorIcon": "/common/destiny_content/icons/5bdc2497a6bc1383ccbd2abbc2e8e708.png",
 			"vendorOrder": 200,
 			"factionName": "SRL Event Standing",
-			"factionIcon": "/common/destiny_content/icons/e6817bc24472781dc51c0509286a3f51.png",
+			"factionIcon": "/common/destiny_content/icons/29e8747eb79c7f91c76feded22fc78b6.png",
 			"factionHash": 2763619072,
 			"factionDescription": "Rank up your SRL license for greater rewards.",
 			"resetIntervalMinutes": 4320,
@@ -2596,7 +4050,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 600
+			"vendorSubcategoryHash": 600,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -2919,10 +4374,83 @@ var DestinyVendorDefinition = {
 		],
 		"failureStrings": [
 			null,
-			"Requires \"Sparrow Racing\" Quest Completion"
+			"Record: Venus Event Standing Earned",
+			"Record: Mars Event Standing Earned",
+			"Record: Mars Races Finished",
+			"Record: Venus Gates Hit",
+			"Record: Venus Races Finished",
+			""
 		],
 		"unlockValueHash": 0,
 		"hash": 459708109,
+		"index": 0
+	},
+	"529545063": {
+		"summary": {
+			"vendorHash": 529545063,
+			"vendorName": "New Monarchy Package",
+			"vendorDescription": "\"You have helped to defend the Last City. It is only right that you be rewarded.\" —Executor Hideo\nContains 1 Guaranteed Item and may contain up to 2 Possible Items.",
+			"vendorIcon": "/common/destiny_content/icons/c05ab21e07762bb71473f1bee6307e31.png",
+			"vendorOrder": -1,
+			"factionHash": 0,
+			"resetIntervalMinutes": 0,
+			"resetOffsetMinutes": 0,
+			"vendorIdentifier": "",
+			"positionX": -1,
+			"positionY": -1,
+			"transitionNodeIdentifier": "",
+			"visible": false,
+			"progressionHash": 0,
+			"sellString": "Preview",
+			"buyString": "Preview",
+			"vendorPortrait": "",
+			"vendorBanner": "",
+			"unlockFlagHashes": [],
+			"enabledUnlockFlagHashes": [],
+			"mapSectionOrder": 0,
+			"showOnMap": false,
+			"eventHash": 0,
+			"vendorCategoryHash": 0,
+			"vendorCategoryHashes": [],
+			"vendorSubcategoryHash": 0,
+			"inhibitBuying": true
+		},
+		"acceptedItems": [],
+		"categories": [
+			{
+				"categoryHash": 765804473,
+				"displayTitle": "Guaranteed Item (1)",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1158809411,
+				"displayTitle": "Possible Items",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			}
+		],
+		"failureStrings": [
+			"Already Owned"
+		],
+		"unlockValueHash": 0,
+		"hash": 529545063,
 		"index": 0
 	},
 	"570929315": {
@@ -2930,10 +4458,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 570929315,
 			"vendorName": "Gunsmith",
 			"vendorDescription": "There are few weapons that Banshee-44 has not seen, and fewer still that he cannot fix.",
-			"vendorIcon": "/common/destiny_content/icons/e5350ad32e4b5abd368788a246802f6f.png",
+			"vendorIcon": "/common/destiny_content/icons/a375613708cd3c3456d8537a7375a95c.png",
 			"vendorOrder": 180,
 			"factionName": "Gunsmith",
-			"factionIcon": "/common/destiny_content/icons/067b26c2459ec6091396e9a99df8e9d6.png",
+			"factionIcon": "/common/destiny_content/icons/2aa21ee2f2ac3add50159de81aef9afe.png",
 			"factionHash": 2335631936,
 			"factionDescription": "Field-test Foundry weapons to place additional Armsday orders.",
 			"resetIntervalMinutes": 10080,
@@ -2959,7 +4487,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 600
+			"vendorSubcategoryHash": 600,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -4064,7 +5593,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 614738178,
 			"vendorName": "Emote Collection",
 			"vendorDescription": "Emote Collection",
-			"vendorIcon": "/common/destiny_content/icons/978f1bccfa0a7916621ea1e6b625d97f.png",
+			"vendorIcon": "/common/destiny_content/icons/9252eb8713e8dbe3e7b4b3646757fe00.png",
 			"vendorOrder": 31,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -4090,7 +5619,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 800
+			"vendorSubcategoryHash": 800,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -4147,17 +5677,100 @@ var DestinyVendorDefinition = {
 			"Eververse Purchase During the SRL Event",
 			"Complete the Refer-A-Friend Quest: \"A Tale of Two Guardians.\"",
 			"Eververse Purchase from Fall 2015 Emote Bag",
-			"Eververse Purchase from Emote Bundle or Fall 2015 Emote Bag"
+			"Eververse Purchase from Emote Bundle or Fall 2015 Emote Bag",
+			"Full Class Set of Desolate Armor"
 		],
 		"unlockValueHash": 0,
 		"hash": 614738178,
+		"index": 0
+	},
+	"863056813": {
+		"summary": {
+			"vendorHash": 863056813,
+			"vendorName": "Crucible Package",
+			"vendorDescription": "\"You've fought well, Guardian. Don't get complacent now.\" —Lord Shaxx\nContains 1 Guaranteed Item and may contain up to 2 Possible Items.",
+			"vendorIcon": "/common/destiny_content/icons/6fe1ee9602dc8eb46b5b412b723a0765.png",
+			"vendorOrder": -1,
+			"factionHash": 0,
+			"resetIntervalMinutes": 0,
+			"resetOffsetMinutes": 0,
+			"vendorIdentifier": "",
+			"positionX": -1,
+			"positionY": -1,
+			"transitionNodeIdentifier": "",
+			"visible": false,
+			"progressionHash": 0,
+			"sellString": "Preview",
+			"buyString": "Preview",
+			"vendorPortrait": "",
+			"vendorBanner": "",
+			"unlockFlagHashes": [],
+			"enabledUnlockFlagHashes": [],
+			"mapSectionOrder": 0,
+			"showOnMap": false,
+			"eventHash": 0,
+			"vendorCategoryHash": 0,
+			"vendorCategoryHashes": [],
+			"vendorSubcategoryHash": 0,
+			"inhibitBuying": true
+		},
+		"acceptedItems": [],
+		"categories": [
+			{
+				"categoryHash": 3187864379,
+				"displayTitle": "Guaranteed Item (1)",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 690344329,
+				"displayTitle": "Possible Items",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1334368921,
+				"displayTitle": "",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			}
+		],
+		"failureStrings": [
+			"Already Owned"
+		],
+		"unlockValueHash": 0,
+		"hash": 863056813,
 		"index": 0
 	},
 	"892630493": {
 		"summary": {
 			"vendorHash": 892630493,
 			"vendorName": "Vault",
-			"vendorIcon": "/common/destiny_content/icons/a1f95192f3e626945c5ac9b2589b8019.png",
+			"vendorIcon": "/common/destiny_content/icons/a17270cc615a85044ef30cdc4f090ab3.png",
 			"vendorOrder": 210,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -4181,7 +5794,8 @@ var DestinyVendorDefinition = {
 			"eventHash": 0,
 			"vendorCategoryHash": 0,
 			"vendorCategoryHashes": [],
-			"vendorSubcategoryHash": 700
+			"vendorSubcategoryHash": 700,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [
 			{
@@ -4280,10 +5894,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1303406887,
 			"vendorName": "Cryptarch",
 			"vendorDescription": "Wherever Guardians go, Cryptarchs often find their services needed. Albeit at a safe distance.",
-			"vendorIcon": "/common/destiny_content/icons/ec34223add3b7af948c6d800bbd3f0ec.png",
+			"vendorIcon": "/common/destiny_content/icons/a2fc39d8f6ff5d9f47bfb3927b37e03e.png",
 			"vendorOrder": 31,
 			"factionName": "Crypto-Archeology",
-			"factionIcon": "/common/destiny_content/icons/32e99b0061e57d6e21d778c4df23f7ec.png",
+			"factionIcon": "/common/destiny_content/icons/b46d92dd90c562a88c59bf9c73caa4c0.png",
 			"factionHash": 1327783731,
 			"factionDescription": "Decode Engrams to unlock new Engrams for purchase.\n\nAchieve high Rank to earn rewards.",
 			"resetIntervalMinutes": 10080,
@@ -4309,7 +5923,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				3
 			],
-			"vendorSubcategoryHash": 700
+			"vendorSubcategoryHash": 700,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -4610,15 +6225,83 @@ var DestinyVendorDefinition = {
 		"hash": 1303406887,
 		"index": 0
 	},
+	"1353750121": {
+		"summary": {
+			"vendorHash": 1353750121,
+			"vendorName": "Sparrow Toolkit",
+			"vendorDescription": "\"Style and speed ... it's the perfect combination.\" — Tess Everis\nContains 1 Guaranteed Item.",
+			"vendorIcon": "/common/destiny_content/icons/12c583bef23925b2038b4d9bbf1cf839.png",
+			"vendorOrder": -1,
+			"factionHash": 0,
+			"resetIntervalMinutes": 0,
+			"resetOffsetMinutes": 0,
+			"vendorIdentifier": "",
+			"positionX": -1,
+			"positionY": -1,
+			"transitionNodeIdentifier": "",
+			"visible": false,
+			"progressionHash": 0,
+			"sellString": "Preview",
+			"buyString": "Preview",
+			"vendorPortrait": "",
+			"vendorBanner": "",
+			"unlockFlagHashes": [],
+			"enabledUnlockFlagHashes": [],
+			"mapSectionOrder": 0,
+			"showOnMap": false,
+			"eventHash": 0,
+			"vendorCategoryHash": 0,
+			"vendorCategoryHashes": [],
+			"vendorSubcategoryHash": 0,
+			"inhibitBuying": true
+		},
+		"acceptedItems": [],
+		"categories": [
+			{
+				"categoryHash": 3938936625,
+				"displayTitle": "Guaranteed Item (1)",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 961069839,
+				"displayTitle": "",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			}
+		],
+		"failureStrings": [
+			"Already Owned"
+		],
+		"unlockValueHash": 0,
+		"hash": 1353750121,
+		"index": 0
+	},
 	"1410745145": {
 		"summary": {
 			"vendorHash": 1410745145,
 			"vendorName": "Queen's Wrath",
 			"vendorDescription": "Petra serves the Queen of the Awoken, directing the allies of the Reef in the Queen's service.",
-			"vendorIcon": "/common/destiny_content/icons/0ce9ff3cc1ad1cf47af1ef9e14beb2f7.png",
+			"vendorIcon": "/common/destiny_content/icons/3dc262fcc86d67e87044150137646d18.png",
 			"vendorOrder": 31,
 			"factionName": "Queen's Wrath",
-			"factionIcon": "/common/destiny_content/icons/5dd656c1c938b8018a2a2ef5481390f4.png",
+			"factionIcon": "/common/destiny_content/icons/718bfc10414684e6d5aede4cc6717567.png",
 			"factionHash": 807090922,
 			"factionDescription": "Complete Bounties for Petra in the Reef on behalf of the Queen.\n\nRaise your standing to unlock rewards.",
 			"resetIntervalMinutes": 10080,
@@ -4644,7 +6327,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				3
 			],
-			"vendorSubcategoryHash": 400
+			"vendorSubcategoryHash": 400,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -4960,6 +6644,20 @@ var DestinyVendorDefinition = {
 				"overlayIcon": "/img/misc/missing_icon.png",
 				"hasOverlay": false,
 				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3672468945,
+				"displayTitle": "",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 1,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": true
 			}
 		],
 		"failureStrings": [
@@ -4974,7 +6672,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1460182514,
 			"vendorName": "Exotic Weapon Blueprints",
 			"vendorDescription": "Exotic Weapon Blueprints",
-			"vendorIcon": "/common/destiny_content/icons/978f1bccfa0a7916621ea1e6b625d97f.png",
+			"vendorIcon": "/common/destiny_content/icons/9252eb8713e8dbe3e7b4b3646757fe00.png",
 			"vendorOrder": 31,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -5000,7 +6698,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 800
+			"vendorSubcategoryHash": 800,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -5144,7 +6843,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1527174714,
 			"vendorName": "Bounty Tracker",
 			"vendorDescription": "When a Guardian's prowess in the field is required, bounties are posted here.",
-			"vendorIcon": "/common/destiny_content/icons/0a28fed3b024dad12ddc6e27738b28d5.png",
+			"vendorIcon": "/common/destiny_content/icons/077e538d134daf36f8d087658aef2ec5.png",
 			"vendorOrder": 50,
 			"factionHash": 0,
 			"resetIntervalMinutes": 1440,
@@ -5171,7 +6870,8 @@ var DestinyVendorDefinition = {
 				2,
 				3
 			],
-			"vendorSubcategoryHash": 200
+			"vendorSubcategoryHash": 200,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -5799,10 +7499,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1575820975,
 			"vendorName": "Warlock Vanguard",
 			"vendorDescription": "Respected among all Orders, Ikora Rey tutors new Warlocks with a lifetime of hard-earned knowledge.",
-			"vendorIcon": "/common/destiny_content/icons/bc2b5fd4040b8d58ac54ab9a838b513e.png",
+			"vendorIcon": "/common/destiny_content/icons/c05ab21e07762bb71473f1bee6307e31.png",
 			"vendorOrder": 90,
 			"factionName": "Vanguard Reputation",
-			"factionIcon": "/common/destiny_content/icons/b1d3536fffa1f32cd2b81b2ca08e7f5e.png",
+			"factionIcon": "/common/destiny_content/icons/8a1d5e42a0b03a6dd1b91182385c1f43.png",
 			"factionHash": 468098704,
 			"factionDescription": "Complete Vanguard Bounties to unlock powerful gear for purchase.\n\nAchieve high Rank to earn rewards.",
 			"resetIntervalMinutes": 180,
@@ -5830,7 +7530,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 300
+			"vendorSubcategoryHash": 300,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -6633,15 +8334,219 @@ var DestinyVendorDefinition = {
 		"hash": 1575820975,
 		"index": 0
 	},
+	"1588933401": {
+		"summary": {
+			"vendorHash": 1588933401,
+			"vendorName": "Fall 2015 Emote",
+			"vendorDescription": "\"Sometimes the only thing you can do is dance.\" —Tess Everis\nContains one emote from Fall 2015. Highly likely to contain an emote not currently owned.",
+			"vendorIcon": "/common/destiny_content/icons/12c583bef23925b2038b4d9bbf1cf839.png",
+			"vendorOrder": -1,
+			"factionHash": 0,
+			"resetIntervalMinutes": 0,
+			"resetOffsetMinutes": 0,
+			"vendorIdentifier": "",
+			"positionX": -1,
+			"positionY": -1,
+			"transitionNodeIdentifier": "",
+			"visible": false,
+			"progressionHash": 0,
+			"sellString": "Preview",
+			"buyString": "Preview",
+			"vendorPortrait": "",
+			"vendorBanner": "",
+			"unlockFlagHashes": [],
+			"enabledUnlockFlagHashes": [],
+			"mapSectionOrder": 0,
+			"showOnMap": false,
+			"eventHash": 0,
+			"vendorCategoryHash": 0,
+			"vendorCategoryHashes": [],
+			"vendorSubcategoryHash": 0,
+			"inhibitBuying": true
+		},
+		"acceptedItems": [],
+		"categories": [
+			{
+				"categoryHash": 1731053767,
+				"displayTitle": "Emotes I",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1731053764,
+				"displayTitle": "Emotes II",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			}
+		],
+		"failureStrings": [
+			"Already Owned"
+		],
+		"unlockValueHash": 0,
+		"hash": 1588933401,
+		"index": 0
+	},
+	"1653856985": {
+		"summary": {
+			"vendorHash": 1653856985,
+			"vendorName": "House of Judgment Package",
+			"vendorDescription": "\"The Reef honors you for your efforts… as do I.\" —Variks\nContains 1 Guaranteed Item and may contain up to 2 Possible Items.",
+			"vendorIcon": "/common/destiny_content/icons/756b565581b1109a86aa64d5f0e3477c.png",
+			"vendorOrder": -1,
+			"factionHash": 0,
+			"resetIntervalMinutes": 0,
+			"resetOffsetMinutes": 0,
+			"vendorIdentifier": "",
+			"positionX": -1,
+			"positionY": -1,
+			"transitionNodeIdentifier": "",
+			"visible": false,
+			"progressionHash": 0,
+			"sellString": "Preview",
+			"buyString": "Preview",
+			"vendorPortrait": "",
+			"vendorBanner": "",
+			"unlockFlagHashes": [],
+			"enabledUnlockFlagHashes": [],
+			"mapSectionOrder": 0,
+			"showOnMap": false,
+			"eventHash": 0,
+			"vendorCategoryHash": 0,
+			"vendorCategoryHashes": [],
+			"vendorSubcategoryHash": 0,
+			"inhibitBuying": true
+		},
+		"acceptedItems": [],
+		"categories": [
+			{
+				"categoryHash": 3859106099,
+				"displayTitle": "Guaranteed Item (1)",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2582847509,
+				"displayTitle": "Possible Items",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			}
+		],
+		"failureStrings": [
+			"Already Owned"
+		],
+		"unlockValueHash": 0,
+		"hash": 1653856985,
+		"index": 0
+	},
+	"1660667815": {
+		"summary": {
+			"vendorHash": 1660667815,
+			"vendorName": "Dead Orbit Package",
+			"vendorDescription": "\"Every star is a possibility. Every world could be home.\" —Arach Jalaal\nContains 1 Guaranteed Item and may contain up to 2 Possible Items.",
+			"vendorIcon": "/common/destiny_content/icons/c05ab21e07762bb71473f1bee6307e31.png",
+			"vendorOrder": -1,
+			"factionHash": 0,
+			"resetIntervalMinutes": 0,
+			"resetOffsetMinutes": 0,
+			"vendorIdentifier": "",
+			"positionX": -1,
+			"positionY": -1,
+			"transitionNodeIdentifier": "",
+			"visible": false,
+			"progressionHash": 0,
+			"sellString": "Preview",
+			"buyString": "Preview",
+			"vendorPortrait": "",
+			"vendorBanner": "",
+			"unlockFlagHashes": [],
+			"enabledUnlockFlagHashes": [],
+			"mapSectionOrder": 0,
+			"showOnMap": false,
+			"eventHash": 0,
+			"vendorCategoryHash": 0,
+			"vendorCategoryHashes": [],
+			"vendorSubcategoryHash": 0,
+			"inhibitBuying": true
+		},
+		"acceptedItems": [],
+		"categories": [
+			{
+				"categoryHash": 665138701,
+				"displayTitle": "Guaranteed Item (1)",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 991033119,
+				"displayTitle": "Possible Items",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			}
+		],
+		"failureStrings": [
+			"Already Owned"
+		],
+		"unlockValueHash": 0,
+		"hash": 1660667815,
+		"index": 0
+	},
 	"1808244981": {
 		"summary": {
 			"vendorHash": 1808244981,
 			"vendorName": "New Monarchy",
 			"vendorDescription": "The New Monarchy gathers adherents in the Tower, and arms them well for the Crucible.",
-			"vendorIcon": "/common/destiny_content/icons/bc2b5fd4040b8d58ac54ab9a838b513e.png",
+			"vendorIcon": "/common/destiny_content/icons/c05ab21e07762bb71473f1bee6307e31.png",
 			"vendorOrder": 150,
 			"factionName": "New Monarchy",
-			"factionIcon": "/common/destiny_content/icons/6415ee83f3e818cb283a513dc9f6d56a.png",
+			"factionIcon": "/common/destiny_content/icons/7b438c5cbfef69385df82b725c08408b.png",
 			"factionHash": 3197190122,
 			"factionDescription": "Unlocks New Monarchy gear, and grants New Monarchy reputation when earning Vanguard and Crucible reputation.",
 			"resetIntervalMinutes": 10080,
@@ -6667,7 +8572,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 400
+			"vendorSubcategoryHash": 400,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -7092,10 +8998,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1821699360,
 			"vendorName": "Future War Cult",
 			"vendorDescription": "The War Cult has always been an open secret in the Tower, arming and advising those who represent them in the Crucible.",
-			"vendorIcon": "/common/destiny_content/icons/bc2b5fd4040b8d58ac54ab9a838b513e.png",
+			"vendorIcon": "/common/destiny_content/icons/c05ab21e07762bb71473f1bee6307e31.png",
 			"vendorOrder": 130,
 			"factionName": "Future War Cult",
-			"factionIcon": "/common/destiny_content/icons/273abba3bf66d2bda6d652f87b8bbd4a.png",
+			"factionIcon": "/common/destiny_content/icons/1e461f1f7c3d31938879ff7f3a873870.png",
 			"factionHash": 489342053,
 			"factionDescription": "Unlocks Future War Cult gear, and grants Future War Cult reputation when earning Vanguard and Crucible reputation.",
 			"resetIntervalMinutes": 10080,
@@ -7121,7 +9027,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 400
+			"vendorSubcategoryHash": 400,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -7575,7 +9482,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1889676839,
 			"vendorName": "Disciple of Osiris",
 			"vendorDescription": "Osiris seeks the strongest Guardians to stem the tide of the Darkness.",
-			"vendorIcon": "/common/destiny_content/icons/e0cee357eda7dcfae23e9e030154786b.png",
+			"vendorIcon": "/common/destiny_content/icons/d9c5d1c74c7f602f177cc3669f57d3a8.png",
 			"vendorOrder": 31,
 			"factionHash": 0,
 			"resetIntervalMinutes": 10080,
@@ -7601,7 +9508,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				3
 			],
-			"vendorSubcategoryHash": 100
+			"vendorSubcategoryHash": 100,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -7850,10 +9758,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1998812735,
 			"vendorName": "House of Judgment",
 			"vendorDescription": "Variks is loyal to the Queen, and has no love for the Kells who have taken command of the Fallen Houses.",
-			"vendorIcon": "/common/destiny_content/icons/6c14c13760862d960a681e5ad9156beb.png",
+			"vendorIcon": "/common/destiny_content/icons/756b565581b1109a86aa64d5f0e3477c.png",
 			"vendorOrder": 31,
 			"factionName": "House of Judgment",
-			"factionIcon": "/common/destiny_content/icons/f93edb68ed861b2a12fe21d7747fa480.png",
+			"factionIcon": "/common/destiny_content/icons/6ee87cf70aea88947c86e9235b2f51ba.png",
 			"factionHash": 3641985238,
 			"factionDescription": "Defeat enemies in the Prison of Elders to gain notoriety with the House of Judgment.\n\nRaise your standing to unlock better rewards.",
 			"resetIntervalMinutes": 10080,
@@ -7879,13 +9787,14 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				3
 			],
-			"vendorSubcategoryHash": 400
+			"vendorSubcategoryHash": 400,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
 			{
 				"categoryHash": 4152576407,
-				"displayTitle": "Prison of Elders Rewards",
+				"displayTitle": "",
 				"overlayCurrencyItemHash": 0,
 				"quantityAvailable": 0,
 				"showUnavailableItems": false,
@@ -7899,7 +9808,7 @@ var DestinyVendorDefinition = {
 			},
 			{
 				"categoryHash": 26746237,
-				"displayTitle": "Prison of Elders Rewards",
+				"displayTitle": "",
 				"overlayCurrencyItemHash": 0,
 				"quantityAvailable": 0,
 				"showUnavailableItems": false,
@@ -7913,7 +9822,7 @@ var DestinyVendorDefinition = {
 			},
 			{
 				"categoryHash": 2362536468,
-				"displayTitle": "Prison of Elders Rewards",
+				"displayTitle": "",
 				"overlayCurrencyItemHash": 0,
 				"quantityAvailable": 0,
 				"showUnavailableItems": false,
@@ -8092,6 +10001,132 @@ var DestinyVendorDefinition = {
 				"overlayIcon": "/img/misc/missing_icon.png",
 				"hasOverlay": false,
 				"hideFromRegularPurchase": true
+			},
+			{
+				"categoryHash": 1069554444,
+				"displayTitle": "Challenge of the Elders Entry",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1745847423,
+				"displayTitle": "Prison of Elders Bounties",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 3,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3152423018,
+				"displayTitle": "",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 1,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": true
+			},
+			{
+				"categoryHash": 697524071,
+				"displayTitle": "",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 1,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": true
+			},
+			{
+				"categoryHash": 991684443,
+				"displayTitle": "",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 1,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": true
+			},
+			{
+				"categoryHash": 3915887856,
+				"displayTitle": "",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 1,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": true
+			},
+			{
+				"categoryHash": 1375264919,
+				"displayTitle": "",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 1,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": true
+			},
+			{
+				"categoryHash": 530454844,
+				"displayTitle": "House of Judgment Gear",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2084505206,
+				"displayTitle": "Consumables",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 2,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
 			}
 		],
 		"failureStrings": [
@@ -8101,12 +10136,80 @@ var DestinyVendorDefinition = {
 		"hash": 1998812735,
 		"index": 0
 	},
+	"2016602161": {
+		"summary": {
+			"vendorHash": 2016602161,
+			"vendorName": "Winter 2015 Emote",
+			"vendorDescription": "\"Looks like you could use some new moves, Guardian.\" —Tess Everis\nContains one emote from Winter 2015. Highly likely to contain an emote not currently owned.",
+			"vendorIcon": "/common/destiny_content/icons/12c583bef23925b2038b4d9bbf1cf839.png",
+			"vendorOrder": -1,
+			"factionHash": 0,
+			"resetIntervalMinutes": 0,
+			"resetOffsetMinutes": 0,
+			"vendorIdentifier": "",
+			"positionX": -1,
+			"positionY": -1,
+			"transitionNodeIdentifier": "",
+			"visible": false,
+			"progressionHash": 0,
+			"sellString": "Preview",
+			"buyString": "Preview",
+			"vendorPortrait": "",
+			"vendorBanner": "",
+			"unlockFlagHashes": [],
+			"enabledUnlockFlagHashes": [],
+			"mapSectionOrder": 0,
+			"showOnMap": false,
+			"eventHash": 0,
+			"vendorCategoryHash": 0,
+			"vendorCategoryHashes": [],
+			"vendorSubcategoryHash": 0,
+			"inhibitBuying": true
+		},
+		"acceptedItems": [],
+		"categories": [
+			{
+				"categoryHash": 4265870687,
+				"displayTitle": "Emotes I",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 4265870684,
+				"displayTitle": "Emotes II",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			}
+		],
+		"failureStrings": [
+			"Already Owned"
+		],
+		"unlockValueHash": 0,
+		"hash": 2016602161,
+		"index": 0
+	},
 	"2021251983": {
 		"summary": {
 			"vendorHash": 2021251983,
 			"vendorName": "Postmaster",
 			"vendorDescription": "Deliveries and messages are left with the Postmaster to be collected by Guardians when their travels bring them home.",
-			"vendorIcon": "/common/destiny_content/icons/30cfa345bd661c016a4d566a0858ad89.png",
+			"vendorIcon": "/common/destiny_content/icons/a4ed7f93c2a960cac169f90b3dfc5b20.png",
 			"vendorOrder": 220,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -8132,7 +10235,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 700
+			"vendorSubcategoryHash": 700,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [
 			{
@@ -8159,7 +10263,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 2244880194,
 			"vendorName": "Ship Collection",
 			"vendorDescription": "Ships",
-			"vendorIcon": "/common/destiny_content/icons/d11d3ab5b23cf29c6f0b541056c5f1a1.png",
+			"vendorIcon": "/common/destiny_content/icons/5bdc2497a6bc1383ccbd2abbc2e8e708.png",
 			"vendorOrder": 31,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -8185,7 +10289,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 800
+			"vendorSubcategoryHash": 800,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -8328,6 +10433,20 @@ var DestinyVendorDefinition = {
 				"overlayIcon": "/img/misc/missing_icon.png",
 				"hasOverlay": false,
 				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2027824930,
+				"displayTitle": "Eververse Trading Company",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
 			}
 		],
 		"failureStrings": [
@@ -8335,7 +10454,6 @@ var DestinyVendorDefinition = {
 			"Reward from Destination Treasure Chests",
 			"Reward from Iron Banner Playlist",
 			"Reward from Trials of Osiris matches",
-			"Reward for Trials of Osiris Flawless Victory",
 			"Reward from Crucible Playlist",
 			"Found in Dead Orbit Packages",
 			"Obtained from the Queen's Wrath Event",
@@ -8349,8 +10467,10 @@ var DestinyVendorDefinition = {
 			"Purchase from Variks",
 			"Purchase from Petra Venj",
 			"Defeat Skolas in the Prison of Elders",
-			"The Taken King Quest Reward",
-			"Defeat Oryx in the King's Fall Raid (Heroic)"
+			"Vanguard Packages",
+			"Defeat Oryx in the King's Fall Raid (Heroic)",
+			"Sterling Treasure",
+			"House of Judgment Packages"
 		],
 		"unlockValueHash": 0,
 		"hash": 2244880194,
@@ -8360,7 +10480,7 @@ var DestinyVendorDefinition = {
 		"summary": {
 			"vendorHash": 2420628997,
 			"vendorName": "Shader Collection",
-			"vendorIcon": "/common/destiny_content/icons/978f1bccfa0a7916621ea1e6b625d97f.png",
+			"vendorIcon": "/common/destiny_content/icons/9252eb8713e8dbe3e7b4b3646757fe00.png",
 			"vendorOrder": 31,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -8386,7 +10506,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 800
+			"vendorSubcategoryHash": 800,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -8591,15 +10712,83 @@ var DestinyVendorDefinition = {
 		"hash": 2420628997,
 		"index": 0
 	},
+	"2586808090": {
+		"summary": {
+			"vendorHash": 2586808090,
+			"vendorName": "Future War Cult Package",
+			"vendorDescription": "\"Through confict, we become strong. Take this. It may help you in your next battle.\" —Lakshmi-2\nContains 1 Guaranteed Item and may contain up to 2 Possible Items.",
+			"vendorIcon": "/common/destiny_content/icons/c05ab21e07762bb71473f1bee6307e31.png",
+			"vendorOrder": -1,
+			"factionHash": 0,
+			"resetIntervalMinutes": 0,
+			"resetOffsetMinutes": 0,
+			"vendorIdentifier": "",
+			"positionX": -1,
+			"positionY": -1,
+			"transitionNodeIdentifier": "",
+			"visible": false,
+			"progressionHash": 0,
+			"sellString": "Preview",
+			"buyString": "Preview",
+			"vendorPortrait": "",
+			"vendorBanner": "",
+			"unlockFlagHashes": [],
+			"enabledUnlockFlagHashes": [],
+			"mapSectionOrder": 0,
+			"showOnMap": false,
+			"eventHash": 0,
+			"vendorCategoryHash": 0,
+			"vendorCategoryHashes": [],
+			"vendorSubcategoryHash": 0,
+			"inhibitBuying": true
+		},
+		"acceptedItems": [],
+		"categories": [
+			{
+				"categoryHash": 2383396722,
+				"displayTitle": "Guaranteed Item (1)",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 72216656,
+				"displayTitle": "Possible Items",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			}
+		],
+		"failureStrings": [
+			"Already Owned"
+		],
+		"unlockValueHash": 0,
+		"hash": 2586808090,
+		"index": 0
+	},
 	"2668878854": {
 		"summary": {
 			"vendorHash": 2668878854,
 			"vendorName": "Vanguard Quartermaster",
 			"vendorDescription": "Roni 55-30 maintains a stock of select weapons for those proven among the Vanguard.",
-			"vendorIcon": "/common/destiny_content/icons/e5350ad32e4b5abd368788a246802f6f.png",
+			"vendorIcon": "/common/destiny_content/icons/a375613708cd3c3456d8537a7375a95c.png",
 			"vendorOrder": 100,
 			"factionName": "Vanguard Reputation",
-			"factionIcon": "/common/destiny_content/icons/b1d3536fffa1f32cd2b81b2ca08e7f5e.png",
+			"factionIcon": "/common/destiny_content/icons/8a1d5e42a0b03a6dd1b91182385c1f43.png",
 			"factionHash": 468098704,
 			"factionDescription": "Complete Vanguard Bounties to unlock powerful gear for purchase.\n\nAchieve high Rank to earn rewards.",
 			"resetIntervalMinutes": 0,
@@ -8625,7 +10814,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 300
+			"vendorSubcategoryHash": 300,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -8728,7 +10918,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 2680694281,
 			"vendorName": "The Speaker",
 			"vendorDescription": "An ancient scholar of the Traveler, the Speaker keeps special items for Guardians who explore the Light's mysteries.",
-			"vendorIcon": "/common/destiny_content/icons/978f1bccfa0a7916621ea1e6b625d97f.png",
+			"vendorIcon": "/common/destiny_content/icons/9252eb8713e8dbe3e7b4b3646757fe00.png",
 			"vendorOrder": 160,
 			"factionHash": 0,
 			"resetIntervalMinutes": 10080,
@@ -8754,7 +10944,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 600
+			"vendorSubcategoryHash": 600,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -9217,12 +11408,80 @@ var DestinyVendorDefinition = {
 		"hash": 2680694281,
 		"index": 0
 	},
+	"2698860028": {
+		"summary": {
+			"vendorHash": 2698860028,
+			"vendorName": "Custom Horn Kit",
+			"vendorDescription": "\"I always like to make a bit of a production of my passage. It may not be gentlemanly, but it is entertaining.\" — Fenchurch Everis\nContains 1 Guaranteed Item and may contain 1 Possible Item.",
+			"vendorIcon": "/common/destiny_content/icons/12c583bef23925b2038b4d9bbf1cf839.png",
+			"vendorOrder": -1,
+			"factionHash": 0,
+			"resetIntervalMinutes": 0,
+			"resetOffsetMinutes": 0,
+			"vendorIdentifier": "",
+			"positionX": -1,
+			"positionY": -1,
+			"transitionNodeIdentifier": "",
+			"visible": false,
+			"progressionHash": 0,
+			"sellString": "Preview",
+			"buyString": "Preview",
+			"vendorPortrait": "",
+			"vendorBanner": "",
+			"unlockFlagHashes": [],
+			"enabledUnlockFlagHashes": [],
+			"mapSectionOrder": 0,
+			"showOnMap": false,
+			"eventHash": 0,
+			"vendorCategoryHash": 0,
+			"vendorCategoryHashes": [],
+			"vendorSubcategoryHash": 0,
+			"inhibitBuying": true
+		},
+		"acceptedItems": [],
+		"categories": [
+			{
+				"categoryHash": 1290186244,
+				"displayTitle": "Guaranteed Item (1)",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1844244150,
+				"displayTitle": "Possible Items",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			}
+		],
+		"failureStrings": [
+			"Already Owned"
+		],
+		"unlockValueHash": 0,
+		"hash": 2698860028,
+		"index": 0
+	},
 	"2762206170": {
 		"summary": {
 			"vendorHash": 2762206170,
 			"vendorName": "Postmaster",
 			"vendorDescription": "For Guardians' convenience, one Reef postmaster was granted access to the Tower's messaging and delivery network.",
-			"vendorIcon": "/common/destiny_content/icons/30cfa345bd661c016a4d566a0858ad89.png",
+			"vendorIcon": "/common/destiny_content/icons/a4ed7f93c2a960cac169f90b3dfc5b20.png",
 			"vendorOrder": 31,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -9248,7 +11507,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				3
 			],
-			"vendorSubcategoryHash": 700
+			"vendorSubcategoryHash": 700,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [
 			{
@@ -9275,7 +11535,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 2796397637,
 			"vendorName": "Agent of the Nine",
 			"vendorDescription": "Xûr comes and goes freely, his strange curios eagerly sought by adventurous Guardians.",
-			"vendorIcon": "/common/destiny_content/icons/e7f54e12517180bc815702350059aad2.png",
+			"vendorIcon": "/common/destiny_content/icons/8183e350345a84691c19040c650ddd55.png",
 			"vendorOrder": 10,
 			"factionHash": 0,
 			"resetIntervalMinutes": 10080,
@@ -9305,7 +11565,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				1
 			],
-			"vendorSubcategoryHash": 100
+			"vendorSubcategoryHash": 100,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -10117,10 +12378,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 3003633346,
 			"vendorName": "Hunter Vanguard",
 			"vendorDescription": "Saddled with Tower duty, Cayde-6 dutifully advises and arms Hunters who seek him out.",
-			"vendorIcon": "/common/destiny_content/icons/bc2b5fd4040b8d58ac54ab9a838b513e.png",
+			"vendorIcon": "/common/destiny_content/icons/c05ab21e07762bb71473f1bee6307e31.png",
 			"vendorOrder": 80,
 			"factionName": "Vanguard Reputation",
-			"factionIcon": "/common/destiny_content/icons/b1d3536fffa1f32cd2b81b2ca08e7f5e.png",
+			"factionIcon": "/common/destiny_content/icons/8a1d5e42a0b03a6dd1b91182385c1f43.png",
 			"factionHash": 468098704,
 			"factionDescription": "Complete Vanguard Bounties to unlock powerful gear for purchase.\n\nAchieve high Rank to earn rewards.",
 			"resetIntervalMinutes": 180,
@@ -10148,7 +12409,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 300
+			"vendorSubcategoryHash": 300,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -10895,12 +13157,162 @@ var DestinyVendorDefinition = {
 		"hash": 3003633346,
 		"index": 0
 	},
+	"3019290222": {
+		"summary": {
+			"vendorHash": 3019290222,
+			"vendorName": "Cryptarch Package",
+			"vendorDescription": "\"There is no greater joy than the mystery of a closed box. Until it is opened, it contains wonders.\" —Master Rahool\nContains 1 Guaranteed Item and may contain up to 2 Possible Items.",
+			"vendorIcon": "/common/destiny_content/icons/a2fc39d8f6ff5d9f47bfb3927b37e03e.png",
+			"vendorOrder": -1,
+			"factionHash": 0,
+			"resetIntervalMinutes": 0,
+			"resetOffsetMinutes": 0,
+			"vendorIdentifier": "",
+			"positionX": -1,
+			"positionY": -1,
+			"transitionNodeIdentifier": "",
+			"visible": false,
+			"progressionHash": 0,
+			"sellString": "Preview",
+			"buyString": "Preview",
+			"vendorPortrait": "",
+			"vendorBanner": "",
+			"unlockFlagHashes": [],
+			"enabledUnlockFlagHashes": [],
+			"mapSectionOrder": 0,
+			"showOnMap": false,
+			"eventHash": 0,
+			"vendorCategoryHash": 0,
+			"vendorCategoryHashes": [],
+			"vendorSubcategoryHash": 0,
+			"inhibitBuying": true
+		},
+		"acceptedItems": [],
+		"categories": [
+			{
+				"categoryHash": 3368008710,
+				"displayTitle": "Guaranteed Item (1)",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3147883776,
+				"displayTitle": "Possible Items",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			}
+		],
+		"failureStrings": [
+			"Already Owned"
+		],
+		"unlockValueHash": 0,
+		"hash": 3019290222,
+		"index": 0
+	},
+	"3165969428": {
+		"summary": {
+			"vendorHash": 3165969428,
+			"vendorName": "Vanguard Package",
+			"vendorDescription": "\"The fight continues, and you are needed. Accept this in honor of your service to the Light.\" —Commander Zavala\nContains 1 Guaranteed Item and may contain up to 2 Possible Items.",
+			"vendorIcon": "/common/destiny_content/icons/a375613708cd3c3456d8537a7375a95c.png",
+			"vendorOrder": -1,
+			"factionHash": 0,
+			"resetIntervalMinutes": 0,
+			"resetOffsetMinutes": 0,
+			"vendorIdentifier": "",
+			"positionX": -1,
+			"positionY": -1,
+			"transitionNodeIdentifier": "",
+			"visible": false,
+			"progressionHash": 0,
+			"sellString": "Preview",
+			"buyString": "Preview",
+			"vendorPortrait": "",
+			"vendorBanner": "",
+			"unlockFlagHashes": [],
+			"enabledUnlockFlagHashes": [],
+			"mapSectionOrder": 0,
+			"showOnMap": false,
+			"eventHash": 0,
+			"vendorCategoryHash": 0,
+			"vendorCategoryHashes": [],
+			"vendorSubcategoryHash": 0,
+			"inhibitBuying": true
+		},
+		"acceptedItems": [],
+		"categories": [
+			{
+				"categoryHash": 3187864366,
+				"displayTitle": "Guaranteed Item (1)",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 690344348,
+				"displayTitle": "Possible Items",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1653143718,
+				"displayTitle": "",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			}
+		],
+		"failureStrings": [
+			"Already Owned"
+		],
+		"unlockValueHash": 0,
+		"hash": 3165969428,
+		"index": 0
+	},
 	"3301500998": {
 		"summary": {
 			"vendorHash": 3301500998,
 			"vendorName": "Emblem Collection",
 			"vendorDescription": "Emblem Collection",
-			"vendorIcon": "/common/destiny_content/icons/978f1bccfa0a7916621ea1e6b625d97f.png",
+			"vendorIcon": "/common/destiny_content/icons/9252eb8713e8dbe3e7b4b3646757fe00.png",
 			"vendorOrder": 31,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -10926,7 +13338,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 800
+			"vendorSubcategoryHash": 800,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -11149,7 +13562,11 @@ var DestinyVendorDefinition = {
 			"Complete the Stormcaller Subclass Quest",
 			"Complete the Voidwalker Subclass Quest",
 			"Moment of Triumph Reward",
-			"Completing \"Crimson Bonds\""
+			"Completing \"Crimson Bonds\"",
+			"House of Judgment Packages",
+			"Completion of \"Return to the Prison\"",
+			"Challenge of the Elders",
+			"Trials of Osiris"
 		],
 		"unlockValueHash": 0,
 		"hash": 3301500998,
@@ -11160,10 +13577,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 3611686524,
 			"vendorName": "Dead Orbit",
 			"vendorDescription": "Dead Orbit only grudgingly maintains a presence in the Tower to arm and outfit their champions in the Crucible.",
-			"vendorIcon": "/common/destiny_content/icons/bc2b5fd4040b8d58ac54ab9a838b513e.png",
+			"vendorIcon": "/common/destiny_content/icons/c05ab21e07762bb71473f1bee6307e31.png",
 			"vendorOrder": 140,
 			"factionName": "Dead Orbit",
-			"factionIcon": "/common/destiny_content/icons/d00c721e666e4ec0f8c354f90ecd27f1.png",
+			"factionIcon": "/common/destiny_content/icons/06351ba975b7b54698027ba17f764c01.png",
 			"factionHash": 2397602219,
 			"factionDescription": "Unlocks Dead Orbit gear, and grants Dead Orbit reputation when earning Vanguard and Crucible reputation.",
 			"resetIntervalMinutes": 10080,
@@ -11189,7 +13606,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 400
+			"vendorSubcategoryHash": 400,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -11628,10 +14046,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 3658200622,
 			"vendorName": "Crucible Quartermaster",
 			"vendorDescription": "The Crucible is a demanding place, and Arcite 99-40 assists Shaxx in arming Guardians to withstand it.",
-			"vendorIcon": "/common/destiny_content/icons/92be561cced5fb59283d8667989b6057.png",
+			"vendorIcon": "/common/destiny_content/icons/6fe1ee9602dc8eb46b5b412b723a0765.png",
 			"vendorOrder": 110,
 			"factionName": "The Crucible",
-			"factionIcon": "/common/destiny_content/icons/3457e63246e33023bcc8a5e038148a84.png",
+			"factionIcon": "/common/destiny_content/icons/fc43a1a65550713452c13c2aa38645d8.png",
 			"factionHash": 964120289,
 			"factionDescription": "Complete Crucible Bounties to unlock powerful gear for purchase.\n\nAchieve high Rank to earn rewards.",
 			"resetIntervalMinutes": 10080,
@@ -11657,7 +14075,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 500
+			"vendorSubcategoryHash": 500,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -11805,10 +14224,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 3746647075,
 			"vendorName": "Crucible Handler",
 			"vendorDescription": "A veteran of the Crucible, Lord Shaxx both arms and oversees those who seek to forge themselves within it.",
-			"vendorIcon": "/common/destiny_content/icons/92be561cced5fb59283d8667989b6057.png",
+			"vendorIcon": "/common/destiny_content/icons/6fe1ee9602dc8eb46b5b412b723a0765.png",
 			"vendorOrder": 110,
 			"factionName": "The Crucible",
-			"factionIcon": "/common/destiny_content/icons/3457e63246e33023bcc8a5e038148a84.png",
+			"factionIcon": "/common/destiny_content/icons/fc43a1a65550713452c13c2aa38645d8.png",
 			"factionHash": 964120289,
 			"factionDescription": "Complete Crucible Bounties to unlock powerful gear for purchase.\n\nAchieve high Rank to earn rewards.",
 			"resetIntervalMinutes": 10080,
@@ -11834,7 +14253,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 500
+			"vendorSubcategoryHash": 500,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -12451,12 +14871,46 @@ var DestinyVendorDefinition = {
 		"hash": 3746647075,
 		"index": 0
 	},
+	"3898086963": {
+		"summary": {
+			"vendorHash": 3898086963,
+			"vendorName": "Tower Map",
+			"vendorDescription": "A guide to the areas and allies providing assistance for your adventures beyond the safety of the City.",
+			"vendorOrder": -1,
+			"factionHash": 0,
+			"resetIntervalMinutes": 0,
+			"resetOffsetMinutes": 0,
+			"vendorIdentifier": "",
+			"positionX": -1,
+			"positionY": -1,
+			"transitionNodeIdentifier": "",
+			"visible": false,
+			"progressionHash": 0,
+			"vendorPortrait": "",
+			"vendorBanner": "",
+			"unlockFlagHashes": [],
+			"enabledUnlockFlagHashes": [],
+			"mapSectionOrder": 0,
+			"showOnMap": false,
+			"eventHash": 0,
+			"vendorCategoryHash": 0,
+			"vendorCategoryHashes": [],
+			"vendorSubcategoryHash": 0,
+			"inhibitBuying": false
+		},
+		"acceptedItems": [],
+		"categories": [],
+		"failureStrings": [],
+		"unlockValueHash": 0,
+		"hash": 3898086963,
+		"index": 0
+	},
 	"3902439767": {
 		"summary": {
 			"vendorHash": 3902439767,
 			"vendorName": "Exotic Armor Blueprints",
 			"vendorDescription": "Exotic Armor Blueprints",
-			"vendorIcon": "/common/destiny_content/icons/978f1bccfa0a7916621ea1e6b625d97f.png",
+			"vendorIcon": "/common/destiny_content/icons/9252eb8713e8dbe3e7b4b3646757fe00.png",
 			"vendorOrder": 31,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -12482,7 +14936,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 800
+			"vendorSubcategoryHash": 800,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -12639,7 +15094,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 3917130357,
 			"vendorName": "Eververse",
 			"vendorDescription": "Tess is the proprietor of Eververse, where Guardians can purchase unique curiosities and stylish wares.",
-			"vendorIcon": "/common/destiny_content/icons/5505e222311b7c6f1e07934113a1ebbe.png",
+			"vendorIcon": "/common/destiny_content/icons/12c583bef23925b2038b4d9bbf1cf839.png",
 			"vendorOrder": 230,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -12665,12 +15120,41 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				4
 			],
-			"vendorSubcategoryHash": 700
+			"vendorSubcategoryHash": 700,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
 			{
 				"categoryHash": 4167439817,
+				"displayTitle": "",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 3067317543,
+				"displayTitle": "Featured",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 1401904132,
 				"displayTitle": "",
 				"overlayCurrencyItemHash": 0,
 				"quantityAvailable": 0,
@@ -12756,6 +15240,7 @@ var DestinyVendorDefinition = {
 		],
 		"failureStrings": [
 			null,
+			"Full Class Set of Desolate Armor",
 			"All Items Owned",
 			"Already Owned"
 		],
@@ -12768,10 +15253,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 4269570979,
 			"vendorName": "Cryptarch",
 			"vendorDescription": "Crypto-archeologists decode the past and our enemies, seeking new discoveries in matter engrams and artifacts returned by Guardians.",
-			"vendorIcon": "/common/destiny_content/icons/ec34223add3b7af948c6d800bbd3f0ec.png",
+			"vendorIcon": "/common/destiny_content/icons/a2fc39d8f6ff5d9f47bfb3927b37e03e.png",
 			"vendorOrder": 170,
 			"factionName": "Crypto-Archeology",
-			"factionIcon": "/common/destiny_content/icons/32e99b0061e57d6e21d778c4df23f7ec.png",
+			"factionIcon": "/common/destiny_content/icons/b46d92dd90c562a88c59bf9c73caa4c0.png",
 			"factionHash": 1327783731,
 			"factionDescription": "Decode Engrams to unlock new Engrams for purchase.\n\nAchieve high Rank to earn rewards.",
 			"resetIntervalMinutes": 10080,
@@ -12797,7 +15282,8 @@ var DestinyVendorDefinition = {
 			"vendorCategoryHashes": [
 				2
 			],
-			"vendorSubcategoryHash": 600
+			"vendorSubcategoryHash": 600,
+			"inhibitBuying": false
 		},
 		"acceptedItems": [],
 		"categories": [
@@ -13124,6 +15610,74 @@ var DestinyVendorDefinition = {
 		],
 		"unlockValueHash": 0,
 		"hash": 4269570979,
+		"index": 0
+	},
+	"4275962006": {
+		"summary": {
+			"vendorHash": 4275962006,
+			"vendorName": "Sterling Treasure",
+			"vendorDescription": "\"Looking good, Guardian.\" —Tess Everis\nContains 1 Guaranteed Item and may contain up to 4 Possible Items.",
+			"vendorIcon": "/common/destiny_content/icons/6fe1ee9602dc8eb46b5b412b723a0765.png",
+			"vendorOrder": -1,
+			"factionHash": 0,
+			"resetIntervalMinutes": 0,
+			"resetOffsetMinutes": 0,
+			"vendorIdentifier": "",
+			"positionX": -1,
+			"positionY": -1,
+			"transitionNodeIdentifier": "",
+			"visible": false,
+			"progressionHash": 0,
+			"sellString": "Preview",
+			"buyString": "Preview",
+			"vendorPortrait": "",
+			"vendorBanner": "",
+			"unlockFlagHashes": [],
+			"enabledUnlockFlagHashes": [],
+			"mapSectionOrder": 0,
+			"showOnMap": false,
+			"eventHash": 0,
+			"vendorCategoryHash": 0,
+			"vendorCategoryHashes": [],
+			"vendorSubcategoryHash": 0,
+			"inhibitBuying": true
+		},
+		"acceptedItems": [],
+		"categories": [
+			{
+				"categoryHash": 425765822,
+				"displayTitle": "Guaranteed Item (1)",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			},
+			{
+				"categoryHash": 2548346116,
+				"displayTitle": "Possible Items",
+				"overlayCurrencyItemHash": 0,
+				"quantityAvailable": 0,
+				"showUnavailableItems": false,
+				"hideIfNoCurrency": false,
+				"overlayTitle": "",
+				"overlayDescription": "",
+				"overlayChoice": "",
+				"overlayIcon": "/img/misc/missing_icon.png",
+				"hasOverlay": false,
+				"hideFromRegularPurchase": false
+			}
+		],
+		"failureStrings": [
+			"Already Owned"
+		],
+		"unlockValueHash": 0,
+		"hash": 4275962006,
 		"index": 0
 	}
 }

@@ -489,6 +489,20 @@ var DestinyLocationDefinition = {
 		"hash": 1302779831,
 		"index": 0
 	},
+	"1327599914": {
+		"locationHash": 1327599914,
+		"locationReleases": [
+			{
+				"destinationHash": 3706424348,
+				"activityHash": 0,
+				"directorBookHash": 3295618674,
+				"activityGraphHash": 3295618674,
+				"activityGraphNodeHash": 0
+			}
+		],
+		"hash": 1327599914,
+		"index": 0
+	},
 	"1330873793": {
 		"locationHash": 1330873793,
 		"locationReleases": [
@@ -1021,6 +1035,20 @@ var DestinyLocationDefinition = {
 		"hash": 2199235871,
 		"index": 0
 	},
+	"2208947578": {
+		"locationHash": 2208947578,
+		"locationReleases": [
+			{
+				"destinationHash": 3706424348,
+				"activityHash": 0,
+				"directorBookHash": 3295618674,
+				"activityGraphHash": 3295618674,
+				"activityGraphNodeHash": 0
+			}
+		],
+		"hash": 2208947578,
+		"index": 0
+	},
 	"2226605708": {
 		"locationHash": 2226605708,
 		"locationReleases": [
@@ -1056,20 +1084,6 @@ var DestinyLocationDefinition = {
 		"hash": 2233938337,
 		"index": 0
 	},
-	"2236626847": {
-		"locationHash": 2236626847,
-		"locationReleases": [
-			{
-				"destinationHash": 4233735899,
-				"activityHash": 0,
-				"directorBookHash": 986601339,
-				"activityGraphHash": 986601339,
-				"activityGraphNodeHash": 0
-			}
-		],
-		"hash": 2236626847,
-		"index": 0
-	},
 	"2261171502": {
 		"locationHash": 2261171502,
 		"locationReleases": [
@@ -1096,6 +1110,20 @@ var DestinyLocationDefinition = {
 			}
 		],
 		"hash": 2332639016,
+		"index": 0
+	},
+	"2455462411": {
+		"locationHash": 2455462411,
+		"locationReleases": [
+			{
+				"destinationHash": 4233735899,
+				"activityHash": 0,
+				"directorBookHash": 986601339,
+				"activityGraphHash": 986601339,
+				"activityGraphNodeHash": 0
+			}
+		],
+		"hash": 2455462411,
 		"index": 0
 	},
 	"2473509043": {
@@ -1844,6 +1872,20 @@ var DestinyLocationDefinition = {
 			}
 		],
 		"hash": 4164661204,
+		"index": 0
+	},
+	"4243480294": {
+		"locationHash": 4243480294,
+		"locationReleases": [
+			{
+				"destinationHash": 2897855902,
+				"activityHash": 0,
+				"directorBookHash": 2149902399,
+				"activityGraphHash": 2149902399,
+				"activityGraphNodeHash": 0
+			}
+		],
+		"hash": 4243480294,
 		"index": 0
 	}
 }

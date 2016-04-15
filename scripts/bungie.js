@@ -234,10 +234,13 @@ function Bungie() {
 			route: '/Destiny/SearchDestinyPlayer/' + active.type + '/' + active.id + '/',
 			method: 'GET',
 			complete: function(membership) {
-				if (membership[0] === undefined) {
-					callback({
-						error: true
-					})
+				console.log(membership)
+				if (membership === undefined || membership[0] === undefined) {
+					// callback({
+					// 	error: true
+					// })
+					// return;
+					console.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.');
 					return;
 				}
 				membershipId = membership[0].membershipId;
@@ -326,21 +329,21 @@ function Bungie() {
 		});
 	}
 	this.equip = function(characterId, itemId, callback) {
-		_request({
-			route: '/Destiny/EquipItem/',
-			method: 'POST',
-			payload: {
-				membershipType: active.type,
-				characterId: characterId,
-				itemId: itemId
-			},
-			complete: callback
-		})
-	}
-	// this function works and returns a behemoth response. very useful/scary.
-	// .equipResults for more information on item equip messages
-	// .character.inventory.buckets -useful to resync data maybe?
-	// .summary - useful if we want to update character level/emblem/etc
+			_request({
+				route: '/Destiny/EquipItem/',
+				method: 'POST',
+				payload: {
+					membershipType: active.type,
+					characterId: characterId,
+					itemId: itemId
+				},
+				complete: callback
+			})
+		}
+		// this function works and returns a behemoth response. very useful/scary.
+		// .equipResults for more information on item equip messages
+		// .character.inventory.buckets -useful to resync data maybe?
+		// .summary - useful if we want to update character level/emblem/etc
 	this.equipall = function(characterId, itemIds, callback) {
 		_request({
 			route: '/Destiny/EquipItems/',

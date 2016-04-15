@@ -10,6 +10,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": true,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 662533,
 		"index": 0
 	},
@@ -24,6 +25,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4029666,
 		"index": 0
 	},
@@ -38,6 +40,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 11751138,
 		"index": 0
 	},
@@ -52,6 +55,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 15804108,
 		"index": 0
 	},
@@ -66,6 +70,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 24277412,
 		"index": 0
 	},
@@ -79,6 +84,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 27288330,
 		"index": 0
 	},
@@ -93,6 +99,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 34968766,
 		"index": 0
 	},
@@ -106,6 +113,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 39149089,
 		"index": 0
 	},
@@ -120,6 +128,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 40281566,
 		"index": 0
 	},
@@ -133,6 +142,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 44495188,
 		"index": 0
 	},
@@ -147,6 +157,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 45298721,
 		"index": 0
 	},
@@ -161,6 +172,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 45513226,
 		"index": 0
 	},
@@ -175,6 +187,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 50307240,
 		"index": 0
 	},
@@ -188,6 +201,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 51381234,
 		"index": 0
 	},
@@ -202,6 +216,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 54381903,
 		"index": 0
 	},
@@ -215,6 +230,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 55591043,
 		"index": 0
 	},
@@ -229,6 +245,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 56059741,
 		"index": 0
 	},
@@ -243,6 +260,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 56613094,
 		"index": 0
 	},
@@ -257,6 +275,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": true,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 63602643,
 		"index": 0
 	},
@@ -270,6 +289,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 80203451,
 		"index": 0
 	},
@@ -284,6 +304,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 88668878,
 		"index": 0
 	},
@@ -298,6 +319,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 92665560,
 		"index": 0
 	},
@@ -311,6 +333,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 106937663,
 		"index": 0
 	},
@@ -325,6 +348,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 111756973,
 		"index": 0
 	},
@@ -339,6 +363,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": true,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 112940605,
 		"index": 0
 	},
@@ -352,6 +377,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 122726484,
 		"index": 0
 	},
@@ -366,6 +392,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 126598159,
 		"index": 0
 	},
@@ -380,6 +407,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 126950788,
 		"index": 0
 	},
@@ -394,6 +422,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 126950789,
 		"index": 0
 	},
@@ -408,6 +437,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 126950791,
 		"index": 0
 	},
@@ -422,6 +452,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 132352603,
 		"index": 0
 	},
@@ -435,6 +466,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 132703828,
 		"index": 0
 	},
@@ -449,6 +481,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 133098253,
 		"index": 0
 	},
@@ -462,6 +495,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 134470133,
 		"index": 0
 	},
@@ -475,6 +509,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 140002297,
 		"index": 0
 	},
@@ -489,6 +524,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 141272376,
 		"index": 0
 	},
@@ -502,6 +538,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 145052557,
 		"index": 0
 	},
@@ -515,6 +552,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 162694656,
 		"index": 0
 	},
@@ -528,6 +566,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 162959809,
 		"index": 0
 	},
@@ -541,6 +580,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 165243454,
 		"index": 0
 	},
@@ -554,6 +594,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 171518914,
 		"index": 0
 	},
@@ -568,6 +609,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 173118122,
 		"index": 0
 	},
@@ -582,6 +624,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 179868411,
 		"index": 0
 	},
@@ -595,6 +638,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 182619464,
 		"index": 0
 	},
@@ -609,6 +653,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 187406432,
 		"index": 0
 	},
@@ -623,6 +668,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 188538904,
 		"index": 0
 	},
@@ -636,6 +682,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 191097901,
 		"index": 0
 	},
@@ -650,6 +697,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 194166125,
 		"index": 0
 	},
@@ -664,6 +712,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 201395767,
 		"index": 0
 	},
@@ -678,6 +727,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 203919731,
 		"index": 0
 	},
@@ -692,6 +742,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 211453120,
 		"index": 0
 	},
@@ -706,6 +757,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 221270182,
 		"index": 0
 	},
@@ -719,6 +771,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 222006772,
 		"index": 0
 	},
@@ -732,6 +785,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 227429686,
 		"index": 0
 	},
@@ -746,6 +800,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 229565862,
 		"index": 0
 	},
@@ -760,6 +815,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 238834486,
 		"index": 0
 	},
@@ -773,6 +829,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 246253399,
 		"index": 0
 	},
@@ -787,6 +844,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 247395754,
 		"index": 0
 	},
@@ -801,7 +859,22 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 249913370,
+		"index": 0
+	},
+	"255389520": {
+		"objectiveHash": 255389520,
+		"unlockValueHash": 0,
+		"completionValue": 1,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"locationHash": 2810181116,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 255389520,
 		"index": 0
 	},
 	"256106350": {
@@ -815,6 +888,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 256106350,
 		"index": 0
 	},
@@ -829,6 +903,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 256582652,
 		"index": 0
 	},
@@ -843,6 +918,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 263027170,
 		"index": 0
 	},
@@ -857,6 +933,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 268635665,
 		"index": 0
 	},
@@ -870,6 +947,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 270411375,
 		"index": 0
 	},
@@ -883,6 +961,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 275369364,
 		"index": 0
 	},
@@ -896,6 +975,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 278204159,
 		"index": 0
 	},
@@ -910,6 +990,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 282498491,
 		"index": 0
 	},
@@ -923,6 +1004,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 283818045,
 		"index": 0
 	},
@@ -937,6 +1019,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 294393611,
 		"index": 0
 	},
@@ -951,6 +1034,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 295225366,
 		"index": 0
 	},
@@ -964,6 +1048,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 321288095,
 		"index": 0
 	},
@@ -977,6 +1062,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 321604570,
 		"index": 0
 	},
@@ -990,6 +1076,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 328506127,
 		"index": 0
 	},
@@ -1003,6 +1090,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 330858726,
 		"index": 0
 	},
@@ -1016,13 +1104,14 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 338233457,
 		"index": 0
 	},
 	"339634614": {
 		"objectiveHash": 339634614,
 		"unlockValueHash": 0,
-		"completionValue": 13,
+		"completionValue": 7,
 		"vendorHash": 0,
 		"vendorCategoryHash": 0,
 		"displayDescription": "Heavy Kills",
@@ -1030,6 +1119,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 339634614,
 		"index": 0
 	},
@@ -1044,6 +1134,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 342707700,
 		"index": 0
 	},
@@ -1058,6 +1149,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 342707703,
 		"index": 0
 	},
@@ -1072,6 +1164,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 344317984,
 		"index": 0
 	},
@@ -1086,13 +1179,14 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 344835828,
 		"index": 0
 	},
 	"357818112": {
 		"objectiveHash": 357818112,
 		"unlockValueHash": 0,
-		"completionValue": 75,
+		"completionValue": 50,
 		"vendorHash": 0,
 		"vendorCategoryHash": 0,
 		"displayDescription": "Fireteam Kills",
@@ -1100,6 +1194,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 357818112,
 		"index": 0
 	},
@@ -1114,6 +1209,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 360274989,
 		"index": 0
 	},
@@ -1127,6 +1223,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 360900597,
 		"index": 0
 	},
@@ -1140,6 +1237,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 374212110,
 		"index": 0
 	},
@@ -1154,6 +1252,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 376600621,
 		"index": 0
 	},
@@ -1167,6 +1266,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 378916336,
 		"index": 0
 	},
@@ -1181,6 +1281,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 387074128,
 		"index": 0
 	},
@@ -1195,6 +1296,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 387258142,
 		"index": 0
 	},
@@ -1208,6 +1310,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 396152348,
 		"index": 0
 	},
@@ -1221,6 +1324,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 417929574,
 		"index": 0
 	},
@@ -1235,6 +1339,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 420059572,
 		"index": 0
 	},
@@ -1249,6 +1354,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 435052983,
 		"index": 0
 	},
@@ -1262,21 +1368,8 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 435895314,
-		"index": 0
-	},
-	"436858298": {
-		"objectiveHash": 436858298,
-		"unlockValueHash": 0,
-		"completionValue": 25,
-		"vendorHash": 0,
-		"vendorCategoryHash": 0,
-		"displayDescription": "Taken Killed",
-		"locationHash": 0,
-		"allowNegativeValue": false,
-		"allowValueChangeWhenCompleted": false,
-		"isCountingDownward": false,
-		"hash": 436858298,
 		"index": 0
 	},
 	"439229117": {
@@ -1290,6 +1383,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 439229117,
 		"index": 0
 	},
@@ -1303,6 +1397,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 443416697,
 		"index": 0
 	},
@@ -1317,7 +1412,22 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 444036196,
+		"index": 0
+	},
+	"447257292": {
+		"objectiveHash": 447257292,
+		"unlockValueHash": 0,
+		"completionValue": 1,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"locationHash": 2208947578,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 447257292,
 		"index": 0
 	},
 	"459528418": {
@@ -1330,6 +1440,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 459528418,
 		"index": 0
 	},
@@ -1343,6 +1454,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 461711431,
 		"index": 0
 	},
@@ -1357,6 +1469,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 465233505,
 		"index": 0
 	},
@@ -1371,6 +1484,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 466547674,
 		"index": 0
 	},
@@ -1385,6 +1499,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 467655704,
 		"index": 0
 	},
@@ -1399,6 +1514,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 468692081,
 		"index": 0
 	},
@@ -1413,6 +1529,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 468932329,
 		"index": 0
 	},
@@ -1427,6 +1544,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 472255096,
 		"index": 0
 	},
@@ -1440,6 +1558,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 473192156,
 		"index": 0
 	},
@@ -1453,6 +1572,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 477251956,
 		"index": 0
 	},
@@ -1466,6 +1586,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 480608926,
 		"index": 0
 	},
@@ -1479,6 +1600,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 483860915,
 		"index": 0
 	},
@@ -1493,6 +1615,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 485758707,
 		"index": 0
 	},
@@ -1507,6 +1630,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": true,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 493756916,
 		"index": 0
 	},
@@ -1520,6 +1644,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 498913916,
 		"index": 0
 	},
@@ -1534,6 +1659,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 503984752,
 		"index": 0
 	},
@@ -1548,6 +1674,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 504416630,
 		"index": 0
 	},
@@ -1561,6 +1688,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 505072222,
 		"index": 0
 	},
@@ -1575,6 +1703,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 505170834,
 		"index": 0
 	},
@@ -1589,6 +1718,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 506065656,
 		"index": 0
 	},
@@ -1603,6 +1733,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 506169856,
 		"index": 0
 	},
@@ -1617,6 +1748,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 506265020,
 		"index": 0
 	},
@@ -1631,6 +1763,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 518350917,
 		"index": 0
 	},
@@ -1645,6 +1778,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 519535103,
 		"index": 0
 	},
@@ -1658,6 +1792,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 520028796,
 		"index": 0
 	},
@@ -1671,6 +1806,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 522823981,
 		"index": 0
 	},
@@ -1684,7 +1820,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 523459401,
+		"index": 0
+	},
+	"523722263": {
+		"objectiveHash": 523722263,
+		"unlockValueHash": 0,
+		"completionValue": 20,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 1,
+		"hash": 523722263,
 		"index": 0
 	},
 	"524059418": {
@@ -1698,6 +1850,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 524059418,
 		"index": 0
 	},
@@ -1712,6 +1865,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 524231010,
 		"index": 0
 	},
@@ -1725,6 +1879,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 526213266,
 		"index": 0
 	},
@@ -1738,6 +1893,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 535116004,
 		"index": 0
 	},
@@ -1752,6 +1908,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 536304806,
 		"index": 0
 	},
@@ -1766,6 +1923,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 536304807,
 		"index": 0
 	},
@@ -1779,6 +1937,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 543015391,
 		"index": 0
 	},
@@ -1792,6 +1951,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 549082051,
 		"index": 0
 	},
@@ -1806,6 +1966,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 562245040,
 		"index": 0
 	},
@@ -1819,7 +1980,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 570123548,
+		"index": 0
+	},
+	"581223697": {
+		"objectiveHash": 581223697,
+		"unlockValueHash": 0,
+		"completionValue": 75,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "Enemies Killed",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 581223697,
 		"index": 0
 	},
 	"584178729": {
@@ -1833,6 +2010,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 584178729,
 		"index": 0
 	},
@@ -1846,6 +2024,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 585060886,
 		"index": 0
 	},
@@ -1859,6 +2038,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 586820883,
 		"index": 0
 	},
@@ -1872,6 +2052,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 587005930,
 		"index": 0
 	},
@@ -1886,6 +2067,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 595455509,
 		"index": 0
 	},
@@ -1899,6 +2081,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 596749778,
 		"index": 0
 	},
@@ -1913,6 +2096,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 601659433,
 		"index": 0
 	},
@@ -1927,6 +2111,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 612729031,
 		"index": 0
 	},
@@ -1941,6 +2126,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 622525198,
 		"index": 0
 	},
@@ -1955,6 +2141,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 622675221,
 		"index": 0
 	},
@@ -1969,6 +2156,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 626564726,
 		"index": 0
 	},
@@ -1983,6 +2171,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 642151418,
 		"index": 0
 	},
@@ -1997,6 +2186,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 643142822,
 		"index": 0
 	},
@@ -2011,6 +2201,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 647254900,
 		"index": 0
 	},
@@ -2025,6 +2216,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 649182002,
 		"index": 0
 	},
@@ -2038,6 +2230,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 650226478,
 		"index": 0
 	},
@@ -2052,6 +2245,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": true,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 651372189,
 		"index": 0
 	},
@@ -2065,6 +2259,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 655100490,
 		"index": 0
 	},
@@ -2079,6 +2274,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 656253640,
 		"index": 0
 	},
@@ -2093,6 +2289,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 657049220,
 		"index": 0
 	},
@@ -2107,6 +2304,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 667594259,
 		"index": 0
 	},
@@ -2120,6 +2318,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 670697634,
 		"index": 0
 	},
@@ -2134,6 +2333,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 677734480,
 		"index": 0
 	},
@@ -2148,6 +2348,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": true,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 681255519,
 		"index": 0
 	},
@@ -2162,6 +2363,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 703401854,
 		"index": 0
 	},
@@ -2176,6 +2378,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 706385302,
 		"index": 0
 	},
@@ -2189,6 +2392,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 710525318,
 		"index": 0
 	},
@@ -2203,6 +2407,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 710541579,
 		"index": 0
 	},
@@ -2216,6 +2421,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 710774283,
 		"index": 0
 	},
@@ -2230,6 +2436,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 715361876,
 		"index": 0
 	},
@@ -2244,6 +2451,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 718379268,
 		"index": 0
 	},
@@ -2258,6 +2466,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 718379269,
 		"index": 0
 	},
@@ -2272,6 +2481,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 723211992,
 		"index": 0
 	},
@@ -2285,6 +2495,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 726714903,
 		"index": 0
 	},
@@ -2298,6 +2509,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 727829913,
 		"index": 0
 	},
@@ -2312,6 +2524,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 729600614,
 		"index": 0
 	},
@@ -2326,6 +2539,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 730244548,
 		"index": 0
 	},
@@ -2339,6 +2553,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 731968896,
 		"index": 0
 	},
@@ -2353,6 +2568,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 740958190,
 		"index": 0
 	},
@@ -2367,6 +2583,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 744189594,
 		"index": 0
 	},
@@ -2380,6 +2597,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 749591078,
 		"index": 0
 	},
@@ -2394,6 +2612,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 753434849,
 		"index": 0
 	},
@@ -2408,6 +2627,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 766118491,
 		"index": 0
 	},
@@ -2421,6 +2641,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 769989725,
 		"index": 0
 	},
@@ -2434,6 +2655,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 772500760,
 		"index": 0
 	},
@@ -2447,6 +2669,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 782930124,
 		"index": 0
 	},
@@ -2461,6 +2684,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 796869464,
 		"index": 0
 	},
@@ -2475,6 +2699,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 800881312,
 		"index": 0
 	},
@@ -2489,6 +2714,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 807931802,
 		"index": 0
 	},
@@ -2503,6 +2729,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 816302083,
 		"index": 0
 	},
@@ -2517,6 +2744,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 816818597,
 		"index": 0
 	},
@@ -2531,6 +2759,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 817684220,
 		"index": 0
 	},
@@ -2544,6 +2773,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 820887813,
 		"index": 0
 	},
@@ -2558,6 +2788,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 821067872,
 		"index": 0
 	},
@@ -2572,6 +2803,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": true,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 824968723,
 		"index": 0
 	},
@@ -2585,6 +2817,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 829956676,
 		"index": 0
 	},
@@ -2598,6 +2831,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 830946137,
 		"index": 0
 	},
@@ -2611,6 +2845,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 831009020,
 		"index": 0
 	},
@@ -2625,6 +2860,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 836245298,
 		"index": 0
 	},
@@ -2638,6 +2874,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 839033504,
 		"index": 0
 	},
@@ -2651,6 +2888,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 841777994,
 		"index": 0
 	},
@@ -2664,6 +2902,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 843060923,
 		"index": 0
 	},
@@ -2678,7 +2917,36 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 843863652,
+		"index": 0
+	},
+	"855141354": {
+		"objectiveHash": 855141354,
+		"unlockValueHash": 0,
+		"completionValue": 1,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"locationHash": 4243480294,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 855141354,
+		"index": 0
+	},
+	"856682814": {
+		"objectiveHash": 856682814,
+		"unlockValueHash": 0,
+		"completionValue": 1,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"locationHash": 1822888667,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 856682814,
 		"index": 0
 	},
 	"861538567": {
@@ -2692,6 +2960,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 861538567,
 		"index": 0
 	},
@@ -2706,6 +2975,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 861781492,
 		"index": 0
 	},
@@ -2719,6 +2989,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 862082787,
 		"index": 0
 	},
@@ -2732,6 +3003,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 862102950,
 		"index": 0
 	},
@@ -2746,6 +3018,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 871601102,
 		"index": 0
 	},
@@ -2759,6 +3032,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 872768058,
 		"index": 0
 	},
@@ -2772,6 +3046,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 874978201,
 		"index": 0
 	},
@@ -2785,6 +3060,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 881797849,
 		"index": 0
 	},
@@ -2798,6 +3074,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 884656039,
 		"index": 0
 	},
@@ -2811,6 +3088,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 886106801,
 		"index": 0
 	},
@@ -2825,6 +3103,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 896280169,
 		"index": 0
 	},
@@ -2838,6 +3117,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 897635322,
 		"index": 0
 	},
@@ -2851,6 +3131,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 900808353,
 		"index": 0
 	},
@@ -2864,6 +3145,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 902908239,
 		"index": 0
 	},
@@ -2878,6 +3160,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 904248177,
 		"index": 0
 	},
@@ -2892,6 +3175,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 905520462,
 		"index": 0
 	},
@@ -2905,6 +3189,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 907496325,
 		"index": 0
 	},
@@ -2919,6 +3204,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 916986374,
 		"index": 0
 	},
@@ -2933,6 +3219,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 921286677,
 		"index": 0
 	},
@@ -2947,6 +3234,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 928262976,
 		"index": 0
 	},
@@ -2961,6 +3249,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 931729854,
 		"index": 0
 	},
@@ -2974,6 +3263,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 932111987,
 		"index": 0
 	},
@@ -2987,6 +3277,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 935292787,
 		"index": 0
 	},
@@ -3001,6 +3292,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 938240206,
 		"index": 0
 	},
@@ -3015,6 +3307,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 938322618,
 		"index": 0
 	},
@@ -3028,6 +3321,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 942499954,
 		"index": 0
 	},
@@ -3041,6 +3335,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 942776233,
 		"index": 0
 	},
@@ -3055,6 +3350,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 943027708,
 		"index": 0
 	},
@@ -3069,6 +3365,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 943027709,
 		"index": 0
 	},
@@ -3083,6 +3380,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 943027710,
 		"index": 0
 	},
@@ -3097,6 +3395,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 943027711,
 		"index": 0
 	},
@@ -3111,6 +3410,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 943899224,
 		"index": 0
 	},
@@ -3124,6 +3424,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 948373563,
 		"index": 0
 	},
@@ -3137,6 +3438,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 953212047,
 		"index": 0
 	},
@@ -3151,6 +3453,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 954691478,
 		"index": 0
 	},
@@ -3165,6 +3468,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 958568930,
 		"index": 0
 	},
@@ -3179,6 +3483,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 966913879,
 		"index": 0
 	},
@@ -3193,6 +3498,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": true,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 974666910,
 		"index": 0
 	},
@@ -3206,6 +3512,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 986878981,
 		"index": 0
 	},
@@ -3220,6 +3527,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 989139930,
 		"index": 0
 	},
@@ -3233,6 +3541,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 995469755,
 		"index": 0
 	},
@@ -3247,6 +3556,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 997487860,
 		"index": 0
 	},
@@ -3261,6 +3571,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1001692164,
 		"index": 0
 	},
@@ -3274,6 +3585,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1002886114,
 		"index": 0
 	},
@@ -3288,6 +3600,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1004533489,
 		"index": 0
 	},
@@ -3301,6 +3614,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1008136654,
 		"index": 0
 	},
@@ -3314,6 +3628,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1021869923,
 		"index": 0
 	},
@@ -3327,6 +3642,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1036817105,
 		"index": 0
 	},
@@ -3341,6 +3657,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": true,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 1048148411,
 		"index": 0
 	},
@@ -3354,6 +3671,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1057719175,
 		"index": 0
 	},
@@ -3368,6 +3686,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1063895523,
 		"index": 0
 	},
@@ -3381,6 +3700,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1080209351,
 		"index": 0
 	},
@@ -3394,6 +3714,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1080717392,
 		"index": 0
 	},
@@ -3408,6 +3729,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1084151387,
 		"index": 0
 	},
@@ -3421,6 +3743,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1089322538,
 		"index": 0
 	},
@@ -3435,6 +3758,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1091336990,
 		"index": 0
 	},
@@ -3449,6 +3773,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 1092765482,
 		"index": 0
 	},
@@ -3463,6 +3788,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1106951780,
 		"index": 0
 	},
@@ -3477,6 +3803,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1107738570,
 		"index": 0
 	},
@@ -3491,6 +3818,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1111679618,
 		"index": 0
 	},
@@ -3505,6 +3833,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1112374889,
 		"index": 0
 	},
@@ -3519,6 +3848,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 1118244576,
 		"index": 0
 	},
@@ -3532,6 +3862,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1121348463,
 		"index": 0
 	},
@@ -3546,6 +3877,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1126665152,
 		"index": 0
 	},
@@ -3560,6 +3892,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1126665153,
 		"index": 0
 	},
@@ -3574,6 +3907,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1126665154,
 		"index": 0
 	},
@@ -3588,6 +3922,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1126665155,
 		"index": 0
 	},
@@ -3602,6 +3937,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1126665156,
 		"index": 0
 	},
@@ -3616,6 +3952,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1126665157,
 		"index": 0
 	},
@@ -3629,6 +3966,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1132286616,
 		"index": 0
 	},
@@ -3642,6 +3980,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1134933040,
 		"index": 0
 	},
@@ -3655,6 +3994,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1137213224,
 		"index": 0
 	},
@@ -3669,6 +4009,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1148608135,
 		"index": 0
 	},
@@ -3682,6 +4023,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1149347823,
 		"index": 0
 	},
@@ -3695,6 +4037,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1152776757,
 		"index": 0
 	},
@@ -3709,6 +4052,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 1155827255,
 		"index": 0
 	},
@@ -3723,6 +4067,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1160533166,
 		"index": 0
 	},
@@ -3736,6 +4081,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1167901409,
 		"index": 0
 	},
@@ -3749,7 +4095,22 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1173995248,
+		"index": 0
+	},
+	"1178097752": {
+		"objectiveHash": 1178097752,
+		"unlockValueHash": 0,
+		"completionValue": 1,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"locationHash": 2810181116,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 1178097752,
 		"index": 0
 	},
 	"1183785417": {
@@ -3763,6 +4124,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": true,
+		"valueStyle": 2,
 		"hash": 1183785417,
 		"index": 0
 	},
@@ -3777,6 +4139,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1192713050,
 		"index": 0
 	},
@@ -3790,6 +4153,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1193457739,
 		"index": 0
 	},
@@ -3804,6 +4168,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1208876375,
 		"index": 0
 	},
@@ -3818,6 +4183,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1213710352,
 		"index": 0
 	},
@@ -3831,6 +4197,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1222130851,
 		"index": 0
 	},
@@ -3845,6 +4212,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1226388691,
 		"index": 0
 	},
@@ -3859,6 +4227,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1226951570,
 		"index": 0
 	},
@@ -3872,6 +4241,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1239893008,
 		"index": 0
 	},
@@ -3886,7 +4256,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1240651153,
+		"index": 0
+	},
+	"1241337931": {
+		"objectiveHash": 1241337931,
+		"unlockValueHash": 0,
+		"completionValue": 50,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 1,
+		"hash": 1241337931,
 		"index": 0
 	},
 	"1244725902": {
@@ -3900,6 +4286,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1244725902,
 		"index": 0
 	},
@@ -3913,6 +4300,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1244746307,
 		"index": 0
 	},
@@ -3927,6 +4315,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1251628718,
 		"index": 0
 	},
@@ -3940,6 +4329,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1253896195,
 		"index": 0
 	},
@@ -3953,6 +4343,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1255313638,
 		"index": 0
 	},
@@ -3967,6 +4358,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1257735856,
 		"index": 0
 	},
@@ -3981,6 +4373,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1258830276,
 		"index": 0
 	},
@@ -3994,6 +4387,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1265189832,
 		"index": 0
 	},
@@ -4007,6 +4401,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1281782615,
 		"index": 0
 	},
@@ -4020,6 +4415,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1289208110,
 		"index": 0
 	},
@@ -4034,6 +4430,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1292267700,
 		"index": 0
 	},
@@ -4048,6 +4445,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1295828282,
 		"index": 0
 	},
@@ -4061,7 +4459,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1312973682,
+		"index": 0
+	},
+	"1330469036": {
+		"objectiveHash": 1330469036,
+		"unlockValueHash": 0,
+		"completionValue": 20,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 1,
+		"hash": 1330469036,
 		"index": 0
 	},
 	"1333600317": {
@@ -4075,6 +4489,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1333600317,
 		"index": 0
 	},
@@ -4088,6 +4503,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1342060003,
 		"index": 0
 	},
@@ -4102,6 +4518,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1346726394,
 		"index": 0
 	},
@@ -4116,6 +4533,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1350819970,
 		"index": 0
 	},
@@ -4129,6 +4547,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1357179807,
 		"index": 0
 	},
@@ -4142,6 +4561,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1360771612,
 		"index": 0
 	},
@@ -4156,6 +4576,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 1362750270,
 		"index": 0
 	},
@@ -4169,6 +4590,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1368295688,
 		"index": 0
 	},
@@ -4183,6 +4605,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1369404192,
 		"index": 0
 	},
@@ -4196,6 +4619,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1371444517,
 		"index": 0
 	},
@@ -4210,6 +4634,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1375325824,
 		"index": 0
 	},
@@ -4223,6 +4648,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1379805649,
 		"index": 0
 	},
@@ -4236,6 +4662,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1379842477,
 		"index": 0
 	},
@@ -4250,6 +4677,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1382189463,
 		"index": 0
 	},
@@ -4264,6 +4692,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1386574084,
 		"index": 0
 	},
@@ -4278,6 +4707,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1401736126,
 		"index": 0
 	},
@@ -4292,6 +4722,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1403749996,
 		"index": 0
 	},
@@ -4305,6 +4736,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1404815100,
 		"index": 0
 	},
@@ -4318,6 +4750,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1409617262,
 		"index": 0
 	},
@@ -4332,6 +4765,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1420563670,
 		"index": 0
 	},
@@ -4345,6 +4779,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1424700888,
 		"index": 0
 	},
@@ -4358,6 +4793,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1438638562,
 		"index": 0
 	},
@@ -4371,6 +4807,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1442093302,
 		"index": 0
 	},
@@ -4385,6 +4822,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 1451118819,
 		"index": 0
 	},
@@ -4399,6 +4837,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 1460371118,
 		"index": 0
 	},
@@ -4412,6 +4851,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1464562820,
 		"index": 0
 	},
@@ -4425,6 +4865,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1468767438,
 		"index": 0
 	},
@@ -4439,6 +4880,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1471567940,
 		"index": 0
 	},
@@ -4452,6 +4894,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1482505160,
 		"index": 0
 	},
@@ -4466,6 +4909,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1487545696,
 		"index": 0
 	},
@@ -4480,6 +4924,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1496621301,
 		"index": 0
 	},
@@ -4494,6 +4939,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 1501850184,
 		"index": 0
 	},
@@ -4508,6 +4954,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 1501850185,
 		"index": 0
 	},
@@ -4522,6 +4969,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1507689874,
 		"index": 0
 	},
@@ -4536,6 +4984,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": true,
+		"valueStyle": 2,
 		"hash": 1509103335,
 		"index": 0
 	},
@@ -4549,6 +4998,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1517965892,
 		"index": 0
 	},
@@ -4563,6 +5013,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1523712254,
 		"index": 0
 	},
@@ -4577,7 +5028,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1524518890,
+		"index": 0
+	},
+	"1525269375": {
+		"objectiveHash": 1525269375,
+		"unlockValueHash": 0,
+		"completionValue": 30,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "Enemies Killed",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 1525269375,
 		"index": 0
 	},
 	"1531868556": {
@@ -4590,6 +5057,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1531868556,
 		"index": 0
 	},
@@ -4604,6 +5072,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1532184622,
 		"index": 0
 	},
@@ -4618,6 +5087,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1535395934,
 		"index": 0
 	},
@@ -4632,7 +5102,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 1548462092,
+		"index": 0
+	},
+	"1553152342": {
+		"objectiveHash": 1553152342,
+		"unlockValueHash": 0,
+		"completionValue": 1200000,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": true,
+		"valueStyle": 2,
+		"hash": 1553152342,
 		"index": 0
 	},
 	"1554774763": {
@@ -4646,6 +5132,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1554774763,
 		"index": 0
 	},
@@ -4660,7 +5147,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 1557794293,
+		"index": 0
+	},
+	"1558092893": {
+		"objectiveHash": 1558092893,
+		"unlockValueHash": 0,
+		"completionValue": 6,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "Essence of Darkness",
+		"locationHash": 2839694664,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 1558092893,
 		"index": 0
 	},
 	"1564766827": {
@@ -4673,6 +5176,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1564766827,
 		"index": 0
 	},
@@ -4687,6 +5191,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 1565194903,
 		"index": 0
 	},
@@ -4700,6 +5205,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1565773242,
 		"index": 0
 	},
@@ -4714,6 +5220,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 1566257209,
 		"index": 0
 	},
@@ -4728,6 +5235,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1569805274,
 		"index": 0
 	},
@@ -4742,6 +5250,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1570687779,
 		"index": 0
 	},
@@ -4756,6 +5265,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1572327679,
 		"index": 0
 	},
@@ -4770,6 +5280,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1577495510,
 		"index": 0
 	},
@@ -4784,6 +5295,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1577675559,
 		"index": 0
 	},
@@ -4798,6 +5310,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1583240464,
 		"index": 0
 	},
@@ -4812,6 +5325,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1584275072,
 		"index": 0
 	},
@@ -4825,6 +5339,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1586950855,
 		"index": 0
 	},
@@ -4839,6 +5354,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": true,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1590388356,
 		"index": 0
 	},
@@ -4853,6 +5369,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1593834848,
 		"index": 0
 	},
@@ -4866,6 +5383,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1594863946,
 		"index": 0
 	},
@@ -4879,6 +5397,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1601058890,
 		"index": 0
 	},
@@ -4892,6 +5411,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1605427818,
 		"index": 0
 	},
@@ -4906,6 +5426,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1606768221,
 		"index": 0
 	},
@@ -4919,6 +5440,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1608158341,
 		"index": 0
 	},
@@ -4933,7 +5455,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1608953333,
+		"index": 0
+	},
+	"1610074847": {
+		"objectiveHash": 1610074847,
+		"unlockValueHash": 0,
+		"completionValue": 50,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "Enemies Killed",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 1610074847,
 		"index": 0
 	},
 	"1610949575": {
@@ -4946,6 +5484,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1610949575,
 		"index": 0
 	},
@@ -4960,6 +5499,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1612082934,
 		"index": 0
 	},
@@ -4974,6 +5514,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1618231806,
 		"index": 0
 	},
@@ -4988,13 +5529,14 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 1623022295,
 		"index": 0
 	},
 	"1636809054": {
 		"objectiveHash": 1636809054,
 		"unlockValueHash": 0,
-		"completionValue": 10,
+		"completionValue": 7,
 		"vendorHash": 0,
 		"vendorCategoryHash": 0,
 		"displayDescription": "Matches Completed",
@@ -5002,6 +5544,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1636809054,
 		"index": 0
 	},
@@ -5016,6 +5559,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1637831863,
 		"index": 0
 	},
@@ -5029,6 +5573,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1646092012,
 		"index": 0
 	},
@@ -5043,6 +5588,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1647403139,
 		"index": 0
 	},
@@ -5056,6 +5602,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1656338704,
 		"index": 0
 	},
@@ -5069,6 +5616,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1668103407,
 		"index": 0
 	},
@@ -5083,6 +5631,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1669995821,
 		"index": 0
 	},
@@ -5097,6 +5646,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1673133632,
 		"index": 0
 	},
@@ -5111,6 +5661,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1692496512,
 		"index": 0
 	},
@@ -5125,6 +5676,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1693559942,
 		"index": 0
 	},
@@ -5139,6 +5691,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 1694571362,
 		"index": 0
 	},
@@ -5152,6 +5705,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1702732304,
 		"index": 0
 	},
@@ -5165,6 +5719,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1704218005,
 		"index": 0
 	},
@@ -5178,6 +5733,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1715744898,
 		"index": 0
 	},
@@ -5192,6 +5748,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1717724739,
 		"index": 0
 	},
@@ -5205,6 +5762,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1720492231,
 		"index": 0
 	},
@@ -5219,6 +5777,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1721956702,
 		"index": 0
 	},
@@ -5233,6 +5792,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1730759188,
 		"index": 0
 	},
@@ -5246,6 +5806,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1737042313,
 		"index": 0
 	},
@@ -5260,6 +5821,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1738795171,
 		"index": 0
 	},
@@ -5274,6 +5836,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1744413222,
 		"index": 0
 	},
@@ -5288,6 +5851,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1746392783,
 		"index": 0
 	},
@@ -5301,6 +5865,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1746589249,
 		"index": 0
 	},
@@ -5314,6 +5879,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1756493091,
 		"index": 0
 	},
@@ -5328,6 +5894,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1758076882,
 		"index": 0
 	},
@@ -5342,6 +5909,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1761134643,
 		"index": 0
 	},
@@ -5356,6 +5924,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1768776525,
 		"index": 0
 	},
@@ -5369,6 +5938,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1771451251,
 		"index": 0
 	},
@@ -5383,6 +5953,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1783950856,
 		"index": 0
 	},
@@ -5397,6 +5968,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1789448038,
 		"index": 0
 	},
@@ -5410,6 +5982,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1791151796,
 		"index": 0
 	},
@@ -5424,6 +5997,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1796406026,
 		"index": 0
 	},
@@ -5438,6 +6012,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 1796431156,
 		"index": 0
 	},
@@ -5452,6 +6027,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1797299374,
 		"index": 0
 	},
@@ -5466,6 +6042,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1799740315,
 		"index": 0
 	},
@@ -5479,6 +6056,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1801353561,
 		"index": 0
 	},
@@ -5493,6 +6071,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1806792694,
 		"index": 0
 	},
@@ -5507,6 +6086,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1816561258,
 		"index": 0
 	},
@@ -5521,6 +6101,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1818277331,
 		"index": 0
 	},
@@ -5535,6 +6116,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1820208222,
 		"index": 0
 	},
@@ -5549,6 +6131,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1826626003,
 		"index": 0
 	},
@@ -5562,6 +6145,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1835991607,
 		"index": 0
 	},
@@ -5575,6 +6159,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1844028484,
 		"index": 0
 	},
@@ -5588,6 +6173,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1851874104,
 		"index": 0
 	},
@@ -5601,6 +6187,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1862811669,
 		"index": 0
 	},
@@ -5614,6 +6201,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1865597880,
 		"index": 0
 	},
@@ -5628,6 +6216,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1873636372,
 		"index": 0
 	},
@@ -5641,7 +6230,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1877286018,
+		"index": 0
+	},
+	"1877313821": {
+		"objectiveHash": 1877313821,
+		"unlockValueHash": 0,
+		"completionValue": 25,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 1,
+		"hash": 1877313821,
 		"index": 0
 	},
 	"1881000304": {
@@ -5654,7 +6259,22 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1881000304,
+		"index": 0
+	},
+	"1891281496": {
+		"objectiveHash": 1891281496,
+		"unlockValueHash": 0,
+		"completionValue": 1,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"locationHash": 2810181116,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 1891281496,
 		"index": 0
 	},
 	"1900152550": {
@@ -5668,6 +6288,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1900152550,
 		"index": 0
 	},
@@ -5682,6 +6303,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1913801063,
 		"index": 0
 	},
@@ -5695,6 +6317,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1914202036,
 		"index": 0
 	},
@@ -5709,6 +6332,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1914794396,
 		"index": 0
 	},
@@ -5722,6 +6346,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1917482672,
 		"index": 0
 	},
@@ -5735,6 +6360,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1921936865,
 		"index": 0
 	},
@@ -5749,6 +6375,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1926543338,
 		"index": 0
 	},
@@ -5763,6 +6390,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1931181361,
 		"index": 0
 	},
@@ -5776,6 +6404,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1936452167,
 		"index": 0
 	},
@@ -5790,6 +6419,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1942223042,
 		"index": 0
 	},
@@ -5803,6 +6433,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1946372528,
 		"index": 0
 	},
@@ -5817,6 +6448,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1948208951,
 		"index": 0
 	},
@@ -5831,6 +6463,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1953984646,
 		"index": 0
 	},
@@ -5845,6 +6478,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1960388392,
 		"index": 0
 	},
@@ -5859,6 +6493,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1970485255,
 		"index": 0
 	},
@@ -5873,6 +6508,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1977459221,
 		"index": 0
 	},
@@ -5887,6 +6523,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1978558143,
 		"index": 0
 	},
@@ -5901,6 +6538,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1979438188,
 		"index": 0
 	},
@@ -5915,6 +6553,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 1981326108,
 		"index": 0
 	},
@@ -5929,6 +6568,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2008423102,
 		"index": 0
 	},
@@ -5942,6 +6582,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2008493222,
 		"index": 0
 	},
@@ -5956,6 +6597,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2012035917,
 		"index": 0
 	},
@@ -5970,6 +6612,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2024917204,
 		"index": 0
 	},
@@ -5984,7 +6627,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2024917207,
+		"index": 0
+	},
+	"2028581355": {
+		"objectiveHash": 2028581355,
+		"unlockValueHash": 0,
+		"completionValue": 6,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "Champions Killed",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 2028581355,
 		"index": 0
 	},
 	"2030297015": {
@@ -5997,6 +6656,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2030297015,
 		"index": 0
 	},
@@ -6011,6 +6671,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2030454834,
 		"index": 0
 	},
@@ -6024,6 +6685,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2030891597,
 		"index": 0
 	},
@@ -6037,6 +6699,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2031210679,
 		"index": 0
 	},
@@ -6051,6 +6714,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2034533148,
 		"index": 0
 	},
@@ -6064,6 +6728,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2037178769,
 		"index": 0
 	},
@@ -6078,6 +6743,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2037598658,
 		"index": 0
 	},
@@ -6092,6 +6758,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2041076088,
 		"index": 0
 	},
@@ -6106,6 +6773,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2041842004,
 		"index": 0
 	},
@@ -6120,6 +6788,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2042837554,
 		"index": 0
 	},
@@ -6133,6 +6802,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2058372828,
 		"index": 0
 	},
@@ -6147,6 +6817,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2061354760,
 		"index": 0
 	},
@@ -6161,6 +6832,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2080091663,
 		"index": 0
 	},
@@ -6174,6 +6846,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2081359530,
 		"index": 0
 	},
@@ -6187,6 +6860,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2085991905,
 		"index": 0
 	},
@@ -6200,6 +6874,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2094613315,
 		"index": 0
 	},
@@ -6214,6 +6889,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 2098148065,
 		"index": 0
 	},
@@ -6228,6 +6904,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2106348247,
 		"index": 0
 	},
@@ -6242,7 +6919,22 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2115301686,
+		"index": 0
+	},
+	"2118193102": {
+		"objectiveHash": 2118193102,
+		"unlockValueHash": 0,
+		"completionValue": 1,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"locationHash": 2810181116,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 2118193102,
 		"index": 0
 	},
 	"2123788216": {
@@ -6255,6 +6947,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2123788216,
 		"index": 0
 	},
@@ -6268,6 +6961,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2128939770,
 		"index": 0
 	},
@@ -6281,6 +6975,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2129990771,
 		"index": 0
 	},
@@ -6295,6 +6990,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2130021968,
 		"index": 0
 	},
@@ -6309,6 +7005,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 2134049311,
 		"index": 0
 	},
@@ -6323,6 +7020,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2134455889,
 		"index": 0
 	},
@@ -6336,6 +7034,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2144642370,
 		"index": 0
 	},
@@ -6350,7 +7049,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2149114975,
+		"index": 0
+	},
+	"2150997855": {
+		"objectiveHash": 2150997855,
+		"unlockValueHash": 0,
+		"completionValue": 60000,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "Points Earned",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 2150997855,
 		"index": 0
 	},
 	"2151357860": {
@@ -6363,6 +7078,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2151357860,
 		"index": 0
 	},
@@ -6376,6 +7092,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2152321625,
 		"index": 0
 	},
@@ -6390,6 +7107,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2153858718,
 		"index": 0
 	},
@@ -6404,6 +7122,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2154791084,
 		"index": 0
 	},
@@ -6418,6 +7137,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2161162790,
 		"index": 0
 	},
@@ -6431,6 +7151,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2162170857,
 		"index": 0
 	},
@@ -6444,6 +7165,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2189039914,
 		"index": 0
 	},
@@ -6458,6 +7180,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2202732276,
 		"index": 0
 	},
@@ -6472,6 +7195,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2206305988,
 		"index": 0
 	},
@@ -6485,6 +7209,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2209318316,
 		"index": 0
 	},
@@ -6498,6 +7223,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2219008124,
 		"index": 0
 	},
@@ -6511,6 +7237,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2225690675,
 		"index": 0
 	},
@@ -6524,6 +7251,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2231683904,
 		"index": 0
 	},
@@ -6538,6 +7266,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2236248733,
 		"index": 0
 	},
@@ -6552,6 +7281,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2237379040,
 		"index": 0
 	},
@@ -6565,6 +7295,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2237724073,
 		"index": 0
 	},
@@ -6579,6 +7310,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2241772070,
 		"index": 0
 	},
@@ -6593,6 +7325,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2242822450,
 		"index": 0
 	},
@@ -6607,6 +7340,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2244017450,
 		"index": 0
 	},
@@ -6621,6 +7355,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 2245649823,
 		"index": 0
 	},
@@ -6635,6 +7370,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 2255816006,
 		"index": 0
 	},
@@ -6648,7 +7384,22 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2260163027,
+		"index": 0
+	},
+	"2268610704": {
+		"objectiveHash": 2268610704,
+		"unlockValueHash": 0,
+		"completionValue": 1,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"locationHash": 1327599914,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 2268610704,
 		"index": 0
 	},
 	"2270185350": {
@@ -6662,6 +7413,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2270185350,
 		"index": 0
 	},
@@ -6676,6 +7428,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2274578830,
 		"index": 0
 	},
@@ -6690,6 +7443,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2279101262,
 		"index": 0
 	},
@@ -6704,6 +7458,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2281942634,
 		"index": 0
 	},
@@ -6717,6 +7472,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2292319372,
 		"index": 0
 	},
@@ -6730,6 +7486,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2297767113,
 		"index": 0
 	},
@@ -6744,6 +7501,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2301503792,
 		"index": 0
 	},
@@ -6758,6 +7516,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2302753572,
 		"index": 0
 	},
@@ -6772,6 +7531,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2305279806,
 		"index": 0
 	},
@@ -6786,6 +7546,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2307054751,
 		"index": 0
 	},
@@ -6800,6 +7561,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2309900462,
 		"index": 0
 	},
@@ -6813,6 +7575,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2310988082,
 		"index": 0
 	},
@@ -6826,6 +7589,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2319354921,
 		"index": 0
 	},
@@ -6839,6 +7603,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2320713021,
 		"index": 0
 	},
@@ -6853,6 +7618,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 2322501562,
 		"index": 0
 	},
@@ -6866,6 +7632,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2323369404,
 		"index": 0
 	},
@@ -6880,6 +7647,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2340882745,
 		"index": 0
 	},
@@ -6894,6 +7662,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2343060179,
 		"index": 0
 	},
@@ -6907,6 +7676,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2343370463,
 		"index": 0
 	},
@@ -6921,7 +7691,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2344906230,
+		"index": 0
+	},
+	"2347164607": {
+		"objectiveHash": 2347164607,
+		"unlockValueHash": 0,
+		"completionValue": 100,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "Orbs Generated",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 2347164607,
 		"index": 0
 	},
 	"2348628703": {
@@ -6934,6 +7720,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2348628703,
 		"index": 0
 	},
@@ -6948,6 +7735,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2350528934,
 		"index": 0
 	},
@@ -6962,6 +7750,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2353825057,
 		"index": 0
 	},
@@ -6976,6 +7765,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2355756206,
 		"index": 0
 	},
@@ -6990,6 +7780,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2361086586,
 		"index": 0
 	},
@@ -7003,6 +7794,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2364793135,
 		"index": 0
 	},
@@ -7016,6 +7808,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2371709828,
 		"index": 0
 	},
@@ -7030,6 +7823,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 2378618368,
 		"index": 0
 	},
@@ -7044,6 +7838,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2381005628,
 		"index": 0
 	},
@@ -7057,6 +7852,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2387216278,
 		"index": 0
 	},
@@ -7071,6 +7867,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 2392690548,
 		"index": 0
 	},
@@ -7084,6 +7881,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2398480713,
 		"index": 0
 	},
@@ -7098,6 +7896,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2409732622,
 		"index": 0
 	},
@@ -7112,6 +7911,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2410203814,
 		"index": 0
 	},
@@ -7125,6 +7925,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2413687944,
 		"index": 0
 	},
@@ -7138,6 +7939,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2414105502,
 		"index": 0
 	},
@@ -7152,6 +7954,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2421097574,
 		"index": 0
 	},
@@ -7166,6 +7969,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2424763916,
 		"index": 0
 	},
@@ -7179,6 +7983,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2432109850,
 		"index": 0
 	},
@@ -7192,6 +7997,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2435315034,
 		"index": 0
 	},
@@ -7206,6 +8012,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2435392326,
 		"index": 0
 	},
@@ -7220,6 +8027,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2438969930,
 		"index": 0
 	},
@@ -7234,6 +8042,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2444987010,
 		"index": 0
 	},
@@ -7248,7 +8057,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2452657738,
+		"index": 0
+	},
+	"2457231571": {
+		"objectiveHash": 2457231571,
+		"unlockValueHash": 0,
+		"completionValue": 30000,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "High Score",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": true,
+		"isCountingDownward": false,
+		"valueStyle": 1,
+		"hash": 2457231571,
 		"index": 0
 	},
 	"2459725765": {
@@ -7262,7 +8087,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2459725765,
+		"index": 0
+	},
+	"2468288516": {
+		"objectiveHash": 2468288516,
+		"unlockValueHash": 0,
+		"completionValue": 35,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 1,
+		"hash": 2468288516,
 		"index": 0
 	},
 	"2469630254": {
@@ -7276,6 +8117,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 2469630254,
 		"index": 0
 	},
@@ -7289,6 +8131,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2471074630,
 		"index": 0
 	},
@@ -7303,6 +8146,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2471800516,
 		"index": 0
 	},
@@ -7317,6 +8161,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2473200798,
 		"index": 0
 	},
@@ -7330,6 +8175,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2474350374,
 		"index": 0
 	},
@@ -7344,6 +8190,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 2476342662,
 		"index": 0
 	},
@@ -7358,6 +8205,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 2489427174,
 		"index": 0
 	},
@@ -7371,6 +8219,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2492528803,
 		"index": 0
 	},
@@ -7384,6 +8233,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2499837054,
 		"index": 0
 	},
@@ -7397,6 +8247,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2505472182,
 		"index": 0
 	},
@@ -7411,6 +8262,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2511675510,
 		"index": 0
 	},
@@ -7425,6 +8277,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2512655627,
 		"index": 0
 	},
@@ -7439,7 +8292,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2513696405,
+		"index": 0
+	},
+	"2515775280": {
+		"objectiveHash": 2515775280,
+		"unlockValueHash": 0,
+		"completionValue": 900000,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": true,
+		"valueStyle": 1,
+		"hash": 2515775280,
 		"index": 0
 	},
 	"2527253249": {
@@ -7452,6 +8321,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2527253249,
 		"index": 0
 	},
@@ -7466,6 +8336,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2529454498,
 		"index": 0
 	},
@@ -7480,6 +8351,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2529699282,
 		"index": 0
 	},
@@ -7494,6 +8366,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 2543452877,
 		"index": 0
 	},
@@ -7507,6 +8380,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2544162115,
 		"index": 0
 	},
@@ -7521,6 +8395,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 2545611811,
 		"index": 0
 	},
@@ -7534,6 +8409,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2547581192,
 		"index": 0
 	},
@@ -7548,6 +8424,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2551693747,
 		"index": 0
 	},
@@ -7561,6 +8438,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2552061550,
 		"index": 0
 	},
@@ -7575,6 +8453,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2557186748,
 		"index": 0
 	},
@@ -7588,6 +8467,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2560467673,
 		"index": 0
 	},
@@ -7602,6 +8482,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2560527712,
 		"index": 0
 	},
@@ -7615,6 +8496,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2566307361,
 		"index": 0
 	},
@@ -7629,6 +8511,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2566830135,
 		"index": 0
 	},
@@ -7643,6 +8526,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2567834428,
 		"index": 0
 	},
@@ -7656,7 +8540,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2580032548,
+		"index": 0
+	},
+	"2587222923": {
+		"objectiveHash": 2587222923,
+		"unlockValueHash": 0,
+		"completionValue": 200,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "Enemies Killed",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 2587222923,
 		"index": 0
 	},
 	"2588227643": {
@@ -7669,6 +8569,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2588227643,
 		"index": 0
 	},
@@ -7683,6 +8584,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2588284142,
 		"index": 0
 	},
@@ -7696,6 +8598,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2593352627,
 		"index": 0
 	},
@@ -7710,6 +8613,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2593822557,
 		"index": 0
 	},
@@ -7723,6 +8627,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2596013262,
 		"index": 0
 	},
@@ -7737,6 +8642,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2599425842,
 		"index": 0
 	},
@@ -7751,6 +8657,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 2601444956,
 		"index": 0
 	},
@@ -7765,6 +8672,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 2601444957,
 		"index": 0
 	},
@@ -7779,6 +8687,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2603429388,
 		"index": 0
 	},
@@ -7792,6 +8701,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2625881785,
 		"index": 0
 	},
@@ -7805,6 +8715,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2627963018,
 		"index": 0
 	},
@@ -7818,6 +8729,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2631344265,
 		"index": 0
 	},
@@ -7832,6 +8744,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2634200877,
 		"index": 0
 	},
@@ -7845,6 +8758,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2635183004,
 		"index": 0
 	},
@@ -7859,6 +8773,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2638480528,
 		"index": 0
 	},
@@ -7873,6 +8788,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2644086770,
 		"index": 0
 	},
@@ -7886,6 +8802,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2655037119,
 		"index": 0
 	},
@@ -7900,6 +8817,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": true,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 2655603065,
 		"index": 0
 	},
@@ -7913,6 +8831,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2658312273,
 		"index": 0
 	},
@@ -7927,6 +8846,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2659963725,
 		"index": 0
 	},
@@ -7940,6 +8860,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2662414948,
 		"index": 0
 	},
@@ -7953,6 +8874,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2664722423,
 		"index": 0
 	},
@@ -7966,6 +8888,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2667121593,
 		"index": 0
 	},
@@ -7980,6 +8903,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2674293911,
 		"index": 0
 	},
@@ -7994,6 +8918,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2675483026,
 		"index": 0
 	},
@@ -8008,6 +8933,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2687355892,
 		"index": 0
 	},
@@ -8022,20 +8948,8 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2689179448,
-		"index": 0
-	},
-	"2689621979": {
-		"objectiveHash": 2689621979,
-		"unlockValueHash": 0,
-		"completionValue": 1,
-		"vendorHash": 0,
-		"vendorCategoryHash": 0,
-		"locationHash": 2236626847,
-		"allowNegativeValue": false,
-		"allowValueChangeWhenCompleted": false,
-		"isCountingDownward": false,
-		"hash": 2689621979,
 		"index": 0
 	},
 	"2698254350": {
@@ -8049,6 +8963,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2698254350,
 		"index": 0
 	},
@@ -8062,6 +8977,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2699318758,
 		"index": 0
 	},
@@ -8076,6 +8992,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2708013808,
 		"index": 0
 	},
@@ -8090,6 +9007,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2708457422,
 		"index": 0
 	},
@@ -8104,6 +9022,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2710136618,
 		"index": 0
 	},
@@ -8118,7 +9037,22 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2710688367,
+		"index": 0
+	},
+	"2712900608": {
+		"objectiveHash": 2712900608,
+		"unlockValueHash": 0,
+		"completionValue": 1,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"locationHash": 2810181116,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 2712900608,
 		"index": 0
 	},
 	"2714642947": {
@@ -8131,6 +9065,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2714642947,
 		"index": 0
 	},
@@ -8144,6 +9079,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2714778562,
 		"index": 0
 	},
@@ -8158,6 +9094,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 2717943896,
 		"index": 0
 	},
@@ -8171,6 +9108,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2721484442,
 		"index": 0
 	},
@@ -8184,6 +9122,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2722648093,
 		"index": 0
 	},
@@ -8198,6 +9137,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2732490740,
 		"index": 0
 	},
@@ -8211,6 +9151,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2734024801,
 		"index": 0
 	},
@@ -8225,6 +9166,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2747713880,
 		"index": 0
 	},
@@ -8238,6 +9180,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2748526711,
 		"index": 0
 	},
@@ -8252,6 +9195,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2760624656,
 		"index": 0
 	},
@@ -8266,6 +9210,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2765049036,
 		"index": 0
 	},
@@ -8279,6 +9224,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2766257543,
 		"index": 0
 	},
@@ -8293,6 +9239,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 2774622215,
 		"index": 0
 	},
@@ -8307,6 +9254,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2783200014,
 		"index": 0
 	},
@@ -8320,6 +9268,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2789006768,
 		"index": 0
 	},
@@ -8333,6 +9282,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2789949474,
 		"index": 0
 	},
@@ -8347,6 +9297,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2795548913,
 		"index": 0
 	},
@@ -8361,6 +9312,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2799933392,
 		"index": 0
 	},
@@ -8375,6 +9327,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2803927727,
 		"index": 0
 	},
@@ -8389,6 +9342,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2810967768,
 		"index": 0
 	},
@@ -8403,6 +9357,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2825558101,
 		"index": 0
 	},
@@ -8416,6 +9371,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2828210073,
 		"index": 0
 	},
@@ -8430,6 +9386,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2832315171,
 		"index": 0
 	},
@@ -8444,6 +9401,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2834926889,
 		"index": 0
 	},
@@ -8457,6 +9415,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2835255562,
 		"index": 0
 	},
@@ -8471,6 +9430,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2845303696,
 		"index": 0
 	},
@@ -8484,6 +9444,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2852899507,
 		"index": 0
 	},
@@ -8498,6 +9459,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2855320428,
 		"index": 0
 	},
@@ -8512,6 +9474,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2856142038,
 		"index": 0
 	},
@@ -8526,6 +9489,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": true,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2865737990,
 		"index": 0
 	},
@@ -8539,6 +9503,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2883099666,
 		"index": 0
 	},
@@ -8553,6 +9518,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2890863984,
 		"index": 0
 	},
@@ -8567,7 +9533,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2899540378,
+		"index": 0
+	},
+	"2909106843": {
+		"objectiveHash": 2909106843,
+		"unlockValueHash": 0,
+		"completionValue": 30,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "Enemies Killed",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 2909106843,
 		"index": 0
 	},
 	"2911744927": {
@@ -8581,6 +9563,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2911744927,
 		"index": 0
 	},
@@ -8595,6 +9578,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2916157897,
 		"index": 0
 	},
@@ -8608,6 +9592,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2920548424,
 		"index": 0
 	},
@@ -8622,6 +9607,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2923687472,
 		"index": 0
 	},
@@ -8636,6 +9622,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2931440993,
 		"index": 0
 	},
@@ -8649,6 +9636,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2936779523,
 		"index": 0
 	},
@@ -8662,6 +9650,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2951899430,
 		"index": 0
 	},
@@ -8676,6 +9665,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2955306428,
 		"index": 0
 	},
@@ -8690,6 +9680,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 2962471954,
 		"index": 0
 	},
@@ -8703,6 +9694,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2970726348,
 		"index": 0
 	},
@@ -8717,6 +9709,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2972627030,
 		"index": 0
 	},
@@ -8731,6 +9724,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2973183388,
 		"index": 0
 	},
@@ -8745,6 +9739,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2976689227,
 		"index": 0
 	},
@@ -8759,6 +9754,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2978339127,
 		"index": 0
 	},
@@ -8773,7 +9769,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2985715906,
+		"index": 0
+	},
+	"2991328659": {
+		"objectiveHash": 2991328659,
+		"unlockValueHash": 0,
+		"completionValue": 180000,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": true,
+		"valueStyle": 1,
+		"hash": 2991328659,
 		"index": 0
 	},
 	"2997127390": {
@@ -8786,6 +9798,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2997127390,
 		"index": 0
 	},
@@ -8800,6 +9813,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2998077415,
 		"index": 0
 	},
@@ -8813,6 +9827,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 2998321550,
 		"index": 0
 	},
@@ -8827,6 +9842,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3000608815,
 		"index": 0
 	},
@@ -8840,6 +9856,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3009091002,
 		"index": 0
 	},
@@ -8854,7 +9871,22 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3013510966,
+		"index": 0
+	},
+	"3017066024": {
+		"objectiveHash": 3017066024,
+		"unlockValueHash": 0,
+		"completionValue": 1,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"locationHash": 2455462411,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 3017066024,
 		"index": 0
 	},
 	"3018232719": {
@@ -8868,6 +9900,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": true,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 3018232719,
 		"index": 0
 	},
@@ -8881,6 +9914,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3031053487,
 		"index": 0
 	},
@@ -8895,6 +9929,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3035227568,
 		"index": 0
 	},
@@ -8909,6 +9944,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": true,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3043902654,
 		"index": 0
 	},
@@ -8923,6 +9959,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3051317521,
 		"index": 0
 	},
@@ -8936,6 +9973,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3051626162,
 		"index": 0
 	},
@@ -8949,6 +9987,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3061579960,
 		"index": 0
 	},
@@ -8963,6 +10002,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3063309702,
 		"index": 0
 	},
@@ -8976,6 +10016,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3067544787,
 		"index": 0
 	},
@@ -8989,6 +10030,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3074589380,
 		"index": 0
 	},
@@ -9003,6 +10045,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3079026747,
 		"index": 0
 	},
@@ -9017,6 +10060,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3092808990,
 		"index": 0
 	},
@@ -9031,6 +10075,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3096533150,
 		"index": 0
 	},
@@ -9044,6 +10089,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3123999972,
 		"index": 0
 	},
@@ -9058,6 +10104,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3126445716,
 		"index": 0
 	},
@@ -9072,6 +10119,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3131325421,
 		"index": 0
 	},
@@ -9086,6 +10134,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3150176374,
 		"index": 0
 	},
@@ -9100,6 +10149,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3158433393,
 		"index": 0
 	},
@@ -9114,6 +10164,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3158882058,
 		"index": 0
 	},
@@ -9128,6 +10179,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3179916340,
 		"index": 0
 	},
@@ -9142,6 +10194,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3183077779,
 		"index": 0
 	},
@@ -9155,6 +10208,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3183255834,
 		"index": 0
 	},
@@ -9169,6 +10223,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3187300247,
 		"index": 0
 	},
@@ -9182,6 +10237,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3188385111,
 		"index": 0
 	},
@@ -9196,6 +10252,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3191477892,
 		"index": 0
 	},
@@ -9210,6 +10267,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3200583203,
 		"index": 0
 	},
@@ -9223,6 +10281,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3200979226,
 		"index": 0
 	},
@@ -9237,6 +10296,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3202496686,
 		"index": 0
 	},
@@ -9251,6 +10311,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3204368354,
 		"index": 0
 	},
@@ -9265,6 +10326,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3206725056,
 		"index": 0
 	},
@@ -9278,6 +10340,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3212334019,
 		"index": 0
 	},
@@ -9291,6 +10354,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3216751089,
 		"index": 0
 	},
@@ -9304,6 +10368,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3221688831,
 		"index": 0
 	},
@@ -9317,6 +10382,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3224943209,
 		"index": 0
 	},
@@ -9331,6 +10397,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 3232175144,
 		"index": 0
 	},
@@ -9345,6 +10412,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3234527652,
 		"index": 0
 	},
@@ -9359,6 +10427,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 3234845967,
 		"index": 0
 	},
@@ -9372,6 +10441,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3238126464,
 		"index": 0
 	},
@@ -9386,6 +10456,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3240413255,
 		"index": 0
 	},
@@ -9399,6 +10470,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3243408835,
 		"index": 0
 	},
@@ -9412,6 +10484,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3244699682,
 		"index": 0
 	},
@@ -9426,6 +10499,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": true,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 3248888631,
 		"index": 0
 	},
@@ -9440,6 +10514,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3254281137,
 		"index": 0
 	},
@@ -9454,6 +10529,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3256409824,
 		"index": 0
 	},
@@ -9468,6 +10544,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3260248430,
 		"index": 0
 	},
@@ -9482,6 +10559,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3263112034,
 		"index": 0
 	},
@@ -9495,6 +10573,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3274361591,
 		"index": 0
 	},
@@ -9508,6 +10587,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3278030726,
 		"index": 0
 	},
@@ -9522,6 +10602,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 3284901427,
 		"index": 0
 	},
@@ -9535,6 +10616,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3293752096,
 		"index": 0
 	},
@@ -9549,6 +10631,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3299891295,
 		"index": 0
 	},
@@ -9562,6 +10645,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3300434608,
 		"index": 0
 	},
@@ -9575,6 +10659,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3301024707,
 		"index": 0
 	},
@@ -9589,6 +10674,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3310611532,
 		"index": 0
 	},
@@ -9602,6 +10688,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3324590727,
 		"index": 0
 	},
@@ -9616,6 +10703,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3325103490,
 		"index": 0
 	},
@@ -9630,6 +10718,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3325502774,
 		"index": 0
 	},
@@ -9643,6 +10732,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3326951482,
 		"index": 0
 	},
@@ -9657,6 +10747,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3328171211,
 		"index": 0
 	},
@@ -9671,6 +10762,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3331529645,
 		"index": 0
 	},
@@ -9685,6 +10777,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3332826498,
 		"index": 0
 	},
@@ -9699,6 +10792,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3336741868,
 		"index": 0
 	},
@@ -9713,6 +10807,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3338106198,
 		"index": 0
 	},
@@ -9727,6 +10822,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3342726370,
 		"index": 0
 	},
@@ -9741,6 +10837,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3346015382,
 		"index": 0
 	},
@@ -9754,6 +10851,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3347186395,
 		"index": 0
 	},
@@ -9767,6 +10865,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3349633980,
 		"index": 0
 	},
@@ -9781,6 +10880,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": true,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 3351982872,
 		"index": 0
 	},
@@ -9795,6 +10895,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3358565685,
 		"index": 0
 	},
@@ -9808,6 +10909,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3366070155,
 		"index": 0
 	},
@@ -9821,6 +10923,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3367795648,
 		"index": 0
 	},
@@ -9834,6 +10937,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3377535796,
 		"index": 0
 	},
@@ -9847,6 +10951,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3380208204,
 		"index": 0
 	},
@@ -9861,7 +10966,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 3382213729,
+		"index": 0
+	},
+	"3386534578": {
+		"objectiveHash": 3386534578,
+		"unlockValueHash": 0,
+		"completionValue": 50,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 1,
+		"hash": 3386534578,
 		"index": 0
 	},
 	"3392441233": {
@@ -9874,6 +10995,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3392441233,
 		"index": 0
 	},
@@ -9888,6 +11010,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3396854776,
 		"index": 0
 	},
@@ -9901,6 +11024,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3400137014,
 		"index": 0
 	},
@@ -9915,6 +11039,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 3404612986,
 		"index": 0
 	},
@@ -9929,6 +11054,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3404631707,
 		"index": 0
 	},
@@ -9943,6 +11069,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3409812208,
 		"index": 0
 	},
@@ -9956,6 +11083,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3409824264,
 		"index": 0
 	},
@@ -9970,6 +11098,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3414103069,
 		"index": 0
 	},
@@ -9984,6 +11113,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3414161348,
 		"index": 0
 	},
@@ -9998,6 +11128,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3418161868,
 		"index": 0
 	},
@@ -10011,20 +11142,8 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3420587798,
-		"index": 0
-	},
-	"3423811643": {
-		"objectiveHash": 3423811643,
-		"unlockValueHash": 0,
-		"completionValue": 1,
-		"vendorHash": 0,
-		"vendorCategoryHash": 0,
-		"locationHash": 1822888667,
-		"allowNegativeValue": false,
-		"allowValueChangeWhenCompleted": false,
-		"isCountingDownward": false,
-		"hash": 3423811643,
 		"index": 0
 	},
 	"3426826012": {
@@ -10037,6 +11156,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3426826012,
 		"index": 0
 	},
@@ -10051,6 +11171,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3434294258,
 		"index": 0
 	},
@@ -10065,6 +11186,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3434882140,
 		"index": 0
 	},
@@ -10078,6 +11200,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3438303901,
 		"index": 0
 	},
@@ -10092,6 +11215,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3441298306,
 		"index": 0
 	},
@@ -10106,6 +11230,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3445810964,
 		"index": 0
 	},
@@ -10120,6 +11245,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3447594112,
 		"index": 0
 	},
@@ -10134,6 +11260,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3451138210,
 		"index": 0
 	},
@@ -10147,6 +11274,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3451413456,
 		"index": 0
 	},
@@ -10160,6 +11288,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3452307134,
 		"index": 0
 	},
@@ -10173,6 +11302,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3452544948,
 		"index": 0
 	},
@@ -10187,6 +11317,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3459481916,
 		"index": 0
 	},
@@ -10200,7 +11331,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3462098573,
+		"index": 0
+	},
+	"3463693050": {
+		"objectiveHash": 3463693050,
+		"unlockValueHash": 0,
+		"completionValue": 120000,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": true,
+		"valueStyle": 1,
+		"hash": 3463693050,
 		"index": 0
 	},
 	"3471761478": {
@@ -10214,6 +11361,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3471761478,
 		"index": 0
 	},
@@ -10227,7 +11375,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3473805309,
+		"index": 0
+	},
+	"3483819029": {
+		"objectiveHash": 3483819029,
+		"unlockValueHash": 0,
+		"completionValue": 180000,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": true,
+		"valueStyle": 2,
+		"hash": 3483819029,
 		"index": 0
 	},
 	"3489581682": {
@@ -10241,6 +11405,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3489581682,
 		"index": 0
 	},
@@ -10254,7 +11419,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3490185925,
+		"index": 0
+	},
+	"3491781215": {
+		"objectiveHash": 3491781215,
+		"unlockValueHash": 0,
+		"completionValue": 25,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 1,
+		"hash": 3491781215,
 		"index": 0
 	},
 	"3499191508": {
@@ -10267,6 +11448,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3499191508,
 		"index": 0
 	},
@@ -10281,6 +11463,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3502930785,
 		"index": 0
 	},
@@ -10294,6 +11477,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3505454046,
 		"index": 0
 	},
@@ -10308,6 +11492,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3506393963,
 		"index": 0
 	},
@@ -10321,6 +11506,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3507663117,
 		"index": 0
 	},
@@ -10335,6 +11521,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3507666622,
 		"index": 0
 	},
@@ -10349,6 +11536,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3513723016,
 		"index": 0
 	},
@@ -10363,6 +11551,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3518590598,
 		"index": 0
 	},
@@ -10377,6 +11566,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3519385818,
 		"index": 0
 	},
@@ -10390,6 +11580,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3532919178,
 		"index": 0
 	},
@@ -10403,6 +11594,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3542811238,
 		"index": 0
 	},
@@ -10417,6 +11609,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3549159626,
 		"index": 0
 	},
@@ -10431,6 +11624,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3563336721,
 		"index": 0
 	},
@@ -10444,6 +11638,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3578309792,
 		"index": 0
 	},
@@ -10458,6 +11653,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3582673834,
 		"index": 0
 	},
@@ -10472,6 +11668,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3585974128,
 		"index": 0
 	},
@@ -10486,6 +11683,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 3590326267,
 		"index": 0
 	},
@@ -10500,6 +11698,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3593194561,
 		"index": 0
 	},
@@ -10514,6 +11713,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3601988237,
 		"index": 0
 	},
@@ -10528,6 +11728,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3605959191,
 		"index": 0
 	},
@@ -10542,6 +11743,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3612060993,
 		"index": 0
 	},
@@ -10555,6 +11757,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3615205019,
 		"index": 0
 	},
@@ -10569,6 +11772,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3616519093,
 		"index": 0
 	},
@@ -10583,6 +11787,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3617254668,
 		"index": 0
 	},
@@ -10597,6 +11802,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 3626886705,
 		"index": 0
 	},
@@ -10611,7 +11817,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3628749082,
+		"index": 0
+	},
+	"3635425133": {
+		"objectiveHash": 3635425133,
+		"unlockValueHash": 0,
+		"completionValue": 900000,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": true,
+		"valueStyle": 2,
+		"hash": 3635425133,
 		"index": 0
 	},
 	"3646461853": {
@@ -10624,6 +11846,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3646461853,
 		"index": 0
 	},
@@ -10637,6 +11860,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3649315347,
 		"index": 0
 	},
@@ -10651,6 +11875,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3651277476,
 		"index": 0
 	},
@@ -10665,6 +11890,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3656967769,
 		"index": 0
 	},
@@ -10679,6 +11905,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3657220832,
 		"index": 0
 	},
@@ -10692,6 +11919,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3658474633,
 		"index": 0
 	},
@@ -10706,6 +11934,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": true,
+		"valueStyle": 2,
 		"hash": 3659081023,
 		"index": 0
 	},
@@ -10719,6 +11948,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3666603779,
 		"index": 0
 	},
@@ -10732,6 +11962,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3668325044,
 		"index": 0
 	},
@@ -10746,6 +11977,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3668388899,
 		"index": 0
 	},
@@ -10760,6 +11992,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3673545390,
 		"index": 0
 	},
@@ -10774,6 +12007,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3675518548,
 		"index": 0
 	},
@@ -10787,6 +12021,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3677849793,
 		"index": 0
 	},
@@ -10800,6 +12035,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3682326569,
 		"index": 0
 	},
@@ -10814,7 +12050,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3689528352,
+		"index": 0
+	},
+	"3690260069": {
+		"objectiveHash": 3690260069,
+		"unlockValueHash": 0,
+		"completionValue": 30,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "Enemies Killed",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 3690260069,
 		"index": 0
 	},
 	"3694392391": {
@@ -10828,6 +12080,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": true,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3694392391,
 		"index": 0
 	},
@@ -10842,6 +12095,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3696032096,
 		"index": 0
 	},
@@ -10856,6 +12110,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3697276368,
 		"index": 0
 	},
@@ -10870,6 +12125,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3698409221,
 		"index": 0
 	},
@@ -10884,6 +12140,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3703251479,
 		"index": 0
 	},
@@ -10898,6 +12155,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3709382570,
 		"index": 0
 	},
@@ -10911,6 +12169,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3719614436,
 		"index": 0
 	},
@@ -10925,6 +12184,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3726190084,
 		"index": 0
 	},
@@ -10939,6 +12199,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3727708725,
 		"index": 0
 	},
@@ -10953,6 +12214,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3729355702,
 		"index": 0
 	},
@@ -10966,6 +12228,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3731289231,
 		"index": 0
 	},
@@ -10979,6 +12242,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3745174300,
 		"index": 0
 	},
@@ -10993,6 +12257,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3754062310,
 		"index": 0
 	},
@@ -11006,6 +12271,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3754078687,
 		"index": 0
 	},
@@ -11019,6 +12285,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3759162958,
 		"index": 0
 	},
@@ -11032,6 +12299,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3759417482,
 		"index": 0
 	},
@@ -11046,6 +12314,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3763281728,
 		"index": 0
 	},
@@ -11060,6 +12329,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": true,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3767469344,
 		"index": 0
 	},
@@ -11074,6 +12344,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 3770162832,
 		"index": 0
 	},
@@ -11087,6 +12358,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3772786720,
 		"index": 0
 	},
@@ -11100,7 +12372,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3773481430,
+		"index": 0
+	},
+	"3781088535": {
+		"objectiveHash": 3781088535,
+		"unlockValueHash": 0,
+		"completionValue": 100,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 1,
+		"hash": 3781088535,
 		"index": 0
 	},
 	"3789201374": {
@@ -11114,6 +12402,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3789201374,
 		"index": 0
 	},
@@ -11128,6 +12417,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 3792569110,
 		"index": 0
 	},
@@ -11141,6 +12431,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3804352855,
 		"index": 0
 	},
@@ -11155,6 +12446,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3817017485,
 		"index": 0
 	},
@@ -11169,6 +12461,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3817195044,
 		"index": 0
 	},
@@ -11178,11 +12471,12 @@ var DestinyObjectiveDefinition = {
 		"completionValue": 1,
 		"vendorHash": 0,
 		"vendorCategoryHash": 0,
-		"displayDescription": "Win with 2500 Points",
+		"displayDescription": "Match with 1500 Points",
 		"locationHash": 0,
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3822876706,
 		"index": 0
 	},
@@ -11196,6 +12490,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3825982312,
 		"index": 0
 	},
@@ -11210,6 +12505,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3829755864,
 		"index": 0
 	},
@@ -11224,7 +12520,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3831660935,
+		"index": 0
+	},
+	"3840136926": {
+		"objectiveHash": 3840136926,
+		"unlockValueHash": 0,
+		"completionValue": 20,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "Echoes of Malok",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 3840136926,
 		"index": 0
 	},
 	"3842943470": {
@@ -11238,6 +12550,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3842943470,
 		"index": 0
 	},
@@ -11252,6 +12565,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3844485816,
 		"index": 0
 	},
@@ -11266,6 +12580,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3848368720,
 		"index": 0
 	},
@@ -11280,6 +12595,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3848368721,
 		"index": 0
 	},
@@ -11294,6 +12610,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3861105715,
 		"index": 0
 	},
@@ -11308,6 +12625,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3869815938,
 		"index": 0
 	},
@@ -11322,6 +12640,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3870382018,
 		"index": 0
 	},
@@ -11336,6 +12655,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3874149710,
 		"index": 0
 	},
@@ -11350,6 +12670,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3874170241,
 		"index": 0
 	},
@@ -11364,6 +12685,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3882061848,
 		"index": 0
 	},
@@ -11378,6 +12700,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3885482826,
 		"index": 0
 	},
@@ -11392,6 +12715,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3885602296,
 		"index": 0
 	},
@@ -11405,6 +12729,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3896620714,
 		"index": 0
 	},
@@ -11419,7 +12744,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3898117150,
+		"index": 0
+	},
+	"3899342402": {
+		"objectiveHash": 3899342402,
+		"unlockValueHash": 0,
+		"completionValue": 90000,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "Cumulative Score",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": true,
+		"isCountingDownward": false,
+		"valueStyle": 1,
+		"hash": 3899342402,
 		"index": 0
 	},
 	"3900461656": {
@@ -11432,6 +12773,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3900461656,
 		"index": 0
 	},
@@ -11446,6 +12788,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3906869084,
 		"index": 0
 	},
@@ -11459,6 +12802,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3906888560,
 		"index": 0
 	},
@@ -11473,6 +12817,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3908202480,
 		"index": 0
 	},
@@ -11487,6 +12832,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3908671034,
 		"index": 0
 	},
@@ -11500,6 +12846,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3911931844,
 		"index": 0
 	},
@@ -11514,6 +12861,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3917189871,
 		"index": 0
 	},
@@ -11528,6 +12876,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3920922133,
 		"index": 0
 	},
@@ -11541,6 +12890,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3925365102,
 		"index": 0
 	},
@@ -11554,6 +12904,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3938642760,
 		"index": 0
 	},
@@ -11568,6 +12919,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3938849970,
 		"index": 0
 	},
@@ -11581,6 +12933,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3943784556,
 		"index": 0
 	},
@@ -11595,6 +12948,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3945450186,
 		"index": 0
 	},
@@ -11608,6 +12962,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3946529804,
 		"index": 0
 	},
@@ -11621,6 +12976,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3952091914,
 		"index": 0
 	},
@@ -11635,6 +12991,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": true,
+		"valueStyle": 2,
 		"hash": 3957301881,
 		"index": 0
 	},
@@ -11649,6 +13006,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3958369396,
 		"index": 0
 	},
@@ -11663,6 +13021,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3960137379,
 		"index": 0
 	},
@@ -11677,6 +13036,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3963546461,
 		"index": 0
 	},
@@ -11691,6 +13051,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3977301771,
 		"index": 0
 	},
@@ -11704,6 +13065,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3977920965,
 		"index": 0
 	},
@@ -11717,6 +13079,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3979301144,
 		"index": 0
 	},
@@ -11730,6 +13093,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3980566110,
 		"index": 0
 	},
@@ -11743,6 +13107,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3982033301,
 		"index": 0
 	},
@@ -11757,6 +13122,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 3985187062,
 		"index": 0
 	},
@@ -11771,6 +13137,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3985230294,
 		"index": 0
 	},
@@ -11784,6 +13151,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3989674867,
 		"index": 0
 	},
@@ -11798,6 +13166,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3990394454,
 		"index": 0
 	},
@@ -11812,6 +13181,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 3994690130,
 		"index": 0
 	},
@@ -11825,6 +13195,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4000858044,
 		"index": 0
 	},
@@ -11839,6 +13210,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4003615958,
 		"index": 0
 	},
@@ -11853,6 +13225,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": true,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4013522115,
 		"index": 0
 	},
@@ -11867,6 +13240,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4016105642,
 		"index": 0
 	},
@@ -11880,6 +13254,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4023974361,
 		"index": 0
 	},
@@ -11893,6 +13268,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4024549456,
 		"index": 0
 	},
@@ -11906,6 +13282,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4026162133,
 		"index": 0
 	},
@@ -11919,6 +13296,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4032409762,
 		"index": 0
 	},
@@ -11932,6 +13310,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4034346093,
 		"index": 0
 	},
@@ -11946,6 +13325,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4040780272,
 		"index": 0
 	},
@@ -11960,6 +13340,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4041953978,
 		"index": 0
 	},
@@ -11974,6 +13355,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4042307234,
 		"index": 0
 	},
@@ -11988,6 +13370,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4042664347,
 		"index": 0
 	},
@@ -12001,6 +13384,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4052699593,
 		"index": 0
 	},
@@ -12015,6 +13399,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4057847836,
 		"index": 0
 	},
@@ -12029,6 +13414,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4057978104,
 		"index": 0
 	},
@@ -12042,6 +13428,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4065478606,
 		"index": 0
 	},
@@ -12056,6 +13443,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4067254497,
 		"index": 0
 	},
@@ -12069,6 +13457,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4072191896,
 		"index": 0
 	},
@@ -12083,7 +13472,22 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4074877378,
+		"index": 0
+	},
+	"4075147977": {
+		"objectiveHash": 4075147977,
+		"unlockValueHash": 0,
+		"completionValue": 1,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"locationHash": 3199431330,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 4075147977,
 		"index": 0
 	},
 	"4085035690": {
@@ -12097,6 +13501,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4085035690,
 		"index": 0
 	},
@@ -12111,6 +13516,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4086252376,
 		"index": 0
 	},
@@ -12125,6 +13531,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4086394370,
 		"index": 0
 	},
@@ -12139,6 +13546,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4089061982,
 		"index": 0
 	},
@@ -12152,6 +13560,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4101680528,
 		"index": 0
 	},
@@ -12166,6 +13575,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 4105034599,
 		"index": 0
 	},
@@ -12180,6 +13590,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 4122386410,
 		"index": 0
 	},
@@ -12194,7 +13605,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4129466299,
+		"index": 0
+	},
+	"4138953906": {
+		"objectiveHash": 4138953906,
+		"unlockValueHash": 0,
+		"completionValue": 35,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 1,
+		"hash": 4138953906,
 		"index": 0
 	},
 	"4143293594": {
@@ -12208,7 +13635,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4143293594,
+		"index": 0
+	},
+	"4145706890": {
+		"objectiveHash": 4145706890,
+		"unlockValueHash": 0,
+		"completionValue": 200,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 1,
+		"hash": 4145706890,
 		"index": 0
 	},
 	"4153037329": {
@@ -12221,6 +13664,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4153037329,
 		"index": 0
 	},
@@ -12235,6 +13679,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4154672938,
 		"index": 0
 	},
@@ -12248,6 +13693,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4154701009,
 		"index": 0
 	},
@@ -12261,6 +13707,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4166872235,
 		"index": 0
 	},
@@ -12275,6 +13722,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4167680434,
 		"index": 0
 	},
@@ -12289,6 +13737,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4169294391,
 		"index": 0
 	},
@@ -12303,6 +13752,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4178311024,
 		"index": 0
 	},
@@ -12316,6 +13766,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4179188704,
 		"index": 0
 	},
@@ -12329,6 +13780,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4187942145,
 		"index": 0
 	},
@@ -12342,6 +13794,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4189724444,
 		"index": 0
 	},
@@ -12355,6 +13808,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4189980086,
 		"index": 0
 	},
@@ -12368,6 +13822,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4203102712,
 		"index": 0
 	},
@@ -12381,6 +13836,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4212842240,
 		"index": 0
 	},
@@ -12395,6 +13851,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4215691550,
 		"index": 0
 	},
@@ -12409,6 +13866,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 1,
 		"hash": 4231055974,
 		"index": 0
 	},
@@ -12422,6 +13880,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4231584804,
 		"index": 0
 	},
@@ -12436,6 +13895,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 3,
 		"hash": 4239057657,
 		"index": 0
 	},
@@ -12449,6 +13909,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4240072913,
 		"index": 0
 	},
@@ -12462,6 +13923,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4242065879,
 		"index": 0
 	},
@@ -12475,6 +13937,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4246490442,
 		"index": 0
 	},
@@ -12488,6 +13951,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4255475312,
 		"index": 0
 	},
@@ -12502,6 +13966,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4256497697,
 		"index": 0
 	},
@@ -12516,6 +13981,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4256497716,
 		"index": 0
 	},
@@ -12530,6 +13996,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4259250090,
 		"index": 0
 	},
@@ -12544,6 +14011,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4265628321,
 		"index": 0
 	},
@@ -12558,6 +14026,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4266275667,
 		"index": 0
 	},
@@ -12571,6 +14040,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4272908578,
 		"index": 0
 	},
@@ -12584,6 +14054,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4273822326,
 		"index": 0
 	},
@@ -12598,6 +14069,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4274244451,
 		"index": 0
 	},
@@ -12611,6 +14083,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4276149370,
 		"index": 0
 	},
@@ -12625,6 +14098,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4276535540,
 		"index": 0
 	},
@@ -12638,6 +14112,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4282434213,
 		"index": 0
 	},
@@ -12652,7 +14127,23 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4286441921,
+		"index": 0
+	},
+	"4289134253": {
+		"objectiveHash": 4289134253,
+		"unlockValueHash": 0,
+		"completionValue": 40,
+		"vendorHash": 0,
+		"vendorCategoryHash": 0,
+		"displayDescription": "Enemies Killed",
+		"locationHash": 0,
+		"allowNegativeValue": false,
+		"allowValueChangeWhenCompleted": false,
+		"isCountingDownward": false,
+		"valueStyle": 0,
+		"hash": 4289134253,
 		"index": 0
 	},
 	"4290725281": {
@@ -12665,6 +14156,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4290725281,
 		"index": 0
 	},
@@ -12678,6 +14170,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4291687746,
 		"index": 0
 	},
@@ -12692,6 +14185,7 @@ var DestinyObjectiveDefinition = {
 		"allowNegativeValue": false,
 		"allowValueChangeWhenCompleted": false,
 		"isCountingDownward": false,
+		"valueStyle": 0,
 		"hash": 4294066626,
 		"index": 0
 	}
