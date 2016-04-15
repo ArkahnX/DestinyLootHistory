@@ -385,30 +385,36 @@ function processDifference() {
 	if (diffs.length) {
 		for (var diff of diffs) {
 			for (var addition of diff.added) {
-				additions.push({
-					characterId: diff.characterId,
-					item: addition
-				});
+				if (addition) {
+					additions.push({
+						characterId: diff.characterId,
+						item: addition
+					});
+				}
 			}
 			for (var removal of diff.removed) {
-				removals.push({
-					characterId: diff.characterId,
-					item: removal
-				});
+				if (removal) {
+					removals.push({
+						characterId: diff.characterId,
+						item: removal
+					});
+				}
 			}
 		}
 		for (var i = additions.length - 1; i >= 0; i--) {
 			var addition = additions[i];
 			for (var e = removals.length - 1; e >= 0; e--) {
 				var removal = removals[e];
-				if (isSameItem(addition.item, removal.item)) {
-					var movedItem = additions.splice(i, 1)[0];
-					removals.splice(e, 1);
-					transfers.push({
-						from: removal.characterId,
-						to: addition.characterId,
-						item: movedItem.item
-					});
+				if (addition.characterId !== removal.characterId) {
+					if (isSameItem(addition.item, removal.item)) {
+						var movedItem = additions.splice(i, 1)[0];
+						removals.splice(e, 1);
+						transfers.push({
+							from: removal.characterId,
+							to: addition.characterId,
+							item: movedItem.item
+						});
+					}
 				}
 			}
 		}
