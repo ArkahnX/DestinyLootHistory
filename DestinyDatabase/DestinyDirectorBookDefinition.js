@@ -2431,7 +2431,7 @@ var DestinyDirectorBookDefinition = {
 				],
 				"states": [
 					{
-						"state": 2
+						"state": 0
 					},
 					{
 						"state": 3
@@ -2694,7 +2694,7 @@ var DestinyDirectorBookDefinition = {
 				"positionY": 493,
 				"positionZ": 0,
 				"activityBundleHashes": [
-					2606303256
+					2022189692
 				],
 				"states": [
 					{
@@ -2702,6 +2702,9 @@ var DestinyDirectorBookDefinition = {
 					},
 					{
 						"state": 4
+					},
+					{
+						"state": 0
 					},
 					{
 						"state": 0
@@ -2839,7 +2842,7 @@ var DestinyDirectorBookDefinition = {
 					"stepOperator": 1,
 					"flagHash": 4131347936,
 					"valueHash": 0,
-					"value": 3551
+					"value": 3552
 				},
 				{
 					"stepOperator": 1,
@@ -3804,7 +3807,7 @@ var DestinyDirectorBookDefinition = {
 					"stepOperator": 1,
 					"flagHash": 2748347740,
 					"valueHash": 0,
-					"value": 3580
+					"value": 3581
 				},
 				{
 					"stepOperator": 1,
@@ -4199,6 +4202,31 @@ var DestinyDirectorBookDefinition = {
 					}
 				],
 				"uiModifier": 0
+			},
+			{
+				"nodeDefinitionHash": 381173143,
+				"styleHash": 1802004917,
+				"positionX": 1000,
+				"positionY": 510,
+				"positionZ": 0,
+				"activityBundleHashes": [
+					632771975
+				],
+				"states": [
+					{
+						"state": 0
+					},
+					{
+						"state": 4
+					},
+					{
+						"state": 3
+					},
+					{
+						"state": 0
+					}
+				],
+				"uiModifier": 1
 			}
 		],
 		"connections": [],
@@ -4213,7 +4241,7 @@ var DestinyDirectorBookDefinition = {
 					"stepOperator": 1,
 					"flagHash": 2617018872,
 					"valueHash": 0,
-					"value": 3843
+					"value": 3844
 				}
 			]
 		},
@@ -5213,7 +5241,7 @@ var DestinyDirectorBookDefinition = {
 				"uiModifier": 0
 			},
 			{
-				"nodeDefinitionHash": 2948247802,
+				"nodeDefinitionHash": 2365566313,
 				"styleHash": 2166136261,
 				"positionX": 1205,
 				"positionY": 352,
@@ -5341,7 +5369,7 @@ var DestinyDirectorBookDefinition = {
 				],
 				"states": [
 					{
-						"state": 2
+						"state": 0
 					},
 					{
 						"state": 3
@@ -5593,6 +5621,47 @@ var DestinyDirectorBookDefinition = {
 					},
 					{
 						"state": 4
+					}
+				],
+				"uiModifier": 3
+			},
+			{
+				"nodeDefinitionHash": 4077466945,
+				"styleHash": 1559628891,
+				"positionX": 1272,
+				"positionY": 484,
+				"positionZ": 0,
+				"activityBundleHashes": [
+					1404620600
+				],
+				"states": [
+					{
+						"state": 3
+					},
+					{
+						"state": 4
+					}
+				],
+				"uiModifier": 3
+			},
+			{
+				"nodeDefinitionHash": 3718058961,
+				"styleHash": 1678499309,
+				"positionX": 1212,
+				"positionY": 532,
+				"positionZ": 0,
+				"activityBundleHashes": [
+					1673931290
+				],
+				"states": [
+					{
+						"state": 3
+					},
+					{
+						"state": 4
+					},
+					{
+						"state": 0
 					}
 				],
 				"uiModifier": 3

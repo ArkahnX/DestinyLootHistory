@@ -4,23 +4,7 @@ var DestinyRecordDefinition = {
 		"description": "Complete SRL races on Mars.",
 		"recordValueUIStyle": "_investment_record_value_ui_style_integer",
 		"icon": "/img/destiny_content/records/races_complete.png",
-		"rewards": [
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 2828837273,
-				"uiItemQuantity": 1
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 1475579175,
-				"uiItemQuantity": 0
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 0,
-				"uiItemQuantity": 1
-			}
-		],
+		"rewards": [],
 		"objectives": [
 			{
 				"objectiveHash": 2255816006
@@ -34,23 +18,7 @@ var DestinyRecordDefinition = {
 		"description": "Successfully pass through gates during Venus SRL races.",
 		"recordValueUIStyle": "_investment_record_value_ui_style_integer",
 		"icon": "/img/destiny_content/records/gates_hit.png",
-		"rewards": [
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 4223010277,
-				"uiItemQuantity": 1
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 1475579175,
-				"uiItemQuantity": 0
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 0,
-				"uiItemQuantity": 1
-			}
-		],
+		"rewards": [],
 		"objectives": [
 			{
 				"objectiveHash": 1118244576
@@ -64,23 +32,7 @@ var DestinyRecordDefinition = {
 		"description": "Complete SRL races on Venus.",
 		"recordValueUIStyle": "_investment_record_value_ui_style_integer",
 		"icon": "/img/destiny_content/records/races_complete.png",
-		"rewards": [
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 2170625065,
-				"uiItemQuantity": 1
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 1475579175,
-				"uiItemQuantity": 0
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 0,
-				"uiItemQuantity": 1
-			}
-		],
+		"rewards": [],
 		"objectives": [
 			{
 				"objectiveHash": 3770162832
@@ -94,23 +46,7 @@ var DestinyRecordDefinition = {
 		"description": "Land Sparrow tricks during Venus SRL races.",
 		"recordValueUIStyle": "_investment_record_value_ui_style_integer",
 		"icon": "/img/destiny_content/records/tricks_landed.png",
-		"rewards": [
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 2092342448,
-				"uiItemQuantity": 1
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 1475579175,
-				"uiItemQuantity": 0
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 0,
-				"uiItemQuantity": 1
-			}
-		],
+		"rewards": [],
 		"objectives": [
 			{
 				"objectiveHash": 2489427174
@@ -124,18 +60,7 @@ var DestinyRecordDefinition = {
 		"description": "Successfully pass through gates during a single Mars race.",
 		"recordValueUIStyle": "_investment_record_value_ui_style_integer",
 		"icon": "/img/destiny_content/records/gates_hit_race.png",
-		"rewards": [
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 1475579175,
-				"uiItemQuantity": 0
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 0,
-				"uiItemQuantity": 1
-			}
-		],
+		"rewards": [],
 		"objectives": [
 			{
 				"objectiveHash": 1092765482
@@ -149,23 +74,7 @@ var DestinyRecordDefinition = {
 		"description": "Land Sparrow tricks during Mars SRL races.",
 		"recordValueUIStyle": "_investment_record_value_ui_style_integer",
 		"icon": "/img/destiny_content/records/tricks_landed.png",
-		"rewards": [
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 3764987313,
-				"uiItemQuantity": 1
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 1475579175,
-				"uiItemQuantity": 0
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 0,
-				"uiItemQuantity": 1
-			}
-		],
+		"rewards": [],
 		"objectives": [
 			{
 				"objectiveHash": 817684220
@@ -179,18 +88,7 @@ var DestinyRecordDefinition = {
 		"description": "Beat the par lap time on the Mars SRL track.",
 		"recordValueUIStyle": "_investment_record_value_ui_style_time_in_milliseconds",
 		"icon": "/img/destiny_content/records/best_lap.png",
-		"rewards": [
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 1475579175,
-				"uiItemQuantity": 0
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 0,
-				"uiItemQuantity": 1
-			}
-		],
+		"rewards": [],
 		"objectives": [
 			{
 				"objectiveHash": 3659081023
@@ -204,23 +102,7 @@ var DestinyRecordDefinition = {
 		"description": "Earn SRL Event Standing in SRL races. Placing higher earns more standing.",
 		"recordValueUIStyle": "_investment_record_value_ui_style_integer",
 		"icon": "/img/destiny_content/records/venus_points_earned.png",
-		"rewards": [
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 1266297719,
-				"uiItemQuantity": 1
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 1475579175,
-				"uiItemQuantity": 0
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 0,
-				"uiItemQuantity": 1
-			}
-		],
+		"rewards": [],
 		"objectives": [
 			{
 				"objectiveHash": 3234845967
@@ -234,23 +116,7 @@ var DestinyRecordDefinition = {
 		"description": "Earn SRL Event Standing in SRL races. Placing higher earns more standing.",
 		"recordValueUIStyle": "_investment_record_value_ui_style_integer",
 		"icon": "/img/destiny_content/records/mars_points_earned.png",
-		"rewards": [
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 1001251649,
-				"uiItemQuantity": 1
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 1475579175,
-				"uiItemQuantity": 0
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 0,
-				"uiItemQuantity": 1
-			}
-		],
+		"rewards": [],
 		"objectives": [
 			{
 				"objectiveHash": 3626886705
@@ -264,18 +130,7 @@ var DestinyRecordDefinition = {
 		"description": "Earn first-place finishes in Mars SRL races.",
 		"recordValueUIStyle": "_investment_record_value_ui_style_integer",
 		"icon": "/img/destiny_content/records/mars_first_place.png",
-		"rewards": [
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 1475579175,
-				"uiItemQuantity": 0
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 0,
-				"uiItemQuantity": 1
-			}
-		],
+		"rewards": [],
 		"objectives": [
 			{
 				"objectiveHash": 1796431156
@@ -289,18 +144,7 @@ var DestinyRecordDefinition = {
 		"description": "Beat the par race time on the Mars SRL track.",
 		"recordValueUIStyle": "_investment_record_value_ui_style_time_in_milliseconds",
 		"icon": "/img/destiny_content/records/best_race.png",
-		"rewards": [
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 1475579175,
-				"uiItemQuantity": 0
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 0,
-				"uiItemQuantity": 1
-			}
-		],
+		"rewards": [],
 		"objectives": [
 			{
 				"objectiveHash": 3957301881
@@ -314,18 +158,7 @@ var DestinyRecordDefinition = {
 		"description": "Successfully pass through gates during a single Venus race.",
 		"recordValueUIStyle": "_investment_record_value_ui_style_integer",
 		"icon": "/img/destiny_content/records/gates_hit_race.png",
-		"rewards": [
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 1475579175,
-				"uiItemQuantity": 0
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 0,
-				"uiItemQuantity": 1
-			}
-		],
+		"rewards": [],
 		"objectives": [
 			{
 				"objectiveHash": 1548462092
@@ -339,18 +172,7 @@ var DestinyRecordDefinition = {
 		"description": "Beat the par lap time on the Venus SRL track.",
 		"recordValueUIStyle": "_investment_record_value_ui_style_time_in_milliseconds",
 		"icon": "/img/destiny_content/records/best_lap.png",
-		"rewards": [
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 1475579175,
-				"uiItemQuantity": 0
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 0,
-				"uiItemQuantity": 1
-			}
-		],
+		"rewards": [],
 		"objectives": [
 			{
 				"objectiveHash": 1183785417
@@ -364,18 +186,7 @@ var DestinyRecordDefinition = {
 		"description": "Earn first-place finishes in Venus SRL races.",
 		"recordValueUIStyle": "_investment_record_value_ui_style_time_in_milliseconds",
 		"icon": "/img/destiny_content/records/best_race.png",
-		"rewards": [
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 1475579175,
-				"uiItemQuantity": 0
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 0,
-				"uiItemQuantity": 1
-			}
-		],
+		"rewards": [],
 		"objectives": [
 			{
 				"objectiveHash": 1509103335
@@ -389,23 +200,7 @@ var DestinyRecordDefinition = {
 		"description": "Successfully pass through gates during Mars SRL races.",
 		"recordValueUIStyle": "_investment_record_value_ui_style_integer",
 		"icon": "/img/destiny_content/records/gates_hit.png",
-		"rewards": [
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 2150667284,
-				"uiItemQuantity": 1
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 1475579175,
-				"uiItemQuantity": 0
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 0,
-				"uiItemQuantity": 1
-			}
-		],
+		"rewards": [],
 		"objectives": [
 			{
 				"objectiveHash": 1694571362
@@ -419,18 +214,7 @@ var DestinyRecordDefinition = {
 		"description": "Earn first-place finishes in Venus SRL races.",
 		"recordValueUIStyle": "_investment_record_value_ui_style_integer",
 		"icon": "/img/destiny_content/records/venus_first_place.png",
-		"rewards": [
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 1475579175,
-				"uiItemQuantity": 0
-			},
-			{
-				"rewardSiteHash": 0,
-				"uiItemHash": 0,
-				"uiItemQuantity": 1
-			}
-		],
+		"rewards": [],
 		"objectives": [
 			{
 				"objectiveHash": 744189594

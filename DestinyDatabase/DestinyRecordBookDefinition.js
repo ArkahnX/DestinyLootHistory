@@ -62,9 +62,9 @@ var DestinyRecordBookDefinition = {
 				]
 			}
 		],
-		"displayName": "SRL Record Book, Vol. 1",
-		"displayDescription": "Sparrow Racing Logbook",
-		"icon": "/common/destiny_content/icons/b844a4f6d9081fb8bb77e555c0e2e92a.png",
+		"displayName": "SRL Record Book",
+		"displayDescription": "Vol. 1",
+		"icon": "/common/destiny_content/icons/dd511287234d62f4cf0e5e967754cc5a.png",
 		"unavailableReason": "SRL Event Inactive",
 		"hash": 3192310198,
 		"index": 0

@@ -24,7 +24,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 18271737,
 		"displayName": "Scrambler",
 		"displayDescription": "This weapon has a chance to stun Fallen Servitors.",
-		"displayIcon": "/common/destiny_content/icons/9701ccaee8c27e8b1744fff9e0468cbf.png",
+		"displayIcon": "/common/destiny_content/icons/f7810ab6bd6ca31a9c1bdbaeb1579c86.png",
 		"isDisplayable": true,
 		"hash": 18271737,
 		"index": 0
@@ -40,7 +40,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 40760096,
 		"displayName": "Keeper of the Pack",
 		"displayDescription": "Revive teammates faster. Spawn more orbs.",
-		"displayIcon": "/common/destiny_content/icons/c5d234406f87724d5e9471dc8c9b5069.png",
+		"displayIcon": "/common/destiny_content/icons/bf19b28dbc60be41631bb496a795509f.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -56,7 +56,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 51093941,
 		"displayName": "Hive Destroyer",
 		"displayDescription": "Killing a Hive with a grenade ability has a chance to spawn an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/56f7dc38b906427292911142dcc457a7.png",
+		"displayIcon": "/common/destiny_content/icons/43044bb3ab75541acb3a1ff555fc82cb.png",
 		"isDisplayable": true,
 		"hash": 51093941,
 		"index": 0
@@ -65,7 +65,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 51093942,
 		"displayName": "Hive Striker",
 		"displayDescription": "Killing a Hive with a critical hit has a chance to spawn an Orb of  Light.",
-		"displayIcon": "/common/destiny_content/icons/56f7dc38b906427292911142dcc457a7.png",
+		"displayIcon": "/common/destiny_content/icons/43044bb3ab75541acb3a1ff555fc82cb.png",
 		"isDisplayable": true,
 		"hash": 51093942,
 		"index": 0
@@ -74,7 +74,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 51093943,
 		"displayName": "Hive Breaker",
 		"displayDescription": "Killing a Hive with a melee attack has a chance to spawn an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/56f7dc38b906427292911142dcc457a7.png",
+		"displayIcon": "/common/destiny_content/icons/43044bb3ab75541acb3a1ff555fc82cb.png",
 		"isDisplayable": true,
 		"hash": 51093943,
 		"index": 0
@@ -83,7 +83,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 58719660,
 		"displayName": "Spinmetal Extractor",
 		"displayDescription": "Chance to find additional spinmetal when looting engrams in the Cosmodrome.",
-		"displayIcon": "/common/destiny_content/icons/a6d057f795fb18838af7053885530c45.png",
+		"displayIcon": "/common/destiny_content/icons/402e3de7621cb15d95612018ed4d03de.png",
 		"isDisplayable": true,
 		"hash": 58719660,
 		"index": 0
@@ -106,7 +106,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 77413622,
 		"displayName": "Delusions of Grandeur",
 		"displayDescription": "Take reduced damage while using Nova Bomb. Improved Energy Drain abilities.",
-		"displayIcon": "/common/destiny_content/icons/fdae60dbc08a78488e6740707c6023b4.png",
+		"displayIcon": "/common/destiny_content/icons/50340c4297aa34ec02cd23b0968927a1.png",
 		"isDisplayable": true,
 		"hash": 77413622,
 		"index": 0
@@ -115,7 +115,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 77746637,
 		"displayName": "Relentless Tracker",
 		"displayDescription": "Kills with this weapon grant enhanced motion tracker resolution for a short time.",
-		"displayIcon": "/common/destiny_content/icons/51d23e6fe9a592361c8563b1a9f01156.png",
+		"displayIcon": "/common/destiny_content/icons/de49bee78590f74e2585cbe28d055dd3.png",
 		"isDisplayable": true,
 		"hash": 77746637,
 		"index": 0
@@ -124,7 +124,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 81610349,
 		"displayName": "Insatiable",
 		"displayDescription": "Nova Bomb reduces cooldown of next Nova Bomb.",
-		"displayIcon": "/common/destiny_content/icons/fdae60dbc08a78488e6740707c6023b4.png",
+		"displayIcon": "/common/destiny_content/icons/50340c4297aa34ec02cd23b0968927a1.png",
 		"isDisplayable": true,
 		"hash": 81610349,
 		"index": 0
@@ -133,7 +133,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 82396446,
 		"displayName": "Last Man Standing",
 		"displayDescription": "Golden Gun gains one additional shot.",
-		"displayIcon": "/common/destiny_content/icons/c3115ebc24a5ebe5a71fc0f4c4e6d225.png",
+		"displayIcon": "/common/destiny_content/icons/134e8bddce7e093b1e2c85f16d704801.png",
 		"isDisplayable": true,
 		"hash": 82396446,
 		"index": 0
@@ -142,7 +142,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 83047347,
 		"displayName": "Big Game",
 		"displayDescription": "Golden Gun fires one shot with 6x damage, while granting Keyhole for overpenetration.",
-		"displayIcon": "/common/destiny_content/icons/7caad5c02bc9fb44a244563bbc16a4cc.png",
+		"displayIcon": "/common/destiny_content/icons/bf2e430dac1f19edf345ae597fba5cf0.png",
 		"isDisplayable": true,
 		"hash": 83047347,
 		"index": 0
@@ -151,7 +151,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 91717488,
 		"displayName": "Luck in the Chamber",
 		"displayDescription": "One random bullet in the magazine causes considerable bonus damage.",
-		"displayIcon": "/common/destiny_content/icons/b45df811e85324e78804d3d3918b21eb.png",
+		"displayIcon": "/common/destiny_content/icons/73eac687d033ab5a5a653d8efb9880fb.png",
 		"isDisplayable": true,
 		"hash": 91717488,
 		"index": 0
@@ -237,7 +237,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 121974376,
 		"displayName": "Pulse Rifle Affinity",
 		"displayDescription": "Unlocks upgrades on Pulse Rifles.",
-		"displayIcon": "/common/destiny_content/icons/90b3c2212f25c0fcf1423c4593680492.png",
+		"displayIcon": "/common/destiny_content/icons/c5228a31e694403cad49de455de222be.png",
 		"isDisplayable": true,
 		"hash": 121974376,
 		"index": 0
@@ -246,7 +246,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 124234431,
 		"displayName": "Hand Cannon Ammo",
 		"displayDescription": "Increases the amount of Hand Cannon ammunition you can carry.",
-		"displayIcon": "/common/destiny_content/icons/9c4173af9f2dbfc477ceb80ffa0f16a1.png",
+		"displayIcon": "/common/destiny_content/icons/a125e5e936573497a219419b30428234.png",
 		"isDisplayable": true,
 		"hash": 124234431,
 		"index": 0
@@ -269,7 +269,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 127926301,
 		"displayName": "Lightning Rounds",
 		"displayDescription": "This weapon fires faster and more accurately the longer the trigger is held.",
-		"displayIcon": "/common/destiny_content/icons/d35f17ba8b9398b2568d7cb03e204ab5.png",
+		"displayIcon": "/common/destiny_content/icons/9d51bb272dd881a6e48eba018f737a79.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 1,
@@ -299,7 +299,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 136095187,
 		"displayName": "Accelerant",
 		"displayDescription": "Grants Explosive Pyre.",
-		"displayIcon": "/common/destiny_content/icons/7bd2dab0826d059758e65d32cdc86631.png",
+		"displayIcon": "/common/destiny_content/icons/8def03ed07e907836d5bcc3812a6198f.png",
 		"isDisplayable": true,
 		"hash": 136095187,
 		"index": 0
@@ -308,7 +308,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 138051548,
 		"displayName": "Recklessness",
 		"displayDescription": "Provides Death from Above and Headstrong for Fist of Havoc.",
-		"displayIcon": "/common/destiny_content/icons/0f9a484989e8ce9a1eb598523307479a.png",
+		"displayIcon": "/common/destiny_content/icons/5a434b7a6c13d334e3a88a47f5af0081.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -324,7 +324,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 139437266,
 		"displayName": "Hand Cannon Slugs",
 		"displayDescription": "Carry more ammo for Hand Cannon.",
-		"displayIcon": "/common/destiny_content/icons/9c4173af9f2dbfc477ceb80ffa0f16a1.png",
+		"displayIcon": "/common/destiny_content/icons/a125e5e936573497a219419b30428234.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -361,7 +361,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 164606820,
 		"displayName": "String of Curses",
 		"displayDescription": "After each kill, this weapon will reload instantly and increase damage for a short time. Kills will help charge your super.",
-		"displayIcon": "/common/destiny_content/icons/44637d6e6782f8da9038320f634e08d4.png",
+		"displayIcon": "/common/destiny_content/icons/2003cea7d27a2af7ceedf7146637089f.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -398,7 +398,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 177663318,
 		"displayName": "Pulse Rifle Loader",
 		"displayDescription": "Increased reload speed with Pulse Rifles.",
-		"displayIcon": "/common/destiny_content/icons/297692b9f5f4b032751f0456a78a32de.png",
+		"displayIcon": "/common/destiny_content/icons/cc72707df8bd5f3623d01ffe5bf7ef06.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -414,16 +414,25 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 183958561,
 		"displayName": "Arc Resonance",
 		"displayDescription": "Arc grenades have a chance to generate an Orb when killing a minion of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/3cb4fbd6fd7e7ccc55efd7335c885980.png",
+		"displayIcon": "/common/destiny_content/icons/7705303458e558a9c64598b38e0ccbf5.png",
 		"isDisplayable": true,
 		"hash": 183958561,
+		"index": 0
+	},
+	"185596886": {
+		"perkHash": 185596886,
+		"displayName": "House of Judgment Reputation Booster",
+		"displayDescription": "AURA\nIncreased House of Judgment reputation rewards from the Prison of Elders.\n\nAuras will fade if you leave the Fireteam of the providing Guardian.",
+		"displayIcon": "/common/destiny_content/icons/6436f89428250c34d838f4a5ebca7aa5.png",
+		"isDisplayable": true,
+		"hash": 185596886,
 		"index": 0
 	},
 	"192233393": {
 		"perkHash": 192233393,
 		"displayName": "Spray and Play",
 		"displayDescription": "Increases the reload speed of this weapon when its mag is empty.",
-		"displayIcon": "/common/destiny_content/icons/16524be9d1df3fa0725539bbf8c71705.png",
+		"displayIcon": "/common/destiny_content/icons/9e888656e40dcbf8105cd21e32ca59e3.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -442,11 +451,20 @@ var DestinySandboxPerkDefinition = {
 		"hash": 193239554,
 		"index": 0
 	},
+	"195717330": {
+		"perkHash": 195717330,
+		"displayName": "Luck in the Chamber",
+		"displayDescription": "One random bullet in the magazine causes considerable bonus damage.",
+		"displayIcon": "/common/destiny_content/icons/73eac687d033ab5a5a653d8efb9880fb.png",
+		"isDisplayable": true,
+		"hash": 195717330,
+		"index": 0
+	},
 	"216012134": {
 		"perkHash": 216012134,
 		"displayName": "Momentum Transfer",
 		"displayDescription": "Causing damage with a grenade reduces your melee cooldown.",
-		"displayIcon": "/common/destiny_content/icons/bddeb4198ac4c49f6b61a56d59fab266.png",
+		"displayIcon": "/common/destiny_content/icons/ed0855dd70faf4afd7fe8365e07df8d4.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -462,7 +480,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 216012135,
 		"displayName": "Paramuscle Armature",
 		"displayDescription": "Increases grenade throw distance.",
-		"displayIcon": "/common/destiny_content/icons/bddeb4198ac4c49f6b61a56d59fab266.png",
+		"displayIcon": "/common/destiny_content/icons/ed0855dd70faf4afd7fe8365e07df8d4.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -485,7 +503,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 231940541,
 		"displayName": "Special Weapon Analysis",
 		"displayDescription": "Increased XP gain for Special weapons.",
-		"displayIcon": "/common/destiny_content/icons/34bb33bfc6695725b6dfede26a53ea5a.png",
+		"displayIcon": "/common/destiny_content/icons/3d3073c4f92a125ee04e682c78274e53.png",
 		"isDisplayable": true,
 		"hash": 231940541,
 		"index": 0
@@ -494,7 +512,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 232250696,
 		"displayName": "Innervation",
 		"displayDescription": "Reduces grenade cooldown each time you pick up an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/fd12704a6c1b37d05bfaead15c4457d5.png",
+		"displayIcon": "/common/destiny_content/icons/75cb8c0471c02b4cfe222a8b796ffc64.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -510,7 +528,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 232250697,
 		"displayName": "Infusion",
 		"displayDescription": "Replenishes health each time you pick up an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/fd12704a6c1b37d05bfaead15c4457d5.png",
+		"displayIcon": "/common/destiny_content/icons/75cb8c0471c02b4cfe222a8b796ffc64.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -526,7 +544,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 232250699,
 		"displayName": "Invigoration",
 		"displayDescription": "Reduces melee cooldown each time you pick up an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/fd12704a6c1b37d05bfaead15c4457d5.png",
+		"displayIcon": "/common/destiny_content/icons/75cb8c0471c02b4cfe222a8b796ffc64.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -557,7 +575,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 234951720,
 		"displayName": "Metal Detector",
 		"displayDescription": "Expect to find more ammo for this weapon.",
-		"displayIcon": "/common/destiny_content/icons/d1cf3fc0e7f48dae469eb7e34b1dfdff.png",
+		"displayIcon": "/common/destiny_content/icons/f401fa148ef82a8536c6f2109aa706af.png",
 		"isDisplayable": true,
 		"hash": 234951720,
 		"index": 0
@@ -566,7 +584,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 242558733,
 		"displayName": "Hand Cannon Affinity",
 		"displayDescription": "Unlocks upgrades on Hand Cannons.",
-		"displayIcon": "/common/destiny_content/icons/7cf9a59fdba99b4843e84b55594f4393.png",
+		"displayIcon": "/common/destiny_content/icons/642dbe15cf812dcf0c1d57538bfd2382.png",
 		"isDisplayable": true,
 		"hash": 242558733,
 		"index": 0
@@ -575,7 +593,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 247305382,
 		"displayName": "Pulse Rifle Focus",
 		"displayDescription": "Increases the upgrade rate for Pulse Rifles.",
-		"displayIcon": "/common/destiny_content/icons/269f7053200f7b062c533d132866c6bb.png",
+		"displayIcon": "/common/destiny_content/icons/32661fba2865eaa8376fcf423edd8cda.png",
 		"isDisplayable": true,
 		"hash": 247305382,
 		"index": 0
@@ -591,7 +609,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 255180203,
 		"displayName": "All Weapon Loader",
 		"displayDescription": "Increased reload speed with all weapons.",
-		"displayIcon": "/common/destiny_content/icons/366e571751a00f158e343d4b6a493e7c.png",
+		"displayIcon": "/common/destiny_content/icons/e4a08176be990638fca1ae20760a5572.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -614,7 +632,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 267340957,
 		"displayName": "Praise the Sun",
 		"displayDescription": "Further decreases all ability cooldowns while Radiance is active.",
-		"displayIcon": "/common/destiny_content/icons/c5d234406f87724d5e9471dc8c9b5069.png",
+		"displayIcon": "/common/destiny_content/icons/bf19b28dbc60be41631bb496a795509f.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -630,7 +648,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 271664091,
 		"displayName": "Big Game",
 		"displayDescription": "Golden Gun fires one shot, delivering 6x damage, while granting Keyhole for overpenetration.",
-		"displayIcon": "/common/destiny_content/icons/7caad5c02bc9fb44a244563bbc16a4cc.png",
+		"displayIcon": "/common/destiny_content/icons/bf2e430dac1f19edf345ae597fba5cf0.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -646,7 +664,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 275337775,
 		"displayName": "Arc Catalyst",
 		"displayDescription": "Arc precision kills against a minion of the Darkness have a chance to generate an Orb.",
-		"displayIcon": "/common/destiny_content/icons/5c05a2f4501f91fc43b7afeb819f6bc8.png",
+		"displayIcon": "/common/destiny_content/icons/51bec932f0baabc8bb72c4370e36436f.png",
 		"isDisplayable": true,
 		"hash": 275337775,
 		"index": 0
@@ -718,7 +736,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 280851997,
 		"displayName": "Scatter Charge",
 		"displayDescription": "Enables tracking for Scatter Grenades. \nHold an extra Scatter Grenade charge.",
-		"displayIcon": "/common/destiny_content/icons/5e5293728a8aac8e3f8718abb6a1cb15.png",
+		"displayIcon": "/common/destiny_content/icons/23a5a05093f8d242177b9b7585ad885e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -734,7 +752,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 284093622,
 		"displayName": "Volatile Light",
 		"displayDescription": "Rounds fired from this weapon have no damage falloff, overpenetrate targets and ricochet off hard surfaces.",
-		"displayIcon": "/common/destiny_content/icons/7f2164274ab8de868ca3c0f5bfed5ffa.png",
+		"displayIcon": "/common/destiny_content/icons/53d16cd101b62fc5a7eefff126d89493.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -764,7 +782,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 285151207,
 		"displayName": "Resolute",
 		"displayDescription": "Provides Unstoppable for Fist of Havoc.",
-		"displayIcon": "/common/destiny_content/icons/dcc2db474f0a51f6560af218843d8da9.png",
+		"displayIcon": "/common/destiny_content/icons/ece3e081c4080d77b526502b1a0bad77.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -815,7 +833,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 315800403,
 		"displayName": "Rewind Again",
 		"displayDescription": "Precision hits are immediately returned to the magazine.",
-		"displayIcon": "/common/destiny_content/icons/3177e38b3186f040c39e52a94f3941ce.png",
+		"displayIcon": "/common/destiny_content/icons/e45904c3addd005f54704b2efd013186.png",
 		"isDisplayable": true,
 		"hash": 315800403,
 		"index": 0
@@ -824,7 +842,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 317976013,
 		"displayName": "Buddy System",
 		"displayDescription": "Faster weapon reload while in an Aura.",
-		"displayIcon": "/common/destiny_content/icons/cb11466373d841852e3fcb61209cd1c0.png",
+		"displayIcon": "/common/destiny_content/icons/aa5615243203ce7e9f5262e4116e72d9.png",
 		"isDisplayable": true,
 		"hash": 317976013,
 		"index": 0
@@ -833,7 +851,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 318657130,
 		"displayName": "Danger Close",
 		"displayDescription": "This weapon gains increased reload and handling when two or more enemies are in close proximity.",
-		"displayIcon": "/common/destiny_content/icons/77ede5af4257664c419dabae206443db.png",
+		"displayIcon": "/common/destiny_content/icons/b5a3d3f2ed1be802d14bfd80bb8f9e46.png",
 		"isDisplayable": true,
 		"hash": 318657130,
 		"index": 0
@@ -856,7 +874,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 319042915,
 		"displayName": "Pocket Infinity",
 		"displayDescription": "Fires in full auto mode and has a chance to return rounds that miss to the magazine.",
-		"displayIcon": "/common/destiny_content/icons/38a48291ae78fa4d8808eece9b820955.png",
+		"displayIcon": "/common/destiny_content/icons/81ec27b4ceb7e8e75fdea5b0bda0578d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 1,
@@ -879,7 +897,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 321363893,
 		"displayName": "Unstable Current",
 		"displayDescription": "Arc Blade attacks use less Super energy.",
-		"displayIcon": "/common/destiny_content/icons/97a56d4ab6a3f495bc4f9e61354e0cc7.png",
+		"displayIcon": "/common/destiny_content/icons/4b3b8b264ee006288bcd2aaafa88251b.png",
 		"isDisplayable": true,
 		"hash": 321363893,
 		"index": 0
@@ -888,7 +906,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 335848122,
 		"displayName": "Strength of the Ram",
 		"displayDescription": "Gain increased Armor and all Voidwalker melee attacks trigger Life Steal on hit.",
-		"displayIcon": "/common/destiny_content/icons/05362bb17e894e19ec30170ee2dad85a.png",
+		"displayIcon": "/common/destiny_content/icons/f1af8d61e152c3095179a4aa44818a87.png",
 		"isDisplayable": true,
 		"hash": 335848122,
 		"index": 0
@@ -911,7 +929,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 356306776,
 		"displayName": "Shine On",
 		"displayDescription": "Increased Super energy gained from killing minions of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/370ccecae2e8f3c7a9af80a5dd51949a.png",
+		"displayIcon": "/common/destiny_content/icons/47c5a2022250d3b0a14d9bd94390dee1.png",
 		"isDisplayable": true,
 		"hash": 356306776,
 		"index": 0
@@ -948,7 +966,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 383243401,
 		"displayName": "Fists Flying",
 		"displayDescription": "Gain a boost to Agility per melee kill. Stacks for 20 seconds.",
-		"displayIcon": "/common/destiny_content/icons/efa97271ed4d58088301687830dafc1c.png",
+		"displayIcon": "/common/destiny_content/icons/380638179b2936d4072083d8f68617db.png",
 		"isDisplayable": true,
 		"hash": 383243401,
 		"index": 0
@@ -957,7 +975,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 386585144,
 		"displayName": "Auto Rifle Analysis",
 		"displayDescription": "Increased XP for Auto Rifles.",
-		"displayIcon": "/common/destiny_content/icons/35f98a1cb56e473492bc29a5023dd9c6.png",
+		"displayIcon": "/common/destiny_content/icons/bd1ebf36b99ffc0ef3ea817bd46cafea.png",
 		"isDisplayable": true,
 		"hash": 386585144,
 		"index": 0
@@ -966,7 +984,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 387492527,
 		"displayName": "Live by the Sword",
 		"displayDescription": "Kills with the sword have a chance to grant Orbs.",
-		"displayIcon": "/common/destiny_content/icons/fd12704a6c1b37d05bfaead15c4457d5.png",
+		"displayIcon": "/common/destiny_content/icons/75cb8c0471c02b4cfe222a8b796ffc64.png",
 		"isDisplayable": true,
 		"hash": 387492527,
 		"index": 0
@@ -975,7 +993,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 390728111,
 		"displayName": "Old Gods' Boon",
 		"displayDescription": "Increased Armor while carrying the King's Fall relic.",
-		"displayIcon": "/common/destiny_content/icons/0bf8e42bd150d58f6d4de10a297256d4.png",
+		"displayIcon": "/common/destiny_content/icons/41eb72a0a720b108b4465394984a5602.png",
 		"isDisplayable": true,
 		"hash": 390728111,
 		"index": 0
@@ -991,7 +1009,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 397538334,
 		"displayName": "Front Lines",
 		"displayDescription": "This weapon has increased handling, stability and rate of fire when enemies are close.",
-		"displayIcon": "/common/destiny_content/icons/8adac3f40aa034561ea6dcd91cd97d5d.png",
+		"displayIcon": "/common/destiny_content/icons/88f94ad707afc42213e55fd27c0b51a9.png",
 		"isDisplayable": true,
 		"hash": 397538334,
 		"index": 0
@@ -1007,7 +1025,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 405554470,
 		"displayName": "The Whispers",
 		"displayDescription": "Gain an additional melee charge.",
-		"displayIcon": "/common/destiny_content/icons/015b397470c02ffa25a230b0e7f3e745.png",
+		"displayIcon": "/common/destiny_content/icons/c63bd68a72ec3f8e77fef96cb43f4ffd.png",
 		"isDisplayable": true,
 		"hash": 405554470,
 		"index": 0
@@ -1030,7 +1048,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 424530568,
 		"displayName": "Rain Blows",
 		"displayDescription": "Increases melee attack speed.",
-		"displayIcon": "/common/destiny_content/icons/369b32b09e133026054e6d1b33c3856b.png",
+		"displayIcon": "/common/destiny_content/icons/cde597c67adc56aae87403b10dff5895.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -1046,7 +1064,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 424530569,
 		"displayName": "Impact Induction",
 		"displayDescription": "Causing damage with a melee reduces your grenade cooldown.",
-		"displayIcon": "/common/destiny_content/icons/d8e6813c522b1e3b26d557ca80acdfe8.png",
+		"displayIcon": "/common/destiny_content/icons/98af9d8fea7b73b50646e0f6c870ae1d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -1062,7 +1080,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 431159510,
 		"displayName": "Third Eye",
 		"displayDescription": "Radar stays active while aiming down this weapon's sights.",
-		"displayIcon": "/common/destiny_content/icons/d758f80493bfeb6c03c57086adac0cc5.png",
+		"displayIcon": "/common/destiny_content/icons/095b755c689475bcd27a654f4fb516fe.png",
 		"isDisplayable": true,
 		"hash": 431159510,
 		"index": 0
@@ -1078,7 +1096,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 439685318,
 		"displayName": "Vex Rampart",
 		"displayDescription": "Greatly increased Armor and Melee recharge when fighting Vex in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/e84c6368a144cc44653a3d27aa76b920.png",
+		"displayIcon": "/common/destiny_content/icons/851dc1463f998b61983b078d326e49bf.png",
 		"isDisplayable": true,
 		"hash": 439685318,
 		"index": 0
@@ -1087,7 +1105,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 448609668,
 		"displayName": "Infusion",
 		"displayDescription": "Replenish health when you pick up an Orb.",
-		"displayIcon": "/common/destiny_content/icons/fd12704a6c1b37d05bfaead15c4457d5.png",
+		"displayIcon": "/common/destiny_content/icons/75cb8c0471c02b4cfe222a8b796ffc64.png",
 		"isDisplayable": true,
 		"hash": 448609668,
 		"index": 0
@@ -1096,7 +1114,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 448609669,
 		"displayName": "Innervation",
 		"displayDescription": "Reduce grenade cooldown when you pick up an Orb.",
-		"displayIcon": "/common/destiny_content/icons/fd12704a6c1b37d05bfaead15c4457d5.png",
+		"displayIcon": "/common/destiny_content/icons/75cb8c0471c02b4cfe222a8b796ffc64.png",
 		"isDisplayable": true,
 		"hash": 448609669,
 		"index": 0
@@ -1105,7 +1123,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 448609670,
 		"displayName": "Invigoration",
 		"displayDescription": "Reduce melee cooldown when you pick up an Orb.",
-		"displayIcon": "/common/destiny_content/icons/fd12704a6c1b37d05bfaead15c4457d5.png",
+		"displayIcon": "/common/destiny_content/icons/75cb8c0471c02b4cfe222a8b796ffc64.png",
 		"isDisplayable": true,
 		"hash": 448609670,
 		"index": 0
@@ -1114,7 +1132,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 448789815,
 		"displayName": "Solar-Forged Guard",
 		"displayDescription": "Use  to guard. Effective against Arc and Void attacks, less effective against Solar attacks.",
-		"displayIcon": "/common/destiny_content/icons/e25c432bc0de14ea2303382acd122201.png",
+		"displayIcon": "/common/destiny_content/icons/b76075b7f5b5a26848299132813f95b8.png",
 		"isDisplayable": true,
 		"hash": 448789815,
 		"index": 0
@@ -1137,7 +1155,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 469911339,
 		"displayName": "Starfire Protocol",
 		"displayDescription": "Gain an additional Fusion Grenade charge.",
-		"displayIcon": "/common/destiny_content/icons/73c99d8b856b962c3d1c6d04bed51243.png",
+		"displayIcon": "/common/destiny_content/icons/47587ffe7532a105acc6c37170750256.png",
 		"isDisplayable": true,
 		"hash": 469911339,
 		"index": 0
@@ -1146,7 +1164,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 476980864,
 		"displayName": "Faction Champion",
 		"displayDescription": "Reputation gains applied to Future War Cult when equipped.",
-		"displayIcon": "/common/destiny_content/icons/a32b95d15662c72649ee33de68981eca.png",
+		"displayIcon": "/common/destiny_content/icons/50b292eac457207409158a3b93fd77b1.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -1169,7 +1187,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 493631234,
 		"displayName": "Phantom Gift",
 		"displayDescription": "Rapidly landing three precision hits returns one round to the magazine.",
-		"displayIcon": "/common/destiny_content/icons/03da8923997ef09ace4a23fc65298b3f.png",
+		"displayIcon": "/common/destiny_content/icons/9b0b38de7820c7e0a8c7523951b8c13b.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -1192,7 +1210,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 497709326,
 		"displayName": "Cabal Stalker",
 		"displayDescription": "Greatly increased Agility and Grenade recharge when fighting Cabal in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/e84c6368a144cc44653a3d27aa76b920.png",
+		"displayIcon": "/common/destiny_content/icons/851dc1463f998b61983b078d326e49bf.png",
 		"isDisplayable": true,
 		"hash": 497709326,
 		"index": 0
@@ -1201,7 +1219,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 502415412,
 		"displayName": "Sun God",
 		"displayDescription": "Your Sunbreaker subclass upgrades 25% faster and your Level increases 10% faster.",
-		"displayIcon": "/common/destiny_content/icons/b95ba948e8ad4fe989568dad5527d9eb.png",
+		"displayIcon": "/common/destiny_content/icons/301e9442f6c8f04915a5b339e35ed7b0.png",
 		"isDisplayable": true,
 		"hash": 502415412,
 		"index": 0
@@ -1217,7 +1235,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 517718709,
 		"displayName": "Die by the Sword",
 		"displayDescription": "Kills with the sword replenish grenade energy.",
-		"displayIcon": "/common/destiny_content/icons/d86590237eec8b56e159756729412951.png",
+		"displayIcon": "/common/destiny_content/icons/a29b54ad22b10f9fab7418c9eacfa8fb.png",
 		"isDisplayable": true,
 		"hash": 517718709,
 		"index": 0
@@ -1226,7 +1244,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 522135030,
 		"displayName": "Take a Knee",
 		"displayDescription": "Gain bonus accuracy while crouched.",
-		"displayIcon": "/common/destiny_content/icons/7141bcffb2f075a8f88d641dce5688c0.png",
+		"displayIcon": "/common/destiny_content/icons/0a289265e24ec43bdd2c11e14091cfe0.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 4,
@@ -1242,7 +1260,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 525257484,
 		"displayName": "Faster Cooldown Time",
 		"displayDescription": "Reduced cooldown after the Sparrow is destroyed.",
-		"displayIcon": "/common/destiny_content/icons/3a52de5789caa033f848c1eeca127d06.png",
+		"displayIcon": "/common/destiny_content/icons/f20ddee55434fa457c287536f0644b0a.png",
 		"isDisplayable": true,
 		"hash": 525257484,
 		"index": 0
@@ -1251,7 +1269,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 530320458,
 		"displayName": "Shotgun Affinity",
 		"displayDescription": "Unlocks upgrades on Shotguns.",
-		"displayIcon": "/common/destiny_content/icons/835a4601d2341e8b93a64c5849c9bef7.png",
+		"displayIcon": "/common/destiny_content/icons/7e497934f1ce04dbdea53747220b0608.png",
 		"isDisplayable": true,
 		"hash": 530320458,
 		"index": 0
@@ -1260,7 +1278,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 537242076,
 		"displayName": "Warrior of Light",
 		"displayDescription": "Increased damage for your  attack.",
-		"displayIcon": "/common/destiny_content/icons/80c9605e885dc9432003c8821c69d8ca.png",
+		"displayIcon": "/common/destiny_content/icons/26d6096455d3e15e63b92f2a72770e98.png",
 		"isDisplayable": true,
 		"hash": 537242076,
 		"index": 0
@@ -1269,7 +1287,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 539512168,
 		"displayName": "Arc Burn Defense",
 		"displayDescription": "Reduces incoming Arc Burn damage.",
-		"displayIcon": "/common/destiny_content/icons/735d0712aedfbdaed303145b48c6bf83.png",
+		"displayIcon": "/common/destiny_content/icons/0baa3f2d7dc3be8b5f5ae6612bbe2082.png",
 		"isDisplayable": true,
 		"hash": 539512168,
 		"index": 0
@@ -1278,7 +1296,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 545530572,
 		"displayName": "Universal Remote",
 		"displayDescription": "Range and precision damage increases greatly while aiming down the sights.",
-		"displayIcon": "/common/destiny_content/icons/3b6d582d3c71a2fa11412ce111adaf49.png",
+		"displayIcon": "/common/destiny_content/icons/495ef2a8cc049b98db6d6a2f0a9f6591.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -1294,9 +1312,18 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 561092865,
 		"displayName": "Moment of Speed",
 		"displayDescription": "Gain a temporary increase to reload speed while Oversoul's Gaze is active.",
-		"displayIcon": "/common/destiny_content/icons/f336ca06b1a6850aa2667f954b4c91b8.png",
+		"displayIcon": "/common/destiny_content/icons/59d9d6e983fbb6964193bb3c80a3b513.png",
 		"isDisplayable": true,
 		"hash": 561092865,
+		"index": 0
+	},
+	"561936092": {
+		"perkHash": 561936092,
+		"displayName": "White Chroma",
+		"displayDescription": "Activates a White Chroma glow.",
+		"displayIcon": "/common/destiny_content/icons/15268baa6f4ad302315676ef72056148.png",
+		"isDisplayable": true,
+		"hash": 561936092,
 		"index": 0
 	},
 	"580005762": {
@@ -1310,7 +1337,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 590805395,
 		"displayName": "Unsealed Power",
 		"displayDescription": "The power of the warden seethes uncontrollably.",
-		"displayIcon": "/common/destiny_content/icons/6896172ee7351a5b7f226be52291bf91.png",
+		"displayIcon": "/common/destiny_content/icons/37706ef3f0cd101859e5a0c53e278041.png",
 		"isDisplayable": true,
 		"hash": 590805395,
 		"index": 0
@@ -1333,7 +1360,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 597127202,
 		"displayName": "Rangefinder",
 		"displayDescription": "Aiming this weapon increases its effective range.",
-		"displayIcon": "/common/destiny_content/icons/6dc670ef6df8855190ab813f30508fe9.png",
+		"displayIcon": "/common/destiny_content/icons/bd54a5427cbb2f3656330fa17c7f2970.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 8,
@@ -1358,7 +1385,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 605038825,
 		"displayName": "Heavy Weapon Analysis",
 		"displayDescription": "Increased XP gain for Heavy weapons.",
-		"displayIcon": "/common/destiny_content/icons/87dad3b53219f96b4b9dad967cea4aa1.png",
+		"displayIcon": "/common/destiny_content/icons/7cd691183abd80b4c32d06cc94f96ed3.png",
 		"isDisplayable": true,
 		"hash": 605038825,
 		"index": 0
@@ -1367,7 +1394,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 620583097,
 		"displayName": "MIRV Mini",
 		"displayDescription": "Rockets fired from this weapon split into several smaller shells upon detonating.",
-		"displayIcon": "/common/destiny_content/icons/5ff4a143250b52c35a2404823892db23.png",
+		"displayIcon": "/common/destiny_content/icons/3b6706ac719debc4fd6dbae0e4bf5b93.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -1397,7 +1424,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 632126376,
 		"displayName": "Impact Induction",
 		"displayDescription": "Melee hits replenish Grenade energy.",
-		"displayIcon": "/common/destiny_content/icons/d8e6813c522b1e3b26d557ca80acdfe8.png",
+		"displayIcon": "/common/destiny_content/icons/98af9d8fea7b73b50646e0f6c870ae1d.png",
 		"isDisplayable": true,
 		"hash": 632126376,
 		"index": 0
@@ -1406,7 +1433,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 632126377,
 		"displayName": "Combat Proprioceptor",
 		"displayDescription": "Increased melee attack speed.",
-		"displayIcon": "/common/destiny_content/icons/d8e6813c522b1e3b26d557ca80acdfe8.png",
+		"displayIcon": "/common/destiny_content/icons/98af9d8fea7b73b50646e0f6c870ae1d.png",
 		"isDisplayable": true,
 		"hash": 632126377,
 		"index": 0
@@ -1443,7 +1470,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 652662008,
 		"displayName": "Rocket Launcher Mags",
 		"displayDescription": "Carry more ammo for Rocket Launcher.",
-		"displayIcon": "/common/destiny_content/icons/419749f2d533f9d20d53bce5c06dc019.png",
+		"displayIcon": "/common/destiny_content/icons/e79a08dd0de0dababfd9fd6c20a9151f.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -1459,7 +1486,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 653222695,
 		"displayName": "Air Control",
 		"displayDescription": "Use  to pitch the Sparrow forward or back while in the air. Pitch forward to fall faster, pitch back to fall slower.",
-		"displayIcon": "/common/destiny_content/icons/50f4a5b97eb6c3cfd3d9cebad7cd7e7a.png",
+		"displayIcon": "/common/destiny_content/icons/da2b3ac06b047e583b1f91244ee0e9cd.png",
 		"isDisplayable": true,
 		"hash": 653222695,
 		"index": 0
@@ -1468,7 +1495,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 661319946,
 		"displayName": "Future War Cult Champion",
 		"displayDescription": "Increases your Future War Cult reputation gains.",
-		"displayIcon": "/common/destiny_content/icons/ff2440b3d58b3b0a81d7913c5b3767de.png",
+		"displayIcon": "/common/destiny_content/icons/563dea3e8cf51a6c102597df9d459e04.png",
 		"isDisplayable": true,
 		"hash": 661319946,
 		"index": 0
@@ -1477,7 +1504,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 661681055,
 		"displayName": "Headseeker",
 		"displayDescription": "Body shots with this weapon increase precision damage for a short time.",
-		"displayIcon": "/common/destiny_content/icons/92a1701dcaf664c53d48761be35c077a.png",
+		"displayIcon": "/common/destiny_content/icons/3a03810de6b1b9419f17e17864567a60.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -1514,7 +1541,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 663801504,
 		"displayName": "Incendiary Rounds",
 		"displayDescription": "This weapon fires faster and more accurately the longer the trigger is held.",
-		"displayIcon": "/common/destiny_content/icons/e6dd293953248954a8ffdcf5e7e87013.png",
+		"displayIcon": "/common/destiny_content/icons/1f05d506d5edee4e285010660b772412.png",
 		"isDisplayable": true,
 		"hash": 663801504,
 		"index": 0
@@ -1523,7 +1550,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 671224739,
 		"displayName": "Solar Armor",
 		"displayDescription": "Increased Armor when using a Solar-based subclass.",
-		"displayIcon": "/common/destiny_content/icons/80c9605e885dc9432003c8821c69d8ca.png",
+		"displayIcon": "/common/destiny_content/icons/26d6096455d3e15e63b92f2a72770e98.png",
 		"isDisplayable": true,
 		"hash": 671224739,
 		"index": 0
@@ -1532,7 +1559,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 676384175,
 		"displayName": "Metal Detector",
 		"displayDescription": "Expect to find more ammo for this weapon.",
-		"displayIcon": "/common/destiny_content/icons/d1cf3fc0e7f48dae469eb7e34b1dfdff.png",
+		"displayIcon": "/common/destiny_content/icons/f401fa148ef82a8536c6f2109aa706af.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -1548,7 +1575,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 677215928,
 		"displayName": "Cabal Arbiter",
 		"displayDescription": "Greatly increased Recovery and Super recharge when fighting Cabal in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/e84c6368a144cc44653a3d27aa76b920.png",
+		"displayIcon": "/common/destiny_content/icons/851dc1463f998b61983b078d326e49bf.png",
 		"isDisplayable": true,
 		"hash": 677215928,
 		"index": 0
@@ -1571,7 +1598,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 700071256,
 		"displayName": "Auto Rifle Focus",
 		"displayDescription": "Increases the upgrade rate for Auto Rifles.",
-		"displayIcon": "/common/destiny_content/icons/35f98a1cb56e473492bc29a5023dd9c6.png",
+		"displayIcon": "/common/destiny_content/icons/bd1ebf36b99ffc0ef3ea817bd46cafea.png",
 		"isDisplayable": true,
 		"hash": 700071256,
 		"index": 0
@@ -1580,7 +1607,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 707792617,
 		"displayName": "Hands-On",
 		"displayDescription": "Gain bonus Super energy from melee kills on minions of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/47b68f260e79182fab68a34bbb3754c9.png",
+		"displayIcon": "/common/destiny_content/icons/aff1e7aa85f8e964318be5eb559bcff1.png",
 		"isDisplayable": true,
 		"hash": 707792617,
 		"index": 0
@@ -1589,7 +1616,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 709737102,
 		"displayName": "Shotgun Ammo",
 		"displayDescription": "Increases the amount of Shotgun ammunition you can carry.",
-		"displayIcon": "/common/destiny_content/icons/14a79abdc22f6613ef7bcc0a7f099bdc.png",
+		"displayIcon": "/common/destiny_content/icons/85334cb183caab773bbebbb630e7b596.png",
 		"isDisplayable": true,
 		"hash": 709737102,
 		"index": 0
@@ -1598,7 +1625,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 712972274,
 		"displayName": "Nocturnal",
 		"displayDescription": "Your Nightstalker subclass upgrades 25% faster and your Level increases 10% faster.",
-		"displayIcon": "/common/destiny_content/icons/06fcda81df99ecdc1f35f02ca2baf895.png",
+		"displayIcon": "/common/destiny_content/icons/843d07cd04ee32e6bbbf6d343f160a52.png",
 		"isDisplayable": true,
 		"hash": 712972274,
 		"index": 0
@@ -1621,7 +1648,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 713298969,
 		"displayName": "Doe or Die",
 		"displayDescription": "Once per life, fast Super charge when all teammates die. \nChance to spawn with Overshield.",
-		"displayIcon": "/common/destiny_content/icons/7e3c86309b78fbc0a9c3d95708292fee.png",
+		"displayIcon": "/common/destiny_content/icons/782ab2ebfe1832307a667891616f70a9.png",
 		"isDisplayable": true,
 		"hash": 713298969,
 		"index": 0
@@ -1630,7 +1657,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 717833322,
 		"displayName": "Scout Rifle Mags",
 		"displayDescription": "Carry more ammo for Scout Rifle.",
-		"displayIcon": "/common/destiny_content/icons/026688bb745418903616e70e2f5a3323.png",
+		"displayIcon": "/common/destiny_content/icons/1edc9cb9059ffc219ed4d29f1ec8e3e7.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -1646,7 +1673,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 731752060,
 		"displayName": "Feeding Frenzy",
 		"displayDescription": "Kills with this weapon increase reload speed for a short time.",
-		"displayIcon": "/common/destiny_content/icons/7c4f103fa644f5c5f41d50a5dc65f282.png",
+		"displayIcon": "/common/destiny_content/icons/fdf63e4762a596f0546fa1fcd9c99b68.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -1683,7 +1710,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 744321508,
 		"displayName": "Sword of Thunder",
 		"displayDescription": "Use  to shoot a beam of Arc Light from your sword creating a lingering electrical storm.",
-		"displayIcon": "/common/destiny_content/icons/582398d38cec2987acefee190c79d00d.png",
+		"displayIcon": "/common/destiny_content/icons/cf62e88297ce570a21ff34644978eed0.png",
 		"isDisplayable": true,
 		"hash": 744321508,
 		"index": 0
@@ -1692,7 +1719,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 745231149,
 		"displayName": "Cleansing Ritual",
 		"displayDescription": "Generate additional Glimmer when killing Hive.",
-		"displayIcon": "/common/destiny_content/icons/33cd9a9bc7373163129e7ad5e4ee184f.png",
+		"displayIcon": "/common/destiny_content/icons/c03135f754ab4d36cd3d749f5961d486.png",
 		"isDisplayable": true,
 		"hash": 745231149,
 		"index": 0
@@ -1701,7 +1728,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 750820802,
 		"displayName": "Dreg Burn",
 		"displayDescription": "This weapon deals moderate bonus damage to Fallen Dregs.",
-		"displayIcon": "/common/destiny_content/icons/e84c6368a144cc44653a3d27aa76b920.png",
+		"displayIcon": "/common/destiny_content/icons/851dc1463f998b61983b078d326e49bf.png",
 		"isDisplayable": true,
 		"hash": 750820802,
 		"index": 0
@@ -1710,7 +1737,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 765056859,
 		"displayName": "Special Weapon Loader",
 		"displayDescription": "Increased reload speed with Special Weapons.",
-		"displayIcon": "/common/destiny_content/icons/366e571751a00f158e343d4b6a493e7c.png",
+		"displayIcon": "/common/destiny_content/icons/e4a08176be990638fca1ae20760a5572.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -1726,7 +1753,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 768224620,
 		"displayName": "Touch of Malice",
 		"displayDescription": "Final round of the magazine regenerates and deals bonus damage at the cost of the wielder's life force.",
-		"displayIcon": "/common/destiny_content/icons/10bee68c3743f874bb296d6eca422f19.png",
+		"displayIcon": "/common/destiny_content/icons/4067d66c39575c39c1a423948887f1fa.png",
 		"isDisplayable": true,
 		"hash": 768224620,
 		"index": 0
@@ -1735,7 +1762,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 770631416,
 		"displayName": "Third Eye",
 		"displayDescription": "Radar stays active while aiming down this weapon's sights.",
-		"displayIcon": "/common/destiny_content/icons/d758f80493bfeb6c03c57086adac0cc5.png",
+		"displayIcon": "/common/destiny_content/icons/095b755c689475bcd27a654f4fb516fe.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -1779,7 +1806,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 791068979,
 		"displayName": "Helium Cycle",
 		"displayDescription": "Increases the duration of your Solar Grenade.",
-		"displayIcon": "/common/destiny_content/icons/c5d234406f87724d5e9471dc8c9b5069.png",
+		"displayIcon": "/common/destiny_content/icons/bf19b28dbc60be41631bb496a795509f.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -1802,7 +1829,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 808857588,
 		"displayName": "Persistence",
 		"displayDescription": "This weapon grows more accurate the longer it is fired.",
-		"displayIcon": "/common/destiny_content/icons/b82faab1d129318dfee11f47c4c10d1f.png",
+		"displayIcon": "/common/destiny_content/icons/2be47e19446eccfe6ed7755ac50bcf6c.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 4,
@@ -1834,7 +1861,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 822136484,
 		"displayName": "Light the Blade",
 		"displayDescription": "Causing damage with a grenade reduces your melee cooldown.",
-		"displayIcon": "/common/destiny_content/icons/8d4b027a61d90936d9cfa64594d5f20b.png",
+		"displayIcon": "/common/destiny_content/icons/8a386b85db42bd323563d10feb6407e4.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -1850,7 +1877,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 822136485,
 		"displayName": "Fastball",
 		"displayDescription": "Increases grenade throw distance.",
-		"displayIcon": "/common/destiny_content/icons/bddeb4198ac4c49f6b61a56d59fab266.png",
+		"displayIcon": "/common/destiny_content/icons/ed0855dd70faf4afd7fe8365e07df8d4.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -1866,7 +1893,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 824061322,
 		"displayName": "Mulligan",
 		"displayDescription": "Missing a shot has a chance to return ammo directly to the magazine.",
-		"displayIcon": "/common/destiny_content/icons/55942877c0966697dc672737da6e7598.png",
+		"displayIcon": "/common/destiny_content/icons/4a9a91ecf578372bc64890f1dec341fb.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -1881,8 +1908,8 @@ var DestinySandboxPerkDefinition = {
 	"824209275": {
 		"perkHash": 824209275,
 		"displayName": "Last Word",
-		"displayDescription": "Bonus damage and stability. Extra precision damage when firing from the hip.",
-		"displayIcon": "/common/destiny_content/icons/1b95a4b6acbfcff33080c988b21140fd.png",
+		"displayDescription": "Improved stability and target acquisition when firing from the hip.",
+		"displayIcon": "/common/destiny_content/icons/e2b50a620b3a0bc695cde7aaf328e9f0.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 34,
@@ -1898,7 +1925,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 827597015,
 		"displayName": "Peregrine Strike",
 		"displayDescription": "Airborne Shoulder Charge deals bonus damage.",
-		"displayIcon": "/common/destiny_content/icons/d8de46c1e15c64cde2e2998ac66ad946.png",
+		"displayIcon": "/common/destiny_content/icons/4f132b2131d76b2161417ef357ac69d1.png",
 		"isDisplayable": true,
 		"hash": 827597015,
 		"index": 0
@@ -1907,7 +1934,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 832509484,
 		"displayName": "Sniper Rifle Analysis",
 		"displayDescription": "Increased XP for Sniper Rifles.",
-		"displayIcon": "/common/destiny_content/icons/93d491118955166d70766c0734cfbd7b.png",
+		"displayIcon": "/common/destiny_content/icons/a059bda1cce05e7ef1ee449828e08d23.png",
 		"isDisplayable": true,
 		"hash": 832509484,
 		"index": 0
@@ -1916,7 +1943,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 836092325,
 		"displayName": "Resolute",
 		"displayDescription": "Gain Unstoppable for Fist of Havoc.",
-		"displayIcon": "/common/destiny_content/icons/dcc2db474f0a51f6560af218843d8da9.png",
+		"displayIcon": "/common/destiny_content/icons/ece3e081c4080d77b526502b1a0bad77.png",
 		"isDisplayable": true,
 		"hash": 836092325,
 		"index": 0
@@ -1925,7 +1952,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 836377941,
 		"displayName": "Machine Gun Loader",
 		"displayDescription": "Increased reload speed with Machine Guns.",
-		"displayIcon": "/common/destiny_content/icons/366e571751a00f158e343d4b6a493e7c.png",
+		"displayIcon": "/common/destiny_content/icons/e4a08176be990638fca1ae20760a5572.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -1956,16 +1983,25 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 862074742,
 		"displayName": "Sunforged",
 		"displayDescription": "You have found success in the Trials of Osiris. Increases all XP gains.\n\nLasts until next weekly refresh.",
-		"displayIcon": "/common/destiny_content/icons/cc82d7b3951a23f930d3f00fb739b5e5.png",
+		"displayIcon": "/common/destiny_content/icons/279910131609ad204735639c8a55eca9.png",
 		"isDisplayable": true,
 		"hash": 862074742,
+		"index": 0
+	},
+	"866404097": {
+		"perkHash": 866404097,
+		"displayName": "Vanguard Reputation Booster",
+		"displayDescription": "INSPIRATION\nIncreased Vanguard reputation rewards from Strike playlists.\n\nInspirations are shared with Fireteam members.",
+		"displayIcon": "/common/destiny_content/icons/d6d2c3e66661ef7e984bd3f9724b8d9c.png",
+		"isDisplayable": true,
+		"hash": 866404097,
 		"index": 0
 	},
 	"878342759": {
 		"perkHash": 878342759,
 		"displayName": "Life Support",
 		"displayDescription": "Recovering from near death grants additional ammo and briefly increases reload speed.",
-		"displayIcon": "/common/destiny_content/icons/95534ae8480ca3e76b46565236ac2434.png",
+		"displayIcon": "/common/destiny_content/icons/14bca835aa790404a28dea376f9e8c6e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -2002,7 +2038,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 896109025,
 		"displayName": "Elusive Shadow",
 		"displayDescription": "Grants Shadestep.",
-		"displayIcon": "/common/destiny_content/icons/a48ec9fe29fbe2dfffbeb6723994defd.png",
+		"displayIcon": "/common/destiny_content/icons/b164da8b64d19f431f0313620af4639b.png",
 		"isDisplayable": true,
 		"hash": 896109025,
 		"index": 0
@@ -2011,7 +2047,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 906425441,
 		"displayName": "Praise the Sun",
 		"displayDescription": "When Radiance is active, increased Agility and decreased ability cooldowns",
-		"displayIcon": "/common/destiny_content/icons/e816f865a2a394cbbb2ec16bde402447.png",
+		"displayIcon": "/common/destiny_content/icons/efc255cd45020cef863b0c17b640ae50.png",
 		"isDisplayable": true,
 		"hash": 906425441,
 		"index": 0
@@ -2027,7 +2063,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 910871216,
 		"displayName": "Force Multiplier",
 		"displayDescription": "Shotgun kills trigger Force Barrier and Force Barrier's duration is increased.",
-		"displayIcon": "/common/destiny_content/icons/33c3f945d38ccae6772d4da28f5f9b39.png",
+		"displayIcon": "/common/destiny_content/icons/eb2a386aaa609cb9204376ff18566e5f.png",
 		"isDisplayable": true,
 		"hash": 910871216,
 		"index": 0
@@ -2065,6 +2101,15 @@ var DestinySandboxPerkDefinition = {
 		"displayIcon": "/img/misc/missing_icon.png",
 		"isDisplayable": false,
 		"hash": 941715127,
+		"index": 0
+	},
+	"952498108": {
+		"perkHash": 952498108,
+		"displayName": "House of Judgment Reputation Booster",
+		"displayDescription": "INSPIRATION\nIncreased House of Judgment reputation rewards from the Prison of Elders.\n\nInspirations are shared with Fireteam members.",
+		"displayIcon": "/common/destiny_content/icons/d6d2c3e66661ef7e984bd3f9724b8d9c.png",
+		"isDisplayable": true,
+		"hash": 952498108,
 		"index": 0
 	},
 	"964302104": {
@@ -2120,7 +2165,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 972070082,
 		"displayName": "Underdog",
 		"displayDescription": "This weapon gains a boost to range and handling when health is low.",
-		"displayIcon": "/common/destiny_content/icons/938b816194ed926c64059d106fcc006f.png",
+		"displayIcon": "/common/destiny_content/icons/2020fe793b8cd31e6d48b56358191d4b.png",
 		"isDisplayable": true,
 		"hash": 972070082,
 		"index": 0
@@ -2129,7 +2174,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 975069794,
 		"displayName": "Mutineer",
 		"displayDescription": "This weapon has a chance of suppressing a Fallen Captain's abilities.",
-		"displayIcon": "/common/destiny_content/icons/ba80128508e5cd12f67dae6348763697.png",
+		"displayIcon": "/common/destiny_content/icons/6f5e43e42851b1cfab8b3b38520a84a7.png",
 		"isDisplayable": true,
 		"hash": 975069794,
 		"index": 0
@@ -2138,7 +2183,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 978652848,
 		"displayName": "Invigoration",
 		"displayDescription": "Reduces melee cooldown each time you pick up an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/fd12704a6c1b37d05bfaead15c4457d5.png",
+		"displayIcon": "/common/destiny_content/icons/75cb8c0471c02b4cfe222a8b796ffc64.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -2154,7 +2199,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 978652850,
 		"displayName": "Infusion",
 		"displayDescription": "Replenishes health each time you pick up an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/fd12704a6c1b37d05bfaead15c4457d5.png",
+		"displayIcon": "/common/destiny_content/icons/75cb8c0471c02b4cfe222a8b796ffc64.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -2170,7 +2215,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 978652851,
 		"displayName": "Innervation",
 		"displayDescription": "Reduces grenade cooldown each time you pick up an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/fd12704a6c1b37d05bfaead15c4457d5.png",
+		"displayIcon": "/common/destiny_content/icons/75cb8c0471c02b4cfe222a8b796ffc64.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -2186,7 +2231,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 980692031,
 		"displayName": "Be Somewhere Else",
 		"displayDescription": "Increases the duration Shoulder Charge remains active.",
-		"displayIcon": "/common/destiny_content/icons/e4dd18a743c6148140dcea39cffe4eb4.png",
+		"displayIcon": "/common/destiny_content/icons/60ae7fac031422c33f1bbda243975e05.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -2202,7 +2247,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 983558345,
 		"displayName": "Dubious Munitions",
 		"displayDescription": "Kills from the volley add another round to the volley.",
-		"displayIcon": "/common/destiny_content/icons/c4aa9f6ed1505105e89ad5f81d3e3953.png",
+		"displayIcon": "/common/destiny_content/icons/2556fbe39bdb4b81889c3c706c7b78ea.png",
 		"isDisplayable": true,
 		"hash": 983558345,
 		"index": 0
@@ -2276,7 +2321,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1026458383,
 		"displayName": "Life Support",
 		"displayDescription": "Kills with this weapon while critically wounded have a chance to start regenerating health.",
-		"displayIcon": "/common/destiny_content/icons/95534ae8480ca3e76b46565236ac2434.png",
+		"displayIcon": "/common/destiny_content/icons/14bca835aa790404a28dea376f9e8c6e.png",
 		"isDisplayable": true,
 		"hash": 1026458383,
 		"index": 0
@@ -2285,7 +2330,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1028572792,
 		"displayName": "Void Armor",
 		"displayDescription": "Increased Armor when using a Void-based subclass.",
-		"displayIcon": "/common/destiny_content/icons/6440742201392a5cc36d8905d221fe2b.png",
+		"displayIcon": "/common/destiny_content/icons/628805617891e2ead400d47f40ae0ebc.png",
 		"isDisplayable": true,
 		"hash": 1028572792,
 		"index": 0
@@ -2294,7 +2339,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1029160485,
 		"displayName": "Cascade",
 		"displayDescription": "Melee kills increase the reload speed of this weapon for a short time.",
-		"displayIcon": "/common/destiny_content/icons/379ac98a2b3f7565c609e51555cfc0e6.png",
+		"displayIcon": "/common/destiny_content/icons/e1dafaf362c0e963c6e64ee5e8092a46.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -2310,7 +2355,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1035043885,
 		"displayName": "Link of Friendship",
 		"displayDescription": "Increased XP gain when playing with a Linked Friend. Lasts until Level 40.",
-		"displayIcon": "/common/destiny_content/icons/e3cd1abf575b8bccaa1ee6749353a261.png",
+		"displayIcon": "/common/destiny_content/icons/3867dc08f86da11c7631b00d44445347.png",
 		"isDisplayable": true,
 		"hash": 1035043885,
 		"index": 0
@@ -2326,7 +2371,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1047916330,
 		"displayName": "Fusion Rifle Mags",
 		"displayDescription": "Carry more ammo for Fusion Rifles.",
-		"displayIcon": "/common/destiny_content/icons/206947f308b79da4dbe56efe430effeb.png",
+		"displayIcon": "/common/destiny_content/icons/1640b38269c4ad97662c7cf382ee7012.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -2356,7 +2401,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1067185655,
 		"displayName": "The Tarantella",
 		"displayDescription": "Reduced Arc damage from minions of the Darkness. Arc grenades and Arc Blade recharge faster.",
-		"displayIcon": "/common/destiny_content/icons/88c3660d00f345b0f5bd83fc4c177764.png",
+		"displayIcon": "/common/destiny_content/icons/8ff739c98c156f7bf7a518eb092a36fd.png",
 		"isDisplayable": true,
 		"hash": 1067185655,
 		"index": 0
@@ -2365,7 +2410,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1075279944,
 		"displayName": "Inverse Shadow",
 		"displayDescription": "Increased Super energy gained from killing minions of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/6db2980db0ff57866bf337c75c9ffdd5.png",
+		"displayIcon": "/common/destiny_content/icons/0b679007729b85f2ae8a36e96229262a.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -2381,7 +2426,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1075279945,
 		"displayName": "Quintessence Transfer",
 		"displayDescription": "Replenish Super energy when you kill an enemy with a grenade.",
-		"displayIcon": "/common/destiny_content/icons/370ccecae2e8f3c7a9af80a5dd51949a.png",
+		"displayIcon": "/common/destiny_content/icons/47c5a2022250d3b0a14d9bd94390dee1.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -2404,7 +2449,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1078710758,
 		"displayName": "Moment of Power",
 		"displayDescription": "Gain a temporary increase to weapon damage while Oversoul's Gaze is active.",
-		"displayIcon": "/common/destiny_content/icons/5e4cbb612a16dcf2a9a2e61f6fcdef4b.png",
+		"displayIcon": "/common/destiny_content/icons/e040a1362d39b1ae0a1bf61812afc482.png",
 		"isDisplayable": true,
 		"hash": 1078710758,
 		"index": 0
@@ -2413,7 +2458,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1094584227,
 		"displayName": "Heavy Weapon Loader",
 		"displayDescription": "Increased reload speed with Heavy Weapons.",
-		"displayIcon": "/common/destiny_content/icons/366e571751a00f158e343d4b6a493e7c.png",
+		"displayIcon": "/common/destiny_content/icons/e4a08176be990638fca1ae20760a5572.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -2429,7 +2474,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1101818187,
 		"displayName": "Innervation",
 		"displayDescription": "Bonus grenade energy on Orb pickup.",
-		"displayIcon": "/common/destiny_content/icons/8d4b027a61d90936d9cfa64594d5f20b.png",
+		"displayIcon": "/common/destiny_content/icons/8a386b85db42bd323563d10feb6407e4.png",
 		"isDisplayable": true,
 		"hash": 1101818187,
 		"index": 0
@@ -2445,7 +2490,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1102749857,
 		"displayName": "Viper Totemic",
 		"displayDescription": "Improved Energy Drain, and weapons ready and reload very quickly.",
-		"displayIcon": "/common/destiny_content/icons/f2d4d9146ba70edb03b11e86edfcb2e9.png",
+		"displayIcon": "/common/destiny_content/icons/e0cae55bf44f922f186e8829760fcc93.png",
 		"isDisplayable": true,
 		"hash": 1102749857,
 		"index": 0
@@ -2468,7 +2513,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1105473874,
 		"displayName": "Sniper Rifle Affinity",
 		"displayDescription": "Unlocks upgrades on Sniper Rifles.",
-		"displayIcon": "/common/destiny_content/icons/93d491118955166d70766c0734cfbd7b.png",
+		"displayIcon": "/common/destiny_content/icons/a059bda1cce05e7ef1ee449828e08d23.png",
 		"isDisplayable": true,
 		"hash": 1105473874,
 		"index": 0
@@ -2477,7 +2522,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1120000449,
 		"displayName": "Shotgun Shells",
 		"displayDescription": "Carry more ammo for Shotgun.",
-		"displayIcon": "/common/destiny_content/icons/14a79abdc22f6613ef7bcc0a7f099bdc.png",
+		"displayIcon": "/common/destiny_content/icons/85334cb183caab773bbebbb630e7b596.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -2487,6 +2532,15 @@ var DestinySandboxPerkDefinition = {
 			"damageTypes": 0
 		},
 		"hash": 1120000449,
+		"index": 0
+	},
+	"1120760334": {
+		"perkHash": 1120760334,
+		"displayName": "Red Chroma",
+		"displayDescription": "Activates a Red Chroma glow.",
+		"displayIcon": "/common/destiny_content/icons/1fea4bb0820aca97e894cea3b698bde8.png",
+		"isDisplayable": true,
+		"hash": 1120760334,
 		"index": 0
 	},
 	"1121880988": {
@@ -2514,7 +2568,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1133197888,
 		"displayName": "Bathed in Light",
 		"displayDescription": "Blessing of Light and Weapons of Light last longer.",
-		"displayIcon": "/common/destiny_content/icons/3da23e6bb3e454efe0380e3778ae14b2.png",
+		"displayIcon": "/common/destiny_content/icons/1defdf244b071b42c212ff8906ffba61.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -2537,7 +2591,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1160175599,
 		"displayName": "Titan Bounty",
 		"displayDescription": "Generate additional Glimmer when killing Titans in the Crucible.",
-		"displayIcon": "/common/destiny_content/icons/7ef5c684a8583dcdb56ce9a6f9c5d6e6.png",
+		"displayIcon": "/common/destiny_content/icons/730bc7266a5e5ae436f0289bce77b8b1.png",
 		"isDisplayable": true,
 		"hash": 1160175599,
 		"index": 0
@@ -2546,7 +2600,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1167703023,
 		"displayName": "Warrior of Light",
 		"displayDescription": "Increased damage for your  attack.",
-		"displayIcon": "/common/destiny_content/icons/6440742201392a5cc36d8905d221fe2b.png",
+		"displayIcon": "/common/destiny_content/icons/628805617891e2ead400d47f40ae0ebc.png",
 		"isDisplayable": true,
 		"hash": 1167703023,
 		"index": 0
@@ -2555,7 +2609,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1170991030,
 		"displayName": "Field Trip",
 		"displayDescription": "Increased Tripmine Grenade duration. Gain an additional Tripmine Grenade charge.",
-		"displayIcon": "/common/destiny_content/icons/ca110651f21042ed2702e28d9f4f6417.png",
+		"displayIcon": "/common/destiny_content/icons/fcb43f36f6d8b620fa4770c7394b1ecc.png",
 		"isDisplayable": true,
 		"hash": 1170991030,
 		"index": 0
@@ -2564,7 +2618,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1173182893,
 		"displayName": "Shoot to Loot",
 		"displayDescription": "Shooting any type of ammo picks it up.",
-		"displayIcon": "/common/destiny_content/icons/e5eafd1d90ca6f7204f3ec66920b4717.png",
+		"displayIcon": "/common/destiny_content/icons/be99f4e94d870a800a9809e9de522dc2.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -2580,7 +2634,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1175838572,
 		"displayName": "Hand Cannon Loader",
 		"displayDescription": "Increases the reload speed of Hand Cannons.",
-		"displayIcon": "/common/destiny_content/icons/33768f11dbf0d1c06f3467e8f80d31f0.png",
+		"displayIcon": "/common/destiny_content/icons/feea766f7f015678ed92a629464c2395.png",
 		"isDisplayable": true,
 		"hash": 1175838572,
 		"index": 0
@@ -2589,7 +2643,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1183516219,
 		"displayName": "Mark of the Devourer",
 		"displayDescription": "Rounds pierce targets and cause lingering damage over time.",
-		"displayIcon": "/common/destiny_content/icons/40f310d5267f70027f750e0082ba96b0.png",
+		"displayIcon": "/common/destiny_content/icons/7f47ed8afbba9aa0e0c9be5dc44c6fe4.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -2612,7 +2666,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1190369844,
 		"displayName": "Keeper of the Pack",
 		"displayDescription": "Supers generate an extra Orb. \nRevive and be revived faster.",
-		"displayIcon": "/common/destiny_content/icons/a2514976033a58487a4183f4dc7c949c.png",
+		"displayIcon": "/common/destiny_content/icons/89f80ec0fbe16566b742cc52e2c2b371.png",
 		"isDisplayable": true,
 		"hash": 1190369844,
 		"index": 0
@@ -2628,7 +2682,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1192626580,
 		"displayName": "Arachnid Sensorium",
 		"displayDescription": "Golden Gun lasts longer, zooms in further when aimed.",
-		"displayIcon": "/common/destiny_content/icons/921c71e9893ea0037a56afc7f3d0aa16.png",
+		"displayIcon": "/common/destiny_content/icons/823bf5f49c197d39be33ec2d8195c3fc.png",
 		"isDisplayable": true,
 		"hash": 1192626580,
 		"index": 0
@@ -2637,7 +2691,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1195575848,
 		"displayName": "Recklessness",
 		"displayDescription": "Gain Death from Above and Headstrong.",
-		"displayIcon": "/common/destiny_content/icons/3bfe94613a61a7a39e85d96690c12168.png",
+		"displayIcon": "/common/destiny_content/icons/9d9074e94a087ca93230c01d5f56a294.png",
 		"isDisplayable": true,
 		"hash": 1195575848,
 		"index": 0
@@ -2660,7 +2714,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1228656138,
 		"displayName": "Fusion Rifle Ammo",
 		"displayDescription": "Increases the amount of Fusion Rifle ammunition you can carry.",
-		"displayIcon": "/common/destiny_content/icons/206947f308b79da4dbe56efe430effeb.png",
+		"displayIcon": "/common/destiny_content/icons/1640b38269c4ad97662c7cf382ee7012.png",
 		"isDisplayable": true,
 		"hash": 1228656138,
 		"index": 0
@@ -2690,7 +2744,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1257014586,
 		"displayName": "Crucible Champion",
 		"displayDescription": "Increases your Crucible reputation gains.",
-		"displayIcon": "/common/destiny_content/icons/9227f3646457a8501963b71396958a92.png",
+		"displayIcon": "/common/destiny_content/icons/408fc2190063cc0143d76ea15896d973.png",
 		"isDisplayable": true,
 		"hash": 1257014586,
 		"index": 0
@@ -2699,7 +2753,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1258704074,
 		"displayName": "Rescue Mag",
 		"displayDescription": "Chance to refill this weapon's magazine when critically wounded.",
-		"displayIcon": "/common/destiny_content/icons/88f3c1343ab9766a7ce023538b0c2d9a.png",
+		"displayIcon": "/common/destiny_content/icons/97f0e320963afdfc8d21deea403c8da7.png",
 		"isDisplayable": true,
 		"hash": 1258704074,
 		"index": 0
@@ -2708,7 +2762,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1269473995,
 		"displayName": "Sidearm Ammo",
 		"displayDescription": "Increases the amount of Sidearm ammunition you can carry.",
-		"displayIcon": "/common/destiny_content/icons/b36cf1d4541cb682af4bc14049eebd63.png",
+		"displayIcon": "/common/destiny_content/icons/16cb8312ee083f453f7b8d9942ae6a06.png",
 		"isDisplayable": true,
 		"hash": 1269473995,
 		"index": 0
@@ -2717,7 +2771,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1275958706,
 		"displayName": "Secret Round",
 		"displayDescription": "Missing a shot from this weapon's burst will fire a fourth shot.",
-		"displayIcon": "/common/destiny_content/icons/87d99de1207fee9c4c819836eea7ce8e.png",
+		"displayIcon": "/common/destiny_content/icons/c517fe33700acfdc0355203189872a10.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 1,
@@ -2733,7 +2787,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1279198574,
 		"displayName": "Overflow",
 		"displayDescription": "This weapon has better handling, rate of fire and stability while the wielder's Super is charged.",
-		"displayIcon": "/common/destiny_content/icons/162ed399bb2ff50f6553574a344e623b.png",
+		"displayIcon": "/common/destiny_content/icons/19427571089608dbf23038b94cf9a284.png",
 		"isDisplayable": true,
 		"hash": 1279198574,
 		"index": 0
@@ -2742,7 +2796,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1280559225,
 		"displayName": "Lich Bane",
 		"displayDescription": "Projectiles have a chance to disorient Hive Wizards.",
-		"displayIcon": "/common/destiny_content/icons/bfa2442658e1893db903f0ed827261e0.png",
+		"displayIcon": "/common/destiny_content/icons/cca929cc0a5a5691d6f0f4711124f163.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -2800,7 +2854,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1316249427,
 		"displayName": "Unstable Current",
 		"displayDescription": "Arc Blade attacks use less super energy.",
-		"displayIcon": "/common/destiny_content/icons/9730379775ac04c65012f32d1a6584b6.png",
+		"displayIcon": "/common/destiny_content/icons/c2d3be8b7d515964a2912a141853c84a.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -2830,7 +2884,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1318675793,
 		"displayName": "Nightmare Fuel",
 		"displayDescription": "Gain additional melee charge, and melee damage may reload Primary Weapon.",
-		"displayIcon": "/common/destiny_content/icons/e3bda5b0fff928cb524c50e718904270.png",
+		"displayIcon": "/common/destiny_content/icons/6149ed7966e285f47b4f580238690b39.png",
 		"isDisplayable": true,
 		"hash": 1318675793,
 		"index": 0
@@ -2874,7 +2928,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1334652795,
 		"displayName": "Bouncer",
 		"displayDescription": "Kills inside Ward of Dawn with Armor of Light do not expend ammo.",
-		"displayIcon": "/common/destiny_content/icons/04049448530b7097bc83789b8fb0dc2e.png",
+		"displayIcon": "/common/destiny_content/icons/9981ff4970dad6b317e0b9d5846001b7.png",
 		"isDisplayable": true,
 		"hash": 1334652795,
 		"index": 0
@@ -2934,7 +2988,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1341569328,
 		"displayName": "Versatile Shooter",
 		"displayDescription": "Chance to create Orbs on Heavy Weapon kills. \nWith a full Super, Orbs may grant Special Ammo.",
-		"displayIcon": "/common/destiny_content/icons/c6de4e2ebf0912c61657a9c99d315d45.png",
+		"displayIcon": "/common/destiny_content/icons/e4ae1f8cc2cc7bd9b76f1fd1b90215cb.png",
 		"isDisplayable": true,
 		"hash": 1341569328,
 		"index": 0
@@ -2950,7 +3004,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1351885744,
 		"displayName": "Hungering Void",
 		"displayDescription": "Spawn with full grenade. \nAxion Bolt gains additional seeker.",
-		"displayIcon": "/common/destiny_content/icons/8fd9ace75c0ef48d8acd9c4b35ff7d26.png",
+		"displayIcon": "/common/destiny_content/icons/9c17ff12eadfc90116e8adf8641c3717.png",
 		"isDisplayable": true,
 		"hash": 1351885744,
 		"index": 0
@@ -2973,7 +3027,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1357398595,
 		"displayName": "Void Accumulator",
 		"displayDescription": "Void melees have a chance to generate an Orb when killing a minion of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/8bd25c0787440c67740c9e53e344b47c.png",
+		"displayIcon": "/common/destiny_content/icons/ac1c8ab48892dc11bd59ff568a86c592.png",
 		"isDisplayable": true,
 		"hash": 1357398595,
 		"index": 0
@@ -2982,7 +3036,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1359068529,
 		"displayName": "Fusion Rifle Loader",
 		"displayDescription": "Increased reload speed with Fusion Rifles.",
-		"displayIcon": "/common/destiny_content/icons/1e385059d9ecc5dffabdefb334c797bc.png",
+		"displayIcon": "/common/destiny_content/icons/6d265d092c4f3c041010a98ef16a297f.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -2998,7 +3052,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1379106954,
 		"displayName": "Delusions of Grandeur",
 		"displayDescription": "Tougher while using Nova Bomb. Improved Energy Drain.",
-		"displayIcon": "/common/destiny_content/icons/c5d234406f87724d5e9471dc8c9b5069.png",
+		"displayIcon": "/common/destiny_content/icons/bf19b28dbc60be41631bb496a795509f.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -3014,7 +3068,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1380004402,
 		"displayName": "Exotic Particles",
 		"displayDescription": "Grants a chance to receive an Exotic Engram on the next Ultra kill or Crucible match completion.",
-		"displayIcon": "/common/destiny_content/icons/ac7d9803d1a1c265af6b3d230e0baa81.png",
+		"displayIcon": "/common/destiny_content/icons/de258101c3fd0d88dc7b17a81ce8f643.png",
 		"isDisplayable": true,
 		"hash": 1380004402,
 		"index": 0
@@ -3030,7 +3084,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1392713960,
 		"displayName": "Supermassive Vortex",
 		"displayDescription": "Use  to unleash a spiral of Void energy in all directions.",
-		"displayIcon": "/common/destiny_content/icons/4d9751444468655464c0b69c0d0194da.png",
+		"displayIcon": "/common/destiny_content/icons/9a961a47d8ba61c0fe9ba19e800a0ff9.png",
 		"isDisplayable": true,
 		"hash": 1392713960,
 		"index": 0
@@ -3039,7 +3093,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1394084296,
 		"displayName": "Scout Rifle Loader",
 		"displayDescription": "Increases the reload speed of Scout Rifles.",
-		"displayIcon": "/common/destiny_content/icons/a2bf26411a131604e36c1bc9800cdcf3.png",
+		"displayIcon": "/common/destiny_content/icons/66c0a365fc430fc02fdd31d3970435ea.png",
 		"isDisplayable": true,
 		"hash": 1394084296,
 		"index": 0
@@ -3048,7 +3102,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1395368594,
 		"displayName": "Switchblade",
 		"displayDescription": "Decreases melee attack cooldown time.",
-		"displayIcon": "/common/destiny_content/icons/2974c9504c3bfadeaab015ce66ae15c8.png",
+		"displayIcon": "/common/destiny_content/icons/9a78d34b7a74f273b801e0afc307fe26.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -3064,7 +3118,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1395368595,
 		"displayName": "Incisive Maintenance",
 		"displayDescription": "Causing damage with a melee attack reduces your grenade cooldown.",
-		"displayIcon": "/common/destiny_content/icons/d8e6813c522b1e3b26d557ca80acdfe8.png",
+		"displayIcon": "/common/destiny_content/icons/98af9d8fea7b73b50646e0f6c870ae1d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -3080,7 +3134,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1405953642,
 		"displayName": "Fast Enter",
 		"displayDescription": "Reduces time needed to summon Sparrow.",
-		"displayIcon": "/common/destiny_content/icons/c8b61f8d39a6ceb70d000e17a4b32e15.png",
+		"displayIcon": "/common/destiny_content/icons/8456cf50c2ddc54c24af20a109e3b851.png",
 		"isDisplayable": true,
 		"hash": 1405953642,
 		"index": 0
@@ -3089,7 +3143,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1424250509,
 		"displayName": "Last Hope",
 		"displayDescription": "Increased Agility after becoming the last Guardian standing.",
-		"displayIcon": "/common/destiny_content/icons/2bd361ae843eec60f9a5fcf22d5d4b9a.png",
+		"displayIcon": "/common/destiny_content/icons/97272bde9e5b2cad2298f02bfea165bb.png",
 		"isDisplayable": true,
 		"hash": 1424250509,
 		"index": 0
@@ -3105,7 +3159,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1426726656,
 		"displayName": "Energy Projection",
 		"displayDescription": "Increases grenade throw distance.",
-		"displayIcon": "/common/destiny_content/icons/8d4b027a61d90936d9cfa64594d5f20b.png",
+		"displayIcon": "/common/destiny_content/icons/8a386b85db42bd323563d10feb6407e4.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -3121,7 +3175,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1426726657,
 		"displayName": "Serpent's Mouth",
 		"displayDescription": "Causing damage with a grenade reduces your melee cooldown.",
-		"displayIcon": "/common/destiny_content/icons/bddeb4198ac4c49f6b61a56d59fab266.png",
+		"displayIcon": "/common/destiny_content/icons/ed0855dd70faf4afd7fe8365e07df8d4.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -3137,7 +3191,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1435171161,
 		"displayName": "Swordbearer's Touch",
 		"displayDescription": "Gain a temporary increase to Agility while carrying the sword of a Hive Swordbearer.",
-		"displayIcon": "/common/destiny_content/icons/20a5d9351739a8dc85f9b47ddc13147b.png",
+		"displayIcon": "/common/destiny_content/icons/01daed3f3e18d40dbfbed98b3e661d50.png",
 		"isDisplayable": true,
 		"hash": 1435171161,
 		"index": 0
@@ -3153,7 +3207,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1453994006,
 		"displayName": "Wolfpack Rounds",
 		"displayDescription": "Rounds fired from this weapon split into tracking cluster missiles upon detonation.",
-		"displayIcon": "/common/destiny_content/icons/ea93b63049cbc8f00c0d0d94e1931a64.png",
+		"displayIcon": "/common/destiny_content/icons/ea41387226221f953b44595a2cf57d14.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -3204,7 +3258,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1456076301,
 		"displayName": "Solar Double-Down",
 		"displayDescription": "Increased Agility for 5 seconds after a Solar Double kill.",
-		"displayIcon": "/common/destiny_content/icons/871202c2736968b8baaa6bc3cdac9109.png",
+		"displayIcon": "/common/destiny_content/icons/66065dd43d070245158d57e661a21d4d.png",
 		"isDisplayable": true,
 		"hash": 1456076301,
 		"index": 0
@@ -3213,7 +3267,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1465160714,
 		"displayName": "Serpent's Tail",
 		"displayDescription": "Causing damage with a melee reduces your grenade cooldown.",
-		"displayIcon": "/common/destiny_content/icons/d8e6813c522b1e3b26d557ca80acdfe8.png",
+		"displayIcon": "/common/destiny_content/icons/98af9d8fea7b73b50646e0f6c870ae1d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -3229,7 +3283,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1465160715,
 		"displayName": "Snap Discharge",
 		"displayDescription": "Increases melee attack speed.",
-		"displayIcon": "/common/destiny_content/icons/53610b93ee290098666e0357501d47c3.png",
+		"displayIcon": "/common/destiny_content/icons/48522c94dd2e59f39bec89cf68c51131.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -3259,7 +3313,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1485291076,
 		"displayName": "Hat Trick",
 		"displayDescription": "The final round in each burst deals bonus precision damage.",
-		"displayIcon": "/common/destiny_content/icons/746bcea5cafc46f2a72218d8eea565f6.png",
+		"displayIcon": "/common/destiny_content/icons/5a447a252a1bd4911ee89ef7b09e1fd4.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -3289,7 +3343,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1488331959,
 		"displayName": "Crimson Connection",
 		"displayDescription": "Inspiration: Increases the upgrade rate for all weapons while you are in a Fireteam with the Inspiration provider. \nEffect lasts for 30 minutes and will fade if you leave the Fireteam.",
-		"displayIcon": "/common/destiny_content/icons/33649d80c3a7a40c0087cf4ad4bf08b6.png",
+		"displayIcon": "/common/destiny_content/icons/55250326198efa1f3bb76191b2262757.png",
 		"isDisplayable": true,
 		"hash": 1488331959,
 		"index": 0
@@ -3298,7 +3352,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1490285904,
 		"displayName": "Kneepads",
 		"displayDescription": "Slide further while this weapon is equipped.",
-		"displayIcon": "/common/destiny_content/icons/0e5bc71c2e0c00f60b8126422561ec59.png",
+		"displayIcon": "/common/destiny_content/icons/96b64a94f61232d87295b223e45d3273.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -3314,7 +3368,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1491779096,
 		"displayName": "Hive Hunter",
 		"displayDescription": "Increased XP from Hive enemies.",
-		"displayIcon": "/common/destiny_content/icons/90b3c2212f25c0fcf1423c4593680492.png",
+		"displayIcon": "/common/destiny_content/icons/c5228a31e694403cad49de455de222be.png",
 		"isDisplayable": true,
 		"hash": 1491779096,
 		"index": 0
@@ -3323,7 +3377,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1493702833,
 		"displayName": "Boon of Osiris",
 		"displayDescription": "You have been granted a Boon. If you win your next Trials match, it will count as two wins.",
-		"displayIcon": "/common/destiny_content/icons/32290202333ebf6db3ba877102583993.png",
+		"displayIcon": "/common/destiny_content/icons/4653c4ac6cd6b3a0e6a52cece13609ca.png",
 		"isDisplayable": true,
 		"hash": 1493702833,
 		"index": 0
@@ -3332,7 +3386,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1501278848,
 		"displayName": "Vex Arbiter",
 		"displayDescription": "Greatly increased Recovery and Super recharge when fighting Vex in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/e84c6368a144cc44653a3d27aa76b920.png",
+		"displayIcon": "/common/destiny_content/icons/851dc1463f998b61983b078d326e49bf.png",
 		"isDisplayable": true,
 		"hash": 1501278848,
 		"index": 0
@@ -3341,7 +3395,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1506633456,
 		"displayName": "Lightning Rod",
 		"displayDescription": "Grants Landfall.",
-		"displayIcon": "/common/destiny_content/icons/e6823b7fd7fe5e03d690c37ab9c9f827.png",
+		"displayIcon": "/common/destiny_content/icons/26282d66e24d1b74b387b73de1c14b6c.png",
 		"isDisplayable": true,
 		"hash": 1506633456,
 		"index": 0
@@ -3350,7 +3404,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1509404812,
 		"displayName": "Keeper of the Pack",
 		"displayDescription": "Supers generate an extra Orb. \nRevive and be revived faster.",
-		"displayIcon": "/common/destiny_content/icons/a2514976033a58487a4183f4dc7c949c.png",
+		"displayIcon": "/common/destiny_content/icons/89f80ec0fbe16566b742cc52e2c2b371.png",
 		"isDisplayable": true,
 		"hash": 1509404812,
 		"index": 0
@@ -3401,7 +3455,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1528860941,
 		"displayName": "Prototype Trueseeker",
 		"displayDescription": "Rounds fired from this weapon seek their targets aggressively.",
-		"displayIcon": "/common/destiny_content/icons/62c519b9720f488703e4d6128a947ed0.png",
+		"displayIcon": "/common/destiny_content/icons/a3a561046ced6dca4c766bde0e89421b.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 1024,
@@ -3424,7 +3478,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1541353681,
 		"displayName": "Ether Needle",
 		"displayDescription": "Chance to generate Orbs when killing Fallen with precision hits.",
-		"displayIcon": "/common/destiny_content/icons/e84c6368a144cc44653a3d27aa76b920.png",
+		"displayIcon": "/common/destiny_content/icons/851dc1463f998b61983b078d326e49bf.png",
 		"isDisplayable": true,
 		"hash": 1541353681,
 		"index": 0
@@ -3454,7 +3508,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1561443109,
 		"displayName": "Iron Allegiance",
 		"displayDescription": "Increases Event Standing gained in the Iron Banner.",
-		"displayIcon": "/common/destiny_content/icons/ff010bff662398a2e91b44a8d1312b90.png",
+		"displayIcon": "/common/destiny_content/icons/7a973e2ba1364dd85685365dac3b8679.png",
 		"isDisplayable": true,
 		"hash": 1561443109,
 		"index": 0
@@ -3484,7 +3538,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1566222180,
 		"displayName": "Full Auto",
 		"displayDescription": "This weapon can be fired in full auto mode.",
-		"displayIcon": "/common/destiny_content/icons/d68aecdd0703b4067845192769b8c8e3.png",
+		"displayIcon": "/common/destiny_content/icons/072c7e42a27f8aecc576cd26912859d6.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 1,
@@ -3500,7 +3554,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1568304667,
 		"displayName": "Luck in the Chamber",
 		"displayDescription": "One random bullet in the magazine causes considerable bonus damage.",
-		"displayIcon": "/common/destiny_content/icons/b45df811e85324e78804d3d3918b21eb.png",
+		"displayIcon": "/common/destiny_content/icons/73eac687d033ab5a5a653d8efb9880fb.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -3523,7 +3577,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1569097303,
 		"displayName": "Private Reserves",
 		"displayDescription": "Immediate health, melee, and grenade regeneration on activating your Super.",
-		"displayIcon": "/common/destiny_content/icons/51e238426c9758cafa7f232226519a7f.png",
+		"displayIcon": "/common/destiny_content/icons/5acc4fdddc047886fe6b14fc5014630b.png",
 		"isDisplayable": true,
 		"hash": 1569097303,
 		"index": 0
@@ -3532,7 +3586,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1577779520,
 		"displayName": "Pulse Rifle Ammo",
 		"displayDescription": "Increases the amount of Pulse Rifle ammunition you can carry.",
-		"displayIcon": "/common/destiny_content/icons/def190acf52ba73317b7c20e0299ab39.png",
+		"displayIcon": "/common/destiny_content/icons/a662ca549e6b969699912de77b2945fb.png",
 		"isDisplayable": true,
 		"hash": 1577779520,
 		"index": 0
@@ -3541,7 +3595,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1578005732,
 		"displayName": "Radiant Light",
 		"displayDescription": "You have come through the darkness undiminished. Increases all XP gains.\n\nLasts until weekly refresh.",
-		"displayIcon": "/common/destiny_content/icons/a7704c3ccee6b199550242fa7ce0c2ae.png",
+		"displayIcon": "/common/destiny_content/icons/75708f158173e00f4436934a6f237fce.png",
 		"isDisplayable": true,
 		"hash": 1578005732,
 		"index": 0
@@ -3550,7 +3604,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1584602733,
 		"displayName": "Performance Bonus",
 		"displayDescription": "Kills with this weapon have the chance to grant bonus reserve ammo.",
-		"displayIcon": "/common/destiny_content/icons/4d7918260ec5eacb926a37e5c6684d59.png",
+		"displayIcon": "/common/destiny_content/icons/17bacccbdf667d622dce0c56cc588475.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -3573,7 +3627,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1595332315,
 		"displayName": "Performance Bonus",
 		"displayDescription": "Kills with this weapon have the chance to grant bonus reserve ammo.",
-		"displayIcon": "/common/destiny_content/icons/4d7918260ec5eacb926a37e5c6684d59.png",
+		"displayIcon": "/common/destiny_content/icons/17bacccbdf667d622dce0c56cc588475.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -3589,7 +3643,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1600125496,
 		"displayName": "Secret Round",
 		"displayDescription": "Missing a shot from this weapon's burst will fire a fourth shot.",
-		"displayIcon": "/common/destiny_content/icons/0fb18317bf3cc8a9e6708f38593f207c.png",
+		"displayIcon": "/common/destiny_content/icons/37daf8288a8a432d11693a491406ca49.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 1,
@@ -3605,7 +3659,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1605283625,
 		"displayName": "Destabilizers",
 		"displayDescription": "Use  while airborne to release roll stabilizers, and  to roll.",
-		"displayIcon": "/common/destiny_content/icons/7d38b09235e9d40024c2c2f418004a82.png",
+		"displayIcon": "/common/destiny_content/icons/23b337f1c5cad7ae6a90e93647f1de8a.png",
 		"isDisplayable": true,
 		"hash": 1605283625,
 		"index": 0
@@ -3614,7 +3668,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1613412752,
 		"displayName": "Shotgun Focus",
 		"displayDescription": "Increases the upgrade rate for Shotguns.",
-		"displayIcon": "/common/destiny_content/icons/835a4601d2341e8b93a64c5849c9bef7.png",
+		"displayIcon": "/common/destiny_content/icons/7e497934f1ce04dbdea53747220b0608.png",
 		"isDisplayable": true,
 		"hash": 1613412752,
 		"index": 0
@@ -3644,7 +3698,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1617397024,
 		"displayName": "New Tricks",
 		"displayDescription": "Improves Skip Grenade and gain an additional Skip Grenade charge.",
-		"displayIcon": "/common/destiny_content/icons/4054f593e890c385d0bf1ba7677c516c.png",
+		"displayIcon": "/common/destiny_content/icons/9cc3c6cc7cfb84908986cb4a72f2760a.png",
 		"isDisplayable": true,
 		"hash": 1617397024,
 		"index": 0
@@ -3653,7 +3707,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1618254058,
 		"displayName": "Dead Eye",
 		"displayDescription": "Bonus to range, stability, and movement speed when aiming down sights.",
-		"displayIcon": "/common/destiny_content/icons/14124000e4259fcd9e741b5c392c28d9.png",
+		"displayIcon": "/common/destiny_content/icons/fa3b306fdc1ae34a39957708f9ac3212.png",
 		"isDisplayable": true,
 		"hash": 1618254058,
 		"index": 0
@@ -3662,7 +3716,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1628451145,
 		"displayName": "XP Boost",
 		"displayDescription": "Increases experience gains for your Subclass, Weapons, and Armor.",
-		"displayIcon": "/common/destiny_content/icons/3d070b69cc499835131d21eb0e5bc548.png",
+		"displayIcon": "/common/destiny_content/icons/e42caa93e33d4b06ab81b76e7fca375e.png",
 		"isDisplayable": true,
 		"hash": 1628451145,
 		"index": 0
@@ -3671,7 +3725,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1632665602,
 		"displayName": "Focused Fire",
 		"displayDescription": "When zoomed, this weapon fires slower, but causes additional damage.",
-		"displayIcon": "/common/destiny_content/icons/1803e0c35a4a6cd7020c202b8906b78f.png",
+		"displayIcon": "/common/destiny_content/icons/c32097003caa8e426798dd39bce1b69d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 3,
@@ -3687,7 +3741,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1633645359,
 		"displayName": "Flight of Shadows",
 		"displayDescription": "Are you the dream of a sleeping god? Or the nightmare of a dead one?",
-		"displayIcon": "/common/destiny_content/icons/a472935c0e6e01c9bb5310e37f5196ae.png",
+		"displayIcon": "/common/destiny_content/icons/e04ae852dc91534020260df557061b3d.png",
 		"isDisplayable": true,
 		"hash": 1633645359,
 		"index": 0
@@ -3717,7 +3771,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1651022462,
 		"displayName": "Unplanned Reprieve",
 		"displayDescription": "Fusion projectiles attach and detonate with a delayed Void blast.",
-		"displayIcon": "/common/destiny_content/icons/ebcf9675a542803684832ac70975fbd5.png",
+		"displayIcon": "/common/destiny_content/icons/894f10da9894137bfca2045d28e6609b.png",
 		"isDisplayable": true,
 		"hash": 1651022462,
 		"index": 0
@@ -3740,7 +3794,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1679363838,
 		"displayName": "Flaming Skull",
 		"displayDescription": "The haunting touch of the afterlife.",
-		"displayIcon": "/common/destiny_content/icons/0003d29017a1fd6f20233bdb0268f575.png",
+		"displayIcon": "/common/destiny_content/icons/2dc2ddd9a783532c97d33a2f159fbd42.png",
 		"isDisplayable": true,
 		"hash": 1679363838,
 		"index": 0
@@ -3763,7 +3817,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1688301903,
 		"displayName": "Counterbalance",
 		"displayDescription": "This weapon has increased stability.",
-		"displayIcon": "/common/destiny_content/icons/c9ca43e4b2cd159ecb68c5f617a2451f.png",
+		"displayIcon": "/common/destiny_content/icons/81d7fcbe3104b1bfc677f8fbcc73fb03.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 32,
@@ -3786,7 +3840,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1704130927,
 		"displayName": "Run for Your Life",
 		"displayDescription": "Increased Agility while Torn Between Dimensions.",
-		"displayIcon": "/common/destiny_content/icons/5e4cbb612a16dcf2a9a2e61f6fcdef4b.png",
+		"displayIcon": "/common/destiny_content/icons/e040a1362d39b1ae0a1bf61812afc482.png",
 		"isDisplayable": true,
 		"hash": 1704130927,
 		"index": 0
@@ -3795,7 +3849,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1706415961,
 		"displayName": "Double Down",
 		"displayDescription": "On initial spawn only, this weapon gains additional ammo.",
-		"displayIcon": "/common/destiny_content/icons/e5eafd1d90ca6f7204f3ec66920b4717.png",
+		"displayIcon": "/common/destiny_content/icons/be99f4e94d870a800a9809e9de522dc2.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -3811,7 +3865,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1711887956,
 		"displayName": "Icarus",
 		"displayDescription": "Improved accuracy while airborne.",
-		"displayIcon": "/common/destiny_content/icons/0b843fe7e35db6f1647728814e549edb.png",
+		"displayIcon": "/common/destiny_content/icons/f1f8126dbc79107f1ba3d47a6d0c4af4.png",
 		"isDisplayable": true,
 		"hash": 1711887956,
 		"index": 0
@@ -3820,7 +3874,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1712006298,
 		"displayName": "Weapon XP Boost",
 		"displayDescription": "Increases experience gains for your Weapons.",
-		"displayIcon": "/common/destiny_content/icons/fe30f09e1a55c4f659d644c4cb08742a.png",
+		"displayIcon": "/common/destiny_content/icons/c097ed8134ac1026f83d9e45bfba7ddc.png",
 		"isDisplayable": true,
 		"hash": 1712006298,
 		"index": 0
@@ -3836,7 +3890,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1723656171,
 		"displayName": "Solar Burn Defense",
 		"displayDescription": "Reduces incoming Solar Burn damage.",
-		"displayIcon": "/common/destiny_content/icons/2dbf3d8e60589b2322b7ac18c639b898.png",
+		"displayIcon": "/common/destiny_content/icons/d20a9050e51e3519f55f6b05dbd74a1d.png",
 		"isDisplayable": true,
 		"hash": 1723656171,
 		"index": 0
@@ -3845,7 +3899,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1724858392,
 		"displayName": "Solar Resonance",
 		"displayDescription": "Solar grenades have a chance to generate an Orb when killing a minion of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/89f31867a84df2dd0fe966d40fdee311.png",
+		"displayIcon": "/common/destiny_content/icons/0ab09fa9f52ce22f448b73c9b3cdeb20.png",
 		"isDisplayable": true,
 		"hash": 1724858392,
 		"index": 0
@@ -3868,7 +3922,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1725011707,
 		"displayName": "Air Traffic Control",
 		"displayDescription": "All Rocket Launchers gain tracking. \nVisible radar while zooming with Heavy Weapons. \nHeavy ammo drops more often.",
-		"displayIcon": "/common/destiny_content/icons/ecb714a4a1f99c64f40e4556aa035521.png",
+		"displayIcon": "/common/destiny_content/icons/b7a8199753f6a5f84d004a637bc576a6.png",
 		"isDisplayable": true,
 		"hash": 1725011707,
 		"index": 0
@@ -3877,7 +3931,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1734461859,
 		"displayName": "Burn Brighter",
 		"displayDescription": "Activating Radiance from death disorients nearby enemies.",
-		"displayIcon": "/common/destiny_content/icons/babaa006e74ecf03e314ee4ac8e431d3.png",
+		"displayIcon": "/common/destiny_content/icons/54c980e5a35cb0837fe657a530d9e3fc.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -3907,7 +3961,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1735491675,
 		"displayName": "Sleeper Simulant",
 		"displayDescription": "Weapon's laser tears through enemies and ricochets once on hard surfaces.",
-		"displayIcon": "/common/destiny_content/icons/0dbbd0f66f139323560ba1cdc7f84eff.png",
+		"displayIcon": "/common/destiny_content/icons/2d7ea8bb48232406bf563dcd473c81a1.png",
 		"isDisplayable": true,
 		"hash": 1735491675,
 		"index": 0
@@ -3930,7 +3984,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1737781361,
 		"displayName": "Spirit Bloom Extractor",
 		"displayDescription": "Chance to find additional spirit blooms when looting engrams on Venus.",
-		"displayIcon": "/common/destiny_content/icons/a6d057f795fb18838af7053885530c45.png",
+		"displayIcon": "/common/destiny_content/icons/402e3de7621cb15d95612018ed4d03de.png",
 		"isDisplayable": true,
 		"hash": 1737781361,
 		"index": 0
@@ -3946,7 +4000,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1752089080,
 		"displayName": "Auto Rifle Ammo",
 		"displayDescription": "Increases the amount of Auto Rifle ammunition you can carry.",
-		"displayIcon": "/common/destiny_content/icons/530812008a97dc185f0f30eee2499f00.png",
+		"displayIcon": "/common/destiny_content/icons/daa33ade124b9279ae174628afb49153.png",
 		"isDisplayable": true,
 		"hash": 1752089080,
 		"index": 0
@@ -3955,7 +4009,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1759552806,
 		"displayName": "Take That",
 		"displayDescription": "Orb pickups create the chance for temporary bonus precision damage to Taken.",
-		"displayIcon": "/common/destiny_content/icons/1c85aa8fba379ccbbaa3bbbf8a23650d.png",
+		"displayIcon": "/common/destiny_content/icons/03bc274d6bd1243a8c541618d91e057a.png",
 		"isDisplayable": true,
 		"hash": 1759552806,
 		"index": 0
@@ -3964,7 +4018,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1760211262,
 		"displayName": "Keeper of the Pack",
 		"displayDescription": "Supers generate an extra Orb. \nRevive and be revived faster.",
-		"displayIcon": "/common/destiny_content/icons/a2514976033a58487a4183f4dc7c949c.png",
+		"displayIcon": "/common/destiny_content/icons/89f80ec0fbe16566b742cc52e2c2b371.png",
 		"isDisplayable": true,
 		"hash": 1760211262,
 		"index": 0
@@ -3987,7 +4041,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1765729154,
 		"displayName": "Void Double-Down",
 		"displayDescription": "Increased Agility for 5 seconds after a Void double kill.",
-		"displayIcon": "/common/destiny_content/icons/d1847adef42202ba0a3b7e8b17d1f298.png",
+		"displayIcon": "/common/destiny_content/icons/215a082011f4026a62b173fe072d06b9.png",
 		"isDisplayable": true,
 		"hash": 1765729154,
 		"index": 0
@@ -4010,25 +4064,41 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1797364692,
 		"displayName": "Disciplinarian",
 		"displayDescription": "This weapon deals a small amount of bonus damage to Fallen enemies.",
-		"displayIcon": "/common/destiny_content/icons/a8ae843a165250937b2c0bef0edfc216.png",
+		"displayIcon": "/common/destiny_content/icons/0d098ae42486a702c69c3da85597ee15.png",
 		"isDisplayable": true,
 		"hash": 1797364692,
+		"index": 0
+	},
+	"1824424778": {
+		"perkHash": 1824424778,
+		"displayIcon": "/img/misc/missing_icon.png",
+		"isDisplayable": false,
+		"hash": 1824424778,
 		"index": 0
 	},
 	"1826316128": {
 		"perkHash": 1826316128,
 		"displayName": "Cabal Seeker",
 		"displayDescription": "Increased Glimmer from Cabal enemies.",
-		"displayIcon": "/common/destiny_content/icons/90b3c2212f25c0fcf1423c4593680492.png",
+		"displayIcon": "/common/destiny_content/icons/c5228a31e694403cad49de455de222be.png",
 		"isDisplayable": true,
 		"hash": 1826316128,
+		"index": 0
+	},
+	"1826868778": {
+		"perkHash": 1826868778,
+		"displayName": "Crucible Reputation Booster",
+		"displayDescription": "INSPIRATION\nIncreased Crucible reputation rewards from Crucible matches.\n\nInspirations are shared with Fireteam members.",
+		"displayIcon": "/common/destiny_content/icons/d6d2c3e66661ef7e984bd3f9724b8d9c.png",
+		"isDisplayable": true,
+		"hash": 1826868778,
 		"index": 0
 	},
 	"1843659180": {
 		"perkHash": 1843659180,
 		"displayName": "The Master",
 		"displayDescription": "Increased precision damage. Kills briefly increase damage against next target.",
-		"displayIcon": "/common/destiny_content/icons/b809b88bb791788e9605130c0db453d7.png",
+		"displayIcon": "/common/destiny_content/icons/814f1c7ef2969550818fb3f74d2768a2.png",
 		"isDisplayable": true,
 		"hash": 1843659180,
 		"index": 0
@@ -4037,7 +4107,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1844502900,
 		"displayName": "Primary Weapon Loader",
 		"displayDescription": "Increased reload speed with Primary Weapons.",
-		"displayIcon": "/common/destiny_content/icons/366e571751a00f158e343d4b6a493e7c.png",
+		"displayIcon": "/common/destiny_content/icons/e4a08176be990638fca1ae20760a5572.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -4053,7 +4123,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1846145321,
 		"displayName": "Angel of Mercy",
 		"displayDescription": "Gain bonus Super energy from reviving others.",
-		"displayIcon": "/common/destiny_content/icons/33c6444ef6526c2bb78902711f31a364.png",
+		"displayIcon": "/common/destiny_content/icons/dd247fdf2c61544fc27105eb0d272065.png",
 		"isDisplayable": true,
 		"hash": 1846145321,
 		"index": 0
@@ -4069,7 +4139,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1857351259,
 		"displayName": "Luck in the Chamber",
 		"displayDescription": "One random bullet in the magazine causes considerable bonus precision damage.",
-		"displayIcon": "/common/destiny_content/icons/b45df811e85324e78804d3d3918b21eb.png",
+		"displayIcon": "/common/destiny_content/icons/73eac687d033ab5a5a653d8efb9880fb.png",
 		"isDisplayable": true,
 		"hash": 1857351259,
 		"index": 0
@@ -4078,7 +4148,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1863078623,
 		"displayName": "Zen Moment",
 		"displayDescription": "Causing damage with this weapon increases its stability.",
-		"displayIcon": "/common/destiny_content/icons/2995404c5e90cc71a2a06362c96d5333.png",
+		"displayIcon": "/common/destiny_content/icons/9701281781a241613692536342dfad29.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 32,
@@ -4090,11 +4160,20 @@ var DestinySandboxPerkDefinition = {
 		"hash": 1863078623,
 		"index": 0
 	},
+	"1868041021": {
+		"perkHash": 1868041021,
+		"displayName": "Blue Chroma",
+		"displayDescription": "Activates a Blue Chroma glow.",
+		"displayIcon": "/common/destiny_content/icons/c84bbd51ae3cb3ea661aade67b1fd54d.png",
+		"isDisplayable": true,
+		"hash": 1868041021,
+		"index": 0
+	},
 	"1869471663": {
 		"perkHash": 1869471663,
 		"displayName": "Tempered",
 		"displayDescription": "A boon from the Lords of Iron. Increases Event Standing gained in the Iron Banner.\n\nBecomes increasingly effective every day the Iron Banner is available.",
-		"displayIcon": "/common/destiny_content/icons/ff010bff662398a2e91b44a8d1312b90.png",
+		"displayIcon": "/common/destiny_content/icons/7a973e2ba1364dd85685365dac3b8679.png",
 		"isDisplayable": true,
 		"hash": 1869471663,
 		"index": 0
@@ -4103,7 +4182,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1870183033,
 		"displayName": "Spirit Bloom Sensor",
 		"displayDescription": "Detects and marks nearby spirit blooms.",
-		"displayIcon": "/common/destiny_content/icons/478d63ab50a22da6640607188342e72e.png",
+		"displayIcon": "/common/destiny_content/icons/543eaaa9effcf47cd1537719272bbe1a.png",
 		"isDisplayable": true,
 		"hash": 1870183033,
 		"index": 0
@@ -4112,7 +4191,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1875467969,
 		"displayName": "Fusion Rifle Focus",
 		"displayDescription": "Increases the upgrade rate for Fusion Rifles.",
-		"displayIcon": "/common/destiny_content/icons/34bb33bfc6695725b6dfede26a53ea5a.png",
+		"displayIcon": "/common/destiny_content/icons/3d3073c4f92a125ee04e682c78274e53.png",
 		"isDisplayable": true,
 		"hash": 1875467969,
 		"index": 0
@@ -4121,7 +4200,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1880426832,
 		"displayName": "Machine Gun Ammo",
 		"displayDescription": "Increases the amount of Machine Gun ammunition you can carry.",
-		"displayIcon": "/common/destiny_content/icons/bc9e2d2578dde1a31b793beaa2a1c6a4.png",
+		"displayIcon": "/common/destiny_content/icons/df4fad1a0641582f1d5e7affe9714fd2.png",
 		"isDisplayable": true,
 		"hash": 1880426832,
 		"index": 0
@@ -4130,7 +4209,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1880837044,
 		"displayName": "Glutton",
 		"displayDescription": "Receive bonus melee energy for each enemy standing nearby you when you get a kill.",
-		"displayIcon": "/common/destiny_content/icons/cf41c3a2132eb0eb46677be0ac70a6e2.png",
+		"displayIcon": "/common/destiny_content/icons/f310051ebf26bbeaef354bec9de90b56.png",
 		"isDisplayable": true,
 		"hash": 1880837044,
 		"index": 0
@@ -4146,7 +4225,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1900693659,
 		"displayName": "Army of One",
 		"displayDescription": "Quick unassisted kills with this weapon reduce grenade and melee cooldown.",
-		"displayIcon": "/common/destiny_content/icons/d2d73231f5d8f2999105b9b0df24399a.png",
+		"displayIcon": "/common/destiny_content/icons/7590860413e122aaf79b7d4a7e5b78ca.png",
 		"isDisplayable": true,
 		"hash": 1900693659,
 		"index": 0
@@ -4162,7 +4241,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1913998313,
 		"displayName": "Speed Demon",
 		"displayDescription": "Increased sprint speed. \nMove faster with aimed weapon.\nTighter sprinting turn radius.",
-		"displayIcon": "/common/destiny_content/icons/25d429acbb7744f6f4d63e86ae5f0c57.png",
+		"displayIcon": "/common/destiny_content/icons/b364e8bdea33359070d14ffba1004ac3.png",
 		"isDisplayable": true,
 		"hash": 1913998313,
 		"index": 0
@@ -4178,7 +4257,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1928591453,
 		"displayName": "Cluster Bomb",
 		"displayDescription": "Rockets create cluster bombs when they detonate.",
-		"displayIcon": "/common/destiny_content/icons/c516ba5fcf9e91425f11dc5ce4291402.png",
+		"displayIcon": "/common/destiny_content/icons/d58af09f19c20abb48e08b19f680cc99.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 1026,
@@ -4229,7 +4308,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1935335468,
 		"displayName": "The Roadborn",
 		"displayDescription": "Precision kills briefly grant bonus handling, range and precision damage with this weapon.",
-		"displayIcon": "/common/destiny_content/icons/1b95a4b6acbfcff33080c988b21140fd.png",
+		"displayIcon": "/common/destiny_content/icons/e2b50a620b3a0bc695cde7aaf328e9f0.png",
 		"isDisplayable": true,
 		"hash": 1935335468,
 		"index": 0
@@ -4238,7 +4317,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1938590973,
 		"displayName": "Rocket Launcher Loader",
 		"displayDescription": "Increased reload speed with Rocket Launchers.",
-		"displayIcon": "/common/destiny_content/icons/d77381a5b9ca53b96c3abb8ffb3f8ef1.png",
+		"displayIcon": "/common/destiny_content/icons/ab7f13e0086beb313657926afa6772f5.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -4268,7 +4347,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1950307497,
 		"displayName": "Momentum Transfer",
 		"displayDescription": "Gain bonus melee energy on grenade hits.",
-		"displayIcon": "/common/destiny_content/icons/d86590237eec8b56e159756729412951.png",
+		"displayIcon": "/common/destiny_content/icons/a29b54ad22b10f9fab7418c9eacfa8fb.png",
 		"isDisplayable": true,
 		"hash": 1950307497,
 		"index": 0
@@ -4284,7 +4363,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1966098145,
 		"displayName": "Cocoon",
 		"displayDescription": "When stowed for a short time, this weapon is automatically reloaded from your reserves.",
-		"displayIcon": "/common/destiny_content/icons/10049d0c05b817906ab40d8bde93b12c.png",
+		"displayIcon": "/common/destiny_content/icons/ade8da81633b68bfbdcc318409d6a388.png",
 		"isDisplayable": true,
 		"hash": 1966098145,
 		"index": 0
@@ -4293,7 +4372,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1973740917,
 		"displayName": "Metal Detector",
 		"displayDescription": "Expect to find more ammo for this weapon.",
-		"displayIcon": "/common/destiny_content/icons/d1cf3fc0e7f48dae469eb7e34b1dfdff.png",
+		"displayIcon": "/common/destiny_content/icons/f401fa148ef82a8536c6f2109aa706af.png",
 		"isDisplayable": true,
 		"hash": 1973740917,
 		"index": 0
@@ -4302,7 +4381,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1981671584,
 		"displayName": "Taken Imploder",
 		"displayDescription": "Grenades have a chance to generate an Orb when killing a Taken enemy.",
-		"displayIcon": "/common/destiny_content/icons/8e97e9d464f2c40905c0351765251972.png",
+		"displayIcon": "/common/destiny_content/icons/52fb7fac6fe4152af69a04c8e2132616.png",
 		"isDisplayable": true,
 		"hash": 1981671584,
 		"index": 0
@@ -4325,7 +4404,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1986661836,
 		"displayName": "Sniper Rifle Focus",
 		"displayDescription": "Increases the upgrade rate for Sniper Rifles.",
-		"displayIcon": "/common/destiny_content/icons/93d491118955166d70766c0734cfbd7b.png",
+		"displayIcon": "/common/destiny_content/icons/a059bda1cce05e7ef1ee449828e08d23.png",
 		"isDisplayable": true,
 		"hash": 1986661836,
 		"index": 0
@@ -4334,7 +4413,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1989386514,
 		"displayName": "Vacuum",
 		"displayDescription": "Increases the pick-up radius of ammo drops for this weapon.",
-		"displayIcon": "/common/destiny_content/icons/0c6b383c74fca751a150df2f1c80b906.png",
+		"displayIcon": "/common/destiny_content/icons/c6070d0375842778d90d00e575226210.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -4350,7 +4429,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1994008776,
 		"displayName": "Snapshot",
 		"displayDescription": "This weapon aims extremely quickly.",
-		"displayIcon": "/common/destiny_content/icons/96bcd7fbce03d46eb241c27ce6abe1e0.png",
+		"displayIcon": "/common/destiny_content/icons/fe1ae0c3202ba35fd71a31edde8dd510.png",
 		"isDisplayable": true,
 		"hash": 1994008776,
 		"index": 0
@@ -4359,7 +4438,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1995895907,
 		"displayName": "Hive Stalker",
 		"displayDescription": "Greatly increased Agility and Grenade recharge when fighting Hive in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/e84c6368a144cc44653a3d27aa76b920.png",
+		"displayIcon": "/common/destiny_content/icons/851dc1463f998b61983b078d326e49bf.png",
 		"isDisplayable": true,
 		"hash": 1995895907,
 		"index": 0
@@ -4382,7 +4461,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2011009679,
 		"displayName": "Fallen Stalker",
 		"displayDescription": "Greatly increased Agility and Grenade recharge when fighting Fallen in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/e84c6368a144cc44653a3d27aa76b920.png",
+		"displayIcon": "/common/destiny_content/icons/851dc1463f998b61983b078d326e49bf.png",
 		"isDisplayable": true,
 		"hash": 2011009679,
 		"index": 0
@@ -4412,7 +4491,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2026419164,
 		"displayName": "Performance Bonus",
 		"displayDescription": "Kills with this weapon have the chance to grant bonus reserve ammo.",
-		"displayIcon": "/common/destiny_content/icons/4d7918260ec5eacb926a37e5c6684d59.png",
+		"displayIcon": "/common/destiny_content/icons/17bacccbdf667d622dce0c56cc588475.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -4428,7 +4507,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2028552052,
 		"displayName": "Reactive Reload",
 		"displayDescription": "Reloading this weapon after a kill grants a damage bonus for a short time.",
-		"displayIcon": "/common/destiny_content/icons/16524be9d1df3fa0725539bbf8c71705.png",
+		"displayIcon": "/common/destiny_content/icons/9e888656e40dcbf8105cd21e32ca59e3.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -4451,7 +4530,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2031840132,
 		"displayName": "Cover",
 		"displayDescription": "Increased Armor while peeking over cover, and increased movement speed while aiming your weapon.",
-		"displayIcon": "/common/destiny_content/icons/91eb8ef899298dac58955181f509eed1.png",
+		"displayIcon": "/common/destiny_content/icons/07f5724d7a1e833ef2e5ce6a4ac83277.png",
 		"isDisplayable": true,
 		"hash": 2031840132,
 		"index": 0
@@ -4460,7 +4539,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2031840133,
 		"displayName": "The Dance",
 		"displayDescription": "You move more quickly while aiming your weapon.",
-		"displayIcon": "/common/destiny_content/icons/91eb8ef899298dac58955181f509eed1.png",
+		"displayIcon": "/common/destiny_content/icons/07f5724d7a1e833ef2e5ce6a4ac83277.png",
 		"isDisplayable": true,
 		"hash": 2031840133,
 		"index": 0
@@ -4476,7 +4555,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2044501938,
 		"displayName": "Vex Stalker",
 		"displayDescription": "Greatly increased Agility and Grenade recharge when fighting Vex in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/e84c6368a144cc44653a3d27aa76b920.png",
+		"displayIcon": "/common/destiny_content/icons/851dc1463f998b61983b078d326e49bf.png",
 		"isDisplayable": true,
 		"hash": 2044501938,
 		"index": 0
@@ -4485,7 +4564,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2047535886,
 		"displayName": "Close and/or Personal",
 		"displayDescription": "Short period of 25% bonus melee damage after landing a hit with this weapon.",
-		"displayIcon": "/common/destiny_content/icons/901263186008633df8c686b91014486c.png",
+		"displayIcon": "/common/destiny_content/icons/c5f0f23f79efb72cc8783e2c0bcc7239.png",
 		"isDisplayable": true,
 		"hash": 2047535886,
 		"index": 0
@@ -4494,7 +4573,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2047962979,
 		"displayName": "Fusion Rifle Affinity",
 		"displayDescription": "Unlocks upgrades on Fusion Rifles.",
-		"displayIcon": "/common/destiny_content/icons/34bb33bfc6695725b6dfede26a53ea5a.png",
+		"displayIcon": "/common/destiny_content/icons/3d3073c4f92a125ee04e682c78274e53.png",
 		"isDisplayable": true,
 		"hash": 2047962979,
 		"index": 0
@@ -4517,7 +4596,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2052052150,
 		"displayName": "Strange Angles",
 		"displayDescription": "Faster movement speed while crouching. Ammo pickups automatically reload that weapon type.",
-		"displayIcon": "/common/destiny_content/icons/387897b4a6baf4d2fcf2f43836178a5d.png",
+		"displayIcon": "/common/destiny_content/icons/9a81c8fad99b5aaed4bf13918d735274.png",
 		"isDisplayable": true,
 		"hash": 2052052150,
 		"index": 0
@@ -4533,7 +4612,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2057818109,
 		"displayName": "Relic Iron Extractor",
 		"displayDescription": "Chance to find additional relic iron when looting engrams on Mars.",
-		"displayIcon": "/common/destiny_content/icons/a6d057f795fb18838af7053885530c45.png",
+		"displayIcon": "/common/destiny_content/icons/402e3de7621cb15d95612018ed4d03de.png",
 		"isDisplayable": true,
 		"hash": 2057818109,
 		"index": 0
@@ -4570,7 +4649,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2065326242,
 		"displayName": "Pack Mule",
 		"displayDescription": "This weapon has bonus backpack ammo reserves available.",
-		"displayIcon": "/common/destiny_content/icons/04eb442108274c62c0137ebccd0e6e9e.png",
+		"displayIcon": "/common/destiny_content/icons/9e0a8dd430be71b8f64609cf0e8c553e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -4586,7 +4665,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2066029413,
 		"displayName": "Shank Burn",
 		"displayDescription": "This weapon deals moderate bonus damage to Fallen Shanks.",
-		"displayIcon": "/common/destiny_content/icons/e84c6368a144cc44653a3d27aa76b920.png",
+		"displayIcon": "/common/destiny_content/icons/851dc1463f998b61983b078d326e49bf.png",
 		"isDisplayable": true,
 		"hash": 2066029413,
 		"index": 0
@@ -4595,7 +4674,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2070475581,
 		"displayName": "Starless Night",
 		"displayDescription": "Ward of Dawn blinds enemies who enter it.",
-		"displayIcon": "/common/destiny_content/icons/0f9a484989e8ce9a1eb598523307479a.png",
+		"displayIcon": "/common/destiny_content/icons/5a434b7a6c13d334e3a88a47f5af0081.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -4653,7 +4732,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2095340230,
 		"displayName": "Void Burn Defense",
 		"displayDescription": "Reduces incoming Void Burn damage.",
-		"displayIcon": "/common/destiny_content/icons/63b47ada5d97628eddff6a67394fcf53.png",
+		"displayIcon": "/common/destiny_content/icons/69ca0e0d30e9414fbf54c70bc006925e.png",
 		"isDisplayable": true,
 		"hash": 2095340230,
 		"index": 0
@@ -4669,7 +4748,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2118848531,
 		"displayName": "Valorous Light",
 		"displayDescription": "Your next foe in Heroic King's Fall is more likely to drop weapons and armor.",
-		"displayIcon": "/common/destiny_content/icons/7e4a613c2f7d7ed84169c7c2fccb6fdd.png",
+		"displayIcon": "/common/destiny_content/icons/45bf9b48e52ddc1313d03330f6f421d1.png",
 		"isDisplayable": true,
 		"hash": 2118848531,
 		"index": 0
@@ -4678,7 +4757,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2121443294,
 		"displayName": "Wrath Conductors",
 		"displayDescription": "Taking damage from a melee attack deals damage in an area around you.",
-		"displayIcon": "/common/destiny_content/icons/38a48291ae78fa4d8808eece9b820955.png",
+		"displayIcon": "/common/destiny_content/icons/81ec27b4ceb7e8e75fdea5b0bda0578d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -4694,7 +4773,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2129300632,
 		"displayName": "Napalm",
 		"displayDescription": "Release trigger after weapon fire to drop a Solar Damage napalm canister.",
-		"displayIcon": "/common/destiny_content/icons/6678c4760d9c9df402f452af2cac1b8d.png",
+		"displayIcon": "/common/destiny_content/icons/d35410ebbd25c19bcda03099c55ab0b0.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -4710,7 +4789,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2129333927,
 		"displayName": "Scout Rifle Loader",
 		"displayDescription": "Increased reload speed with Scout Rifles.",
-		"displayIcon": "/common/destiny_content/icons/a2bf26411a131604e36c1bc9800cdcf3.png",
+		"displayIcon": "/common/destiny_content/icons/66c0a365fc430fc02fdd31d3970435ea.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -4726,7 +4805,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2131801999,
 		"displayName": "Better Already",
 		"displayDescription": "Shields start recovery immediately after Orb pickup.",
-		"displayIcon": "/common/destiny_content/icons/2134a1d0652655fff845b62319414ce9.png",
+		"displayIcon": "/common/destiny_content/icons/6f60f5c0cc4aba79745e5a0b657867c5.png",
 		"isDisplayable": true,
 		"hash": 2131801999,
 		"index": 0
@@ -4742,7 +4821,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2136389783,
 		"displayName": "Scout Rifle Analysis",
 		"displayDescription": "Increased XP for Scout Rifles.",
-		"displayIcon": "/common/destiny_content/icons/1d53c8c445f2d37c4a4fba8f79013744.png",
+		"displayIcon": "/common/destiny_content/icons/0694027b6301a6ac6026fbcf90344d8d.png",
 		"isDisplayable": true,
 		"hash": 2136389783,
 		"index": 0
@@ -4751,16 +4830,25 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2144441188,
 		"displayName": "Spinmetal Sensor",
 		"displayDescription": "Detects and marks nearby spinmetal formations.",
-		"displayIcon": "/common/destiny_content/icons/478d63ab50a22da6640607188342e72e.png",
+		"displayIcon": "/common/destiny_content/icons/543eaaa9effcf47cd1537719272bbe1a.png",
 		"isDisplayable": true,
 		"hash": 2144441188,
+		"index": 0
+	},
+	"2151130854": {
+		"perkHash": 2151130854,
+		"displayName": "Dynamite",
+		"displayDescription": "Grants explosive rounds. Rapid kills with every round in the clip load an extra, higher-damage round for 5 seconds.",
+		"displayIcon": "/common/destiny_content/icons/6c36e6d50219d8b774b16d7eb4bba47c.png",
+		"isDisplayable": true,
+		"hash": 2151130854,
 		"index": 0
 	},
 	"2152652274": {
 		"perkHash": 2152652274,
 		"displayName": "Paramuscle Armature",
 		"displayDescription": "Increased grenade throw distance.",
-		"displayIcon": "/common/destiny_content/icons/bddeb4198ac4c49f6b61a56d59fab266.png",
+		"displayIcon": "/common/destiny_content/icons/ed0855dd70faf4afd7fe8365e07df8d4.png",
 		"isDisplayable": true,
 		"hash": 2152652274,
 		"index": 0
@@ -4769,7 +4857,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2152652275,
 		"displayName": "Momentum Transfer",
 		"displayDescription": "Grenade hits restore melee energy.",
-		"displayIcon": "/common/destiny_content/icons/bddeb4198ac4c49f6b61a56d59fab266.png",
+		"displayIcon": "/common/destiny_content/icons/ed0855dd70faf4afd7fe8365e07df8d4.png",
 		"isDisplayable": true,
 		"hash": 2152652275,
 		"index": 0
@@ -4777,8 +4865,8 @@ var DestinySandboxPerkDefinition = {
 	"2164232018": {
 		"perkHash": 2164232018,
 		"displayName": "The First Curse",
-		"displayDescription": "First precision kill of the magazine refills it, granting bonuses to movement speed while aiming down sights, range and stability until player reloads.",
-		"displayIcon": "/common/destiny_content/icons/c59967abfe743f0180cb00b39ca1080d.png",
+		"displayDescription": "First precision kill of the magazine refills it, granting bonuses to range and stability until the player reloads.",
+		"displayIcon": "/common/destiny_content/icons/5fb0a9464e2dd6e4a71885ebf8eff3fe.png",
 		"isDisplayable": true,
 		"hash": 2164232018,
 		"index": 0
@@ -4787,7 +4875,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2179933840,
 		"displayName": "Tracking",
 		"displayDescription": "Shells fired from this weapon track their targets",
-		"displayIcon": "/common/destiny_content/icons/c88e1df28decd2f98cee0c8532e1fdc6.png",
+		"displayIcon": "/common/destiny_content/icons/4a7d132e1e588a1d982f1007918e228a.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 1024,
@@ -4803,7 +4891,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2180748394,
 		"displayName": "Dark Breaker",
 		"displayDescription": "Projectiles will overpenetrate through Hive Knight Wall of Darkness.",
-		"displayIcon": "/common/destiny_content/icons/56f7dc38b906427292911142dcc457a7.png",
+		"displayIcon": "/common/destiny_content/icons/43044bb3ab75541acb3a1ff555fc82cb.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -4819,7 +4907,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2199805312,
 		"displayName": "Vex Seeker",
 		"displayDescription": "Increased Glimmer from Vex enemies.",
-		"displayIcon": "/common/destiny_content/icons/90b3c2212f25c0fcf1423c4593680492.png",
+		"displayIcon": "/common/destiny_content/icons/c5228a31e694403cad49de455de222be.png",
 		"isDisplayable": true,
 		"hash": 2199805312,
 		"index": 0
@@ -4828,7 +4916,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2201881340,
 		"displayName": "Performance Bonus",
 		"displayDescription": "Kills with this weapon have the chance to grant bonus reserve ammo.",
-		"displayIcon": "/common/destiny_content/icons/4d7918260ec5eacb926a37e5c6684d59.png",
+		"displayIcon": "/common/destiny_content/icons/17bacccbdf667d622dce0c56cc588475.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -4858,7 +4946,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2239009753,
 		"displayName": "Starless Night",
 		"displayDescription": "Blind enemies inside your Ward of Dawn.",
-		"displayIcon": "/common/destiny_content/icons/bbe0f7882232ca116410a0ea4b0c5991.png",
+		"displayIcon": "/common/destiny_content/icons/3d848abefa5d24ad738001c5092a57c0.png",
 		"isDisplayable": true,
 		"hash": 2239009753,
 		"index": 0
@@ -4867,7 +4955,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2249179885,
 		"displayName": "Rocket Launcher Analysis",
 		"displayDescription": "Increased XP for Rocket Launchers.",
-		"displayIcon": "/common/destiny_content/icons/87dad3b53219f96b4b9dad967cea4aa1.png",
+		"displayIcon": "/common/destiny_content/icons/7cd691183abd80b4c32d06cc94f96ed3.png",
 		"isDisplayable": true,
 		"hash": 2249179885,
 		"index": 0
@@ -4876,7 +4964,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2249936241,
 		"displayName": "Zhalo Supercell",
 		"displayDescription": "Arc projectiles have the chance to chain lightning when enemies are close together.",
-		"displayIcon": "/common/destiny_content/icons/f962d1791929f212746a6b6d6dc9250d.png",
+		"displayIcon": "/common/destiny_content/icons/2f26e9decb4854e1a590df5059650e24.png",
 		"isDisplayable": true,
 		"hash": 2249936241,
 		"index": 0
@@ -4892,7 +4980,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2270268283,
 		"displayName": "Spinning Up",
 		"displayDescription": "The longer this weapon is fired, the faster it fires.",
-		"displayIcon": "/common/destiny_content/icons/ccdf600670f50ee4dda2a4f4dfa05b46.png",
+		"displayIcon": "/common/destiny_content/icons/6b18e2c39e849d20f40aff3d1ad9bb93.png",
 		"isDisplayable": true,
 		"hash": 2270268283,
 		"index": 0
@@ -4929,7 +5017,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2289894117,
 		"displayName": "Improved Arcbolt Grenade",
 		"displayDescription": "Arcbolt Grenade chains further. Spawn with grenade energy.",
-		"displayIcon": "/common/destiny_content/icons/9730379775ac04c65012f32d1a6584b6.png",
+		"displayIcon": "/common/destiny_content/icons/c2d3be8b7d515964a2912a141853c84a.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -4945,7 +5033,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2290550941,
 		"displayName": "Rangefinder",
 		"displayDescription": "Aiming this weapon increases its effective range.",
-		"displayIcon": "/common/destiny_content/icons/6dc670ef6df8855190ab813f30508fe9.png",
+		"displayIcon": "/common/destiny_content/icons/bd54a5427cbb2f3656330fa17c7f2970.png",
 		"isDisplayable": true,
 		"hash": 2290550941,
 		"index": 0
@@ -4961,7 +5049,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2333942527,
 		"displayName": "Void Catalyst",
 		"displayDescription": "Void precision kills against a minion of the Darkness have a chance to generate an Orb.",
-		"displayIcon": "/common/destiny_content/icons/fffbf24d1a4311706fdd1a35772140b2.png",
+		"displayIcon": "/common/destiny_content/icons/c14970809d913c2d72941b1efd84219b.png",
 		"isDisplayable": true,
 		"hash": 2333942527,
 		"index": 0
@@ -4977,7 +5065,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2339147975,
 		"displayName": "Favor of Osiris",
 		"displayDescription": "You have been granted a Favor. You will start the Trials with a win already awarded.",
-		"displayIcon": "/common/destiny_content/icons/98fea87f944cca6abc7dfcb87492f62d.png",
+		"displayIcon": "/common/destiny_content/icons/5060e7e37db0f8432660817d4c211088.png",
 		"isDisplayable": true,
 		"hash": 2339147975,
 		"index": 0
@@ -4986,7 +5074,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2340078883,
 		"displayName": "Hit It Again",
 		"displayDescription": "Gain an additional melee charge.",
-		"displayIcon": "/common/destiny_content/icons/0dc9f3731fcea9f885613df62c653530.png",
+		"displayIcon": "/common/destiny_content/icons/9643ed432899dc597432ea54ad701b03.png",
 		"isDisplayable": true,
 		"hash": 2340078883,
 		"index": 0
@@ -5002,7 +5090,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2343656911,
 		"displayName": "Rapid Cooldown",
 		"displayDescription": "While sprinting, gain tighter turn radius and faster grenade and melee regeneration.",
-		"displayIcon": "/common/destiny_content/icons/adb3efa1ca86013776ab0fb72155a0ee.png",
+		"displayIcon": "/common/destiny_content/icons/9bc143e218fd2c634938498c4eb125bf.png",
 		"isDisplayable": true,
 		"hash": 2343656911,
 		"index": 0
@@ -5018,7 +5106,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2375853143,
 		"displayName": "Rocket Launcher Affinity",
 		"displayDescription": "Unlocks upgrades on Rocket Launchers.",
-		"displayIcon": "/common/destiny_content/icons/87dad3b53219f96b4b9dad967cea4aa1.png",
+		"displayIcon": "/common/destiny_content/icons/7cd691183abd80b4c32d06cc94f96ed3.png",
 		"isDisplayable": true,
 		"hash": 2375853143,
 		"index": 0
@@ -5048,7 +5136,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2390626543,
 		"displayName": "Mercy of Osiris",
 		"displayDescription": "You have been granted Mercy. Your first loss in the Trials will be forgiven.",
-		"displayIcon": "/common/destiny_content/icons/ce25cb5e8025069ef7be9b6e4bd7e7e9.png",
+		"displayIcon": "/common/destiny_content/icons/9ae904df554b9a1540492e51eefa1e05.png",
 		"isDisplayable": true,
 		"hash": 2390626543,
 		"index": 0
@@ -5071,7 +5159,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2404367057,
 		"displayName": "Performance Bonus",
 		"displayDescription": "Kills with this weapon have the chance to grant bonus reserve ammo.",
-		"displayIcon": "/common/destiny_content/icons/4d7918260ec5eacb926a37e5c6684d59.png",
+		"displayIcon": "/common/destiny_content/icons/17bacccbdf667d622dce0c56cc588475.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -5108,7 +5196,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2414762373,
 		"displayName": "Arcmage",
 		"displayDescription": "Your Stormcaller subclass upgrades 25% faster, and your Level increases 10% faster.",
-		"displayIcon": "/common/destiny_content/icons/5b71c1e68bbf1324c3c58743b6e6eeff.png",
+		"displayIcon": "/common/destiny_content/icons/523c741dedf3a66dc0379f18ed654c3c.png",
 		"isDisplayable": true,
 		"hash": 2414762373,
 		"index": 0
@@ -5117,7 +5205,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2416620568,
 		"displayName": "Last Man Standing",
 		"displayDescription": "Golden Gun gains one additional shot per use.",
-		"displayIcon": "/common/destiny_content/icons/9730379775ac04c65012f32d1a6584b6.png",
+		"displayIcon": "/common/destiny_content/icons/c2d3be8b7d515964a2912a141853c84a.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -5133,7 +5221,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2417835318,
 		"displayName": "Red Death",
 		"displayDescription": "Each kill heals you and speeds up reloads.",
-		"displayIcon": "/common/destiny_content/icons/dc835550f6290c0e975c9ceeb606c67b.png",
+		"displayIcon": "/common/destiny_content/icons/7e47a87a3454a4fc56fcf7356dea838a.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -5163,7 +5251,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2421244048,
 		"displayName": "Hot Swap",
 		"displayDescription": "Readying this weapon grants a brief period of bonus accuracy.",
-		"displayIcon": "/common/destiny_content/icons/c0b77e18561d00beff2291d3aca8d639.png",
+		"displayIcon": "/common/destiny_content/icons/1a3bebfb0ea142f2d9b3222382c4921b.png",
 		"isDisplayable": true,
 		"hash": 2421244048,
 		"index": 0
@@ -5172,7 +5260,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2422511459,
 		"displayName": "Machine Gun Affinity",
 		"displayDescription": "Unlocks upgrades on Machine Guns.",
-		"displayIcon": "/common/destiny_content/icons/3ff9be60ea58ec69e5e40eb4016c6747.png",
+		"displayIcon": "/common/destiny_content/icons/058fb9d7767f33702319d438130eb2cc.png",
 		"isDisplayable": true,
 		"hash": 2422511459,
 		"index": 0
@@ -5181,7 +5269,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2425591494,
 		"displayName": "Grenades and Horseshoes",
 		"displayDescription": "Rockets from this weapon will detonate early based on proximity to targets.",
-		"displayIcon": "/common/destiny_content/icons/57592b693e054070c43dbd1bd6e091eb.png",
+		"displayIcon": "/common/destiny_content/icons/2479a55c47cb0ccdb53b70999818326d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 1024,
@@ -5204,7 +5292,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2426858846,
 		"displayName": "Heavy Weapon Mags",
 		"displayDescription": "Carry more ammo for Heavy Weapons.",
-		"displayIcon": "/common/destiny_content/icons/7215393f3161a21acb53497ba909b027.png",
+		"displayIcon": "/common/destiny_content/icons/71feced3a1ab910195c441da92581f11.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -5220,7 +5308,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2428252973,
 		"displayName": "Vex Hunter",
 		"displayDescription": "Increased XP from Vex enemies.",
-		"displayIcon": "/common/destiny_content/icons/90b3c2212f25c0fcf1423c4593680492.png",
+		"displayIcon": "/common/destiny_content/icons/c5228a31e694403cad49de455de222be.png",
 		"isDisplayable": true,
 		"hash": 2428252973,
 		"index": 0
@@ -5236,7 +5324,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2439761463,
 		"displayName": "Demotion",
 		"displayDescription": "This weapon has a chance to stun Fallen Captains.",
-		"displayIcon": "/common/destiny_content/icons/9701ccaee8c27e8b1744fff9e0468cbf.png",
+		"displayIcon": "/common/destiny_content/icons/f7810ab6bd6ca31a9c1bdbaeb1579c86.png",
 		"isDisplayable": true,
 		"hash": 2439761463,
 		"index": 0
@@ -5252,7 +5340,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2447209469,
 		"displayName": "Primary Weapon Mags",
 		"displayDescription": "Carry more ammo for Primary Weapons.",
-		"displayIcon": "/common/destiny_content/icons/90b3c2212f25c0fcf1423c4593680492.png",
+		"displayIcon": "/common/destiny_content/icons/c5228a31e694403cad49de455de222be.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -5268,7 +5356,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2448421045,
 		"displayName": "Relic Iron Sensor",
 		"displayDescription": "Detects and marks nearby relic iron formations.",
-		"displayIcon": "/common/destiny_content/icons/478d63ab50a22da6640607188342e72e.png",
+		"displayIcon": "/common/destiny_content/icons/543eaaa9effcf47cd1537719272bbe1a.png",
 		"isDisplayable": true,
 		"hash": 2448421045,
 		"index": 0
@@ -5277,7 +5365,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2450150110,
 		"displayName": "Crowd Control",
 		"displayDescription": "Kills with this weapon grant bonus damage for a short time.",
-		"displayIcon": "/common/destiny_content/icons/3de0a81099e760d493b513874a16c71d.png",
+		"displayIcon": "/common/destiny_content/icons/2d510a7412177b69d1685ccaa062282d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -5293,7 +5381,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2451422685,
 		"displayName": "Treasure Sensor",
 		"displayDescription": "Detects and marks nearby storage containers.",
-		"displayIcon": "/common/destiny_content/icons/478d63ab50a22da6640607188342e72e.png",
+		"displayIcon": "/common/destiny_content/icons/543eaaa9effcf47cd1537719272bbe1a.png",
 		"isDisplayable": true,
 		"hash": 2451422685,
 		"index": 0
@@ -5302,7 +5390,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2471599498,
 		"displayName": "Spinning Up",
 		"displayDescription": "The longer this weapon is fired, the faster it fires.",
-		"displayIcon": "/common/destiny_content/icons/ccdf600670f50ee4dda2a4f4dfa05b46.png",
+		"displayIcon": "/common/destiny_content/icons/6b18e2c39e849d20f40aff3d1ad9bb93.png",
 		"isDisplayable": true,
 		"hash": 2471599498,
 		"index": 0
@@ -5318,16 +5406,25 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2482846307,
 		"displayName": "Pulse Rifle Loader",
 		"displayDescription": "Increases the reload speed of Pulse Rifles.",
-		"displayIcon": "/common/destiny_content/icons/297692b9f5f4b032751f0456a78a32de.png",
+		"displayIcon": "/common/destiny_content/icons/cc72707df8bd5f3623d01ffe5bf7ef06.png",
 		"isDisplayable": true,
 		"hash": 2482846307,
+		"index": 0
+	},
+	"2504755345": {
+		"perkHash": 2504755345,
+		"displayName": "Yellow Chroma",
+		"displayDescription": "Activates a Yellow Chroma glow.",
+		"displayIcon": "/common/destiny_content/icons/036b945e574781d87b3a50e162a5ad3a.png",
+		"isDisplayable": true,
+		"hash": 2504755345,
 		"index": 0
 	},
 	"2507926095": {
 		"perkHash": 2507926095,
 		"displayName": "Hidden Hand",
 		"displayDescription": "This weapon gains better target acquisition.",
-		"displayIcon": "/common/destiny_content/icons/10f08bec71ca5e8a198f4e19d7b599a8.png",
+		"displayIcon": "/common/destiny_content/icons/0dc0834d092d6a97b96a4552e0884d69.png",
 		"isDisplayable": true,
 		"hash": 2507926095,
 		"index": 0
@@ -5343,7 +5440,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2517656642,
 		"displayName": "Vanguard Streak",
 		"displayDescription": "Increases Vanguard Reputation and drop chance for Legendaries in Strikes. \n\nLasts until you return to orbit.",
-		"displayIcon": "/common/destiny_content/icons/0d8ffd3a4abda57766d763ac05e8e8f1.png",
+		"displayIcon": "/common/destiny_content/icons/0754451eed0d3e75708780ebda191cbd.png",
 		"isDisplayable": true,
 		"hash": 2517656642,
 		"index": 0
@@ -5352,7 +5449,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2525259694,
 		"displayName": "Private Eye",
 		"displayDescription": "Optical zoom length is increased while crouched.",
-		"displayIcon": "/common/destiny_content/icons/7141bcffb2f075a8f88d641dce5688c0.png",
+		"displayIcon": "/common/destiny_content/icons/0a289265e24ec43bdd2c11e14091cfe0.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 16,
@@ -5389,7 +5486,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2556279843,
 		"displayName": "Void Recovery",
 		"displayDescription": "Increased Recovery for 5 seconds after taking Void splash damage.",
-		"displayIcon": "/common/destiny_content/icons/63b47ada5d97628eddff6a67394fcf53.png",
+		"displayIcon": "/common/destiny_content/icons/69ca0e0d30e9414fbf54c70bc006925e.png",
 		"isDisplayable": true,
 		"hash": 2556279843,
 		"index": 0
@@ -5398,7 +5495,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2560578688,
 		"displayName": "Void-Forged Guard",
 		"displayDescription": "Use  to guard. Effective against Arc and Solar attacks, less effective against Void attacks.",
-		"displayIcon": "/common/destiny_content/icons/3cc245eac75c7f51c775401677284774.png",
+		"displayIcon": "/common/destiny_content/icons/76332801e89650039b2ec987cefd78ae.png",
 		"isDisplayable": true,
 		"hash": 2560578688,
 		"index": 0
@@ -5407,7 +5504,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2566491829,
 		"displayName": "Marksman",
 		"displayDescription": "This weapon gains bonus precision damage.",
-		"displayIcon": "/common/destiny_content/icons/7e700179fee5c7856ab615808185d294.png",
+		"displayIcon": "/common/destiny_content/icons/da98cfeb3c7c5e23ec25a20474a304c8.png",
 		"isDisplayable": true,
 		"hash": 2566491829,
 		"index": 0
@@ -5416,7 +5513,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2568497806,
 		"displayName": "Thunderer",
 		"displayDescription": "This weapon can be fired in full auto mode.",
-		"displayIcon": "/common/destiny_content/icons/81f3d3562ff280ffad10078169260770.png",
+		"displayIcon": "/common/destiny_content/icons/e50fa2df4dd5b96fba92a6eeac903a4a.png",
 		"isDisplayable": true,
 		"hash": 2568497806,
 		"index": 0
@@ -5439,7 +5536,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2577166199,
 		"displayName": "Tempered",
 		"displayDescription": "A boon from the Lords of Iron. Increases Event Standing gained in the Iron Banner.\n\nBecomes increasingly effective every day the Iron Banner is available.",
-		"displayIcon": "/common/destiny_content/icons/ff010bff662398a2e91b44a8d1312b90.png",
+		"displayIcon": "/common/destiny_content/icons/7a973e2ba1364dd85685365dac3b8679.png",
 		"isDisplayable": true,
 		"hash": 2577166199,
 		"index": 0
@@ -5455,7 +5552,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2579852973,
 		"displayName": "Ether Claw",
 		"displayDescription": "Chance to generate Orbs when killing Fallen with melee attacks.",
-		"displayIcon": "/common/destiny_content/icons/e84c6368a144cc44653a3d27aa76b920.png",
+		"displayIcon": "/common/destiny_content/icons/851dc1463f998b61983b078d326e49bf.png",
 		"isDisplayable": true,
 		"hash": 2579852973,
 		"index": 0
@@ -5478,7 +5575,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2586594178,
 		"displayName": "Special Weapon Mags",
 		"displayDescription": "Carry more ammo for Special Weapons.",
-		"displayIcon": "/common/destiny_content/icons/7215393f3161a21acb53497ba909b027.png",
+		"displayIcon": "/common/destiny_content/icons/71feced3a1ab910195c441da92581f11.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -5515,7 +5612,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2594448801,
 		"displayName": "Seeds of Ruin",
 		"displayDescription": "Heavy ammo drops more often, and contains more ammo in each drop.",
-		"displayIcon": "/common/destiny_content/icons/e4fadcd297b56754e41d929b7ec3b9ad.png",
+		"displayIcon": "/common/destiny_content/icons/f325e01fafad7fd04d14d4ad449cd483.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 704,
@@ -5531,7 +5628,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2598467525,
 		"displayName": "Fallen Arbiter",
 		"displayDescription": "Greatly increased Recovery and Super recharge when fighting Fallen in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/e84c6368a144cc44653a3d27aa76b920.png",
+		"displayIcon": "/common/destiny_content/icons/851dc1463f998b61983b078d326e49bf.png",
 		"isDisplayable": true,
 		"hash": 2598467525,
 		"index": 0
@@ -5547,7 +5644,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2623572727,
 		"displayName": "Hive Seeker",
 		"displayDescription": "Increased Glimmer from Hive enemies.",
-		"displayIcon": "/common/destiny_content/icons/90b3c2212f25c0fcf1423c4593680492.png",
+		"displayIcon": "/common/destiny_content/icons/c5228a31e694403cad49de455de222be.png",
 		"isDisplayable": true,
 		"hash": 2623572727,
 		"index": 0
@@ -5556,7 +5653,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2625386363,
 		"displayName": "Dubious Ordnance",
 		"displayDescription": "This weapon delivers a high-energy volley of explosive ordnance.",
-		"displayIcon": "/common/destiny_content/icons/458d3fd276e9169b1d86a957d708e958.png",
+		"displayIcon": "/common/destiny_content/icons/c6698001f238d15d49ced6be662d778c.png",
 		"isDisplayable": true,
 		"hash": 2625386363,
 		"index": 0
@@ -5565,7 +5662,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2626112550,
 		"displayName": "Unflinching",
 		"displayDescription": "It's easier to aim under fire using this weapon.",
-		"displayIcon": "/common/destiny_content/icons/4c0b69fa616cec1cb70aaedac75df3e7.png",
+		"displayIcon": "/common/destiny_content/icons/1e8947ffc51305b471cc583b45ed2e63.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -5609,7 +5706,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2655722661,
 		"displayName": "White Nail",
 		"displayDescription": "Rapidly landing three precision shots will refill the magazine from your reserves.",
-		"displayIcon": "/common/destiny_content/icons/a7dec2ec3122899c4910c94886d89f59.png",
+		"displayIcon": "/common/destiny_content/icons/9499ae7beb006eca0a70e06d3de58627.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -5625,7 +5722,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2661061676,
 		"displayName": "Brawler's Draw",
 		"displayDescription": "More Super energy from Melee kills.",
-		"displayIcon": "/common/destiny_content/icons/6db2980db0ff57866bf337c75c9ffdd5.png",
+		"displayIcon": "/common/destiny_content/icons/0b679007729b85f2ae8a36e96229262a.png",
 		"isDisplayable": true,
 		"hash": 2661061676,
 		"index": 0
@@ -5634,7 +5731,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2661061678,
 		"displayName": "Darkness Slayer",
 		"displayDescription": "More Super energy from non-Guardian kills.",
-		"displayIcon": "/common/destiny_content/icons/370ccecae2e8f3c7a9af80a5dd51949a.png",
+		"displayIcon": "/common/destiny_content/icons/47c5a2022250d3b0a14d9bd94390dee1.png",
 		"isDisplayable": true,
 		"hash": 2661061678,
 		"index": 0
@@ -5643,7 +5740,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2661061679,
 		"displayName": "Grenade Tap",
 		"displayDescription": "More Super energy from Grenade kills.",
-		"displayIcon": "/common/destiny_content/icons/6db2980db0ff57866bf337c75c9ffdd5.png",
+		"displayIcon": "/common/destiny_content/icons/0b679007729b85f2ae8a36e96229262a.png",
 		"isDisplayable": true,
 		"hash": 2661061679,
 		"index": 0
@@ -5652,7 +5749,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2661261331,
 		"displayName": "Fallen Rampart",
 		"displayDescription": "Greatly increased Armor and Melee recharge when fighting Fallen in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/e84c6368a144cc44653a3d27aa76b920.png",
+		"displayIcon": "/common/destiny_content/icons/851dc1463f998b61983b078d326e49bf.png",
 		"isDisplayable": true,
 		"hash": 2661261331,
 		"index": 0
@@ -5661,7 +5758,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2664229771,
 		"displayName": "Second Thoughts",
 		"displayDescription": "Gain bonus Super energy from Special Weapon kills on minions of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/978c537b8638bdcb41c2dd47cbd14359.png",
+		"displayIcon": "/common/destiny_content/icons/972983f4197cc5b284882d1c4f6145ed.png",
 		"isDisplayable": true,
 		"hash": 2664229771,
 		"index": 0
@@ -5670,7 +5767,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2670306210,
 		"displayName": "Warlock Bounty",
 		"displayDescription": "Generate additional Glimmer when killing Warlocks in the Crucible.",
-		"displayIcon": "/common/destiny_content/icons/080a6d589765b4d2a3bef126ba430a53.png",
+		"displayIcon": "/common/destiny_content/icons/5cc4fa7fcb89a64d354fa2c60a8e9050.png",
 		"isDisplayable": true,
 		"hash": 2670306210,
 		"index": 0
@@ -5679,7 +5776,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2671461052,
 		"displayName": "Improved Axion Bolt",
 		"displayDescription": "Enhanced Axion Bolt. Spawn with grenade energy.",
-		"displayIcon": "/common/destiny_content/icons/c5d234406f87724d5e9471dc8c9b5069.png",
+		"displayIcon": "/common/destiny_content/icons/bf19b28dbc60be41631bb496a795509f.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -5695,7 +5792,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2678818989,
 		"displayName": "Helium Extractor",
 		"displayDescription": "Chance to find additional helium filaments when looting engrams on the Moon.",
-		"displayIcon": "/common/destiny_content/icons/a6d057f795fb18838af7053885530c45.png",
+		"displayIcon": "/common/destiny_content/icons/402e3de7621cb15d95612018ed4d03de.png",
 		"isDisplayable": true,
 		"hash": 2678818989,
 		"index": 0
@@ -5711,7 +5808,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2682002320,
 		"displayName": "Keeper of the Pack",
 		"displayDescription": "Revive teammates faster. Spawn more orbs.",
-		"displayIcon": "/common/destiny_content/icons/0f9a484989e8ce9a1eb598523307479a.png",
+		"displayIcon": "/common/destiny_content/icons/5a434b7a6c13d334e3a88a47f5af0081.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -5797,7 +5894,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2712575832,
 		"displayName": "Performance Bonus",
 		"displayDescription": "Kills with this weapon have the chance to grant bonus reserve ammo.",
-		"displayIcon": "/common/destiny_content/icons/4d7918260ec5eacb926a37e5c6684d59.png",
+		"displayIcon": "/common/destiny_content/icons/17bacccbdf667d622dce0c56cc588475.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -5813,7 +5910,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2725595956,
 		"displayName": "Battle Runner",
 		"displayDescription": "Kills with this weapon grant a brief boost to the sprint's top speed.",
-		"displayIcon": "/common/destiny_content/icons/2bd361ae843eec60f9a5fcf22d5d4b9a.png",
+		"displayIcon": "/common/destiny_content/icons/97272bde9e5b2cad2298f02bfea165bb.png",
 		"isDisplayable": true,
 		"hash": 2725595956,
 		"index": 0
@@ -5829,7 +5926,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2751882956,
 		"displayName": "Peregrine Strike",
 		"displayDescription": "Shoulder Charge deals bonus damage when activated in the air.",
-		"displayIcon": "/common/destiny_content/icons/e4dd18a743c6148140dcea39cffe4eb4.png",
+		"displayIcon": "/common/destiny_content/icons/60ae7fac031422c33f1bbda243975e05.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -5845,7 +5942,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2758635242,
 		"displayName": "Self Spotter",
 		"displayDescription": "Increased radar resolution when this weapon is equipped.",
-		"displayIcon": "/common/destiny_content/icons/3d699e5226c5200887b512b4f42c1d9b.png",
+		"displayIcon": "/common/destiny_content/icons/45b91341c8908fb291ee5a35e1d7e6c8.png",
 		"isDisplayable": true,
 		"hash": 2758635242,
 		"index": 0
@@ -5854,7 +5951,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2768191624,
 		"displayName": "Wormspore Sensor",
 		"displayDescription": "Detects and marks nearby wormspore clusters.",
-		"displayIcon": "/common/destiny_content/icons/478d63ab50a22da6640607188342e72e.png",
+		"displayIcon": "/common/destiny_content/icons/543eaaa9effcf47cd1537719272bbe1a.png",
 		"isDisplayable": true,
 		"hash": 2768191624,
 		"index": 0
@@ -5863,7 +5960,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2770387802,
 		"displayName": "Sidearm Ready",
 		"displayDescription": "Increases speed at which you switch to Sidearms.",
-		"displayIcon": "/common/destiny_content/icons/f598886c2888637eb3996d6522aeccc8.png",
+		"displayIcon": "/common/destiny_content/icons/d7149c19270bf148fc13802b0f90dd23.png",
 		"isDisplayable": true,
 		"hash": 2770387802,
 		"index": 0
@@ -5893,7 +5990,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2779348654,
 		"displayName": "Taken Piercer",
 		"displayDescription": "Precision kills against a Taken enemy have a chance to generate an Orb.",
-		"displayIcon": "/common/destiny_content/icons/8e97e9d464f2c40905c0351765251972.png",
+		"displayIcon": "/common/destiny_content/icons/52fb7fac6fe4152af69a04c8e2132616.png",
 		"isDisplayable": true,
 		"hash": 2779348654,
 		"index": 0
@@ -5909,7 +6006,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2783259970,
 		"displayName": "One-Two Punch",
 		"displayDescription": "Grants Amplify. Grants additional melee charge.",
-		"displayIcon": "/common/destiny_content/icons/3e9764532c0bf7b4235729025c5c78f4.png",
+		"displayIcon": "/common/destiny_content/icons/cb4aa6fedd73e6f9ff4a96bf907570a6.png",
 		"isDisplayable": true,
 		"hash": 2783259970,
 		"index": 0
@@ -5925,7 +6022,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2784842908,
 		"displayName": "Tripod",
 		"displayDescription": "This launcher's tube can hold three shells.",
-		"displayIcon": "/common/destiny_content/icons/6dfd93942d40263eb67dafcf92365ae1.png",
+		"displayIcon": "/common/destiny_content/icons/f0e3c82ab82dadc3d0091fce84b2c5a3.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -5948,7 +6045,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2796404938,
 		"displayName": "Elementalist",
 		"displayDescription": "Enemies vulnerable to this weapon's damage type explode on death.",
-		"displayIcon": "/common/destiny_content/icons/083bad3380fc678a5f6aed3877b8903c.png",
+		"displayIcon": "/common/destiny_content/icons/b0a91607c505545a94f41de4efb77137.png",
 		"isDisplayable": true,
 		"hash": 2796404938,
 		"index": 0
@@ -5964,7 +6061,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2814215427,
 		"displayName": "Hip Fire",
 		"displayDescription": "This weapon has bonus accuracy while firing from the hip.",
-		"displayIcon": "/common/destiny_content/icons/ded69356c2ea505127ac79f156043923.png",
+		"displayIcon": "/common/destiny_content/icons/be7d506573beebfb113a1eb21c7e65d8.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 4,
@@ -5980,7 +6077,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2818471317,
 		"displayName": "Trick Master",
 		"displayDescription": "The amount of fuel you gain from performing tricks is increased.",
-		"displayIcon": "/common/destiny_content/icons/a55a0e16271f1ff95432a72d826d1dc6.png",
+		"displayIcon": "/common/destiny_content/icons/a14a88900f1315658e31439ff051b649.png",
 		"isDisplayable": true,
 		"hash": 2818471317,
 		"index": 0
@@ -5989,7 +6086,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2819174431,
 		"displayName": "Make Your Luck",
 		"displayDescription": "Arcbolt Grenade chains further. \nRespawn with full grenade energy.",
-		"displayIcon": "/common/destiny_content/icons/d912e3d3527399acd71a33306d2b83bb.png",
+		"displayIcon": "/common/destiny_content/icons/134b882077c233174e106c6db0fd433c.png",
 		"isDisplayable": true,
 		"hash": 2819174431,
 		"index": 0
@@ -5998,7 +6095,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2819424643,
 		"displayName": "Iron Allegiance",
 		"displayDescription": "Increases Event Standing gained in the Iron Banner.",
-		"displayIcon": "/common/destiny_content/icons/ff010bff662398a2e91b44a8d1312b90.png",
+		"displayIcon": "/common/destiny_content/icons/7a973e2ba1364dd85685365dac3b8679.png",
 		"isDisplayable": true,
 		"hash": 2819424643,
 		"index": 0
@@ -6014,7 +6111,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2838413436,
 		"displayName": "Two Tries Remaining",
 		"displayDescription": "Two tries remaining on this ticket.",
-		"displayIcon": "/common/destiny_content/icons/0b6a8fe90de2888ec6c8fd7585854663.png",
+		"displayIcon": "/common/destiny_content/icons/18bd89c8028caffcbefc10c7fc48d6bf.png",
 		"isDisplayable": true,
 		"hash": 2838413436,
 		"index": 0
@@ -6023,7 +6120,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2838413437,
 		"displayName": "Three Tries Remaining",
 		"displayDescription": "Three tries remaining on this ticket.",
-		"displayIcon": "/common/destiny_content/icons/709dfd53b5156aa6936bc05b19e1b8b4.png",
+		"displayIcon": "/common/destiny_content/icons/78d6733e3351157818d6c1828fcafd90.png",
 		"isDisplayable": true,
 		"hash": 2838413437,
 		"index": 0
@@ -6041,7 +6138,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2838413439,
 		"displayName": "One Try Remaining",
 		"displayDescription": "One try remaining on this ticket.",
-		"displayIcon": "/common/destiny_content/icons/79010f3e3d4a3ae47957224431df2d9e.png",
+		"displayIcon": "/common/destiny_content/icons/1bd8ee253a8a3a03af5f7ba2bb460636.png",
 		"isDisplayable": true,
 		"hash": 2838413439,
 		"index": 0
@@ -6050,7 +6147,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2840164558,
 		"displayName": "Placeholder",
 		"displayDescription": "Not yet implemented. Pardon our dust!",
-		"displayIcon": "/common/destiny_content/icons/4d322e9880ab4a242032b22050819f4b.png",
+		"displayIcon": "/common/destiny_content/icons/d8286995bb0de4ee5c2a16d036a1bfd1.png",
 		"isDisplayable": true,
 		"hash": 2840164558,
 		"index": 0
@@ -6073,7 +6170,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2852658353,
 		"displayName": "MIDA Multi-Tool",
 		"displayDescription": "This weapon boosts move speed and fires on a hair trigger.",
-		"displayIcon": "/common/destiny_content/icons/18b395d7231fd79291627a6b36f1374e.png",
+		"displayIcon": "/common/destiny_content/icons/f078d725ab76833a17494b9b87859172.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 256,
@@ -6089,7 +6186,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2852999565,
 		"displayName": "Hive Arbiter",
 		"displayDescription": "Greatly increased Recovery and Super recharge when fighting Hive in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/e84c6368a144cc44653a3d27aa76b920.png",
+		"displayIcon": "/common/destiny_content/icons/851dc1463f998b61983b078d326e49bf.png",
 		"isDisplayable": true,
 		"hash": 2852999565,
 		"index": 0
@@ -6105,7 +6202,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2859055896,
 		"displayName": "Life Leech",
 		"displayDescription": "Three rapid kills with this weapon heals a small amount and starts health regeneration",
-		"displayIcon": "/common/destiny_content/icons/3dfa517b0723dd8c42fe051382b980ac.png",
+		"displayIcon": "/common/destiny_content/icons/680672329651216d62ac3f21b6702b3c.png",
 		"isDisplayable": true,
 		"hash": 2859055896,
 		"index": 0
@@ -6114,7 +6211,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2859547216,
 		"displayName": "Devil's Touch",
 		"displayDescription": "Kills with this weapon rally nearby allies with +3 recovery. Lasts 30 seconds.",
-		"displayIcon": "/common/destiny_content/icons/0699b1f5429e4221560f947e7cf40e14.png",
+		"displayIcon": "/common/destiny_content/icons/efabd1bd3036c08abb8fdd82030076d6.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -6137,7 +6234,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2871746970,
 		"displayName": "Solar Catalyst",
 		"displayDescription": "Solar precision kills against a minion of the Darkness have a chance to generate an Orb.",
-		"displayIcon": "/common/destiny_content/icons/9fe870fe8b244e0209f9e9e0a56e5aa4.png",
+		"displayIcon": "/common/destiny_content/icons/fd104d72f8c9d126347147bde4b829e0.png",
 		"isDisplayable": true,
 		"hash": 2871746970,
 		"index": 0
@@ -6146,7 +6243,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2887187771,
 		"displayName": "Perfectionist",
 		"displayDescription": "Magazine is refunded if all shots fired are precision kills.",
-		"displayIcon": "/common/destiny_content/icons/379ac98a2b3f7565c609e51555cfc0e6.png",
+		"displayIcon": "/common/destiny_content/icons/e1dafaf362c0e963c6e64ee5e8092a46.png",
 		"isDisplayable": true,
 		"hash": 2887187771,
 		"index": 0
@@ -6176,7 +6273,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2908652391,
 		"displayName": "Improved Transfusion",
 		"displayDescription": "Storm Fist kills regenerate health. Spawn with melee energy.",
-		"displayIcon": "/common/destiny_content/icons/0f9a484989e8ce9a1eb598523307479a.png",
+		"displayIcon": "/common/destiny_content/icons/5a434b7a6c13d334e3a88a47f5af0081.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -6192,7 +6289,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2909481381,
 		"displayName": "Machine Gun Analysis",
 		"displayDescription": "Increased XP for Machine Guns.",
-		"displayIcon": "/common/destiny_content/icons/3ff9be60ea58ec69e5e40eb4016c6747.png",
+		"displayIcon": "/common/destiny_content/icons/058fb9d7767f33702319d438130eb2cc.png",
 		"isDisplayable": true,
 		"hash": 2909481381,
 		"index": 0
@@ -6208,7 +6305,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2921300479,
 		"displayName": "Auto Rifle Mags",
 		"displayDescription": "Carry more ammo for Auto Rifles.",
-		"displayIcon": "/common/destiny_content/icons/530812008a97dc185f0f30eee2499f00.png",
+		"displayIcon": "/common/destiny_content/icons/daa33ade124b9279ae174628afb49153.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -6224,7 +6321,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2923036788,
 		"displayName": "Iron to Gold",
 		"displayDescription": "Chance to gain Glimmer on Primary Ammo pickup\nWith full Super, Orbs recharge grenade and melee.",
-		"displayIcon": "/common/destiny_content/icons/a3ace4c25debeb2431b063f3fd361d86.png",
+		"displayIcon": "/common/destiny_content/icons/51a34cc8425db6c2e4828f05af7c30bc.png",
 		"isDisplayable": true,
 		"hash": 2923036788,
 		"index": 0
@@ -6275,7 +6372,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2950181133,
 		"displayName": "The Dance",
 		"displayDescription": "You move more quickly while aiming your weapon.",
-		"displayIcon": "/common/destiny_content/icons/91eb8ef899298dac58955181f509eed1.png",
+		"displayIcon": "/common/destiny_content/icons/07f5724d7a1e833ef2e5ce6a4ac83277.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 64,
@@ -6307,7 +6404,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2978872641,
 		"displayName": "Quite a Handful",
 		"displayDescription": "Carry an additional grenade.",
-		"displayIcon": "/common/destiny_content/icons/0f9a484989e8ce9a1eb598523307479a.png",
+		"displayIcon": "/common/destiny_content/icons/5a434b7a6c13d334e3a88a47f5af0081.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -6323,7 +6420,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2979228483,
 		"displayName": "Sidearm Focus",
 		"displayDescription": "Increases the upgrade rate for Sidearms.",
-		"displayIcon": "/common/destiny_content/icons/81a21e5613af48b38a8f7e738df3af5f.png",
+		"displayIcon": "/common/destiny_content/icons/cd1a64c0d40a77769de6b7b79a29e590.png",
 		"isDisplayable": true,
 		"hash": 2979228483,
 		"index": 0
@@ -6339,7 +6436,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2987746802,
 		"displayName": "Quintessence Transfer",
 		"displayDescription": "Replenish Super energy when you kill an enemy with a grenade.",
-		"displayIcon": "/common/destiny_content/icons/6db2980db0ff57866bf337c75c9ffdd5.png",
+		"displayIcon": "/common/destiny_content/icons/0b679007729b85f2ae8a36e96229262a.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -6355,7 +6452,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2987746803,
 		"displayName": "Inverse Shadow",
 		"displayDescription": "Increased Super energy gained from killing minions of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/370ccecae2e8f3c7a9af80a5dd51949a.png",
+		"displayIcon": "/common/destiny_content/icons/47c5a2022250d3b0a14d9bd94390dee1.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -6371,7 +6468,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2988093069,
 		"displayName": "Rocket Launcher Focus",
 		"displayDescription": "Increases the upgrade rate for Rocket Launchers",
-		"displayIcon": "/common/destiny_content/icons/87dad3b53219f96b4b9dad967cea4aa1.png",
+		"displayIcon": "/common/destiny_content/icons/7cd691183abd80b4c32d06cc94f96ed3.png",
 		"isDisplayable": true,
 		"hash": 2988093069,
 		"index": 0
@@ -6380,7 +6477,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2999530468,
 		"displayName": "Capture King",
 		"displayDescription": "After capturing control zones in Crucible matches, weapon and movement speeds are greatly increased.",
-		"displayIcon": "/common/destiny_content/icons/992f6283fdfef6e17934c49566fa8068.png",
+		"displayIcon": "/common/destiny_content/icons/54a03ca6dc5a5b011c11cd2fc860a3d7.png",
 		"isDisplayable": true,
 		"hash": 2999530468,
 		"index": 0
@@ -6389,7 +6486,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3002204708,
 		"displayName": "Primary Care",
 		"displayDescription": "This Exotic Sniper Rifle can be equipped in the primary weapon slot.",
-		"displayIcon": "/common/destiny_content/icons/1803e0c35a4a6cd7020c202b8906b78f.png",
+		"displayIcon": "/common/destiny_content/icons/c32097003caa8e426798dd39bce1b69d.png",
 		"isDisplayable": true,
 		"hash": 3002204708,
 		"index": 0
@@ -6398,7 +6495,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3013100384,
 		"displayName": "Improved Tripmine Grenade",
 		"displayDescription": "Tripmine grenades last longer when placed.",
-		"displayIcon": "/common/destiny_content/icons/9730379775ac04c65012f32d1a6584b6.png",
+		"displayIcon": "/common/destiny_content/icons/c2d3be8b7d515964a2912a141853c84a.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -6428,7 +6525,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3031176193,
 		"displayName": "Auto Rifle Loader",
 		"displayDescription": "Increases the reload speed of Auto Rifles.",
-		"displayIcon": "/common/destiny_content/icons/0c2719420ad2f2c1716d3179dc41fe55.png",
+		"displayIcon": "/common/destiny_content/icons/34c9e4a392dce5bfe9a7d28cdc0031da.png",
 		"isDisplayable": true,
 		"hash": 3031176193,
 		"index": 0
@@ -6437,7 +6534,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3031234337,
 		"displayName": "Guerilla Fighter",
 		"displayDescription": "Increased accuracy, handling and damage resistance when shooting this weapon from behind cover.",
-		"displayIcon": "/common/destiny_content/icons/e6b63a5eea5a90c0e016dc214f0247ac.png",
+		"displayIcon": "/common/destiny_content/icons/500e4baad3d670d33b7361eff89b19ee.png",
 		"isDisplayable": true,
 		"hash": 3031234337,
 		"index": 0
@@ -6446,7 +6543,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3052118152,
 		"displayName": "Clown Cartridge",
 		"displayDescription": "Reloading this weapon has a chance to grant a larger than normal magazine.",
-		"displayIcon": "/common/destiny_content/icons/d9484dba12b79fda44d7237254672a31.png",
+		"displayIcon": "/common/destiny_content/icons/19f77121104ca2f9e766d666c90a9399.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -6462,7 +6559,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3058626839,
 		"displayName": "Sniper Rifle Mags",
 		"displayDescription": "Carry more ammo for Sniper Rifle.",
-		"displayIcon": "/common/destiny_content/icons/191db9aeb132e1fa98027611b03dff10.png",
+		"displayIcon": "/common/destiny_content/icons/4288c2f4e5d7a0d79d68b2f666b2f596.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -6492,7 +6589,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3059715597,
 		"displayName": "Cabal Hunter",
 		"displayDescription": "Increased XP from Cabal enemies.",
-		"displayIcon": "/common/destiny_content/icons/90b3c2212f25c0fcf1423c4593680492.png",
+		"displayIcon": "/common/destiny_content/icons/c5228a31e694403cad49de455de222be.png",
 		"isDisplayable": true,
 		"hash": 3059715597,
 		"index": 0
@@ -6543,7 +6640,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3084449642,
 		"displayName": "Extinguished",
 		"displayDescription": "You have succumbed to Nightfall. Unable to attempt it again until next week.",
-		"displayIcon": "/common/destiny_content/icons/42883d7c07e6b7b71ac53ce71c15955f.png",
+		"displayIcon": "/common/destiny_content/icons/aea56624800e588f0d968ee751d4d6ff.png",
 		"isDisplayable": true,
 		"hash": 3084449642,
 		"index": 0
@@ -6559,7 +6656,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3092167570,
 		"displayName": "Hair Trigger",
 		"displayDescription": "This weapon doesn't require a full trigger pull to fire.",
-		"displayIcon": "/common/destiny_content/icons/d53ca6be9afbbdbd354bbb0b52892802.png",
+		"displayIcon": "/common/destiny_content/icons/06966c5b0694a76adca4b42ac0459417.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 256,
@@ -6582,7 +6679,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3102938162,
 		"displayName": "Exhumed",
 		"displayDescription": "This weapon gains improved range and handling for a short time after revival.",
-		"displayIcon": "/common/destiny_content/icons/c4790b045650aedb6a2fe82bf2346f0b.png",
+		"displayIcon": "/common/destiny_content/icons/b76ac005312fd152c64b1462329c4841.png",
 		"isDisplayable": true,
 		"hash": 3102938162,
 		"index": 0
@@ -6591,7 +6688,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3104860955,
 		"displayName": "Overdrive",
 		"displayDescription": "Hold  for greater speed at risk of exploding.",
-		"displayIcon": "/common/destiny_content/icons/d285e8032e33e296962de6eb8beb175a.png",
+		"displayIcon": "/common/destiny_content/icons/b855c97ee12a712d1a39f023e20f37f2.png",
 		"isDisplayable": true,
 		"hash": 3104860955,
 		"index": 0
@@ -6600,7 +6697,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3119194123,
 		"displayName": "Glass Half Full",
 		"displayDescription": "The bottom half of each magazine causes additional damage.",
-		"displayIcon": "/common/destiny_content/icons/b71f9c9cdb747427f0c681059428ae51.png",
+		"displayIcon": "/common/destiny_content/icons/14fae4a8ba77d755b8b4a44826c87eca.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -6616,7 +6713,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3129120313,
 		"displayName": "Rocket Launcher Ammo",
 		"displayDescription": "Increases the amount of Rocket Launcher ammunition you can carry.",
-		"displayIcon": "/common/destiny_content/icons/419749f2d533f9d20d53bce5c06dc019.png",
+		"displayIcon": "/common/destiny_content/icons/e79a08dd0de0dababfd9fd6c20a9151f.png",
 		"isDisplayable": true,
 		"hash": 3129120313,
 		"index": 0
@@ -6625,7 +6722,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3133914358,
 		"displayName": "Persistence",
 		"displayDescription": "This weapon grows more accurate the longer it is fired.",
-		"displayIcon": "/common/destiny_content/icons/b82faab1d129318dfee11f47c4c10d1f.png",
+		"displayIcon": "/common/destiny_content/icons/2be47e19446eccfe6ed7755ac50bcf6c.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 4,
@@ -6641,7 +6738,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3136748857,
 		"displayName": "Thrive by the Sword",
 		"displayDescription": "Kills with the sword grant Super energy.",
-		"displayIcon": "/common/destiny_content/icons/370ccecae2e8f3c7a9af80a5dd51949a.png",
+		"displayIcon": "/common/destiny_content/icons/47c5a2022250d3b0a14d9bd94390dee1.png",
 		"isDisplayable": true,
 		"hash": 3136748857,
 		"index": 0
@@ -6650,7 +6747,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3146510717,
 		"displayName": "Crimson Connection",
 		"displayDescription": "Inspiration: Increases the upgrade rate for all weapons for 30 minutes. Affects you and all Fireteam members.",
-		"displayIcon": "/common/destiny_content/icons/a6e5b96e6a34d225dce4d7ce92ad5ddc.png",
+		"displayIcon": "/common/destiny_content/icons/43847d8c1f0cf426624b923b773fc1db.png",
 		"isDisplayable": true,
 		"hash": 3146510717,
 		"index": 0
@@ -6659,7 +6756,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3154601642,
 		"displayName": "Phoenix Uppercut",
 		"displayDescription": "Use  to launch into a Solar Light uppercut.",
-		"displayIcon": "/common/destiny_content/icons/d11addc4b4406956e4f37542d0add1a0.png",
+		"displayIcon": "/common/destiny_content/icons/c9eca5815686168fbd782f5c5da01ba9.png",
 		"isDisplayable": true,
 		"hash": 3154601642,
 		"index": 0
@@ -6689,7 +6786,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3187783240,
 		"displayName": "Auto Rifle Loader",
 		"displayDescription": "Increased reload speed with Auto Rifles.",
-		"displayIcon": "/common/destiny_content/icons/0c2719420ad2f2c1716d3179dc41fe55.png",
+		"displayIcon": "/common/destiny_content/icons/34c9e4a392dce5bfe9a7d28cdc0031da.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -6726,7 +6823,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3224445959,
 		"displayName": "The Survivor",
 		"displayDescription": "Three rapid precision kills while Born on the Road is active will return two rounds to the chamber.",
-		"displayIcon": "/common/destiny_content/icons/4b9a945554adff0b4c018dc9b21f6901.png",
+		"displayIcon": "/common/destiny_content/icons/5e76f624cd912cf710b9d11ad89a99e4.png",
 		"isDisplayable": true,
 		"hash": 3224445959,
 		"index": 0
@@ -6735,7 +6832,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3226568521,
 		"displayName": "Bolts from the Blue",
 		"displayDescription": "Double kills with this weapon charge a small amount of Super energy and return ammo to the magazine.",
-		"displayIcon": "/common/destiny_content/icons/c6b96a768cbaeac2a75d0a6161d47aa3.png",
+		"displayIcon": "/common/destiny_content/icons/d09e9eb1691d18841493a089c0d4df93.png",
 		"isDisplayable": true,
 		"hash": 3226568521,
 		"index": 0
@@ -6744,7 +6841,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3238069786,
 		"displayName": "Unsealed Power",
 		"displayDescription": "The power of the warden seethes uncontrollably.",
-		"displayIcon": "/common/destiny_content/icons/6896172ee7351a5b7f226be52291bf91.png",
+		"displayIcon": "/common/destiny_content/icons/37706ef3f0cd101859e5a0c53e278041.png",
 		"isDisplayable": true,
 		"hash": 3238069786,
 		"index": 0
@@ -6753,7 +6850,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3240339843,
 		"displayName": "Scout Rifle Ammo",
 		"displayDescription": "Increases the amount of Scout Rifle ammunition you can carry.",
-		"displayIcon": "/common/destiny_content/icons/026688bb745418903616e70e2f5a3323.png",
+		"displayIcon": "/common/destiny_content/icons/1edc9cb9059ffc219ed4d29f1ec8e3e7.png",
 		"isDisplayable": true,
 		"hash": 3240339843,
 		"index": 0
@@ -6762,7 +6859,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3241361759,
 		"displayName": "Hand Cannon Loader",
 		"displayDescription": "Increased reload speed with Hand Cannons.",
-		"displayIcon": "/common/destiny_content/icons/33768f11dbf0d1c06f3467e8f80d31f0.png",
+		"displayIcon": "/common/destiny_content/icons/feea766f7f015678ed92a629464c2395.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -6778,7 +6875,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3242604156,
 		"displayName": "Ashes to Asset",
 		"displayDescription": "Replenish Super energy when you kill an enemy with a grenade.",
-		"displayIcon": "/common/destiny_content/icons/6db2980db0ff57866bf337c75c9ffdd5.png",
+		"displayIcon": "/common/destiny_content/icons/0b679007729b85f2ae8a36e96229262a.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -6794,7 +6891,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3242604157,
 		"displayName": "Inverse Shadow",
 		"displayDescription": "Increased Super energy gained from killing minions of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/370ccecae2e8f3c7a9af80a5dd51949a.png",
+		"displayIcon": "/common/destiny_content/icons/47c5a2022250d3b0a14d9bd94390dee1.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -6810,7 +6907,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3242610063,
 		"displayName": "Hand Cannon Analysis",
 		"displayDescription": "Increased XP for Hand Cannons.",
-		"displayIcon": "/common/destiny_content/icons/7cf9a59fdba99b4843e84b55594f4393.png",
+		"displayIcon": "/common/destiny_content/icons/642dbe15cf812dcf0c1d57538bfd2382.png",
 		"isDisplayable": true,
 		"hash": 3242610063,
 		"index": 0
@@ -6840,7 +6937,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3245550306,
 		"displayName": "Full Auto",
 		"displayDescription": "This weapon can be fired in full auto mode.",
-		"displayIcon": "/common/destiny_content/icons/d973598fcb9b0d5007e8fb2a3c13ac18.png",
+		"displayIcon": "/common/destiny_content/icons/e1b41523df84a29cc18cd23f4e6193a9.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 1,
@@ -6856,7 +6953,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3260564088,
 		"displayName": "Not Bound by Law",
 		"displayDescription": "Upgrades Double Jump with an additional jump.",
-		"displayIcon": "/common/destiny_content/icons/f066bb2543f8c26a358efcdcc40140e6.png",
+		"displayIcon": "/common/destiny_content/icons/eb8d8be7eb4806c6908d6efc0ddbb35e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -6893,7 +6990,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3271157554,
 		"displayName": "",
 		"displayDescription": "",
-		"displayIcon": "/common/destiny_content/icons/12b6afc5b396c87dab73b68e0d996e6e.png",
+		"displayIcon": "/common/destiny_content/icons/ccfa3881824b51e0b277e69a8cf3b1da.png",
 		"isDisplayable": false,
 		"hash": 3271157554,
 		"index": 0
@@ -6909,7 +7006,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3277833527,
 		"displayName": "Metal Detector",
 		"displayDescription": "Expect to find more ammo for this weapon.",
-		"displayIcon": "/common/destiny_content/icons/d1cf3fc0e7f48dae469eb7e34b1dfdff.png",
+		"displayIcon": "/common/destiny_content/icons/f401fa148ef82a8536c6f2109aa706af.png",
 		"isDisplayable": true,
 		"hash": 3277833527,
 		"index": 0
@@ -6918,7 +7015,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3283108368,
 		"displayName": "Grenadier",
 		"displayDescription": "Kills with this weapon reduce the cooldown of your grenade.",
-		"displayIcon": "/common/destiny_content/icons/d451b35ea689367671aca7aaa88f1b48.png",
+		"displayIcon": "/common/destiny_content/icons/a7b46a943919731ca60be41d1f3dd188.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -6955,7 +7052,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3297782632,
 		"displayName": "Shot Package",
 		"displayDescription": "Aiming this weapon reduces the spread of its projectiles.",
-		"displayIcon": "/common/destiny_content/icons/1803e0c35a4a6cd7020c202b8906b78f.png",
+		"displayIcon": "/common/destiny_content/icons/c32097003caa8e426798dd39bce1b69d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2048,
@@ -6978,7 +7075,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3300391898,
 		"displayName": "SUROS Regime",
 		"displayDescription": "The bottom half of each magazine deals bonus damage and has a chance to return health on kill.",
-		"displayIcon": "/common/destiny_content/icons/9004705454c144fccfc31361c20f1679.png",
+		"displayIcon": "/common/destiny_content/icons/42e8cc977e178d2fc7c435b9eb5d8510.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -7008,7 +7105,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3302053862,
 		"displayName": "Heavy Lifting",
 		"displayDescription": "Gain bonus Super energy from Heavy Weapon kills on minions of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/03da8923997ef09ace4a23fc65298b3f.png",
+		"displayIcon": "/common/destiny_content/icons/9b0b38de7820c7e0a8c7523951b8c13b.png",
 		"isDisplayable": true,
 		"hash": 3302053862,
 		"index": 0
@@ -7017,7 +7114,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3309086364,
 		"displayName": "Elemental Transfusion",
 		"displayDescription": "Causing damage with subclass abilities will transfuse that damage type to this weapon for a period of time.",
-		"displayIcon": "/common/destiny_content/icons/1efafb6fff57a53d74017fa19fff0ac0.png",
+		"displayIcon": "/common/destiny_content/icons/12b60c988069bd712a6f24978f9b329d.png",
 		"isDisplayable": true,
 		"hash": 3309086364,
 		"index": 0
@@ -7054,7 +7151,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3317503477,
 		"displayName": "Surplus",
 		"displayDescription": "Expect to find more ammo for this weapon.",
-		"displayIcon": "/common/destiny_content/icons/bcdc087793d446e4da182c2948955ac8.png",
+		"displayIcon": "/common/destiny_content/icons/d688d8959729265fd8d38a0e5e5a870b.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -7070,7 +7167,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3318043226,
 		"displayName": "Taken Breaker",
 		"displayDescription": "Melees have a chance to generate an Orb when killing a Taken enemy.",
-		"displayIcon": "/common/destiny_content/icons/8e97e9d464f2c40905c0351765251972.png",
+		"displayIcon": "/common/destiny_content/icons/52fb7fac6fe4152af69a04c8e2132616.png",
 		"isDisplayable": true,
 		"hash": 3318043226,
 		"index": 0
@@ -7086,7 +7183,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3325943374,
 		"displayName": "Solar Accumulator",
 		"displayDescription": "Solar melees have a chance to generate an Orb when killing a minion of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/80a6419846337e6337ddaa56a505a435.png",
+		"displayIcon": "/common/destiny_content/icons/07624851781706471d50ac235498cc5a.png",
 		"isDisplayable": true,
 		"hash": 3325943374,
 		"index": 0
@@ -7095,7 +7192,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3326413736,
 		"displayName": "Sniper Rifle Ammo",
 		"displayDescription": "Increases the amount of Sniper Rifle ammunition you can carry.",
-		"displayIcon": "/common/destiny_content/icons/191db9aeb132e1fa98027611b03dff10.png",
+		"displayIcon": "/common/destiny_content/icons/4288c2f4e5d7a0d79d68b2f666b2f596.png",
 		"isDisplayable": true,
 		"hash": 3326413736,
 		"index": 0
@@ -7125,7 +7222,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3336527326,
 		"displayName": "Arc-Forged Guard",
 		"displayDescription": "Use  to guard. Effective against Solar and Void attacks, less effective against Arc attacks.",
-		"displayIcon": "/common/destiny_content/icons/5329771457cf6c305f8a1a35aa22ba25.png",
+		"displayIcon": "/common/destiny_content/icons/804c7f346a8f98b2bd4fc4a8bfe5df3b.png",
 		"isDisplayable": true,
 		"hash": 3336527326,
 		"index": 0
@@ -7155,7 +7252,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3350178149,
 		"displayName": "Ether Seeds",
 		"displayDescription": "Generate additional Glimmer when killing Fallen.",
-		"displayIcon": "/common/destiny_content/icons/33cd9a9bc7373163129e7ad5e4ee184f.png",
+		"displayIcon": "/common/destiny_content/icons/c03135f754ab4d36cd3d749f5961d486.png",
 		"isDisplayable": true,
 		"hash": 3350178149,
 		"index": 0
@@ -7171,7 +7268,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3369212512,
 		"displayName": "Blinding Light",
 		"displayDescription": "Precision kills with this weapon cause a bright flash that can blind nearby enemies.",
-		"displayIcon": "/common/destiny_content/icons/9c30827b101ecaa4ce0c3fe95a30f431.png",
+		"displayIcon": "/common/destiny_content/icons/837290aa82bee6157934064da370c5f8.png",
 		"isDisplayable": true,
 		"hash": 3369212512,
 		"index": 0
@@ -7201,7 +7298,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3386889548,
 		"displayName": "Touch of Venom",
 		"displayDescription": "Invisible while crouching. \nInvisible melee from behind deals 4x damage. \nMelee attacks cause lingering damage.",
-		"displayIcon": "/common/destiny_content/icons/5e479f8fef62bfc1f6a7fc6e19e87f8d.png",
+		"displayIcon": "/common/destiny_content/icons/f498b7ec4e19adc035c7e72bee68ada3.png",
 		"isDisplayable": true,
 		"hash": 3386889548,
 		"index": 0
@@ -7217,7 +7314,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3387032895,
 		"displayName": "Hive Rampart",
 		"displayDescription": "Greatly increased Armor and Melee recharge when fighting Hive in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/e84c6368a144cc44653a3d27aa76b920.png",
+		"displayIcon": "/common/destiny_content/icons/851dc1463f998b61983b078d326e49bf.png",
 		"isDisplayable": true,
 		"hash": 3387032895,
 		"index": 0
@@ -7226,7 +7323,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3388395086,
 		"displayName": "Dead Orbit Champion",
 		"displayDescription": "Increases your Dead Orbit reputation gains.",
-		"displayIcon": "/common/destiny_content/icons/6f73a5421a154d8e9c65712eec922127.png",
+		"displayIcon": "/common/destiny_content/icons/8b186da7d502728330c5dcf242be9c54.png",
 		"isDisplayable": true,
 		"hash": 3388395086,
 		"index": 0
@@ -7235,7 +7332,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3389346365,
 		"displayName": "Tactical Air Support",
 		"displayDescription": "Press ,  while airborne to evade.",
-		"displayIcon": "/common/destiny_content/icons/59e95cc16400689ab85a8afde88a3b6f.png",
+		"displayIcon": "/common/destiny_content/icons/7d47f24a7847c2991ff9b39b0a10f337.png",
 		"isDisplayable": true,
 		"hash": 3389346365,
 		"index": 0
@@ -7251,7 +7348,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3397144243,
 		"displayName": "Ether Bomb",
 		"displayDescription": "Chance to generate Orbs when killing Fallen with grenades.",
-		"displayIcon": "/common/destiny_content/icons/e84c6368a144cc44653a3d27aa76b920.png",
+		"displayIcon": "/common/destiny_content/icons/851dc1463f998b61983b078d326e49bf.png",
 		"isDisplayable": true,
 		"hash": 3397144243,
 		"index": 0
@@ -7281,7 +7378,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3403957994,
 		"displayName": "Machine Gun Mags",
 		"displayDescription": "Carry more ammo for Machine Guns.",
-		"displayIcon": "/common/destiny_content/icons/bc9e2d2578dde1a31b793beaa2a1c6a4.png",
+		"displayIcon": "/common/destiny_content/icons/df4fad1a0641582f1d5e7affe9714fd2.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -7297,7 +7394,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3406171126,
 		"displayName": "The Whispers",
 		"displayDescription": "Gain an additional charge for all Warlock-charged melees.",
-		"displayIcon": "/common/destiny_content/icons/015b397470c02ffa25a230b0e7f3e745.png",
+		"displayIcon": "/common/destiny_content/icons/c63bd68a72ec3f8e77fef96cb43f4ffd.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -7313,7 +7410,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3410490572,
 		"displayName": "Improved Disintegrate",
 		"displayDescription": "Increases the duration of Force Barrier.",
-		"displayIcon": "/common/destiny_content/icons/0f9a484989e8ce9a1eb598523307479a.png",
+		"displayIcon": "/common/destiny_content/icons/5a434b7a6c13d334e3a88a47f5af0081.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -7329,7 +7426,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3420774760,
 		"displayName": "Fallen Hunter",
 		"displayDescription": "Increased XP from Fallen enemies.",
-		"displayIcon": "/common/destiny_content/icons/90b3c2212f25c0fcf1423c4593680492.png",
+		"displayIcon": "/common/destiny_content/icons/c5228a31e694403cad49de455de222be.png",
 		"isDisplayable": true,
 		"hash": 3420774760,
 		"index": 0
@@ -7345,7 +7442,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3435618587,
 		"displayName": "Plan C",
 		"displayDescription": "Charge and equip times are very short immediately after weapon swap.",
-		"displayIcon": "/common/destiny_content/icons/48d7c0bea5bc895e4f43f0daa004f641.png",
+		"displayIcon": "/common/destiny_content/icons/7b03605de3abb684e881a5b722d3b801.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 4096,
@@ -7368,7 +7465,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3451607363,
 		"displayName": "Pulse Rifle Mags",
 		"displayDescription": "Carry more ammo for Pulse Rifles.",
-		"displayIcon": "/common/destiny_content/icons/def190acf52ba73317b7c20e0299ab39.png",
+		"displayIcon": "/common/destiny_content/icons/a662ca549e6b969699912de77b2945fb.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -7412,7 +7509,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3457701870,
 		"displayName": "Arc Double-Down",
 		"displayDescription": "Increased Agility for 5 seconds after an Arc double kill.",
-		"displayIcon": "/common/destiny_content/icons/987044fa00618d288eac99c50498fdec.png",
+		"displayIcon": "/common/destiny_content/icons/695ff4cd00c186e5e44a79f0b28803d5.png",
 		"isDisplayable": true,
 		"hash": 3457701870,
 		"index": 0
@@ -7421,7 +7518,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3457907232,
 		"displayName": "Shader Version 1",
 		"displayDescription": "Recolor armor with Type I coating.",
-		"displayIcon": "/common/destiny_content/icons/983ab78792bae2e8efdef4f9f9e518a8.png",
+		"displayIcon": "/common/destiny_content/icons/f6fd16ec4763a99733d80bf989dc0089.png",
 		"isDisplayable": true,
 		"hash": 3457907232,
 		"index": 0
@@ -7430,7 +7527,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3457907234,
 		"displayName": "Shader Version 3",
 		"displayDescription": "Recolor armor with Type I to III coating.",
-		"displayIcon": "/common/destiny_content/icons/983ab78792bae2e8efdef4f9f9e518a8.png",
+		"displayIcon": "/common/destiny_content/icons/f6fd16ec4763a99733d80bf989dc0089.png",
 		"isDisplayable": true,
 		"hash": 3457907234,
 		"index": 0
@@ -7439,7 +7536,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3457907235,
 		"displayName": "Shader Version 2",
 		"displayDescription": "Recolor armor with Type I to II coating.",
-		"displayIcon": "/common/destiny_content/icons/983ab78792bae2e8efdef4f9f9e518a8.png",
+		"displayIcon": "/common/destiny_content/icons/f6fd16ec4763a99733d80bf989dc0089.png",
 		"isDisplayable": true,
 		"hash": 3457907235,
 		"index": 0
@@ -7448,7 +7545,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3457907236,
 		"displayName": "Shader Version 5",
 		"displayDescription": "Recolor armor with Type I to V coating.",
-		"displayIcon": "/common/destiny_content/icons/983ab78792bae2e8efdef4f9f9e518a8.png",
+		"displayIcon": "/common/destiny_content/icons/f6fd16ec4763a99733d80bf989dc0089.png",
 		"isDisplayable": true,
 		"hash": 3457907236,
 		"index": 0
@@ -7457,7 +7554,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3457907237,
 		"displayName": "Shader Version 4",
 		"displayDescription": "Recolor armor with Type I to IV coating.",
-		"displayIcon": "/common/destiny_content/icons/983ab78792bae2e8efdef4f9f9e518a8.png",
+		"displayIcon": "/common/destiny_content/icons/f6fd16ec4763a99733d80bf989dc0089.png",
 		"isDisplayable": true,
 		"hash": 3457907237,
 		"index": 0
@@ -7466,7 +7563,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3457907239,
 		"displayName": "Shader Version 6",
 		"displayDescription": "Recolor armor with Type I to VI coating.",
-		"displayIcon": "/common/destiny_content/icons/983ab78792bae2e8efdef4f9f9e518a8.png",
+		"displayIcon": "/common/destiny_content/icons/f6fd16ec4763a99733d80bf989dc0089.png",
 		"isDisplayable": true,
 		"hash": 3457907239,
 		"index": 0
@@ -7475,7 +7572,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3464328064,
 		"displayName": "Surrounded",
 		"displayDescription": "This weapon gains bonus damage when three or more enemies are in close proximity.",
-		"displayIcon": "/common/destiny_content/icons/c39c86dd002f90fa9dc55309070776b4.png",
+		"displayIcon": "/common/destiny_content/icons/72844aec6cac629a6b7e8f281550ba82.png",
 		"isDisplayable": true,
 		"hash": 3464328064,
 		"index": 0
@@ -7484,7 +7581,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3465602758,
 		"displayName": "Super Good Advice",
 		"displayDescription": "Missed shots may be returned to the magazine. Landed shots may be replaced in the magazine from your reserves.",
-		"displayIcon": "/common/destiny_content/icons/312d8ac5ac3a1abe8bf59af21ea2cb1c.png",
+		"displayIcon": "/common/destiny_content/icons/63350eaf7deca11b56e60b58302021d6.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -7500,7 +7597,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3467141629,
 		"displayName": "Void Resonance",
 		"displayDescription": "Void grenades have a chance to generate an Orb when killing a minion of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/770811650be4d64c84e0634f7c83f87d.png",
+		"displayIcon": "/common/destiny_content/icons/009cc21e8b036795d3a2179aa5715e32.png",
 		"isDisplayable": true,
 		"hash": 3467141629,
 		"index": 0
@@ -7530,7 +7627,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3471016318,
 		"displayName": "Starfire Protocol",
 		"displayDescription": "Gain an additional Fusion Grenade.",
-		"displayIcon": "/common/destiny_content/icons/73c99d8b856b962c3d1c6d04bed51243.png",
+		"displayIcon": "/common/destiny_content/icons/47587ffe7532a105acc6c37170750256.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -7553,7 +7650,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3474991791,
 		"displayName": "Hand Cannon Focus",
 		"displayDescription": "Increases the upgrade rate for Hand Cannons.",
-		"displayIcon": "/common/destiny_content/icons/7cf9a59fdba99b4843e84b55594f4393.png",
+		"displayIcon": "/common/destiny_content/icons/642dbe15cf812dcf0c1d57538bfd2382.png",
 		"isDisplayable": true,
 		"hash": 3474991791,
 		"index": 0
@@ -7562,7 +7659,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3477506204,
 		"displayName": "Faction Champion",
 		"displayDescription": "Reputation gains applied to Dead Orbit when equipped.",
-		"displayIcon": "/common/destiny_content/icons/40a41559bb4e8dd02926055267436283.png",
+		"displayIcon": "/common/destiny_content/icons/d6ab74ae278befb96f895a40c5654727.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -7578,7 +7675,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3480879699,
 		"displayName": "Mortal Medicine",
 		"displayDescription": "Gain a boost to Recovery per grenade kill. Stacks for 20 seconds.",
-		"displayIcon": "/common/destiny_content/icons/bddeb4198ac4c49f6b61a56d59fab266.png",
+		"displayIcon": "/common/destiny_content/icons/ed0855dd70faf4afd7fe8365e07df8d4.png",
 		"isDisplayable": true,
 		"hash": 3480879699,
 		"index": 0
@@ -7601,7 +7698,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3505787429,
 		"displayName": "Target Mark",
 		"displayDescription": "Enemies hit by this weapon are briefly highlighted.",
-		"displayIcon": "/common/destiny_content/icons/736d604163e245031e1ec1241a221eba.png",
+		"displayIcon": "/common/destiny_content/icons/63fbf73193eab5dc648c2580678b4e7d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -7645,7 +7742,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3519358610,
 		"displayName": "Performance Bonus",
 		"displayDescription": "Kills with this weapon have the chance to grant bonus reserve ammo.",
-		"displayIcon": "/common/destiny_content/icons/4d7918260ec5eacb926a37e5c6684d59.png",
+		"displayIcon": "/common/destiny_content/icons/17bacccbdf667d622dce0c56cc588475.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -7661,7 +7758,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3520318545,
 		"displayName": "Scout Rifle Affinity",
 		"displayDescription": "Unlocks upgrades on Scout Rifles.",
-		"displayIcon": "/common/destiny_content/icons/90b3c2212f25c0fcf1423c4593680492.png",
+		"displayIcon": "/common/destiny_content/icons/c5228a31e694403cad49de455de222be.png",
 		"isDisplayable": true,
 		"hash": 3520318545,
 		"index": 0
@@ -7670,7 +7767,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3521486086,
 		"displayName": "Pulse Rifle Analysis",
 		"displayDescription": "Increased XP for Pulse Rifles.",
-		"displayIcon": "/common/destiny_content/icons/269f7053200f7b062c533d132866c6bb.png",
+		"displayIcon": "/common/destiny_content/icons/32661fba2865eaa8376fcf423edd8cda.png",
 		"isDisplayable": true,
 		"hash": 3521486086,
 		"index": 0
@@ -7679,7 +7776,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3522094958,
 		"displayName": "Touch of Venom",
 		"displayDescription": "Gain invisibility after crouching in place for a short time. Melee attacking an enemy from behind while invisible delivers 4x damage.",
-		"displayIcon": "/common/destiny_content/icons/5e479f8fef62bfc1f6a7fc6e19e87f8d.png",
+		"displayIcon": "/common/destiny_content/icons/f498b7ec4e19adc035c7e72bee68ada3.png",
 		"isDisplayable": true,
 		"hash": 3522094958,
 		"index": 0
@@ -7695,7 +7792,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3523239750,
 		"displayName": "Last Resort",
 		"displayDescription": "This weapon handles and reloads faster when the wielder is the last living player of their Fireteam.",
-		"displayIcon": "/common/destiny_content/icons/e9a29951a87e2e5c15a5afcdd749e5a6.png",
+		"displayIcon": "/common/destiny_content/icons/4dc0dce7aabcc659a2528ce018374a71.png",
 		"isDisplayable": true,
 		"hash": 3523239750,
 		"index": 0
@@ -7704,16 +7801,25 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3524981766,
 		"displayName": "Primary Weapon Analysis",
 		"displayDescription": "Increased XP gain for Primary weapons.",
-		"displayIcon": "/common/destiny_content/icons/35f98a1cb56e473492bc29a5023dd9c6.png",
+		"displayIcon": "/common/destiny_content/icons/bd1ebf36b99ffc0ef3ea817bd46cafea.png",
 		"isDisplayable": true,
 		"hash": 3524981766,
+		"index": 0
+	},
+	"3531312446": {
+		"perkHash": 3531312446,
+		"displayName": "With a Laser Beam",
+		"displayDescription": "The extra round from Dynamite causes a massive explosion.",
+		"displayIcon": "/common/destiny_content/icons/dc7280d25ee2d2ee61422375b6e51ba1.png",
+		"isDisplayable": true,
+		"hash": 3531312446,
 		"index": 0
 	},
 	"3533846394": {
 		"perkHash": 3533846394,
 		"displayName": "Vandal Burn",
 		"displayDescription": "This weapon deals moderate bonus damage to Fallen Vandals.",
-		"displayIcon": "/common/destiny_content/icons/e84c6368a144cc44653a3d27aa76b920.png",
+		"displayIcon": "/common/destiny_content/icons/851dc1463f998b61983b078d326e49bf.png",
 		"isDisplayable": true,
 		"hash": 3533846394,
 		"index": 0
@@ -7722,7 +7828,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3534625748,
 		"displayName": "Strength of the Ram",
 		"displayDescription": "Increased armor. \nAll Voidwalker melees trigger Life Steal on hit.",
-		"displayIcon": "/common/destiny_content/icons/05362bb17e894e19ec30170ee2dad85a.png",
+		"displayIcon": "/common/destiny_content/icons/f1af8d61e152c3095179a4aa44818a87.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -7738,7 +7844,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3538671621,
 		"displayName": "Machine Gun Focus",
 		"displayDescription": "Increases the upgrade rate for Machine Guns.",
-		"displayIcon": "/common/destiny_content/icons/3ff9be60ea58ec69e5e40eb4016c6747.png",
+		"displayIcon": "/common/destiny_content/icons/058fb9d7767f33702319d438130eb2cc.png",
 		"isDisplayable": true,
 		"hash": 3538671621,
 		"index": 0
@@ -7747,7 +7853,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3544054727,
 		"displayName": "Helium Cycle",
 		"displayDescription": "Increases the duration of your Solar Grenade while gaining an additional Solar Grenade charge.",
-		"displayIcon": "/common/destiny_content/icons/08971e82ba1fa5a7af5c336fa8385926.png",
+		"displayIcon": "/common/destiny_content/icons/4753df29df378652699a7af23d90a53b.png",
 		"isDisplayable": true,
 		"hash": 3544054727,
 		"index": 0
@@ -7791,7 +7897,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3572254272,
 		"displayName": "Wormspore Extractor",
 		"displayDescription": "Chance to find additional wormspore when looting engrams on Oryx's Dreadnaught.",
-		"displayIcon": "/common/destiny_content/icons/a6d057f795fb18838af7053885530c45.png",
+		"displayIcon": "/common/destiny_content/icons/402e3de7621cb15d95612018ed4d03de.png",
 		"isDisplayable": true,
 		"hash": 3572254272,
 		"index": 0
@@ -7814,7 +7920,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3582449302,
 		"displayName": "Harbinger's Spark",
 		"displayDescription": "Multikills with this weapon spawn Orbs for your allies.",
-		"displayIcon": "/common/destiny_content/icons/256a2868fa2e8e51f8f9864b588e2846.png",
+		"displayIcon": "/common/destiny_content/icons/2c57b5fb4106e222ce6d2365c699b939.png",
 		"isDisplayable": true,
 		"hash": 3582449302,
 		"index": 0
@@ -7830,7 +7936,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3598160917,
 		"displayName": "Goliath",
 		"displayDescription": "Non precision kills temporarily increase Armor stat for 15 seconds.",
-		"displayIcon": "/common/destiny_content/icons/20312c33f18d026968de18de0776abf3.png",
+		"displayIcon": "/common/destiny_content/icons/bb17c283383b6d17d09d1eab45eb4836.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -7846,7 +7952,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3598336611,
 		"displayName": "New Monarchy Champion",
 		"displayDescription": "Increases your New Monarchy reputation gains.",
-		"displayIcon": "/common/destiny_content/icons/29725384ce0c6b79d43e0f64098b3a75.png",
+		"displayIcon": "/common/destiny_content/icons/e02f6ca3f6367401d7aad1efe4e3f54b.png",
 		"isDisplayable": true,
 		"hash": 3598336611,
 		"index": 0
@@ -7855,7 +7961,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3598653482,
 		"displayName": "Iron Allegiance",
 		"displayDescription": "Increases Event Standing gained in the Iron Banner.",
-		"displayIcon": "/common/destiny_content/icons/ff010bff662398a2e91b44a8d1312b90.png",
+		"displayIcon": "/common/destiny_content/icons/7a973e2ba1364dd85685365dac3b8679.png",
 		"isDisplayable": true,
 		"hash": 3598653482,
 		"index": 0
@@ -7864,7 +7970,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3609996527,
 		"displayName": "Invective",
 		"displayDescription": "This weapon regenerates ammo over time.",
-		"displayIcon": "/common/destiny_content/icons/e2d9bf23d30925fc0f16c05d62043885.png",
+		"displayIcon": "/common/destiny_content/icons/0cd0ecc87c285d629456edda653a4ef3.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -7874,6 +7980,15 @@ var DestinySandboxPerkDefinition = {
 			"damageTypes": 0
 		},
 		"hash": 3609996527,
+		"index": 0
+	},
+	"3612834164": {
+		"perkHash": 3612834164,
+		"displayName": "Crucible Reputation Booster",
+		"displayDescription": "AURA\nIncreased Crucible reputation rewards from Crucible matches.\n\nAuras will fade if you leave the Fireteam of the providing Guardian.",
+		"displayIcon": "/common/destiny_content/icons/6436f89428250c34d838f4a5ebca7aa5.png",
+		"isDisplayable": true,
+		"hash": 3612834164,
 		"index": 0
 	},
 	"3614988247": {
@@ -7895,7 +8010,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3615851562,
 		"displayName": "Antigrav Thrusters",
 		"displayDescription": "Aiming weapons while airborne holds you in place.\nWith full Super, Orbs recharge melee.",
-		"displayIcon": "/common/destiny_content/icons/1ea9dc1b9c13e863d516f60e0cca7aa9.png",
+		"displayIcon": "/common/destiny_content/icons/834eff0e62d8bed821762e4ddcb650e4.png",
 		"isDisplayable": true,
 		"hash": 3615851562,
 		"index": 0
@@ -7925,7 +8040,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3630880630,
 		"displayName": "Be Somewhere Else",
 		"displayDescription": "Increases the duration of Shoulder Charge and tighter turn radius while sprinting.",
-		"displayIcon": "/common/destiny_content/icons/e4dd18a743c6148140dcea39cffe4eb4.png",
+		"displayIcon": "/common/destiny_content/icons/60ae7fac031422c33f1bbda243975e05.png",
 		"isDisplayable": true,
 		"hash": 3630880630,
 		"index": 0
@@ -7934,7 +8049,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3632688592,
 		"displayName": "Boost",
 		"displayDescription": "Hold  to accelerate to higher speed.",
-		"displayIcon": "/common/destiny_content/icons/294b91123c5ed8e20df8b60770e58e4f.png",
+		"displayIcon": "/common/destiny_content/icons/b890d6c649e1a0a00ccba9f68355deab.png",
 		"isDisplayable": true,
 		"hash": 3632688592,
 		"index": 0
@@ -7943,7 +8058,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3639200586,
 		"displayName": "Cabal Rampart",
 		"displayDescription": "Greatly increased Armor and Melee recharge when fighting Cabal in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/e84c6368a144cc44653a3d27aa76b920.png",
+		"displayIcon": "/common/destiny_content/icons/851dc1463f998b61983b078d326e49bf.png",
 		"isDisplayable": true,
 		"hash": 3639200586,
 		"index": 0
@@ -7959,7 +8074,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3649859369,
 		"displayName": "Impact Induction",
 		"displayDescription": "Bonus grenade energy on melee hits.",
-		"displayIcon": "/common/destiny_content/icons/d86590237eec8b56e159756729412951.png",
+		"displayIcon": "/common/destiny_content/icons/a29b54ad22b10f9fab7418c9eacfa8fb.png",
 		"isDisplayable": true,
 		"hash": 3649859369,
 		"index": 0
@@ -7968,7 +8083,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3659348245,
 		"displayName": "Faction Champion",
 		"displayDescription": "Reputation gains applied to New Monarchy when equipped.",
-		"displayIcon": "/common/destiny_content/icons/ba1d483b42497ed40aad7ac56791bdf8.png",
+		"displayIcon": "/common/destiny_content/icons/8fd67ab2fdd92d8f7e83df8ab360f456.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -7984,7 +8099,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3661306029,
 		"displayName": "Replenish",
 		"displayDescription": "This weapon's magazine will be refilled whenever you unleash your Super.",
-		"displayIcon": "/common/destiny_content/icons/453c9b55037737c55fe29fcdce795e5a.png",
+		"displayIcon": "/common/destiny_content/icons/1eabd6520be4f2d7b538eb8953c6c625.png",
 		"isDisplayable": true,
 		"hash": 3661306029,
 		"index": 0
@@ -7993,7 +8108,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3669655943,
 		"displayName": "Vanguard Champion",
 		"displayDescription": "Increases your Vanguard reputation gains.",
-		"displayIcon": "/common/destiny_content/icons/172f427f6bc8c2c80b2fac2cf3ca5356.png",
+		"displayIcon": "/common/destiny_content/icons/1c7ed70fb569108b7a06d36def42473b.png",
 		"isDisplayable": true,
 		"hash": 3669655943,
 		"index": 0
@@ -8002,7 +8117,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3673801889,
 		"displayName": "Fusion Rifle Analysis",
 		"displayDescription": "Increased XP for Fusion Rifles.",
-		"displayIcon": "/common/destiny_content/icons/34bb33bfc6695725b6dfede26a53ea5a.png",
+		"displayIcon": "/common/destiny_content/icons/3d3073c4f92a125ee04e682c78274e53.png",
 		"isDisplayable": true,
 		"hash": 3673801889,
 		"index": 0
@@ -8011,7 +8126,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3686406336,
 		"displayName": "Who's Next?",
 		"displayDescription": "A kill with the final round in the magazine increases reload speed.",
-		"displayIcon": "/common/destiny_content/icons/0fb18317bf3cc8a9e6708f38593f207c.png",
+		"displayIcon": "/common/destiny_content/icons/37daf8288a8a432d11693a491406ca49.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -8034,7 +8149,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3689182788,
 		"displayName": "Sidearm Loader",
 		"displayDescription": "Increases the reload speed of Sidearms.",
-		"displayIcon": "/common/destiny_content/icons/99cd00736fcbcd1a52b6c5eb5603bd6b.png",
+		"displayIcon": "/common/destiny_content/icons/e4e58ad7884bf8663aa0e89b6740b7f3.png",
 		"isDisplayable": true,
 		"hash": 3689182788,
 		"index": 0
@@ -8050,7 +8165,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3694049353,
 		"displayName": "Sensor Pack",
 		"displayDescription": "Radar remains visible while aiming Primary Weapons.",
-		"displayIcon": "/common/destiny_content/icons/9730379775ac04c65012f32d1a6584b6.png",
+		"displayIcon": "/common/destiny_content/icons/c2d3be8b7d515964a2912a141853c84a.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -8066,7 +8181,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3695773985,
 		"displayName": "Patience and Time",
 		"displayDescription": "You gain active camouflage while aiming down the sights.",
-		"displayIcon": "/common/destiny_content/icons/c901f9b57f2dddb1eac58cbc578fbe44.png",
+		"displayIcon": "/common/destiny_content/icons/32ee3481245d7418eb17af3917779afa.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -8103,7 +8218,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3697933879,
 		"displayName": "Holding Aces",
 		"displayDescription": "Two more random bullets in your magazine deal considerable bonus damage.",
-		"displayIcon": "/common/destiny_content/icons/269e2524865222e77f628f8a5530510c.png",
+		"displayIcon": "/common/destiny_content/icons/c9584ac7001f58f3b068ddaa10ef1f46.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -8126,7 +8241,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3712414159,
 		"displayName": "Shock Rounds",
 		"displayDescription": "High ricochet shock rounds with enhanced target acquisition.",
-		"displayIcon": "/common/destiny_content/icons/f21c8f1c965fd41f58a3e14feaf912f1.png",
+		"displayIcon": "/common/destiny_content/icons/14f93e0669a22d107b329715e9c42819.png",
 		"isDisplayable": true,
 		"hash": 3712414159,
 		"index": 0
@@ -8142,7 +8257,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3722223157,
 		"displayName": "Eye of the Storm",
 		"displayDescription": "This weapon becomes more accurate as your health gets lower.",
-		"displayIcon": "/common/destiny_content/icons/2466b0d45414626de2f8a6cb4db2902f.png",
+		"displayIcon": "/common/destiny_content/icons/8d2df9e2a4d751f3c55f7edfc5b2a39c.png",
 		"isDisplayable": true,
 		"hash": 3722223157,
 		"index": 0
@@ -8151,7 +8266,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3727135605,
 		"displayName": "David",
 		"displayDescription": "Precision kills temporarily increase Agility stat for 15 seconds.",
-		"displayIcon": "/common/destiny_content/icons/d3e9e623ac0d1d625b9bbd5ddec3ffe6.png",
+		"displayIcon": "/common/destiny_content/icons/7e8934b3896459b3459255a43a8cc4a1.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -8167,7 +8282,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3733789933,
 		"displayName": "Hunter Bounty",
 		"displayDescription": "Generate additional Glimmer when killing Hunters in the Crucible.",
-		"displayIcon": "/common/destiny_content/icons/2bf4eaeebb7d583f2dcd6478f26f95a1.png",
+		"displayIcon": "/common/destiny_content/icons/0ec382d2dcff442e93a93b8a84fbfe67.png",
 		"isDisplayable": true,
 		"hash": 3733789933,
 		"index": 0
@@ -8176,7 +8291,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3735909663,
 		"displayName": "Second Wind",
 		"displayDescription": "On respawn, weapon and movement speeds are greatly increased.",
-		"displayIcon": "/common/destiny_content/icons/992f6283fdfef6e17934c49566fa8068.png",
+		"displayIcon": "/common/destiny_content/icons/54a03ca6dc5a5b011c11cd2fc860a3d7.png",
 		"isDisplayable": true,
 		"hash": 3735909663,
 		"index": 0
@@ -8185,7 +8300,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3743041729,
 		"displayName": "Invigoration",
 		"displayDescription": "Gain bonus melee energy on Orb pickups.",
-		"displayIcon": "/common/destiny_content/icons/8cc9eec8d2347541df3953028c93b327.png",
+		"displayIcon": "/common/destiny_content/icons/9e8737bd6981c87ba0b769c1dd29a0d3.png",
 		"isDisplayable": true,
 		"hash": 3743041729,
 		"index": 0
@@ -8194,7 +8309,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3751386087,
 		"displayName": "Fallen Seeker",
 		"displayDescription": "Increased Glimmer from Fallen enemies.",
-		"displayIcon": "/common/destiny_content/icons/90b3c2212f25c0fcf1423c4593680492.png",
+		"displayIcon": "/common/destiny_content/icons/c5228a31e694403cad49de455de222be.png",
 		"isDisplayable": true,
 		"hash": 3751386087,
 		"index": 0
@@ -8203,7 +8318,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3752206822,
 		"displayName": "Final Round",
 		"displayDescription": "The last round in a magazine deals bonus damage.",
-		"displayIcon": "/common/destiny_content/icons/87d99de1207fee9c4c819836eea7ce8e.png",
+		"displayIcon": "/common/destiny_content/icons/c517fe33700acfdc0355203189872a10.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -8219,7 +8334,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3752818343,
 		"displayName": "Defensive Reflex",
 		"displayDescription": "Taking damage from a melee attack makes you briefly invisible.",
-		"displayIcon": "/common/destiny_content/icons/2bba7c9713764159c76dcb59acc889c8.png",
+		"displayIcon": "/common/destiny_content/icons/1794252202c0be475a8572d74dbc1cc6.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -8249,7 +8364,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3772402178,
 		"displayName": "Reserve Ammo",
 		"displayDescription": "This weapon always has ammo on respawn.",
-		"displayIcon": "/common/destiny_content/icons/4d7918260ec5eacb926a37e5c6684d59.png",
+		"displayIcon": "/common/destiny_content/icons/17bacccbdf667d622dce0c56cc588475.png",
 		"isDisplayable": true,
 		"hash": 3772402178,
 		"index": 0
@@ -8258,7 +8373,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3787917923,
 		"displayName": "Aspect Swap",
 		"displayDescription": "This weapon can swap between Arc and Solar damage.",
-		"displayIcon": "/common/destiny_content/icons/f6d0767b1d3b9498481fbb2e069379b4.png",
+		"displayIcon": "/common/destiny_content/icons/1aeef3fb6a75508a29ae0ae5a844ef6a.png",
 		"isDisplayable": true,
 		"hash": 3787917923,
 		"index": 0
@@ -8267,7 +8382,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3789456319,
 		"displayName": "Insatiable",
 		"displayDescription": "Nova Bomb kills reduce the cooldown of your next Nova Bomb.",
-		"displayIcon": "/common/destiny_content/icons/fdae60dbc08a78488e6740707c6023b4.png",
+		"displayIcon": "/common/destiny_content/icons/50340c4297aa34ec02cd23b0968927a1.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -8283,7 +8398,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3792198727,
 		"displayName": "Ashes to Assets",
 		"displayDescription": "Gain bonus Super energy on Grenade kills.",
-		"displayIcon": "/common/destiny_content/icons/4e833e54754c3e9dce1e71026c04e6cb.png",
+		"displayIcon": "/common/destiny_content/icons/403cf1b8e228422ef041f6e24fafa911.png",
 		"isDisplayable": true,
 		"hash": 3792198727,
 		"index": 0
@@ -8292,7 +8407,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3795565363,
 		"displayName": "Arc Recovery",
 		"displayDescription": "Increased Recovery for 5 seconds after taking Arc splash damage.",
-		"displayIcon": "/common/destiny_content/icons/735d0712aedfbdaed303145b48c6bf83.png",
+		"displayIcon": "/common/destiny_content/icons/0baa3f2d7dc3be8b5f5ae6612bbe2082.png",
 		"isDisplayable": true,
 		"hash": 3795565363,
 		"index": 0
@@ -8301,7 +8416,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3798969172,
 		"displayName": "Reclamation",
 		"displayDescription": "Generate additional Glimmer when killing Taken.",
-		"displayIcon": "/common/destiny_content/icons/33cd9a9bc7373163129e7ad5e4ee184f.png",
+		"displayIcon": "/common/destiny_content/icons/c03135f754ab4d36cd3d749f5961d486.png",
 		"isDisplayable": true,
 		"hash": 3798969172,
 		"index": 0
@@ -8366,7 +8481,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3818491110,
 		"displayName": "Inverse Shadow",
 		"displayDescription": "Gain bonus Super energy on kills.",
-		"displayIcon": "/common/destiny_content/icons/dc835550f6290c0e975c9ceeb606c67b.png",
+		"displayIcon": "/common/destiny_content/icons/7e47a87a3454a4fc56fcf7356dea838a.png",
 		"isDisplayable": true,
 		"hash": 3818491110,
 		"index": 0
@@ -8375,7 +8490,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3820455159,
 		"displayName": "Cursebringer",
 		"displayDescription": "Precision kills with this weapon trigger a Cursed Thrall explosion.",
-		"displayIcon": "/common/destiny_content/icons/9f271b702b13242f8b476c066b014237.png",
+		"displayIcon": "/common/destiny_content/icons/52b1a13a030cfcdeaa944b4193097b18.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -8391,7 +8506,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3821972036,
 		"displayName": "Keeper of the Pack",
 		"displayDescription": "Revive teammates faster. Spawn more orbs.",
-		"displayIcon": "/common/destiny_content/icons/9730379775ac04c65012f32d1a6584b6.png",
+		"displayIcon": "/common/destiny_content/icons/c2d3be8b7d515964a2912a141853c84a.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -8414,7 +8529,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3843250350,
 		"displayName": "Auto Rifle Affinity",
 		"displayDescription": "Unlocks upgrades on Auto Rifles.",
-		"displayIcon": "/common/destiny_content/icons/90b3c2212f25c0fcf1423c4593680492.png",
+		"displayIcon": "/common/destiny_content/icons/c5228a31e694403cad49de455de222be.png",
 		"isDisplayable": true,
 		"hash": 3843250350,
 		"index": 0
@@ -8423,7 +8538,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3848963378,
 		"displayName": "Partial Refund",
 		"displayDescription": "Chance to return a portion of the magazine after an assist.",
-		"displayIcon": "/common/destiny_content/icons/0326a24c1aec33c653ddc7c60f602b41.png",
+		"displayIcon": "/common/destiny_content/icons/98275b189d9ea32569d51732c3dfe3c8.png",
 		"isDisplayable": true,
 		"hash": 3848963378,
 		"index": 0
@@ -8439,7 +8554,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3857263415,
 		"displayName": "Scout Rifle Focus",
 		"displayDescription": "Increases the upgrade rate for Scout Rifles",
-		"displayIcon": "/common/destiny_content/icons/1d53c8c445f2d37c4a4fba8f79013744.png",
+		"displayIcon": "/common/destiny_content/icons/0694027b6301a6ac6026fbcf90344d8d.png",
 		"isDisplayable": true,
 		"hash": 3857263415,
 		"index": 0
@@ -8448,7 +8563,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3867556616,
 		"displayName": "Indomitable Light",
 		"displayDescription": "Your next foe in King's Fall is more likely to drop weapons and armor.",
-		"displayIcon": "/common/destiny_content/icons/7e4a613c2f7d7ed84169c7c2fccb6fdd.png",
+		"displayIcon": "/common/destiny_content/icons/45bf9b48e52ddc1313d03330f6f421d1.png",
 		"isDisplayable": true,
 		"hash": 3867556616,
 		"index": 0
@@ -8457,7 +8572,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3870041558,
 		"displayName": "Arachnid Sensorium",
 		"displayDescription": "Your Golden Gun zooms in for accuracy when aimed.",
-		"displayIcon": "/common/destiny_content/icons/1ceeccdbb2941c793b787f1233a0872e.png",
+		"displayIcon": "/common/destiny_content/icons/9e5d69d056b8c4a4ff97035897b6b0db.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 16,
@@ -8480,7 +8595,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3877389831,
 		"displayName": "Rodeo",
 		"displayDescription": "Reduces the severity of this weapon’s recoil.",
-		"displayIcon": "/common/destiny_content/icons/691557776b016bccb926f061ccbf8c09.png",
+		"displayIcon": "/common/destiny_content/icons/3b23340ca5d783ba5b611660006b85c5.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 32,
@@ -8496,7 +8611,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3879685265,
 		"displayName": "Return to Sender",
 		"displayDescription": "Kills with this weapon have the chance to grant bonus ammo to the magazine.",
-		"displayIcon": "/common/destiny_content/icons/78fa430c375c47caaea38a8ee433de04.png",
+		"displayIcon": "/common/destiny_content/icons/744bd0f845df7d44a8b42121ec70e330.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -8512,7 +8627,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3887884227,
 		"displayName": "Performance Bonus",
 		"displayDescription": "Kills with this weapon have the chance to grant bonus reserve ammo.",
-		"displayIcon": "/common/destiny_content/icons/4d7918260ec5eacb926a37e5c6684d59.png",
+		"displayIcon": "/common/destiny_content/icons/17bacccbdf667d622dce0c56cc588475.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -8528,7 +8643,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3888728992,
 		"displayName": "The Fate of All Fools",
 		"displayDescription": "Chain body shots to gain bonus damage on your next precision shot and return ammo to the mag.",
-		"displayIcon": "/common/destiny_content/icons/24c5a11761053f283941fc247ecde4e4.png",
+		"displayIcon": "/common/destiny_content/icons/d21eb7a48abb483bf4192c63a82c99e7.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -8544,7 +8659,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3896456312,
 		"displayName": "Ice Breaker",
 		"displayDescription": "Ice Breaker's victims spontaneously combust, dealing damage to others nearby.",
-		"displayIcon": "/common/destiny_content/icons/82159431963378091d8cce218e3bf81c.png",
+		"displayIcon": "/common/destiny_content/icons/b430aac93b9be69103ca393211b09ac1.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -8560,7 +8675,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3900386992,
 		"displayName": "Shotgun Analysis",
 		"displayDescription": "Increased XP for Shotguns.",
-		"displayIcon": "/common/destiny_content/icons/835a4601d2341e8b93a64c5849c9bef7.png",
+		"displayIcon": "/common/destiny_content/icons/7e497934f1ce04dbdea53747220b0608.png",
 		"isDisplayable": true,
 		"hash": 3900386992,
 		"index": 0
@@ -8569,7 +8684,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3909966040,
 		"displayName": "Network Tap",
 		"displayDescription": "Generate additional Glimmer when killing Cabal.",
-		"displayIcon": "/common/destiny_content/icons/33cd9a9bc7373163129e7ad5e4ee184f.png",
+		"displayIcon": "/common/destiny_content/icons/c03135f754ab4d36cd3d749f5961d486.png",
 		"isDisplayable": true,
 		"hash": 3909966040,
 		"index": 0
@@ -8578,7 +8693,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3911170550,
 		"displayName": "Firefly",
 		"displayDescription": "Precision kills with this weapon cause the target to explode.",
-		"displayIcon": "/common/destiny_content/icons/6f1ee8952e90399fc38bb98ee78af831.png",
+		"displayIcon": "/common/destiny_content/icons/259e994e824746bbb8bd9510ce2c45d7.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -8594,7 +8709,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3911579221,
 		"displayName": "And Another Thing",
 		"displayDescription": "Gain an additional grenade charge.",
-		"displayIcon": "/common/destiny_content/icons/d451b35ea689367671aca7aaa88f1b48.png",
+		"displayIcon": "/common/destiny_content/icons/a7b46a943919731ca60be41d1f3dd188.png",
 		"isDisplayable": true,
 		"hash": 3911579221,
 		"index": 0
@@ -8603,7 +8718,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3914201853,
 		"displayName": "Invigoration",
 		"displayDescription": "Reduces melee cooldown each time you pick up an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/fd12704a6c1b37d05bfaead15c4457d5.png",
+		"displayIcon": "/common/destiny_content/icons/75cb8c0471c02b4cfe222a8b796ffc64.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -8619,7 +8734,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3914201854,
 		"displayName": "Innervation",
 		"displayDescription": "Reduces grenade cooldown each time you pick up an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/fd12704a6c1b37d05bfaead15c4457d5.png",
+		"displayIcon": "/common/destiny_content/icons/75cb8c0471c02b4cfe222a8b796ffc64.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -8635,7 +8750,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3914201855,
 		"displayName": "Infusion",
 		"displayDescription": "Replenishes health each time you pick up an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/fd12704a6c1b37d05bfaead15c4457d5.png",
+		"displayIcon": "/common/destiny_content/icons/75cb8c0471c02b4cfe222a8b796ffc64.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -8651,7 +8766,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3917692394,
 		"displayName": "Deep Squeeze",
 		"displayDescription": "This weapon fires faster the deeper its trigger is pulled.",
-		"displayIcon": "/common/destiny_content/icons/ce3ca59ad866e152c3326120c254eb13.png",
+		"displayIcon": "/common/destiny_content/icons/234fba67d43616b9b40ea09d556416d1.png",
 		"isDisplayable": true,
 		"hash": 3917692394,
 		"index": 0
@@ -8660,7 +8775,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3921735041,
 		"displayName": "Final Round",
 		"displayDescription": "Bonus precision damage on last round in clip.",
-		"displayIcon": "/common/destiny_content/icons/87d99de1207fee9c4c819836eea7ce8e.png",
+		"displayIcon": "/common/destiny_content/icons/c517fe33700acfdc0355203189872a10.png",
 		"isDisplayable": true,
 		"hash": 3921735041,
 		"index": 0
@@ -8669,7 +8784,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3923255656,
 		"displayName": "Teleportation",
 		"displayDescription": "Reduces Blink cooldown and increases travel distance.",
-		"displayIcon": "/common/destiny_content/icons/108a61b51300b9b9855be7dd01d07190.png",
+		"displayIcon": "/common/destiny_content/icons/1d3241d46b5c2ca016d54422d441e77a.png",
 		"isDisplayable": true,
 		"hash": 3923255656,
 		"index": 0
@@ -8685,7 +8800,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3943006857,
 		"displayName": "Fuel Efficiency",
 		"displayDescription": "Side boost takes less fuel.",
-		"displayIcon": "/common/destiny_content/icons/ecffec6c0935e70bad7ad497adf0bd5f.png",
+		"displayIcon": "/common/destiny_content/icons/a2c7db85fa7d250dd2ecb850ba8b1833.png",
 		"isDisplayable": true,
 		"hash": 3943006857,
 		"index": 0
@@ -8694,7 +8809,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3944665868,
 		"displayName": "Arc Armor",
 		"displayDescription": "Increased Armor when using an Arc-based subclass.",
-		"displayIcon": "/common/destiny_content/icons/00440abe8468c7e0e4ee53982baa582d.png",
+		"displayIcon": "/common/destiny_content/icons/fe48f8bb2fdbdd5e78c564d1135ab8e0.png",
 		"isDisplayable": true,
 		"hash": 3944665868,
 		"index": 0
@@ -8703,7 +8818,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3956418394,
 		"displayName": "Burn Brighter",
 		"displayDescription": "Activating Radiance from death disorients nearby enemies.",
-		"displayIcon": "/common/destiny_content/icons/babaa006e74ecf03e314ee4ac8e431d3.png",
+		"displayIcon": "/common/destiny_content/icons/54c980e5a35cb0837fe657a530d9e3fc.png",
 		"isDisplayable": true,
 		"hash": 3956418394,
 		"index": 0
@@ -8719,7 +8834,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3975873763,
 		"displayName": "Warrior of Light",
 		"displayDescription": "Increased damage for your  attack.",
-		"displayIcon": "/common/destiny_content/icons/00440abe8468c7e0e4ee53982baa582d.png",
+		"displayIcon": "/common/destiny_content/icons/fe48f8bb2fdbdd5e78c564d1135ab8e0.png",
 		"isDisplayable": true,
 		"hash": 3975873763,
 		"index": 0
@@ -8735,7 +8850,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4003736558,
 		"displayName": "The Hereafter",
 		"displayDescription": "Crouching increases scope zoom and makes it easier to aim under fire.",
-		"displayIcon": "/common/destiny_content/icons/e007458963d8f559b5008c30441a6e72.png",
+		"displayIcon": "/common/destiny_content/icons/1030c47a0ca835f3bd2f613dc5198633.png",
 		"isDisplayable": true,
 		"hash": 4003736558,
 		"index": 0
@@ -8744,7 +8859,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4010719013,
 		"displayName": "Not Bound by Law",
 		"displayDescription": "Upgrades Double Jump with an additional jump.",
-		"displayIcon": "/common/destiny_content/icons/f066bb2543f8c26a358efcdcc40140e6.png",
+		"displayIcon": "/common/destiny_content/icons/eb8d8be7eb4806c6908d6efc0ddbb35e.png",
 		"isDisplayable": true,
 		"hash": 4010719013,
 		"index": 0
@@ -8753,7 +8868,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4012764433,
 		"displayName": "Jackolyte",
 		"displayDescription": "The Hive may haunt the dreams of children, but you haunt the dreams of the Hive.",
-		"displayIcon": "/common/destiny_content/icons/0003d29017a1fd6f20233bdb0268f575.png",
+		"displayIcon": "/common/destiny_content/icons/2dc2ddd9a783532c97d33a2f159fbd42.png",
 		"isDisplayable": true,
 		"hash": 4012764433,
 		"index": 0
@@ -8769,7 +8884,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4021253087,
 		"displayName": "Metal Detector",
 		"displayDescription": "Expect to find more ammo for this weapon.",
-		"displayIcon": "/common/destiny_content/icons/d1cf3fc0e7f48dae469eb7e34b1dfdff.png",
+		"displayIcon": "/common/destiny_content/icons/f401fa148ef82a8536c6f2109aa706af.png",
 		"isDisplayable": true,
 		"hash": 4021253087,
 		"index": 0
@@ -8778,7 +8893,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4023922623,
 		"displayName": "Triple Tap",
 		"displayDescription": "Rapidly landing precision hits will return one round to the magazine.",
-		"displayIcon": "/common/destiny_content/icons/6dde45970edf976cbc2b41e27bfb22f8.png",
+		"displayIcon": "/common/destiny_content/icons/e6dc55a476669eed827488419fcd6cb7.png",
 		"isDisplayable": true,
 		"hash": 4023922623,
 		"index": 0
@@ -8787,7 +8902,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4027173315,
 		"displayName": "Activate IKELOS",
 		"displayDescription": "Upgrades laser to allow multiple ricochets on hard surfaces.",
-		"displayIcon": "/common/destiny_content/icons/8802384eaeaee130caa3de58fd0d3d7d.png",
+		"displayIcon": "/common/destiny_content/icons/b60ce022796e9f13c692dba38100020a.png",
 		"isDisplayable": true,
 		"hash": 4027173315,
 		"index": 0
@@ -8796,7 +8911,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4036458532,
 		"displayName": "Maverick",
 		"displayDescription": "Precision kills move one round from your ammo reserves into the magazine.",
-		"displayIcon": "/common/destiny_content/icons/b280e4823117d470df1f3b7f7eb6e79b.png",
+		"displayIcon": "/common/destiny_content/icons/ed59cf8a4791bc8590d2fba15e51124a.png",
 		"isDisplayable": true,
 		"hash": 4036458532,
 		"index": 0
@@ -8826,7 +8941,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4045214213,
 		"displayName": "Heuristic Light",
 		"displayDescription": "Killing your next foe in King's Fall will grant an additional Moldering Shard.",
-		"displayIcon": "/common/destiny_content/icons/7e4a613c2f7d7ed84169c7c2fccb6fdd.png",
+		"displayIcon": "/common/destiny_content/icons/45bf9b48e52ddc1313d03330f6f421d1.png",
 		"isDisplayable": true,
 		"hash": 4045214213,
 		"index": 0
@@ -8835,7 +8950,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4051254786,
 		"displayName": "Solar Recovery",
 		"displayDescription": "Increased Recovery for 5 seconds after taking Solar splash damage.",
-		"displayIcon": "/common/destiny_content/icons/2dbf3d8e60589b2322b7ac18c639b898.png",
+		"displayIcon": "/common/destiny_content/icons/d20a9050e51e3519f55f6b05dbd74a1d.png",
 		"isDisplayable": true,
 		"hash": 4051254786,
 		"index": 0
@@ -8858,7 +8973,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4060987422,
 		"displayName": "SRL Champion",
 		"displayDescription": "Increases SRL Event Standing.",
-		"displayIcon": "/common/destiny_content/icons/172f427f6bc8c2c80b2fac2cf3ca5356.png",
+		"displayIcon": "/common/destiny_content/icons/1c7ed70fb569108b7a06d36def42473b.png",
 		"isDisplayable": true,
 		"hash": 4060987422,
 		"index": 0
@@ -8965,7 +9080,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4090945472,
 		"displayName": "Shotgun Loader",
 		"displayDescription": "Increased reload speed with Shotguns.",
-		"displayIcon": "/common/destiny_content/icons/9601ea26ddfd68560694f701177b772c.png",
+		"displayIcon": "/common/destiny_content/icons/478db18efd8a17a0f1ab5eab50ba3482.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -8981,7 +9096,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4091143788,
 		"displayName": "Vernier Thrusters",
 		"displayDescription": "Use  or  and  or  for quick lateral movements.",
-		"displayIcon": "/common/destiny_content/icons/d33189b5e767c929c8fecaa6d70cf30c.png",
+		"displayIcon": "/common/destiny_content/icons/8f305601b34bcd42da76c4dc2e665a56.png",
 		"isDisplayable": true,
 		"hash": 4091143788,
 		"index": 0
@@ -8990,7 +9105,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4096399315,
 		"displayName": "Arc Accumulator",
 		"displayDescription": "Arc melees have a chance to generate an Orb when killing a minion of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/28563af0fccbec4a60dceb9b4675076c.png",
+		"displayIcon": "/common/destiny_content/icons/57a5a235f8a477b74e9c5f326ee8208d.png",
 		"isDisplayable": true,
 		"hash": 4096399315,
 		"index": 0
@@ -8999,7 +9114,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4109126941,
 		"displayName": "Scatter Charge",
 		"displayDescription": "Enables Scatter Grenade tracking. \n Gain an additional Scatter Grenade charge.",
-		"displayIcon": "/common/destiny_content/icons/ff5fefa9e4033fd8368b603f7a1e1350.png",
+		"displayIcon": "/common/destiny_content/icons/4929e0c6e8245186be0c77b95644adf5.png",
 		"isDisplayable": true,
 		"hash": 4109126941,
 		"index": 0
@@ -9008,7 +9123,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4111868508,
 		"displayName": "Sniper Rifle Loader",
 		"displayDescription": "Increased reload speed with Sniper Rifles.",
-		"displayIcon": "/common/destiny_content/icons/573b71d21461e0cc5de3b71fcb110830.png",
+		"displayIcon": "/common/destiny_content/icons/bd24f9ff77c72ef3f899dcaa462fb3e7.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -9024,7 +9139,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4114259013,
 		"displayName": "Chasm Rounds",
 		"displayDescription": "This weapon fires faster and more accurately the longer the trigger is held.",
-		"displayIcon": "/common/destiny_content/icons/a003934c2852eaa438778484d264db4e.png",
+		"displayIcon": "/common/destiny_content/icons/1cc8a0dc954dff418b7d2d40367fbdc7.png",
 		"isDisplayable": true,
 		"hash": 4114259013,
 		"index": 0
@@ -9033,7 +9148,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4142402532,
 		"displayName": "Touch of Mercy",
 		"displayDescription": "Three rapid kills will return a portion of the wielder's health.",
-		"displayIcon": "/common/destiny_content/icons/04988bd3fe98b3373862b5b3c28b9b22.png",
+		"displayIcon": "/common/destiny_content/icons/8831e910671bb7e897f7f3597dbabd3f.png",
 		"isDisplayable": true,
 		"hash": 4142402532,
 		"index": 0
@@ -9049,7 +9164,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4148534176,
 		"displayName": "Blue Polyphage",
 		"displayDescription": "Generate additional Glimmer when killing Vex.",
-		"displayIcon": "/common/destiny_content/icons/33cd9a9bc7373163129e7ad5e4ee184f.png",
+		"displayIcon": "/common/destiny_content/icons/c03135f754ab4d36cd3d749f5961d486.png",
 		"isDisplayable": true,
 		"hash": 4148534176,
 		"index": 0
@@ -9058,7 +9173,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4182717269,
 		"displayName": "Helium Filament Sensor",
 		"displayDescription": "Detects and marks nearby helium filament collectors.",
-		"displayIcon": "/common/destiny_content/icons/478d63ab50a22da6640607188342e72e.png",
+		"displayIcon": "/common/destiny_content/icons/543eaaa9effcf47cd1537719272bbe1a.png",
 		"isDisplayable": true,
 		"hash": 4182717269,
 		"index": 0
@@ -9102,7 +9217,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4189070124,
 		"displayName": "Air Brakes",
 		"displayDescription": "Use  to brake and corner more aggressively.",
-		"displayIcon": "/common/destiny_content/icons/50f4a5b97eb6c3cfd3d9cebad7cd7e7a.png",
+		"displayIcon": "/common/destiny_content/icons/da2b3ac06b047e583b1f91244ee0e9cd.png",
 		"isDisplayable": true,
 		"hash": 4189070124,
 		"index": 0
@@ -9111,7 +9226,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4198986151,
 		"displayName": "Outlaw",
 		"displayDescription": "Precision kills with this weapon dramatically increase reload speed.",
-		"displayIcon": "/common/destiny_content/icons/d53ca6be9afbbdbd354bbb0b52892802.png",
+		"displayIcon": "/common/destiny_content/icons/06966c5b0694a76adca4b42ac0459417.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -9127,7 +9242,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4205188814,
 		"displayName": "Monte Carlo Method",
 		"displayDescription": "Dealing damage with this weapon reduces your melee cooldown and grants a chance to fully charge your melee ability with each kill.",
-		"displayIcon": "/common/destiny_content/icons/6a3aecb1124fa26170ca9d77ae2930d5.png",
+		"displayIcon": "/common/destiny_content/icons/48a3496adc6858927b80b91cf77b89fb.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -9143,7 +9258,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4207691867,
 		"displayName": "Private Reserves",
 		"displayDescription": "Activating your Super regenerates your health.",
-		"displayIcon": "/common/destiny_content/icons/c5d234406f87724d5e9471dc8c9b5069.png",
+		"displayIcon": "/common/destiny_content/icons/bf19b28dbc60be41631bb496a795509f.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -9166,7 +9281,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4231021906,
 		"displayName": "Bathed in Light",
 		"displayDescription": "Blessing of Light and Weapons of Light lasts longer.",
-		"displayIcon": "/common/destiny_content/icons/3da23e6bb3e454efe0380e3778ae14b2.png",
+		"displayIcon": "/common/destiny_content/icons/1defdf244b071b42c212ff8906ffba61.png",
 		"isDisplayable": true,
 		"hash": 4231021906,
 		"index": 0
@@ -9192,11 +9307,20 @@ var DestinySandboxPerkDefinition = {
 		"hash": 4248033855,
 		"index": 0
 	},
+	"4249798551": {
+		"perkHash": 4249798551,
+		"displayName": "Vanguard Reputation Booster",
+		"displayDescription": "AURA\nIncreased Vanguard reputation rewards from Strike playlists.\n\nAuras will fade if you leave the Fireteam of the providing Guardian.",
+		"displayIcon": "/common/destiny_content/icons/6436f89428250c34d838f4a5ebca7aa5.png",
+		"isDisplayable": true,
+		"hash": 4249798551,
+		"index": 0
+	},
 	"4262725708": {
 		"perkHash": 4262725708,
 		"displayName": "Rewind",
 		"displayDescription": "Missing a shot has a chance to return ammo directly to the magazine.",
-		"displayIcon": "/common/destiny_content/icons/3177e38b3186f040c39e52a94f3941ce.png",
+		"displayIcon": "/common/destiny_content/icons/e45904c3addd005f54704b2efd013186.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -9212,7 +9336,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4266524967,
 		"displayName": "Grave Robber",
 		"displayDescription": "Melee kills while this weapon is equipped have a chance to refill the magazine.",
-		"displayIcon": "/common/destiny_content/icons/48b50d4d69ebcdfd91d1668e6d30295b.png",
+		"displayIcon": "/common/destiny_content/icons/71597bf8c4e00a2af109ea399ac684eb.png",
 		"isDisplayable": true,
 		"hash": 4266524967,
 		"index": 0
@@ -9228,7 +9352,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4271995221,
 		"displayName": "The Master",
 		"displayDescription": "Increased precision damage. Kills briefly increase damage against next target.",
-		"displayIcon": "/common/destiny_content/icons/b809b88bb791788e9605130c0db453d7.png",
+		"displayIcon": "/common/destiny_content/icons/814f1c7ef2969550818fb3f74d2768a2.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -9244,7 +9368,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4276523228,
 		"displayName": "Unsealed Power",
 		"displayDescription": "The power of the warden seethes uncontrollably.",
-		"displayIcon": "/common/destiny_content/icons/6896172ee7351a5b7f226be52291bf91.png",
+		"displayIcon": "/common/destiny_content/icons/37706ef3f0cd101859e5a0c53e278041.png",
 		"isDisplayable": true,
 		"hash": 4276523228,
 		"index": 0

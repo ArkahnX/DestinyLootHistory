@@ -6,6 +6,13 @@ var DestinyBondDefinition = {
 		"hash": 71814705,
 		"index": 0
 	},
+	"676833437": {
+		"providedUnlockHash": 0,
+		"providedUnlockValueHash": 0,
+		"showInAdvisor": false,
+		"hash": 676833437,
+		"index": 0
+	},
 	"806621102": {
 		"providedUnlockHash": 0,
 		"providedUnlockValueHash": 0,

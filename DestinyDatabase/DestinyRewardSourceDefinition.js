@@ -429,6 +429,16 @@ var DestinyRewardSourceDefinition = {
 		"hash": 3672389432,
 		"index": 0
 	},
+	"3739898362": {
+		"sourceHash": 3739898362,
+		"category": 1,
+		"identifier": "SOURCE_POE_ELDER_CHALLENGE",
+		"sourceName": "Challenge of the Elders",
+		"description": "This item is granted through the Challenge of the Elders.",
+		"icon": "/img/destiny_content/sources/elder_challenge_icon.jpg",
+		"hash": 3739898362,
+		"index": 0
+	},
 	"3870113141": {
 		"sourceHash": 3870113141,
 		"category": 1,
