@@ -1,3 +1,47 @@
+// Object.defineProperties(Object.prototype, {
+// 	[Symbol.iterator]: {
+// 		value: function() {
+// 			return this;
+// 		},
+// 		enumerable: false
+// 	},
+// 	next: {
+// 		value: function() {
+// 			return {
+// 				done: false,
+// 				value: 0
+// 			};
+// 		},
+// 		enumerable: false
+// 	}
+// })
+
+Object.prototype[Symbol.iterator] = function() {
+	var keyList = Object.keys(this);
+	let index = 0;
+	return {
+		next: () => {
+			let value = this[keyList[index]];
+			let done = index >= keyList.length;
+			index++;
+			return {
+				value, done
+			};
+		}
+	};
+}
+
+// Object.prototype = {
+// 	[Symbol.iterator]: function() {
+// 		return this;
+// 	},
+// 	next: function() {
+// 		return {
+// 			done: false,
+// 			value: 0
+// 		};
+// 	}
+// };
 var data = {
 	inventories: {},
 	progression: {},
@@ -94,8 +138,7 @@ function factionResultTask(result, characterId) {
 	}
 }
 
-function _concat(list,bucketHash) {
-	var sortedItems = {};
+function _concat(list, bucketHash, sortedItems) {
 	for (var item of list) {
 		if (!sortedItems[item.itemHash]) {
 			sortedItems[item.itemHash] = buildCompactItem(item, bucketHash);
@@ -111,12 +154,13 @@ function concatItems(itemBucketList) {
 	var sortedItems = {};
 	var unsortedItems = [];
 	for (var category of itemBucketList) {
+		// console.log(category)
 		if (category.items) {
-			sortedItems = _concat(category.items,category.bucketHash);
+			sortedItems = _concat(category.items, category.bucketHash, sortedItems);
 		} else {
 			for (var bucket of category) {
 				if (bucket.items) {
-					sortedItems = _concat(bucket.items,bucket.bucketHash);
+					sortedItems = _concat(bucket.items, bucket.bucketHash, sortedItems);
 				}
 			}
 		}
@@ -290,35 +334,161 @@ function factionRepChanges(factionRep, characterId) {
 	}
 }
 
+function isSameItem(item1, item2) {
+	if (item1 === item2) {
+		return true;
+	}
+	if (item1.itemHash === item2.itemHash) {
+		if (item1.stackSize === item2.stackSize) {
+			if (item1.itemInstanceId === item2.itemInstanceId) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
 function processDifference() {
 	var d = new Date();
 	d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
-	var currentDate = new Date(d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2) + ":" + ('0' + d.getSeconds()).slice(-2));
+	var currentDateString = d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2) + ":" + ('0' + d.getSeconds()).slice(-2);
 	var previousFaction = data.factionChanges[data.factionChanges.length - 1];
 	var previousItem = data.itemChanges[data.itemChanges.length - 1];
-	var previousFactionDate = currentDate;
-	var previousItemDate = currentDate;
-	if (previousFaction) {
+	var previousFactionDate = new Date(currentDateString);
+	var previousItemDate = new Date(currentDateString);
+	if (typeof previousFaction === "string") {
 		previousFactionDate = new Date(previousFaction.timestamp);
 	}
-	if (previousItem) {
+	if (typeof previousItem === "string") {
 		previousItemDate = new Date(previousItem.timestamp);
 	}
+	var diffs = [];
+	var additions = [];
+	var removals = [];
+	var transfers = [];
+	var changes = [];
+	var finalChanges = [];
 	if (oldInventories) {
-		for (var character of oldInventories) {
-			var additions = checkDiff(data.inventories[characterId], character);
-			var removals = checkDiff(character, data.inventories[characterId]);
-			console.log(additions,removals);
+		for (var characterId in oldInventories) {
+			var diff = {
+				timestamp: currentDateString,
+				secondsSinceLastDiff: previousItemDate,
+				characterId: characterId,
+				removed: checkDiff(oldInventories[characterId], data.inventories[characterId]),
+				added: checkDiff(data.inventories[characterId], oldInventories[characterId])
+			};
+			if (diff.added.length || diff.removed.length) {
+				diffs.push(diff);
+			}
+		}
+	}
+	if (diffs.length) {
+		for (var diff of diffs) {
+			for (var addition of diff.added) {
+				additions.push({
+					characterId: diff.characterId,
+					item: addition
+				});
+			}
+			for (var removal of diff.removed) {
+				removals.push({
+					characterId: diff.characterId,
+					item: removal
+				});
+			}
+		}
+		for (var i = additions.length - 1; i >= 0; i--) {
+			var addition = additions[i];
+			for (var e = removals.length - 1; e >= 0; e--) {
+				var removal = removals[e];
+				if (isSameItem(addition.item, removal.item)) {
+					var movedItem = additions.splice(i, 1)[0];
+					removals.splice(e, 1);
+					transfers.push({
+						from: removal.characterId,
+						to: addition.characterId,
+						item: movedItem.item
+					});
+				}
+			}
 		}
 	}
 	if (oldProgression) {
-		for (var character of oldProgression) {
-
+		for (var characterId in oldProgression) {
+			var diff = {
+				timestamp: currentDateString,
+				secondsSinceLastDiff: (new Date(currentDateString) - previousFactionDate) / 1000,
+				characterId: characterId,
+				changes: checkFactionDiff(oldProgression[characterId].progressions, data.progression[characterId].progressions),
+				level: data.progression[characterId].levelProgression
+			};
+			if (diff.changes.length > 0) {
+				changes.push(diff);
+			}
 		}
 	}
+	for (var characterId in data.inventories) {
+		var diff = {
+			timestamp: currentDateString,
+			secondsSinceLastDiff: (new Date(currentDateString) - previousItemDate) / 1000,
+			characterId: characterId,
+			removed: [],
+			added: [],
+			transfered: []
+		};
+		if (data.progression[characterId]) {
+			diff.level = data.progression[characterId].levelProgression;
+			diff.changed = [];
+			for (var change of changes) {
+				if (change.characterId === characterId) {
+					diff.changed.push(change.item);
+				}
+			}
+		}
+		for (var addition of additions) {
+			if (addition.characterId === characterId) {
+				diff.added.push(addition.item);
+			}
+		}
+		for (var removal of removals) {
+			if (removal.characterId === characterId) {
+				diff.removed.push(removal.item);
+			}
+		}
+		for (var transfer of transfers) {
+			if (transfer.to === characterId) {
+				diff.transfered.push(transfer);
+			}
+		}
+		if (diff.removed.length || diff.added.length || diff.transfered.length || (diff.changed && diff.changed.length)) {
+			finalChanges.push(diff);
+		}
+	}
+	console.log("Additions:", additions, "\nRemovals:", removals, "\nTransfers:", transfers, "\nChanges:", changes, "\nFinal Changes:", finalChanges);
+	// Array.prototype.push.apply(data., checkFactionDiff(oldProgression[characterId].progressions, data.progression[characterId].progressions));
+	// Array.prototype.push.apply(additions, checkDiff(data.inventories[characterId], oldInventories[characterId]));
+	// Array.prototype.push.apply(removals, checkDiff(oldInventories[characterId], data.inventories[characterId]));
 	oldProgression = data.progression;
 	oldInventories = data.inventories;
-	chrome.storage.local.set(data,function() {
+	chrome.storage.local.set(data, function() {
+		var itemBlob = new Blob([JSON.stringify(data.itemChanges)], {
+			type: 'application/json'
+		});
 
+		var url = window.URL;
+		var a = document.getElementById('link1');
+		a.download = 'itemChanges.json';
+		a.href = url.createObjectURL(itemBlob);
+		a.textContent = 'Download Item Change Data';
+		a.dataset.downloadurl = ['json', a.download, a.href].join(':');
+		var factionBlob = new Blob([JSON.stringify(data.factionChanges)], {
+			type: 'application/json'
+		});
+
+		var a2 = document.getElementById('link2');
+		a2.download = 'factionChanges.json';
+		a2.href = url.createObjectURL(factionBlob);
+		a2.textContent = 'Download Faction Change Data';
+		a2.dataset.downloadurl = ['json', a2.download, a2.href].join(':');
 	});
 }
