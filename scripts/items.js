@@ -217,13 +217,13 @@ function checkDiff(sourceArray, newArray) {
 					var newItem = JSON.parse(JSON.stringify(sourceArray[i]));
 					newItem.stackSize = sourceArray[i].stackSize - newArray[e].stackSize;
 					if (newItem.stackSize > 0) {
-						itemsRemovedFromSource.push(newItem);
+						itemsRemovedFromSource.push(JSON.stringify(newItem));
 					}
 				}
 			}
 		}
 		if (found === false) {
-			itemsRemovedFromSource.push(sourceArray[i]);
+			itemsRemovedFromSource.push(JSON.stringify(sourceArray[i]));
 		}
 	}
 	return itemsRemovedFromSource;
@@ -348,7 +348,7 @@ function processDifference() {
 				secondsSinceLastDiff: (new Date(currentDateString) - previousFactionDate) / 1000,
 				characterId: characterId,
 				changes: checkFactionDiff(oldProgression[characterId].progressions, data.progression[characterId].progressions),
-				level: null
+				level: {}
 			};
 			for(var attr in data.progression[characterId].levelProgression) {
 				diff.level[attr] = data.progression[characterId].levelProgression[attr];
@@ -466,6 +466,9 @@ function checkInventory() {
 function startListening() {
 	if (listenLoop === null) {
 		trackIdle();
+		var header = document.querySelector("#status");
+		header.classList.remove("idle");
+		header.classList.add("active");
 		var element = document.querySelector("#startTracking");
 		element.setAttribute("value", "Stop Tracking");
 		listenLoop = setInterval(function() {
@@ -476,6 +479,9 @@ function startListening() {
 
 function stopListening() {
 	if (listenLoop !== null) {
+		var header = document.querySelector("#status");
+		header.classList.add("idle");
+		header.classList.remove("active");
 		var element = document.querySelector("#startTracking");
 		element.setAttribute("value", "Begin Tracking");
 		clearInterval(listenLoop);
