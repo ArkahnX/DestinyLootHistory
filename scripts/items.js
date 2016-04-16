@@ -442,15 +442,15 @@ function processDifference() {
 			added: [],
 			transfered: []
 		};
-		if (data.progression[characterId]) {
-			diff.level = data.progression[characterId].levelProgression;
-			diff.changed = [];
-			for (var change of changes) {
-				if (change.characterId === characterId) {
-					diff.changed.push(change.item);
-				}
-			}
-		}
+		// if (data.progression[characterId]) {
+		// 	diff.level = data.progression[characterId].levelProgression;
+		// 	diff.changed = [];
+		// 	for (var change of changes) {
+		// 		if (change.characterId === characterId) {
+		// 			diff.changed.push(change.item);
+		// 		}
+		// 	}
+		// }
 		for (var addition of additions) {
 			if (addition.characterId === characterId) {
 				diff.added.push(addition.item);
@@ -470,123 +470,97 @@ function processDifference() {
 			finalChanges.push(diff);
 		}
 	}
-	console.log("Additions:", additions, "\nRemovals:", removals, "\nTransfers:", transfers, "\nChanges:", changes, "\nFinal Changes:", finalChanges);
-	// Array.prototype.push.apply(data., checkFactionDiff(oldProgression[characterId].progressions, data.progression[characterId].progressions));
+	console.log("Additions:", additions, "\nRemovals:", removals, "\nTransfers:", transfers, "\nChanges:", changes/*, "\nFinal Changes:", finalChanges*/);
+	Array.prototype.push.apply(data.itemChanges, finalChanges);
+	Array.prototype.push.apply(data.factionChanges, changes);
 	// Array.prototype.push.apply(additions, checkDiff(data.inventories[characterId], oldInventories[characterId]));
 	// Array.prototype.push.apply(removals, checkDiff(oldInventories[characterId], data.inventories[characterId]));
 	oldProgression = data.progression;
 	oldInventories = data.inventories;
 	chrome.storage.local.set(data, function() {
-		// var itemBlob = new Blob([JSON.stringify(data.itemChanges)], {
-		// 	type: 'application/json'
-		// });
+		var itemBlob = new Blob([JSON.stringify(data.itemChanges)], {
+			type: 'application/json'
+		});
 
-		// var url = window.URL;
-		// var a = document.getElementById('link1');
-		// a.download = 'itemChanges.json';
-		// a.href = url.createObjectURL(itemBlob);
-		// a.textContent = 'Download Item Change Data';
-		// a.dataset.downloadurl = ['json', a.download, a.href].join(':');
-		// var factionBlob = new Blob([JSON.stringify(data.factionChanges)], {
-		// 	type: 'application/json'
-		// });
+		var url = window.URL;
+		var a = document.getElementById('link1');
+		a.download = 'itemChanges.json';
+		a.href = url.createObjectURL(itemBlob);
+		a.textContent = 'Download Item Change Data';
+		a.dataset.downloadurl = ['json', a.download, a.href].join(':');
+		var factionBlob = new Blob([JSON.stringify(data.factionChanges)], {
+			type: 'application/json'
+		});
 
-		// var a2 = document.getElementById('link2');
-		// a2.download = 'factionChanges.json';
-		// a2.href = url.createObjectURL(factionBlob);
-		// a2.textContent = 'Download Faction Change Data';
-		// a2.dataset.downloadurl = ['json', a2.download, a2.href].join(':');
+		var a2 = document.getElementById('link2');
+		a2.download = 'factionChanges.json';
+		a2.href = url.createObjectURL(factionBlob);
+		a2.textContent = 'Download Faction Change Data';
+		a2.dataset.downloadurl = ['json', a2.download, a2.href].join(':');
 	});
-	// console.time("timeline")
-	// console.log(dataset)
-	// console.timeEnd("timeline")
-	// var timeline = new vis.Timeline(document.getElementById("timeline"), dataset);
-	// DOM element where the Timeline will be attached
-	var container = document.getElementById('timeline');
-
-	// Create a DataSet (allows two way data-binding)
-	var items = new vis.DataSet(createVisItems());
-	// var items = new vis.DataSet([{
-	// 	id: 1,
-	// 	content: 'item 1',
-	// 	start: '2014-04-20'
-	// }, {
-	// 	id: 2,
-	// 	content: 'item 2',
-	// 	start: '2014-04-14'
-	// }, {
-	// 	id: 3,
-	// 	content: 'item 3',
-	// 	start: '2014-04-18'
-	// }, {
-	// 	id: 4,
-	// 	content: 'item 4',
-	// 	start: '2014-04-16',
-	// 	end: '2014-04-19'
-	// }, {
-	// 	id: 5,
-	// 	content: 'item 5',
-	// 	start: '2014-04-25'
-	// }, {
-	// 	id: 6,
-	// 	content: 'item 6',
-	// 	start: '2014-04-27',
-	// 	type: 'point'
-	// }]);
-
-	// Configuration for the Timeline
-	var options = {};
-
-	// Create a Timeline
-	var timeline = new vis.Timeline(container, items, options);
 }
 
-function createVisItems() {
-	var additions = [];
-	var removals = [];
-	var transfers = [];
-	var result = [];
-	for (var diff of data.itemChanges) {
-		for (var addition of diff.added) {
-			if (addition) {
-				additions.push({
-					timestamp: diff.timestamp,
-					characterId: diff.characterId,
-					item: addition
-				});
-			}
-		}
-		for (var removal of diff.removed) {
-			if (removal) {
-				removals.push({
-					timestamp: diff.timestamp,
-					characterId: diff.characterId,
-					item: removal
-				});
-			}
-		}
-		for (var transfer of diff.transfered) {
-			if (transfer) {
-				transfers.push({
-					timestamp: diff.timestamp,
-					characterId: diff.characterId,
-					item: transfer
-				});
-			}
-		}
-	}
-	var id = 0;
-	for (var diff of additions) {
-		result.push({
-			id: id,
-			start: new Date(diff.timestamp),
-			content: diff.characterId + " Added: " + diff.item.stackSize + " " + diff.item.itemName
-				// start: new Date(2010, 7, 15),
-				// end: new Date(2010, 8, 2),  // end is optional
-				// content: 'Trajectory A'
-				// Optional: fields 'id', 'type', 'group', 'className', 'style'
+
+var listenLoop = null;
+var stopLoop = null;
+
+function checkInventory() {
+	sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
+		sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
+			chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
+				data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
+				data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
+				// data.progression = handleInput(result.progression, data.progression);
+				// data.inventories = handleInput(result.inventories, data.inventories);
+				oldProgression = handleInput(result.progression, data.progression);
+				oldInventories = handleInput(result.inventories, data.inventories);
+				processDifference();
+			});
 		});
-		id++;
+	});
+	// sequence(characterIdList, calculateDifference, parseNewItems).then(function() {
+	// sequence(characterIdList, calculateDifference, _internalDiffCheck).then(function() {
+	// 	sequence(characterIdList, checkFactionRank, factionRepChanges).then(function() {
+	// 		chrome.storage.local.set(data);
+	// 		// loadGameData();
+	// 	});
+	// });
+	// for (var c = 0; c < avatars.length; c++) {
+	// 	if (avatars[c] === "vault") {
+	// 		calculateDifference("vault", callback);
+	// 	} else {
+	// 		calculateDifference(avatars[c].characterBase.characterId, callback);
+	// 	}
+	// }
+}
+
+function startListening() {
+	if (listenLoop === null) {
+		trackIdle();
+		var element = document.querySelector("#startTracking");
+		element.setAttribute("value", "Stop Tracking");
+		listenLoop = setInterval(function() {
+			checkInventory();
+		}, 15000);
 	}
-	return result;
+}
+
+function stopListening() {
+	if (listenLoop !== null) {
+		var element = document.querySelector("#startTracking");
+		element.setAttribute("value", "Begin Tracking");
+		clearInterval(listenLoop);
+		listenLoop = null;
+		clearInterval(stopLoop);
+		stopLoop = null;
+	}
+}
+
+function trackIdle() {
+	if (stopLoop !== null) {
+		clearInterval(stopLoop);
+	}
+	stopLoop = setInterval(function() {
+		stopListening();
+	}, 1000 * 60 * 30);
 }
