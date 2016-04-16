@@ -477,24 +477,116 @@ function processDifference() {
 	oldProgression = data.progression;
 	oldInventories = data.inventories;
 	chrome.storage.local.set(data, function() {
-		var itemBlob = new Blob([JSON.stringify(data.itemChanges)], {
-			type: 'application/json'
-		});
+		// var itemBlob = new Blob([JSON.stringify(data.itemChanges)], {
+		// 	type: 'application/json'
+		// });
 
-		var url = window.URL;
-		var a = document.getElementById('link1');
-		a.download = 'itemChanges.json';
-		a.href = url.createObjectURL(itemBlob);
-		a.textContent = 'Download Item Change Data';
-		a.dataset.downloadurl = ['json', a.download, a.href].join(':');
-		var factionBlob = new Blob([JSON.stringify(data.factionChanges)], {
-			type: 'application/json'
-		});
+		// var url = window.URL;
+		// var a = document.getElementById('link1');
+		// a.download = 'itemChanges.json';
+		// a.href = url.createObjectURL(itemBlob);
+		// a.textContent = 'Download Item Change Data';
+		// a.dataset.downloadurl = ['json', a.download, a.href].join(':');
+		// var factionBlob = new Blob([JSON.stringify(data.factionChanges)], {
+		// 	type: 'application/json'
+		// });
 
-		var a2 = document.getElementById('link2');
-		a2.download = 'factionChanges.json';
-		a2.href = url.createObjectURL(factionBlob);
-		a2.textContent = 'Download Faction Change Data';
-		a2.dataset.downloadurl = ['json', a2.download, a2.href].join(':');
+		// var a2 = document.getElementById('link2');
+		// a2.download = 'factionChanges.json';
+		// a2.href = url.createObjectURL(factionBlob);
+		// a2.textContent = 'Download Faction Change Data';
+		// a2.dataset.downloadurl = ['json', a2.download, a2.href].join(':');
 	});
+	// console.time("timeline")
+	// console.log(dataset)
+	// console.timeEnd("timeline")
+	// var timeline = new vis.Timeline(document.getElementById("timeline"), dataset);
+	// DOM element where the Timeline will be attached
+	var container = document.getElementById('timeline');
+
+	// Create a DataSet (allows two way data-binding)
+	var items = new vis.DataSet(createVisItems());
+	// var items = new vis.DataSet([{
+	// 	id: 1,
+	// 	content: 'item 1',
+	// 	start: '2014-04-20'
+	// }, {
+	// 	id: 2,
+	// 	content: 'item 2',
+	// 	start: '2014-04-14'
+	// }, {
+	// 	id: 3,
+	// 	content: 'item 3',
+	// 	start: '2014-04-18'
+	// }, {
+	// 	id: 4,
+	// 	content: 'item 4',
+	// 	start: '2014-04-16',
+	// 	end: '2014-04-19'
+	// }, {
+	// 	id: 5,
+	// 	content: 'item 5',
+	// 	start: '2014-04-25'
+	// }, {
+	// 	id: 6,
+	// 	content: 'item 6',
+	// 	start: '2014-04-27',
+	// 	type: 'point'
+	// }]);
+
+	// Configuration for the Timeline
+	var options = {};
+
+	// Create a Timeline
+	var timeline = new vis.Timeline(container, items, options);
+}
+
+function createVisItems() {
+	var additions = [];
+	var removals = [];
+	var transfers = [];
+	var result = [];
+	for (var diff of data.itemChanges) {
+		for (var addition of diff.added) {
+			if (addition) {
+				additions.push({
+					timestamp: diff.timestamp,
+					characterId: diff.characterId,
+					item: addition
+				});
+			}
+		}
+		for (var removal of diff.removed) {
+			if (removal) {
+				removals.push({
+					timestamp: diff.timestamp,
+					characterId: diff.characterId,
+					item: removal
+				});
+			}
+		}
+		for (var transfer of diff.transfered) {
+			if (transfer) {
+				transfers.push({
+					timestamp: diff.timestamp,
+					characterId: diff.characterId,
+					item: transfer
+				});
+			}
+		}
+	}
+	var id = 0;
+	for (var diff of additions) {
+		result.push({
+			id: id,
+			start: new Date(diff.timestamp),
+			content: diff.characterId + " Added: " + diff.item.stackSize + " " + diff.item.itemName
+				// start: new Date(2010, 7, 15),
+				// end: new Date(2010, 8, 2),  // end is optional
+				// content: 'Trajectory A'
+				// Optional: fields 'id', 'type', 'group', 'className', 'style'
+		});
+		id++;
+	}
+	return result;
 }
