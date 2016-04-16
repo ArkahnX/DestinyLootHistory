@@ -1,21 +1,3 @@
-// Object.defineProperties(Object.prototype, {
-// 	[Symbol.iterator]: {
-// 		value: function() {
-// 			return this;
-// 		},
-// 		enumerable: false
-// 	},
-// 	next: {
-// 		value: function() {
-// 			return {
-// 				done: false,
-// 				value: 0
-// 			};
-// 		},
-// 		enumerable: false
-// 	}
-// })
-
 Object.prototype[Symbol.iterator] = function() {
 	var keyList = Object.keys(this);
 	let index = 0;
@@ -29,19 +11,8 @@ Object.prototype[Symbol.iterator] = function() {
 			};
 		}
 	};
-}
+};
 
-// Object.prototype = {
-// 	[Symbol.iterator]: function() {
-// 		return this;
-// 	},
-// 	next: function() {
-// 		return {
-// 			done: false,
-// 			value: 0
-// 		};
-// 	}
-// };
 var data = {
 	inventories: {},
 	progression: {},
@@ -56,7 +27,7 @@ var characterIdList = ["vault"];
 function recursive(index, array, networkTask, resultTask, endRecursion) {
 	if (array[index]) {
 		new Promise(function(resolve, reject) {
-			networkTask(array[index], resolve)
+			networkTask(array[index], resolve);
 		}).then(function(result) {
 			resultTask(result, array[index]);
 			recursive(index + 1, array, networkTask, resultTask, endRecursion);
@@ -73,6 +44,7 @@ function sequence(array, networkTask, resultTask) {
 }
 
 function initItems(callback) {
+	console.time("load Bungie Data")
 	bungie.user(function(u) {
 		bungie.search(function(e) {
 
@@ -82,12 +54,14 @@ function initItems(callback) {
 				characterIdList.push(avatars[c].characterBase.characterId);
 			}
 
+			console.timeEnd("load Bungie Data")
 			processInventory(callback);
 		});
 	});
 }
 
 function processInventory(callback) {
+	console.time("Process Inventory")
 	sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
 		sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
 			chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
@@ -97,9 +71,10 @@ function processInventory(callback) {
 				// data.inventories = handleInput(result.inventories, data.inventories);
 				oldProgression = handleInput(result.progression, data.progression);
 				oldInventories = handleInput(result.inventories, data.inventories);
+				console.timeEnd("Process Inventory")
 				processDifference();
+				callback();
 			});
-			callback();
 		});
 	});
 }
@@ -165,8 +140,8 @@ function concatItems(itemBucketList) {
 			}
 		}
 	}
-	for (var attr in sortedItems) {
-		unsortedItems.push(sortedItems[attr]);
+	for (var item of sortedItems) {
+		unsortedItems.push(item);
 	}
 	return unsortedItems;
 }
@@ -185,14 +160,14 @@ function buildCompactItem(itemData, bucketHash) {
 			}
 		}
 	}
-	newItemData.itemName = DestinyInventoryItemDefinition[hash].itemName;
-	newItemData.itemTypeName = DestinyInventoryItemDefinition[hash].itemTypeName;
-	newItemData.tierTypeName = DestinyInventoryItemDefinition[hash].tierTypeName;
+	newItemData.itemName = DestinyCompactItemDefinition[hash].itemName;
+	newItemData.itemTypeName = DestinyCompactItemDefinition[hash].itemTypeName;
+	newItemData.tierTypeName = DestinyCompactItemDefinition[hash].tierTypeName;
 	newItemData.bucketHash = bucketHash;
 	newItemData.bucketName = DestinyInventoryBucketDefinition[bucketHash].bucketName;
 	if (newItemData.stats) {
-		for (var i = 0; i < newItemData.stats.length; i++) {
-			newItemData.stats[i].statName = DestinyStatDefinition[newItemData.stats[i].statHash].statName;
+		for (var e = 0; e < newItemData.stats.length; e++) {
+			newItemData.stats[e].statName = DestinyStatDefinition[newItemData.stats[e].statHash].statName;
 		}
 	}
 	if (newItemData.damageTypeHash) {
@@ -203,8 +178,8 @@ function buildCompactItem(itemData, bucketHash) {
 	}
 	if (newItemData.nodes) {
 		var sortedNodes = [];
-		for (var i = 0; i < newItemData.nodes.length; i++) {
-			var newNode = newItemData.nodes[i];
+		for (var r = 0; r < newItemData.nodes.length; r++) {
+			var newNode = newItemData.nodes[r];
 			if (newNode.hidden === false) {
 				var nodeHash = newNode.nodeHash;
 				var stepIndex = newNode.stepIndex;
@@ -236,7 +211,7 @@ function checkDiff(sourceArray, newArray) {
 	for (var i = 0; i < sourceArray.length; i++) {
 		var found = false;
 		for (var e = 0; e < newArray.length; e++) {
-			if ((newArray[e].itemInstanceId != 0 && newArray[e].itemInstanceId == sourceArray[i].itemInstanceId) || newArray[e].itemHash == sourceArray[i].itemHash) {
+			if ((newArray[e].itemInstanceId !== "0" && newArray[e].itemInstanceId == sourceArray[i].itemInstanceId) || newArray[e].itemHash == sourceArray[i].itemHash) {
 				found = true;
 				if (newArray[e].stackSize !== sourceArray[i].stackSize) {
 					var newItem = JSON.parse(JSON.stringify(sourceArray[i]));
@@ -279,61 +254,6 @@ function checkFactionDiff(sourceArray, newArray) {
 	return itemsRemovedFromSource;
 }
 
-function _internalDiffCheck(itemData, characterId) {
-	var newItems = concatItems(itemData.data.buckets);
-	var d = new Date();
-	d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
-	var currentDate = new Date(d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2) + ":" + ('0' + d.getSeconds()).slice(-2));
-	var previous = data.itemChanges[data.itemChanges.length - 1]
-	if (previous) {
-		var oldDate = new Date(previous.timestamp) || currentDate;
-	} else {
-		var oldDate = currentDate;
-	}
-	var diff = {
-		destinyGameId: 0,
-		timestamp: currentDate,
-		secondsSinceLastDiff: (currentDate - oldDate) / 1000,
-		characterId: characterId,
-		removed: "",
-		added: "",
-		transfered: []
-	};
-	data.inventories[characterId] = newItems;
-	if (diff.added.length > 0 || diff.removed.length > 0) {
-		trackIdle();
-		data.itemChanges.push(diff);
-		console.log(diff)
-	} else {
-		// console.log("No Changes For", characterId)
-	}
-}
-
-
-
-function factionRepChanges(factionRep, characterId) {
-	if (factionRep) {
-		var newRep = factionRep.data;
-
-		var diff = {
-			destinyGameId: 0,
-			timestamp: currentDate,
-			secondsSinceLastDiff: (currentDate - oldDate) / 1000,
-			characterId: characterId,
-			changes: checkFactionDiff(newRep.progressions, data.progression[characterId].progressions),
-			level: newRep.levelProgression
-		};
-		data.progression[characterId] = newRep;
-		if (diff.changes.length > 0) {
-			trackIdle();
-			data.factionChanges.push(diff);
-			console.log(diff)
-		} else {
-			// console.log("No Changes For", characterId)
-		}
-	}
-}
-
 function isSameItem(item1, item2) {
 	if (item1 === item2) {
 		return true;
@@ -349,6 +269,7 @@ function isSameItem(item1, item2) {
 }
 
 function processDifference() {
+	console.time("Process Difference");
 	var d = new Date();
 	d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
 	var currentDateString = d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2) + ":" + ('0' + d.getSeconds()).slice(-2);
@@ -472,7 +393,7 @@ function processDifference() {
 		}
 	}
 	if (additions.length || removals.length || transfers.length || changes.length) {
-		console.log(currentDateString, "\nAdditions:", additions, "\nRemovals:", removals, "\nTransfers:", transfers, "\nChanges:", changes /*, "\nFinal Changes:", finalChanges*/ );
+		console.log(currentDateString, "\nAdditions:", additions, "\nRemovals:", removals, "\nTransfers:", transfers, "\nChanges:", changes, "\nFinal Changes:", finalChanges);
 	}
 	Array.prototype.push.apply(data.itemChanges, finalChanges);
 	Array.prototype.push.apply(data.factionChanges, changes);
@@ -480,27 +401,28 @@ function processDifference() {
 	// Array.prototype.push.apply(removals, checkDiff(oldInventories[characterId], data.inventories[characterId]));
 	oldProgression = data.progression;
 	oldInventories = data.inventories;
-	chrome.storage.local.set(data, function() {
-		var itemBlob = new Blob([JSON.stringify(data.itemChanges)], {
-			type: 'application/json'
-		});
+	// chrome.storage.local.set(data, function() {
+	// 	var itemBlob = new Blob([JSON.stringify(data.itemChanges)], {
+	// 		type: 'application/json'
+	// 	});
 
-		var url = window.URL;
-		var a = document.getElementById('link1');
-		a.download = 'itemChanges.json';
-		a.href = url.createObjectURL(itemBlob);
-		a.textContent = 'Download Item Change Data';
-		a.dataset.downloadurl = ['json', a.download, a.href].join(':');
-		var factionBlob = new Blob([JSON.stringify(data.factionChanges)], {
-			type: 'application/json'
-		});
+	// 	var url = window.URL;
+	// 	var a = document.getElementById('link1');
+	// 	a.download = 'itemChanges.json';
+	// 	a.href = url.createObjectURL(itemBlob);
+	// 	a.textContent = 'Download Item Change Data';
+	// 	a.dataset.downloadurl = ['json', a.download, a.href].join(':');
+	// 	var factionBlob = new Blob([JSON.stringify(data.factionChanges)], {
+	// 		type: 'application/json'
+	// 	});
 
-		var a2 = document.getElementById('link2');
-		a2.download = 'factionChanges.json';
-		a2.href = url.createObjectURL(factionBlob);
-		a2.textContent = 'Download Faction Change Data';
-		a2.dataset.downloadurl = ['json', a2.download, a2.href].join(':');
-	});
+	// 	var a2 = document.getElementById('link2');
+	// 	a2.download = 'factionChanges.json';
+	// 	a2.href = url.createObjectURL(factionBlob);
+	// 	a2.textContent = 'Download Faction Change Data';
+	// 	a2.dataset.downloadurl = ['json', a2.download, a2.href].join(':');
+	// });
+	console.timeEnd("Process Difference");
 }
 
 
