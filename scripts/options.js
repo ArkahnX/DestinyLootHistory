@@ -11,10 +11,13 @@ var Options = {
 	version: "1.2",
 };
 
+var inDOM = false;
+
 function loadOptions(callback) {
 	console.time("startLoading");
 	console.time("loadOptions");
 	chrome.storage.sync.get("options", function(result) {
+		inDOM = typeof document.body !== "undefined";
 		if (!result.options || result.options.version !== "1.2") {
 			saveOptions(function() {
 				optionsToHTML();
@@ -33,7 +36,7 @@ function loadOptions(callback) {
 }
 
 function optionsToHTML() {
-	if (typeof makeTable === "function") {
+	if (inDOM) {
 		for (var attr in Options) {
 			console.log(attr)
 			var element = document.querySelector("#" + attr);
@@ -46,7 +49,7 @@ function optionsToHTML() {
 }
 
 function HTMLToOptions() {
-	if (typeof makeTable === "function") {
+	if (inDOM) {
 		for (var attr in Options) {
 			var element = document.querySelector("#" + attr);
 			Options[attr] = element.value;
@@ -58,7 +61,7 @@ function HTMLToOptions() {
 }
 
 function setListeners() {
-	if (typeof makeTable === "function") {
+	if (inDOM) {
 		for (var attr in Options) {
 			var element = document.querySelector("#" + attr);
 			element.addEventListener("change", function(event) {

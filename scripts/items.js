@@ -414,6 +414,7 @@ function processDifference() {
 							to: addition.characterId,
 							item: movedItem.item
 						});
+						break;
 					}
 				}
 			}
@@ -470,7 +471,9 @@ function processDifference() {
 			finalChanges.push(diff);
 		}
 	}
-	console.log("Additions:", additions, "\nRemovals:", removals, "\nTransfers:", transfers, "\nChanges:", changes/*, "\nFinal Changes:", finalChanges*/);
+	if (additions.length || removals.length || transfers.length || changes.length) {
+		console.log(currentDateString, "\nAdditions:", additions, "\nRemovals:", removals, "\nTransfers:", transfers, "\nChanges:", changes /*, "\nFinal Changes:", finalChanges*/ );
+	}
 	Array.prototype.push.apply(data.itemChanges, finalChanges);
 	Array.prototype.push.apply(data.factionChanges, changes);
 	// Array.prototype.push.apply(additions, checkDiff(data.inventories[characterId], oldInventories[characterId]));
@@ -515,6 +518,7 @@ function checkInventory() {
 				oldProgression = handleInput(result.progression, data.progression);
 				oldInventories = handleInput(result.inventories, data.inventories);
 				processDifference();
+				trackIdle();
 			});
 		});
 	});

@@ -52,7 +52,7 @@ function loadGame(gameName, callback) {
 
 loadOptions(function() {
 	initItems(function() {
-		if (typeof makeTable === "function") {
+		if (inDOM) {
 			Micro.tabs(".container");
 		}
 	});
@@ -82,7 +82,7 @@ function loadGameData() {
 		console.timeEnd("loadSortedGames");
 		if (result["sortedgames"]) {
 			// console.log(result["sortedgames"]);
-			if (typeof makeTable === "function") {
+			if (inDOM) {
 				// makeTable(result["sortedgames"]);
 			}
 		} else {
