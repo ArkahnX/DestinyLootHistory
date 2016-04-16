@@ -348,8 +348,11 @@ function processDifference() {
 				secondsSinceLastDiff: (new Date(currentDateString) - previousFactionDate) / 1000,
 				characterId: characterId,
 				changes: checkFactionDiff(oldProgression[characterId].progressions, data.progression[characterId].progressions),
-				level: data.progression[characterId].levelProgression
+				level: null
 			};
+			for(var attr in data.progression[characterId].levelProgression) {
+				diff.level[attr] = data.progression[characterId].levelProgression[attr];
+			}
 			if (diff.changes.length > 0) {
 				changes.push(diff);
 			}
@@ -401,27 +404,27 @@ function processDifference() {
 	// Array.prototype.push.apply(removals, checkDiff(oldInventories[characterId], data.inventories[characterId]));
 	oldProgression = data.progression;
 	oldInventories = data.inventories;
-	// chrome.storage.local.set(data, function() {
-	// 	var itemBlob = new Blob([JSON.stringify(data.itemChanges)], {
-	// 		type: 'application/json'
-	// 	});
+	chrome.storage.local.set(data, function() {
+		var itemBlob = new Blob([JSON.stringify(data.itemChanges)], {
+			type: 'application/json'
+		});
 
-	// 	var url = window.URL;
-	// 	var a = document.getElementById('link1');
-	// 	a.download = 'itemChanges.json';
-	// 	a.href = url.createObjectURL(itemBlob);
-	// 	a.textContent = 'Download Item Change Data';
-	// 	a.dataset.downloadurl = ['json', a.download, a.href].join(':');
-	// 	var factionBlob = new Blob([JSON.stringify(data.factionChanges)], {
-	// 		type: 'application/json'
-	// 	});
+		var url = window.URL;
+		var a = document.getElementById('link1');
+		a.download = 'itemChanges.json';
+		a.href = url.createObjectURL(itemBlob);
+		a.textContent = 'Download Item Change Data';
+		a.dataset.downloadurl = ['json', a.download, a.href].join(':');
+		var factionBlob = new Blob([JSON.stringify(data.factionChanges)], {
+			type: 'application/json'
+		});
 
-	// 	var a2 = document.getElementById('link2');
-	// 	a2.download = 'factionChanges.json';
-	// 	a2.href = url.createObjectURL(factionBlob);
-	// 	a2.textContent = 'Download Faction Change Data';
-	// 	a2.dataset.downloadurl = ['json', a2.download, a2.href].join(':');
-	// });
+		var a2 = document.getElementById('link2');
+		a2.download = 'factionChanges.json';
+		a2.href = url.createObjectURL(factionBlob);
+		a2.textContent = 'Download Faction Change Data';
+		a2.dataset.downloadurl = ['json', a2.download, a2.href].join(':');
+	});
 	console.timeEnd("Process Difference");
 }
 
