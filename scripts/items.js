@@ -23,6 +23,13 @@ var oldInventories = {};
 var oldProgression = {};
 var relevantStats = ["itemHash", "itemInstanceId", "isEquipped", "itemInstanceId", "stackSize", "itemLevel", "qualityLevel", "stats", "primaryStat", "equipRequiredLevel", "damageTypeHash", "progression", "talentGridHash", "nodes", "isGridComplete"];
 var characterIdList = ["vault"];
+var characterDescriptions = {
+	"vault": {
+		name: "Vault",
+		gender: "",
+		level: "0"
+	}
+}
 
 function recursive(index, array, networkTask, resultTask, endRecursion) {
 	if (array[index]) {
@@ -49,8 +56,14 @@ function initItems(callback) {
 		bungie.search(function(e) {
 
 			var avatars = e.data.characters;
-
 			for (var c = 0; c < avatars.length; c++) {
+				characterDescriptions[avatars[c].characterBase.characterId] = {
+					name: DestinyClassDefinition[avatars[c].characterBase.classHash].className,
+					gender: DestinyGenderDefinition[avatars[c].characterBase.genderHash].genderName,
+					level: avatars[c].baseCharacterLevel,
+					light:avatars[c].characterBase.powerLevel,
+					race: DestinyRaceDefinition[avatars[c].characterBase.raceHash].raceName
+				}
 				characterIdList.push(avatars[c].characterBase.characterId);
 			}
 
@@ -61,9 +74,11 @@ function initItems(callback) {
 }
 
 function processInventory(callback) {
-	console.time("Process Inventory")
+	console.time("Bungie Inventory")
 	sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
 		sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
+			console.timeEnd("Bungie Inventory")
+			console.time("Local Inventory")
 			chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
 				data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
 				data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
@@ -71,7 +86,7 @@ function processInventory(callback) {
 				// data.inventories = handleInput(result.inventories, data.inventories);
 				oldProgression = handleInput(result.progression, data.progression);
 				oldInventories = handleInput(result.inventories, data.inventories);
-				console.timeEnd("Process Inventory")
+				console.timeEnd("Local Inventory")
 				processDifference();
 				callback();
 			});
@@ -129,7 +144,6 @@ function concatItems(itemBucketList) {
 	var sortedItems = {};
 	var unsortedItems = [];
 	for (var category of itemBucketList) {
-		// console.log(category)
 		if (category.items) {
 			sortedItems = _concat(category.items, category.bucketHash, sortedItems);
 		} else {
@@ -350,7 +364,7 @@ function processDifference() {
 				changes: checkFactionDiff(oldProgression[characterId].progressions, data.progression[characterId].progressions),
 				level: {}
 			};
-			for(var attr in data.progression[characterId].levelProgression) {
+			for (var attr in data.progression[characterId].levelProgression) {
 				diff.level[attr] = data.progression[characterId].levelProgression[attr];
 			}
 			if (diff.changes.length > 0) {

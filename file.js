@@ -31,6 +31,12 @@ function isSameItem(item1, item2) {
 	if (item1 === item2) {
 		return true;
 	}
+	if(typeof item1 === "string") {
+		item1 = JSON.parse(item1);
+	}
+	if(typeof item2 === "string") {
+		item2 = JSON.parse(item2);
+	}
 	if (item1.itemHash === item2.itemHash) {
 		if (item1.stackSize === item2.stackSize) {
 			if (item1.itemInstanceId === item2.itemInstanceId) {
@@ -78,7 +84,7 @@ function processDifference(diffs, type) {
 						timestamp: diff.timestamp,
 						secondsSinceLastDiff: diff.secondsSinceLastDiff,
 						characterId: diff.characterId,
-						item: addition
+						item: JSON.stringify(addition)
 					});
 				}
 			}
@@ -88,7 +94,7 @@ function processDifference(diffs, type) {
 						timestamp: diff.timestamp,
 						secondsSinceLastDiff: diff.secondsSinceLastDiff,
 						characterId: diff.characterId,
-						item: removal
+						item: JSON.stringify(removal)
 					});
 				}
 			}

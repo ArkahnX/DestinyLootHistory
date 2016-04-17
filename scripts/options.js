@@ -75,20 +75,7 @@ function setListeners() {
 			saveOptions();
 			loadGameData();
 		});
-		var element = document.querySelector("#startTracking");
-		element.addEventListener("click", function(event) {
-			if (listenLoop === null) {
-				Options.type = "current";
-				var d = new Date();
-				d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
-				Options.currentMinDate = Options.currentMaxDate = d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + (d.getHours() - 0)).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2);
-				console.log(d, new Date(Options.currentMinDate), Options.currentMinDate)
-				saveOptions();
-				startListening();
-			} else {
-				stopListening();
-			}
-		});
+		
 	}
 }
 

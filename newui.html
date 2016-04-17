@@ -15,7 +15,40 @@
 			<a id="link2">stuff</a>
 		</nav>
 	</header>
-	<div class="container">
+	<div id="container">
+		<div class="center">
+			<div id="" class="main-section">
+				<h1 class="section-title">DATE</h1>
+				<div id="date" class="inner-section"></div>
+			</div>
+			<div id="" class="main-section">
+				<h1 class="section-title">ADDED</h1>
+				<div id="added" class="inner-section"></div>
+			</div>
+			<div id="" class="main-section">
+				<h1 class="section-title">REMOVED</h1>
+				<div id="removed" class="inner-section"></div>
+			</div>
+			<div id="" class="main-section">
+				<h1 class="section-title">TRANSFERED</h1>
+				<div id="transfered" class="inner-section"></div>
+			</div>
+		</div>
+	</div>
+	<div id="tooltip" class="hidden">
+		<section id="item-head">
+			<h2 id="item-name"></h2>
+			<div>
+				<span id="item-type"></span>
+				<span id="item-rarity"></span>
+			</div>
+		</section>
+		<section id="class-requirement"></section>
+		<section id="item-body">
+			<div id="level-text">Requires Level <span id="item-required-equip-level"></span></div>
+			<h1 id="item-primary-stat"></h1><div id="item-stat-text"></div>
+			<div id="item-description"></div>
+		</section>
 	</div>
 	<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>
 	<script type="text/javascript" src="DestinyDatabase/DestinyInventoryBucketDefinition.js"></script>
@@ -23,6 +56,9 @@
 	<script type="text/javascript" src="DestinyDatabase/DestinyTalentGridDefinition.js"></script>
 	<script type="text/javascript" src="DestinyDatabase/DestinyDamageTypeDefinition.js"></script>
 	<script type="text/javascript" src="DestinyDatabase/DestinyProgressionDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyClassDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyGenderDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyRaceDefinition.js"></script>
 	<script type="text/javascript" src="scripts/bungie.js"></script>
 	<script type="text/javascript" src="scripts/items.js"></script>
 	<script type="text/javascript" src="scripts/ui.js"></script>
