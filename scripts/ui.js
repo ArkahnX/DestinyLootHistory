@@ -87,7 +87,8 @@ function createDate(timestamp, className) {
 	var subContainer = document.createElement("div");
 	subContainer.classList.add("sub-section");
 	subContainer.classList.add(className);
-	subContainer.textContent = new Date(timestamp);
+	subContainer.textContent = moment.utc(timestamp).tz(moment.tz.guess()).fromNow();
+	subContainer.setAttribute("title",moment.utc(timestamp).tz(moment.tz.guess()).format("llll"));
 	return subContainer;
 }
 
@@ -98,13 +99,13 @@ function displayResults() {
 	var date = document.getElementById("date");
 	var added = document.getElementById("added");
 	var removed = document.getElementById("removed");
-	var transfered = document.getElementById("transfered");
+	var transferred = document.getElementById("transferred");
 	sequence(data.itemChanges, function(arrayItem, callback, index) {
 		if (lastIndex < index) {
 			var addedQty = arrayItem.added.length;
 			var removedQty = arrayItem.removed.length;
-			var transferedQty = arrayItem.transfered.length;
-			var className = rowHeight(addedQty, removedQty, transferedQty);
+			var transferredQty = arrayItem.transferred.length;
+			var className = rowHeight(addedQty, removedQty, transferredQty);
 			lastIndex = index;
 			callback({
 				className: className,
@@ -119,7 +120,7 @@ function displayResults() {
 			date.insertBefore(createDate(latestItemChange.timestamp, className), date.firstChild);
 			added.insertBefore(createItems(latestItemChange.added, className, latestItemChange.characterId, "added"), added.firstChild);
 			removed.insertBefore(createItems(latestItemChange.removed, className, latestItemChange.characterId, "removed"), removed.firstChild);
-			transfered.insertBefore(createItems(latestItemChange.transfered, className, latestItemChange.characterId, "transfered"), transfered.firstChild);
+			transferred.insertBefore(createItems(latestItemChange.transferred, className, latestItemChange.characterId, "transferred"), transferred.firstChild);
 		}
 	}).then(function() {
 		console.timeEnd("loadResults");
@@ -153,20 +154,20 @@ function displayResults() {
 	// 		var latestItemChange = data.itemChanges[e];
 	// 		var addedQty = latestItemChange.added.length;
 	// 		var removedQty = latestItemChange.removed.length;
-	// 		var transferedQty = latestItemChange.transfered.length;
-	// 		var className = rowHeight(addedQty, removedQty, transferedQty);
-	// 		delayNode(e, className, latestItemChange, date, added, removed, transfered);
+	// 		var transferredQty = latestItemChange.transferred.length;
+	// 		var className = rowHeight(addedQty, removedQty, transferredQty);
+	// 		delayNode(e, className, latestItemChange, date, added, removed, transferred);
 	// 		lastIndex = e;
 	// 	}
 	// }
 }
 
-function delayNode(index, className, latestItemChange, date, added, removed, transfered) {
+function delayNode(index, className, latestItemChange, date, added, removed, transferred) {
 	setTimeout(function() {
 		date.insertBefore(createDate(latestItemChange.timestamp, className), date.firstChild);
 		added.insertBefore(createItems(latestItemChange.added, className, latestItemChange.characterId, "added"), added.firstChild);
 		removed.insertBefore(createItems(latestItemChange.removed, className, latestItemChange.characterId, "removed"), removed.firstChild);
-		transfered.insertBefore(createItems(latestItemChange.transfered, className, latestItemChange.characterId, "transfered"), transfered.firstChild);
+		transferred.insertBefore(createItems(latestItemChange.transferred, className, latestItemChange.characterId, "transferred"), transferred.firstChild);
 	}, 50);
 }
 
@@ -264,8 +265,8 @@ function characterSource(characterId, moveType) {
 	if (moveType === "removed") {
 		starter = "Removed from ";
 	}
-	if (moveType === "transfered") {
-		starter = "Transfered to "
+	if (moveType === "transferred") {
+		starter = "transferred to "
 		if (characterId === "vault") {
 			return "To Vault"
 		}
@@ -278,6 +279,7 @@ function setTooltipData(dataset) {
 	var itemName = document.getElementById("item-name");
 	var itemType = document.getElementById("item-type");
 	var itemRarity = document.getElementById("item-rarity");
+	var itemLevelText = document.getElementById("level-text");
 	var itemRequiredEquipLevel = document.getElementById("item-required-equip-level");
 	var itemPrimaryStat = document.getElementById("item-primary-stat");
 	var itemPrimaryStatText = document.getElementById("item-stat-text");
@@ -287,10 +289,25 @@ function setTooltipData(dataset) {
 	itemType.textContent = dataset.itemTypeName;
 	itemRarity.textContent = dataset.tierTypeName;
 	itemRequiredEquipLevel.textContent = dataset.equipRequiredLevel;
+	if (dataset.equipRequiredLevel === "0") {
+		itemLevelText.classList.add("hidden");
+	} else {
+		itemLevelText.classList.remove("hidden");
+	}
 	itemPrimaryStat.textContent = dataset.primaryStat;
 	itemPrimaryStatText.textContent = dataset.primaryStatName;
 	itemDescription.textContent = dataset.itemDescription;
 	classRequirement.textContent = dataset.classRequirement;
 	tooltip.classList.remove("hidden", "arc", "void", "solar", "kinetic", "common", "legendary", "rare", "uncommon", "exotic");
-	tooltip.classList.add(dataset.tierTypeName.toLowerCase(), dataset.damageTypeName.toLowerCase());
+	try {
+		tooltip.classList.add(dataset.tierTypeName.toLowerCase(), dataset.damageTypeName.toLowerCase());
+	} catch (e) {
+		console.log(dataset)
+	}
+}
+for(var i=0;i<data.itemChanges.length;i++) {
+	var item = data.itemChanges[i];
+	if(item.added.length > 10 || item.removed.length > 10 || item.transferred.length > 10) {
+		console.log(i,item)
+	}
 }

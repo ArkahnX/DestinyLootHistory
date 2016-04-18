@@ -150,7 +150,7 @@ function processDifference(diffs, type) {
 				characterId: characterId,
 				removed: [],
 				added: [],
-				transfered: []
+				transferred: []
 			};
 			// if (data.progression[characterId]) {
 			// 	diff.level = data.progression[characterId].levelProgression;
@@ -173,14 +173,14 @@ function processDifference(diffs, type) {
 			}
 			for (var transfer of transfers) {
 				if (transfer.to === characterId && transfer.timestamp === timestamp) {
-					diff.transfered.push({
+					diff.transferred.push({
 						from: transfer.from,
 						to: transfer.to,
 						item: transfer.item
 					});
 				}
 			}
-			if (diff.removed.length || diff.added.length || diff.transfered.length || (diff.changed && diff.changed.length)) {
+			if (diff.removed.length || diff.added.length || diff.transferred.length || (diff.changed && diff.changed.length)) {
 				finalChanges.push(diff);
 			}
 		}

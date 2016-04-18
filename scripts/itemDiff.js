@@ -95,7 +95,7 @@ function processDifference() {
 			characterId: characterId,
 			removed: [],
 			added: [],
-			transfered: []
+			transferred: []
 		};
 		// if (data.progression[characterId]) {
 		// 	diff.level = data.progression[characterId].levelProgression;
@@ -118,14 +118,15 @@ function processDifference() {
 		}
 		for (var transfer of transfers) {
 			if (transfer.to === characterId) {
-				diff.transfered.push(transfer);
+				diff.transferred.push(transfer);
 			}
 		}
-		if (diff.removed.length || diff.added.length || diff.transfered.length || (diff.changed && diff.changed.length)) {
+		if (diff.removed.length || diff.added.length || diff.transferred.length || (diff.changed && diff.changed.length)) {
 			finalChanges.push(diff);
 		}
 	}
 	if (additions.length || removals.length || transfers.length || changes.length) {
+		trackIdle();
 		console.log(currentDateString, "\nAdditions:", additions, "\nRemovals:", removals, "\nTransfers:", transfers, "\nChanges:", changes, "\nFinal Changes:", finalChanges);
 	}
 	Array.prototype.push.apply(data.itemChanges, finalChanges);

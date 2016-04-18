@@ -295,7 +295,6 @@ function checkInventory() {
 				oldInventories = handleInput(result.inventories, data.inventories);
 				console.timeEnd("load Bungie Data");
 				processDifference();
-				trackIdle();
 			});
 		});
 	});
