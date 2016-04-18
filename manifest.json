@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Destiny Loot Tracker",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Robust interface to manage gear, weapons, and items in destiny.",
   "icons": {
     "16": "icon16.png",
@@ -35,7 +35,8 @@
     "*://*.bungie.net/*",
     "cookies",
     "tabs",
-    "unlimitedStorage"
+    "unlimitedStorage",
+    "downloads"
   ],
   "browser_action": {
     "default_icon": "icon128.png"

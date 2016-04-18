@@ -39,7 +39,6 @@ function initUi() {
 			previousElement = null;
 		}
 	}, false);
-	displayResults()
 }
 
 var transitionInterval = null;
@@ -91,21 +90,47 @@ function createDate(timestamp, className) {
 var lastIndex = -1;
 
 function displayResults() {
+	console.time("loadResults");
 	var date = document.getElementById("date");
 	var added = document.getElementById("added");
 	var removed = document.getElementById("removed");
 	var transfered = document.getElementById("transfered");
-	for (var e = 0; e < data.itemChanges.length; e++) {
-		if (lastIndex < e) {
-			var latestItemChange = data.itemChanges[e];
-			var addedQty = latestItemChange.added.length;
-			var removedQty = latestItemChange.removed.length;
-			var transferedQty = latestItemChange.transfered.length;
+	sequence(data.itemChanges, function(arrayItem, callback, index) {
+		if (lastIndex < index) {
+			var addedQty = arrayItem.added.length;
+			var removedQty = arrayItem.removed.length;
+			var transferedQty = arrayItem.transfered.length;
 			var className = rowHeight(addedQty, removedQty, transferedQty);
-			delayNode(e, className, latestItemChange, date, added, removed, transfered);
-			lastIndex = e;
+			lastIndex = index;
+			callback({
+				className: className,
+				latestItemChange: arrayItem
+			});
 		}
-	}
+		callback(false);
+	}, function(result, arrayItem, index) {
+		if (result) {
+			var latestItemChange = result.latestItemChange;
+			var className = result.className;
+			date.insertBefore(createDate(latestItemChange.timestamp, className), date.firstChild);
+			added.insertBefore(createItems(latestItemChange.added, className, latestItemChange.characterId, "added"), added.firstChild);
+			removed.insertBefore(createItems(latestItemChange.removed, className, latestItemChange.characterId, "removed"), removed.firstChild);
+			transfered.insertBefore(createItems(latestItemChange.transfered, className, latestItemChange.characterId, "transfered"), transfered.firstChild);
+		}
+	}).then(function() {
+		console.timeEnd("loadResults");
+	});
+	// for (var e = 0; e < data.itemChanges.length; e++) {
+	// 	if (lastIndex < e) {
+	// 		var latestItemChange = data.itemChanges[e];
+	// 		var addedQty = latestItemChange.added.length;
+	// 		var removedQty = latestItemChange.removed.length;
+	// 		var transferedQty = latestItemChange.transfered.length;
+	// 		var className = rowHeight(addedQty, removedQty, transferedQty);
+	// 		delayNode(e, className, latestItemChange, date, added, removed, transfered);
+	// 		lastIndex = e;
+	// 	}
+	// }
 }
 
 function delayNode(index, className, latestItemChange, date, added, removed, transfered) {
@@ -213,6 +238,9 @@ function characterSource(characterId, moveType) {
 	}
 	if (moveType === "transfered") {
 		starter = "Transfered to "
+		if (characterId === "vault") {
+			return "To Vault"
+		}
 	}
 	return starter + characterDescriptions[characterId].race + " " + characterDescriptions[characterId].gender + " " + characterDescriptions[characterId].name + " (" + characterDescriptions[characterId].light + ")";
 }

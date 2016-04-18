@@ -34,9 +34,9 @@ var characterDescriptions = {
 function recursive(index, array, networkTask, resultTask, endRecursion) {
 	if (array[index]) {
 		new Promise(function(resolve, reject) {
-			networkTask(array[index], resolve);
+			networkTask(array[index], resolve, index);
 		}).then(function(result) {
-			resultTask(result, array[index]);
+			resultTask(result, array[index], index);
 			recursive(index + 1, array, networkTask, resultTask, endRecursion);
 		});
 	} else {
@@ -61,7 +61,7 @@ function initItems(callback) {
 					name: DestinyClassDefinition[avatars[c].characterBase.classHash].className,
 					gender: DestinyGenderDefinition[avatars[c].characterBase.genderHash].genderName,
 					level: avatars[c].baseCharacterLevel,
-					light:avatars[c].characterBase.powerLevel,
+					light: avatars[c].characterBase.powerLevel,
 					race: DestinyRaceDefinition[avatars[c].characterBase.raceHash].raceName
 				}
 				characterIdList.push(avatars[c].characterBase.characterId);
@@ -440,6 +440,15 @@ function processDifference() {
 		a2.dataset.downloadurl = ['json', a2.download, a2.href].join(':');
 	});
 	console.timeEnd("Process Difference");
+	displayResults();
+}
+
+function backupData() {
+	var url = 'data:application/json;base64,' + btoa(JSON.stringify(data.itemChanges));
+	chrome.downloads.download({
+		url: url,
+		filename: 'itemChanges.json'
+	});
 }
 
 
