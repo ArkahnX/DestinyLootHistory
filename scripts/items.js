@@ -29,7 +29,7 @@ var characterDescriptions = {
 		gender: "",
 		level: "0"
 	}
-}
+};
 
 function recursive(index, array, networkTask, resultTask, endRecursion) {
 	if (array[index]) {
@@ -51,7 +51,7 @@ function sequence(array, networkTask, resultTask) {
 }
 
 function initItems(callback) {
-	console.time("load Bungie Data")
+	console.time("load Bungie Data");
 	bungie.user(function(u) {
 		bungie.search(function(e) {
 
@@ -63,33 +63,13 @@ function initItems(callback) {
 					level: avatars[c].baseCharacterLevel,
 					light: avatars[c].characterBase.powerLevel,
 					race: DestinyRaceDefinition[avatars[c].characterBase.raceHash].raceName
-				}
+				};
 				characterIdList.push(avatars[c].characterBase.characterId);
 			}
 
-			console.timeEnd("load Bungie Data")
-			processInventory(callback);
-		});
-	});
-}
-
-function processInventory(callback) {
-	console.time("Bungie Inventory")
-	sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
-		sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
-			console.timeEnd("Bungie Inventory")
-			console.time("Local Inventory")
-			chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
-				data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
-				data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
-				// data.progression = handleInput(result.progression, data.progression);
-				// data.inventories = handleInput(result.inventories, data.inventories);
-				oldProgression = handleInput(result.progression, data.progression);
-				oldInventories = handleInput(result.inventories, data.inventories);
-				console.timeEnd("Local Inventory")
-				processDifference();
-				callback();
-			});
+			console.timeEnd("load Bungie Data");
+			callback();
+			startListening();
 		});
 	});
 }
@@ -130,11 +110,11 @@ function factionResultTask(result, characterId) {
 
 function _concat(list, bucketHash, sortedItems) {
 	for (var item of list) {
-		if (!sortedItems[item.itemInstanceId+"-"+item.itemHash]) {
-			sortedItems[item.itemInstanceId+"-"+item.itemHash] = buildCompactItem(item, bucketHash);
-			sortedItems[item.itemInstanceId+"-"+item.itemHash].bucketHash = bucketHash;
+		if (!sortedItems[item.itemInstanceId + "-" + item.itemHash]) {
+			sortedItems[item.itemInstanceId + "-" + item.itemHash] = buildCompactItem(item, bucketHash);
+			sortedItems[item.itemInstanceId + "-" + item.itemHash].bucketHash = bucketHash;
 		} else {
-			sortedItems[item.itemInstanceId+"-"+item.itemHash].stackSize += item.stackSize;
+			sortedItems[item.itemInstanceId + "-" + item.itemHash].stackSize += item.stackSize;
 		}
 	}
 	return sortedItems;
@@ -273,10 +253,10 @@ function isSameItem(item1, item2) {
 		return true;
 	}
 	if (typeof item1 === "string") {
-		item1 = JSON.parse(item1)
+		item1 = JSON.parse(item1);
 	}
 	if (typeof item2 === "string") {
-		item2 = JSON.parse(item2)
+		item2 = JSON.parse(item2);
 	}
 	if (item1.itemHash === item2.itemHash) {
 		if (item1.stackSize === item2.stackSize) {
@@ -301,15 +281,19 @@ var listenLoop = null;
 var stopLoop = null;
 
 function checkInventory() {
+	console.time("Bungie Inventory");
 	sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
 		sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
 			chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
+				console.timeEnd("Bungie Inventory");
+				console.time("Local Inventory");
 				data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
 				data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
 				// data.progression = handleInput(result.progression, data.progression);
 				// data.inventories = handleInput(result.inventories, data.inventories);
 				oldProgression = handleInput(result.progression, data.progression);
 				oldInventories = handleInput(result.inventories, data.inventories);
+				console.timeEnd("load Bungie Data");
 				processDifference();
 				trackIdle();
 			});
@@ -339,6 +323,7 @@ function startListening() {
 		header.classList.add("active");
 		var element = document.querySelector("#startTracking");
 		element.setAttribute("value", "Stop Tracking");
+		checkInventory();
 		listenLoop = setInterval(function() {
 			checkInventory();
 		}, 15000);
