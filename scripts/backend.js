@@ -1,5 +1,5 @@
 chrome.browserAction.onClicked.addListener(function(tab) {
-	var optionsUrl = chrome.extension.getURL('main.html');
+	var optionsUrl = chrome.extension.getURL('newui.html');
 	chrome.tabs.query({
 		url: optionsUrl
 	}, function(tabs) {

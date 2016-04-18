@@ -27,9 +27,7 @@ function initUi() {
 			if (transitionInterval) {
 				clearInterval(transitionInterval);
 			}
-			transitionInterval = setTimeout(function() {
-				setTooltipData(event.target.dataset)
-			}, 100);
+			handleTooltipData(event.target.dataset);
 		}
 		if (!target) {
 			if (transitionInterval) {
@@ -39,6 +37,12 @@ function initUi() {
 			previousElement = null;
 		}
 	}, false);
+}
+
+function handleTooltipData(dataset) {
+	transitionInterval = setTimeout(function() {
+		setTooltipData(dataset)
+	}, 100);
 }
 
 var transitionInterval = null;
@@ -120,6 +124,30 @@ function displayResults() {
 	}).then(function() {
 		console.timeEnd("loadResults");
 	});
+	// var lastIndex2 = -1;
+	// console.time("makeInventory");
+	// var inventory = document.getElementById("inventory");
+	// sequence(data.inventories["2305843009230608060"], function(arrayItem, callback, index) {
+	// 	if (lastIndex2 < index) {
+	// 		var targetNode = document.getElementById(arrayItem.bucketName);
+	// 		if(!targetNode) {
+	// 			var div = document.createElement("div");
+	// 			div.setAttribute("id",arrayItem.bucketName);
+	// 			div.classList.add("sub-section");
+	// 			inventory.appendChild(div);
+	// 		}
+	// 		lastIndex2 = index;
+	// 		callback(true);
+	// 	}
+	// 	callback(false);
+	// }, function(result, arrayItem, index) {
+	// 	if (result) {
+	// 		var targetNode = document.getElementById(arrayItem.bucketName);
+	// 		targetNode.appendChild(makeItem(arrayItem, "2305843009230608060"));
+	// 	}
+	// }).then(function() {
+	// 	console.timeEnd("makeInventory");
+	// });
 	// for (var e = 0; e < data.itemChanges.length; e++) {
 	// 	if (lastIndex < e) {
 	// 		var latestItemChange = data.itemChanges[e];
