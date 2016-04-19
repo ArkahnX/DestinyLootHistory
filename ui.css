@@ -19,9 +19,8 @@ body {
 }
 
 #container {
-	    height: calc(100% - 101px);
-    overflow-y: scroll;
-    margin-top: 32px;
+	height: calc(100% - 85px);
+	overflow-y: scroll;
 }
 
 textarea {
@@ -328,7 +327,6 @@ input[disabled]:hover {
 .title-bar {
 	height:32px;
 	background: rgba(238,238,238,0.7);
-	position: fixed;
 	width: 100%;
 	z-index: 2;
 	box-shadow: 0 3px 3px 0px #2F3F3F;
