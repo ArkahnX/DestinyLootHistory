@@ -178,7 +178,7 @@ function makeItem(itemData, characterId, moveType) {
 	container.appendChild(stat);
 	docfrag.appendChild(container);
 	DOMTokenList.prototype.add.apply(container.classList, itemClasses(itemData));
-	container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[itemData.itemHash].icon + "')");
+	container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[itemData.itemHash].icon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
 	stat.classList.add("primary-stat");
 	stat.textContent = primaryStat(itemData);
 	passData(container, itemData, characterId, moveType);

@@ -202,10 +202,6 @@ function buildCompactItem(itemData, bucketHash) {
 			newItemData.nodes = sortedNodes;
 		}
 	}
-	if(hash === 558220466) {
-		console.log(completed,completionValue)
-		console.log(itemData,newItemData)
-	}
 	return newItemData;
 }
 
@@ -285,14 +281,6 @@ function isSameItem(item1, item2) {
 		}
 	}
 	return false;
-}
-
-function backupData() {
-	var url = 'data:application/json;base64,' + btoa(JSON.stringify(data.itemChanges));
-	chrome.downloads.download({
-		url: url,
-		filename: 'itemChanges.json'
-	});
 }
 
 
