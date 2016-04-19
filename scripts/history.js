@@ -89,12 +89,45 @@ function checkInventory() {
 			inventoryData.sort(function(a, b) {
 				return a.itemInstanceId - b.itemInstanceId;
 			});
+			for (var i = inventoryData.length - 1; i >= 0; i--) {
+				if (inventoryData[i].itemInstanceId === "0") {
+					inventoryData.splice(i, 1);
+				}
+			}
+
+			console.log(inventoryData);
+			var sources = ["SOURCE_CROTAS_END", "SOURCE_PRISON_ELDERS", "SOURCE_TTK"];
 			var div = document.createElement("div");
 			div.classList.add("sub-section");
+			var description = document.createElement("div");
+			description.textContent = "Base Game";
+			div.appendChild(description);
+			var sourceIndex = 0;
 			for (var item of inventoryData) {
-				if (item.itemInstanceId !== "0") {
-					div.appendChild(makeItem(item, "vault"));
+				var found = false;
+				if (item.sources && item.sources.length && sources[sourceIndex] && item.sources.indexOf(sources[sourceIndex]) > -1) {
+					if (sources[sourceIndex - 1]) {
+						if (item.sources.indexOf(sources[sourceIndex - 1]) === -1) {
+							if(item.itemLevel > 22) {
+							found = true;
+						}
+						}
+					} else {
+						found = true;
+					}
+					if (found) {
+						var source = sources[sourceIndex];
+						characterHistory.appendChild(div);
+						div = document.createElement("div");
+						div.classList.add("sub-section");
+						div.classList.add(source);
+						var description = document.createElement("div");
+						description.textContent = source;
+						div.appendChild(description);
+						sourceIndex++;
+					}
 				}
+				div.appendChild(makeItem(item, "vault"));
 			}
 			characterHistory.appendChild(div);
 		});
@@ -189,6 +222,19 @@ function buildCompactItem(itemData, bucketHash) {
 	if (newItemData.stats) {
 		for (var e = 0; e < newItemData.stats.length; e++) {
 			newItemData.stats[e].statName = DestinyStatDefinition[newItemData.stats[e].statHash].statName;
+		}
+	}
+	if (DestinyCompactItemDefinition[hash].sourceHashes) {
+		var sourceHashes = DestinyCompactItemDefinition[hash].sourceHashes;
+		for (var q = 0; q < sourceHashes.length; q++) {
+			var sourceHash = sourceHashes[q];
+			var rewardSource = DestinyRewardSourceDefinition[sourceHash];
+			if (rewardSource) {
+				if (!newItemData.sources) {
+					newItemData.sources = [];
+				}
+				newItemData.sources.push(rewardSource.identifier);
+			}
 		}
 	}
 	if (newItemData.objectives) {

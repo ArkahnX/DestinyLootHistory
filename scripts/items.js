@@ -160,13 +160,17 @@ function buildCompactItem(itemData, bucketHash) {
 	newItemData.tierTypeName = DestinyCompactItemDefinition[hash].tierTypeName;
 	newItemData.bucketHash = bucketHash;
 	newItemData.bucketName = DestinyInventoryBucketDefinition[bucketHash].bucketName;
-	if(DestinyCompactItemDefinition[hash].sourceHashes) {
-		for(var q=0;q<DestinyCompactItemDefinition[hash].sourceHashes.length;q++) {
-			var rewardSource = DestinyCompactItemDefinition[hash].sourceHashes[q];
-			if(!newItemData.sources) {
-				newItemData.sources = [];
+	if (DestinyCompactItemDefinition[hash].sourceHashes) {
+		var sourceHashes = DestinyCompactItemDefinition[hash].sourceHashes;
+		for (var q = 0; q < sourceHashes.length; q++) {
+			var sourceHash = sourceHashes[q];
+			var rewardSource = DestinyRewardSourceDefinition[sourceHash];
+			if (rewardSource) {
+				if (!newItemData.sources) {
+					newItemData.sources = [];
+				}
+				newItemData.sources.push(rewardSource.identifier);
 			}
-			sources.push(rewardSource.identifier);
 		}
 	}
 	if (newItemData.stats) {
