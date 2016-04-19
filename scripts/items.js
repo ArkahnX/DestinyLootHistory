@@ -163,8 +163,8 @@ function buildCompactItem(itemData, bucketHash) {
 	if(DestinyCompactItemDefinition[hash].sourceHashes) {
 		for(var q=0;q<DestinyCompactItemDefinition[hash].sourceHashes.length;q++) {
 			var rewardSource = DestinyCompactItemDefinition[hash].sourceHashes[q];
-			if(!newItem.sources) {
-				newItem.sources = [];
+			if(!newItemData.sources) {
+				newItemData.sources = [];
 			}
 			sources.push(rewardSource.identifier);
 		}
