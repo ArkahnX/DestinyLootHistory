@@ -64,7 +64,7 @@ var DestinyRecordBookDefinition = {
 		],
 		"displayName": "SRL Record Book",
 		"displayDescription": "Vol. 1",
-		"icon": "/common/destiny_content/icons/dd511287234d62f4cf0e5e967754cc5a.png",
+		"icon": "/common/destiny_content/icons/1830dfcee8ce32d4d568774297ba3a74.png",
 		"unavailableReason": "SRL Event Inactive",
 		"hash": 3192310198,
 		"index": 0

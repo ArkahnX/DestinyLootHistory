@@ -3,7 +3,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 28695277,
 		"activityName": "The Sword of Crota",
 		"activityDescription": "Infiltrate the Hive Fortress and destroy the legendary Sword of Crota, a weapon once used to slay thousands of Guardians.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -31,7 +31,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -42,8 +42,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 34327100,
 		"activityName": "Fallen S.A.B.E.R.",
 		"activityDescription": "Rush to the aid of the AI Warmind Rasputin as he broadcasts a plea for help across the system.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 3346707351,
@@ -75,8 +75,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 51311972,
 		"activityName": "The Undying Mind",
 		"activityDescription": "An ancient Mind, feared by the Vex themselves, hides among the channels of the Black Garden. Find this machine and end its existence.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
 		"completionFlagHash": 2868189086,
@@ -108,7 +108,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 51311973,
 		"activityName": "Cerberus Vae III",
 		"activityDescription": "Just beyond their warbase, Valus Ta'aurc, Fleet Commander of the Cabal Siege Dancers, hides in an Imperial Land Tank. Fight through his guard and stop this terror before he destroys all of Freehold.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
@@ -141,7 +141,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 51311974,
 		"activityName": "Dust Palace",
 		"activityDescription": "A new Cabal force has unleashed powerful Psion Flayers to seize control of the old Martian Warmind. Face this new threat and secure what remains of the ancient network.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
@@ -175,7 +175,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Iron Banner",
 		"activityDescription": "\"It's a tactical exercise in reinforcing and defending acquired territory. Should the Vanguard ever decide to expand past the walls of the City, the Guardians will be ready.\" —Lord Shaxx \n\nAll-out team warfare. Destroy the enemy. Impress the Lords of Iron.",
 		"icon": "/img/theme/destiny/icons/node_pvp_iron_banner.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 556611800,
@@ -198,8 +198,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 91984044,
 		"activityName": "A Kell Rising",
 		"activityDescription": "Head off the House of Wolves on Venus before their Kell, Skolas, can wrest control of the House of Winter.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 913134368,
@@ -226,7 +226,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -237,8 +237,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 95021281,
 		"activityName": "Lost to Light",
 		"activityDescription": "Return to the Chamber of Night and steal a shard of the crystal that once held Crota's soul.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 31,
 		"completionFlagHash": 2166841932,
@@ -261,7 +261,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 96237246,
 		"activityName": "Classic 6v6",
 		"activityDescription": "\"There's a rousing demand—from participants and spectators—for Legacy match types and arenas in the Crucible. I give them gladly.\" —Lord Shaxx \n\nA mix of Control and Clash on Year 1 maps.",
-		"icon": "/common/destiny_content/icons/d19b816728b16eec2cd07987e3ba3bfc.png",
+		"icon": "/common/destiny_content/icons/bfabc6ba634e0f16bd9794c79875b1da.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -285,8 +285,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 116560380,
 		"activityName": "The Shadow Thief",
 		"activityDescription": "A ruthless Fallen mercenary commanding the Wolfship Kaliks-Syn has been spotted near the Moon. Board the Ketch and end the reign of Taniks, the Scarred.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 1665214730,
@@ -309,8 +309,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 123999179,
 		"activityName": "Shadows at Twilight",
 		"activityDescription": "Explore the Twilight Gap and survive the shadow that hangs above it.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3696316414,
@@ -342,7 +342,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 130631058,
 		"activityName": "Classic 3v3",
 		"activityDescription": "\"There's a rousing demand—from participants and spectators—for Legacy match types and arenas in the Crucible. I give them gladly.\" —Lord Shaxx  \n\nA mix of Skirmish and Salvage on Year 1 maps.",
-		"icon": "/common/destiny_content/icons/d19b816728b16eec2cd07987e3ba3bfc.png",
+		"icon": "/common/destiny_content/icons/bfabc6ba634e0f16bd9794c79875b1da.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -366,7 +366,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 149381097,
 		"activityName": "Patrol the Moon",
 		"activityDescription": "Survive the shattered surface of Earth's Moon and aid the City in their efforts.",
-		"icon": "/common/destiny_content/icons/db10d2b0b8344ed08f4e41222b99f907.png",
+		"icon": "/common/destiny_content/icons/f3661575fa4d1479056a2ad5df457258.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 8,
@@ -407,8 +407,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 151357230,
 		"activityName": "The Shadow Thief",
 		"activityDescription": "A ruthless Fallen mercenary commanding the Wolfship Kaliks-Syn has been spotted near the Moon. Board the Ketch and end the reign of Taniks, the Scarred.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
 		"completionFlagHash": 1665214730,
@@ -455,7 +455,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 167419252,
 		"activityName": "Patrol the Cosmodrome",
 		"activityDescription": "Scour the Old Russian stronghold on Earth to protect the City's interests.",
-		"icon": "/common/destiny_content/icons/db10d2b0b8344ed08f4e41222b99f907.png",
+		"icon": "/common/destiny_content/icons/f3661575fa4d1479056a2ad5df457258.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 4,
@@ -480,7 +480,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Iron Banner Rift",
 		"activityDescription": "\"This all started as a Warlock focus drill. The things I've seen them do with Rifts would be...very useful on a battlefield.\" —Lord Shaxx \n\nCollect the Spark and ignite the enemy's Rift with it. Impress the Lords of Iron.",
 		"icon": "/common/destiny_content/icons/0ee91b79ba1366243832cf810afc3b75.jpg",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 1171397078,
@@ -503,7 +503,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 212088538,
 		"activityName": "The Summoning Pits",
 		"activityDescription": "Deep within the Hellmouth, the Hive are breeding powerful abominations to unleash upon Earth. Find the pit where they live and stop any new horrors from rising.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 10,
@@ -536,8 +536,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 252347595,
 		"activityName": "Hangar Stakes",
 		"activityDescription": "Cayde and Amanda Holliday fit a stealth drive to Eris Morn's ship.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 25,
 		"completionFlagHash": 3155071742,
@@ -561,7 +561,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Rumble",
 		"activityDescription": "\"Pure combat. Your only job is to make sure you're still standing when the dust settles.\" —Lord Shaxx \n\nKill everything. Watch your back.",
 		"icon": "/common/destiny_content/icons/icon_pvp_7f4c923551a74315df3dcd493291bcf4.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 8260870,
@@ -593,8 +593,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 269981320,
 		"activityName": "The Promethean Code",
 		"activityDescription": "Slip past Rasputin's defenses and destroy the Taken champion in the depths of Bunker WAR-4.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 2726116499,
@@ -659,7 +659,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Nightfall Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 4185808065,
@@ -686,27 +686,27 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/f53c1cd98c9ac72d4c6c451fb36b758f.png"
+				"icon": "/common/destiny_content/icons/84a47e5b4495a9096f61c4a9451d7c03.png"
 			},
 			{
 				"displayName": "Nightfall",
 				"description": "If all players die, your Fireteam is returned to Orbit.",
-				"icon": "/common/destiny_content/icons/80d9cf08f5d68c92c7b8da76070ffb6f.png"
+				"icon": "/common/destiny_content/icons/37fd11ad411894ffaf246a0297999a6e.png"
 			},
 			{
 				"displayName": "Void Burn",
 				"description": "Void Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/3d682f1d2a0995528537cde662fa082d.png"
+				"icon": "/common/destiny_content/icons/fe542c6f2098c5dcab628007d1afd9df.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/5f64c2e14b45a78d774f820d52c1a56f.png"
+				"icon": "/common/destiny_content/icons/f38607bf7414d70f47a5c32e61706f91.png"
 			},
 			{
 				"displayName": "Arc Burn",
 				"description": "Arc Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/0445e997c1baf3df07c2e20f60f64b9e.png"
+				"icon": "/common/destiny_content/icons/0cf18a50b727b9dcd6ace4eaf515652c.png"
 			}
 		],
 		"isPlaylist": false,
@@ -718,7 +718,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Nightfall Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 4185808065,
@@ -745,27 +745,27 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/f53c1cd98c9ac72d4c6c451fb36b758f.png"
+				"icon": "/common/destiny_content/icons/84a47e5b4495a9096f61c4a9451d7c03.png"
 			},
 			{
 				"displayName": "Nightfall",
 				"description": "If all players die, your Fireteam is returned to Orbit.",
-				"icon": "/common/destiny_content/icons/80d9cf08f5d68c92c7b8da76070ffb6f.png"
+				"icon": "/common/destiny_content/icons/37fd11ad411894ffaf246a0297999a6e.png"
 			},
 			{
 				"displayName": "Arc Burn",
 				"description": "Arc Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/0445e997c1baf3df07c2e20f60f64b9e.png"
+				"icon": "/common/destiny_content/icons/0cf18a50b727b9dcd6ace4eaf515652c.png"
 			},
 			{
 				"displayName": "Specialist",
 				"description": "Special Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/2d30f0665ce9c08469a5d34415766044.png"
+				"icon": "/common/destiny_content/icons/72c9b723355912345eace512e020386c.png"
 			},
 			{
 				"displayName": "Lightswitch",
 				"description": "Minions of the Darkness deal much more melee damage.",
-				"icon": "/common/destiny_content/icons/693b748514ef592125b0da9c77055519.png"
+				"icon": "/common/destiny_content/icons/3c530b9aadf795d92856c201bc8fe147.png"
 			}
 		],
 		"isPlaylist": false,
@@ -868,12 +868,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Small Arms",
 				"description": "Primary Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/d1721814654c9bbb7f9f154b3839be53.png"
+				"icon": "/common/destiny_content/icons/5c9391dfadfc03b5d5c1ba647894727a.png"
 			}
 		],
 		"isPlaylist": false,
@@ -928,12 +928,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Small Arms",
 				"description": "Primary Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/d1721814654c9bbb7f9f154b3839be53.png"
+				"icon": "/common/destiny_content/icons/5c9391dfadfc03b5d5c1ba647894727a.png"
 			}
 		],
 		"isPlaylist": false,
@@ -1012,12 +1012,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Small Arms",
 				"description": "Primary Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/d1721814654c9bbb7f9f154b3839be53.png"
+				"icon": "/common/destiny_content/icons/5c9391dfadfc03b5d5c1ba647894727a.png"
 			}
 		],
 		"isPlaylist": false,
@@ -1052,7 +1052,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 351673577,
 		"activityName": "Classic Free-For-All",
 		"activityDescription": "\"There's a rousing demand—from participants and spectators—for Legacy match types and arenas in the Crucible. I give them gladly.\" —Lord Shaxx \n\nRumble on Year 1 maps.",
-		"icon": "/common/destiny_content/icons/d19b816728b16eec2cd07987e3ba3bfc.png",
+		"icon": "/common/destiny_content/icons/bfabc6ba634e0f16bd9794c79875b1da.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -1077,7 +1077,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Shield Brothers",
 		"activityDescription": "Travel deep into the heart of the Dreadnaught in pursuit of a Cabal assault team. Stop it from detonating the Hive ship's core.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 918224300,
@@ -1192,12 +1192,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/5f64c2e14b45a78d774f820d52c1a56f.png"
+				"icon": "/common/destiny_content/icons/f38607bf7414d70f47a5c32e61706f91.png"
 			}
 		],
 		"isPlaylist": false,
@@ -1252,12 +1252,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/5f64c2e14b45a78d774f820d52c1a56f.png"
+				"icon": "/common/destiny_content/icons/f38607bf7414d70f47a5c32e61706f91.png"
 			}
 		],
 		"isPlaylist": false,
@@ -1336,12 +1336,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/5f64c2e14b45a78d774f820d52c1a56f.png"
+				"icon": "/common/destiny_content/icons/f38607bf7414d70f47a5c32e61706f91.png"
 			}
 		],
 		"isPlaylist": false,
@@ -1352,7 +1352,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 428290721,
 		"activityName": "Patrol Mars",
 		"activityDescription": "Fight through the shifting dunes and aid the City in their exploration efforts.",
-		"icon": "/common/destiny_content/icons/db10d2b0b8344ed08f4e41222b99f907.png",
+		"icon": "/common/destiny_content/icons/f3661575fa4d1479056a2ad5df457258.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 17,
@@ -1417,8 +1417,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 455063520,
 		"activityName": "The Wakening",
 		"activityDescription": "Go to the Temple of Crota and destroy Crota's soul.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1973216040,
@@ -1445,7 +1445,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -1480,8 +1480,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 492319725,
 		"activityName": "Mayhem Rumble",
 		"activityDescription": "\"How will you handle a battle like this, I wonder?\" —Lord Shaxx\n\nEmbrace the chaos. Greatly increased ability recharge rates. Faster Special Weapon and Heavy Ammo spawns. No respawn delay. Scoring values multiplied by 10.",
-		"icon": "/common/destiny_content/icons/28aac181ef13a5395c5f9151c6c4b79e.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/b0bbe05238ab143f0a1efd895ae615cf.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 1364431128,
@@ -1530,7 +1530,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Nightfall Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 4185808065,
@@ -1557,27 +1557,27 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/f53c1cd98c9ac72d4c6c451fb36b758f.png"
+				"icon": "/common/destiny_content/icons/84a47e5b4495a9096f61c4a9451d7c03.png"
 			},
 			{
 				"displayName": "Nightfall",
 				"description": "If all players die, your Fireteam is returned to Orbit.",
-				"icon": "/common/destiny_content/icons/80d9cf08f5d68c92c7b8da76070ffb6f.png"
+				"icon": "/common/destiny_content/icons/37fd11ad411894ffaf246a0297999a6e.png"
 			},
 			{
 				"displayName": "Arc Burn",
 				"description": "Arc Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/0445e997c1baf3df07c2e20f60f64b9e.png"
+				"icon": "/common/destiny_content/icons/0cf18a50b727b9dcd6ace4eaf515652c.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/b93b8c2c455a5e1bae5b5a52e2d86047.png"
+				"icon": "/common/destiny_content/icons/392ff5fa779ea9819ec0765b12f145f9.png"
 			},
 			{
 				"displayName": "Brawler",
 				"description": "Guardian Melee damage is greatly increased.",
-				"icon": "/common/destiny_content/icons/0b81b85edd966d14489ede1f8242e01c.png"
+				"icon": "/common/destiny_content/icons/5f5273a80f052b458f917f61dc80d89e.png"
 			}
 		],
 		"isPlaylist": false,
@@ -1589,7 +1589,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Nightfall Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 4185808065,
@@ -1616,27 +1616,27 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/f53c1cd98c9ac72d4c6c451fb36b758f.png"
+				"icon": "/common/destiny_content/icons/84a47e5b4495a9096f61c4a9451d7c03.png"
 			},
 			{
 				"displayName": "Nightfall",
 				"description": "If all players die, your Fireteam is returned to Orbit.",
-				"icon": "/common/destiny_content/icons/80d9cf08f5d68c92c7b8da76070ffb6f.png"
+				"icon": "/common/destiny_content/icons/37fd11ad411894ffaf246a0297999a6e.png"
 			},
 			{
 				"displayName": "Void Burn",
 				"description": "Void Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/3d682f1d2a0995528537cde662fa082d.png"
+				"icon": "/common/destiny_content/icons/fe542c6f2098c5dcab628007d1afd9df.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/5f64c2e14b45a78d774f820d52c1a56f.png"
+				"icon": "/common/destiny_content/icons/f38607bf7414d70f47a5c32e61706f91.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/bbaa7c1d659e6beb18e633e39755c40f.png"
+				"icon": "/common/destiny_content/icons/ae84967f0484a9db0bffeddaa35f0121.png"
 			}
 		],
 		"isPlaylist": false,
@@ -1647,7 +1647,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 574483028,
 		"activityName": "The Buried City",
 		"activityDescription": "Clear out the Cabal occupying the lost city of Freehold and explore what remains.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -1675,7 +1675,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -1686,8 +1686,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 575304694,
 		"activityName": "A New Den",
 		"activityDescription": "Track the House of Wolves across the surface of Mars.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1569490455,
@@ -1714,7 +1714,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -1725,8 +1725,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 579949585,
 		"activityName": "The Silent Fang",
 		"activityDescription": "Stop Skolas's elite assassins before they tear through the Cosmodrome.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 18,
 		"completionFlagHash": 2431342961,
@@ -1758,7 +1758,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 604017503,
 		"activityName": "Prison of Elders: Taken",
 		"activityDescription": "The Awoken have gathered the deadliest of Taken foes. Defeat them in the Prison of Elders.",
-		"icon": "/common/destiny_content/icons/8efcf7a0ef0b531113c3e20aba02a832.png",
+		"icon": "/common/destiny_content/icons/84c1d7eefdea308020752710d43f823f.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -1782,8 +1782,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 632771975,
 		"activityName": "Pretender to the Throne",
 		"activityDescription": "A new Taken power rises on the Dreadnaught.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 271043130,
@@ -1882,12 +1882,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Void Burn",
 				"description": "Void Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/3d682f1d2a0995528537cde662fa082d.png"
+				"icon": "/common/destiny_content/icons/fe542c6f2098c5dcab628007d1afd9df.png"
 			}
 		],
 		"isPlaylist": false,
@@ -1966,12 +1966,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Void Burn",
 				"description": "Void Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/3d682f1d2a0995528537cde662fa082d.png"
+				"icon": "/common/destiny_content/icons/fe542c6f2098c5dcab628007d1afd9df.png"
 			}
 		],
 		"isPlaylist": false,
@@ -2074,12 +2074,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Void Burn",
 				"description": "Void Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/3d682f1d2a0995528537cde662fa082d.png"
+				"icon": "/common/destiny_content/icons/fe542c6f2098c5dcab628007d1afd9df.png"
 			}
 		],
 		"isPlaylist": false,
@@ -2090,8 +2090,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 711826167,
 		"activityName": "Inferno Clash",
 		"activityDescription": "\"No mercy. No hesitation. It'll take nothing less to defeat the Darkness.\" —Lord Shaxx \n\nAll-out team warfare. Destroy the enemy. No trackers and simplified scoring.",
-		"icon": "/common/destiny_content/icons/7f41a2e3f4a231d685a62ce2ccf060ba.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/6066cc4ea9624128fdfce9a27cb2e469.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 4106042506,
@@ -2139,8 +2139,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 757275024,
 		"activityName": "Fallen S.A.B.E.R.",
 		"activityDescription": "Rush to the aid of the AI Warmind Rasputin as he broadcasts a plea for help across the system.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 3346707351,
@@ -2172,8 +2172,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 782611196,
 		"activityName": "Inferno Skirmish",
 		"activityDescription": "\"Leave no ally behind and no enemy standing.\" —Lord Shaxx \n\nSmall-team tactics. Kill the enemy. Revive teammates. No trackers and simplified scoring.",
-		"icon": "/common/destiny_content/icons/1843c2bac315e8c84ebfb693ec5e5492.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/8b62a53276c7c4057c9a9fe68c5ec1be.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 1020798935,
@@ -2205,8 +2205,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 832576952,
 		"activityName": "Classified",
 		"activityDescription": "Obtain this Quest in Destiny to learn more.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 0,
 		"completionFlagHash": 0,
@@ -2229,7 +2229,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 833873053,
 		"activityName": "The Undying Mind",
 		"activityDescription": "An ancient Mind, feared by the Vex themselves, hides among the channels of the Black Garden. Find this machine and end its existence.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
@@ -2262,8 +2262,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 853774317,
 		"activityName": "The Coming War",
 		"activityDescription": "Travel to Phobos and investigate the Cabal distress signal.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1805431820,
@@ -2290,7 +2290,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -2301,7 +2301,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 860566204,
 		"activityName": "The Lighthouse",
 		"activityDescription": "Only true champions of the Crucible dare set foot in these fabled halls.",
-		"icon": "/common/destiny_content/icons/4e7327a9d96eeb2c79306339125109b6.png",
+		"icon": "/common/destiny_content/icons/16d3daa457d6833e7f5a0ad3f6e1f23b.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -2325,8 +2325,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 981644933,
 		"activityName": "Bound by Fire",
 		"activityDescription": "Seek the remaining Sunbreakers at the Burning Forge on Mercury.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 25,
 		"completionFlagHash": 1640249248,
@@ -2358,7 +2358,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 982298740,
 		"activityName": "The World's Grave",
 		"activityDescription": "Descend into the Hellmouth to a Hive library which holds ancient secrets they have ripped from Earth.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -2386,7 +2386,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -2398,7 +2398,7 @@ var DestinyActivityDefinition = {
 		"activityName": "The Undying Mind",
 		"activityDescription": "An ancient Mind, feared by the Vex themselves, hides among the channels of the Black Garden. Find this machine and end its existence.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 2868189086,
@@ -2469,8 +2469,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1005705920,
 		"activityName": "The First Firewall",
 		"activityDescription": "Investigate Vault RAS-2 and investigate the source of the strange signal.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3847026363,
@@ -2502,8 +2502,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1017714251,
 		"activityName": "Last Rites",
 		"activityDescription": "Using the stealth code, travel deep into the heart of the Hellmouth and slip away with a sliver of Crota's soul.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 679255950,
@@ -2530,7 +2530,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -2541,7 +2541,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1030188908,
 		"activityName": "Eye of a Gate Lord",
 		"activityDescription": "Lure out the Vex Gate Lord that protects the Endless Steps and bring its head back to the Awoken.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -2569,7 +2569,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -2581,7 +2581,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 4185808064,
@@ -2672,12 +2672,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/b93b8c2c455a5e1bae5b5a52e2d86047.png"
+				"icon": "/common/destiny_content/icons/392ff5fa779ea9819ec0765b12f145f9.png"
 			}
 		],
 		"isPlaylist": false,
@@ -2689,7 +2689,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 30,
 		"completionFlagHash": 4185808067,
@@ -2756,12 +2756,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/b93b8c2c455a5e1bae5b5a52e2d86047.png"
+				"icon": "/common/destiny_content/icons/392ff5fa779ea9819ec0765b12f145f9.png"
 			}
 		],
 		"isPlaylist": false,
@@ -2773,7 +2773,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 26,
 		"completionFlagHash": 4185808066,
@@ -2816,12 +2816,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/b93b8c2c455a5e1bae5b5a52e2d86047.png"
+				"icon": "/common/destiny_content/icons/392ff5fa779ea9819ec0765b12f145f9.png"
 			}
 		],
 		"isPlaylist": false,
@@ -2833,7 +2833,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Clash",
 		"activityDescription": "\"No mercy. No hesitation. It'll take nothing less to defeat the Darkness.\" —Lord Shaxx \n\nAll-out team warfare. Destroy the enemy.",
 		"icon": "/common/destiny_content/icons/icon_pvp_d0a189071d8eb5d009f4252bef78b551.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 96649106,
@@ -2865,8 +2865,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1068261034,
 		"activityName": "Blood in the Garden",
 		"activityDescription": "Enter the Black Garden, draw out the Groundskeeper, and destroy it.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 2572219357,
@@ -2898,7 +2898,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1080191247,
 		"activityName": "Scourge of Winter",
 		"activityDescription": "Hunt and kill Draksis, the House of Winter's Kell, hiding deep in the caves of the Ishtar Sink.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -2926,7 +2926,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -2937,8 +2937,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1084620606,
 		"activityName": "The Sunless Cell",
 		"activityDescription": "Assault a prison deep in the heart of the Dreadnaught and put an end to a Hive champion.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 2001921006,
@@ -2970,8 +2970,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1126759626,
 		"activityName": "Echo Chamber",
 		"activityDescription": "Guardians destroyed the Nexus on Venus. Now, a powerful Vex mind seeks to sunder time and space and undo what was done.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 2764395773,
@@ -3003,8 +3003,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1141580112,
 		"activityName": "The Will of Crota",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1872715353,
@@ -3028,7 +3028,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Nightfall Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 4185808065,
@@ -3055,27 +3055,27 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/f53c1cd98c9ac72d4c6c451fb36b758f.png"
+				"icon": "/common/destiny_content/icons/84a47e5b4495a9096f61c4a9451d7c03.png"
 			},
 			{
 				"displayName": "Nightfall",
 				"description": "If all players die, your Fireteam is returned to Orbit.",
-				"icon": "/common/destiny_content/icons/80d9cf08f5d68c92c7b8da76070ffb6f.png"
+				"icon": "/common/destiny_content/icons/37fd11ad411894ffaf246a0297999a6e.png"
 			},
 			{
 				"displayName": "Angry",
 				"description": "Minions of the Darkness won't flinch, even after massive damage.",
-				"icon": "/common/destiny_content/icons/1adaf05f966ee499634f90fd40ec05a4.png"
+				"icon": "/common/destiny_content/icons/7a69fc3e8bffa89bcc871b18c18eebe0.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/b93b8c2c455a5e1bae5b5a52e2d86047.png"
+				"icon": "/common/destiny_content/icons/392ff5fa779ea9819ec0765b12f145f9.png"
 			},
 			{
 				"displayName": "Void Burn",
 				"description": "Void Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/3d682f1d2a0995528537cde662fa082d.png"
+				"icon": "/common/destiny_content/icons/fe542c6f2098c5dcab628007d1afd9df.png"
 			}
 		],
 		"isPlaylist": false,
@@ -3086,7 +3086,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1200628152,
 		"activityName": "The Summoning Pits",
 		"activityDescription": "Deep within the Hellmouth, the Hive are breeding powerful abominations to unleash upon Earth. Find the pit where they live and stop any new horrors from rising.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
@@ -3110,8 +3110,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1208087916,
 		"activityName": "Machine Wrath",
 		"activityDescription": "Archon Servants have raised their own corrupted Servitor-god, Kaliks Reborn. Defeat it and be rewarded.",
-		"icon": "/common/destiny_content/icons/8efcf7a0ef0b531113c3e20aba02a832.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/84c1d7eefdea308020752710d43f823f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 2843940563,
@@ -3147,8 +3147,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1208087919,
 		"activityName": "Machine Wrath",
 		"activityDescription": "Archon Servants have raised their own corrupted Servitor-god, Kaliks Reborn. Defeat it and be rewarded.",
-		"icon": "/common/destiny_content/icons/8efcf7a0ef0b531113c3e20aba02a832.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/84c1d7eefdea308020752710d43f823f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 34,
 		"completionFlagHash": 2843940563,
@@ -3188,8 +3188,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1226857472,
 		"activityName": "Cayde's Stash",
 		"activityDescription": "Ascend a colony ship in the Cosmodrome in search of Cayde's lost cache.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 2306572581,
@@ -3216,7 +3216,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -3251,7 +3251,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1234230734,
 		"activityName": "Patrol the Moon",
 		"activityDescription": "Brave the shattered surface of Earth's Moon and aid the City in its efforts.",
-		"icon": "/common/destiny_content/icons/db10d2b0b8344ed08f4e41222b99f907.png",
+		"icon": "/common/destiny_content/icons/f3661575fa4d1479056a2ad5df457258.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 8,
@@ -3275,8 +3275,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1309514270,
 		"activityName": "Wolves' Gambit",
 		"activityDescription": "Track Skolas and his crew of Wolves along the Ishtar Cliffs.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3638778960,
@@ -3303,7 +3303,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -3314,8 +3314,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1328326126,
 		"activityName": "Lost to Light",
 		"activityDescription": "Return to the Chamber of Night and steal a shard of the crystal that once held Crota's soul.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 31,
 		"completionFlagHash": 1144851729,
@@ -3347,7 +3347,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1390160729,
 		"activityName": "Vestian Outpost",
 		"activityDescription": "Join forces with the Queen's Guard and hunt down their enemies.",
-		"icon": "/common/destiny_content/icons/4e7327a9d96eeb2c79306339125109b6.png",
+		"icon": "/common/destiny_content/icons/16d3daa457d6833e7f5a0ad3f6e1f23b.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -3372,7 +3372,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 4185808064,
@@ -3463,12 +3463,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Brawler",
 				"description": "Guardian Melee damage is greatly increased.",
-				"icon": "/common/destiny_content/icons/0b81b85edd966d14489ede1f8242e01c.png"
+				"icon": "/common/destiny_content/icons/5f5273a80f052b458f917f61dc80d89e.png"
 			}
 		],
 		"isPlaylist": false,
@@ -3480,7 +3480,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 30,
 		"completionFlagHash": 4185808067,
@@ -3547,12 +3547,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Brawler",
 				"description": "Guardian Melee damage is greatly increased.",
-				"icon": "/common/destiny_content/icons/0b81b85edd966d14489ede1f8242e01c.png"
+				"icon": "/common/destiny_content/icons/5f5273a80f052b458f917f61dc80d89e.png"
 			}
 		],
 		"isPlaylist": false,
@@ -3564,7 +3564,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 26,
 		"completionFlagHash": 4185808066,
@@ -3607,12 +3607,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Brawler",
 				"description": "Guardian Melee damage is greatly increased.",
-				"icon": "/common/destiny_content/icons/0b81b85edd966d14489ede1f8242e01c.png"
+				"icon": "/common/destiny_content/icons/5f5273a80f052b458f917f61dc80d89e.png"
 			}
 		],
 		"isPlaylist": false,
@@ -3623,7 +3623,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1403880576,
 		"activityName": "The Garden's Spire",
 		"activityDescription": "Seize control of the Black Garden Spire held behind the wall of the Cabal Warbase and wake the Gate Lord's Eye.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 16,
@@ -3656,7 +3656,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1403880578,
 		"activityName": "The Black Garden",
 		"activityDescription": "Fight through the Gate and enter the Black Garden to destroy its heart.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 18,
@@ -3689,7 +3689,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1403880579,
 		"activityName": "A Rising Tide",
 		"activityDescription": "Find and destroy the source of the Vex surging to protect the Black Garden.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 17,
@@ -3722,7 +3722,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1403880580,
 		"activityName": "Exclusion Zone",
 		"activityDescription": "Survive the military power of the Cabal and find the Gate to the Black Garden.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 15,
@@ -3755,7 +3755,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1403880582,
 		"activityName": "The Buried City",
 		"activityDescription": "Clear out the Cabal occupying the lost city of Freehold and explore what remains.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 17,
@@ -3788,8 +3788,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1404620600,
 		"activityName": "Prison of Elders",
 		"activityDescription": "Beneath the Reef, the Queen's deadliest foes lurk deep in the ancient arena known as the Prison of Elders. Gather two teammates and brace yourselves for the onslaught of ruthless enemies!",
-		"icon": "/common/destiny_content/icons/8efcf7a0ef0b531113c3e20aba02a832.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/84c1d7eefdea308020752710d43f823f.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1782039715,
@@ -3828,8 +3828,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1419457477,
 		"activityName": "A Ranger Lost",
 		"activityDescription": "Look for signs of Cayde's missing friend among the Vex ruins on Venus.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 25,
 		"completionFlagHash": 3431571552,
@@ -3861,7 +3861,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1427585666,
 		"activityName": "A Hero's Return",
 		"activityDescription": "",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 18,
@@ -3885,8 +3885,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1441430564,
 		"activityName": "Urrox's Grudge",
 		"activityDescription": "The Flame Prince Urrox vows to burn the Light until all that remains is Darkness and bone.",
-		"icon": "/common/destiny_content/icons/8efcf7a0ef0b531113c3e20aba02a832.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/84c1d7eefdea308020752710d43f823f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 34,
 		"completionFlagHash": 2039308702,
@@ -3926,8 +3926,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1441430567,
 		"activityName": "Urrox's Grudge",
 		"activityDescription": "The Flame Prince Urrox vows to burn the Light until all that remains is Darkness and bone.",
-		"icon": "/common/destiny_content/icons/8efcf7a0ef0b531113c3e20aba02a832.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/84c1d7eefdea308020752710d43f823f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 2039308702,
@@ -3963,8 +3963,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1443271657,
 		"activityName": "Crimson Doubles",
 		"activityDescription": "\"With proper tactics and proper execution, a Fireteam of two Guardians can fight indefinitely. The Crimson Days are a chance to revel in this fact.\" —Lord Shaxx \n\nElimination with a partner. Revive your teammate to keep fighting. Last living members on a fireteam fight harder to avenge their partners.",
-		"icon": "/common/destiny_content/icons/61d6eb3df0060df883605cd9510e5ef9.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/8316b6fa48c2a771851ac63bf78430e2.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 3098978628,
@@ -4057,7 +4057,7 @@ var DestinyActivityDefinition = {
 	},
 	"1516701147": {
 		"activityHash": 1516701147,
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -4080,7 +4080,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1522220810,
 		"activityName": "Tower",
 		"activityDescription": "Home of the Guardians, where you can regroup, rearm, and form new alliances before venturing beyond.",
-		"icon": "/common/destiny_content/icons/4e7327a9d96eeb2c79306339125109b6.png",
+		"icon": "/common/destiny_content/icons/16d3daa457d6833e7f5a0ad3f6e1f23b.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -4104,7 +4104,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1551387515,
 		"activityName": "Prison of Elders",
 		"activityDescription": "The challenges are greater, and so are the rewards. Face the renewed threat of the Prison of Elders.",
-		"icon": "/common/destiny_content/icons/8efcf7a0ef0b531113c3e20aba02a832.png",
+		"icon": "/common/destiny_content/icons/84c1d7eefdea308020752710d43f823f.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -4127,8 +4127,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1584566734,
 		"activityName": "Inferno 6v6",
 		"activityDescription": "\"Training for a variety of combat scenarios. A Guardian can never be too ready.\"—Lord Shaxx \n\nA mix of Inferno Control and Inferno Clash.",
-		"icon": "/common/destiny_content/icons/d19b816728b16eec2cd07987e3ba3bfc.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/bfabc6ba634e0f16bd9794c79875b1da.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 4002048753,
@@ -4175,8 +4175,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1614355423,
 		"activityName": "Queen's Ransom",
 		"activityDescription": "Follow Skolas into Vex territory to aid in his capture for the Queen.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 24,
 		"completionFlagHash": 842203843,
@@ -4208,8 +4208,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1618960674,
 		"activityName": "Inferno 3v3",
 		"activityDescription": "\"Training for a variety of combat scenarios. A Guardian can never be too ready.\" —Lord Shaxx \n\nA mix of Inferno Skirmish, Inferno Salvage and Inferno Elimination.",
-		"icon": "/common/destiny_content/icons/d19b816728b16eec2cd07987e3ba3bfc.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/bfabc6ba634e0f16bd9794c79875b1da.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 487266821,
@@ -4256,8 +4256,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1624947721,
 		"activityName": "Shield Brothers",
 		"activityDescription": "Travel deep into the heart of the Dreadnaught in pursuit of a Cabal assault team. Stop it from detonating the Hive ship's core.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 918224300,
@@ -4357,12 +4357,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/b93b8c2c455a5e1bae5b5a52e2d86047.png"
+				"icon": "/common/destiny_content/icons/392ff5fa779ea9819ec0765b12f145f9.png"
 			}
 		],
 		"isPlaylist": false,
@@ -4417,12 +4417,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/b93b8c2c455a5e1bae5b5a52e2d86047.png"
+				"icon": "/common/destiny_content/icons/392ff5fa779ea9819ec0765b12f145f9.png"
 			}
 		],
 		"isPlaylist": false,
@@ -4525,12 +4525,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/b93b8c2c455a5e1bae5b5a52e2d86047.png"
+				"icon": "/common/destiny_content/icons/392ff5fa779ea9819ec0765b12f145f9.png"
 			}
 		],
 		"isPlaylist": false,
@@ -4541,8 +4541,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1650930548,
 		"activityName": "Classified",
 		"activityDescription": "Obtain this Quest in Destiny to learn more.",
-		"icon": "/common/destiny_content/icons/67bcfef32e0459c6d2814865fd625ad2.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/246219e3d71847dbfdbea7df268de2c3.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 0,
 		"completionFlagHash": 0,
@@ -4632,12 +4632,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/bbaa7c1d659e6beb18e633e39755c40f.png"
+				"icon": "/common/destiny_content/icons/ae84967f0484a9db0bffeddaa35f0121.png"
 			}
 		],
 		"isPlaylist": false,
@@ -4692,12 +4692,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/bbaa7c1d659e6beb18e633e39755c40f.png"
+				"icon": "/common/destiny_content/icons/ae84967f0484a9db0bffeddaa35f0121.png"
 			}
 		],
 		"isPlaylist": false,
@@ -4800,12 +4800,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/bbaa7c1d659e6beb18e633e39755c40f.png"
+				"icon": "/common/destiny_content/icons/ae84967f0484a9db0bffeddaa35f0121.png"
 			}
 		],
 		"isPlaylist": false,
@@ -4816,8 +4816,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1673931290,
 		"activityName": "Challenge of the Elders",
 		"activityDescription": "Holders of the Elders' Sigil may join with two other Guardians to face Challenge of the Elders.",
-		"icon": "/common/destiny_content/icons/8efcf7a0ef0b531113c3e20aba02a832.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/84c1d7eefdea308020752710d43f823f.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 3998508077,
@@ -4835,92 +4835,92 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Airborne",
 				"description": "Players deal more damage while in the air.",
-				"icon": "/common/destiny_content/icons/88d3980e1d986bfb51c246bd32a029a3.png"
+				"icon": "/common/destiny_content/icons/6325753a4fff7c850544e1ea1424877a.png"
 			},
 			{
 				"displayName": "Berserk",
 				"description": "Minions of the Darkness won't flinch, even after massive damage.",
-				"icon": "/common/destiny_content/icons/1adaf05f966ee499634f90fd40ec05a4.png"
+				"icon": "/common/destiny_content/icons/7a69fc3e8bffa89bcc871b18c18eebe0.png"
 			},
 			{
 				"displayName": "Brawler",
 				"description": "Guardian melee damage is greatly increased.",
-				"icon": "/common/destiny_content/icons/0b81b85edd966d14489ede1f8242e01c.png"
+				"icon": "/common/destiny_content/icons/5f5273a80f052b458f917f61dc80d89e.png"
 			},
 			{
 				"displayName": "Catapult",
 				"description": "Grenade recharge rate is greatly increased.",
-				"icon": "/common/destiny_content/icons/0c1ea4487a05aaa862306efe5f07a854.png"
+				"icon": "/common/destiny_content/icons/ea27badd06b958c10803a604ffbbb0e1.png"
 			},
 			{
 				"displayName": "Chaff",
 				"description": "Player radar is disabled.",
-				"icon": "/common/destiny_content/icons/0cf23137c80c27cf2732f195d4495a86.png"
+				"icon": "/common/destiny_content/icons/0d5464718c17eeb277d8106d6501f33b.png"
 			},
 			{
 				"displayName": "Fresh Troops",
 				"description": "Some enemy squads have been fortified with additional reinforcements.",
-				"icon": "/common/destiny_content/icons/53662b0c21263e840bbfe9e05c8efa0b.png"
+				"icon": "/common/destiny_content/icons/c1fde42dc835887d9849b0e4ec52ee44.png"
 			},
 			{
 				"displayName": "Grenade Kill Bonus",
 				"description": "Grenade kills are worth more points.",
-				"icon": "/common/destiny_content/icons/3697e1ad551318e0d6949c626201f2e7.png"
+				"icon": "/common/destiny_content/icons/477976d38d9c15d6d59c27c05638e96e.png"
 			},
 			{
 				"displayName": "Melee Kill Bonus",
 				"description": "Melee kills are worth more points.",
-				"icon": "/common/destiny_content/icons/ec80170a51eafa85f3e1c92abffb863a.png"
+				"icon": "/common/destiny_content/icons/f938a8d3c21545a7e664021849bfea0b.png"
 			},
 			{
 				"displayName": "Precision Kill Bonus",
 				"description": "Precision kills are worth more points.",
-				"icon": "/common/destiny_content/icons/85178ba9f784fa7c03bc0540e4ecef19.png"
+				"icon": "/common/destiny_content/icons/f7983666e6088e4974169576bd00a476.png"
 			},
 			{
 				"displayName": "Super Kill Bonus",
 				"description": "Super kills are worth more points.",
-				"icon": "/common/destiny_content/icons/79974e5636a2e3c011d0cbfa05ea37b4.png"
+				"icon": "/common/destiny_content/icons/b9ef2fc0f80941d276373f49f6a96df4.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/bbaa7c1d659e6beb18e633e39755c40f.png"
+				"icon": "/common/destiny_content/icons/ae84967f0484a9db0bffeddaa35f0121.png"
 			},
 			{
 				"displayName": "Ironclad",
 				"description": "More enemies have shields.",
-				"icon": "/common/destiny_content/icons/9406e6abbba35de64685e67d3a2f0c4b.png"
+				"icon": "/common/destiny_content/icons/ded643195238f0d71262bb7ffe02921c.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/b93b8c2c455a5e1bae5b5a52e2d86047.png"
+				"icon": "/common/destiny_content/icons/392ff5fa779ea9819ec0765b12f145f9.png"
 			},
 			{
 				"displayName": "Exposure",
 				"description": "Guardian shields are increased but do not replenish.",
-				"icon": "/common/destiny_content/icons/533bbc0ce3556d9127b1e549a1b21648.png"
+				"icon": "/common/destiny_content/icons/62084e1ac5fc554bf63279082a3b108a.png"
 			},
 			{
 				"displayName": "Small Arms",
 				"description": "Primary Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/d1721814654c9bbb7f9f154b3839be53.png"
+				"icon": "/common/destiny_content/icons/5c9391dfadfc03b5d5c1ba647894727a.png"
 			},
 			{
 				"displayName": "Specialist",
 				"description": "Special Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/2d30f0665ce9c08469a5d34415766044.png"
+				"icon": "/common/destiny_content/icons/72c9b723355912345eace512e020386c.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/5f64c2e14b45a78d774f820d52c1a56f.png"
+				"icon": "/common/destiny_content/icons/f38607bf7414d70f47a5c32e61706f91.png"
 			},
 			{
 				"displayName": "Trickle",
 				"description": "Recharge of abilities is significantly reduced.",
-				"icon": "/common/destiny_content/icons/0363527e24fe285ee3916aefcf9d812f.png"
+				"icon": "/common/destiny_content/icons/b5cf84d973c80cc0258561ff191c1fc2.png"
 			}
 		],
 		"isPlaylist": true,
@@ -4931,8 +4931,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1686326716,
 		"activityName": "A New Den",
 		"activityDescription": "Track the House of Wolves across the surface of Mars.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 39,
 		"completionFlagHash": 1569490455,
@@ -4964,8 +4964,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1714839224,
 		"activityName": "Ritual of Sacrifice",
 		"activityDescription": "Descend into the Hellmouth and find the sacrificial chambers.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 26,
 		"completionFlagHash": 0,
@@ -5012,7 +5012,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1723226893,
 		"activityName": "The Warmind",
 		"activityDescription": "Break the House of Devils' grasp on the Cosmodrome and secure a vital link to the Golden Age.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -5040,7 +5040,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -5051,8 +5051,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1727851403,
 		"activityName": "The Promethean Code",
 		"activityDescription": "Slip past Rasputin's defenses and download stealth code protocols from his Golden Age database.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1287108046,
@@ -5079,7 +5079,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -5114,8 +5114,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1733556769,
 		"activityName": "King's Fall",
 		"activityDescription": "Long live the King.",
-		"icon": "/common/destiny_content/icons/1dabf4d35cf3ba13e3b3e8e48ac91d0c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/16cf6e38ea80a54d99a4f00926de7c56.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 3845440012,
@@ -5142,17 +5142,17 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Golgoroth Challenge",
 				"description": "You have been challenged...",
-				"icon": "/common/destiny_content/icons/a7ae68d394ebb69fa0236b24bc79ad40.png"
+				"icon": "/common/destiny_content/icons/098ef2f64cb7ad5287f5e230723d60eb.png"
 			},
 			{
 				"displayName": "Oryx Challenge",
 				"description": "You have been challenged...",
-				"icon": "/common/destiny_content/icons/f7da5ffe9b91bb73c3d6a0e6cbd47a13.png"
+				"icon": "/common/destiny_content/icons/616b6d75e30bf906285304cd8a08d09c.png"
 			},
 			{
 				"displayName": "Warpriest Challenge",
 				"description": "You have been challenged...",
-				"icon": "/common/destiny_content/icons/748c6c1df0715557cc6d70aac0a9738a.png"
+				"icon": "/common/destiny_content/icons/c3e88870309fc30920f87401a9808234.png"
 			}
 		],
 		"isPlaylist": false,
@@ -5164,7 +5164,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Vanguard Nightfall",
 		"activityDescription": "Launches a random Nightfall strike.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 0,
@@ -5191,102 +5191,102 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/f53c1cd98c9ac72d4c6c451fb36b758f.png"
+				"icon": "/common/destiny_content/icons/84a47e5b4495a9096f61c4a9451d7c03.png"
 			},
 			{
 				"displayName": "Arc Burn",
 				"description": "Arc Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/0445e997c1baf3df07c2e20f60f64b9e.png"
+				"icon": "/common/destiny_content/icons/0cf18a50b727b9dcd6ace4eaf515652c.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/5f64c2e14b45a78d774f820d52c1a56f.png"
+				"icon": "/common/destiny_content/icons/f38607bf7414d70f47a5c32e61706f91.png"
 			},
 			{
 				"displayName": "Void Burn",
 				"description": "Void damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/3d682f1d2a0995528537cde662fa082d.png"
+				"icon": "/common/destiny_content/icons/fe542c6f2098c5dcab628007d1afd9df.png"
 			},
 			{
 				"displayName": "Berserk",
 				"description": "Minions of the Darkness won't flinch, even after massive damage.",
-				"icon": "/common/destiny_content/icons/1adaf05f966ee499634f90fd40ec05a4.png"
+				"icon": "/common/destiny_content/icons/7a69fc3e8bffa89bcc871b18c18eebe0.png"
 			},
 			{
 				"displayName": "Brawler",
 				"description": "Guardian melee damage is greatly increased.",
-				"icon": "/common/destiny_content/icons/0b81b85edd966d14489ede1f8242e01c.png"
+				"icon": "/common/destiny_content/icons/5f5273a80f052b458f917f61dc80d89e.png"
 			},
 			{
 				"displayName": "Lightswitch",
 				"description": "Minions of the Darkness deal much more melee damage.",
-				"icon": "/common/destiny_content/icons/693b748514ef592125b0da9c77055519.png"
+				"icon": "/common/destiny_content/icons/3c530b9aadf795d92856c201bc8fe147.png"
 			},
 			{
 				"displayName": "Specialist",
 				"description": "Special Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/2d30f0665ce9c08469a5d34415766044.png"
+				"icon": "/common/destiny_content/icons/72c9b723355912345eace512e020386c.png"
 			},
 			{
 				"displayName": "Small Arms",
 				"description": "Primary Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/d1721814654c9bbb7f9f154b3839be53.png"
+				"icon": "/common/destiny_content/icons/5c9391dfadfc03b5d5c1ba647894727a.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/b93b8c2c455a5e1bae5b5a52e2d86047.png"
+				"icon": "/common/destiny_content/icons/392ff5fa779ea9819ec0765b12f145f9.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/bbaa7c1d659e6beb18e633e39755c40f.png"
+				"icon": "/common/destiny_content/icons/ae84967f0484a9db0bffeddaa35f0121.png"
 			},
 			{
 				"displayName": "Bloodthirsty",
 				"description": "Enemies fire more frequently and more accurately.",
-				"icon": "/common/destiny_content/icons/a9929f10d5f035e49bfa12c94fab8713.png"
+				"icon": "/common/destiny_content/icons/76957acce5ad927e7adcb2c42134c49b.png"
 			},
 			{
 				"displayName": "Chaff",
 				"description": "Player radar is disabled.",
-				"icon": "/common/destiny_content/icons/0cf23137c80c27cf2732f195d4495a86.png"
+				"icon": "/common/destiny_content/icons/0d5464718c17eeb277d8106d6501f33b.png"
 			},
 			{
 				"displayName": "Fresh Troops",
 				"description": "Some enemy squads have been fortified with additional reinforcements.",
-				"icon": "/common/destiny_content/icons/53662b0c21263e840bbfe9e05c8efa0b.png"
+				"icon": "/common/destiny_content/icons/c1fde42dc835887d9849b0e4ec52ee44.png"
 			},
 			{
 				"displayName": "Ironclad",
 				"description": "More enemies have shields.",
-				"icon": "/common/destiny_content/icons/9406e6abbba35de64685e67d3a2f0c4b.png"
+				"icon": "/common/destiny_content/icons/ded643195238f0d71262bb7ffe02921c.png"
 			},
 			{
 				"displayName": "Match Game",
 				"description": "Enemy shields are resistant to all unmatched Elemental Damage.",
-				"icon": "/common/destiny_content/icons/ca0ebebe6b962e7ee9117c9b9c4c664e.png"
+				"icon": "/common/destiny_content/icons/7c944b0ae9fe2938847866187f248e87.png"
 			},
 			{
 				"displayName": "Airborne",
 				"description": "Players deal more damage while in the air.",
-				"icon": "/common/destiny_content/icons/88d3980e1d986bfb51c246bd32a029a3.png"
+				"icon": "/common/destiny_content/icons/6325753a4fff7c850544e1ea1424877a.png"
 			},
 			{
 				"displayName": "Catapult",
 				"description": "Grenade recharge rate is greatly increased.",
-				"icon": "/common/destiny_content/icons/0c1ea4487a05aaa862306efe5f07a854.png"
+				"icon": "/common/destiny_content/icons/ea27badd06b958c10803a604ffbbb0e1.png"
 			},
 			{
 				"displayName": "Exposure",
 				"description": "Guardian shields are increased but do not replenish.",
-				"icon": "/common/destiny_content/icons/533bbc0ce3556d9127b1e549a1b21648.png"
+				"icon": "/common/destiny_content/icons/62084e1ac5fc554bf63279082a3b108a.png"
 			},
 			{
 				"displayName": "Trickle",
 				"description": "Recharge of abilities is significantly reduced.",
-				"icon": "/common/destiny_content/icons/0363527e24fe285ee3916aefcf9d812f.png"
+				"icon": "/common/destiny_content/icons/b5cf84d973c80cc0258561ff191c1fc2.png"
 			}
 		],
 		"isPlaylist": true,
@@ -5297,8 +5297,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1772839913,
 		"activityName": "Tenebrous Tunnels",
 		"activityDescription": "Seek out the source of the Taken blight on Mars.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 2049448260,
@@ -5330,8 +5330,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1783047867,
 		"activityName": "Inferno Control",
 		"activityDescription": "\"It's a tactical exercise in reinforcing and defending acquired territory. Should the Vanguard ever decide to expand past the walls of the City, the Guardians will be ready.\" —Lord Shaxx\n\nAll-out team warfare. Destroy the enemy. No trackers and simplified scoring.",
-		"icon": "/common/destiny_content/icons/9950163a589a83493641fe05aae2b59e.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/2df072e0248fb01081ef52da39f01efe.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 2475165134,
@@ -5354,8 +5354,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1783564050,
 		"activityName": "The Ruling House",
 		"activityDescription": "Scour the Cosmodrome for Skolas and the invading Wolves.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1172862368,
@@ -5382,7 +5382,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -5394,7 +5394,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Zone Control",
 		"activityDescription": "\"It's a tactical exercise in reinforcing and defending acquired territory. Should the Vanguard ever decide to expand past the walls of the City, the Guardians will be ready.\" —Lord Shaxx\n\nCapture zones and hold the zones to win.",
 		"icon": "/common/destiny_content/icons/icon_pvp_95758a0126585ca7a5344b1424aaec7c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 299093107,
@@ -5442,8 +5442,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1836893116,
 		"activityName": "Crota’s End",
 		"activityDescription": "He waits in the dark below.",
-		"icon": "/common/destiny_content/icons/1dabf4d35cf3ba13e3b3e8e48ac91d0c.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"icon": "/common/destiny_content/icons/16cf6e38ea80a54d99a4f00926de7c56.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 30,
 		"completionFlagHash": 2880236702,
@@ -5479,8 +5479,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1836893119,
 		"activityName": "Crota’s End",
 		"activityDescription": "He waits in the dark below.",
-		"icon": "/common/destiny_content/icons/1dabf4d35cf3ba13e3b3e8e48ac91d0c.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"icon": "/common/destiny_content/icons/16cf6e38ea80a54d99a4f00926de7c56.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 33,
 		"completionFlagHash": 1716556531,
@@ -5515,7 +5515,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -5550,7 +5550,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1846390409,
 		"activityName": "A Guardian Rises",
 		"activityDescription": "Rise in the Light of the Traveler and join the battle against the Darkness.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -5607,7 +5607,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1856964953,
 		"activityName": "A Guardian Rises",
 		"activityDescription": "Rise in the Light of the Traveler and join the battle against the Darkness.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -5659,27 +5659,27 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/f53c1cd98c9ac72d4c6c451fb36b758f.png"
+				"icon": "/common/destiny_content/icons/84a47e5b4495a9096f61c4a9451d7c03.png"
 			},
 			{
 				"displayName": "Nightfall",
 				"description": "If all players die, your Fireteam is returned to Orbit.",
-				"icon": "/common/destiny_content/icons/80d9cf08f5d68c92c7b8da76070ffb6f.png"
+				"icon": "/common/destiny_content/icons/37fd11ad411894ffaf246a0297999a6e.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/b93b8c2c455a5e1bae5b5a52e2d86047.png"
+				"icon": "/common/destiny_content/icons/392ff5fa779ea9819ec0765b12f145f9.png"
 			},
 			{
 				"displayName": "Void Burn",
 				"description": "Void Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/3d682f1d2a0995528537cde662fa082d.png"
+				"icon": "/common/destiny_content/icons/fe542c6f2098c5dcab628007d1afd9df.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/5f64c2e14b45a78d774f820d52c1a56f.png"
+				"icon": "/common/destiny_content/icons/f38607bf7414d70f47a5c32e61706f91.png"
 			}
 		],
 		"isPlaylist": false,
@@ -5690,7 +5690,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1940432142,
 		"activityName": "Exclusion Zone",
 		"activityDescription": "Survive the military power of the Cabal and find the Gate to the Black Garden.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -5718,7 +5718,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -5729,7 +5729,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1973631991,
 		"activityName": "The Last Array",
 		"activityDescription": "Track down codes to raise an ancient Array and connect it to long-lost colonies throughout the solar system.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -5757,7 +5757,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -5820,27 +5820,27 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/f53c1cd98c9ac72d4c6c451fb36b758f.png"
+				"icon": "/common/destiny_content/icons/84a47e5b4495a9096f61c4a9451d7c03.png"
 			},
 			{
 				"displayName": "Arc Burn",
 				"description": "Arc Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/0445e997c1baf3df07c2e20f60f64b9e.png"
+				"icon": "/common/destiny_content/icons/0cf18a50b727b9dcd6ace4eaf515652c.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/5f64c2e14b45a78d774f820d52c1a56f.png"
+				"icon": "/common/destiny_content/icons/f38607bf7414d70f47a5c32e61706f91.png"
 			},
 			{
 				"displayName": "Small Arms",
 				"description": "Primary Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/d1721814654c9bbb7f9f154b3839be53.png"
+				"icon": "/common/destiny_content/icons/5c9391dfadfc03b5d5c1ba647894727a.png"
 			},
 			{
 				"displayName": "Nightfall",
 				"description": "If all players die, your Fireteam is returned to Orbit.",
-				"icon": "/common/destiny_content/icons/80d9cf08f5d68c92c7b8da76070ffb6f.png"
+				"icon": "/common/destiny_content/icons/37fd11ad411894ffaf246a0297999a6e.png"
 			}
 		],
 		"isPlaylist": false,
@@ -5851,8 +5851,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2008529245,
 		"activityName": "Kings of Decay",
 		"activityDescription": "Hunt the source of the Taken blight across the Cosmodrome.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 643414632,
@@ -5884,8 +5884,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2022189692,
 		"activityName": "Blighted Chalice",
 		"activityDescription": "A blight of Taken now roosts In the Hellmouth. Unchecked, they could refocus the Darkness within and descend on the City.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 3299328131,
@@ -5941,7 +5941,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2045385030,
 		"activityName": "Patrol Venus",
 		"activityDescription": "Keep watch in the Ishtar Sink to aid the City in its efforts.",
-		"icon": "/common/destiny_content/icons/db10d2b0b8344ed08f4e41222b99f907.png",
+		"icon": "/common/destiny_content/icons/f3661575fa4d1479056a2ad5df457258.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 11,
@@ -5965,7 +5965,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2051444910,
 		"activityName": "The Dark Beyond",
 		"activityDescription": "Follow the trail of a Guardian who went dark searching for a way into the Hive Fortress.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -5993,7 +5993,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -6004,8 +6004,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2063852581,
 		"activityName": "Mayhem Clash",
 		"activityDescription": "\"Enjoy yourselves, Guardians.\" —Lord Shaxx\n\nEmbrace the chaos. Greatly increased ability recharge rates. Faster Special and Heavy Ammo spawns. No respawn delay. Scoring values multiplied by 10.",
-		"icon": "/common/destiny_content/icons/7f41a2e3f4a231d685a62ce2ccf060ba.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/6066cc4ea9624128fdfce9a27cb2e469.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 3055539520,
@@ -6053,8 +6053,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2072729921,
 		"activityName": "Blighted Chalice",
 		"activityDescription": "A blight of Taken now roosts In the Hellmouth. Unchecked, they could refocus the Darkness within and descend on the City.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3299328131,
@@ -6086,8 +6086,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2074618692,
 		"activityName": "The Forever Eater",
 		"activityDescription": "Qodron, a Vex chronovore, sees only one outcome: your demise. Prove it wrong.",
-		"icon": "/common/destiny_content/icons/8efcf7a0ef0b531113c3e20aba02a832.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/84c1d7eefdea308020752710d43f823f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 34,
 		"completionFlagHash": 2256052094,
@@ -6127,8 +6127,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2074618695,
 		"activityName": "The Forever Eater",
 		"activityDescription": "Qodron, a Vex chronovore, sees only one outcome: your demise. Prove it wrong.",
-		"icon": "/common/destiny_content/icons/8efcf7a0ef0b531113c3e20aba02a832.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/84c1d7eefdea308020752710d43f823f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 2256052094,
@@ -6188,8 +6188,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2084208305,
 		"activityName": "The Sunless Cell",
 		"activityDescription": "Assault a prison deep in the heart of the Dreadnaught and put an end to a Hive champion.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 2001921006,
@@ -6212,8 +6212,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2084307227,
 		"activityName": "Dread Patrol",
 		"activityDescription": "Establish patrol routes and beacon sites on the Hive Dreadnaught for the Vanguard.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 35,
 		"completionFlagHash": 944830254,
@@ -6245,7 +6245,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2129294976,
 		"activityName": "The Dark Within",
 		"activityDescription": "Investigate reports of a hidden power trapped in the Cosmodrome Array stations.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -6273,7 +6273,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -6284,7 +6284,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2151413729,
 		"activityName": "Tower",
 		"activityDescription": "Home of the Guardians, where you can regroup, rearm, and form new alliances before venturing beyond.",
-		"icon": "/common/destiny_content/icons/4e7327a9d96eeb2c79306339125109b6.png",
+		"icon": "/common/destiny_content/icons/16d3daa457d6833e7f5a0ad3f6e1f23b.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -6309,7 +6309,7 @@ var DestinyActivityDefinition = {
 		"activityName": "The Shadow Thief",
 		"activityDescription": "A ruthless Fallen mercenary commanding the Wolfship Kaliks-Syn has been spotted near the Moon. Board the Ketch and end the reign of Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 1665214730,
@@ -6380,8 +6380,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2197680969,
 		"activityName": "Kings of Decay",
 		"activityDescription": "Hunt the source of the Taken blight across the Cosmodrome.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 643414632,
@@ -6408,7 +6408,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -6419,7 +6419,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2198347919,
 		"activityName": "Tower",
 		"activityDescription": "Home of the Guardians, where you can regroup, rearm, and form new alliances before venturing beyond.",
-		"icon": "/common/destiny_content/icons/4e7327a9d96eeb2c79306339125109b6.png",
+		"icon": "/common/destiny_content/icons/16d3daa457d6833e7f5a0ad3f6e1f23b.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -6443,7 +6443,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2201622127,
 		"activityName": "Challenge of the Elders",
 		"activityDescription": "Holders of the Elders' Sigil may join with two other Guardians to face Challenge of the Elders.",
-		"icon": "/common/destiny_content/icons/8efcf7a0ef0b531113c3e20aba02a832.png",
+		"icon": "/common/destiny_content/icons/84c1d7eefdea308020752710d43f823f.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
@@ -6467,7 +6467,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2213151771,
 		"activityName": "Ishtar Collective",
 		"activityDescription": "Unravel the secrets of the Vex by reviving an ancient research station of the Ishtar Collective.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -6495,7 +6495,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -6506,8 +6506,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2234107290,
 		"activityName": "The Sunless Cell",
 		"activityDescription": "Enter the Sunless Cell and destroy Thracu, Warden of Oryx.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 2001921006,
@@ -6534,7 +6534,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/f53c1cd98c9ac72d4c6c451fb36b758f.png"
+				"icon": "/common/destiny_content/icons/84a47e5b4495a9096f61c4a9451d7c03.png"
 			}
 		],
 		"isPlaylist": false,
@@ -6569,7 +6569,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2244550959,
 		"activityName": "Tower",
 		"activityDescription": "Home of the Guardians, where you can regroup, rearm, and form new alliances before venturing beyond.",
-		"icon": "/common/destiny_content/icons/4e7327a9d96eeb2c79306339125109b6.png",
+		"icon": "/common/destiny_content/icons/16d3daa457d6833e7f5a0ad3f6e1f23b.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -6594,7 +6594,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Elimination",
 		"activityDescription": "\"Your allies are your lifeblood. No second chances except the ones you give.\" —Lord Shaxx \n\nSmall-team tactics. Revive teammates to keep fighting. Bring down the entire opposing team to claim victory.",
 		"icon": "/img/theme/destiny/icons/pvp_gametype_elimination.v2.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 3847284338,
@@ -6618,7 +6618,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 26,
 		"completionFlagHash": 4185808066,
@@ -6661,12 +6661,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Angry",
 				"description": "Minions of the Darkness won't flinch, even after massive damage.",
-				"icon": "/common/destiny_content/icons/1adaf05f966ee499634f90fd40ec05a4.png"
+				"icon": "/common/destiny_content/icons/7a69fc3e8bffa89bcc871b18c18eebe0.png"
 			}
 		],
 		"isPlaylist": false,
@@ -6678,7 +6678,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 30,
 		"completionFlagHash": 4185808067,
@@ -6745,12 +6745,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Angry",
 				"description": "Minions of the Darkness won't flinch, even after massive damage.",
-				"icon": "/common/destiny_content/icons/1adaf05f966ee499634f90fd40ec05a4.png"
+				"icon": "/common/destiny_content/icons/7a69fc3e8bffa89bcc871b18c18eebe0.png"
 			}
 		],
 		"isPlaylist": false,
@@ -6762,7 +6762,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 4185808064,
@@ -6853,12 +6853,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Angry",
 				"description": "Minions of the Darkness won't flinch, even after massive damage.",
-				"icon": "/common/destiny_content/icons/1adaf05f966ee499634f90fd40ec05a4.png"
+				"icon": "/common/destiny_content/icons/7a69fc3e8bffa89bcc871b18c18eebe0.png"
 			}
 		],
 		"isPlaylist": false,
@@ -6869,8 +6869,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2286628407,
 		"activityName": "Paradox",
 		"activityDescription": "Investigate the signal coming from the Vault of Glass.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3604443450,
@@ -6897,7 +6897,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -6908,7 +6908,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2321224098,
 		"activityName": "A Stranger's Call",
 		"activityDescription": "Follow the Stranger's coordinates to a legendary colony lost in the jungles of Venus.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -6936,7 +6936,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -6947,8 +6947,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2326253031,
 		"activityName": "Skolas's Revenge",
 		"activityDescription": "Skolas and his crew challenge the Guardians who captured him. Face him with a Fireteam of three. End him.",
-		"icon": "/common/destiny_content/icons/8efcf7a0ef0b531113c3e20aba02a832.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/84c1d7eefdea308020752710d43f823f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 35,
 		"completionFlagHash": 1146975594,
@@ -6992,7 +6992,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2327910410,
 		"activityName": "Chamber of Night",
 		"activityDescription": "Scour the Hive Fortress for a chamber where the Speaker believes a dark ritual is silencing the Traveler.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -7020,7 +7020,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -7031,7 +7031,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2330516073,
 		"activityName": "Tower",
 		"activityDescription": "Home of the Guardians, where you can regroup, rearm, and form new alliances before venturing beyond.",
-		"icon": "/common/destiny_content/icons/4e7327a9d96eeb2c79306339125109b6.png",
+		"icon": "/common/destiny_content/icons/16d3daa457d6833e7f5a0ad3f6e1f23b.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -7079,8 +7079,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2333767699,
 		"activityName": "Fear's Embrace",
 		"activityDescription": "Return to the base on Phobos. Destroy the blighted source on Mars.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3986256182,
@@ -7112,8 +7112,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2344229082,
 		"activityName": "The Undying Mind",
 		"activityDescription": "An ancient Mind, feared by the Vex themselves, hides among the channels of the Black Garden. Find this machine and end its existence.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
 		"completionFlagHash": 2868189086,
@@ -7136,8 +7136,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2344622554,
 		"activityName": "Echo Chamber",
 		"activityDescription": "Guardians destroyed the Nexus on Venus. Now, a powerful Vex mind seeks to sunder time and space and undo what was done.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 2764395773,
@@ -7160,8 +7160,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2356723745,
 		"activityName": "The Coming War",
 		"activityDescription": "Travel to Phobos and investigate the Cabal distress signal.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 25,
 		"completionFlagHash": 1805431820,
@@ -7193,8 +7193,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2364610626,
 		"activityName": "The Prime's Path",
 		"activityDescription": "Hunt the Prime Servitor that has brought together the broken House of Wolves.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1357121139,
@@ -7221,7 +7221,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -7232,8 +7232,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2369296916,
 		"activityName": "The Coming War",
 		"activityDescription": "Travel to Phobos and investigate the Cabal distress signal.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 25,
 		"completionFlagHash": 2315956863,
@@ -7256,7 +7256,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2370413227,
 		"activityName": "Tower",
 		"activityDescription": "Home of the Guardians, where you can regroup, rearm, and form new alliances before venturing beyond.",
-		"icon": "/common/destiny_content/icons/4e7327a9d96eeb2c79306339125109b6.png",
+		"icon": "/common/destiny_content/icons/16d3daa457d6833e7f5a0ad3f6e1f23b.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -7281,7 +7281,7 @@ var DestinyActivityDefinition = {
 		"activityName": "The Shadow Thief",
 		"activityDescription": "A ruthless Fallen mercenary commanding the Wolfship Kaliks-Syn has been spotted near the Moon. Board the Ketch and end the reign of Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1665214730,
@@ -7304,8 +7304,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2393458461,
 		"activityName": "Entropy's Pinnacle",
 		"activityDescription": "Scale the Vex Citadel and hunt down the source of Venus's blight.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 232710236,
@@ -7332,7 +7332,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -7343,7 +7343,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2398459666,
 		"activityName": "Patrol Mars",
 		"activityDescription": "Fight through the shifting Martian dunes to protect the City's interests.",
-		"icon": "/common/destiny_content/icons/db10d2b0b8344ed08f4e41222b99f907.png",
+		"icon": "/common/destiny_content/icons/f3661575fa4d1479056a2ad5df457258.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 17,
@@ -7367,8 +7367,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2401705359,
 		"activityName": "Vanguard Strikes",
 		"activityDescription": "Launches a random strike.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 3667459954,
@@ -7440,8 +7440,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2450352219,
 		"activityName": "The Sunless Cell",
 		"activityDescription": "Assault a prison deep in the heart of the Dreadnaught and put an end to a Hive champion.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 2001921006,
@@ -7473,8 +7473,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2473173917,
 		"activityName": "The Silent Fang",
 		"activityDescription": "Stop Skolas's elite assassins before they tear through the Cosmodrome.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 2431342961,
@@ -7501,7 +7501,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -7512,7 +7512,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2474598319,
 		"activityName": "Patrol Venus",
 		"activityDescription": "Explore the Ishtar Sink and aid the City in their efforts.",
-		"icon": "/common/destiny_content/icons/db10d2b0b8344ed08f4e41222b99f907.png",
+		"icon": "/common/destiny_content/icons/f3661575fa4d1479056a2ad5df457258.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 11,
@@ -7553,8 +7553,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2488292787,
 		"activityName": "Freelance 3v3",
 		"activityDescription": "\"Sometimes your allies are a necessity rather than a choice. Don't let that stop you from taking your team to glory.\" —Lord Shaxx \n\nSolo queue only. A mix of Skirmish, Salvage and Elimination.",
-		"icon": "/common/destiny_content/icons/d19b816728b16eec2cd07987e3ba3bfc.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/bfabc6ba634e0f16bd9794c79875b1da.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 302356822,
@@ -7601,8 +7601,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2503808507,
 		"activityName": "Last Rites",
 		"activityDescription": "Using the stealth code, travel deep into the heart of the Hellmouth and slip away with a sliver of Crota's soul.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 33,
 		"completionFlagHash": 679255950,
@@ -7658,8 +7658,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2507671226,
 		"activityName": "Outbound Signal",
 		"activityDescription": "Track a signal from the crashed Cabal ship. Board the Dreadnaught and put an end to this transmission to the stars.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 969440619,
@@ -7686,7 +7686,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -7697,8 +7697,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2522686639,
 		"activityName": "Freelance 6v6",
 		"activityDescription": "\"Sometimes your allies are a necessity rather than a choice. Don't let that stop you from taking your team to glory.\" —Lord Shaxx \n\nSolo queue only. A mix of Control, Clash and Rift.",
-		"icon": "/common/destiny_content/icons/d19b816728b16eec2cd07987e3ba3bfc.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/bfabc6ba634e0f16bd9794c79875b1da.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 4059616658,
@@ -7746,7 +7746,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Fallen S.A.B.E.R.",
 		"activityDescription": "Rush to the aid of the AI Warmind Rasputin as he broadcasts a plea for help across the system.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3346707351,
@@ -7769,8 +7769,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2577060487,
 		"activityName": "Paradox",
 		"activityDescription": "Investigate the signal coming from the Vault of Glass.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 38,
 		"completionFlagHash": 3604443450,
@@ -7802,7 +7802,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2591739000,
 		"activityName": "The Awoken",
 		"activityDescription": "Travel to the home of the Awoken and find what they know about the Black Garden.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 10,
@@ -7826,8 +7826,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2604992012,
 		"activityName": "Lost to Light",
 		"activityDescription": "Return to the Chamber of Night and steal a shard of the crystal that once held Crota's soul.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1144851729,
@@ -7854,7 +7854,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -7865,8 +7865,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2616429373,
 		"activityName": "Fear's Embrace",
 		"activityDescription": "Return to the base on Phobos. Destroy the blighted source on Mars.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3986256182,
@@ -7898,8 +7898,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2624694148,
 		"activityName": "Blighted Coven",
 		"activityDescription": "Investigate the rumors of a Taken coven in the Cosmodrome.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 2079210505,
@@ -7926,7 +7926,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -7937,8 +7937,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2626477216,
 		"activityName": "Outbound Signal",
 		"activityDescription": "Track a signal from the crashed Cabal ship. Board the Dreadnaught and put an end to this transmission to the stars.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 38,
 		"completionFlagHash": 969440619,
@@ -7971,7 +7971,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Echo Chamber",
 		"activityDescription": "Guardians destroyed the Nexus on Venus. Now, a powerful Vex mind seeks to sunder time and space and undo what was done.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 2764395773,
@@ -8018,7 +8018,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2641355370,
 		"activityName": "The Garden's Spire",
 		"activityDescription": "Seize control of the Black Garden Spire held behind the wall of the Cabal Warbase and wake the Gate Lord's Eye.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -8046,7 +8046,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -8057,7 +8057,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2659248068,
 		"activityName": "Vault of Glass",
 		"activityDescription": "Beneath Venus, evil stirs.",
-		"icon": "/common/destiny_content/icons/1dabf4d35cf3ba13e3b3e8e48ac91d0c.png",
+		"icon": "/common/destiny_content/icons/16cf6e38ea80a54d99a4f00926de7c56.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 30,
@@ -8093,7 +8093,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -8104,7 +8104,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2659248069,
 		"activityName": "Vault of Glass",
 		"activityDescription": "Beneath Venus, evil stirs.",
-		"icon": "/common/destiny_content/icons/1dabf4d35cf3ba13e3b3e8e48ac91d0c.png",
+		"icon": "/common/destiny_content/icons/16cf6e38ea80a54d99a4f00926de7c56.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 31,
@@ -8140,7 +8140,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/f53c1cd98c9ac72d4c6c451fb36b758f.png"
+				"icon": "/common/destiny_content/icons/84a47e5b4495a9096f61c4a9451d7c03.png"
 			}
 		],
 		"isPlaylist": false,
@@ -8151,7 +8151,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2659248071,
 		"activityName": "Vault of Glass",
 		"activityDescription": "Beneath Venus, evil stirs.",
-		"icon": "/common/destiny_content/icons/1dabf4d35cf3ba13e3b3e8e48ac91d0c.png",
+		"icon": "/common/destiny_content/icons/16cf6e38ea80a54d99a4f00926de7c56.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 26,
@@ -8188,8 +8188,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2662709104,
 		"activityName": "Bottle the Arc",
 		"activityDescription": "Fight the Vex in an Arc storm on Mars. Learn to walk the Stormcaller's path.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 25,
 		"completionFlagHash": 3413543819,
@@ -8221,7 +8221,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2666433880,
 		"activityName": "The Nexus",
 		"activityDescription": "The Golden Age legends tell of ancient tunnels below the Academy, where a Vex machine once ate away at the planet. Descend into the old dig sites and find this Nexus before it churns again.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
@@ -8297,27 +8297,27 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/f53c1cd98c9ac72d4c6c451fb36b758f.png"
+				"icon": "/common/destiny_content/icons/84a47e5b4495a9096f61c4a9451d7c03.png"
 			},
 			{
 				"displayName": "Angry",
 				"description": "Minions of the Darkness won't flinch, even after massive damage.",
-				"icon": "/common/destiny_content/icons/1adaf05f966ee499634f90fd40ec05a4.png"
+				"icon": "/common/destiny_content/icons/7a69fc3e8bffa89bcc871b18c18eebe0.png"
 			},
 			{
 				"displayName": "Lightswitch",
 				"description": "Minions of the Darkness deal much more melee damage.",
-				"icon": "/common/destiny_content/icons/693b748514ef592125b0da9c77055519.png"
+				"icon": "/common/destiny_content/icons/3c530b9aadf795d92856c201bc8fe147.png"
 			},
 			{
 				"displayName": "Brawler",
 				"description": "Guardian Melee damage is greatly increased.",
-				"icon": "/common/destiny_content/icons/0b81b85edd966d14489ede1f8242e01c.png"
+				"icon": "/common/destiny_content/icons/5f5273a80f052b458f917f61dc80d89e.png"
 			},
 			{
 				"displayName": "Nightfall",
 				"description": "If all players die, your Fireteam is returned to Orbit.",
-				"icon": "/common/destiny_content/icons/80d9cf08f5d68c92c7b8da76070ffb6f.png"
+				"icon": "/common/destiny_content/icons/37fd11ad411894ffaf246a0297999a6e.png"
 			}
 		],
 		"isPlaylist": false,
@@ -8328,8 +8328,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2701768038,
 		"activityName": "Fist of Crota",
 		"activityDescription": "Face the Fist of Crota leading the Spawn on Earth.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 370529543,
@@ -8356,7 +8356,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -8367,7 +8367,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2704098598,
 		"activityName": "The Devils' Lair",
 		"activityDescription": "The Fallen House of Devils in the Cosmodrome sustains its strength through a single Servitor known as Sepiks Prime. Find where this keeper of souls lies and destroy him.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
@@ -8391,8 +8391,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2708547287,
 		"activityName": "A March of Fire",
 		"activityDescription": "Head to Venus in search of the Sunbreakers, a mercenary clan of Titans.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 25,
 		"completionFlagHash": 1465105130,
@@ -8424,7 +8424,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2719526771,
 		"activityName": "Dust Palace",
 		"activityDescription": "A new Cabal force has unleashed powerful Psion Flayers to seize control of the old Martian Warmind. Face this new threat and secure what remains of the ancient network.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
@@ -8457,7 +8457,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2743106708,
 		"activityName": "Dust Palace",
 		"activityDescription": "A new Cabal force has unleashed powerful Psion Flayers to seize control of the old Martian Warmind. Face this new threat and secure what remains of the ancient network.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
@@ -8481,7 +8481,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2776273577,
 		"activityName": "Cerberus Vae III",
 		"activityDescription": "Just beyond their warbase, Valus Ta'aurc, Fleet Commander of the Cabal Siege Dancers, hides in an Imperial Land Tank. Fight through his guard and stop this terror before he destroys all of Freehold.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
@@ -8505,8 +8505,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2790114296,
 		"activityName": "The Ruling House",
 		"activityDescription": "Scour the Cosmodrome for Skolas and the invading Wolves.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
 		"completionFlagHash": 1172862368,
@@ -8538,7 +8538,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2819394450,
 		"activityName": "Vanguard Legacy",
 		"activityDescription": "Launches a random Legacy strike.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
@@ -8588,7 +8588,7 @@ var DestinyActivityDefinition = {
 		"activityName": "The Sunless Cell",
 		"activityDescription": "Assault a prison deep in the heart of the Dreadnaught and put an end to a Hive champion.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 2001921006,
@@ -8611,7 +8611,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2853745856,
 		"activityName": "The Black Garden",
 		"activityDescription": "Fight through the Gate and enter the Black Garden to destroy its heart.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -8639,7 +8639,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -8675,7 +8675,7 @@ var DestinyActivityDefinition = {
 		"activityName": "The Sunless Cell",
 		"activityDescription": "Assault a prison deep in the heart of the Dreadnaught and put an end to a Hive champion.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 2001921006,
@@ -8746,8 +8746,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2897641944,
 		"activityName": "Blighted Chalice",
 		"activityDescription": "A blight of Taken now roosts In the Hellmouth. Unchecked, they could refocus the Darkness within and descend on the City.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 3299328131,
@@ -8779,8 +8779,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2918909691,
 		"activityName": "Summoner's Circle",
 		"activityDescription": "Stop a coven within the heart of the dreadnaught from creating a powerful Taken warbeast.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3783811726,
@@ -8812,8 +8812,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2926133958,
 		"activityName": "Arsenal",
 		"activityDescription": "\"It takes improvisation to win with what you find on the battlefield.\" —Lord Shaxx\n\nTake the Armament and destroy your foes.",
-		"icon": "/common/destiny_content/icons/335e7a98645c065a74813debe57fdc1e.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/1ad64e762e3814e16623b647d6949153.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 865230713,
@@ -8836,8 +8836,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2931947534,
 		"activityName": "A Kell Rising",
 		"activityDescription": "Head off the House of Wolves on Venus before their Kell, Skolas, can wrest control of the House of Winter.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 16,
 		"completionFlagHash": 913134368,
@@ -8869,8 +8869,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2947742498,
 		"activityName": "Inferno Doubles",
 		"activityDescription": "\"Leave no ally behind and no enemy standing.\" —Lord Shaxx \n\nSmall-team tactics. Kill the enemy. Revive teammates. No trackers and simplified scoring.",
-		"icon": "/common/destiny_content/icons/1843c2bac315e8c84ebfb693ec5e5492.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/8b62a53276c7c4057c9a9fe68c5ec1be.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 1317423109,
@@ -8926,8 +8926,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3025411906,
 		"activityName": "The Archon-Slayer",
 		"activityDescription": "This renegade Wolf was dangerous enough before he murdered one of his own Archons.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 28,
 		"completionFlagHash": 1046756362,
@@ -8960,7 +8960,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Shield Brothers",
 		"activityDescription": "Travel deep into the heart of the Dreadnaught in pursuit of a Cabal assault team. Stop it from detonating the Hive ship's core.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 918224300,
@@ -8983,7 +8983,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3056582947,
 		"activityName": "A Rising Tide",
 		"activityDescription": "Find and destroy the source of the Vex surging to protect the Black Garden.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -9011,7 +9011,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -9023,7 +9023,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Fallen S.A.B.E.R.",
 		"activityDescription": "Rush to the aid of the AI Warmind Rasputin as he broadcasts a plea for help across the system.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 3346707351,
@@ -9046,8 +9046,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3097191720,
 		"activityName": "The Shadow Thief",
 		"activityDescription": "A ruthless Fallen mercenary commanding the Wolfship Kaliks-Syn has been spotted near the Moon. Board the Ketch and end the reign of Taniks, the Scarred.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
 		"completionFlagHash": 1665214730,
@@ -9079,8 +9079,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3098008841,
 		"activityName": "The Will of Crota",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 1872715353,
@@ -9127,8 +9127,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3102291176,
 		"activityName": "The Prime's Path",
 		"activityDescription": "Hunt the Prime Servitor that has brought together the broken House of Wolves.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 1357121139,
@@ -9161,7 +9161,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Salvage",
 		"activityDescription": "\"Treasures and forgotten tech lie waiting in the wake of the Golden Age's collapse. One must be swift and fierce to claim them.\" —Lord Shaxx \n\nRace the other team to capture and hold relics.",
 		"icon": "/common/destiny_content/icons/icon_pvp_43319e992dcbb18bf0936a2fab0c946a.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 2312665730,
@@ -9193,7 +9193,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3120201278,
 		"activityName": "Winter's Run",
 		"activityDescription": "As the Vex march to claim the Ishtar Sink, the Fallen House of Winter is raising a powerful Archon, stolen from the Prison of Elders in the Reef. Find the Archon before they fully restore his soul.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
@@ -9226,7 +9226,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3120351937,
 		"activityName": "The Warmind",
 		"activityDescription": "Break the House of Devils' grasp on the Cosmodrome and secure a vital link to the Golden Age.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 4,
@@ -9259,7 +9259,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3120351938,
 		"activityName": "The Dark Within",
 		"activityDescription": "Investigate reports of a hidden power trapped in the Cosmodrome Array stations.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 3,
@@ -9292,7 +9292,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3120351939,
 		"activityName": "Restoration",
 		"activityDescription": "Return to Fallen territory and hunt for parts to restore your ship's ability for interplanetary travel.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 2,
@@ -9325,8 +9325,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3120351941,
 		"activityName": "Siege of the Warmind",
 		"activityDescription": "Find Rasputin's bunker. Defend it against the Hive attack.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 12,
 		"completionFlagHash": 1669839107,
@@ -9358,7 +9358,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3120351943,
 		"activityName": "The Last Array",
 		"activityDescription": "Track down codes to raise an ancient Array and connect it to long-lost colonies throughout the solar system.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 6,
@@ -9459,12 +9459,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/bbaa7c1d659e6beb18e633e39755c40f.png"
+				"icon": "/common/destiny_content/icons/ae84967f0484a9db0bffeddaa35f0121.png"
 			}
 		],
 		"isPlaylist": false,
@@ -9519,12 +9519,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/bbaa7c1d659e6beb18e633e39755c40f.png"
+				"icon": "/common/destiny_content/icons/ae84967f0484a9db0bffeddaa35f0121.png"
 			}
 		],
 		"isPlaylist": false,
@@ -9627,12 +9627,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/bbaa7c1d659e6beb18e633e39755c40f.png"
+				"icon": "/common/destiny_content/icons/ae84967f0484a9db0bffeddaa35f0121.png"
 			}
 		],
 		"isPlaylist": false,
@@ -9667,8 +9667,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3183184449,
 		"activityName": "Shield Brothers",
 		"activityDescription": "Travel deep into the heart of the Dreadnaught in pursuit of a Cabal assault team. Stop it from detonating the Hive ship's core.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 918224300,
@@ -9700,8 +9700,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3190434637,
 		"activityName": "The Dreadnaught",
 		"activityDescription": "Survive the Dreadnaught's superweapon and establish a beachhead for the Vanguard.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 28,
 		"completionFlagHash": 2617018872,
@@ -9733,8 +9733,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3200293401,
 		"activityName": "Enemy of My Enemy",
 		"activityDescription": "Assault the Cabal ship crashed on the Dreadnaught. Learn what they know about Oryx and his defenses.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3797485144,
@@ -9761,7 +9761,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -9800,27 +9800,27 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/f53c1cd98c9ac72d4c6c451fb36b758f.png"
+				"icon": "/common/destiny_content/icons/84a47e5b4495a9096f61c4a9451d7c03.png"
 			},
 			{
 				"displayName": "Nightfall",
 				"description": "If all players die, your Fireteam is returned to Orbit.",
-				"icon": "/common/destiny_content/icons/80d9cf08f5d68c92c7b8da76070ffb6f.png"
+				"icon": "/common/destiny_content/icons/37fd11ad411894ffaf246a0297999a6e.png"
 			},
 			{
 				"displayName": "Arc Burn",
 				"description": "Arc Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/0445e997c1baf3df07c2e20f60f64b9e.png"
+				"icon": "/common/destiny_content/icons/0cf18a50b727b9dcd6ace4eaf515652c.png"
 			},
 			{
 				"displayName": "Brawler",
 				"description": "Guardian Melee damage is greatly increased.",
-				"icon": "/common/destiny_content/icons/0b81b85edd966d14489ede1f8242e01c.png"
+				"icon": "/common/destiny_content/icons/5f5273a80f052b458f917f61dc80d89e.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/5f64c2e14b45a78d774f820d52c1a56f.png"
+				"icon": "/common/destiny_content/icons/f38607bf7414d70f47a5c32e61706f91.png"
 			}
 		],
 		"isPlaylist": false,
@@ -9831,8 +9831,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3210106079,
 		"activityName": "Patrol the Dreadnaught",
 		"activityDescription": "Board the Taken King's Dreadnaught. Prove the Vanguard's dominance over the Hive and Taken.",
-		"icon": "/common/destiny_content/icons/db10d2b0b8344ed08f4e41222b99f907.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/f3661575fa4d1479056a2ad5df457258.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 35,
 		"completionFlagHash": 835478673,
@@ -9856,7 +9856,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Doubles",
 		"activityDescription": "\"Leave no ally behind, and no enemy standing.\" —Lord Shaxx \n\nSmall-team tactics. Kill the enemy. Revive teammates.",
 		"icon": "/common/destiny_content/icons/icon_pvp_fcef5a437dc31c4478edb531d1e9093f.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 1817554765,
@@ -9904,8 +9904,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3263216023,
 		"activityName": "Regicide",
 		"activityDescription": "Using the power of ascendance, pass through the rupture and put an end to the Taken King.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 34,
 		"completionFlagHash": 3834006058,
@@ -9961,7 +9961,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3292305209,
 		"activityName": "Winter's Run",
 		"activityDescription": "As the Vex march to claim the Ishtar Sink, the Fallen House of Winter is raising a powerful Archon, stolen from the Prison of Elders in the Reef. Find the Archon before they fully restore his soul.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 14,
@@ -9994,7 +9994,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3292305210,
 		"activityName": "The Nexus",
 		"activityDescription": "The Golden Age legends tell of ancient tunnels below the Academy, where a Vex machine once ate away at the planet. Descend into the old dig sites and find this Nexus before it churns again.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 14,
@@ -10051,8 +10051,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3315158082,
 		"activityName": "A Spark in Shadow",
 		"activityDescription": "Head to the tunnels under Freehold on Mars and face down the Conductive Mind for your own source of Arc.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 25,
 		"completionFlagHash": 1907379237,
@@ -10084,8 +10084,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3343284688,
 		"activityName": "Outbound Signal",
 		"activityDescription": "Track a signal from the crashed Cabal ship. Board the Dreadnaught and put an end to this transmission to the stars.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 38,
 		"completionFlagHash": 969440619,
@@ -10117,7 +10117,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3346215145,
 		"activityName": "The Lighthouse",
 		"activityDescription": "Only true champions of the Crucible dare set foot in these fabled halls.",
-		"icon": "/common/destiny_content/icons/4e7327a9d96eeb2c79306339125109b6.png",
+		"icon": "/common/destiny_content/icons/16d3daa457d6833e7f5a0ad3f6e1f23b.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -10141,8 +10141,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3349918649,
 		"activityName": "The Dreadnaught",
 		"activityDescription": "Survive the Dreadnaught's superweapon and establish a beachhead for the Vanguard.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 2617018872,
@@ -10169,7 +10169,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -10180,8 +10180,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3393673804,
 		"activityName": "Prison of Elders",
 		"activityDescription": "Glory and treasure await those who survive.",
-		"icon": "/common/destiny_content/icons/8efcf7a0ef0b531113c3e20aba02a832.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/84c1d7eefdea308020752710d43f823f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 28,
 		"completionFlagHash": 2556072628,
@@ -10245,7 +10245,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3399843400,
 		"activityName": "A Stranger's Call",
 		"activityDescription": "Follow the Stranger's coordinates to a legendary colony lost in the jungles of Venus.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 10,
@@ -10278,7 +10278,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3399843403,
 		"activityName": "Ishtar Collective",
 		"activityDescription": "Unravel the secrets of the Vex by reviving an ancient research station of the Ishtar Collective.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 11,
@@ -10311,7 +10311,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3399843404,
 		"activityName": "The Archive",
 		"activityDescription": "Find the Collective's lost Archive, sealed for centuries, in a vault deep beneath the Ishtar Academy.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 12,
@@ -10344,7 +10344,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3399843406,
 		"activityName": "Eye of a Gate Lord",
 		"activityDescription": "Lure out the Vex Gate Lord that protects the Endless Steps and bring its head back to the Awoken.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 12,
@@ -10377,7 +10377,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3399843407,
 		"activityName": "Scourge of Winter",
 		"activityDescription": "Hunt and kill Draksis, the House of Winter's Kell, hiding deep in the caves of the Ishtar Sink.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 14,
@@ -10459,7 +10459,7 @@ var DestinyActivityDefinition = {
 		"activityName": "The Will of Crota",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 1872715353,
@@ -10482,8 +10482,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3422924470,
 		"activityName": "Blighted Coven",
 		"activityDescription": "Investigate the rumors of a Taken coven in the Cosmodrome.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 2079210505,
@@ -10515,8 +10515,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3427115544,
 		"activityName": "Fallen S.A.B.E.R.",
 		"activityDescription": "Rush to the aid of the AI Warmind Rasputin as he broadcasts a plea for help across the system.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 3346707351,
@@ -10539,7 +10539,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3464398659,
 		"activityName": "Shrine of Oryx",
 		"activityDescription": "Search the darkest corners of the Hellmouth for the fabled Shrine and destroy it.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -10567,7 +10567,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -10578,8 +10578,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3473815980,
 		"activityName": "Fist of Crota",
 		"activityDescription": "Face the Fist of Crota leading the Spawn on Earth.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 10,
 		"completionFlagHash": 370529543,
@@ -10612,7 +10612,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Vanguard Heroic Strikes",
 		"activityDescription": "Launches a random Heroic strike.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3867076814,
@@ -10679,82 +10679,82 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Arc Burn",
 				"description": "Arc Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/0445e997c1baf3df07c2e20f60f64b9e.png"
+				"icon": "/common/destiny_content/icons/0cf18a50b727b9dcd6ace4eaf515652c.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/5f64c2e14b45a78d774f820d52c1a56f.png"
+				"icon": "/common/destiny_content/icons/f38607bf7414d70f47a5c32e61706f91.png"
 			},
 			{
 				"displayName": "Void Burn",
 				"description": "Void damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/3d682f1d2a0995528537cde662fa082d.png"
+				"icon": "/common/destiny_content/icons/fe542c6f2098c5dcab628007d1afd9df.png"
 			},
 			{
 				"displayName": "Berserk",
 				"description": "Minions of the Darkness won't flinch, even after massive damage.",
-				"icon": "/common/destiny_content/icons/1adaf05f966ee499634f90fd40ec05a4.png"
+				"icon": "/common/destiny_content/icons/7a69fc3e8bffa89bcc871b18c18eebe0.png"
 			},
 			{
 				"displayName": "Brawler",
 				"description": "Guardian melee damage is greatly increased.",
-				"icon": "/common/destiny_content/icons/0b81b85edd966d14489ede1f8242e01c.png"
+				"icon": "/common/destiny_content/icons/5f5273a80f052b458f917f61dc80d89e.png"
 			},
 			{
 				"displayName": "Lightswitch",
 				"description": "Minions of the Darkness deal much more melee damage.",
-				"icon": "/common/destiny_content/icons/693b748514ef592125b0da9c77055519.png"
+				"icon": "/common/destiny_content/icons/3c530b9aadf795d92856c201bc8fe147.png"
 			},
 			{
 				"displayName": "Small Arms",
 				"description": "Primary Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/d1721814654c9bbb7f9f154b3839be53.png"
+				"icon": "/common/destiny_content/icons/5c9391dfadfc03b5d5c1ba647894727a.png"
 			},
 			{
 				"displayName": "Specialist",
 				"description": "Special Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/2d30f0665ce9c08469a5d34415766044.png"
+				"icon": "/common/destiny_content/icons/72c9b723355912345eace512e020386c.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/b93b8c2c455a5e1bae5b5a52e2d86047.png"
+				"icon": "/common/destiny_content/icons/392ff5fa779ea9819ec0765b12f145f9.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/bbaa7c1d659e6beb18e633e39755c40f.png"
+				"icon": "/common/destiny_content/icons/ae84967f0484a9db0bffeddaa35f0121.png"
 			},
 			{
 				"displayName": "Bloodthirsty",
 				"description": "Enemies fire more frequently and more accurately.",
-				"icon": "/common/destiny_content/icons/a9929f10d5f035e49bfa12c94fab8713.png"
+				"icon": "/common/destiny_content/icons/76957acce5ad927e7adcb2c42134c49b.png"
 			},
 			{
 				"displayName": "Chaff",
 				"description": "Player radar is disabled.",
-				"icon": "/common/destiny_content/icons/0cf23137c80c27cf2732f195d4495a86.png"
+				"icon": "/common/destiny_content/icons/0d5464718c17eeb277d8106d6501f33b.png"
 			},
 			{
 				"displayName": "Fresh Troops",
 				"description": "Some enemy squads have been fortified with additional reinforcements.",
-				"icon": "/common/destiny_content/icons/53662b0c21263e840bbfe9e05c8efa0b.png"
+				"icon": "/common/destiny_content/icons/c1fde42dc835887d9849b0e4ec52ee44.png"
 			},
 			{
 				"displayName": "Ironclad",
 				"description": "More enemies have shields.",
-				"icon": "/common/destiny_content/icons/9406e6abbba35de64685e67d3a2f0c4b.png"
+				"icon": "/common/destiny_content/icons/ded643195238f0d71262bb7ffe02921c.png"
 			},
 			{
 				"displayName": "Match Game",
 				"description": "Enemy shields are resistant to all unmatched Elemental Damage.",
-				"icon": "/common/destiny_content/icons/ca0ebebe6b962e7ee9117c9b9c4c664e.png"
+				"icon": "/common/destiny_content/icons/7c944b0ae9fe2938847866187f248e87.png"
 			}
 		],
 		"isPlaylist": true,
@@ -10765,8 +10765,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3493774909,
 		"activityName": "The Taken King: Prelude",
 		"activityDescription": "The death of Crota was a beacon, a signal cast across the stars. The night has answered.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 1298094920,
@@ -10789,8 +10789,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3508129769,
 		"activityName": "Cult of the Worm",
 		"activityDescription": "Gulrot, Unclean has been summoned by the Worm Keepers. Don't let the beast's filth spread beyond the prison.",
-		"icon": "/common/destiny_content/icons/8efcf7a0ef0b531113c3e20aba02a832.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/84c1d7eefdea308020752710d43f823f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 2564776432,
@@ -10826,8 +10826,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3508129770,
 		"activityName": "Cult of the Worm",
 		"activityDescription": "Gulrot, Unclean has been summoned by the Worm Keepers. Don't let the beast's filth spread beyond the prison.",
-		"icon": "/common/destiny_content/icons/8efcf7a0ef0b531113c3e20aba02a832.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/84c1d7eefdea308020752710d43f823f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 34,
 		"completionFlagHash": 2564776432,
@@ -10868,7 +10868,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Skirmish",
 		"activityDescription": "\"Leave no ally behind, and no enemy standing.\" —Lord Shaxx \n\nSmall-team tactics. Kill the enemy. Revive teammates.",
 		"icon": "/common/destiny_content/icons/icon_pvp_861c57fe187f7ab2743a647b73dd1973.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 3408788159,
@@ -10900,8 +10900,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3534581229,
 		"activityName": "King's Fall",
 		"activityDescription": "Long live the King.",
-		"icon": "/common/destiny_content/icons/1dabf4d35cf3ba13e3b3e8e48ac91d0c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/16cf6e38ea80a54d99a4f00926de7c56.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 2897846040,
@@ -10928,22 +10928,22 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Golgoroth Challenge",
 				"description": "You have been challenged...",
-				"icon": "/common/destiny_content/icons/a7ae68d394ebb69fa0236b24bc79ad40.png"
+				"icon": "/common/destiny_content/icons/098ef2f64cb7ad5287f5e230723d60eb.png"
 			},
 			{
 				"displayName": "Oryx Challenge",
 				"description": "You have been challenged...",
-				"icon": "/common/destiny_content/icons/f7da5ffe9b91bb73c3d6a0e6cbd47a13.png"
+				"icon": "/common/destiny_content/icons/616b6d75e30bf906285304cd8a08d09c.png"
 			},
 			{
 				"displayName": "Warpriest Challenge",
 				"description": "You have been challenged...",
-				"icon": "/common/destiny_content/icons/748c6c1df0715557cc6d70aac0a9738a.png"
+				"icon": "/common/destiny_content/icons/c3e88870309fc30920f87401a9808234.png"
 			}
 		],
 		"isPlaylist": false,
@@ -10954,8 +10954,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3543525727,
 		"activityName": "Queen's Ransom",
 		"activityDescription": "Follow Skolas into Vex territory to aid in his capture for the Queen.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 842203843,
@@ -10982,7 +10982,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -10993,8 +10993,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3549856929,
 		"activityName": "Siege of the Warmind",
 		"activityDescription": "Find Rasputin's bunker. Defend it against the Hive attack.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1669839107,
@@ -11021,7 +11021,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -11032,8 +11032,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3565777280,
 		"activityName": "Knock Knock",
 		"activityDescription": "Hold the line against a brutal assault by the broken House of Wolves.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 204783099,
@@ -11065,8 +11065,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3575520714,
 		"activityName": "Shield Brothers",
 		"activityDescription": "Travel deep into the heart of the Dreadnaught in pursuit of a Cabal assault team. Stop it from detonating the Hive ship's core.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 918224300,
@@ -11093,12 +11093,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/f53c1cd98c9ac72d4c6c451fb36b758f.png"
+				"icon": "/common/destiny_content/icons/84a47e5b4495a9096f61c4a9451d7c03.png"
 			},
 			{
 				"displayName": "Specialist",
 				"description": "Special Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/2d30f0665ce9c08469a5d34415766044.png"
+				"icon": "/common/destiny_content/icons/72c9b723355912345eace512e020386c.png"
 			}
 		],
 		"isPlaylist": false,
@@ -11109,8 +11109,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3575840788,
 		"activityName": "Wolves' Gambit",
 		"activityDescription": "Track Skolas and his crew of Wolves along the Ishtar Cliffs.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 22,
 		"completionFlagHash": 3638778960,
@@ -11142,7 +11142,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3593950004,
 		"activityName": "Destiny Credits",
 		"activityDescription": "Plays cinematic credits",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -11190,7 +11190,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3635588435,
 		"activityName": "The Speaker",
 		"activityDescription": "The Hive are on Earth, and the Speaker will need your assistance in meeting the threat.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 2,
@@ -11214,7 +11214,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3645919501,
 		"activityName": "Patrol Cosmodrome",
 		"activityDescription": "Scour the Old Russian launch port and aid the City in their exploration efforts.",
-		"icon": "/common/destiny_content/icons/db10d2b0b8344ed08f4e41222b99f907.png",
+		"icon": "/common/destiny_content/icons/f3661575fa4d1479056a2ad5df457258.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 4,
@@ -11256,7 +11256,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Trials of Osiris",
 		"activityDescription": "Only those who have proven their worth may enter the Trials.\n\nA string of victories will earn great rewards, but lose too many matches and your access will be denied.",
 		"icon": "/img/theme/destiny/icons/osiris_diamond.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 377969578,
@@ -11279,7 +11279,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3671763238,
 		"activityName": "Cerberus Vae III",
 		"activityDescription": "Just beyond their warbase, Valus Ta'aurc, Fleet Commander of the Cabal Siege Dancers, hides in an Imperial Land Tank. Fight through his guard and stop this terror before he destroys all of Freehold.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
@@ -11312,8 +11312,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3674885127,
 		"activityName": "Regicide",
 		"activityDescription": "Using the power of ascendance, pass through the rupture and put an end to the Taken King.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3834006058,
@@ -11340,7 +11340,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -11351,8 +11351,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3700036317,
 		"activityName": "Oryx Triumphant",
 		"activityDescription": "The Taken King revels in his triumph over the Cabal on Phobos.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
 		"completionFlagHash": 1227140840,
@@ -11375,8 +11375,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3705341715,
 		"activityName": "A Ranger Found",
 		"activityDescription": "Hold the line against the Vex of the Black Garden and save the Nightstalker Tevis.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 25,
 		"completionFlagHash": 715206198,
@@ -11408,8 +11408,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3708806801,
 		"activityName": "Entropy's Pinnacle",
 		"activityDescription": "Scale the Vex Citadel and hunt down the source of Venus's blight.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 232710236,
@@ -11441,7 +11441,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3711414560,
 		"activityName": "Chamber of Night",
 		"activityDescription": "Scour the Hive Fortress for a chamber where the Speaker believes a dark ritual is silencing the Traveler.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 9,
@@ -11474,7 +11474,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3711414561,
 		"activityName": "The Sword of Crota",
 		"activityDescription": "Infiltrate the Hive Fortress and destroy the legendary Sword of Crota, a weapon once used to slay thousands of Guardians.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 8,
@@ -11507,8 +11507,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3711414562,
 		"activityName": "The Wakening",
 		"activityDescription": "Go to the Temple of Crota and destroy Crota's soul.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 14,
 		"completionFlagHash": 1973216040,
@@ -11540,7 +11540,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3711414563,
 		"activityName": "Shrine of Oryx",
 		"activityDescription": "Search the darkest corners of the Hellmouth for the fabled Shrine and destroy it.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 9,
@@ -11573,7 +11573,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3711414564,
 		"activityName": "The Dark Beyond",
 		"activityDescription": "Follow the trail of a Guardian who went dark searching for a way into the Hive Fortress.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 7,
@@ -11610,7 +11610,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3711414566,
 		"activityName": "The World's Grave",
 		"activityDescription": "Descend into the Hellmouth to a Hive library which holds ancient secrets they have ripped from Earth.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 8,
@@ -11643,8 +11643,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3715085142,
 		"activityName": "Shadow Call",
 		"activityDescription": "Ascend the Devil's Spire and outrace the Darkness that follows close behind.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 2399059369,
@@ -11704,27 +11704,27 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/f53c1cd98c9ac72d4c6c451fb36b758f.png"
+				"icon": "/common/destiny_content/icons/84a47e5b4495a9096f61c4a9451d7c03.png"
 			},
 			{
 				"displayName": "Nightfall",
 				"description": "If all players die, your Fireteam is returned to Orbit.",
-				"icon": "/common/destiny_content/icons/80d9cf08f5d68c92c7b8da76070ffb6f.png"
+				"icon": "/common/destiny_content/icons/37fd11ad411894ffaf246a0297999a6e.png"
 			},
 			{
 				"displayName": "Angry",
 				"description": "Minions of the Darkness won't flinch, even after massive damage.",
-				"icon": "/common/destiny_content/icons/1adaf05f966ee499634f90fd40ec05a4.png"
+				"icon": "/common/destiny_content/icons/7a69fc3e8bffa89bcc871b18c18eebe0.png"
 			},
 			{
 				"displayName": "Brawler",
 				"description": "Guardian Melee damage is greatly increased.",
-				"icon": "/common/destiny_content/icons/0b81b85edd966d14489ede1f8242e01c.png"
+				"icon": "/common/destiny_content/icons/5f5273a80f052b458f917f61dc80d89e.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/bbaa7c1d659e6beb18e633e39755c40f.png"
+				"icon": "/common/destiny_content/icons/ae84967f0484a9db0bffeddaa35f0121.png"
 			}
 		],
 		"isPlaylist": false,
@@ -11735,7 +11735,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3743955707,
 		"activityName": "Tower",
 		"activityDescription": "Home of the Guardians, where you can regroup, rearm, and form new alliances before venturing beyond.",
-		"icon": "/common/destiny_content/icons/4e7327a9d96eeb2c79306339125109b6.png",
+		"icon": "/common/destiny_content/icons/16d3daa457d6833e7f5a0ad3f6e1f23b.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -11759,7 +11759,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3784570118,
 		"activityName": "The Archive",
 		"activityDescription": "Find the Collective's lost Archive, sealed for centuries, in a vault deep beneath the Ishtar Academy.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -11787,7 +11787,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -11870,8 +11870,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3921931055,
 		"activityName": "The Will of Crota",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
 		"completionFlagHash": 1872715353,
@@ -11894,8 +11894,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3974631085,
 		"activityName": "Enemy of My Enemy",
 		"activityDescription": "Assault the Cabal ship crashed on the Dreadnaught. Learn what they know about Oryx and his defenses.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 30,
 		"completionFlagHash": 3797485144,
@@ -11927,8 +11927,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 4027720491,
 		"activityName": "Shield Brothers",
 		"activityDescription": "Travel deep into the heart of the Dreadnaught in pursuit of a Cabal assault team. Stop it from detonating the Hive ship's core.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 918224300,
@@ -11951,8 +11951,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 4046346128,
 		"activityName": "Fear's Embrace",
 		"activityDescription": "Return to the base on Phobos. Kill the Wizard and claim the Essence of the Feast.",
-		"icon": "/common/destiny_content/icons/850c5a02e5a8e332270f7744bdc2793c.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/62c44e146896b5795aa40fb0d8be1182.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 2747738539,
@@ -11985,7 +11985,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Rift",
 		"activityDescription": "\"This all started as a Warlock focus drill. The things I've seen them do with Rifts would be...very useful on a battlefield.\" —Lord Shaxx \n\nCollect the Spark and ignite the enemy's Rift with it.",
 		"icon": "/common/destiny_content/icons/icon_pvp_b6f9fe6fcff889bbb26025643266f403.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 2398239304,
@@ -12017,7 +12017,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 4060895971,
 		"activityName": "Tower",
 		"activityDescription": "Home of the Guardians, where you can regroup, rearm, and form new alliances before venturing beyond.",
-		"icon": "/common/destiny_content/icons/4e7327a9d96eeb2c79306339125109b6.png",
+		"icon": "/common/destiny_content/icons/16d3daa457d6833e7f5a0ad3f6e1f23b.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -12041,8 +12041,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 4079642013,
 		"activityName": "Broken Legion",
 		"activityDescription": "Valus Trau'ug seeks to prove his might by crushing all who challenge him.",
-		"icon": "/common/destiny_content/icons/8efcf7a0ef0b531113c3e20aba02a832.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/84c1d7eefdea308020752710d43f823f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 4146915710,
@@ -12078,8 +12078,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 4079642014,
 		"activityName": "Broken Legion",
 		"activityDescription": "Valus Trau'ug seeks to prove his might by crushing all who challenge him.",
-		"icon": "/common/destiny_content/icons/8efcf7a0ef0b531113c3e20aba02a832.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"icon": "/common/destiny_content/icons/84c1d7eefdea308020752710d43f823f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 34,
 		"completionFlagHash": 4146915710,
@@ -12119,8 +12119,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 4087776066,
 		"activityName": "Cayde's Stash",
 		"activityDescription": "Ascend a colony ship in the Cosmodrome in search of Cayde's lost cache.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 26,
 		"completionFlagHash": 2306572581,
@@ -12176,8 +12176,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 4129878327,
 		"activityName": "Inferno Salvage",
 		"activityDescription": "\"Treasures and forgotten tech lie waiting in the wake of the Golden Age's collapse. One must be swift and fierce to claim them.\" —Lord Shaxx \n\nRace the other team to capture and hold relics. No trackers and simplified scoring.",
-		"icon": "/common/destiny_content/icons/6f8cd4d18891e5b4b3c8abe022042aa0.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/d6b2c5bd1d615108e7b0fadbb6dfa440.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 3806817098,
@@ -12250,7 +12250,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Iron Banner Clash",
 		"activityDescription": "\"No mercy. No hesitation. It'll take nothing less to defeat the Darkness.\" —Lord Shaxx \n\nAll-out team warfare. Destroy the enemy. Impress the Lords of Iron.",
 		"icon": "/common/destiny_content/icons/0ee91b79ba1366243832cf810afc3b75.jpg",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 831864072,
@@ -12274,7 +12274,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 26,
 		"completionFlagHash": 4185808066,
@@ -12317,12 +12317,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Specialist",
 				"description": "Special Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/2d30f0665ce9c08469a5d34415766044.png"
+				"icon": "/common/destiny_content/icons/72c9b723355912345eace512e020386c.png"
 			}
 		],
 		"isPlaylist": false,
@@ -12334,7 +12334,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 30,
 		"completionFlagHash": 4185808067,
@@ -12401,12 +12401,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Specialist",
 				"description": "Special Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/2d30f0665ce9c08469a5d34415766044.png"
+				"icon": "/common/destiny_content/icons/72c9b723355912345eace512e020386c.png"
 			}
 		],
 		"isPlaylist": false,
@@ -12418,7 +12418,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/8b48a3ec2fdec667bb37085c8e39778f.png",
+		"releaseIcon": "/common/destiny_content/icons/ca1eb24a88cf3ae8cbbbd11d05b630e6.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 4185808064,
@@ -12509,12 +12509,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			},
 			{
 				"displayName": "Specialist",
 				"description": "Special Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/2d30f0665ce9c08469a5d34415766044.png"
+				"icon": "/common/destiny_content/icons/72c9b723355912345eace512e020386c.png"
 			}
 		],
 		"isPlaylist": false,
@@ -12525,7 +12525,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 4187524452,
 		"activityName": "The Undying Mind",
 		"activityDescription": "Enter the Black Garden and claim the Essence of the Feast.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
@@ -12544,7 +12544,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/e8f372240834f0e2a06584aa554658be.png"
+				"icon": "/common/destiny_content/icons/b942cc7cd8e20f823746f47efa805cb7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -12555,8 +12555,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 4196724507,
 		"activityName": "Inferno Rumble",
 		"activityDescription": "\"Pure combat. Your only job is to make sure you're still standing when the dust settles.\" —Lord Shaxx \n\nKill everything. Watch your back. No trackers. Only kills earn points.",
-		"icon": "/common/destiny_content/icons/28aac181ef13a5395c5f9151c6c4b79e.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/b0bbe05238ab143f0a1efd895ae615cf.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 1592451374,
@@ -12628,8 +12628,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 4222208550,
 		"activityName": "SRL",
 		"activityDescription": "\"Speed is a weapon. Learn to wield it or be left behind.\" —Lord Shaxx\n\nSparrow racing.",
-		"icon": "/common/destiny_content/icons/67bcfef32e0459c6d2814865fd625ad2.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/246219e3d71847dbfdbea7df268de2c3.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 1630162137,
@@ -12651,7 +12651,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 4227723344,
 		"activityName": "The Devils' Lair",
 		"activityDescription": "The Fallen House of Devils in the Cosmodrome sustains its strength through a single Servitor known as Sepiks Prime. Find where this keeper of souls lies and destroy him.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 8,
@@ -12684,8 +12684,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 4227723347,
 		"activityName": "The Will of Crota",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
-		"releaseIcon": "/common/destiny_content/icons/913c5764d6ae30e6007a3f825791e126.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
+		"releaseIcon": "/common/destiny_content/icons/c5b3d9515767a5585709d5c5780371e8.png",
 		"releaseTime": 0,
 		"activityLevel": 16,
 		"completionFlagHash": 1872715353,
@@ -12717,7 +12717,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 4239017990,
 		"activityName": "A Key Awaits",
 		"activityDescription": "Present the Gate Lord's head to the Queen for entrance into the Black Garden.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 13,
@@ -12741,8 +12741,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 4240750267,
 		"activityName": "The Promethean Code",
 		"activityDescription": "Slip past Rasputin's defenses and download stealth code protocols from his Golden Age database.",
-		"icon": "/common/destiny_content/icons/42bcde5122ba7c11443079e4fd8f1dfd.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"icon": "/common/destiny_content/icons/c64d64f94a3644b35123e87e013241a9.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 1287108046,
@@ -12775,7 +12775,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Control",
 		"activityDescription": "\"It's a tactical exercise in reinforcing and defending acquired territory. Should the Vanguard ever decide to expand past the walls of the City, the Guardians will be ready.\" —Lord Shaxx\n\nCapture zones to increase points for every kill.",
 		"icon": "/common/destiny_content/icons/icon_pvp_80209e5d3802747a308bbdbe12bee676.png",
-		"releaseIcon": "/common/destiny_content/icons/620a44d460dfdcf5e3a4682942695404.png",
+		"releaseIcon": "/common/destiny_content/icons/7b29b51a985ea36843f303ddf6fd4f8a.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 3272430294,
@@ -12807,7 +12807,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 4253541885,
 		"activityName": "Winter's Run",
 		"activityDescription": "As the Vex march to claim the Ishtar Sink, the Fallen House of Winter is raising a powerful Archon, stolen from the Prison of Elders in the Reef. Find the Archon before they fully restore his soul.",
-		"icon": "/common/destiny_content/icons/180e38a661408ba17d39beac44232b42.png",
+		"icon": "/common/destiny_content/icons/1baaa7b7754e7d12de35d76ab0eec306.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
