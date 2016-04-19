@@ -7,7 +7,8 @@ Object.prototype[Symbol.iterator] = function() {
 			let done = index >= keyList.length;
 			index++;
 			return {
-				value, done
+				value,
+				done
 			};
 		}
 	};
@@ -21,7 +22,7 @@ var data = {
 };
 var oldInventories = {};
 var oldProgression = {};
-var relevantStats = ["itemHash", "itemInstanceId", "isEquipped", "itemInstanceId", "stackSize", "itemLevel", "qualityLevel", "stats", "primaryStat", "equipRequiredLevel", "damageTypeHash", "progression", "talentGridHash", "nodes", "isGridComplete"];
+var relevantStats = ["itemHash", "itemInstanceId", "isEquipped", "itemInstanceId", "stackSize", "itemLevel", "qualityLevel", "stats", "primaryStat", "equipRequiredLevel", "damageTypeHash", "progression", "talentGridHash", "nodes", "isGridComplete", "objectives"];
 var characterIdList = ["vault"];
 var characterDescriptions = {
 	"vault": {
@@ -164,6 +165,20 @@ function buildCompactItem(itemData, bucketHash) {
 			newItemData.stats[e].statName = DestinyStatDefinition[newItemData.stats[e].statHash].statName;
 		}
 	}
+	if (newItemData.objectives) {
+		var completed = 0;
+		var completionValue = 0;
+		for (var l = 0; l < newItemData.objectives.length; l++) {
+			newItemData.objectives[l].displayDescription = DestinyObjectiveDefinition[newItemData.objectives[l].objectiveHash].displayDescription;
+			newItemData.objectives[l].completionValue = DestinyObjectiveDefinition[newItemData.objectives[l].objectiveHash].completionValue;
+			completed += newItemData.objectives[l].progress;
+			completionValue += newItemData.objectives[l].completionValue;
+		}
+		if (completed === completionValue) {
+			newItemData.isGridComplete = true;
+		}
+		newItemData.stackSize = ((completed / completionValue) * 100) + "%";
+	}
 	if (newItemData.damageTypeHash) {
 		newItemData.damageTypeName = DestinyDamageTypeDefinition[newItemData.damageTypeHash].damageTypeName;
 	}
@@ -186,6 +201,10 @@ function buildCompactItem(itemData, bucketHash) {
 		} else {
 			newItemData.nodes = sortedNodes;
 		}
+	}
+	if(hash === 558220466) {
+		console.log(completed,completionValue)
+		console.log(itemData,newItemData)
 	}
 	return newItemData;
 }

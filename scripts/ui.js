@@ -88,7 +88,7 @@ function createDate(timestamp, className) {
 	subContainer.classList.add("sub-section");
 	subContainer.classList.add(className);
 	subContainer.textContent = moment.utc(timestamp).tz(moment.tz.guess()).fromNow();
-	subContainer.setAttribute("title",moment.utc(timestamp).tz(moment.tz.guess()).format("llll"));
+	subContainer.setAttribute("title", moment.utc(timestamp).tz(moment.tz.guess()).format("llll"));
 	return subContainer;
 }
 
@@ -236,6 +236,8 @@ function elementType(itemData) {
 function primaryStatName(itemData) {
 	if (itemData.primaryStat) {
 		return itemData.primaryStat.statName;
+	} else if (itemData.bucketHash === 2197472680) {
+		return "Completed"
 	} else {
 		return "Quantity";
 	}
@@ -303,11 +305,5 @@ function setTooltipData(dataset) {
 		tooltip.classList.add(dataset.tierTypeName.toLowerCase(), dataset.damageTypeName.toLowerCase());
 	} catch (e) {
 		console.log(dataset)
-	}
-}
-for(var i=0;i<data.itemChanges.length;i++) {
-	var item = data.itemChanges[i];
-	if(item.added.length > 10 || item.removed.length > 10 || item.transferred.length > 10) {
-		console.log(i,item)
 	}
 }

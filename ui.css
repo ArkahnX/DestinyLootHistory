@@ -347,3 +347,8 @@ input[disabled]:hover {
 .tooltip .hidden {
 	display:none;
 }
+
+#date .sub-section {
+	font-weight:bold;
+	font-size:1.6em;
+}
