@@ -28,7 +28,9 @@ var characterDescriptions = {
 	"vault": {
 		name: "Vault",
 		gender: "",
-		level: "0"
+		level: "0",
+		race: "",
+		light: ""
 	}
 };
 
@@ -70,7 +72,64 @@ function initItems(callback) {
 
 			console.timeEnd("load Bungie Data");
 			callback();
-			startListening();
+			checkInventory();
+		});
+	});
+}
+
+function checkInventory() {
+	console.time("Bungie Inventory");
+	sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
+		sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
+			var characterHistory = document.getElementById("history");
+			var inventoryData = [];
+			for (var characterId in data.inventories) {
+				Array.prototype.push.apply(inventoryData, data.inventories[characterId]);
+			}
+			inventoryData.sort(function(a, b) {
+				return a.itemInstanceId - b.itemInstanceId;
+			});
+			for (var i = inventoryData.length - 1; i >= 0; i--) {
+				if (inventoryData[i].itemInstanceId === "0") {
+					inventoryData.splice(i, 1);
+				}
+			}
+
+			console.log(inventoryData);
+			var sources = ["SOURCE_CROTAS_END", "SOURCE_PRISON_ELDERS", "SOURCE_TTK"];
+			var div = document.createElement("div");
+			div.classList.add("sub-section");
+			var description = document.createElement("div");
+			description.textContent = "Base Game";
+			div.appendChild(description);
+			var sourceIndex = 0;
+			for (var item of inventoryData) {
+				var found = false;
+				if (item.sources && item.sources.length && sources[sourceIndex] && item.sources.indexOf(sources[sourceIndex]) > -1) {
+					if (sources[sourceIndex - 1]) {
+						if (item.sources.indexOf(sources[sourceIndex - 1]) === -1) {
+							if(item.itemLevel > 22) {
+							found = true;
+						}
+						}
+					} else {
+						found = true;
+					}
+					if (found) {
+						var source = sources[sourceIndex];
+						characterHistory.appendChild(div);
+						div = document.createElement("div");
+						div.classList.add("sub-section");
+						div.classList.add(source);
+						var description = document.createElement("div");
+						description.textContent = source;
+						div.appendChild(description);
+						sourceIndex++;
+					}
+				}
+				div.appendChild(makeItem(item, "vault"));
+			}
+			characterHistory.appendChild(div);
 		});
 	});
 }
@@ -160,6 +219,11 @@ function buildCompactItem(itemData, bucketHash) {
 	newItemData.tierTypeName = DestinyCompactItemDefinition[hash].tierTypeName;
 	newItemData.bucketHash = bucketHash;
 	newItemData.bucketName = DestinyInventoryBucketDefinition[bucketHash].bucketName;
+	if (newItemData.stats) {
+		for (var e = 0; e < newItemData.stats.length; e++) {
+			newItemData.stats[e].statName = DestinyStatDefinition[newItemData.stats[e].statHash].statName;
+		}
+	}
 	if (DestinyCompactItemDefinition[hash].sourceHashes) {
 		var sourceHashes = DestinyCompactItemDefinition[hash].sourceHashes;
 		for (var q = 0; q < sourceHashes.length; q++) {
@@ -171,11 +235,6 @@ function buildCompactItem(itemData, bucketHash) {
 				}
 				newItemData.sources.push(rewardSource.identifier);
 			}
-		}
-	}
-	if (newItemData.stats) {
-		for (var e = 0; e < newItemData.stats.length; e++) {
-			newItemData.stats[e].statName = DestinyStatDefinition[newItemData.stats[e].statHash].statName;
 		}
 	}
 	if (newItemData.objectives) {
@@ -216,158 +275,4 @@ function buildCompactItem(itemData, bucketHash) {
 		}
 	}
 	return newItemData;
-}
-
-function handleInput(source, alt) {
-	if (typeof source !== "undefined") {
-		if (typeof source === "string") {
-			return JSON.parse(source);
-		}
-		return source;
-	}
-	return alt;
-}
-
-function checkDiff(sourceArray, newArray) {
-	var itemsRemovedFromSource = [];
-	for (var i = 0; i < sourceArray.length; i++) {
-		var found = false;
-		for (var e = 0; e < newArray.length; e++) {
-			if (newArray[e].itemInstanceId === sourceArray[i].itemInstanceId && newArray[e].itemHash === sourceArray[i].itemHash) {
-				found = true;
-				if (newArray[e].stackSize !== sourceArray[i].stackSize) {
-					var newItem = JSON.parse(JSON.stringify(sourceArray[i]));
-					newItem.stackSize = sourceArray[i].stackSize - newArray[e].stackSize;
-					if (newItem.stackSize > 0) {
-						itemsRemovedFromSource.push(JSON.stringify(newItem));
-					}
-				}
-			}
-		}
-		if (found === false) {
-			itemsRemovedFromSource.push(JSON.stringify(sourceArray[i]));
-		}
-	}
-	return itemsRemovedFromSource;
-}
-
-function checkFactionDiff(sourceArray, newArray) {
-	var itemsRemovedFromSource = [];
-	for (var i = 0; i < sourceArray.length; i++) {
-		for (var e = 0; e < newArray.length; e++) {
-			var diff = false;
-			if (newArray[e].progressionHash == sourceArray[i].progressionHash) {
-				var newItem = {
-					progressionHash: newArray[e].progressionHash,
-					name: DestinyProgressionDefinition[newArray[e].progressionHash].name
-				};
-				for (var attr in newArray[e]) {
-					if (newArray[e][attr] !== sourceArray[i][attr]) {
-						diff = true;
-						newItem[attr] = sourceArray[i][attr] - newArray[e][attr];
-					}
-				}
-				if (diff) {
-					itemsRemovedFromSource.push(newItem);
-				}
-			}
-		}
-	}
-	return itemsRemovedFromSource;
-}
-
-function isSameItem(item1, item2) {
-	if (item1 === item2) {
-		return true;
-	}
-	if (typeof item1 === "string") {
-		item1 = JSON.parse(item1);
-	}
-	if (typeof item2 === "string") {
-		item2 = JSON.parse(item2);
-	}
-	if (item1.itemHash === item2.itemHash) {
-		if (item1.stackSize === item2.stackSize) {
-			if (item1.itemInstanceId === item2.itemInstanceId) {
-				return true;
-			}
-		}
-	}
-	return false;
-}
-
-
-var listenLoop = null;
-var stopLoop = null;
-
-function checkInventory() {
-	console.time("Bungie Inventory");
-	sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
-		sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
-			chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
-				console.timeEnd("Bungie Inventory");
-				console.time("Local Inventory");
-				data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
-				data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
-				// data.progression = handleInput(result.progression, data.progression);
-				// data.inventories = handleInput(result.inventories, data.inventories);
-				oldProgression = handleInput(result.progression, data.progression);
-				oldInventories = handleInput(result.inventories, data.inventories);
-				console.timeEnd("load Bungie Data");
-				processDifference();
-			});
-		});
-	});
-	// sequence(characterIdList, calculateDifference, parseNewItems).then(function() {
-	// sequence(characterIdList, calculateDifference, _internalDiffCheck).then(function() {
-	// 	sequence(characterIdList, checkFactionRank, factionRepChanges).then(function() {
-	// 		chrome.storage.local.set(data);
-	// 		// loadGameData();
-	// 	});
-	// });
-	// for (var c = 0; c < avatars.length; c++) {
-	// 	if (avatars[c] === "vault") {
-	// 		calculateDifference("vault", callback);
-	// 	} else {
-	// 		calculateDifference(avatars[c].characterBase.characterId, callback);
-	// 	}
-	// }
-}
-
-function startListening() {
-	if (listenLoop === null) {
-		trackIdle();
-		var header = document.querySelector("#status");
-		header.classList.remove("idle");
-		header.classList.add("active");
-		var element = document.querySelector("#startTracking");
-		element.setAttribute("value", "Stop Tracking");
-		checkInventory();
-		listenLoop = setInterval(function() {
-			checkInventory();
-		}, 15000);
-	}
-}
-
-function stopListening() {
-	if (listenLoop !== null) {
-		var header = document.querySelector("#status");
-		header.classList.add("idle");
-		header.classList.remove("active");
-		var element = document.querySelector("#startTracking");
-		element.setAttribute("value", "Begin Tracking");
-		clearInterval(listenLoop);
-		listenLoop = null;
-		clearInterval(stopLoop);
-		stopLoop = null;
-	}
-}
-
-function trackIdle() {
-	if (stopLoop !== null) {
-		clearInterval(stopLoop);
-	}
-	stopLoop = setInterval(function() {
-		stopListening();
-	}, 1000 * 60 * 30);
 }

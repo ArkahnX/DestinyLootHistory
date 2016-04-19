@@ -4,32 +4,34 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Loot History</title>
 	<link rel="stylesheet" type="text/css" href="ui.css">
+	<style>
+	.item {
+		width:96px;
+		height:96px;
+	}
+	#container {
+		height: calc(100% - 32px);
+	}
+	.sub-section {
+		margin-bottom:30px;
+	}
+	</style>
 </head>
 
 <body>
-	<header id="status">
+	<header id="status" class="hidden">
 		<nav>
 			<input type="button" value="Begin Tracking" id="startTracking" disabled />
 		</nav>
 	</header>
 	<div class="title-bar">
-			<div class="center">
-				<div class="title"><h1 class="section-title">DATE</h1></div>
-				<div class="title"><h1 class="section-title">ADDED</h1></div>
-				<div class="title"><h1 class="section-title">REMOVED</h1></div>
-				<div class="title"><h1 class="section-title">TRANSFERRED</h1></div>
+			<div class="center" id="character-headers" style="text-align: center;">
+				<div class="title"><h1 class="section-title">ITEM HISTORY</h1></div>
 			</div>
 		</div>
 	<div id="container">
-		<div class="center">
-			<div id="date" class="main-section">
-			</div>
-			<div id="added" class="main-section">
-			</div>
-			<div id="removed" class="main-section">
-			</div>
-			<div id="transferred" class="main-section">
-			</div>
+		<div class="center" id="character-sections">
+			<div id="history" class="main-section" style="width: inherit;"></div>
 		</div>
 	</div>
 	<div id="tooltip" class="hidden">
@@ -61,8 +63,7 @@
 	<script type="text/javascript" src="scripts/vendor/moment.js"></script>
 	<script type="text/javascript" src="scripts/vendor/moment-timezone.js"></script>
 	<script type="text/javascript" src="scripts/bungie.js"></script>
-	<script type="text/javascript" src="scripts/items.js"></script>
-	<script type="text/javascript" src="scripts/itemDiff.js"></script>
+	<script type="text/javascript" src="scripts/history.js"></script>
 	<script type="text/javascript" src="scripts/ui.js"></script>
 	<script type="text/javascript" src="scripts/newui.js"></script>
 </body>
