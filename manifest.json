@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Destiny Loot Tracker",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"description": "Robust interface to manage gear, weapons, and items in destiny.",
 	"icons": {
 		"16": "icon16.png",
@@ -19,15 +19,14 @@
 		"storage",
 		"*://*.bungie.net/*",
 		"cookies",
-		"tabs",
-		"unlimitedStorage",
-		"downloads"
+		"unlimitedStorage"
 	],
+	"optional_permissions": ["downloads"],
 	"browser_action": {
 		"default_icon": "icon16.png"
 	},
 	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
 	"incognito": "split",
 	"offline_enabled": false,
-	"options_page": "window.html"
+	"options_page": "options.html"
 }

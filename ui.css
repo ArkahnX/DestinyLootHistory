@@ -352,3 +352,37 @@ input[disabled]:hover {
 	font-weight:bold;
 	font-size:1.6em;
 }
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-left:12px;
+ }
+
+ label {
+ 	box-shadow:0 1px 4px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.2) inset;
+ 	padding:12px;
+ 	margin:12px;
+ 	vertical-align: middle;
+ 	font-size:23px;
+ 	background: rgba(255,255,255,0.5);
+ 	border-radius:3px;
+ 	cursor:pointer;
+ }
+
+ .loading {
+ 	background-color: #7AC0FF;
+	background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+	background-size: 40px 40px;
+	animation: progress-bar-stripes 2s linear infinite;
+}
+
+#drop_zone {
+	border: 2px dashed #bbb;
+	border-radius: 10px;
+	padding: 25px;
+	text-align: center;
+	color: #bbb;
+	font-size: 25px;
+	margin: 12px;
+}
