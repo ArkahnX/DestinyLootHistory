@@ -79,17 +79,12 @@ function rowHeight(list1Length, list2Length, list3Length) {
 	return "five-rows";
 }
 
-function createItems(itemList, className, characterId, moveType) {
+function createItems(itemDiff, className, moveType) {
 	var subContainer = document.createElement("div");
-	subContainer.classList.add("sub-section");
-	subContainer.classList.add(className);
+	subContainer.classList.add("sub-section", className);
 	var docfrag = document.createDocumentFragment();
-	for (var i = 0; i < itemList.length; i++) {
-		var item = itemList[i];
-		if (item.item) {
-			item = item.item;
-		}
-		docfrag.appendChild(makeItem(JSON.parse(item), characterId, moveType));
+	for (var i = 0; i < itemDiff[moveType].length; i++) {
+		docfrag.appendChild(makeItem(itemDiff, moveType, i));
 	}
 	subContainer.appendChild(docfrag);
 	return subContainer;
@@ -126,18 +121,18 @@ function displayResults() {
 			lastIndex = index;
 			callback({
 				className: className,
-				latestItemChange: arrayItem
+				itemDiff: arrayItem
 			});
 		}
 		callback(false);
 	}, function(result, arrayItem, index) {
 		if (result) {
-			var latestItemChange = result.latestItemChange;
+			var itemDiff = result.itemDiff;
 			var className = result.className;
-			date.insertBefore(createDate(latestItemChange.timestamp, className), date.firstChild);
-			added.insertBefore(createItems(latestItemChange.added, className, latestItemChange.characterId, "added"), added.firstChild);
-			removed.insertBefore(createItems(latestItemChange.removed, className, latestItemChange.characterId, "removed"), removed.firstChild);
-			transferred.insertBefore(createItems(latestItemChange.transferred, className, latestItemChange.characterId, "transferred"), transferred.firstChild);
+			date.insertBefore(createDate(itemDiff.timestamp, className), date.firstChild);
+			added.insertBefore(createItems(itemDiff, className, "added"), added.firstChild);
+			removed.insertBefore(createItems(itemDiff, className, "removed"), removed.firstChild);
+			transferred.insertBefore(createItems(itemDiff, className, "transferred"), transferred.firstChild);
 		}
 	}).then(function() {
 		console.timeEnd("loadResults");
@@ -188,7 +183,12 @@ function delayNode(index, className, latestItemChange, date, added, removed, tra
 	}, 50);
 }
 
-function makeItem(itemData, characterId, moveType) {
+function makeItem(itemDiff, moveType, index) {
+	var itemData = itemDiff[moveType][index];
+	if (itemData.item) {
+		itemData = itemData.item;
+	}
+	itemData = JSON.parse(itemData);
 	var docfrag = document.createDocumentFragment();
 	var container = document.createElement("div");
 	var stat = document.createElement("div");
@@ -198,7 +198,7 @@ function makeItem(itemData, characterId, moveType) {
 	container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[itemData.itemHash].icon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
 	stat.classList.add("primary-stat");
 	stat.textContent = primaryStat(itemData);
-	passData(container, itemData, characterId, moveType);
+	passData(container, itemDiff, moveType, index);
 	return docfrag;
 }
 
@@ -260,7 +260,12 @@ function primaryStatName(itemData) {
 	}
 }
 
-function passData(DomNode, itemData, characterId, moveType) {
+function passData(DomNode, itemDiff, moveType, index) {
+	var itemData = itemDiff[moveType][index];
+	if (itemData.item) {
+		itemData = itemData.item;
+	}
+	itemData = JSON.parse(itemData);
 	if (itemData.tierTypeName) {
 		DomNode.dataset.tierTypeName = itemData.tierTypeName;
 	} else {
@@ -273,24 +278,35 @@ function passData(DomNode, itemData, characterId, moveType) {
 	DomNode.dataset.primaryStatName = primaryStatName(itemData);
 	DomNode.dataset.itemDescription = DestinyCompactItemDefinition[itemData.itemHash].itemDescription;
 	DomNode.dataset.damageTypeName = elementType(itemData);
-	DomNode.dataset.classRequirement = characterSource(itemData, characterId, moveType);
+	DomNode.dataset.classRequirement = characterSource(itemDiff, moveType, index);
 }
 
-function characterSource(itemData, characterId, moveType) {
-	if (characterId === "vault") {
-		return "From Vault"
+function characterName(characterId, light) {
+	if (light === null) {
+		return characterDescriptions[characterId].name;
 	}
+	if (characterId === "vault") {
+		return "Vault";
+	}
+	return characterDescriptions[characterId].race + " " + characterDescriptions[characterId].gender + " " + characterDescriptions[characterId].name + " (" + (light || characterDescriptions[characterId].light) + ")";
+}
+
+function characterSource(itemDiff, moveType, index) {
+	var itemData = itemDiff[moveType][index];
+	var light = itemDiff.light;
+	var toId = itemDiff.characterId;
+	var fromId = "";
 	var starter = "Added to ";
+	if (itemData.item) {
+		fromId = itemData.from;
+	}
 	if (moveType === "removed") {
 		starter = "Removed from ";
 	}
-	if (moveType === "transferred") {
-		starter = "transferred to "
-		if (characterId === "vault") {
-			return "To Vault"
-		}
+	if (fromId) {
+		starter = "From " + characterName(fromId, null) + " to ";
 	}
-	return starter + characterDescriptions[characterId].race + " " + characterDescriptions[characterId].gender + " " + characterDescriptions[characterId].name + " (" + (itemData.light || characterDescriptions[characterId].light) + ")";
+	return starter + characterName(toId, light);
 }
 
 function setTooltipData(dataset) {
