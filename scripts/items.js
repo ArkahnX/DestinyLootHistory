@@ -302,36 +302,28 @@ var stopLoop = null;
 
 function checkInventory() {
 	console.time("Bungie Inventory");
-	sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
-		sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
-			chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
-				console.timeEnd("Bungie Inventory");
-				console.time("Local Inventory");
-				data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
-				data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
-				// data.progression = handleInput(result.progression, data.progression);
-				// data.inventories = handleInput(result.inventories, data.inventories);
-				oldProgression = handleInput(result.progression, data.progression);
-				oldInventories = handleInput(result.inventories, data.inventories);
-				console.timeEnd("load Bungie Data");
-				processDifference();
+	bungie.search(function(e) {
+		var avatars = e.data.characters;
+		for (var c = 0; c < avatars.length; c++) {
+			characterDescriptions[avatars[c].characterBase.characterId].light = avatars[c].characterBase.powerLevel;
+		}
+		sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
+			sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
+				chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
+					console.timeEnd("Bungie Inventory");
+					console.time("Local Inventory");
+					data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
+					data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
+					// data.progression = handleInput(result.progression, data.progression);
+					// data.inventories = handleInput(result.inventories, data.inventories);
+					oldProgression = handleInput(result.progression, data.progression);
+					oldInventories = handleInput(result.inventories, data.inventories);
+					console.timeEnd("load Bungie Data");
+					processDifference();
+				});
 			});
 		});
 	});
-	// sequence(characterIdList, calculateDifference, parseNewItems).then(function() {
-	// sequence(characterIdList, calculateDifference, _internalDiffCheck).then(function() {
-	// 	sequence(characterIdList, checkFactionRank, factionRepChanges).then(function() {
-	// 		chrome.storage.local.set(data);
-	// 		// loadGameData();
-	// 	});
-	// });
-	// for (var c = 0; c < avatars.length; c++) {
-	// 	if (avatars[c] === "vault") {
-	// 		calculateDifference("vault", callback);
-	// 	} else {
-	// 		calculateDifference(avatars[c].characterBase.characterId, callback);
-	// 	}
-	// }
 }
 
 function startListening() {

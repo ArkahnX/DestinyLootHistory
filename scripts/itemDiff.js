@@ -93,6 +93,7 @@ function processDifference() {
 			timestamp: currentDateString,
 			secondsSinceLastDiff: (new Date(currentDateString) - previousItemDate) / 1000,
 			characterId: characterId,
+			light:characterDescriptions.light,
 			removed: [],
 			added: [],
 			transferred: []
