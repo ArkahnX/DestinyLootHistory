@@ -14,6 +14,18 @@ function initUi() {
 			stopListening();
 		}
 	});
+	var historyLink = document.querySelector("#viewhistory");
+	if (historyLink) {
+		historyLink.addEventListener("click", function() {
+			window.location.href = chrome.extension.getURL('history.html');
+		});
+	}
+	var optionsLink = document.querySelector("#viewOptions");
+	if (optionsLink) {
+		optionsLink.addEventListener("click", function() {
+			window.location.href = chrome.extension.getURL('options.html');
+		});
+	}
 	document.querySelector("#container").addEventListener("mouseover", function(event) {
 		var target = null;
 		if (event.target.classList.contains("item")) {
@@ -85,16 +97,21 @@ function createItems(itemList, className, characterId, moveType) {
 
 function createDate(timestamp, className) {
 	var subContainer = document.createElement("div");
-	subContainer.classList.add("sub-section");
-	subContainer.classList.add(className);
+	subContainer.classList.add("sub-section", className, "timestamp");
 	subContainer.textContent = moment.utc(timestamp).tz(moment.tz.guess()).fromNow();
 	subContainer.setAttribute("title", moment.utc(timestamp).tz(moment.tz.guess()).format("llll"));
+	subContainer.dataset.timestamp = timestamp;
 	return subContainer;
 }
 
 var lastIndex = -1;
 
 function displayResults() {
+	var timestamps = document.querySelectorAll(".timestamp");
+	for (var item of timestamps) {
+		item.textContent = moment.utc(item.dataset.timestamp).tz(moment.tz.guess()).fromNow();
+		item.setAttribute("title", moment.utc(item.dataset.timestamp).tz(moment.tz.guess()).format("llll"));
+	}
 	console.time("loadResults");
 	var date = document.getElementById("date");
 	var added = document.getElementById("added");
@@ -256,10 +273,10 @@ function passData(DomNode, itemData, characterId, moveType) {
 	DomNode.dataset.primaryStatName = primaryStatName(itemData);
 	DomNode.dataset.itemDescription = DestinyCompactItemDefinition[itemData.itemHash].itemDescription;
 	DomNode.dataset.damageTypeName = elementType(itemData);
-	DomNode.dataset.classRequirement = characterSource(characterId, moveType);
+	DomNode.dataset.classRequirement = characterSource(itemData, characterId, moveType);
 }
 
-function characterSource(characterId, moveType) {
+function characterSource(itemData, characterId, moveType) {
 	if (characterId === "vault") {
 		return "From Vault"
 	}
@@ -273,7 +290,7 @@ function characterSource(characterId, moveType) {
 			return "To Vault"
 		}
 	}
-	return starter + characterDescriptions[characterId].race + " " + characterDescriptions[characterId].gender + " " + characterDescriptions[characterId].name + " (" + characterDescriptions[characterId].light + ")";
+	return starter + characterDescriptions[characterId].race + " " + characterDescriptions[characterId].gender + " " + characterDescriptions[characterId].name + " (" + (itemData.light || characterDescriptions[characterId].light) + ")";
 }
 
 function setTooltipData(dataset) {
