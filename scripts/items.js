@@ -233,13 +233,26 @@ function checkDiff(sourceArray, newArray) {
 	for (var i = 0; i < sourceArray.length; i++) {
 		var found = false;
 		for (var e = 0; e < newArray.length; e++) {
+			if (sourceArray[i].bucketHash === 2197472680 && newArray[e].itemInstanceId === sourceArray[i].itemInstanceId) {
+				if (sourceArray[i].stackSize !== newArray[e].stackSize) {
+					// console.log(sourceArray[i], newArray[e]);
+					// console.log(newArray[e].itemInstanceId === sourceArray[i].itemInstanceId && newArray[e].itemHash === sourceArray[i].itemHash, newArray[e].stackSize !== sourceArray[i].stackSize)
+				}
+			}
 			if (newArray[e].itemInstanceId === sourceArray[i].itemInstanceId && newArray[e].itemHash === sourceArray[i].itemHash) {
 				found = true;
 				if (newArray[e].stackSize !== sourceArray[i].stackSize) {
 					var newItem = JSON.parse(JSON.stringify(sourceArray[i]));
-					newItem.stackSize = sourceArray[i].stackSize - newArray[e].stackSize;
-					if (newItem.stackSize > 0) {
-						itemsRemovedFromSource.push(JSON.stringify(newItem));
+					if (typeof sourceArray[i].stackSize === "number") {
+						newItem.stackSize = sourceArray[i].stackSize - newArray[e].stackSize;
+						if (newItem.stackSize > 0) {
+							itemsRemovedFromSource.push(JSON.stringify(newItem));
+						}
+					} else {
+						newItem.stackSize = sourceArray[i].stackSize;
+						if (parseInt(newArray[e].stackSize, 10) !== parseInt(sourceArray[i].stackSize, 10)) {
+							itemsRemovedFromSource.push(JSON.stringify(newItem));
+						}
 					}
 				}
 			}
@@ -264,6 +277,7 @@ function checkFactionDiff(sourceArray, newArray) {
 				for (var attr in newArray[e]) {
 					if (newArray[e][attr] !== sourceArray[i][attr]) {
 						diff = true;
+						console.log(newArray[e][attr], sourceArray[i][attr])
 						newItem[attr] = sourceArray[i][attr] - newArray[e][attr];
 					}
 				}

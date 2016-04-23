@@ -49,6 +49,11 @@ function initUi() {
 			previousElement = null;
 		}
 	}, false);
+	document.querySelector("#container").addEventListener("scroll", function(event) {
+		if (window.innerHeight + document.body.scrollTop > document.body.offsetHeight) {
+			displayResults();
+		}
+	});
 }
 
 function handleTooltipData(dataset) {
@@ -100,6 +105,8 @@ function createDate(timestamp, className) {
 }
 
 var lastIndex = -1;
+var resultQuantity = 100;
+var arrayStep = 0;
 
 function displayResults() {
 	var timestamps = document.querySelectorAll(".timestamp");
@@ -112,6 +119,17 @@ function displayResults() {
 	var added = document.getElementById("added");
 	var removed = document.getElementById("removed");
 	var transferred = document.getElementById("transferred");
+	var dateFrag = document.createDocumentFragment();
+	var addedFrag = document.createDocumentFragment();
+	var removedFrag = document.createDocumentFragment();
+	var transferredFrag = document.createDocumentFragment();
+	// var thinArray = [];
+	// for(var i=data.itemChanges.length-(arrayStep * resultQuantity);i > -1;i--) {
+	// 	if(data.itemChanges[i]) {
+	// 		thinArray.push(data.itemChanges[i]);
+	// 	}
+	// }
+
 	sequence(data.itemChanges, function(arrayItem, callback, index) {
 		if (lastIndex < index) {
 			var addedQty = arrayItem.added.length;
@@ -129,12 +147,16 @@ function displayResults() {
 		if (result) {
 			var itemDiff = result.itemDiff;
 			var className = result.className;
-			date.insertBefore(createDate(itemDiff.timestamp, className), date.firstChild);
-			added.insertBefore(createItems(itemDiff, className, "added"), added.firstChild);
-			removed.insertBefore(createItems(itemDiff, className, "removed"), removed.firstChild);
-			transferred.insertBefore(createItems(itemDiff, className, "transferred"), transferred.firstChild);
+			dateFrag.insertBefore(createDate(itemDiff.timestamp, className), dateFrag.firstChild);
+			addedFrag.insertBefore(createItems(itemDiff, className, "added"), addedFrag.firstChild);
+			removedFrag.insertBefore(createItems(itemDiff, className, "removed"), removedFrag.firstChild);
+			transferredFrag.insertBefore(createItems(itemDiff, className, "transferred"), transferredFrag.firstChild);
 		}
 	}).then(function() {
+		date.insertBefore(dateFrag, date.firstChild)
+		added.insertBefore(addedFrag, added.firstChild)
+		removed.insertBefore(removedFrag, removed.firstChild)
+		transferred.insertBefore(transferredFrag, transferred.firstChild)
 		console.timeEnd("loadResults");
 	});
 	// var lastIndex2 = -1;
@@ -195,7 +217,11 @@ function makeItem(itemDiff, moveType, index) {
 	container.appendChild(stat);
 	docfrag.appendChild(container);
 	DOMTokenList.prototype.add.apply(container.classList, itemClasses(itemData));
+	if(DestinyCompactItemDefinition[itemData.itemHash].hasIcon || (DestinyCompactItemDefinition[itemData.itemHash].icon && DestinyCompactItemDefinition[itemData.itemHash].icon.length)) {
 	container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[itemData.itemHash].icon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
+} else {
+	container.setAttribute("style", "background-image: url('http://bungie.net/img/misc/missing_icon.png')");
+}
 	stat.classList.add("primary-stat");
 	stat.textContent = primaryStat(itemData);
 	passData(container, itemDiff, moveType, index);
