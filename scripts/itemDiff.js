@@ -25,8 +25,8 @@ function processDifference() {
 				timestamp: currentDateString,
 				secondsSinceLastDiff: previousItemDate,
 				characterId: characterId,
-				removed: checkDiff(oldInventories[characterId], data.inventories[characterId]),
-				added: checkDiff(data.inventories[characterId], oldInventories[characterId])
+				added: checkDiff(data.inventories[characterId], oldInventories[characterId]),
+				removed: checkDiff(oldInventories[characterId], data.inventories[characterId])
 			};
 			if (diff.added.length || diff.removed.length) {
 				diffs.push(diff);
@@ -128,7 +128,7 @@ function processDifference() {
 	}
 	if (additions.length || removals.length || transfers.length || changes.length) {
 		trackIdle();
-		console.log(currentDateString, "\nAdditions:", additions, "\nRemovals:", removals, "\nTransfers:", transfers, "\nChanges:", changes, "\nFinal Changes:", finalChanges);
+		// console.log(currentDateString, "\nAdditions:", additions, "\nRemovals:", removals, "\nTransfers:", transfers, "\nChanges:", changes, "\nFinal Changes:", finalChanges);
 	}
 	Array.prototype.push.apply(data.itemChanges, finalChanges);
 	Array.prototype.push.apply(data.factionChanges, changes);

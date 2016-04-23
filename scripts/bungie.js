@@ -234,7 +234,7 @@ function Bungie() {
 			route: '/Destiny/SearchDestinyPlayer/' + active.type + '/' + active.id + '/',
 			method: 'GET',
 			complete: function(membership) {
-				console.log(membership)
+				// console.log(membership)
 				if (membership === undefined || membership[0] === undefined) {
 					// callback({
 					// 	error: true
