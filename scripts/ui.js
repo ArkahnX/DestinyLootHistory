@@ -99,7 +99,7 @@ function createDate(timestamp, className) {
 	var subContainer = document.createElement("div");
 	subContainer.classList.add("sub-section", className, "timestamp");
 	subContainer.textContent = moment.utc(timestamp).tz(moment.tz.guess()).fromNow();
-	subContainer.setAttribute("title", moment.utc(timestamp).tz(moment.tz.guess()).format("llll"));
+	subContainer.setAttribute("title", moment.utc(timestamp).tz(moment.tz.guess()).format("ddd[,] ll LTS"));
 	subContainer.dataset.timestamp = timestamp;
 	return subContainer;
 }
@@ -112,7 +112,7 @@ function displayResults() {
 	var timestamps = document.querySelectorAll(".timestamp");
 	for (var item of timestamps) {
 		item.textContent = moment.utc(item.dataset.timestamp).tz(moment.tz.guess()).fromNow();
-		item.setAttribute("title", moment.utc(item.dataset.timestamp).tz(moment.tz.guess()).format("llll"));
+		item.setAttribute("title", moment.utc(item.dataset.timestamp).tz(moment.tz.guess()).format("ddd[,] ll LTS"));
 	}
 	console.time("loadResults");
 	var date = document.getElementById("date");

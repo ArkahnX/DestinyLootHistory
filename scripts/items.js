@@ -269,21 +269,19 @@ function checkFactionDiff(sourceArray, newArray) {
 	for (var i = 0; i < sourceArray.length; i++) {
 		for (var e = 0; e < newArray.length; e++) {
 			var diff = false;
-			if (newArray[e].progressionHash == sourceArray[i].progressionHash) {
+			if (newArray[e].progressionHash == sourceArray[i].progressionHash && newArray[e].currentProgress !== sourceArray[i].currentProgress) {
 				var newItem = {
 					progressionHash: newArray[e].progressionHash,
+					level: newArray[e].level,
+					progressChange: newArray[e].currentProgress - sourceArray[i].currentProgress,
+					currentProgress: newArray[e].currentProgress,
+					nextLevelAt: newArray[e].nextLevelAt,
 					name: DestinyProgressionDefinition[newArray[e].progressionHash].name
 				};
-				for (var attr in newArray[e]) {
-					if (newArray[e][attr] !== sourceArray[i][attr]) {
-						diff = true;
-						console.log(newArray[e][attr], sourceArray[i][attr])
-						newItem[attr] = sourceArray[i][attr] - newArray[e][attr];
-					}
+				if (DestinyProgressionDefinition[newArray[e].progressionHash].icon) {
+					newItem.icon = DestinyProgressionDefinition[newArray[e].progressionHash].icon;
 				}
-				if (diff) {
-					itemsRemovedFromSource.push(newItem);
-				}
+				itemsRemovedFromSource.push(newItem);
 			}
 		}
 	}

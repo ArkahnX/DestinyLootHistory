@@ -23,7 +23,7 @@ function processDifference() {
 		for (var characterId in oldInventories) {
 			var diff = {
 				timestamp: currentDateString,
-				secondsSinceLastDiff: previousItemDate,
+				secondsSinceLastDiff: (new Date(currentDateString) - previousItemDate) / 1000,
 				characterId: characterId,
 				added: checkDiff(data.inventories[characterId], oldInventories[characterId]),
 				removed: checkDiff(oldInventories[characterId], data.inventories[characterId])
@@ -78,11 +78,10 @@ function processDifference() {
 				secondsSinceLastDiff: (new Date(currentDateString) - previousFactionDate) / 1000,
 				characterId: characterId,
 				changes: checkFactionDiff(oldProgression[characterId].progressions, data.progression[characterId].progressions),
-				level: {}
 			};
-			for (var attr in data.progression[characterId].levelProgression) {
-				diff.level[attr] = data.progression[characterId].levelProgression[attr];
-			}
+			// for (var attr in data.progression[characterId].levelProgression) {
+			// 	diff.level[attr] = data.progression[characterId].levelProgression[attr];
+			// }
 			if (diff.changes.length > 0) {
 				changes.push(diff);
 			}
