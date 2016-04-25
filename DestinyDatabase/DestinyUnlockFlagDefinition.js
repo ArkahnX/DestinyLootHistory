@@ -9724,6 +9724,13 @@ var DestinyUnlockFlagDefinition = {
 		"hash": 1004376846,
 		"index": 0
 	},
+	"1004734847": {
+		"flagHash": 1004734847,
+		"isOffer": false,
+		"unlockType": 0,
+		"hash": 1004734847,
+		"index": 0
+	},
 	"1004953852": {
 		"flagHash": 1004953852,
 		"isOffer": false,
@@ -21005,6 +21012,13 @@ var DestinyUnlockFlagDefinition = {
 		"isOffer": false,
 		"unlockType": 0,
 		"hash": 2055674422,
+		"index": 0
+	},
+	"2056862189": {
+		"flagHash": 2056862189,
+		"isOffer": false,
+		"unlockType": 0,
+		"hash": 2056862189,
 		"index": 0
 	},
 	"2057492346": {

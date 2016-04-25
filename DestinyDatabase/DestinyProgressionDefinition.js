@@ -4,7 +4,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_rare_auto_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/2475a19ea9f496f43a4c2ad26bcf3c92.png",
+		"icon": "/common/destiny_content/icons/7f72cb19c26c013649331e246fa2a3ee.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -49,7 +49,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_scout_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/8440a7b01c0dc09d68ad76bd0608af4f.png",
+		"icon": "/common/destiny_content/icons/d9ecd38583fc6dc97fb0837a93139712.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -70,7 +70,7 @@ var DestinyProgressionDefinition = {
 		"name": "faction_eris",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/a10d933cc11ce296f9cb73b4f0f79768.png",
+		"icon": "/common/destiny_content/icons/5b905064f8a1d30adff5ed1069089b1f.png",
 		"steps": [
 			{
 				"progressTotal": 1000
@@ -135,7 +135,7 @@ var DestinyProgressionDefinition = {
 		"name": "armor_superior",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/27c055fddb171e3d4f24c4f9ae104fa9.png",
+		"icon": "/common/destiny_content/icons/b4eff92ab8e6b4d07812e3223275920a.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -156,7 +156,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_rocket_launcher",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/671975a4cba7565fa5e36d20fd81f707.png",
+		"icon": "/common/destiny_content/icons/03e377ab97c7eb7df38f4f907d055144.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -190,7 +190,7 @@ var DestinyProgressionDefinition = {
 		"name": "test_faction",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/d617f44701fcd8a7bc256cded8e86bee.png",
+		"icon": "/common/destiny_content/icons/f7c48074b28b68dce3b12d0e6af6e48e.png",
 		"steps": [],
 		"visible": true,
 		"hash": 372013324,
@@ -257,7 +257,7 @@ var DestinyProgressionDefinition = {
 		"name": "faction_event_queen",
 		"scope": 1,
 		"repeatLastStep": false,
-		"icon": "/common/destiny_content/icons/2bd5c1deb32e1628004765e339862949.png",
+		"icon": "/common/destiny_content/icons/bb91b4cb8979abbede0984d7209f7cdb.png",
 		"identifier": "PROGRESSION_EVENT_QUEEN",
 		"steps": [
 			{
@@ -279,7 +279,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_common_machinegun",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/460c4eb76afb770a6a69b147df63bfcd.png",
+		"icon": "/common/destiny_content/icons/431fb3183e8f8a4ab2ffdf4e69039905.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -440,7 +440,7 @@ var DestinyProgressionDefinition = {
 		"name": "faction_cryptarch",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/d617f44701fcd8a7bc256cded8e86bee.png",
+		"icon": "/common/destiny_content/icons/f7c48074b28b68dce3b12d0e6af6e48e.png",
 		"identifier": "PROGRESSION_CRYPTARCH",
 		"steps": [
 			{
@@ -488,7 +488,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_rare_scout_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/8440a7b01c0dc09d68ad76bd0608af4f.png",
+		"icon": "/common/destiny_content/icons/d9ecd38583fc6dc97fb0837a93139712.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -755,7 +755,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_fusion_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/2587a18282c62c43bbb3ceedfdb2e8bd.png",
+		"icon": "/common/destiny_content/icons/8f22612445b47f33a59ea61ae1562d25.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -776,7 +776,7 @@ var DestinyProgressionDefinition = {
 		"name": "r1_s3_factions_queen",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/2bd5c1deb32e1628004765e339862949.png",
+		"icon": "/common/destiny_content/icons/bb91b4cb8979abbede0984d7209f7cdb.png",
 		"steps": [
 			{
 				"progressTotal": 1000
@@ -797,7 +797,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_rare_sidearm",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/487fca12665d4cb8550cca80d3260918.png",
+		"icon": "/common/destiny_content/icons/d87c2f8703503139c2e20641c2d31a7f.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -818,7 +818,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_shotgun",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/d4bfe890bb181306a9529e29d3b491d9.png",
+		"icon": "/common/destiny_content/icons/5505e44166d7f0086ab83c747318c807.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -839,7 +839,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_rocket_launcher",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/671975a4cba7565fa5e36d20fd81f707.png",
+		"icon": "/common/destiny_content/icons/03e377ab97c7eb7df38f4f907d055144.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -870,7 +870,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_sniper_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/62bceff20d5c07aaf13e39b298fb6f95.png",
+		"icon": "/common/destiny_content/icons/88dedc48627073974e8830c6f14fce89.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -986,7 +986,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_sidearm",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/487fca12665d4cb8550cca80d3260918.png",
+		"icon": "/common/destiny_content/icons/d87c2f8703503139c2e20641c2d31a7f.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -1161,7 +1161,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_machinegun",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/460c4eb76afb770a6a69b147df63bfcd.png",
+		"icon": "/common/destiny_content/icons/431fb3183e8f8a4ab2ffdf4e69039905.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -1182,7 +1182,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_hand_cannon",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/487fca12665d4cb8550cca80d3260918.png",
+		"icon": "/common/destiny_content/icons/d87c2f8703503139c2e20641c2d31a7f.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -1203,7 +1203,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_hand_cannon",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/487fca12665d4cb8550cca80d3260918.png",
+		"icon": "/common/destiny_content/icons/d87c2f8703503139c2e20641c2d31a7f.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -1224,7 +1224,7 @@ var DestinyProgressionDefinition = {
 		"name": "faction_pvp",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/61cd219d5a2f0e04319e814e9f79a088.png",
+		"icon": "/common/destiny_content/icons/f654870a9bec39adc053a89e2c8ed063.png",
 		"identifier": "PROGRESSION_CRUCIBLE",
 		"steps": [
 			{
@@ -1246,7 +1246,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_rare_pulse_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/d768f1e1606ccffea02e2e8634ec1351.png",
+		"icon": "/common/destiny_content/icons/1fc1f231df9ddc51063962a5324650da.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -1267,7 +1267,7 @@ var DestinyProgressionDefinition = {
 		"name": "armor_special",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/27c055fddb171e3d4f24c4f9ae104fa9.png",
+		"icon": "/common/destiny_content/icons/b4eff92ab8e6b4d07812e3223275920a.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -1285,7 +1285,7 @@ var DestinyProgressionDefinition = {
 		"name": "faction_pvp_future_war_cult",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/ff1d0835ff3ae7e3aa93af40ba753a88.png",
+		"icon": "/common/destiny_content/icons/06d039177922f10611c14d32cfaf2324.png",
 		"identifier": "PROGRESSION_FUTURE_WAR_CULT",
 		"steps": [
 			{
@@ -1510,7 +1510,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_common_auto_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/2475a19ea9f496f43a4c2ad26bcf3c92.png",
+		"icon": "/common/destiny_content/icons/7f72cb19c26c013649331e246fa2a3ee.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -1545,7 +1545,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_scout_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/8440a7b01c0dc09d68ad76bd0608af4f.png",
+		"icon": "/common/destiny_content/icons/d9ecd38583fc6dc97fb0837a93139712.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -1566,7 +1566,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_rare_shotgun",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/d4bfe890bb181306a9529e29d3b491d9.png",
+		"icon": "/common/destiny_content/icons/5505e44166d7f0086ab83c747318c807.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -1771,7 +1771,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_sword",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/62bceff20d5c07aaf13e39b298fb6f95.png",
+		"icon": "/common/destiny_content/icons/88dedc48627073974e8830c6f14fce89.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -1792,7 +1792,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_sidearm",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/487fca12665d4cb8550cca80d3260918.png",
+		"icon": "/common/destiny_content/icons/d87c2f8703503139c2e20641c2d31a7f.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -1953,7 +1953,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_common_hand_cannon",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/487fca12665d4cb8550cca80d3260918.png",
+		"icon": "/common/destiny_content/icons/d87c2f8703503139c2e20641c2d31a7f.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -1974,7 +1974,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_rare_rocket_launcher",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/671975a4cba7565fa5e36d20fd81f707.png",
+		"icon": "/common/destiny_content/icons/03e377ab97c7eb7df38f4f907d055144.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -1995,7 +1995,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_common_shotgun",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/d4bfe890bb181306a9529e29d3b491d9.png",
+		"icon": "/common/destiny_content/icons/5505e44166d7f0086ab83c747318c807.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -2139,7 +2139,7 @@ var DestinyProgressionDefinition = {
 		"name": "character_prestige",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/27c055fddb171e3d4f24c4f9ae104fa9.png",
+		"icon": "/common/destiny_content/icons/b4eff92ab8e6b4d07812e3223275920a.png",
 		"identifier": "PROGRESSION_CHARACTER_PRESTIGE",
 		"steps": [
 			{
@@ -2783,7 +2783,7 @@ var DestinyProgressionDefinition = {
 		"name": "armor_exotic",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/27c055fddb171e3d4f24c4f9ae104fa9.png",
+		"icon": "/common/destiny_content/icons/b4eff92ab8e6b4d07812e3223275920a.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -3346,7 +3346,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_sword",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/62bceff20d5c07aaf13e39b298fb6f95.png",
+		"icon": "/common/destiny_content/icons/88dedc48627073974e8830c6f14fce89.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -3387,7 +3387,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_machinegun",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/460c4eb76afb770a6a69b147df63bfcd.png",
+		"icon": "/common/destiny_content/icons/431fb3183e8f8a4ab2ffdf4e69039905.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -3408,7 +3408,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_rare_hand_cannon",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/487fca12665d4cb8550cca80d3260918.png",
+		"icon": "/common/destiny_content/icons/d87c2f8703503139c2e20641c2d31a7f.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -3549,7 +3549,7 @@ var DestinyProgressionDefinition = {
 		"name": "r1_s4_factions_gunsmith",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/489fbcf75d9c3a5a8777bf8dea433ba2.png",
+		"icon": "/common/destiny_content/icons/951a110d1ff96d2952429119e5131b93.png",
 		"steps": [
 			{
 				"progressTotal": 1500
@@ -3662,7 +3662,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_shotgun",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/d4bfe890bb181306a9529e29d3b491d9.png",
+		"icon": "/common/destiny_content/icons/5505e44166d7f0086ab83c747318c807.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -3683,7 +3683,7 @@ var DestinyProgressionDefinition = {
 		"name": "armor_basic",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/27c055fddb171e3d4f24c4f9ae104fa9.png",
+		"icon": "/common/destiny_content/icons/b4eff92ab8e6b4d07812e3223275920a.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -3701,7 +3701,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_auto_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/2475a19ea9f496f43a4c2ad26bcf3c92.png",
+		"icon": "/common/destiny_content/icons/7f72cb19c26c013649331e246fa2a3ee.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -3722,7 +3722,7 @@ var DestinyProgressionDefinition = {
 		"name": "armor_rare",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/27c055fddb171e3d4f24c4f9ae104fa9.png",
+		"icon": "/common/destiny_content/icons/b4eff92ab8e6b4d07812e3223275920a.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -3760,7 +3760,7 @@ var DestinyProgressionDefinition = {
 		"name": "r1_s4_pvp_racing",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/f598f0da81132eb393e657adfe15ec11.png",
+		"icon": "/common/destiny_content/icons/cf17b167dfe238c5613c0c3f6dd4c7c1.png",
 		"identifier": "PROGRESSION_R1_S4_SRL_EVENT",
 		"steps": [
 			{
@@ -3785,7 +3785,7 @@ var DestinyProgressionDefinition = {
 		"name": "faction_pvp_dead_orbit",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/95527d8fdde02132cffb5c06100b5f69.png",
+		"icon": "/common/destiny_content/icons/cc4ab8f97dd9c0f0fba01dacfaf0aab7.png",
 		"identifier": "PROGRESSION_DEAD_ORBIT",
 		"steps": [
 			{
@@ -3873,7 +3873,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_sniper_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/62bceff20d5c07aaf13e39b298fb6f95.png",
+		"icon": "/common/destiny_content/icons/88dedc48627073974e8830c6f14fce89.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -4076,7 +4076,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_auto_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/2475a19ea9f496f43a4c2ad26bcf3c92.png",
+		"icon": "/common/destiny_content/icons/7f72cb19c26c013649331e246fa2a3ee.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -4097,7 +4097,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_common_sidearm",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/487fca12665d4cb8550cca80d3260918.png",
+		"icon": "/common/destiny_content/icons/d87c2f8703503139c2e20641c2d31a7f.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -4118,7 +4118,7 @@ var DestinyProgressionDefinition = {
 		"name": "ghost_rare",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/62bceff20d5c07aaf13e39b298fb6f95.png",
+		"icon": "/common/destiny_content/icons/88dedc48627073974e8830c6f14fce89.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -4696,7 +4696,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_pulse_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/d768f1e1606ccffea02e2e8634ec1351.png",
+		"icon": "/common/destiny_content/icons/1fc1f231df9ddc51063962a5324650da.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -4731,7 +4731,7 @@ var DestinyProgressionDefinition = {
 		"name": "r1_s2_weapons_exotic_auto_rifle0",
 		"scope": 2,
 		"repeatLastStep": false,
-		"icon": "/common/destiny_content/icons/2475a19ea9f496f43a4c2ad26bcf3c92.png",
+		"icon": "/common/destiny_content/icons/7f72cb19c26c013649331e246fa2a3ee.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -4749,7 +4749,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_rare_machinegun",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/460c4eb76afb770a6a69b147df63bfcd.png",
+		"icon": "/common/destiny_content/icons/431fb3183e8f8a4ab2ffdf4e69039905.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -5051,7 +5051,7 @@ var DestinyProgressionDefinition = {
 		"name": "ghost_common",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/62bceff20d5c07aaf13e39b298fb6f95.png",
+		"icon": "/common/destiny_content/icons/88dedc48627073974e8830c6f14fce89.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -5069,7 +5069,7 @@ var DestinyProgressionDefinition = {
 		"name": "faction_fotc_vanguard",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/f0c4e913d046995a5eb1088e21c83133.png",
+		"icon": "/common/destiny_content/icons/c01130601f0310d8789022a8ea6a4ffb.png",
 		"identifier": "PROGRESSION_VANGUARD",
 		"steps": [
 			{
@@ -5161,7 +5161,7 @@ var DestinyProgressionDefinition = {
 		"name": "ghost_superior",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/62bceff20d5c07aaf13e39b298fb6f95.png",
+		"icon": "/common/destiny_content/icons/88dedc48627073974e8830c6f14fce89.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -5692,7 +5692,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_rare_sniper_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/62bceff20d5c07aaf13e39b298fb6f95.png",
+		"icon": "/common/destiny_content/icons/88dedc48627073974e8830c6f14fce89.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -5741,7 +5741,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_fusion_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/2587a18282c62c43bbb3ceedfdb2e8bd.png",
+		"icon": "/common/destiny_content/icons/8f22612445b47f33a59ea61ae1562d25.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -5762,7 +5762,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_common_scout_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/8440a7b01c0dc09d68ad76bd0608af4f.png",
+		"icon": "/common/destiny_content/icons/d9ecd38583fc6dc97fb0837a93139712.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -5783,7 +5783,7 @@ var DestinyProgressionDefinition = {
 		"name": "r1_s3_factions_fallen",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/b2d1796772d720fc0adbebf8495ef24a.png",
+		"icon": "/common/destiny_content/icons/b52614f6ea0cbee79962c5a9efd87318.png",
 		"steps": [
 			{
 				"progressTotal": 1000
@@ -5804,7 +5804,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_common_rocket_launcher",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/671975a4cba7565fa5e36d20fd81f707.png",
+		"icon": "/common/destiny_content/icons/03e377ab97c7eb7df38f4f907d055144.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -5825,7 +5825,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_common_pulse_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/d768f1e1606ccffea02e2e8634ec1351.png",
+		"icon": "/common/destiny_content/icons/1fc1f231df9ddc51063962a5324650da.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -5846,7 +5846,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_common_fusion_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/2587a18282c62c43bbb3ceedfdb2e8bd.png",
+		"icon": "/common/destiny_content/icons/8f22612445b47f33a59ea61ae1562d25.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -6096,7 +6096,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_common_sniper_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/62bceff20d5c07aaf13e39b298fb6f95.png",
+		"icon": "/common/destiny_content/icons/88dedc48627073974e8830c6f14fce89.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -6117,7 +6117,7 @@ var DestinyProgressionDefinition = {
 		"name": "faction_pvp_new_monarchy",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/9edbfa5fd0adb0ceccd5fbf90b251b20.png",
+		"icon": "/common/destiny_content/icons/1eefcab8563ac1bff56facf992aeba46.png",
 		"identifier": "PROGRESSION_NEW_MONARCHY",
 		"steps": [
 			{
@@ -6233,7 +6233,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_rare_fusion_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/2587a18282c62c43bbb3ceedfdb2e8bd.png",
+		"icon": "/common/destiny_content/icons/8f22612445b47f33a59ea61ae1562d25.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -6296,7 +6296,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_pulse_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/d768f1e1606ccffea02e2e8634ec1351.png",
+		"icon": "/common/destiny_content/icons/1fc1f231df9ddc51063962a5324650da.png",
 		"steps": [
 			{
 				"progressTotal": 0

@@ -3,7 +3,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 174528503,
 		"factionName": "Crota's Bane",
 		"factionDescription": "Face the Court of Oryx, the Taken Trials, and complete Quests for Eris to unlock special gear and upgrade materials.",
-		"factionIcon": "/common/destiny_content/icons/bc3e3f1591f52b7420d894432e442007.png",
+		"factionIcon": "/common/destiny_content/icons/aa89e498fd4fa4b2e17d04a73af8209c.png",
 		"progressionHash": 174528503,
 		"hash": 174528503,
 		"index": 0
@@ -12,7 +12,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 354219928,
 		"factionName": "Gunsmith",
 		"factionDescription": "If City is to survive, then its Guardians must be armed.",
-		"factionIcon": "/common/destiny_content/icons/424eefb59a8db8012539839f15693e0b.png",
+		"factionIcon": "/common/destiny_content/icons/7dac6a96cd0b6f3345da750791ceaef3.png",
 		"progressionHash": 0,
 		"hash": 354219928,
 		"index": 0
@@ -21,7 +21,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 372013324,
 		"factionName": "Test Faction",
 		"factionDescription": "Faction For Testing",
-		"factionIcon": "/common/destiny_content/icons/b559b83876ca8202010876755600b538.png",
+		"factionIcon": "/common/destiny_content/icons/7cdcffc7a0e8e11bdac0360ebf901006.png",
 		"progressionHash": 372013324,
 		"hash": 372013324,
 		"index": 0
@@ -30,7 +30,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 452808717,
 		"factionName": "Queen's Wrath",
 		"factionDescription": "Annihilate the enemies of the Reef.",
-		"factionIcon": "/common/destiny_content/icons/23e73f61a74b17f5482065f7dd047b41.png",
+		"factionIcon": "/common/destiny_content/icons/05f99db6879cc7e7f8b5cadbc8a1be74.png",
 		"progressionHash": 452808717,
 		"hash": 452808717,
 		"index": 0
@@ -39,7 +39,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 468098704,
 		"factionName": "Vanguard Reputation",
 		"factionDescription": "Complete Vanguard Bounties to unlock powerful gear for purchase.\n\nAchieve high Rank to earn rewards.",
-		"factionIcon": "/common/destiny_content/icons/949d3ef58f88256cf9ebdb9cc44f5294.png",
+		"factionIcon": "/common/destiny_content/icons/00a8ef466e96ab935fd3897066058ea4.png",
 		"progressionHash": 3233510749,
 		"hash": 468098704,
 		"index": 0
@@ -48,7 +48,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 489342053,
 		"factionName": "Future War Cult",
 		"factionDescription": "Unlocks Future War Cult gear, and grants Future War Cult reputation when earning Vanguard and Crucible reputation.",
-		"factionIcon": "/common/destiny_content/icons/752d6b5aee13ee330abd1bddf7cbc226.png",
+		"factionIcon": "/common/destiny_content/icons/f8bd6e5703c28a50db9388b3fe7e4248.png",
 		"progressionHash": 1424722124,
 		"hash": 489342053,
 		"index": 0
@@ -57,7 +57,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 807090922,
 		"factionName": "Queen's Wrath",
 		"factionDescription": "Complete Bounties for Petra in the Reef on behalf of the Queen.\n\nRaise your standing to unlock rewards.",
-		"factionIcon": "/common/destiny_content/icons/23e73f61a74b17f5482065f7dd047b41.png",
+		"factionIcon": "/common/destiny_content/icons/05f99db6879cc7e7f8b5cadbc8a1be74.png",
 		"progressionHash": 807090922,
 		"hash": 807090922,
 		"index": 0
@@ -66,7 +66,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 952405032,
 		"factionName": "Alpha",
 		"factionDescription": "Alpha",
-		"factionIcon": "/common/destiny_content/icons/5e243304acf1a9547d58f967b86dd7cb.png",
+		"factionIcon": "/common/destiny_content/icons/7139158086ffa455e9e2e1d720bbca02.png",
 		"progressionHash": 0,
 		"hash": 952405032,
 		"index": 0
@@ -75,7 +75,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 964120289,
 		"factionName": "The Crucible",
 		"factionDescription": "Complete Crucible Bounties to unlock powerful gear for purchase.\n\nAchieve high Rank to earn rewards.",
-		"factionIcon": "/common/destiny_content/icons/2ac240737d071bfb93a4ead339751ac3.png",
+		"factionIcon": "/common/destiny_content/icons/ce8873f8ffa68b32406b49772d1a7a02.png",
 		"progressionHash": 1357277120,
 		"hash": 964120289,
 		"index": 0
@@ -84,7 +84,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 1217900858,
 		"factionName": "Shipwright",
 		"factionDescription": "Slip the surly bonds of Earth.",
-		"factionIcon": "/common/destiny_content/icons/640d1dbd86ecee825a2abb19d9e83afe.png",
+		"factionIcon": "/common/destiny_content/icons/8c3821a7291bc1086f351806159075c0.png",
 		"progressionHash": 0,
 		"hash": 1217900858,
 		"index": 0
@@ -93,7 +93,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 1327783731,
 		"factionName": "Crypto-Archeology",
 		"factionDescription": "Decode Engrams to unlock new Engrams for purchase.\n\nAchieve high Rank to earn rewards.",
-		"factionIcon": "/common/destiny_content/icons/b559b83876ca8202010876755600b538.png",
+		"factionIcon": "/common/destiny_content/icons/7cdcffc7a0e8e11bdac0360ebf901006.png",
 		"progressionHash": 529303302,
 		"hash": 1327783731,
 		"index": 0
@@ -102,7 +102,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 1425364423,
 		"factionName": "Shader Hacker",
 		"factionDescription": "Metamaterial coatings and field effects can mark a suit of armor for tactical effect or personal pleasure.",
-		"factionIcon": "/common/destiny_content/icons/e7cecd56ff613d71618bae6eb095bd54.png",
+		"factionIcon": "/common/destiny_content/icons/b75919862f85d779e0ed7ff1fdafc008.png",
 		"progressionHash": 0,
 		"hash": 1425364423,
 		"index": 0
@@ -111,7 +111,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 2161005788,
 		"factionName": "Iron Banner",
 		"factionDescription": "The Iron Banner summons Guardians to prove their worth in the Crucible.\n\nEvent Standing starts anew with every Iron Banner.",
-		"factionIcon": "/common/destiny_content/icons/0bcb8d65c00d1f7b48105dcb610b37d1.png",
+		"factionIcon": "/common/destiny_content/icons/10f77521a158355f1ca2dd05588717a0.png",
 		"progressionHash": 2161005788,
 		"hash": 2161005788,
 		"index": 0
@@ -120,7 +120,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 2335631936,
 		"factionName": "Gunsmith",
 		"factionDescription": "Field-test Foundry weapons to place additional Armsday orders.",
-		"factionIcon": "/common/destiny_content/icons/424eefb59a8db8012539839f15693e0b.png",
+		"factionIcon": "/common/destiny_content/icons/7dac6a96cd0b6f3345da750791ceaef3.png",
 		"progressionHash": 2335631936,
 		"hash": 2335631936,
 		"index": 0
@@ -129,7 +129,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 2397602219,
 		"factionName": "Dead Orbit",
 		"factionDescription": "Unlocks Dead Orbit gear, and grants Dead Orbit reputation when earning Vanguard and Crucible reputation.",
-		"factionIcon": "/common/destiny_content/icons/3c46ce4a097a6eb445e23297b51319ee.png",
+		"factionIcon": "/common/destiny_content/icons/90fc704f078a0c56a0a17a0e55b41059.png",
 		"progressionHash": 2778795080,
 		"hash": 2397602219,
 		"index": 0
@@ -138,7 +138,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 2763619072,
 		"factionName": "SRL Event Standing",
 		"factionDescription": "Rank up your SRL license for greater rewards.",
-		"factionIcon": "/common/destiny_content/icons/a4b13ced6f18c5523fed5685b2c9d086.png",
+		"factionIcon": "/common/destiny_content/icons/a4c4bb69a723472a3d54102742a1f81b.png",
 		"progressionHash": 2763619072,
 		"hash": 2763619072,
 		"index": 0
@@ -147,7 +147,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 3197190122,
 		"factionName": "New Monarchy",
 		"factionDescription": "Unlocks New Monarchy gear, and grants New Monarchy reputation when earning Vanguard and Crucible reputation.",
-		"factionIcon": "/common/destiny_content/icons/5730a934181a4743389d965d98d125f0.png",
+		"factionIcon": "/common/destiny_content/icons/be6425db7c272c13cdcc52620ab690e6.png",
 		"progressionHash": 3871980777,
 		"hash": 3197190122,
 		"index": 0
@@ -156,7 +156,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 3641985238,
 		"factionName": "House of Judgment",
 		"factionDescription": "Defeat enemies in the Prison of Elders to gain notoriety with the House of Judgment.\n\nRaise your standing to unlock better rewards.",
-		"factionIcon": "/common/destiny_content/icons/3109d771dc01802b8f941f6da1da3239.png",
+		"factionIcon": "/common/destiny_content/icons/799a4556dccc295ab5df25c943ccab9a.png",
 		"progressionHash": 3641985238,
 		"hash": 3641985238,
 		"index": 0
@@ -165,7 +165,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 3695721985,
 		"factionName": "BUG ME FFA TEAM",
 		"factionDescription": "BUG ME FFA TEAM",
-		"factionIcon": "/common/destiny_content/icons/2ac240737d071bfb93a4ead339751ac3.png",
+		"factionIcon": "/common/destiny_content/icons/ce8873f8ffa68b32406b49772d1a7a02.png",
 		"progressionHash": 0,
 		"hash": 3695721985,
 		"index": 0
@@ -174,7 +174,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 4255583952,
 		"factionName": "Bravo",
 		"factionDescription": "Bravo",
-		"factionIcon": "/common/destiny_content/icons/24fd58d0d198bc2579828aaa68c071c5.png",
+		"factionIcon": "/common/destiny_content/icons/fea63dcea19daae9972466ae54efe490.png",
 		"progressionHash": 0,
 		"hash": 4255583952,
 		"index": 0
