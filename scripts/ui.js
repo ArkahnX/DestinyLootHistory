@@ -27,9 +27,9 @@ function initUi() {
 	}
 	document.querySelector("#container").addEventListener("mouseover", function(event) {
 		var target = null;
-		if (event.target.classList.contains("item")) {
+		if (event.target.classList.contains("item") || event.target.classList.contains("faction")) {
 			target = event.target;
-		} else if (event.target.parentNode.classList.contains("item")) {
+		} else if (event.target.parentNode.classList.contains("item") || event.target.parentNode.classList.contains("faction")) {
 			target = event.target.parentNode;
 		}
 		if (target && target !== previousElement) {
@@ -244,12 +244,13 @@ function makeItem(itemDiff, moveType, index) {
 
 function makeProgress(itemDiff, moveType, index) {
 	var progressData = itemDiff[moveType][index];
+	progressData = JSON.parse(progressData);
 	var docfrag = document.createDocumentFragment();
 	var container = document.createElement("div");
 	var stat = document.createElement("div");
 	container.appendChild(stat);
 	docfrag.appendChild(container);
-	container.classList.add("kinetic", "common", "item")
+	container.classList.add("kinetic", "common", "faction")
 	if (DestinyFactionDefinition[progressData.factionHash]) {
 		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyFactionDefinition[progressData.factionHash].factionIcon + "')");
 	} else if (DestinyProgressionDefinition[progressData.progressionHash].icon) {
@@ -332,6 +333,7 @@ function passData(DomNode, itemDiff, moveType, index) {
 	} else {
 		DomNode.dataset.tierTypeName = "Common";
 	}
+	DomNode.dataset.itemHash = itemData.itemHash;
 	DomNode.dataset.itemName = itemData.itemName;
 	DomNode.dataset.itemTypeName = itemData.itemTypeName;
 	DomNode.dataset.equipRequiredLevel = itemData.equipRequiredLevel || 0;
@@ -340,10 +342,20 @@ function passData(DomNode, itemDiff, moveType, index) {
 	DomNode.dataset.itemDescription = DestinyCompactItemDefinition[itemData.itemHash].itemDescription;
 	DomNode.dataset.damageTypeName = elementType(itemData);
 	DomNode.dataset.classRequirement = characterSource(itemDiff, moveType, index);
+	if(itemData.stats && itemData.stats.length) {
+		DomNode.dataset.statTree = JSON.stringify(itemData.stats);
+	}
+	if(itemData.nodes && itemData.nodes.length) {
+		DomNode.dataset.nodeTree = JSON.stringify(itemData.nodes);
+	}
+	if(itemData.objectives && itemData.objectives.length) {
+		DomNode.dataset.objectiveTree = JSON.stringify(itemData.objectives);
+	}
 }
 
 function passFactionData(DomNode, itemDiff, moveType, index) {
 	var diffData = itemDiff[moveType][index];
+	diffData = JSON.parse(diffData);
 	if (diffData.factionHash) {
 		var factionData = DestinyFactionDefinition[diffData.factionHash];
 		DomNode.dataset.itemName = factionData.factionName;
@@ -356,10 +368,13 @@ function passFactionData(DomNode, itemDiff, moveType, index) {
 	DomNode.dataset.tierTypeName = "Common";
 	DomNode.dataset.itemTypeName = "Faction";
 	DomNode.dataset.equipRequiredLevel = 0;
-	console.log(diffData)
 	DomNode.dataset.primaryStat = diffData.progressToNextLevel;
-	DomNode.dataset.primaryStatName = "Progress";
+	DomNode.dataset.primaryStatName = diffData.nextLevelAt;
 	DomNode.dataset.damageTypeName = "Kinetic";
+	DomNode.dataset.progressToNextLevel = diffData.progressToNextLevel;
+	DomNode.dataset.progressChange = diffData.progressChange;
+	DomNode.dataset.nextLevelAt = diffData.nextLevelAt;
+	DomNode.dataset.level = diffData.level;
 	DomNode.dataset.classRequirement = characterSource(itemDiff, moveType, index);
 }
 
@@ -390,4 +405,3 @@ function characterSource(itemDiff, moveType, index) {
 	}
 	return starter + characterName(toId, light);
 }
-

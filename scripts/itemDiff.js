@@ -109,7 +109,7 @@ function processDifference() {
 					if (!diff.progression) {
 						diff.progression = [];
 					}
-					diff.progression.push(progress.progress);
+					diff.progression.push(progress.item);
 				}
 			}
 		}
