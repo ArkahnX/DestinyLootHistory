@@ -8,7 +8,6 @@ function initUi() {
 			var d = new Date();
 			d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
 			d = d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + (d.getHours() - 0)).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2);
-			console.log(d)
 			startListening();
 		} else {
 			stopListening();
@@ -65,20 +64,20 @@ function handleTooltipData(dataset) {
 var transitionInterval = null;
 var previousElement = null;
 
-function rowHeight(list1Length, list2Length, list3Length) {
-	if (list1Length < 5 && list2Length < 5 && list3Length < 5) {
+function rowHeight(list1Length, list2Length, list3Length, list4Length) {
+	if (list1Length < 5 && list2Length < 5 && list3Length < 5 && list4Length < 5) {
 		return "one-row";
 	}
-	if (list1Length < 9 && list2Length < 9 && list3Length < 9) {
+	if (list1Length < 9 && list2Length < 9 && list3Length < 9 && list4Length < 9) {
 		return "two-rows";
 	}
-	if (list1Length < 13 && list2Length < 13 && list3Length < 13) {
+	if (list1Length < 13 && list2Length < 13 && list3Length < 13 && list4Length < 13) {
 		return "three-rows";
 	}
-	if (list1Length < 17 && list2Length < 17 && list3Length < 17) {
+	if (list1Length < 17 && list2Length < 17 && list3Length < 17 && list4Length < 17) {
 		return "four-rows";
 	}
-	if (list1Length < 21 && list2Length < 21 && list3Length < 21) {
+	if (list1Length < 21 && list2Length < 21 && list3Length < 21 && list4Length < 21) {
 		return "five-rows";
 	}
 	return "five-rows";
@@ -92,6 +91,19 @@ function createItems(itemDiff, className, moveType) {
 		docfrag.appendChild(makeItem(itemDiff, moveType, i));
 	}
 	subContainer.appendChild(docfrag);
+	return subContainer;
+}
+
+function createProgress(itemDiff, className, moveType) {
+	var subContainer = document.createElement("div");
+	subContainer.classList.add("sub-section", className);
+	if (itemDiff[moveType]) {
+		var docfrag = document.createDocumentFragment();
+		for (var i = 0; i < itemDiff[moveType].length; i++) {
+			docfrag.appendChild(makeProgress(itemDiff, moveType, i));
+		}
+		subContainer.appendChild(docfrag);
+	}
 	return subContainer;
 }
 
@@ -119,10 +131,12 @@ function displayResults() {
 	var added = document.getElementById("added");
 	var removed = document.getElementById("removed");
 	var transferred = document.getElementById("transferred");
+	var progression = document.getElementById("progression");
 	var dateFrag = document.createDocumentFragment();
 	var addedFrag = document.createDocumentFragment();
 	var removedFrag = document.createDocumentFragment();
 	var transferredFrag = document.createDocumentFragment();
+	var progressionFrag = document.createDocumentFragment();
 	// var thinArray = [];
 	// for(var i=data.itemChanges.length-(arrayStep * resultQuantity);i > -1;i--) {
 	// 	if(data.itemChanges[i]) {
@@ -135,7 +149,11 @@ function displayResults() {
 			var addedQty = arrayItem.added.length;
 			var removedQty = arrayItem.removed.length;
 			var transferredQty = arrayItem.transferred.length;
-			var className = rowHeight(addedQty, removedQty, transferredQty);
+			var progressionQty = 0;
+			if (arrayItem.progression) {
+				progressionQty = arrayItem.progression.length;
+			}
+			var className = rowHeight(addedQty, removedQty, transferredQty, progressionQty);
 			lastIndex = index;
 			callback({
 				className: className,
@@ -151,12 +169,14 @@ function displayResults() {
 			addedFrag.insertBefore(createItems(itemDiff, className, "added"), addedFrag.firstChild);
 			removedFrag.insertBefore(createItems(itemDiff, className, "removed"), removedFrag.firstChild);
 			transferredFrag.insertBefore(createItems(itemDiff, className, "transferred"), transferredFrag.firstChild);
+			progressionFrag.insertBefore(createProgress(itemDiff, className, "progression"), progressionFrag.firstChild);
 		}
 	}).then(function() {
 		date.insertBefore(dateFrag, date.firstChild)
 		added.insertBefore(addedFrag, added.firstChild)
 		removed.insertBefore(removedFrag, removed.firstChild)
 		transferred.insertBefore(transferredFrag, transferred.firstChild)
+		progression.insertBefore(progressionFrag, progression.firstChild)
 		console.timeEnd("loadResults");
 	});
 	// var lastIndex2 = -1;
@@ -217,14 +237,35 @@ function makeItem(itemDiff, moveType, index) {
 	container.appendChild(stat);
 	docfrag.appendChild(container);
 	DOMTokenList.prototype.add.apply(container.classList, itemClasses(itemData));
-	if(DestinyCompactItemDefinition[itemData.itemHash].hasIcon || (DestinyCompactItemDefinition[itemData.itemHash].icon && DestinyCompactItemDefinition[itemData.itemHash].icon.length)) {
-	container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[itemData.itemHash].icon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
-} else {
-	container.setAttribute("style", "background-image: url('http://bungie.net/img/misc/missing_icon.png')");
-}
+	if (DestinyCompactItemDefinition[itemData.itemHash].hasIcon || (DestinyCompactItemDefinition[itemData.itemHash].icon && DestinyCompactItemDefinition[itemData.itemHash].icon.length)) {
+		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[itemData.itemHash].icon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
+	} else {
+		container.setAttribute("style", "background-image: url('http://bungie.net/img/misc/missing_icon.png')");
+	}
 	stat.classList.add("primary-stat");
 	stat.textContent = primaryStat(itemData);
 	passData(container, itemDiff, moveType, index);
+	return docfrag;
+}
+
+function makeProgress(itemDiff, moveType, index) {
+	var progressData = itemDiff[moveType][index];
+	var docfrag = document.createDocumentFragment();
+	var container = document.createElement("div");
+	var stat = document.createElement("div");
+	container.appendChild(stat);
+	docfrag.appendChild(container);
+	container.classList.add("kinetic", "common", "item")
+	if (DestinyFactionDefinition[progressData.factionHash]) {
+		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyFactionDefinition[progressData.factionHash].factionIcon + "')");
+	} else if (DestinyProgressionDefinition[progressData.progressionHash].icon) {
+		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyProgressionDefinition[progressData.progressionHash].icon + "')");
+	} else {
+		container.setAttribute("style", "background-image: url('http://bungie.net/img/misc/missing_icon.png')");
+	}
+	stat.classList.add("primary-stat");
+	stat.textContent = progressData.progressChange
+	passFactionData(container, itemDiff, moveType, index);
 	return docfrag;
 }
 
@@ -307,6 +348,27 @@ function passData(DomNode, itemDiff, moveType, index) {
 	DomNode.dataset.classRequirement = characterSource(itemDiff, moveType, index);
 }
 
+function passFactionData(DomNode, itemDiff, moveType, index) {
+	var diffData = itemDiff[moveType][index];
+	if (diffData.factionHash) {
+		var factionData = DestinyFactionDefinition[diffData.factionHash];
+		DomNode.dataset.itemName = factionData.factionName;
+		DomNode.dataset.itemDescription = factionData.factionDescription;
+	} else {
+		var factionData = DestinyProgressionDefinition[diffData.progressionHash];
+		DomNode.dataset.itemName = factionData.name;
+		DomNode.dataset.itemDescription = "";
+	}
+	DomNode.dataset.tierTypeName = "Common";
+	DomNode.dataset.itemTypeName = "Faction";
+	DomNode.dataset.equipRequiredLevel = 0;
+	console.log(diffData)
+	DomNode.dataset.primaryStat = diffData.progressToNextLevel;
+	DomNode.dataset.primaryStatName = "Progress";
+	DomNode.dataset.damageTypeName = "Kinetic";
+	DomNode.dataset.classRequirement = characterSource(itemDiff, moveType, index);
+}
+
 function characterName(characterId, light) {
 	if (light === null) {
 		return characterDescriptions[characterId].name;
@@ -336,33 +398,31 @@ function characterSource(itemDiff, moveType, index) {
 }
 
 function setTooltipData(dataset) {
-	var tooltip = document.getElementById("tooltip");
-	var itemName = document.getElementById("item-name");
-	var itemType = document.getElementById("item-type");
-	var itemRarity = document.getElementById("item-rarity");
-	var itemLevelText = document.getElementById("level-text");
-	var itemRequiredEquipLevel = document.getElementById("item-required-equip-level");
-	var itemPrimaryStat = document.getElementById("item-primary-stat");
-	var itemPrimaryStatText = document.getElementById("item-stat-text");
-	var itemDescription = document.getElementById("item-description");
-	var classRequirement = document.getElementById("class-requirement");
-	itemName.textContent = dataset.itemName;
-	itemType.textContent = dataset.itemTypeName;
-	itemRarity.textContent = dataset.tierTypeName;
-	itemRequiredEquipLevel.textContent = dataset.equipRequiredLevel;
-	if (dataset.equipRequiredLevel === "0") {
-		itemLevelText.classList.add("hidden");
-	} else {
-		itemLevelText.classList.remove("hidden");
-	}
-	itemPrimaryStat.textContent = dataset.primaryStat;
-	itemPrimaryStatText.textContent = dataset.primaryStatName;
-	itemDescription.textContent = dataset.itemDescription;
-	classRequirement.textContent = dataset.classRequirement;
-	tooltip.classList.remove("hidden", "arc", "void", "solar", "kinetic", "common", "legendary", "rare", "uncommon", "exotic");
-	try {
-		tooltip.classList.add(dataset.tierTypeName.toLowerCase(), dataset.damageTypeName.toLowerCase());
-	} catch (e) {
-		console.log(dataset)
+	if (dataset.tierTypeName) {
+		var tooltip = document.getElementById("tooltip");
+		var itemName = document.getElementById("item-name");
+		var itemType = document.getElementById("item-type");
+		var itemRarity = document.getElementById("item-rarity");
+		var itemLevelText = document.getElementById("level-text");
+		var itemRequiredEquipLevel = document.getElementById("item-required-equip-level");
+		var itemPrimaryStat = document.getElementById("item-primary-stat");
+		var itemPrimaryStatText = document.getElementById("item-stat-text");
+		var itemDescription = document.getElementById("item-description");
+		var classRequirement = document.getElementById("class-requirement");
+		itemName.textContent = dataset.itemName;
+		itemType.textContent = dataset.itemTypeName;
+		itemRarity.textContent = dataset.tierTypeName;
+		itemRequiredEquipLevel.textContent = dataset.equipRequiredLevel;
+		if (dataset.equipRequiredLevel === "0") {
+			itemLevelText.classList.add("hidden");
+		} else {
+			itemLevelText.classList.remove("hidden");
+		}
+		itemPrimaryStat.textContent = dataset.primaryStat;
+		itemPrimaryStatText.textContent = dataset.primaryStatName;
+		itemDescription.textContent = dataset.itemDescription;
+		classRequirement.textContent = dataset.classRequirement;
+		tooltip.classList.remove("hidden", "arc", "void", "solar", "kinetic", "common", "legendary", "rare", "uncommon", "exotic");
+		
 	}
 }

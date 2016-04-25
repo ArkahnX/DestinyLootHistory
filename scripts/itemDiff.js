@@ -17,7 +17,7 @@ function processDifference() {
 	var additions = [];
 	var removals = [];
 	var transfers = [];
-	var changes = [];
+	var progression = [];
 	var finalChanges = [];
 	if (oldInventories) {
 		for (var characterId in oldInventories) {
@@ -74,16 +74,21 @@ function processDifference() {
 	if (oldProgression) {
 		for (var characterId in oldProgression) {
 			var diff = {
-				timestamp: currentDateString,
-				secondsSinceLastDiff: (new Date(currentDateString) - previousFactionDate) / 1000,
 				characterId: characterId,
-				changes: checkFactionDiff(oldProgression[characterId].progressions, data.progression[characterId].progressions),
+				progress: checkFactionDiff(oldProgression[characterId].progressions, data.progression[characterId].progressions),
 			};
 			// for (var attr in data.progression[characterId].levelProgression) {
 			// 	diff.level[attr] = data.progression[characterId].levelProgression[attr];
 			// }
-			if (diff.changes.length > 0) {
-				changes.push(diff);
+			if (diff.progress.length > 0) {
+				for (var progress of diff.progress) {
+					if (progress) {
+						progression.push({
+							characterId: diff.characterId,
+							item: progress
+						});
+					}
+				}
 			}
 		}
 	}
@@ -92,20 +97,22 @@ function processDifference() {
 			timestamp: currentDateString,
 			secondsSinceLastDiff: (new Date(currentDateString) - previousItemDate) / 1000,
 			characterId: characterId,
-			light:characterDescriptions.light,
+			light: characterDescriptions.light,
 			removed: [],
 			added: [],
 			transferred: []
 		};
-		// if (data.progression[characterId]) {
-		// 	diff.level = data.progression[characterId].levelProgression;
-		// 	diff.changed = [];
-		// 	for (var change of changes) {
-		// 		if (change.characterId === characterId) {
-		// 			diff.changed.push(change.item);
-		// 		}
-		// 	}
-		// }
+		if (data.progression[characterId]) {
+			// diff.level = data.progression[characterId].levelProgression;
+			for (var progress of progression) {
+				if (progress.characterId === characterId) {
+					if (!diff.progression) {
+						diff.progression = [];
+					}
+					diff.progression.push(progress.progress);
+				}
+			}
+		}
 		for (var addition of additions) {
 			if (addition.characterId === characterId) {
 				diff.added.push(addition.item);
@@ -121,22 +128,22 @@ function processDifference() {
 				diff.transferred.push(transfer);
 			}
 		}
-		if (diff.removed.length || diff.added.length || diff.transferred.length || (diff.changed && diff.changed.length)) {
+		if (diff.removed.length || diff.added.length || diff.transferred.length || (diff.progression && diff.progression.length)) {
 			finalChanges.push(diff);
 		}
 	}
-	if (additions.length || removals.length || transfers.length || changes.length) {
+	if (additions.length || removals.length || transfers.length || progression.length) {
 		trackIdle();
 		// console.log(currentDateString, "\nAdditions:", additions, "\nRemovals:", removals, "\nTransfers:", transfers, "\nChanges:", changes, "\nFinal Changes:", finalChanges);
 	}
 	Array.prototype.push.apply(data.itemChanges, finalChanges);
-	Array.prototype.push.apply(data.factionChanges, changes);
+	// Array.prototype.push.apply(data.factionChanges, changes);
 	// Array.prototype.push.apply(additions, checkDiff(data.inventories[characterId], oldInventories[characterId]));
 	// Array.prototype.push.apply(removals, checkDiff(oldInventories[characterId], data.inventories[characterId]));
 	oldProgression = data.progression;
 	oldInventories = data.inventories;
 	chrome.storage.local.set(data, function() {
-		
+
 	});
 	console.timeEnd("Process Difference");
 	displayResults();

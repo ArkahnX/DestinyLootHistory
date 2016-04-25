@@ -273,13 +273,16 @@ function checkFactionDiff(sourceArray, newArray) {
 				var newItem = {
 					progressionHash: newArray[e].progressionHash,
 					level: newArray[e].level,
+					progressToNextLevel: newArray[e].progressToNextLevel,
 					progressChange: newArray[e].currentProgress - sourceArray[i].currentProgress,
 					currentProgress: newArray[e].currentProgress,
 					nextLevelAt: newArray[e].nextLevelAt,
 					name: DestinyProgressionDefinition[newArray[e].progressionHash].name
 				};
-				if (DestinyProgressionDefinition[newArray[e].progressionHash].icon) {
-					newItem.icon = DestinyProgressionDefinition[newArray[e].progressionHash].icon;
+				for (var faction of DestinyFactionDefinition) {
+					if (faction.progressionHash === newArray[e].progressionHash) {
+						newItem.factionHash = faction.factionHash;
+					}
 				}
 				itemsRemovedFromSource.push(newItem);
 			}
