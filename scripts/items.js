@@ -18,7 +18,8 @@ var data = {
 	inventories: {},
 	progression: {},
 	itemChanges: [],
-	factionChanges: []
+	factionChanges: [],
+	matches:[]
 };
 var oldInventories = {};
 var oldProgression = {};
@@ -284,7 +285,7 @@ function checkFactionDiff(sourceArray, newArray) {
 						newItem.factionHash = faction.factionHash;
 					}
 				}
-				itemsRemovedFromSource.push(newItem);
+				itemsRemovedFromSource.push(JSON.stringify(newItem));
 			}
 		}
 	}
@@ -324,9 +325,9 @@ function checkInventory() {
 		}
 		sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
 			sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
+				console.timeEnd("Bungie Inventory");
+				console.time("Local Inventory");
 				chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
-					console.timeEnd("Bungie Inventory");
-					console.time("Local Inventory");
 					data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
 					data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
 					// data.progression = handleInput(result.progression, data.progression);
@@ -352,7 +353,7 @@ function startListening() {
 		checkInventory();
 		listenLoop = setInterval(function() {
 			checkInventory();
-		}, 15000);
+		}, 20000);
 	}
 }
 
