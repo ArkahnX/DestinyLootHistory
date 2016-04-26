@@ -172,6 +172,7 @@ function displayResults() {
 		transferred.insertBefore(transferredFrag, transferred.firstChild)
 		progression.insertBefore(progressionFrag, progression.firstChild)
 		console.timeEnd("loadResults");
+		getLocalMatches().then(getRemoteMatches).then(constructMatchInterface);
 	});
 	// var lastIndex2 = -1;
 	// console.time("makeInventory");
@@ -342,13 +343,13 @@ function passData(DomNode, itemDiff, moveType, index) {
 	DomNode.dataset.itemDescription = DestinyCompactItemDefinition[itemData.itemHash].itemDescription;
 	DomNode.dataset.damageTypeName = elementType(itemData);
 	DomNode.dataset.classRequirement = characterSource(itemDiff, moveType, index);
-	if(itemData.stats && itemData.stats.length) {
+	if (itemData.stats && itemData.stats.length) {
 		DomNode.dataset.statTree = JSON.stringify(itemData.stats);
 	}
-	if(itemData.nodes && itemData.nodes.length) {
+	if (itemData.nodes && itemData.nodes.length) {
 		DomNode.dataset.nodeTree = JSON.stringify(itemData.nodes);
 	}
-	if(itemData.objectives && itemData.objectives.length) {
+	if (itemData.objectives && itemData.objectives.length) {
 		DomNode.dataset.objectiveTree = JSON.stringify(itemData.objectives);
 	}
 }

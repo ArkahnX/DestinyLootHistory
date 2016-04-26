@@ -31,10 +31,10 @@ function isSameItem(item1, item2) {
 	if (item1 === item2) {
 		return true;
 	}
-	if(typeof item1 === "string") {
+	if (typeof item1 === "string") {
 		item1 = JSON.parse(item1);
 	}
-	if(typeof item2 === "string") {
+	if (typeof item2 === "string") {
 		item2 = JSON.parse(item2);
 	}
 	if (item1.itemHash === item2.itemHash) {
@@ -51,7 +51,7 @@ function makeDate(string, offset) {
 	// console.log(string,offset)
 	var d = new Date(string);
 	d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
-	d = new Date(d.getTime() + (offset * 1000))
+	d = new Date(d.getTime() - (offset * 1000))
 	var dateString = d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2) + ":" + ('0' + d.getSeconds()).slice(-2);
 	return dateString;
 }
@@ -191,7 +191,9 @@ function processDifference(diffs, type) {
 	// // Array.prototype.push.apply(removals, checkDiff(oldInventories[characterId], data.inventories[characterId]));
 	// oldProgression = data.progression;
 	// oldInventories = data.inventories;
-	chrome.storage.local.set({"itemChanges":finalChanges}, function() {});
+	chrome.storage.local.set({
+		"itemChanges": finalChanges
+	}, function() {});
 	var itemBlob = new Blob([JSON.stringify(finalChanges)], {
 		type: 'application/json'
 	});
@@ -213,3 +215,49 @@ function processDifference(diffs, type) {
 	// a2.dataset.downloadurl = ['json', a2.download, a2.href].join(':');
 	// });
 }
+
+chrome.storage.local.get(null, function(data) {
+	var timestamps = [];
+	for (var itemDiff of data.itemChanges) {
+		if (timestamps.indexOf(itemDiff.timestamp) === -1) {
+			timestamps.push(itemDiff.timestamp);
+		}
+	}
+	for (var i = data.factionChanges.length - 1; i > -1; i--) {
+		var change = data.factionChanges[i];
+		var previous = data.factionChanges[i - 1];
+		if (previous) {
+			if (change.timestamp) {
+				if (typeof previous.timestamp !== "string") {
+					if (change.secondsSinceLastDiff) {
+						previous.timestamp = makeDate(change.timestamp, change.secondsSinceLastDiff);
+					} else {
+						change.secondsSinceLastDiff = 60 * 60 * 4;
+						previous.timestamp = makeDate(change.timestamp, change.secondsSinceLastDiff);
+					}
+				}
+				change.secondsSinceLastDiff = (new Date(change.timestamp).valueOf() - new Date(previous.timestamp).valueOf()) / 1000;
+			}
+		}
+	}
+	for (var factionDiff of data.factionChanges) {
+		if (timestamps.indexOf(factionDiff.timestamp) === -1) {
+			timestamps.push(factionDiff.timestamp);
+		}
+	}
+	timestamps.sort(function(a, b) {
+		return new Date(a) - new Date(b)
+	});
+	var previousTimeStamp = "";
+	for (var timestamp of timestamps) {
+		if (previousTimeStamp) {
+			// console.log((new Date(timestamp).valueOf() - new Date(previousTimeStamp).valueOf()) / 1000)
+		}
+		previousTimeStamp = timestamp;
+	}
+	console.log(timestamps)
+
+	// console.log(data.factionChanges);
+	// chrome.storage.local.set(data, function() {});
+	// console.log(timestamps, data.itemChanges.length, data.factionChanges.length)
+});

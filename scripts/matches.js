@@ -15,15 +15,19 @@ function getLocalMatches() {
 }
 
 function getRemoteMatches() {
-	if (data.itemChanges[0]) {
-		sequence(characterIdList, getBungieMatchData, function() {}).then(function() {
-			data.matches.sort(function(a, b) {
-				return new Date(a.timestamp) - new Date(b.timestamp);
+	return new Promise(function(resolve, reject) {
+		if (data.itemChanges[0]) {
+			sequence(characterIdList, getBungieMatchData, function() {}).then(function() {
+				data.matches.sort(function(a, b) {
+					return new Date(a.timestamp) - new Date(b.timestamp);
+				});
+				resolve();
 			});
-			console.log(data.matches);
-		});
-	}
+		}
+	});
 }
+
+function deleteMatchData(){}
 
 function getBungieMatchData(characterId, resolve) {
 	var firstDateString = data.itemChanges[0].timestamp;
@@ -45,7 +49,6 @@ function _remoteMatch(page, firstDateString, characterId, resolve) {
 						data.matches.push(compactMatch(activity));
 					}
 				} else {
-					console.log(characterId,firstDateString,result.data.activities)
 					foundOldDate = true;
 					break;
 				}
@@ -62,9 +65,26 @@ function _remoteMatch(page, firstDateString, characterId, resolve) {
 function compactMatch(activity) {
 	return {
 		timestamp: activity.period,
-		mode: activity.activityDetails.mode,
-		activityHash: activity.activityDetails.activityTypeHashOverride,
+		activityHash: activity.activityDetails.referenceId,
 		activityInstance: activity.activityDetails.instanceId,
 		activityTime: activity.values.activityDurationSeconds.basic.value
 	};
+}
+
+function constructMatchInterface() {
+	var nodes = document.querySelectorAll(".timestamp");
+	for (var node of nodes) {
+		var time = new Date(node.dataset.timestamp).getTime();
+		for (var activity of data.matches) {
+			var minTime = new Date(activity.timestamp).getTime();
+			var maxTime = minTime + ((activity.activityTime + 120) * 1000);
+			if (time >= minTime && maxTime >= time) {
+				var activityTypeData = DestinyActivityDefinition[activity.activityHash];
+				if (!activityTypeData) {
+					console.log(activity)
+				}
+				node.textContent = node.textContent + " " + activityTypeData.activityName;
+			}
+		}
+	}
 }
