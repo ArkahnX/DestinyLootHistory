@@ -1,8 +1,5 @@
-function processDifference() {
+function processDifference(currentDateString) {
 	console.time("Process Difference");
-	var d = new Date();
-	d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
-	var currentDateString = d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2) + ":" + ('0' + d.getSeconds()).slice(-2);
 	var previousFaction = data.factionChanges[data.factionChanges.length - 1];
 	var previousItem = data.itemChanges[data.itemChanges.length - 1];
 	var previousFactionDate = new Date(currentDateString);
@@ -25,8 +22,8 @@ function processDifference() {
 				timestamp: currentDateString,
 				secondsSinceLastDiff: (new Date(currentDateString) - previousItemDate) / 1000,
 				characterId: characterId,
-				added: checkDiff(data.inventories[characterId], oldInventories[characterId]),
-				removed: checkDiff(oldInventories[characterId], data.inventories[characterId])
+				added: checkDiff(newInventories[characterId], oldInventories[characterId]),
+				removed: checkDiff(oldInventories[characterId], newInventories[characterId])
 			};
 			if (diff.added.length || diff.removed.length) {
 				diffs.push(diff);
@@ -75,10 +72,10 @@ function processDifference() {
 		for (var characterId in oldProgression) {
 			var diff = {
 				characterId: characterId,
-				progress: checkFactionDiff(oldProgression[characterId].progressions, data.progression[characterId].progressions),
+				progress: checkFactionDiff(oldProgression[characterId].progressions, newProgression[characterId].progressions),
 			};
-			// for (var attr in data.progression[characterId].levelProgression) {
-			// 	diff.level[attr] = data.progression[characterId].levelProgression[attr];
+			// for (var attr in newProgression[characterId].levelProgression) {
+			// 	diff.level[attr] = newProgression[characterId].levelProgression[attr];
 			// }
 			if (diff.progress.length > 0) {
 				for (var progress of diff.progress) {
@@ -92,7 +89,7 @@ function processDifference() {
 			}
 		}
 	}
-	for (var characterId in data.inventories) {
+	for (var characterId in newInventories) {
 		var diff = {
 			timestamp: currentDateString,
 			secondsSinceLastDiff: (new Date(currentDateString) - previousItemDate) / 1000,
@@ -102,8 +99,8 @@ function processDifference() {
 			added: [],
 			transferred: []
 		};
-		if (data.progression[characterId]) {
-			// diff.level = data.progression[characterId].levelProgression;
+		if (newProgression[characterId]) {
+			// diff.level = newProgression[characterId].levelProgression;
 			for (var progress of progression) {
 				if (progress.characterId === characterId) {
 					if (!diff.progression) {
@@ -128,8 +125,18 @@ function processDifference() {
 				diff.transferred.push(transfer);
 			}
 		}
-		if (diff.removed.length || diff.added.length || diff.transferred.length || (diff.progression && diff.progression.length)) {
+		if (diff.removed.length || diff.added.length || diff.transferred.length) {
+			if (diff.progression && diff.progression.length) {
+				oldProgression[characterId] = newProgression[characterId];
+				data.progression[characterId] = newProgression[characterId];
+			} else {
+				oldProgression[characterId] = oldProgression[characterId];
+				data.progression[characterId] = oldProgression[characterId];
+			}
 			finalChanges.push(diff);
+		} else {
+			oldProgression[characterId] = oldProgression[characterId];
+			data.progression[characterId] = oldProgression[characterId];
 		}
 	}
 	if (additions.length || removals.length || transfers.length || progression.length) {
@@ -138,10 +145,11 @@ function processDifference() {
 	}
 	Array.prototype.push.apply(data.itemChanges, finalChanges);
 	// Array.prototype.push.apply(data.factionChanges, changes);
-	// Array.prototype.push.apply(additions, checkDiff(data.inventories[characterId], oldInventories[characterId]));
-	// Array.prototype.push.apply(removals, checkDiff(oldInventories[characterId], data.inventories[characterId]));
-	oldProgression = data.progression;
-	oldInventories = data.inventories;
+	// Array.prototype.push.apply(additions, checkDiff(newInventories[characterId], oldInventories[characterId]));
+	// Array.prototype.push.apply(removals, checkDiff(oldInventories[characterId], newInventories[characterId]));
+	oldInventories = newInventories;
+	data.inventories = newInventories;
+
 	chrome.storage.local.set(data, function() {
 
 	});

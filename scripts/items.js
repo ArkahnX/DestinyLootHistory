@@ -19,10 +19,12 @@ var data = {
 	progression: {},
 	itemChanges: [],
 	factionChanges: [],
-	matches:[]
+	matches: []
 };
 var oldInventories = {};
 var oldProgression = {};
+var newProgression = {};
+var newInventories = {};
 var relevantStats = ["itemHash", "itemInstanceId", "isEquipped", "itemInstanceId", "stackSize", "itemLevel", "qualityLevel", "stats", "primaryStat", "equipRequiredLevel", "damageTypeHash", "progression", "talentGridHash", "nodes", "isGridComplete", "objectives"];
 var characterIdList = ["vault"];
 var characterDescriptions = {
@@ -96,8 +98,9 @@ function itemResultTask(result, characterId) {
 	if (result) {
 		if (!data.inventories[characterId]) {
 			data.inventories[characterId] = [];
+			newInventories[characterId] = [];
 		}
-		data.inventories[characterId] = concatItems(result.data.buckets);
+		newInventories[characterId] = concatItems(result.data.buckets);
 	}
 }
 
@@ -105,8 +108,9 @@ function factionResultTask(result, characterId) {
 	if (result) {
 		if (!data.progression[characterId]) {
 			data.progression[characterId] = [];
+			newProgression[characterId] = [];
 		}
-		data.progression[characterId] = result.data;
+		newProgression[characterId] = result.data;
 	}
 }
 
@@ -318,6 +322,9 @@ var stopLoop = null;
 
 function checkInventory() {
 	console.time("Bungie Inventory");
+	var d = new Date();
+	d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
+	var currentDateString = d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2) + ":" + ('0' + d.getSeconds()).slice(-2);
 	bungie.search(function(e) {
 		var avatars = e.data.characters;
 		for (var c = 0; c < avatars.length; c++) {
@@ -335,7 +342,7 @@ function checkInventory() {
 					oldProgression = handleInput(result.progression, data.progression);
 					oldInventories = handleInput(result.inventories, data.inventories);
 					console.timeEnd("load Bungie Data");
-					processDifference();
+					processDifference(currentDateString);
 				});
 			});
 		});
