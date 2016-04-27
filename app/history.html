@@ -1,0 +1,75 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Loot History</title>
+	<link rel="stylesheet" type="text/css" href="ui.css">
+	<style>
+	.item {
+		width:96px;
+		height:96px;
+	}
+	#container {
+		height: calc(100% - 32px);
+	}
+	.sub-section {
+		margin-bottom:30px;
+	}
+	input {
+		float:left;
+	}
+	</style>
+</head>
+
+<body>
+	<header id="status" class="hidden">
+		<nav>
+			<input type="button" value="Begin Tracking" id="startTracking" disabled />
+		</nav>
+	</header>
+	<div class="title-bar">
+				<input type="button" value="Return to Item Tracking" id="closeHistory" />
+			<div class="center" id="character-headers" style="text-align: center;">
+				<div class="title"><h1 class="section-title">ITEM HISTORY</h1></div>
+			</div>
+		</div>
+	<div id="container">
+		<div class="center" id="character-sections">
+			<div id="history" class="main-section" style="width: inherit;"></div>
+		</div>
+	</div>
+	<div id="tooltip" class="hidden">
+		<section id="item-head">
+			<h2 id="item-name"></h2>
+			<div>
+				<span id="item-type"></span>
+				<span id="item-rarity"></span>
+			</div>
+		</section>
+		<section id="class-requirement"></section>
+		<section id="item-body">
+			<div id="level-text">Requires Level <span id="item-required-equip-level"></span></div>
+			<h1 id="item-primary-stat"></h1><div id="item-stat-text"></div>
+			<div id="item-description"></div>
+		</section>
+	</div>
+	<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyInventoryBucketDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyStatDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyTalentGridDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyDamageTypeDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyProgressionDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyClassDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyGenderDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyRaceDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyObjectiveDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyRewardSourceDefinition.js"></script>
+	<script type="text/javascript" src="scripts/vendor/moment.js"></script>
+	<script type="text/javascript" src="scripts/vendor/moment-timezone.js"></script>
+	<script type="text/javascript" src="scripts/bungie.js"></script>
+	<script type="text/javascript" src="scripts/history.js"></script>
+	<script type="text/javascript" src="scripts/ui.js"></script>
+	<script type="text/javascript" src="scripts/newui.js"></script>
+</body>
+
+</html>
