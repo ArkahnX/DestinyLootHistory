@@ -161,7 +161,7 @@ var DestinySpecialEventDefinition = {
 		"activeUnlockValueHash": 0,
 		"bountyHashes": [],
 		"questHashes": [],
-		"friendlyIdentifier": "armsDay",
+		"friendlyIdentifier": "armsday",
 		"hash": 7,
 		"index": 0
 	}
