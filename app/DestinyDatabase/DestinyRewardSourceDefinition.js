@@ -24,9 +24,19 @@ var DestinyRewardSourceDefinition = {
 		"category": 2,
 		"identifier": "SOURCE_VENDOR_GUNSMITH",
 		"sourceName": "Gunsmith",
-		"description": "Banshee-44, the Gunsmith, sometimes sells this item in the Tower.",
+		"description": "Banshee-44, the Gunsmith, sometimes sells this item in the Tower.  You may also need to gain reputation with him to unlock this item.",
 		"icon": "/img/destiny_content/sources/109120_sm.png",
 		"hash": 299200664,
+		"index": 0
+	},
+	"344892955": {
+		"sourceHash": 344892955,
+		"category": 1,
+		"identifier": "SOURCE_CRIMSON_DOUBLES",
+		"sourceName": "Crimson Doubles",
+		"description": "This item was granted during the Crimson Doubles event of February 2016.",
+		"icon": "/img/destiny_content/sources/crimson_candy.jpg",
+		"hash": 344892955,
 		"index": 0
 	},
 	"460228854": {
@@ -144,7 +154,7 @@ var DestinyRewardSourceDefinition = {
 		"category": 2,
 		"identifier": "SOURCE_VENDOR_CRYPTARCH",
 		"sourceName": "Cryptarch",
-		"description": "Cryptarch Master Rahool sometimes stocks this item in the Tower.",
+		"description": "Gain reputation with Cryptarch Master Rahool to access this item.",
 		"icon": "/img/destiny_content/sources/109080_sm.png",
 		"hash": 1141011754,
 		"index": 0
@@ -243,8 +253,8 @@ var DestinyRewardSourceDefinition = {
 		"sourceHash": 1963381593,
 		"category": 2,
 		"identifier": "SOURCE_VENDOR_NEW_MONARCHY",
-		"sourceName": "New Monarchy",
-		"description": "Executor Hideo of the New Monarchy faction sometimes sells this item in the Tower.",
+		"sourceName": "New Monarchy Vendor",
+		"description": "Gain reputation with Executor Hideo of the New Monarchy faction to access this item.",
 		"icon": "/img/destiny_content/sources/108100_sm.png",
 		"hash": 1963381593,
 		"index": 0
@@ -274,7 +284,7 @@ var DestinyRewardSourceDefinition = {
 		"category": 2,
 		"identifier": "SOURCE_VENDOR_IRON_BANNER",
 		"sourceName": "Lord Saladin",
-		"description": "Lord Saladin, the Iron Banner Handler, sometimes sells this item in the Tower.",
+		"description": "Gain reputation with Lord Saladin, the Iron Banner Handler, to access this item.",
 		"icon": "/img/destiny_content/sources/109054_sm.png",
 		"hash": 2770509343,
 		"index": 0
@@ -283,8 +293,8 @@ var DestinyRewardSourceDefinition = {
 		"sourceHash": 2859308742,
 		"category": 2,
 		"identifier": "SOURCE_VENDOR_FUTURE_WAR_CULT",
-		"sourceName": "Future War Cult",
-		"description": "Lakshmi-2 of the Future War Cult faction sometimes sells this item in the Tower.",
+		"sourceName": "Future War Cult Vendor",
+		"description": "Gain reputation with Lakshmi-2 of the Future War Cult faction to access this item.",
 		"icon": "/img/destiny_content/sources/108080_sm.png",
 		"hash": 2859308742,
 		"index": 0
@@ -313,8 +323,8 @@ var DestinyRewardSourceDefinition = {
 		"sourceHash": 3080587303,
 		"category": 2,
 		"identifier": "SOURCE_VENDOR_DEAD_ORBIT",
-		"sourceName": "Dead Orbit",
-		"description": "Arach Jalaal of the Dead Orbit faction sometimes sells this item in the Tower.",
+		"sourceName": "Dead Orbit Vendor",
+		"description": "Gain reputation with Arach Jalaal of the Dead Orbit faction to access this item.",
 		"icon": "/img/destiny_content/sources/108090_sm.png",
 		"hash": 3080587303,
 		"index": 0
