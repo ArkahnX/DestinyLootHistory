@@ -47,3 +47,11 @@ sequence(characterIdList, factionNetworkTask, factionResultTask).then(function()
 		"progression": newProgression
 	}, function() {})
 });
+(function() {
+	var index = 0;
+	for (var item of data.itemChanges) {
+		item.id = index;
+		index++;
+	}
+	chrome.storage.local.set(data);
+}());

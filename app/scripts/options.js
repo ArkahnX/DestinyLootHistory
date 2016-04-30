@@ -14,14 +14,14 @@ function backupData() {
 document.addEventListener("DOMContentLoaded", function(event) {
 	var startOnLaunchButton = document.getElementById("startOnLaunch");
 	var backupDataButton = document.getElementById("backupData");
+	var exportDataButton = document.getElementById("exportData");
 	var closeOptions = document.getElementById("closeOptions");
 	closeOptions.addEventListener("click", function() {
 		window.location.href = chrome.extension.getURL('newui.html');
 	});
 	backupDataButton.addEventListener("click", function() {
 		chrome.permissions.contains({
-			permissions: ['tabs'],
-			origins: ['http://www.google.com/']
+			permissions: ['downloads']
 		}, function(result) {
 			if (result) {
 				// The extension has the permissions.
@@ -37,6 +37,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 				});
 			}
 		});
+	});
+	exportDataButton.addEventListener("click", function() {
+		exportDataButton.classList.add("loading");
+		exportDataButton.setAttribute("disabled", true);
+		exportData();
 	});
 
 	function handleFileSelect(evt) {

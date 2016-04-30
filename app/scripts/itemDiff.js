@@ -1,13 +1,12 @@
 function processDifference(currentDateString) {
 	console.time("Process Difference");
-	var previousFaction = data.factionChanges[data.factionChanges.length - 1];
 	var previousItem = data.itemChanges[data.itemChanges.length - 1];
-	var previousFactionDate = new Date(currentDateString);
-	var previousItemDate = new Date(currentDateString);
-	if (typeof previousFaction === "string") {
-		previousFactionDate = new Date(previousFaction.timestamp);
+	var uniqueIndex = 0;
+	if (previousItem) {
+		uniqueIndex = previousItem.id + 1;
 	}
-	if (typeof previousItem === "string") {
+	var previousItemDate = new Date(currentDateString);
+	if (previousItem) {
 		previousItemDate = new Date(previousItem.timestamp);
 	}
 	var diffs = [];
@@ -18,6 +17,7 @@ function processDifference(currentDateString) {
 	var finalChanges = [];
 	if (oldInventories) {
 		for (var characterId in oldInventories) {
+
 			var diff = {
 				timestamp: currentDateString,
 				secondsSinceLastDiff: (new Date(currentDateString) - previousItemDate) / 1000,
@@ -91,13 +91,14 @@ function processDifference(currentDateString) {
 	}
 	for (var characterId in newInventories) {
 		var diff = {
-			timestamp: currentDateString,
-			secondsSinceLastDiff: (new Date(currentDateString) - previousItemDate) / 1000,
-			characterId: characterId,
 			light: characterDescriptions.light,
 			removed: [],
 			added: [],
-			transferred: []
+			transferred: [],
+			id: uniqueIndex,
+			characterId: characterId,
+			secondsSinceLastDiff: (new Date(currentDateString) - previousItemDate) / 1000,
+			timestamp: currentDateString
 		};
 		if (newProgression[characterId]) {
 			// diff.level = newProgression[characterId].levelProgression;
@@ -154,5 +155,5 @@ function processDifference(currentDateString) {
 
 	});
 	console.timeEnd("Process Difference");
-	displayResults();
+	getLocalMatches().then(getRemoteMatches).then(applyMatchData).then(displayResults);
 }
