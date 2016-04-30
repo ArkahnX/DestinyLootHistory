@@ -27,7 +27,7 @@ function getRemoteMatches() {
 	});
 }
 
-function deleteMatchData(){}
+function deleteMatchData() {}
 
 function getBungieMatchData(characterId, resolve) {
 	var firstDateString = data.itemChanges[0].timestamp;
@@ -67,23 +67,46 @@ function compactMatch(activity) {
 		timestamp: activity.period,
 		activityHash: activity.activityDetails.referenceId,
 		activityInstance: activity.activityDetails.instanceId,
+		activityTypeHashOverride: activity.activityDetails.activityTypeHashOverride,
 		activityTime: activity.values.activityDurationSeconds.basic.value
 	};
+}
+
+function applyMatchData() {
+	return new Promise(function(resolve, reject) {
+		for (var itemDiff of data.itemChanges) {
+			var timestamp = new Date(itemDiff.timestamp).getTime();
+			for (var match of data.matches) {
+				var minTime = new Date(match.timestamp).getTime();
+				var maxTime = minTime + ((match.activityTime + 120) * 1000);
+				if (timestamp >= minTime && maxTime >= timestamp) {
+					itemDiff.match = JSON.stringify(match);
+				}
+			}
+		}
+		chrome.storage.local.set({
+			itemChanges: data.itemChanges,
+			matches: data.matches,
+		}, function() {
+			resolve();
+		})
+	});
 }
 
 function constructMatchInterface() {
 	var nodes = document.querySelectorAll(".timestamp");
 	for (var node of nodes) {
-		var time = new Date(node.dataset.timestamp).getTime();
-		for (var activity of data.matches) {
-			var minTime = new Date(activity.timestamp).getTime();
-			var maxTime = minTime + ((activity.activityTime + 120) * 1000);
-			if (time >= minTime && maxTime >= time) {
-				var activityTypeData = DestinyActivityDefinition[activity.activityHash];
-				if (!activityTypeData) {
-					console.log(activity)
+		if (node.dataset.activity === "") {
+			var index = parseInt(node.dataset.index, 10);
+			for (var itemDiff of data.itemChanges) {
+				if (itemDiff.id === index) {
+					if (itemDiff.match) {
+						var match = JSON.parse(itemDiff.match);
+						var activityTypeData = DestinyActivityDefinition[match.activityHash];
+						node.dataset.activity = " " + activityTypeData.activityName;
+					}
+					break;
 				}
-				node.textContent = node.textContent + " " + activityTypeData.activityName;
 			}
 		}
 	}

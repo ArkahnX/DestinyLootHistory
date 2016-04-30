@@ -101,12 +101,21 @@ function createProgress(itemDiff, className, moveType) {
 	return subContainer;
 }
 
-function createDate(timestamp, className) {
+function createDate(itemDiff, className) {
+	var timestamp = itemDiff.timestamp;
+	var activity = "";
+	if (itemDiff.match) {
+		var match = JSON.parse(itemDiff.match);
+		var activityTypeData = DestinyActivityDefinition[match.activityHash];
+		activity = " " + activityTypeData.activityName;
+	}
 	var subContainer = document.createElement("div");
 	subContainer.classList.add("sub-section", className, "timestamp");
-	subContainer.textContent = moment.utc(timestamp).tz(moment.tz.guess()).fromNow();
+	subContainer.textContent = moment.utc(timestamp).tz(moment.tz.guess()).fromNow() + activity;
 	subContainer.setAttribute("title", moment.utc(timestamp).tz(moment.tz.guess()).format("ddd[,] ll LTS"));
 	subContainer.dataset.timestamp = timestamp;
+	subContainer.dataset.activity = activity;
+	subContainer.dataset.index = itemDiff.id;
 	return subContainer;
 }
 
@@ -115,9 +124,10 @@ var resultQuantity = 100;
 var arrayStep = 0;
 
 function displayResults() {
+	constructMatchInterface();
 	var timestamps = document.querySelectorAll(".timestamp");
 	for (var item of timestamps) {
-		item.textContent = moment.utc(item.dataset.timestamp).tz(moment.tz.guess()).fromNow();
+		item.textContent = moment.utc(item.dataset.timestamp).tz(moment.tz.guess()).fromNow() + item.dataset.activity;
 		item.setAttribute("title", moment.utc(item.dataset.timestamp).tz(moment.tz.guess()).format("ddd[,] ll LTS"));
 	}
 	console.time("loadResults");
@@ -159,7 +169,7 @@ function displayResults() {
 		if (result) {
 			var itemDiff = result.itemDiff;
 			var className = result.className;
-			dateFrag.insertBefore(createDate(itemDiff.timestamp, className), dateFrag.firstChild);
+			dateFrag.insertBefore(createDate(itemDiff, className), dateFrag.firstChild);
 			addedFrag.insertBefore(createItems(itemDiff, className, "added"), addedFrag.firstChild);
 			removedFrag.insertBefore(createItems(itemDiff, className, "removed"), removedFrag.firstChild);
 			transferredFrag.insertBefore(createItems(itemDiff, className, "transferred"), transferredFrag.firstChild);
@@ -172,7 +182,6 @@ function displayResults() {
 		transferred.insertBefore(transferredFrag, transferred.firstChild)
 		progression.insertBefore(progressionFrag, progression.firstChild)
 		console.timeEnd("loadResults");
-		getLocalMatches().then(getRemoteMatches).then(constructMatchInterface);
 	});
 	// var lastIndex2 = -1;
 	// console.time("makeInventory");
