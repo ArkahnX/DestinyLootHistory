@@ -48,11 +48,6 @@ function initUi() {
 			previousElement = null;
 		}
 	}, false);
-	document.querySelector("#container").addEventListener("scroll", function(event) {
-		if (window.innerHeight + document.body.scrollTop > document.body.offsetHeight) {
-			displayResults();
-		}
-	});
 }
 
 var transitionInterval = null;
@@ -124,13 +119,14 @@ var resultQuantity = 100;
 var arrayStep = 0;
 
 function displayResults() {
+	console.timeEnd("grab matches");
 	constructMatchInterface();
+	console.time("loadResults");
 	var timestamps = document.querySelectorAll(".timestamp");
 	for (var item of timestamps) {
 		item.textContent = moment.utc(item.dataset.timestamp).tz(moment.tz.guess()).fromNow() + item.dataset.activity;
 		item.setAttribute("title", moment.utc(item.dataset.timestamp).tz(moment.tz.guess()).format("ddd[,] ll LTS"));
 	}
-	console.time("loadResults");
 	var date = document.getElementById("date");
 	var added = document.getElementById("added");
 	var removed = document.getElementById("removed");
@@ -141,13 +137,6 @@ function displayResults() {
 	var removedFrag = document.createDocumentFragment();
 	var transferredFrag = document.createDocumentFragment();
 	var progressionFrag = document.createDocumentFragment();
-	// var thinArray = [];
-	// for(var i=data.itemChanges.length-(arrayStep * resultQuantity);i > -1;i--) {
-	// 	if(data.itemChanges[i]) {
-	// 		thinArray.push(data.itemChanges[i]);
-	// 	}
-	// }
-
 	sequence(data.itemChanges, function(arrayItem, callback, index) {
 		if (lastIndex < index) {
 			var addedQty = arrayItem.added.length;
@@ -183,41 +172,6 @@ function displayResults() {
 		progression.insertBefore(progressionFrag, progression.firstChild)
 		console.timeEnd("loadResults");
 	});
-	// var lastIndex2 = -1;
-	// console.time("makeInventory");
-	// var inventory = document.getElementById("inventory");
-	// sequence(data.inventories["2305843009230608060"], function(arrayItem, callback, index) {
-	// 	if (lastIndex2 < index) {
-	// 		var targetNode = document.getElementById(arrayItem.bucketName);
-	// 		if(!targetNode) {
-	// 			var div = document.createElement("div");
-	// 			div.setAttribute("id",arrayItem.bucketName);
-	// 			div.classList.add("sub-section");
-	// 			inventory.appendChild(div);
-	// 		}
-	// 		lastIndex2 = index;
-	// 		callback(true);
-	// 	}
-	// 	callback(false);
-	// }, function(result, arrayItem, index) {
-	// 	if (result) {
-	// 		var targetNode = document.getElementById(arrayItem.bucketName);
-	// 		targetNode.appendChild(makeItem(arrayItem, "2305843009230608060"));
-	// 	}
-	// }).then(function() {
-	// 	console.timeEnd("makeInventory");
-	// });
-	// for (var e = 0; e < data.itemChanges.length; e++) {
-	// 	if (lastIndex < e) {
-	// 		var latestItemChange = data.itemChanges[e];
-	// 		var addedQty = latestItemChange.added.length;
-	// 		var removedQty = latestItemChange.removed.length;
-	// 		var transferredQty = latestItemChange.transferred.length;
-	// 		var className = rowHeight(addedQty, removedQty, transferredQty);
-	// 		delayNode(e, className, latestItemChange, date, added, removed, transferred);
-	// 		lastIndex = e;
-	// 	}
-	// }
 }
 
 function delayNode(index, className, latestItemChange, date, added, removed, transferred) {
