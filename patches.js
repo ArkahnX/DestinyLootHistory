@@ -55,3 +55,59 @@ sequence(characterIdList, factionNetworkTask, factionResultTask).then(function()
 	}
 	chrome.storage.local.set(data);
 }());
+
+var stop = true;
+var oldInventoryLength = 0;
+var oldFactionRep = 0;
+
+function checkInventory() {
+	bungie.inventory("2305843009221440972", function(result) {
+		var date = new Date();
+		var data = result.data;
+		var length = 0;
+		for (var attr in data.buckets) {
+			for (var i = 0; i < data.buckets[attr].length; i++) {
+				for (var e = 0; e < data.buckets[attr][i].items.length; e++) {
+					length += data.buckets[attr][i].items[e].stackSize || 1;
+				}
+				// length += data.buckets[attr][i].items.length;
+			}
+		}
+		if (length !== oldInventoryLength) {
+			console.log(length, date)
+		}
+		oldInventoryLength = length;
+		if (!stop) {
+			checkInventory()
+		} else {
+			console.log("STOPPING")
+		}
+	})
+}
+
+function checkFactions() {
+	bungie.factions("2305843009221440972", function(result) {
+		var date = new Date();
+		var data = result.data;
+		// console.log(data.progressions[4])
+		// var length = 0;
+		// for (var i = 0; i < data.progressions.length; i++) {
+		length = data.progressions[4].currentProgress;
+		// }
+		if (length !== oldFactionRep) {
+			console.log(data.progressions[4], date)
+			oldFactionRep = length;
+		}
+		if (!stop) {
+			checkFactions()
+		} else {
+			console.log("STOPPING")
+		}
+	})
+}
+
+stop = false;
+checkInventory();
+checkFactions();
+
+stop = true;

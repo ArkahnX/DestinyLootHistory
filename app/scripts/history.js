@@ -268,7 +268,7 @@ function buildCompactItem(itemData, bucketHash) {
 			if (newNode.hidden === false) {
 				var nodeHash = newNode.nodeHash;
 				var stepIndex = newNode.stepIndex;
-				newNode.nodeStepName = DestinyTalentGridDefinition[newItemData.talentGridHash].nodes[nodeHash].steps[stepIndex].nodeStepName;
+				newNode.nodeStepName = DestinyCompactTalentDefinition[newItemData.talentGridHash].nodes[nodeHash].steps[stepIndex].nodeStepName;
 				sortedNodes.push(newNode);
 			}
 		}
