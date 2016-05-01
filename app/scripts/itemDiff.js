@@ -155,5 +155,6 @@ function processDifference(currentDateString) {
 
 	});
 	console.timeEnd("Process Difference");
+	console.time("grab matches")
 	getLocalMatches().then(getRemoteMatches).then(applyMatchData).then(displayResults);
 }

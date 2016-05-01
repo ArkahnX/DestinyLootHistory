@@ -38,8 +38,10 @@ var characterDescriptions = {
 function recursive(index, array, networkTask, resultTask, endRecursion) {
 	if (array[index]) {
 		new Promise(function(resolve, reject) {
+	console.time("sequence")
 			networkTask(array[index], resolve, index);
 		}).then(function(result) {
+			console.timeEnd("sequence")
 			resultTask(result, array[index], index);
 			recursive(index + 1, array, networkTask, resultTask, endRecursion);
 		});
@@ -210,7 +212,7 @@ function buildCompactItem(itemData, bucketHash) {
 			if (newNode.hidden === false) {
 				var nodeHash = newNode.nodeHash;
 				var stepIndex = newNode.stepIndex;
-				newNode.nodeStepName = DestinyTalentGridDefinition[newItemData.talentGridHash].nodes[nodeHash].steps[stepIndex].nodeStepName;
+				newNode.nodeStepName = DestinyCompactTalentDefinition[newItemData.talentGridHash].nodes[nodeHash].steps[stepIndex].nodeStepName;
 				sortedNodes.push(newNode);
 			}
 		}
@@ -274,24 +276,25 @@ function checkFactionDiff(sourceArray, newArray) {
 	for (var i = 0; i < sourceArray.length; i++) {
 		for (var e = 0; e < newArray.length; e++) {
 			var diff = false;
-			if(newArray[e].progressionHash !== 3298204156) { // strip character_display_xp
-			if (newArray[e].progressionHash == sourceArray[i].progressionHash && newArray[e].currentProgress !== sourceArray[i].currentProgress) {
-				var newItem = {
-					progressionHash: newArray[e].progressionHash,
-					level: newArray[e].level,
-					progressToNextLevel: newArray[e].progressToNextLevel,
-					progressChange: newArray[e].currentProgress - sourceArray[i].currentProgress,
-					currentProgress: newArray[e].currentProgress,
-					nextLevelAt: newArray[e].nextLevelAt,
-					name: DestinyProgressionDefinition[newArray[e].progressionHash].name
-				};
-				for (var faction of DestinyFactionDefinition) {
-					if (faction.progressionHash === newArray[e].progressionHash) {
-						newItem.factionHash = faction.factionHash;
+			if (newArray[e].progressionHash !== 3298204156) { // strip character_display_xp
+				if (newArray[e].progressionHash == sourceArray[i].progressionHash && newArray[e].currentProgress !== sourceArray[i].currentProgress) {
+					var newItem = {
+						progressionHash: newArray[e].progressionHash,
+						level: newArray[e].level,
+						progressToNextLevel: newArray[e].progressToNextLevel,
+						progressChange: newArray[e].currentProgress - sourceArray[i].currentProgress,
+						currentProgress: newArray[e].currentProgress,
+						nextLevelAt: newArray[e].nextLevelAt,
+						name: DestinyProgressionDefinition[newArray[e].progressionHash].name
+					};
+					for (var faction of DestinyFactionDefinition) {
+						if (faction.progressionHash === newArray[e].progressionHash) {
+							newItem.factionHash = faction.factionHash;
+						}
 					}
+					itemsRemovedFromSource.push(JSON.stringify(newItem));
 				}
-				itemsRemovedFromSource.push(JSON.stringify(newItem));
-			}}
+			}
 		}
 	}
 	return itemsRemovedFromSource;
@@ -322,18 +325,22 @@ var listenLoop = null;
 var stopLoop = null;
 
 function checkInventory() {
-	console.time("Bungie Inventory");
+	console.time("Bungie Search");
 	var d = new Date();
 	d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
 	var currentDateString = d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2) + ":" + ('0' + d.getSeconds()).slice(-2);
 	bungie.search(function(e) {
+		console.timeEnd("Bungie Search");
 		var avatars = e.data.characters;
 		for (var c = 0; c < avatars.length; c++) {
 			characterDescriptions[avatars[c].characterBase.characterId].light = avatars[c].characterBase.powerLevel;
 		}
+		console.time("Bungie Items");
 		sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
+			console.timeEnd("Bungie Items");
+			console.time("Bungie Faction");
 			sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
-				console.timeEnd("Bungie Inventory");
+				console.timeEnd("Bungie Faction");
 				console.time("Local Inventory");
 				chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
 					data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
@@ -342,7 +349,7 @@ function checkInventory() {
 					// data.inventories = handleInput(result.inventories, data.inventories);
 					oldProgression = handleInput(result.progression, newProgression);
 					oldInventories = handleInput(result.inventories, newInventories);
-					console.timeEnd("load Bungie Data");
+					console.timeEnd("Local Inventory");
 					processDifference(currentDateString);
 				});
 			});
