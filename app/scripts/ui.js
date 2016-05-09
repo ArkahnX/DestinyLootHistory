@@ -4,13 +4,14 @@ function initUi() {
 	var element = document.querySelector("#startTracking");
 	element.removeAttribute("disabled");
 	element.addEventListener("click", function(event) {
-		if (listenLoop === null) {
+		if (!localStorage["listening"] || localStorage["listening"] === "false") {
 			var d = new Date();
 			d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
 			d = d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + (d.getHours() - 0)).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2);
-			startListening();
+			localStorage["listening"] = "true";
+			localStorage["manual"] = "true";
 		} else {
-			stopListening();
+			localStorage["listening"] = "false";
 		}
 	});
 	var historyLink = document.querySelector("#viewhistory");
@@ -137,41 +138,98 @@ function displayResults() {
 	var removedFrag = document.createDocumentFragment();
 	var transferredFrag = document.createDocumentFragment();
 	var progressionFrag = document.createDocumentFragment();
-	sequence(data.itemChanges, function(arrayItem, callback, index) {
-		if (lastIndex < index) {
-			var addedQty = arrayItem.added.length;
-			var removedQty = arrayItem.removed.length;
-			var transferredQty = arrayItem.transferred.length;
-			var progressionQty = 0;
-			if (arrayItem.progression) {
-				progressionQty = arrayItem.progression.length;
-			}
-			var className = rowHeight(addedQty, removedQty, transferredQty, progressionQty);
-			lastIndex = index;
-			callback({
-				className: className,
-				itemDiff: arrayItem
-			});
+	// The dataset
+	var myArr = [];
+	// Number of operations per call
+	var batchSize = 50;
+	// The actual processing method
+	function work(item, index) {
+		var dateFrag = document.createDocumentFragment();
+		var addedFrag = document.createDocumentFragment();
+		var removedFrag = document.createDocumentFragment();
+		var transferredFrag = document.createDocumentFragment();
+		var progressionFrag = document.createDocumentFragment();
+		// console.time("part1")
+		var addedQty = item.added.length;
+		var removedQty = item.removed.length;
+		var transferredQty = item.transferred.length;
+		var progressionQty = 0;
+		if (item.progression) {
+			progressionQty = item.progression.length;
 		}
-		callback(false);
-	}, function(result, arrayItem, index) {
-		if (result) {
-			var itemDiff = result.itemDiff;
-			var className = result.className;
-			dateFrag.insertBefore(createDate(itemDiff, className), dateFrag.firstChild);
-			addedFrag.insertBefore(createItems(itemDiff, className, "added"), addedFrag.firstChild);
-			removedFrag.insertBefore(createItems(itemDiff, className, "removed"), removedFrag.firstChild);
-			transferredFrag.insertBefore(createItems(itemDiff, className, "transferred"), transferredFrag.firstChild);
-			progressionFrag.insertBefore(createProgress(itemDiff, className, "progression"), progressionFrag.firstChild);
-		}
-	}).then(function() {
+		var className = rowHeight(addedQty, removedQty, transferredQty, progressionQty);
+		lastIndex = index;
+		// console.timeEnd("part1")
+		// console.time("part2")
+		dateFrag.insertBefore(createDate(item, className), dateFrag.firstChild);
+		addedFrag.insertBefore(createItems(item, className, "added"), addedFrag.firstChild);
+		removedFrag.insertBefore(createItems(item, className, "removed"), removedFrag.firstChild);
+		transferredFrag.insertBefore(createItems(item, className, "transferred"), transferredFrag.firstChild);
+		progressionFrag.insertBefore(createProgress(item, className, "progression"), progressionFrag.firstChild);
+		// console.timeEnd("part2")
 		date.insertBefore(dateFrag, date.firstChild)
 		added.insertBefore(addedFrag, added.firstChild)
 		removed.insertBefore(removedFrag, removed.firstChild)
 		transferred.insertBefore(transferredFrag, transferred.firstChild)
 		progression.insertBefore(progressionFrag, progression.firstChild)
+	}
+
+	// Start iterator, it will return a promise
+	var promise = asyncIterator(data.itemChanges, work, batchSize);
+
+	// When promise is resolved, output results
+	promise.then(function(results) {
+		console.time("part3")
+		date.insertBefore(dateFrag, date.firstChild)
+		added.insertBefore(addedFrag, added.firstChild)
+		removed.insertBefore(removedFrag, removed.firstChild)
+		transferred.insertBefore(transferredFrag, transferred.firstChild)
+		progression.insertBefore(progressionFrag, progression.firstChild)
+		console.timeEnd("part3")
 		console.timeEnd("loadResults");
+		console.log('Done processing', results);
 	});
+	// sequence(data.itemChanges, function(arrayItem, callback, index) {
+	// 	if (lastIndex < index) {
+	// 		console.time("part1")
+	// 		var addedQty = arrayItem.added.length;
+	// 		var removedQty = arrayItem.removed.length;
+	// 		var transferredQty = arrayItem.transferred.length;
+	// 		var progressionQty = 0;
+	// 		if (arrayItem.progression) {
+	// 			progressionQty = arrayItem.progression.length;
+	// 		}
+	// 		var className = rowHeight(addedQty, removedQty, transferredQty, progressionQty);
+	// 		lastIndex = index;
+	// 		console.timeEnd("part1")
+	// 		callback({
+	// 			className: className,
+	// 			itemDiff: arrayItem
+	// 		});
+	// 	}
+	// 	callback(false);
+	// }, function(result, arrayItem, index) {
+	// 	if (result) {
+	// 		console.time("part2")
+	// 		var itemDiff = result.itemDiff;
+	// 		var className = result.className;
+	// 		dateFrag.insertBefore(createDate(itemDiff, className), dateFrag.firstChild);
+	// 		addedFrag.insertBefore(createItems(itemDiff, className, "added"), addedFrag.firstChild);
+	// 		removedFrag.insertBefore(createItems(itemDiff, className, "removed"), removedFrag.firstChild);
+	// 		transferredFrag.insertBefore(createItems(itemDiff, className, "transferred"), transferredFrag.firstChild);
+	// 		progressionFrag.insertBefore(createProgress(itemDiff, className, "progression"), progressionFrag.firstChild);
+	// 		console.timeEnd("part2")
+	// 	}
+	// }).then(function() {
+	// 	console.time("part3")
+	// 	date.insertBefore(dateFrag, date.firstChild)
+	// 	added.insertBefore(addedFrag, added.firstChild)
+	// 	removed.insertBefore(removedFrag, removed.firstChild)
+	// 	transferred.insertBefore(transferredFrag, transferred.firstChild)
+	// 	progression.insertBefore(progressionFrag, progression.firstChild)
+	// 	console.timeEnd("part3")
+	// 	console.timeEnd("loadResults");
+	// });
 }
 
 function delayNode(index, className, latestItemChange, date, added, removed, transferred) {
@@ -209,6 +267,9 @@ function makeItem(itemDiff, moveType, index) {
 function makeProgress(itemDiff, moveType, index) {
 	var progressData = itemDiff[moveType][index];
 	progressData = JSON.parse(progressData);
+	if (progressData.itemHash) {
+		return makeItem(itemDiff, moveType, index);
+	}
 	var docfrag = document.createDocumentFragment();
 	var container = document.createElement("div");
 	var stat = document.createElement("div");
@@ -233,23 +294,25 @@ function itemClasses(itemData) {
 	if (itemData.isGridComplete) {
 		classList.push("complete");
 	}
-	if (itemData.tierTypeName === "Exotic") {
+	var itemDefinition = DestinyCompactItemDefinition[itemData.itemHash];
+	if (itemDefinition.tierTypeName === "Exotic") {
 		classList.push("exotic");
-	} else if (itemData.tierTypeName === "Legendary") {
+	} else if (itemDefinition.tierTypeName === "Legendary") {
 		classList.push("legendary");
-	} else if (itemData.tierTypeName === "Rare") {
+	} else if (itemDefinition.tierTypeName === "Rare") {
 		classList.push("rare");
-	} else if (itemData.tierTypeName === "Uncommon") {
+	} else if (itemDefinition.tierTypeName === "Uncommon") {
 		classList.push("uncommon");
 	} else {
 		classList.push("common");
 	}
-	if (itemData.damageTypeName) {
-		if (itemData.damageTypeName === "Arc") {
+	if (itemData.damageTypeHash) {
+		var damageTypeName = DestinyDamageTypeDefinition[itemData.damageTypeHash].damageTypeName;
+		if (damageTypeName === "Arc") {
 			classList.push("arc");
-		} else if (itemData.damageTypeName === "Solar") {
+		} else if (damageTypeName === "Solar") {
 			classList.push("solar");
-		} else if (itemData.damageTypeName === "Void") {
+		} else if (damageTypeName === "Void") {
 			classList.push("void");
 		} else {
 			classList.push("kinetic");
@@ -269,8 +332,9 @@ function primaryStat(itemData) {
 }
 
 function elementType(itemData) {
-	if (itemData.damageTypeName) {
-		return itemData.damageTypeName;
+	if (itemData.damageTypeHash) {
+		var damageTypeName = DestinyDamageTypeDefinition[itemData.damageTypeHash].damageTypeName;
+		return damageTypeName;
 	} else {
 		return "Kinetic";
 	}
@@ -292,18 +356,19 @@ function passData(DomNode, itemDiff, moveType, index) {
 		itemData = itemData.item;
 	}
 	itemData = JSON.parse(itemData);
-	if (itemData.tierTypeName) {
-		DomNode.dataset.tierTypeName = itemData.tierTypeName;
+	var itemDefinition = DestinyCompactItemDefinition[itemData.itemHash];
+	if (itemDefinition.tierTypeName) {
+		DomNode.dataset.tierTypeName = itemDefinition.tierTypeName;
 	} else {
 		DomNode.dataset.tierTypeName = "Common";
 	}
-	DomNode.dataset.itemHash = itemData.itemHash;
-	DomNode.dataset.itemName = itemData.itemName;
-	DomNode.dataset.itemTypeName = itemData.itemTypeName;
+	DomNode.dataset.itemHash = itemDefinition.itemHash;
+	DomNode.dataset.itemName = itemDefinition.itemName;
+	DomNode.dataset.itemTypeName = itemDefinition.itemTypeName;
 	DomNode.dataset.equipRequiredLevel = itemData.equipRequiredLevel || 0;
 	DomNode.dataset.primaryStat = primaryStat(itemData);
-	DomNode.dataset.primaryStatName = primaryStatName(itemData);
-	DomNode.dataset.itemDescription = DestinyCompactItemDefinition[itemData.itemHash].itemDescription;
+	DomNode.dataset.primaryStatName = primaryStatName(itemDefinition);
+	DomNode.dataset.itemDescription = itemDefinition.itemDescription;
 	DomNode.dataset.damageTypeName = elementType(itemData);
 	DomNode.dataset.classRequirement = characterSource(itemDiff, moveType, index);
 	if (itemData.stats && itemData.stats.length) {

@@ -1,5 +1,9 @@
+var bungie = new Bungie();
 (function() {
-	// Instance specific extension URL
+	chrome.storage.local.get(null, function(result) {
+			console.log(result)
+		})
+		// Instance specific extension URL
 	var appUrl = chrome.extension.getURL('newui.html');
 
 	function appClicked() {
@@ -9,4 +13,7 @@
 	}
 
 	chrome.browserAction.onClicked.addListener(appClicked);
+	initItems(function() {
+		beginBackendTracking();
+	});
 })();

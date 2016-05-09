@@ -1,14 +1,14 @@
-function exportData() {
+function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, lightLevel) {
 	chrome.storage.local.get(null, function(data) {
 		var exportDataButton = document.getElementById("exportData");
-		var regexMatch = new RegExp("team", "i");
+		var regexMatch = new RegExp(gameMode, "i");
 		var matchDrops = {};
 		var sortedData = [];
 		var exoticQue = "";
 		var factionLevel = 0;
 		for (var match of data.matches) {
 			if (match.activityTypeHashOverride) {
-				if (regexMatch.test(DestinyActivityTypeDefinition[match.activityTypeHashOverride].statGroup)) { // FIXME FIND USED THREE OF COINS
+				if (regexMatch.test(DestinyActivityTypeDefinition[match.activityTypeHashOverride].statGroup) && moment(match.timestamp).isSameOrBefore(maxDate) && moment(match.timestamp).isSameOrAfter(minDate)) { // FIXME FIND USED THREE OF COINS
 					matchDrops[match.activityInstance] = {
 						rewards: [],
 						exotic: "unused",
@@ -26,8 +26,7 @@ function exportData() {
 							if (timestamp >= minTime && maxTime >= timestamp) {
 								for (var removed of itemDiff.removed) {
 									removed = JSON.parse(removed);
-									console.log(removed, /three/i.test(removed.itemName))
-									if (/three/i.test(removed.itemName)) {
+									if (removed.itemHash === 417308266) {
 										if (matchDrops[match.activityInstance].exotic === "unused") {
 											matchDrops[match.activityInstance].exotic = "used";
 										} else {
@@ -41,6 +40,7 @@ function exportData() {
 						if (itemDiff.match) {
 							var itemMatch = JSON.parse(itemDiff.match);
 							if (itemMatch.activityInstance === match.activityInstance) {
+								console.log(match.timestamp)
 								if (itemDiff.added.length) {
 									if (itemDiff.progression) {
 										for (var progress of itemDiff.progression) {
@@ -56,6 +56,10 @@ function exportData() {
 										var added = JSON.parse(itemDiff);
 										var mainItemData = DestinyCompactItemDefinition[added.itemHash];
 										var bucketData = DestinyInventoryBucketDefinition[mainItemData.bucketTypeHash];
+										var light = added.stackSize;
+										if(added.primaryStat) {
+											light = added.primaryStat.value;
+										}
 										if (!/(bounty|quest|shader|emblem|mission|ship)/i.test(mainItemData.itemTypeName) && !/(weapon|armor|desolate|chroma|spektar|medal)/i.test(mainItemData.itemName) && added.stackSize < 5) {
 											console.log(added, DestinyInventoryBucketDefinition[mainItemData.bucketTypeHash].bucketName)
 											if (/(exotic)/i.test(mainItemData.itemName)) {
@@ -66,9 +70,9 @@ function exportData() {
 													matchDrops[match.activityInstance].rewards.push(mainItemData.itemName);
 												}
 											} else if (/(camelot)/i.test(mainItemData.itemName)) {
-												matchDrops[match.activityInstance].rewards.push("PS " + mainItemData.tierTypeName + " " + bucketData.bucketName.split(" ")[0]);
+												matchDrops[match.activityInstance].rewards.push("PS " + mainItemData.tierTypeName + " " + bucketData.bucketName.split(" ")[0] + " (" + light + ")");
 											} else {
-												matchDrops[match.activityInstance].rewards.push(mainItemData.tierTypeName + " " + bucketData.bucketName.split(" ")[0]);
+												matchDrops[match.activityInstance].rewards.push(mainItemData.tierTypeName + " " + bucketData.bucketName.split(" ")[0] + " (" + light + ")");
 											}
 										}
 									}
@@ -81,7 +85,7 @@ function exportData() {
 		}
 		for (var attr in matchDrops) {
 			var rewards = matchDrops[attr].rewards;
-			if (rewards.length > 4) {
+			if (rewards.length > resulstLength) {
 				rewards.shift();
 			}
 			var result = {
@@ -89,9 +93,20 @@ function exportData() {
 				RewardOne: rewards[0] || "",
 				RewardTwo: rewards[1] || "",
 				RewardThree: rewards[2] || "",
-				RewardFour: rewards[3] || "",
-				Rank: matchDrops[attr].level
+				RewardFour: rewards[3] || ""
 			};
+			if (resulstLength > 4 && rewards[4]) {
+				result.RewardFive = rewards[4] || "";
+			}
+			if (resulstLength > 5 && rewards[5]) {
+				result.RewardSix = rewards[5] || "";
+			}
+			if (resulstLength > 6 && rewards[6]) {
+				result.RewardSeven = rewards[6] || "";
+			}
+			if (ironBanner) {
+				result.Rank = matchDrops[attr].level;
+			}
 			sortedData.push(join(result) + "\n");
 			if (rewards[4]) {
 				console.log(rewards);

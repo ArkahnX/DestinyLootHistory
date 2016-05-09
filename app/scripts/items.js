@@ -25,7 +25,7 @@ var oldInventories = {};
 var oldProgression = {};
 var newProgression = {};
 var newInventories = {};
-var relevantStats = ["itemHash", "itemInstanceId", "isEquipped", "itemInstanceId", "stackSize", "itemLevel", "qualityLevel", "stats", "primaryStat", "equipRequiredLevel", "damageTypeHash", "progression", "talentGridHash", "nodes", "isGridComplete", "objectives"];
+var relevantStats = ["itemHash", "itemInstanceId", "itemInstanceId", "stackSize", "equipRequiredLevel", "damageTypeHash", "talentGridHash", "isGridComplete"];
 var characterIdList = ["vault"];
 var characterDescriptions = {
 	"vault": {
@@ -38,10 +38,10 @@ var characterDescriptions = {
 function recursive(index, array, networkTask, resultTask, endRecursion) {
 	if (array[index]) {
 		new Promise(function(resolve, reject) {
-	console.time("sequence")
+			// console.time("sequence")
 			networkTask(array[index], resolve, index);
 		}).then(function(result) {
-			console.timeEnd("sequence")
+			// console.timeEnd("sequence")
 			resultTask(result, array[index], index);
 			recursive(index + 1, array, networkTask, resultTask, endRecursion);
 		});
@@ -72,15 +72,15 @@ function initItems(callback) {
 				};
 				characterIdList.push(avatars[c].characterBase.characterId);
 			}
-
+			localStorage["characterDescriptions"] = JSON.stringify(characterDescriptions);
 			console.timeEnd("load Bungie Data");
 			callback();
-			startListening();
 		});
 	});
 }
 
 function itemNetworkTask(characterId, callback) {
+	console.time("itemTask")
 	if (characterId === "vault") {
 		bungie.vault(callback);
 	} else {
@@ -89,6 +89,7 @@ function itemNetworkTask(characterId, callback) {
 }
 
 function factionNetworkTask(characterId, callback) {
+	console.time("factionTask")
 	if (characterId !== "vault") {
 		bungie.factions(characterId, callback);
 	} else {
@@ -97,16 +98,18 @@ function factionNetworkTask(characterId, callback) {
 }
 
 function itemResultTask(result, characterId) {
+	console.timeEnd("itemTask")
 	if (result) {
 		if (!data.inventories[characterId]) {
 			data.inventories[characterId] = [];
 			newInventories[characterId] = [];
 		}
-		newInventories[characterId] = concatItems(result.data.buckets);
+		newInventories[characterId] = result.data.buckets;
 	}
 }
 
 function factionResultTask(result, characterId) {
+	console.timeEnd("factionTask")
 	if (result) {
 		if (!data.progression[characterId]) {
 			data.progression[characterId] = [];
@@ -116,11 +119,10 @@ function factionResultTask(result, characterId) {
 	}
 }
 
-function _concat(list, bucketHash, sortedItems) {
+function _concat(list, sortedItems) {
 	for (var item of list) {
 		if (!sortedItems[item.itemInstanceId + "-" + item.itemHash]) {
-			sortedItems[item.itemInstanceId + "-" + item.itemHash] = buildCompactItem(item, bucketHash);
-			sortedItems[item.itemInstanceId + "-" + item.itemHash].bucketHash = bucketHash;
+			sortedItems[item.itemInstanceId + "-" + item.itemHash] = buildCompactItem(item);
 		} else {
 			sortedItems[item.itemInstanceId + "-" + item.itemHash].stackSize += item.stackSize;
 		}
@@ -133,11 +135,11 @@ function concatItems(itemBucketList) {
 	var unsortedItems = [];
 	for (var category of itemBucketList) {
 		if (category.items) {
-			sortedItems = _concat(category.items, category.bucketHash, sortedItems);
+			sortedItems = _concat(category.items, sortedItems);
 		} else {
 			for (var bucket of category) {
 				if (bucket.items) {
-					sortedItems = _concat(bucket.items, bucket.bucketHash, sortedItems);
+					sortedItems = _concat(bucket.items, sortedItems);
 				}
 			}
 		}
@@ -148,7 +150,7 @@ function concatItems(itemBucketList) {
 	return unsortedItems;
 }
 
-function buildCompactItem(itemData, bucketHash) {
+function buildCompactItem(itemData) {
 	var newItemData = {};
 	var hash = itemData.itemHash;
 	for (var i = 0; i < relevantStats.length; i++) {
@@ -162,64 +164,52 @@ function buildCompactItem(itemData, bucketHash) {
 			}
 		}
 	}
-	newItemData.itemName = DestinyCompactItemDefinition[hash].itemName;
-	newItemData.itemTypeName = DestinyCompactItemDefinition[hash].itemTypeName;
-	newItemData.tierTypeName = DestinyCompactItemDefinition[hash].tierTypeName;
-	newItemData.bucketHash = bucketHash;
-	newItemData.bucketName = DestinyInventoryBucketDefinition[bucketHash].bucketName;
-	if (DestinyCompactItemDefinition[hash].sourceHashes) {
-		var sourceHashes = DestinyCompactItemDefinition[hash].sourceHashes;
-		for (var q = 0; q < sourceHashes.length; q++) {
-			var sourceHash = sourceHashes[q];
-			var rewardSource = DestinyRewardSourceDefinition[sourceHash];
-			if (rewardSource) {
-				if (!newItemData.sources) {
-					newItemData.sources = [];
-				}
-				newItemData.sources.push(rewardSource.identifier);
-			}
+	if (itemData.stats && itemData.stats.length) {
+		newItemData.stats = [];
+		for (var e = 0; e < itemData.stats.length; e++) {
+			newItemData.stats[e] = {
+				statHash: itemData.stats[e].statHash,
+				value: itemData.stats[e].value
+			};
 		}
 	}
-	if (newItemData.stats) {
-		for (var e = 0; e < newItemData.stats.length; e++) {
-			newItemData.stats[e].statName = DestinyStatDefinition[newItemData.stats[e].statHash].statName;
-		}
-	}
-	if (newItemData.objectives) {
+	if (itemData.objectives && itemData.objectives.length) {
 		var completed = 0;
 		var completionValue = 0;
-		for (var l = 0; l < newItemData.objectives.length; l++) {
-			newItemData.objectives[l].displayDescription = DestinyObjectiveDefinition[newItemData.objectives[l].objectiveHash].displayDescription;
-			newItemData.objectives[l].completionValue = DestinyObjectiveDefinition[newItemData.objectives[l].objectiveHash].completionValue;
+		newItemData.objectives = [];
+		for (var l = 0; l < itemData.objectives.length; l++) {
+			newItemData.objectives[l] = {
+				objectiveHash: itemData.objectives[l].objectiveHash,
+				progress: itemData.objectives[l].progress
+			};
 			completed += newItemData.objectives[l].progress;
-			completionValue += newItemData.objectives[l].completionValue;
+			completionValue += DestinyObjectiveDefinition[itemData.objectives[l].objectiveHash].completionValue;
 		}
 		if (completed === completionValue) {
 			newItemData.isGridComplete = true;
 		}
 		newItemData.stackSize = Math.round(((completed / completionValue) * 100)) + "%";
 	}
-	if (newItemData.damageTypeHash) {
-		newItemData.damageTypeName = DestinyDamageTypeDefinition[newItemData.damageTypeHash].damageTypeName;
+	if (itemData.primaryStat) {
+		newItemData.primaryStat = {
+			statHash: itemData.primaryStat.statHash,
+			value: itemData.primaryStat.value
+		};
 	}
-	if (newItemData.primaryStat) {
-		newItemData.primaryStat.statName = DestinyStatDefinition[newItemData.primaryStat.statHash].statName;
-	}
-	if (newItemData.nodes) {
-		var sortedNodes = [];
-		for (var r = 0; r < newItemData.nodes.length; r++) {
-			var newNode = newItemData.nodes[r];
-			if (newNode.hidden === false) {
-				var nodeHash = newNode.nodeHash;
-				var stepIndex = newNode.stepIndex;
-				newNode.nodeStepName = DestinyCompactTalentDefinition[newItemData.talentGridHash].nodes[nodeHash].steps[stepIndex].nodeStepName;
-				sortedNodes.push(newNode);
+	if (itemData.nodes && itemData.nodes.length) {
+		newItemData.nodes = [];
+		for (var node of itemData.nodes) {
+			if (!node) {
+				console.log(itemData, itemData.nodes, itemData.nodes.length)
 			}
-		}
-		if (sortedNodes.length === 0) {
-			delete newItemData.nodes;
-		} else {
-			newItemData.nodes = sortedNodes;
+			if (node && !node.hidden) {
+				newItemData.nodes.push({
+					isActivated: node.isActivated,
+					stepIndex: node.stepIndex,
+					nodeHash: node.nodeHash,
+					state: node.state
+				});
+			}
 		}
 	}
 	return newItemData;
@@ -325,72 +315,34 @@ var listenLoop = null;
 var stopLoop = null;
 
 function checkInventory() {
-	console.time("Bungie Search");
-	var d = new Date();
-	d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
-	var currentDateString = d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + d.getHours()).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2) + ":" + ('0' + d.getSeconds()).slice(-2);
-	bungie.search(function(e) {
-		console.timeEnd("Bungie Search");
-		var avatars = e.data.characters;
-		for (var c = 0; c < avatars.length; c++) {
-			characterDescriptions[avatars[c].characterBase.characterId].light = avatars[c].characterBase.powerLevel;
-		}
-		console.time("Bungie Items");
-		sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
-			console.timeEnd("Bungie Items");
-			console.time("Bungie Faction");
-			sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
-				console.timeEnd("Bungie Faction");
-				console.time("Local Inventory");
-				chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
-					data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
-					data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
-					// data.progression = handleInput(result.progression, data.progression);
-					// data.inventories = handleInput(result.inventories, data.inventories);
-					oldProgression = handleInput(result.progression, newProgression);
-					oldInventories = handleInput(result.inventories, newInventories);
-					console.timeEnd("Local Inventory");
-					processDifference(currentDateString);
+	return new Promise(function(resolve, reject) {
+		console.time("Bungie Search");
+		var currentDateString = moment().utc().format();
+		bungie.search(function(e) {
+			console.timeEnd("Bungie Search");
+			var avatars = e.data.characters;
+			for (var c = 0; c < avatars.length; c++) {
+				characterDescriptions[avatars[c].characterBase.characterId].light = avatars[c].characterBase.powerLevel;
+			}
+			console.time("Bungie Items");
+			sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
+				console.timeEnd("Bungie Items");
+				console.time("Bungie Faction");
+				sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
+					console.timeEnd("Bungie Faction");
+					console.time("Local Inventory");
+					chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
+						data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
+						data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
+						// data.progression = handleInput(result.progression, data.progression);
+						// data.inventories = handleInput(result.inventories, data.inventories);
+						oldProgression = handleInput(result.progression, newProgression);
+						oldInventories = handleInput(result.inventories, newInventories);
+						console.timeEnd("Local Inventory");
+						processDifference(currentDateString, resolve);
+					});
 				});
 			});
 		});
 	});
-}
-
-function startListening() {
-	if (listenLoop === null) {
-		trackIdle();
-		var header = document.querySelector("#status");
-		header.classList.remove("idle");
-		header.classList.add("active");
-		var element = document.querySelector("#startTracking");
-		element.setAttribute("value", "Stop Tracking");
-		checkInventory();
-		listenLoop = setInterval(function() {
-			checkInventory();
-		}, 20000);
-	}
-}
-
-function stopListening() {
-	if (listenLoop !== null) {
-		var header = document.querySelector("#status");
-		header.classList.add("idle");
-		header.classList.remove("active");
-		var element = document.querySelector("#startTracking");
-		element.setAttribute("value", "Begin Tracking");
-		clearInterval(listenLoop);
-		listenLoop = null;
-		clearInterval(stopLoop);
-		stopLoop = null;
-	}
-}
-
-function trackIdle() {
-	if (stopLoop !== null) {
-		clearInterval(stopLoop);
-	}
-	stopLoop = setInterval(function() {
-		stopListening();
-	}, 1000 * 60 * 30);
 }

@@ -61,6 +61,8 @@ var oldInventoryLength = 0;
 var oldFactionRep = 0;
 
 function checkInventory() {
+	console.time("Inventory")
+
 	bungie.inventory("2305843009221440972", function(result) {
 		var date = new Date();
 		var data = result.data;
@@ -78,6 +80,7 @@ function checkInventory() {
 		}
 		oldInventoryLength = length;
 		if (!stop) {
+			console.timeEnd("Inventory")
 			checkInventory()
 		} else {
 			console.log("STOPPING")
@@ -85,29 +88,72 @@ function checkInventory() {
 	})
 }
 
-function checkFactions() {
-	bungie.factions("2305843009221440972", function(result) {
-		var date = new Date();
-		var data = result.data;
-		// console.log(data.progressions[4])
-		// var length = 0;
-		// for (var i = 0; i < data.progressions.length; i++) {
-		length = data.progressions[4].currentProgress;
-		// }
-		if (length !== oldFactionRep) {
-			console.log(data.progressions[4], date)
-			oldFactionRep = length;
-		}
-		if (!stop) {
-			checkFactions()
+var oldFactionProgress = 0;
+var dirtyTimeout = null;
+
+function dirtyItemCheck() {
+	var factionProgress = 0;
+	sequence(characterIdList, function(item, resolve) {
+		if (item !== "vault") {
+			bungie.factions(item, resolve);
 		} else {
-			console.log("STOPPING")
+			resolve();
 		}
-	})
+	}, function(result, item, index) {
+		if (result) {
+			var data = result.data;
+			for (var i = 0; i < data.progressions.length; i++) {
+				factionProgress += data.progressions[i].currentProgress;
+			}
+		}
+	}).then(function() {
+		if (factionProgress !== oldFactionProgress) {
+			console.log(factionProgress, oldFactionProgress)
+			oldFactionProgress = factionProgress;
+		}
+		dirtyTimeout = setTimeout(dirtyItemCheck,1000*10);
+	});
 }
 
 stop = false;
-checkInventory();
 checkFactions();
+checkInventory();
 
 stop = true;
+
+for (var itemDiff of data.itemChanges) {
+	for (i = 0; i < itemDiff.added.length; i++) {
+		var item = buildCompactItem(JSON.parse(itemDiff.added[i]));
+		itemDiff.added[i] = JSON.stringify(item);
+	}
+	for (i = 0; i < itemDiff.removed.length; i++) {
+		var item = buildCompactItem(JSON.parse(itemDiff.removed[i]));
+		itemDiff.removed[i] = JSON.stringify(item);
+	}
+	for (i = 0; i < itemDiff.transferred.length; i++) {
+		var item = buildCompactItem(JSON.parse(itemDiff.transferred[i].item));
+		itemDiff.transferred[i].item = JSON.stringify(item);
+	}
+	if (itemDiff.progression) {
+		for (i = 0; i < itemDiff.progression.length; i++) {
+			var item = JSON.parse(itemDiff.progression[i]);
+			if (item.itemHash) {
+				itemDiff.progression[i] = JSON.stringify(buildCompactItem(item));
+			}
+		}
+	}
+}
+
+for (var itemDiff of data.itemChanges) {
+	if (itemDiff.added.length > 10) {
+		console.log(data.itemChanges.indexOf(itemDiff), itemDiff)
+	}
+}
+
+for (var i = data.itemChanges.length - 1; i > -1; i--) {
+	var itemDiff = data.itemChanges[i];
+	if (itemDiff.added.length === 0 && itemDiff.removed.length === 0 && itemDiff.transferred.length === 0 && !itemDiff.progression) {
+		data.itemChanges.splice(i, 1);
+	}
+}
+chrome.storage.local.set(data, function() {})

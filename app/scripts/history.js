@@ -98,9 +98,8 @@ function checkInventory() {
 					inventoryData.splice(i, 1);
 				}
 			}
-
 			console.log(inventoryData);
-			var sources = ["SOURCE_CROTAS_END", "SOURCE_PRISON_ELDERS", "SOURCE_TTK"];
+			var sources = [3107502809, 36493462, 460228854, 3945957624, 344892955, 3739898362];
 			var div = document.createElement("div");
 			div.classList.add("sub-section");
 			var description = document.createElement("div");
@@ -108,34 +107,54 @@ function checkInventory() {
 			div.appendChild(description);
 			var sourceIndex = 0;
 			for (var item of inventoryData) {
+				var itemDefinition = DestinyCompactItemDefinition[item.itemHash];
 				var found = false;
-				if (item.sources && item.sources.length && sources[sourceIndex] && item.sources.indexOf(sources[sourceIndex]) > -1) {
-					if (sources[sourceIndex - 1]) {
-						if (item.sources.indexOf(sources[sourceIndex - 1]) === -1) {
-							if(item.itemLevel > 22) {
-							found = true;
-						}
+				if (itemDefinition.sourceHashes && itemDefinition.sourceHashes.length && sources[sourceIndex] && itemDefinition.sourceHashes.indexOf(sources[sourceIndex]) > -1) {
+					if (sources[sourceIndex - 1] && sources[sourceIndex - 1] !== 460228854) {
+						if (itemDefinition.sourceHashes.indexOf(sources[sourceIndex - 1]) === -1) {
+							if (itemDefinition.tierTypeName !== "Exotic" && itemDefinition.bucketTypeHash !== 284967655 && itemDefinition.tierTypeName !== "Rare") {
+								found = true;
+							}
 						}
 					} else {
 						found = true;
 					}
 					if (found) {
-						var source = sources[sourceIndex];
+						var source = DestinyRewardSourceDefinition[sources[sourceIndex]];
 						characterHistory.appendChild(div);
 						div = document.createElement("div");
 						div.classList.add("sub-section");
-						div.classList.add(source);
+						div.classList.add(source.identifier);
 						var description = document.createElement("div");
-						description.textContent = source;
+						description.textContent = source.sourceName;
 						div.appendChild(description);
 						sourceIndex++;
 					}
 				}
-				div.appendChild(makeItem(item, "vault"));
+				div.appendChild(makeHistoryItem(item, "vault"));
 			}
 			characterHistory.appendChild(div);
 		});
 	});
+}
+
+function makeHistoryItem(itemData, index) {
+	// itemData = JSON.parse(itemData);
+	var docfrag = document.createDocumentFragment();
+	var container = document.createElement("div");
+	var stat = document.createElement("div");
+	container.appendChild(stat);
+	docfrag.appendChild(container);
+	DOMTokenList.prototype.add.apply(container.classList, itemClasses(itemData));
+	if (DestinyCompactItemDefinition[itemData.itemHash].hasIcon || (DestinyCompactItemDefinition[itemData.itemHash].icon && DestinyCompactItemDefinition[itemData.itemHash].icon.length)) {
+		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[itemData.itemHash].icon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
+	} else {
+		container.setAttribute("style", "background-image: url('http://bungie.net/img/misc/missing_icon.png')");
+	}
+	stat.classList.add("primary-stat");
+	stat.textContent = primaryStat(itemData);
+	// passData(container, itemDiff, moveType, index);
+	return docfrag;
 }
 
 function itemNetworkTask(characterId, callback) {

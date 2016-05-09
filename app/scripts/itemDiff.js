@@ -1,7 +1,8 @@
-function processDifference(currentDateString) {
+function processDifference(currentDateString, resolve) {
 	console.time("Process Difference");
 	var previousItem = data.itemChanges[data.itemChanges.length - 1];
 	var uniqueIndex = 0;
+	var forceupdate = false;
 	if (previousItem) {
 		uniqueIndex = previousItem.id + 1;
 	}
@@ -15,9 +16,13 @@ function processDifference(currentDateString) {
 	var transfers = [];
 	var progression = [];
 	var finalChanges = [];
+	console.time("Concat New Items");
+	for (var characterId of characterIdList) {
+		newInventories[characterId] = concatItems(newInventories[characterId]);
+	}
+	console.timeEnd("Concat New Items");
 	if (oldInventories) {
 		for (var characterId in oldInventories) {
-
 			var diff = {
 				timestamp: currentDateString,
 				secondsSinceLastDiff: (new Date(currentDateString) - previousItemDate) / 1000,
@@ -34,18 +39,72 @@ function processDifference(currentDateString) {
 		for (var diff of diffs) {
 			for (var addition of diff.added) {
 				if (addition) {
-					additions.push({
-						characterId: diff.characterId,
-						item: addition
-					});
+					var itemData = JSON.parse(addition);
+					var itemDefinition = DestinyCompactItemDefinition[itemData.itemHash];
+					if (itemDefinition.bucketTypeHash === 2197472680 || itemDefinition.bucketTypeHash === 1801258597 || itemData.objectives) {
+						if (parseInt(itemData.stackSize, 10) > 0) {
+							console.log("passed to progression")
+							progression.push({
+								characterId: diff.characterId,
+								item: addition
+							});
+						} else {
+							additions.push({
+								characterId: diff.characterId,
+								item: addition
+							});
+						}
+					} else {
+						additions.push({
+							characterId: diff.characterId,
+							item: addition
+						});
+					}
 				}
 			}
 			for (var removal of diff.removed) {
 				if (removal) {
-					removals.push({
-						characterId: diff.characterId,
-						item: removal
-					});
+					var itemData = JSON.parse(removal);
+					var itemDefinition = DestinyCompactItemDefinition[itemData.itemHash];
+					if (itemDefinition.bucketTypeHash === 2197472680 || itemDefinition.bucketTypeHash === 1801258597 || itemData.objectives) {
+						var found = false;
+						for (var progress of progression) {
+							progress = JSON.parse(progress.item);
+							if (itemData.itemInstanceId === progress.itemInstanceId && itemData.stackSize !== progress.stackSize) {
+								console.log(progress)
+								if (parseInt(progress.stackSize, 10) >= 100) {
+									forceupdate = true;
+								}
+								found = true;
+								break;
+							}
+						}
+						if (!found) {
+							for (var added of additions) {
+								added = JSON.parse(added.item);
+								if (itemData.itemInstanceId === added.itemInstanceId && itemData.stackSize !== added.stackSize) {
+									console.log(added)
+									if (parseInt(progress.stackSize, 10) >= 100) {
+										forceupdate = true;
+									}
+									found = true;
+									break;
+								}
+							}
+						}
+						console.log(found)
+						if (found === false) {
+							removals.push({
+								characterId: diff.characterId,
+								item: removal
+							});
+						}
+					} else {
+						removals.push({
+							characterId: diff.characterId,
+							item: removal
+						});
+					}
 				}
 			}
 		}
@@ -91,7 +150,7 @@ function processDifference(currentDateString) {
 	}
 	for (var characterId in newInventories) {
 		var diff = {
-			light: characterDescriptions.light,
+			light: characterDescriptions[characterId].light,
 			removed: [],
 			added: [],
 			transferred: [],
@@ -126,18 +185,28 @@ function processDifference(currentDateString) {
 				diff.transferred.push(transfer);
 			}
 		}
-		if (diff.removed.length || diff.added.length || diff.transferred.length) {
+		if (diff.removed.length || diff.added.length || diff.transferred.length || (diff.progression && diff.progression.length)) {
+			localStorage["flag"] = "true";
+			console.log(diff)
+		}
+		if (diff.removed.length || diff.added.length || diff.transferred.length || (diff.progression && diff.progression.length && forceupdate)) {
 			if (diff.progression && diff.progression.length) {
 				oldProgression[characterId] = newProgression[characterId];
 				data.progression[characterId] = newProgression[characterId];
+				oldInventories = newInventories;
+				data.inventories = newInventories;
 			} else {
 				oldProgression[characterId] = oldProgression[characterId];
 				data.progression[characterId] = oldProgression[characterId];
+				oldInventories = newInventories;
+				data.inventories = newInventories;
 			}
 			finalChanges.push(diff);
 		} else {
 			oldProgression[characterId] = oldProgression[characterId];
 			data.progression[characterId] = oldProgression[characterId];
+			oldInventories = oldInventories;
+			data.inventories = oldInventories;
 		}
 	}
 	if (additions.length || removals.length || transfers.length || progression.length) {
@@ -148,13 +217,15 @@ function processDifference(currentDateString) {
 	// Array.prototype.push.apply(data.factionChanges, changes);
 	// Array.prototype.push.apply(additions, checkDiff(newInventories[characterId], oldInventories[characterId]));
 	// Array.prototype.push.apply(removals, checkDiff(oldInventories[characterId], newInventories[characterId]));
-	oldInventories = newInventories;
-	data.inventories = newInventories;
+	// oldInventories = newInventories;
+	// data.inventories = newInventories;
 
-	chrome.storage.local.set(data, function() {
-
-	});
+	chrome.storage.local.set({
+		inventories: data.inventories,
+		itemChanges: data.itemChanges,
+		progression: data.progression
+	}, function() {});
 	console.timeEnd("Process Difference");
 	console.time("grab matches")
-	getLocalMatches().then(getRemoteMatches).then(applyMatchData).then(displayResults);
+	getLocalMatches().then(getRemoteMatches).then(applyMatchData).then(resolve);
 }

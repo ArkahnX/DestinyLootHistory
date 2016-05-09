@@ -11,10 +11,59 @@
 	<section class="center">
 		<!-- <label for="startOnLaunch" class="sub-section">Start Tracking on Launch<input type="checkbox" id="startOnLaunch" /></label> -->
 		<input type="button" value="Backup Data" id="backupData" title="Download a copy of your data to move elsewhere." />
-		<input type="button" value="Export Data" id="exportData" title="Export item data for use with Iron Banner Tracker." />
 		<div id="drop_zone">Place itemChanges.json here to restore</div>
+		<label for="ironBanner">Iron Banner: <input type="checkbox" id="ironBanner" checked></label>
+		<label for="lightLevel">Light Level: <input type="checkbox" id="lightLevel" checked></label>
+		<label for="Results">Results: <select id="Results">
+			<option value="1">One Item</option>
+			<option value="2">Two Items</option>
+			<option value="3">Three Items</option>
+			<option value="4" selected>Four Items</option>
+			<option value="5">Five Items</option>
+			<option value="6">Six Items</option>
+			<option value="7">Seven Items</option>
+		</select></label>
+		<select id="GameMode">
+			<optgroup label="All Activities">
+				<option value="None">All Activities</option>
+				<option value="AllPvE">All PVE Activities</option>
+				<option value="AllPvP">All PVP Activities</option>
+				<option value="AllStrikes">All Strike Activities</option>
+				<option value="AllArena">All Arena Activities</option>
+			</optgroup>
+			<optgroup label="PVP Activities">
+				<option value="Rift">Rift</option>
+				<option value="Control">Control</option>
+				<option value="Team" selected>Clash</option>
+				<option value="ThreeVsThree">Skirmish</option>
+				<option value="Lockdown">Salvage</option>
+				<option value="FreeForAll">Rumble</option>
+				<option value="TrialsOfOsiris">Trials of Osiris</option>
+				<option value="IronBanner">Iron Banner</option>
+				<option value="Elimination">Elimination</option>
+				<option value="Mayhem">Mayhem</option>
+				<option value="ZoneControl">Zone Control</option>
+				<option value="Racing">Sparrow Racing</option>
+			</optgroup>
+			<optgroup label="PVE Activities">
+				<option value="Story">Story Activities</option>
+				<option value="Strike">Strike Playlists</option>
+				<option value="Raid">Raids</option>
+				<option value="Patrol">Patrols</option>
+				<option value="Heroic">Heroic Strikes</option>
+				<option value="Nightfall">Nightfall Strikes</option>
+				<option value="Arena">Prison of Elders</option>
+				<option value="ArenaChallenge">Heroic Prison of Elders</option>
+			</optgroup>
+		</select>
+		<br />
+		<label for="MinDate">Start Date: <input type="datetime-local" id="MinDate"></label>
+		<label for="MaxDate">End Date: <input type="datetime-local" id="MaxDate"></label>
+		<input type="button" value="Export Data" id="exportData" title="Export item data for use with Iron Banner Tracker." />
 		<textarea id="export"></textarea>
 	</section>
+	<script type="text/javascript" src="scripts/vendor/moment.js"></script>
+	<script type="text/javascript" src="scripts/vendor/moment-timezone.js"></script>
 	<script type="text/javascript" src="scripts/options.js"></script>
 	<script type="text/javascript" src="scripts/export.js"></script>
 	<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>

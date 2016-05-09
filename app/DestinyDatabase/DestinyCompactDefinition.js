@@ -4,7 +4,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Fallen S.A.B.E.R.",
 		"activityDescription": "Rush to the aid of the AI Warmind Rasputin as he broadcasts a plea for help across the system.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -20,7 +20,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "The Undying Mind",
 		"activityDescription": "An ancient Mind, feared by the Vex themselves, hides among the channels of the Black Garden. Find this machine and end its existence.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"destinationHash": 4072959335,
 		"placeHash": 2809578934,
@@ -68,7 +68,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Iron Banner",
 		"activityDescription": "\"It's a tactical exercise in reinforcing and defending acquired territory. Should the Vanguard ever decide to expand past the walls of the City, the Guardians will be ready.\" —Lord Shaxx \n\nAll-out team warfare. Destroy the enemy. Impress the Lords of Iron.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -84,7 +84,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Lost to Light",
 		"activityDescription": "Return to the Chamber of Night and steal a shard of the crystal that once held Crota's soul.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 4233735899,
 		"placeHash": 3128647858,
@@ -116,7 +116,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Shadows at Twilight",
 		"activityDescription": "Explore the Twilight Gap and survive the shadow that hangs above it.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2337585795,
 		"placeHash": 3747705955,
@@ -180,7 +180,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Iron Banner Rift",
 		"activityDescription": "\"This all started as a Warlock focus drill. The things I've seen them do with Rifts would be...very useful on a battlefield.\" —Lord Shaxx \n\nCollect the Spark and ignite the enemy's Rift with it. Impress the Lords of Iron.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -212,7 +212,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Hangar Stakes",
 		"activityDescription": "Cayde and Amanda Holliday fit a stealth drive to Eris Morn's ship.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2612139675,
 		"placeHash": 3747705955,
@@ -228,7 +228,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Rumble",
 		"activityDescription": "\"Pure combat. Your only job is to make sure you're still standing when the dust settles.\" —Lord Shaxx \n\nKill everything. Watch your back.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -260,7 +260,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Weekly Nightfall Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -285,7 +285,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Weekly Nightfall Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 4233735899,
 		"placeHash": 3128647858,
@@ -458,7 +458,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Mayhem Rumble",
 		"activityDescription": "\"How will you handle a battle like this, I wonder?\" —Lord Shaxx\n\nEmbrace the chaos. Greatly increased ability recharge rates. Faster Special Weapon and Heavy Ammo spawns. No respawn delay. Scoring values multiplied by 10.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -474,7 +474,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Weekly Nightfall Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 4233735899,
 		"placeHash": 3128647858,
@@ -499,7 +499,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Weekly Nightfall Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 4233735899,
 		"placeHash": 3128647858,
@@ -524,7 +524,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "The Silent Fang",
 		"activityDescription": "Stop Skolas's elite assassins before they tear through the Cosmodrome.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -541,7 +541,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Pretender to the Throne",
 		"activityDescription": "A new Taken power rises on the Dreadnaught.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2897855902,
 		"placeHash": 596872852,
@@ -615,7 +615,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Inferno Clash",
 		"activityDescription": "\"No mercy. No hesitation. It'll take nothing less to defeat the Darkness.\" —Lord Shaxx \n\nAll-out team warfare. Destroy the enemy. No trackers and simplified scoring.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -631,7 +631,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Fallen S.A.B.E.R.",
 		"activityDescription": "Rush to the aid of the AI Warmind Rasputin as he broadcasts a plea for help across the system.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -647,7 +647,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Inferno Skirmish",
 		"activityDescription": "\"Leave no ally behind and no enemy standing.\" —Lord Shaxx \n\nSmall-team tactics. Kill the enemy. Revive teammates. No trackers and simplified scoring.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -663,7 +663,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Fallen S.A.B.E.R.",
 		"activityDescription": "Enter Bunker WAR-4 and find another piece of the puzzle.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -695,7 +695,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Bound by Fire",
 		"activityDescription": "Seek the remaining Sunbreakers at the Burning Forge on Mercury.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 3669933163,
 		"placeHash": 1259908504,
@@ -711,7 +711,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "The First Firewall",
 		"activityDescription": "Investigate Vault RAS-2 and investigate the source of the strange signal.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -727,7 +727,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -769,7 +769,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -811,7 +811,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -853,7 +853,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Clash",
 		"activityDescription": "\"No mercy. No hesitation. It'll take nothing less to defeat the Darkness.\" —Lord Shaxx \n\nAll-out team warfare. Destroy the enemy.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -869,7 +869,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Blood in the Garden",
 		"activityDescription": "Enter the Black Garden, draw out the Groundskeeper, and destroy it.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 4072959335,
 		"placeHash": 2809578934,
@@ -885,7 +885,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "The Sunless Cell",
 		"activityDescription": "Assault a prison deep in the heart of the Dreadnaught and put an end to a Hive champion.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2897855902,
 		"placeHash": 596872852,
@@ -901,7 +901,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Echo Chamber",
 		"activityDescription": "Guardians destroyed the Nexus on Venus. Now, a powerful Vex mind seeks to sunder time and space and undo what was done.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 518553403,
 		"placeHash": 3871070152,
@@ -917,7 +917,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Weekly Nightfall Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -942,7 +942,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Machine Wrath",
 		"activityDescription": "Archon Servants have raised their own corrupted Servitor-god, Kaliks Reborn. Defeat it and be rewarded.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393905939,
 		"placeHash": 2512485647,
@@ -958,7 +958,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Machine Wrath",
 		"activityDescription": "Archon Servants have raised their own corrupted Servitor-god, Kaliks Reborn. Defeat it and be rewarded.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393905939,
 		"placeHash": 2512485647,
@@ -1006,7 +1006,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -1048,7 +1048,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -1090,7 +1090,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -1217,7 +1217,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Prison of Elders",
 		"activityDescription": "Beneath the Reef, the Queen's deadliest foes lurk deep in the ancient arena known as the Prison of Elders. Gather two teammates and brace yourselves for the onslaught of ruthless enemies!",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393905939,
 		"placeHash": 2512485647,
@@ -1233,7 +1233,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "A Ranger Lost",
 		"activityDescription": "Look for signs of Cayde's missing friend among the Vex ruins on Venus.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 518553403,
 		"placeHash": 3871070152,
@@ -1266,7 +1266,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Urrox's Grudge",
 		"activityDescription": "The Flame Prince Urrox vows to burn the Light until all that remains is Darkness and bone.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393905939,
 		"placeHash": 2512485647,
@@ -1282,7 +1282,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Urrox's Grudge",
 		"activityDescription": "The Flame Prince Urrox vows to burn the Light until all that remains is Darkness and bone.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393905939,
 		"placeHash": 2512485647,
@@ -1298,7 +1298,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Crimson Doubles",
 		"activityDescription": "\"With proper tactics and proper execution, a Fireteam of two Guardians can fight indefinitely. The Crimson Days are a chance to revel in this fact.\" —Lord Shaxx \n\nElimination with a partner. Revive your teammate to keep fighting. Last living members on a fireteam fight harder to avenge their partners.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -1376,7 +1376,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Inferno 6v6",
 		"activityDescription": "\"Training for a variety of combat scenarios. A Guardian can never be too ready.\"—Lord Shaxx \n\nA mix of Inferno Control and Inferno Clash.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -1392,7 +1392,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Queen's Ransom",
 		"activityDescription": "Follow Skolas into Vex territory to aid in his capture for the Queen.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 518553403,
 		"placeHash": 3871070152,
@@ -1409,7 +1409,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Inferno 3v3",
 		"activityDescription": "\"Training for a variety of combat scenarios. A Guardian can never be too ready.\" —Lord Shaxx \n\nA mix of Inferno Skirmish, Inferno Salvage and Inferno Elimination.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -1425,7 +1425,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Shield Brothers",
 		"activityDescription": "Travel deep into the heart of the Dreadnaught in pursuit of a Cabal assault team. Stop it from detonating the Hive ship's core.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2897855902,
 		"placeHash": 596872852,
@@ -1495,7 +1495,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "SRL",
 		"activityDescription": "\"Speed is a weapon. Learn to wield it or be left behind.\" —Lord Shaxx\n\nSparrow racing.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -1553,7 +1553,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Challenge of the Elders",
 		"activityDescription": "Holders of the Elders' Sigil may join with two other Guardians to face Challenge of the Elders.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393905939,
 		"placeHash": 2512485647,
@@ -1569,7 +1569,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "A New Den",
 		"activityDescription": "Track the House of Wolves across the surface of Mars.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 4072959335,
 		"placeHash": 2809578934,
@@ -1586,7 +1586,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Ritual of Sacrifice",
 		"activityDescription": "Descend into the Hellmouth and find the sacrificial chambers.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"destinationHash": 4233735899,
 		"placeHash": 3128647858,
@@ -1618,7 +1618,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "King's Fall",
 		"activityDescription": "Long live the King.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2897855902,
 		"placeHash": 596872852,
@@ -1635,7 +1635,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Vanguard Nightfall",
 		"activityDescription": "Launches a random Nightfall strike.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2512542997,
 		"placeHash": 3747705955,
@@ -1651,7 +1651,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Tenebrous Tunnels",
 		"activityDescription": "Seek out the source of the Taken blight on Mars.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 4072959335,
 		"placeHash": 2809578934,
@@ -1667,7 +1667,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Inferno Control",
 		"activityDescription": "\"It's a tactical exercise in reinforcing and defending acquired territory. Should the Vanguard ever decide to expand past the walls of the City, the Guardians will be ready.\" —Lord Shaxx\n\nAll-out team warfare. Destroy the enemy. No trackers and simplified scoring.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -1683,7 +1683,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Zone Control",
 		"activityDescription": "\"It's a tactical exercise in reinforcing and defending acquired territory. Should the Vanguard ever decide to expand past the walls of the City, the Guardians will be ready.\" —Lord Shaxx\n\nCapture zones and hold the zones to win.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -1699,7 +1699,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Crota’s End",
 		"activityDescription": "He waits in the dark below.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"destinationHash": 4233735899,
 		"placeHash": 3128647858,
@@ -1814,7 +1814,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Kings of Decay",
 		"activityDescription": "Hunt the source of the Taken blight across the Cosmodrome.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -1831,7 +1831,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Blighted Chalice",
 		"activityDescription": "A blight of Taken now roosts In the Hellmouth. Unchecked, they could refocus the Darkness within and descend on the City.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 4233735899,
 		"placeHash": 3128647858,
@@ -1879,7 +1879,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Mayhem Clash",
 		"activityDescription": "\"Enjoy yourselves, Guardians.\" —Lord Shaxx\n\nEmbrace the chaos. Greatly increased ability recharge rates. Faster Special and Heavy Ammo spawns. No respawn delay. Scoring values multiplied by 10.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -1895,7 +1895,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "The Forever Eater",
 		"activityDescription": "Qodron, a Vex chronovore, sees only one outcome: your demise. Prove it wrong.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393905939,
 		"placeHash": 2512485647,
@@ -1911,7 +1911,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "The Forever Eater",
 		"activityDescription": "Qodron, a Vex chronovore, sees only one outcome: your demise. Prove it wrong.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393905939,
 		"placeHash": 2512485647,
@@ -1943,7 +1943,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Dread Patrol",
 		"activityDescription": "Establish patrol routes and beacon sites on the Hive Dreadnaught for the Vanguard.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2897855902,
 		"placeHash": 596872852,
@@ -1991,7 +1991,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "The Sunless Cell",
 		"activityDescription": "Enter the Sunless Cell and destroy Thracu, Warden of Oryx.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2897855902,
 		"placeHash": 596872852,
@@ -2039,7 +2039,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Elimination",
 		"activityDescription": "\"Your allies are your lifeblood. No second chances except the ones you give.\" —Lord Shaxx \n\nSmall-team tactics. Revive teammates to keep fighting. Bring down the entire opposing team to claim victory.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -2055,7 +2055,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 4233735899,
 		"placeHash": 3128647858,
@@ -2097,7 +2097,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Skolas's Revenge",
 		"activityDescription": "Skolas and his crew challenge the Guardians who captured him. Face him with a Fireteam of three. End him.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393905939,
 		"placeHash": 2512485647,
@@ -2145,7 +2145,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Fear's Embrace",
 		"activityDescription": "Return to the base on Phobos. Destroy the blighted source on Mars.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 3705523133,
 		"placeHash": 3114284952,
@@ -2161,7 +2161,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "The Coming War",
 		"activityDescription": "Travel to Phobos and investigate the Cabal distress signal.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 3705523133,
 		"placeHash": 3114284952,
@@ -2209,7 +2209,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Vanguard Strikes",
 		"activityDescription": "Launches a random strike.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2512542997,
 		"placeHash": 3747705955,
@@ -2241,7 +2241,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "The Sunless Cell",
 		"activityDescription": "Assault a prison deep in the heart of the Dreadnaught and put an end to a Hive champion.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2897855902,
 		"placeHash": 596872852,
@@ -2273,7 +2273,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Freelance 3v3",
 		"activityDescription": "\"Sometimes your allies are a necessity rather than a choice. Don't let that stop you from taking your team to glory.\" —Lord Shaxx \n\nSolo queue only. A mix of Skirmish, Salvage and Elimination.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -2289,7 +2289,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Last Rites",
 		"activityDescription": "Using the stealth code, travel deep into the heart of the Hellmouth and slip away with a sliver of Crota's soul.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 4233735899,
 		"placeHash": 3128647858,
@@ -2322,7 +2322,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Freelance 6v6",
 		"activityDescription": "\"Sometimes your allies are a necessity rather than a choice. Don't let that stop you from taking your team to glory.\" —Lord Shaxx \n\nSolo queue only. A mix of Control, Clash and Rift.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -2338,7 +2338,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Paradox",
 		"activityDescription": "Investigate the signal coming from the Vault of Glass.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 518553403,
 		"placeHash": 3871070152,
@@ -2371,7 +2371,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Fear's Embrace",
 		"activityDescription": "Return to the base on Phobos. Destroy the blighted source on Mars.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 3705523133,
 		"placeHash": 3114284952,
@@ -2387,7 +2387,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Outbound Signal",
 		"activityDescription": "Track a signal from the crashed Cabal ship. Board the Dreadnaught and put an end to this transmission to the stars.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2897855902,
 		"placeHash": 596872852,
@@ -2436,7 +2436,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Bottle the Arc",
 		"activityDescription": "Fight the Vex in an Arc storm on Mars. Learn to walk the Stormcaller's path.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 4072959335,
 		"placeHash": 2809578934,
@@ -2493,7 +2493,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "A March of Fire",
 		"activityDescription": "Head to Venus in search of the Sunbreakers, a mercenary clan of Titans.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 518553403,
 		"placeHash": 3871070152,
@@ -2509,7 +2509,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "The Ruling House",
 		"activityDescription": "Scour the Cosmodrome for Skolas and the invading Wolves.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -2542,7 +2542,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Summoner's Circle",
 		"activityDescription": "Stop a coven within the heart of the dreadnaught from creating a powerful Taken warbeast.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2897855902,
 		"placeHash": 596872852,
@@ -2558,7 +2558,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Arsenal",
 		"activityDescription": "\"It takes improvisation to win with what you find on the battlefield.\" —Lord Shaxx\n\nTake the Armament and destroy your foes.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -2574,7 +2574,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "A Kell Rising",
 		"activityDescription": "Head off the House of Wolves on Venus before their Kell, Skolas, can wrest control of the House of Winter.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 518553403,
 		"placeHash": 3871070152,
@@ -2591,7 +2591,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Inferno Doubles",
 		"activityDescription": "\"Leave no ally behind and no enemy standing.\" —Lord Shaxx \n\nSmall-team tactics. Kill the enemy. Revive teammates. No trackers and simplified scoring.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -2607,7 +2607,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "The Archon-Slayer",
 		"activityDescription": "This renegade Wolf was dangerous enough before he murdered one of his own Archons.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 4233735899,
 		"placeHash": 3128647858,
@@ -2623,7 +2623,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "The Shadow Thief",
 		"activityDescription": "A ruthless Fallen mercenary commanding the Wolfship Kaliks-Syn has been spotted near the Moon. Board the Ketch and end the reign of Taniks, the Scarred.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 4233735899,
 		"placeHash": 3128647858,
@@ -2655,7 +2655,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "The Prime's Path",
 		"activityDescription": "Hunt the Prime Servitor that has brought together the broken House of Wolves.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 4072959335,
 		"placeHash": 2809578934,
@@ -2672,7 +2672,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Salvage",
 		"activityDescription": "\"Treasures and forgotten tech lie waiting in the wake of the Golden Age's collapse. One must be swift and fierce to claim them.\" —Lord Shaxx \n\nRace the other team to capture and hold relics.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -2738,7 +2738,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Siege of the Warmind",
 		"activityDescription": "Find Rasputin's bunker. Defend it against the Hive attack.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -2830,7 +2830,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Shield Brothers",
 		"activityDescription": "Travel deep into the heart of the Dreadnaught in pursuit of a Cabal assault team. Stop it from detonating the Hive ship's core.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2897855902,
 		"placeHash": 596872852,
@@ -2846,7 +2846,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "The Dreadnaught",
 		"activityDescription": "Survive the Dreadnaught's superweapon and establish a beachhead for the Vanguard.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2897855902,
 		"placeHash": 596872852,
@@ -2888,7 +2888,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Patrol the Dreadnaught",
 		"activityDescription": "Board the Taken King's Dreadnaught. Prove the Vanguard's dominance over the Hive and Taken.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2897855902,
 		"placeHash": 596872852,
@@ -2904,7 +2904,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Doubles",
 		"activityDescription": "\"Leave no ally behind, and no enemy standing.\" —Lord Shaxx \n\nSmall-team tactics. Kill the enemy. Revive teammates.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -2920,7 +2920,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Regicide",
 		"activityDescription": "Using the power of ascendance, pass through the rupture and put an end to the Taken King.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2897855902,
 		"placeHash": 596872852,
@@ -3001,7 +3001,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "A Spark in Shadow",
 		"activityDescription": "Head to the tunnels under Freehold on Mars and face down the Conductive Mind for your own source of Arc.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 4072959335,
 		"placeHash": 2809578934,
@@ -3017,7 +3017,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Outbound Signal",
 		"activityDescription": "Track a signal from the crashed Cabal ship. Board the Dreadnaught and put an end to this transmission to the stars.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2897855902,
 		"placeHash": 596872852,
@@ -3050,7 +3050,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Prison of Elders",
 		"activityDescription": "Glory and treasure await those who survive.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393905939,
 		"placeHash": 2512485647,
@@ -3167,7 +3167,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Blighted Coven",
 		"activityDescription": "Investigate the rumors of a Taken coven in the Cosmodrome.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -3184,7 +3184,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Fist of Crota",
 		"activityDescription": "Face the Fist of Crota leading the Spawn on Earth.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -3201,7 +3201,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Vanguard Heroic Strikes",
 		"activityDescription": "Launches a random Heroic strike.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2512542997,
 		"placeHash": 3747705955,
@@ -3217,7 +3217,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "The Taken King: Prelude",
 		"activityDescription": "The death of Crota was a beacon, a signal cast across the stars. The night has answered.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2897855902,
 		"placeHash": 596872852,
@@ -3233,7 +3233,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Cult of the Worm",
 		"activityDescription": "Gulrot, Unclean has been summoned by the Worm Keepers. Don't let the beast's filth spread beyond the prison.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393905939,
 		"placeHash": 2512485647,
@@ -3249,7 +3249,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Cult of the Worm",
 		"activityDescription": "Gulrot, Unclean has been summoned by the Worm Keepers. Don't let the beast's filth spread beyond the prison.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393905939,
 		"placeHash": 2512485647,
@@ -3265,7 +3265,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Skirmish",
 		"activityDescription": "\"Leave no ally behind, and no enemy standing.\" —Lord Shaxx \n\nSmall-team tactics. Kill the enemy. Revive teammates.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -3281,7 +3281,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "King's Fall",
 		"activityDescription": "Long live the King.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2897855902,
 		"placeHash": 596872852,
@@ -3298,7 +3298,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Knock Knock",
 		"activityDescription": "Hold the line against a brutal assault by the broken House of Wolves.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 4072959335,
 		"placeHash": 2809578934,
@@ -3314,7 +3314,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Shield Brothers",
 		"activityDescription": "Travel deep into the heart of the Dreadnaught in pursuit of a Cabal assault team. Stop it from detonating the Hive ship's core.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2897855902,
 		"placeHash": 596872852,
@@ -3330,7 +3330,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Wolves' Gambit",
 		"activityDescription": "Track Skolas and his crew of Wolves along the Ishtar Cliffs.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 518553403,
 		"placeHash": 3871070152,
@@ -3412,7 +3412,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Trials of Osiris",
 		"activityDescription": "Only those who have proven their worth may enter the Trials.\n\nA string of victories will earn great rewards, but lose too many matches and your access will be denied.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -3428,7 +3428,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Oryx Triumphant",
 		"activityDescription": "The Taken King revels in his triumph over the Cabal on Phobos.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2897855902,
 		"placeHash": 596872852,
@@ -3444,7 +3444,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "A Ranger Found",
 		"activityDescription": "Hold the line against the Vex of the Black Garden and save the Nightstalker Tevis.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 4072959335,
 		"placeHash": 2809578934,
@@ -3460,7 +3460,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Entropy's Pinnacle",
 		"activityDescription": "Scale the Vex Citadel and hunt down the source of Venus's blight.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 518553403,
 		"placeHash": 3871070152,
@@ -3511,7 +3511,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "The Wakening",
 		"activityDescription": "Go to the Temple of Crota and destroy Crota's soul.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"destinationHash": 4233735899,
 		"placeHash": 3128647858,
@@ -3579,7 +3579,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Shadow Call",
 		"activityDescription": "Ascend the Devil's Spire and outrace the Darkness that follows close behind.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -3684,7 +3684,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Enemy of My Enemy",
 		"activityDescription": "Assault the Cabal ship crashed on the Dreadnaught. Learn what they know about Oryx and his defenses.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2897855902,
 		"placeHash": 596872852,
@@ -3701,7 +3701,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Fear's Embrace",
 		"activityDescription": "Return to the base on Phobos. Kill the Wizard and claim the Essence of the Feast.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 3705523133,
 		"placeHash": 3114284952,
@@ -3717,7 +3717,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Rift",
 		"activityDescription": "\"This all started as a Warlock focus drill. The things I've seen them do with Rifts would be...very useful on a battlefield.\" —Lord Shaxx \n\nCollect the Spark and ignite the enemy's Rift with it.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -3749,7 +3749,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Broken Legion",
 		"activityDescription": "Valus Trau'ug seeks to prove his might by crushing all who challenge him.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393905939,
 		"placeHash": 2512485647,
@@ -3765,7 +3765,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Broken Legion",
 		"activityDescription": "Valus Trau'ug seeks to prove his might by crushing all who challenge him.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393905939,
 		"placeHash": 2512485647,
@@ -3781,7 +3781,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Cayde's Stash",
 		"activityDescription": "Ascend a colony ship in the Cosmodrome in search of Cayde's lost cache.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -3814,7 +3814,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Inferno Salvage",
 		"activityDescription": "\"Treasures and forgotten tech lie waiting in the wake of the Golden Age's collapse. One must be swift and fierce to claim them.\" —Lord Shaxx \n\nRace the other team to capture and hold relics. No trackers and simplified scoring.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -3846,7 +3846,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Iron Banner Clash",
 		"activityDescription": "\"No mercy. No hesitation. It'll take nothing less to defeat the Darkness.\" —Lord Shaxx \n\nAll-out team warfare. Destroy the enemy. Impress the Lords of Iron.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -3862,7 +3862,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"destinationHash": 4233735899,
 		"placeHash": 3128647858,
@@ -3920,7 +3920,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Inferno Rumble",
 		"activityDescription": "\"Pure combat. Your only job is to make sure you're still standing when the dust settles.\" —Lord Shaxx \n\nKill everything. Watch your back. No trackers. Only kills earn points.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -3952,7 +3952,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "SRL",
 		"activityDescription": "\"Speed is a weapon. Learn to wield it or be left behind.\" —Lord Shaxx\n\nSparrow racing.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -3984,7 +3984,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "The Will of Crota",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -4016,7 +4016,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "The Promethean Code",
 		"activityDescription": "Slip past Rasputin's defenses and download stealth code protocols from his Golden Age database.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 3393213630,
 		"placeHash": 3747705955,
@@ -4033,7 +4033,7 @@ var DestinyActivityBundleDefinition = {
 		"activityName": "Control",
 		"activityDescription": "\"It's a tactical exercise in reinforcing and defending acquired territory. Should the Vanguard ever decide to expand past the walls of the City, the Guardians will be ready.\" —Lord Shaxx\n\nCapture zones to increase points for every kill.",
 		"icon": "/img/misc/missing_icon.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"destinationHash": 2777041980,
 		"placeHash": 4088006058,
@@ -4082,7 +4082,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 28695277,
 		"activityName": "The Sword of Crota",
 		"activityDescription": "Infiltrate the Hive Fortress and destroy the legendary Sword of Crota, a weapon once used to slay thousands of Guardians.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -4110,7 +4110,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -4121,8 +4121,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 34327100,
 		"activityName": "Fallen S.A.B.E.R.",
 		"activityDescription": "Rush to the aid of the AI Warmind Rasputin as he broadcasts a plea for help across the system.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 3346707351,
@@ -4154,8 +4154,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 51311972,
 		"activityName": "The Undying Mind",
 		"activityDescription": "An ancient Mind, feared by the Vex themselves, hides among the channels of the Black Garden. Find this machine and end its existence.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
 		"completionFlagHash": 2868189086,
@@ -4187,7 +4187,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 51311973,
 		"activityName": "Cerberus Vae III",
 		"activityDescription": "Just beyond their warbase, Valus Ta'aurc, Fleet Commander of the Cabal Siege Dancers, hides in an Imperial Land Tank. Fight through his guard and stop this terror before he destroys all of Freehold.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
@@ -4220,7 +4220,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 51311974,
 		"activityName": "Dust Palace",
 		"activityDescription": "A new Cabal force has unleashed powerful Psion Flayers to seize control of the old Martian Warmind. Face this new threat and secure what remains of the ancient network.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
@@ -4254,7 +4254,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Iron Banner",
 		"activityDescription": "\"It's a tactical exercise in reinforcing and defending acquired territory. Should the Vanguard ever decide to expand past the walls of the City, the Guardians will be ready.\" —Lord Shaxx \n\nAll-out team warfare. Destroy the enemy. Impress the Lords of Iron.",
 		"icon": "/img/theme/destiny/icons/node_pvp_iron_banner.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 556611800,
@@ -4277,8 +4277,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 91984044,
 		"activityName": "A Kell Rising",
 		"activityDescription": "Head off the House of Wolves on Venus before their Kell, Skolas, can wrest control of the House of Winter.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 913134368,
@@ -4305,7 +4305,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -4316,8 +4316,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 95021281,
 		"activityName": "Lost to Light",
 		"activityDescription": "Return to the Chamber of Night and steal a shard of the crystal that once held Crota's soul.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 31,
 		"completionFlagHash": 2166841932,
@@ -4340,7 +4340,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 96237246,
 		"activityName": "Classic 6v6",
 		"activityDescription": "\"There's a rousing demand—from participants and spectators—for Legacy match types and arenas in the Crucible. I give them gladly.\" —Lord Shaxx \n\nA mix of Control and Clash on Year 1 maps.",
-		"icon": "/common/destiny_content/icons/c6f16d1a02982f9b9aa24fbc60e4432a.png",
+		"icon": "/common/destiny_content/icons/6a5413bc40bc2573b0c11f422c54373a.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -4364,8 +4364,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 116560380,
 		"activityName": "The Shadow Thief",
 		"activityDescription": "A ruthless Fallen mercenary commanding the Wolfship Kaliks-Syn has been spotted near the Moon. Board the Ketch and end the reign of Taniks, the Scarred.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 1665214730,
@@ -4388,8 +4388,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 123999179,
 		"activityName": "Shadows at Twilight",
 		"activityDescription": "Explore the Twilight Gap and survive the shadow that hangs above it.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3696316414,
@@ -4421,7 +4421,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 130631058,
 		"activityName": "Classic 3v3",
 		"activityDescription": "\"There's a rousing demand—from participants and spectators—for Legacy match types and arenas in the Crucible. I give them gladly.\" —Lord Shaxx  \n\nA mix of Skirmish and Salvage on Year 1 maps.",
-		"icon": "/common/destiny_content/icons/c6f16d1a02982f9b9aa24fbc60e4432a.png",
+		"icon": "/common/destiny_content/icons/6a5413bc40bc2573b0c11f422c54373a.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -4445,7 +4445,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 149381097,
 		"activityName": "Patrol the Moon",
 		"activityDescription": "Survive the shattered surface of Earth's Moon and aid the City in their efforts.",
-		"icon": "/common/destiny_content/icons/232fecb11e60da363dab116ffe2210b7.png",
+		"icon": "/common/destiny_content/icons/b85fc39824d660c23d835820dc2996d8.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 8,
@@ -4486,8 +4486,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 151357230,
 		"activityName": "The Shadow Thief",
 		"activityDescription": "A ruthless Fallen mercenary commanding the Wolfship Kaliks-Syn has been spotted near the Moon. Board the Ketch and end the reign of Taniks, the Scarred.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
 		"completionFlagHash": 1665214730,
@@ -4534,7 +4534,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 167419252,
 		"activityName": "Patrol the Cosmodrome",
 		"activityDescription": "Scour the Old Russian stronghold on Earth to protect the City's interests.",
-		"icon": "/common/destiny_content/icons/232fecb11e60da363dab116ffe2210b7.png",
+		"icon": "/common/destiny_content/icons/b85fc39824d660c23d835820dc2996d8.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 4,
@@ -4559,7 +4559,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Iron Banner Rift",
 		"activityDescription": "\"This all started as a Warlock focus drill. The things I've seen them do with Rifts would be...very useful on a battlefield.\" —Lord Shaxx \n\nCollect the Spark and ignite the enemy's Rift with it. Impress the Lords of Iron.",
 		"icon": "/common/destiny_content/icons/0ee91b79ba1366243832cf810afc3b75.jpg",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 1171397078,
@@ -4582,7 +4582,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 212088538,
 		"activityName": "The Summoning Pits",
 		"activityDescription": "Deep within the Hellmouth, the Hive are breeding powerful abominations to unleash upon Earth. Find the pit where they live and stop any new horrors from rising.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 10,
@@ -4615,8 +4615,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 252347595,
 		"activityName": "Hangar Stakes",
 		"activityDescription": "Cayde and Amanda Holliday fit a stealth drive to Eris Morn's ship.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 25,
 		"completionFlagHash": 3155071742,
@@ -4640,7 +4640,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Rumble",
 		"activityDescription": "\"Pure combat. Your only job is to make sure you're still standing when the dust settles.\" —Lord Shaxx \n\nKill everything. Watch your back.",
 		"icon": "/common/destiny_content/icons/icon_pvp_7f4c923551a74315df3dcd493291bcf4.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 8260870,
@@ -4672,8 +4672,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 269981320,
 		"activityName": "The Promethean Code",
 		"activityDescription": "Slip past Rasputin's defenses and destroy the Taken champion in the depths of Bunker WAR-4.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 2726116499,
@@ -4738,7 +4738,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Nightfall Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 4185808065,
@@ -4765,27 +4765,27 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/79716a9c4b690b42f9e7d4cb966ed251.png"
+				"icon": "/common/destiny_content/icons/61eb7530a98f7fa7fcc5676e24bcc6b4.png"
 			},
 			{
 				"displayName": "Nightfall",
 				"description": "If all players die, your Fireteam is returned to Orbit.",
-				"icon": "/common/destiny_content/icons/087b23231911f2cff9b5f20eaf49b627.png"
+				"icon": "/common/destiny_content/icons/5e0aa788e28398d69d9ba22f3a5dbb2b.png"
 			},
 			{
 				"displayName": "Void Burn",
 				"description": "Void Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/206dde36ce1afce73711cf5da1d8a371.png"
+				"icon": "/common/destiny_content/icons/c3d3e7cf01832b9f59fd9a809aec60ad.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/e7be3ed45c4871cc72c7719eb9f0395e.png"
+				"icon": "/common/destiny_content/icons/1269d2e53430de8034b70b0fa785ab2b.png"
 			},
 			{
 				"displayName": "Arc Burn",
 				"description": "Arc Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/73a1b6bf767af389215d115c99d71026.png"
+				"icon": "/common/destiny_content/icons/f24f67eb5d6a990cf4065c1b44cf6b9c.png"
 			}
 		],
 		"isPlaylist": false,
@@ -4797,7 +4797,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Nightfall Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 4185808065,
@@ -4824,27 +4824,27 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/79716a9c4b690b42f9e7d4cb966ed251.png"
+				"icon": "/common/destiny_content/icons/61eb7530a98f7fa7fcc5676e24bcc6b4.png"
 			},
 			{
 				"displayName": "Nightfall",
 				"description": "If all players die, your Fireteam is returned to Orbit.",
-				"icon": "/common/destiny_content/icons/087b23231911f2cff9b5f20eaf49b627.png"
+				"icon": "/common/destiny_content/icons/5e0aa788e28398d69d9ba22f3a5dbb2b.png"
 			},
 			{
 				"displayName": "Arc Burn",
 				"description": "Arc Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/73a1b6bf767af389215d115c99d71026.png"
+				"icon": "/common/destiny_content/icons/f24f67eb5d6a990cf4065c1b44cf6b9c.png"
 			},
 			{
 				"displayName": "Specialist",
 				"description": "Special Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/94ee817e778fd45c43492b4b32795f22.png"
+				"icon": "/common/destiny_content/icons/7d097751a40aebff3c2385c307dfe6bd.png"
 			},
 			{
 				"displayName": "Lightswitch",
 				"description": "Minions of the Darkness deal much more melee damage.",
-				"icon": "/common/destiny_content/icons/22bc24a3fe74ee1e6bdd292b8ae73163.png"
+				"icon": "/common/destiny_content/icons/02996ae1eabee9f461f024faa81e5906.png"
 			}
 		],
 		"isPlaylist": false,
@@ -4947,12 +4947,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Small Arms",
 				"description": "Primary Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/0836cd1ef47dcbd353d0162610c4af20.png"
+				"icon": "/common/destiny_content/icons/93cf195590efad6c58c3615809a7c731.png"
 			}
 		],
 		"isPlaylist": false,
@@ -5007,12 +5007,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Small Arms",
 				"description": "Primary Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/0836cd1ef47dcbd353d0162610c4af20.png"
+				"icon": "/common/destiny_content/icons/93cf195590efad6c58c3615809a7c731.png"
 			}
 		],
 		"isPlaylist": false,
@@ -5091,12 +5091,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Small Arms",
 				"description": "Primary Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/0836cd1ef47dcbd353d0162610c4af20.png"
+				"icon": "/common/destiny_content/icons/93cf195590efad6c58c3615809a7c731.png"
 			}
 		],
 		"isPlaylist": false,
@@ -5131,7 +5131,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 351673577,
 		"activityName": "Classic Free-For-All",
 		"activityDescription": "\"There's a rousing demand—from participants and spectators—for Legacy match types and arenas in the Crucible. I give them gladly.\" —Lord Shaxx \n\nRumble on Year 1 maps.",
-		"icon": "/common/destiny_content/icons/c6f16d1a02982f9b9aa24fbc60e4432a.png",
+		"icon": "/common/destiny_content/icons/6a5413bc40bc2573b0c11f422c54373a.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -5156,7 +5156,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Shield Brothers",
 		"activityDescription": "Travel deep into the heart of the Dreadnaught in pursuit of a Cabal assault team. Stop it from detonating the Hive ship's core.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 918224300,
@@ -5271,12 +5271,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/e7be3ed45c4871cc72c7719eb9f0395e.png"
+				"icon": "/common/destiny_content/icons/1269d2e53430de8034b70b0fa785ab2b.png"
 			}
 		],
 		"isPlaylist": false,
@@ -5331,12 +5331,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/e7be3ed45c4871cc72c7719eb9f0395e.png"
+				"icon": "/common/destiny_content/icons/1269d2e53430de8034b70b0fa785ab2b.png"
 			}
 		],
 		"isPlaylist": false,
@@ -5415,12 +5415,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/e7be3ed45c4871cc72c7719eb9f0395e.png"
+				"icon": "/common/destiny_content/icons/1269d2e53430de8034b70b0fa785ab2b.png"
 			}
 		],
 		"isPlaylist": false,
@@ -5431,7 +5431,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 428290721,
 		"activityName": "Patrol Mars",
 		"activityDescription": "Fight through the shifting dunes and aid the City in their exploration efforts.",
-		"icon": "/common/destiny_content/icons/232fecb11e60da363dab116ffe2210b7.png",
+		"icon": "/common/destiny_content/icons/b85fc39824d660c23d835820dc2996d8.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 17,
@@ -5496,8 +5496,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 455063520,
 		"activityName": "The Wakening",
 		"activityDescription": "Go to the Temple of Crota and destroy Crota's soul.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1973216040,
@@ -5524,7 +5524,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -5559,8 +5559,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 492319725,
 		"activityName": "Mayhem Rumble",
 		"activityDescription": "\"How will you handle a battle like this, I wonder?\" —Lord Shaxx\n\nEmbrace the chaos. Greatly increased ability recharge rates. Faster Special Weapon and Heavy Ammo spawns. No respawn delay. Scoring values multiplied by 10.",
-		"icon": "/common/destiny_content/icons/ead0b800769e9e6513b69d8a38e1136b.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/cc1dfeca1ade77dcc68099748b1cc6f8.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 1364431128,
@@ -5609,7 +5609,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Nightfall Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 4185808065,
@@ -5636,27 +5636,27 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/79716a9c4b690b42f9e7d4cb966ed251.png"
+				"icon": "/common/destiny_content/icons/61eb7530a98f7fa7fcc5676e24bcc6b4.png"
 			},
 			{
 				"displayName": "Nightfall",
 				"description": "If all players die, your Fireteam is returned to Orbit.",
-				"icon": "/common/destiny_content/icons/087b23231911f2cff9b5f20eaf49b627.png"
+				"icon": "/common/destiny_content/icons/5e0aa788e28398d69d9ba22f3a5dbb2b.png"
 			},
 			{
 				"displayName": "Arc Burn",
 				"description": "Arc Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/73a1b6bf767af389215d115c99d71026.png"
+				"icon": "/common/destiny_content/icons/f24f67eb5d6a990cf4065c1b44cf6b9c.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/1d58c2dd6143b5004e27630b15495dec.png"
+				"icon": "/common/destiny_content/icons/5f5cb719beca7b8185cabb04cbcdaff1.png"
 			},
 			{
 				"displayName": "Brawler",
 				"description": "Guardian Melee damage is greatly increased.",
-				"icon": "/common/destiny_content/icons/eb0540279904e05e27365b9a94b3b692.png"
+				"icon": "/common/destiny_content/icons/9d4e460cab2dfca569e3ed606f590809.png"
 			}
 		],
 		"isPlaylist": false,
@@ -5668,7 +5668,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Nightfall Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 4185808065,
@@ -5695,27 +5695,27 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/79716a9c4b690b42f9e7d4cb966ed251.png"
+				"icon": "/common/destiny_content/icons/61eb7530a98f7fa7fcc5676e24bcc6b4.png"
 			},
 			{
 				"displayName": "Nightfall",
 				"description": "If all players die, your Fireteam is returned to Orbit.",
-				"icon": "/common/destiny_content/icons/087b23231911f2cff9b5f20eaf49b627.png"
+				"icon": "/common/destiny_content/icons/5e0aa788e28398d69d9ba22f3a5dbb2b.png"
 			},
 			{
 				"displayName": "Void Burn",
 				"description": "Void Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/206dde36ce1afce73711cf5da1d8a371.png"
+				"icon": "/common/destiny_content/icons/c3d3e7cf01832b9f59fd9a809aec60ad.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/e7be3ed45c4871cc72c7719eb9f0395e.png"
+				"icon": "/common/destiny_content/icons/1269d2e53430de8034b70b0fa785ab2b.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/35ee33e5b5345fc225b10bf9c18001b2.png"
+				"icon": "/common/destiny_content/icons/209d2a611121b4253b0a38a48df287e7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -5726,7 +5726,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 574483028,
 		"activityName": "The Buried City",
 		"activityDescription": "Clear out the Cabal occupying the lost city of Freehold and explore what remains.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -5754,7 +5754,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -5765,8 +5765,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 575304694,
 		"activityName": "A New Den",
 		"activityDescription": "Track the House of Wolves across the surface of Mars.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1569490455,
@@ -5793,7 +5793,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -5804,8 +5804,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 579949585,
 		"activityName": "The Silent Fang",
 		"activityDescription": "Stop Skolas's elite assassins before they tear through the Cosmodrome.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 18,
 		"completionFlagHash": 2431342961,
@@ -5837,7 +5837,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 604017503,
 		"activityName": "Prison of Elders: Taken",
 		"activityDescription": "The Awoken have gathered the deadliest of Taken foes. Defeat them in the Prison of Elders.",
-		"icon": "/common/destiny_content/icons/c3df7438c25ce8a6afa03108222629c2.png",
+		"icon": "/common/destiny_content/icons/3e6b15746de3a6246f7901d37966567d.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -5861,8 +5861,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 632771975,
 		"activityName": "Pretender to the Throne",
 		"activityDescription": "A new Taken power rises on the Dreadnaught.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 271043130,
@@ -5962,12 +5962,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Void Burn",
 				"description": "Void Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/206dde36ce1afce73711cf5da1d8a371.png"
+				"icon": "/common/destiny_content/icons/c3d3e7cf01832b9f59fd9a809aec60ad.png"
 			}
 		],
 		"isPlaylist": false,
@@ -6046,12 +6046,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Void Burn",
 				"description": "Void Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/206dde36ce1afce73711cf5da1d8a371.png"
+				"icon": "/common/destiny_content/icons/c3d3e7cf01832b9f59fd9a809aec60ad.png"
 			}
 		],
 		"isPlaylist": false,
@@ -6154,12 +6154,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Void Burn",
 				"description": "Void Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/206dde36ce1afce73711cf5da1d8a371.png"
+				"icon": "/common/destiny_content/icons/c3d3e7cf01832b9f59fd9a809aec60ad.png"
 			}
 		],
 		"isPlaylist": false,
@@ -6170,8 +6170,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 711826167,
 		"activityName": "Inferno Clash",
 		"activityDescription": "\"No mercy. No hesitation. It'll take nothing less to defeat the Darkness.\" —Lord Shaxx \n\nAll-out team warfare. Destroy the enemy. No trackers and simplified scoring.",
-		"icon": "/common/destiny_content/icons/e5376e540a2c31e0396fa13b6219f1db.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/d55ded8122883dcb9f3bcb99e261efe3.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 4106042506,
@@ -6219,8 +6219,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 757275024,
 		"activityName": "Fallen S.A.B.E.R.",
 		"activityDescription": "Rush to the aid of the AI Warmind Rasputin as he broadcasts a plea for help across the system.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 3346707351,
@@ -6252,8 +6252,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 782611196,
 		"activityName": "Inferno Skirmish",
 		"activityDescription": "\"Leave no ally behind and no enemy standing.\" —Lord Shaxx \n\nSmall-team tactics. Kill the enemy. Revive teammates. No trackers and simplified scoring.",
-		"icon": "/common/destiny_content/icons/0c6a2c2f8581cb3cacfc6fb43563f26e.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/d20c59f251dcd50208b3923d37c2c073.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 1020798935,
@@ -6285,8 +6285,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 832576952,
 		"activityName": "Classified",
 		"activityDescription": "Obtain this Quest in Destiny to learn more.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 0,
 		"completionFlagHash": 0,
@@ -6309,7 +6309,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 833873053,
 		"activityName": "The Undying Mind",
 		"activityDescription": "An ancient Mind, feared by the Vex themselves, hides among the channels of the Black Garden. Find this machine and end its existence.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
@@ -6342,8 +6342,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 853774317,
 		"activityName": "The Coming War",
 		"activityDescription": "Travel to Phobos and investigate the Cabal distress signal.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1805431820,
@@ -6370,7 +6370,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -6381,7 +6381,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 860566204,
 		"activityName": "The Lighthouse",
 		"activityDescription": "Only true champions of the Crucible dare set foot in these fabled halls.",
-		"icon": "/common/destiny_content/icons/86cbb39b7749fa818a93b7bb123d7d36.png",
+		"icon": "/common/destiny_content/icons/4bd064d6a7a5d25cbf408615bef8c258.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -6405,8 +6405,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 981644933,
 		"activityName": "Bound by Fire",
 		"activityDescription": "Seek the remaining Sunbreakers at the Burning Forge on Mercury.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 25,
 		"completionFlagHash": 1640249248,
@@ -6438,7 +6438,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 982298740,
 		"activityName": "The World's Grave",
 		"activityDescription": "Descend into the Hellmouth to a Hive library which holds ancient secrets they have ripped from Earth.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -6466,7 +6466,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -6478,7 +6478,7 @@ var DestinyActivityDefinition = {
 		"activityName": "The Undying Mind",
 		"activityDescription": "An ancient Mind, feared by the Vex themselves, hides among the channels of the Black Garden. Find this machine and end its existence.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 2868189086,
@@ -6549,8 +6549,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1005705920,
 		"activityName": "The First Firewall",
 		"activityDescription": "Investigate Vault RAS-2 and investigate the source of the strange signal.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3847026363,
@@ -6582,8 +6582,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1017714251,
 		"activityName": "Last Rites",
 		"activityDescription": "Using the stealth code, travel deep into the heart of the Hellmouth and slip away with a sliver of Crota's soul.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 679255950,
@@ -6610,7 +6610,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -6621,7 +6621,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1030188908,
 		"activityName": "Eye of a Gate Lord",
 		"activityDescription": "Lure out the Vex Gate Lord that protects the Endless Steps and bring its head back to the Awoken.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -6649,7 +6649,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -6661,7 +6661,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 4185808064,
@@ -6752,12 +6752,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/1d58c2dd6143b5004e27630b15495dec.png"
+				"icon": "/common/destiny_content/icons/5f5cb719beca7b8185cabb04cbcdaff1.png"
 			}
 		],
 		"isPlaylist": false,
@@ -6769,7 +6769,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 30,
 		"completionFlagHash": 4185808067,
@@ -6836,12 +6836,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/1d58c2dd6143b5004e27630b15495dec.png"
+				"icon": "/common/destiny_content/icons/5f5cb719beca7b8185cabb04cbcdaff1.png"
 			}
 		],
 		"isPlaylist": false,
@@ -6853,7 +6853,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 26,
 		"completionFlagHash": 4185808066,
@@ -6896,12 +6896,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/1d58c2dd6143b5004e27630b15495dec.png"
+				"icon": "/common/destiny_content/icons/5f5cb719beca7b8185cabb04cbcdaff1.png"
 			}
 		],
 		"isPlaylist": false,
@@ -6913,7 +6913,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Clash",
 		"activityDescription": "\"No mercy. No hesitation. It'll take nothing less to defeat the Darkness.\" —Lord Shaxx \n\nAll-out team warfare. Destroy the enemy.",
 		"icon": "/common/destiny_content/icons/icon_pvp_d0a189071d8eb5d009f4252bef78b551.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 96649106,
@@ -6945,8 +6945,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1068261034,
 		"activityName": "Blood in the Garden",
 		"activityDescription": "Enter the Black Garden, draw out the Groundskeeper, and destroy it.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 2572219357,
@@ -6978,7 +6978,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1080191247,
 		"activityName": "Scourge of Winter",
 		"activityDescription": "Hunt and kill Draksis, the House of Winter's Kell, hiding deep in the caves of the Ishtar Sink.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -7006,7 +7006,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -7017,8 +7017,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1084620606,
 		"activityName": "The Sunless Cell",
 		"activityDescription": "Assault a prison deep in the heart of the Dreadnaught and put an end to a Hive champion.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 2001921006,
@@ -7050,8 +7050,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1126759626,
 		"activityName": "Echo Chamber",
 		"activityDescription": "Guardians destroyed the Nexus on Venus. Now, a powerful Vex mind seeks to sunder time and space and undo what was done.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 2764395773,
@@ -7083,8 +7083,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1141580112,
 		"activityName": "The Will of Crota",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1872715353,
@@ -7108,7 +7108,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Nightfall Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 4185808065,
@@ -7135,27 +7135,27 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/79716a9c4b690b42f9e7d4cb966ed251.png"
+				"icon": "/common/destiny_content/icons/61eb7530a98f7fa7fcc5676e24bcc6b4.png"
 			},
 			{
 				"displayName": "Nightfall",
 				"description": "If all players die, your Fireteam is returned to Orbit.",
-				"icon": "/common/destiny_content/icons/087b23231911f2cff9b5f20eaf49b627.png"
+				"icon": "/common/destiny_content/icons/5e0aa788e28398d69d9ba22f3a5dbb2b.png"
 			},
 			{
 				"displayName": "Angry",
 				"description": "Minions of the Darkness won't flinch, even after massive damage.",
-				"icon": "/common/destiny_content/icons/139e57a07b8fb612180bf87e0163887d.png"
+				"icon": "/common/destiny_content/icons/9c5752480fef242d7e9c732baf72e5ab.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/1d58c2dd6143b5004e27630b15495dec.png"
+				"icon": "/common/destiny_content/icons/5f5cb719beca7b8185cabb04cbcdaff1.png"
 			},
 			{
 				"displayName": "Void Burn",
 				"description": "Void Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/206dde36ce1afce73711cf5da1d8a371.png"
+				"icon": "/common/destiny_content/icons/c3d3e7cf01832b9f59fd9a809aec60ad.png"
 			}
 		],
 		"isPlaylist": false,
@@ -7166,7 +7166,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1200628152,
 		"activityName": "The Summoning Pits",
 		"activityDescription": "Deep within the Hellmouth, the Hive are breeding powerful abominations to unleash upon Earth. Find the pit where they live and stop any new horrors from rising.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
@@ -7190,8 +7190,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1208087916,
 		"activityName": "Machine Wrath",
 		"activityDescription": "Archon Servants have raised their own corrupted Servitor-god, Kaliks Reborn. Defeat it and be rewarded.",
-		"icon": "/common/destiny_content/icons/c3df7438c25ce8a6afa03108222629c2.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/3e6b15746de3a6246f7901d37966567d.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 2843940563,
@@ -7227,8 +7227,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1208087919,
 		"activityName": "Machine Wrath",
 		"activityDescription": "Archon Servants have raised their own corrupted Servitor-god, Kaliks Reborn. Defeat it and be rewarded.",
-		"icon": "/common/destiny_content/icons/c3df7438c25ce8a6afa03108222629c2.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/3e6b15746de3a6246f7901d37966567d.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 34,
 		"completionFlagHash": 2843940563,
@@ -7268,8 +7268,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1226857472,
 		"activityName": "Cayde's Stash",
 		"activityDescription": "Ascend a colony ship in the Cosmodrome in search of Cayde's lost cache.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 2306572581,
@@ -7296,7 +7296,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -7331,7 +7331,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1234230734,
 		"activityName": "Patrol the Moon",
 		"activityDescription": "Brave the shattered surface of Earth's Moon and aid the City in its efforts.",
-		"icon": "/common/destiny_content/icons/232fecb11e60da363dab116ffe2210b7.png",
+		"icon": "/common/destiny_content/icons/b85fc39824d660c23d835820dc2996d8.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 8,
@@ -7355,8 +7355,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1309514270,
 		"activityName": "Wolves' Gambit",
 		"activityDescription": "Track Skolas and his crew of Wolves along the Ishtar Cliffs.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3638778960,
@@ -7383,7 +7383,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -7394,8 +7394,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1328326126,
 		"activityName": "Lost to Light",
 		"activityDescription": "Return to the Chamber of Night and steal a shard of the crystal that once held Crota's soul.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 31,
 		"completionFlagHash": 1144851729,
@@ -7427,7 +7427,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1390160729,
 		"activityName": "Vestian Outpost",
 		"activityDescription": "Join forces with the Queen's Guard and hunt down their enemies.",
-		"icon": "/common/destiny_content/icons/86cbb39b7749fa818a93b7bb123d7d36.png",
+		"icon": "/common/destiny_content/icons/4bd064d6a7a5d25cbf408615bef8c258.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -7452,7 +7452,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 4185808064,
@@ -7543,12 +7543,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Brawler",
 				"description": "Guardian Melee damage is greatly increased.",
-				"icon": "/common/destiny_content/icons/eb0540279904e05e27365b9a94b3b692.png"
+				"icon": "/common/destiny_content/icons/9d4e460cab2dfca569e3ed606f590809.png"
 			}
 		],
 		"isPlaylist": false,
@@ -7560,7 +7560,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 30,
 		"completionFlagHash": 4185808067,
@@ -7627,12 +7627,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Brawler",
 				"description": "Guardian Melee damage is greatly increased.",
-				"icon": "/common/destiny_content/icons/eb0540279904e05e27365b9a94b3b692.png"
+				"icon": "/common/destiny_content/icons/9d4e460cab2dfca569e3ed606f590809.png"
 			}
 		],
 		"isPlaylist": false,
@@ -7644,7 +7644,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 26,
 		"completionFlagHash": 4185808066,
@@ -7687,12 +7687,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Brawler",
 				"description": "Guardian Melee damage is greatly increased.",
-				"icon": "/common/destiny_content/icons/eb0540279904e05e27365b9a94b3b692.png"
+				"icon": "/common/destiny_content/icons/9d4e460cab2dfca569e3ed606f590809.png"
 			}
 		],
 		"isPlaylist": false,
@@ -7703,7 +7703,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1403880576,
 		"activityName": "The Garden's Spire",
 		"activityDescription": "Seize control of the Black Garden Spire held behind the wall of the Cabal Warbase and wake the Gate Lord's Eye.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 16,
@@ -7736,7 +7736,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1403880578,
 		"activityName": "The Black Garden",
 		"activityDescription": "Fight through the Gate and enter the Black Garden to destroy its heart.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 18,
@@ -7769,7 +7769,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1403880579,
 		"activityName": "A Rising Tide",
 		"activityDescription": "Find and destroy the source of the Vex surging to protect the Black Garden.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 17,
@@ -7802,7 +7802,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1403880580,
 		"activityName": "Exclusion Zone",
 		"activityDescription": "Survive the military power of the Cabal and find the Gate to the Black Garden.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 15,
@@ -7835,7 +7835,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1403880582,
 		"activityName": "The Buried City",
 		"activityDescription": "Clear out the Cabal occupying the lost city of Freehold and explore what remains.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 17,
@@ -7868,8 +7868,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1404620600,
 		"activityName": "Prison of Elders",
 		"activityDescription": "Beneath the Reef, the Queen's deadliest foes lurk deep in the ancient arena known as the Prison of Elders. Gather two teammates and brace yourselves for the onslaught of ruthless enemies!",
-		"icon": "/common/destiny_content/icons/c3df7438c25ce8a6afa03108222629c2.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/3e6b15746de3a6246f7901d37966567d.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1782039715,
@@ -7909,8 +7909,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1419457477,
 		"activityName": "A Ranger Lost",
 		"activityDescription": "Look for signs of Cayde's missing friend among the Vex ruins on Venus.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 25,
 		"completionFlagHash": 3431571552,
@@ -7942,7 +7942,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1427585666,
 		"activityName": "A Hero's Return",
 		"activityDescription": "",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 18,
@@ -7966,8 +7966,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1441430564,
 		"activityName": "Urrox's Grudge",
 		"activityDescription": "The Flame Prince Urrox vows to burn the Light until all that remains is Darkness and bone.",
-		"icon": "/common/destiny_content/icons/c3df7438c25ce8a6afa03108222629c2.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/3e6b15746de3a6246f7901d37966567d.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 34,
 		"completionFlagHash": 2039308702,
@@ -8007,8 +8007,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1441430567,
 		"activityName": "Urrox's Grudge",
 		"activityDescription": "The Flame Prince Urrox vows to burn the Light until all that remains is Darkness and bone.",
-		"icon": "/common/destiny_content/icons/c3df7438c25ce8a6afa03108222629c2.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/3e6b15746de3a6246f7901d37966567d.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 2039308702,
@@ -8044,8 +8044,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1443271657,
 		"activityName": "Crimson Doubles",
 		"activityDescription": "\"With proper tactics and proper execution, a Fireteam of two Guardians can fight indefinitely. The Crimson Days are a chance to revel in this fact.\" —Lord Shaxx \n\nElimination with a partner. Revive your teammate to keep fighting. Last living members on a fireteam fight harder to avenge their partners.",
-		"icon": "/common/destiny_content/icons/57eca1b76d983b2c20075398f3502795.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/e464bb50ca4b6a367f597e064751a2e9.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 3098978628,
@@ -8139,7 +8139,7 @@ var DestinyActivityDefinition = {
 	},
 	"1516701147": {
 		"activityHash": 1516701147,
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -8162,7 +8162,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1522220810,
 		"activityName": "Tower",
 		"activityDescription": "Home of the Guardians, where you can regroup, rearm, and form new alliances before venturing beyond.",
-		"icon": "/common/destiny_content/icons/86cbb39b7749fa818a93b7bb123d7d36.png",
+		"icon": "/common/destiny_content/icons/4bd064d6a7a5d25cbf408615bef8c258.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -8186,7 +8186,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1551387515,
 		"activityName": "Prison of Elders",
 		"activityDescription": "The challenges are greater, and so are the rewards. Face the renewed threat of the Prison of Elders.",
-		"icon": "/common/destiny_content/icons/c3df7438c25ce8a6afa03108222629c2.png",
+		"icon": "/common/destiny_content/icons/3e6b15746de3a6246f7901d37966567d.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -8210,8 +8210,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1584566734,
 		"activityName": "Inferno 6v6",
 		"activityDescription": "\"Training for a variety of combat scenarios. A Guardian can never be too ready.\"—Lord Shaxx \n\nA mix of Inferno Control and Inferno Clash.",
-		"icon": "/common/destiny_content/icons/c6f16d1a02982f9b9aa24fbc60e4432a.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/6a5413bc40bc2573b0c11f422c54373a.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 4002048753,
@@ -8259,8 +8259,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1614355423,
 		"activityName": "Queen's Ransom",
 		"activityDescription": "Follow Skolas into Vex territory to aid in his capture for the Queen.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 24,
 		"completionFlagHash": 842203843,
@@ -8292,8 +8292,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1618960674,
 		"activityName": "Inferno 3v3",
 		"activityDescription": "\"Training for a variety of combat scenarios. A Guardian can never be too ready.\" —Lord Shaxx \n\nA mix of Inferno Skirmish, Inferno Salvage and Inferno Elimination.",
-		"icon": "/common/destiny_content/icons/c6f16d1a02982f9b9aa24fbc60e4432a.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/6a5413bc40bc2573b0c11f422c54373a.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 487266821,
@@ -8341,8 +8341,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1624947721,
 		"activityName": "Shield Brothers",
 		"activityDescription": "Travel deep into the heart of the Dreadnaught in pursuit of a Cabal assault team. Stop it from detonating the Hive ship's core.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 918224300,
@@ -8442,12 +8442,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/1d58c2dd6143b5004e27630b15495dec.png"
+				"icon": "/common/destiny_content/icons/5f5cb719beca7b8185cabb04cbcdaff1.png"
 			}
 		],
 		"isPlaylist": false,
@@ -8502,12 +8502,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/1d58c2dd6143b5004e27630b15495dec.png"
+				"icon": "/common/destiny_content/icons/5f5cb719beca7b8185cabb04cbcdaff1.png"
 			}
 		],
 		"isPlaylist": false,
@@ -8610,12 +8610,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/1d58c2dd6143b5004e27630b15495dec.png"
+				"icon": "/common/destiny_content/icons/5f5cb719beca7b8185cabb04cbcdaff1.png"
 			}
 		],
 		"isPlaylist": false,
@@ -8626,8 +8626,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1650930548,
 		"activityName": "Classified",
 		"activityDescription": "Obtain this Quest in Destiny to learn more.",
-		"icon": "/common/destiny_content/icons/30f642779879b4bc958b10827514250f.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/9e3f2c506622bc5b4997065907172e26.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 0,
 		"completionFlagHash": 0,
@@ -8718,12 +8718,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/35ee33e5b5345fc225b10bf9c18001b2.png"
+				"icon": "/common/destiny_content/icons/209d2a611121b4253b0a38a48df287e7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -8778,12 +8778,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/35ee33e5b5345fc225b10bf9c18001b2.png"
+				"icon": "/common/destiny_content/icons/209d2a611121b4253b0a38a48df287e7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -8886,12 +8886,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/35ee33e5b5345fc225b10bf9c18001b2.png"
+				"icon": "/common/destiny_content/icons/209d2a611121b4253b0a38a48df287e7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -8902,8 +8902,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1673931290,
 		"activityName": "Challenge of the Elders",
 		"activityDescription": "Holders of the Elders' Sigil may join with two other Guardians to face Challenge of the Elders.",
-		"icon": "/common/destiny_content/icons/c3df7438c25ce8a6afa03108222629c2.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/3e6b15746de3a6246f7901d37966567d.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 3998508077,
@@ -8921,92 +8921,92 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Airborne",
 				"description": "Players deal more damage while in the air.",
-				"icon": "/common/destiny_content/icons/aeab0082d24707029d7ad319323ec841.png"
+				"icon": "/common/destiny_content/icons/3a1e342864a7fbaf09601fa40a74437d.png"
 			},
 			{
 				"displayName": "Berserk",
 				"description": "Minions of the Darkness won't flinch, even after massive damage.",
-				"icon": "/common/destiny_content/icons/139e57a07b8fb612180bf87e0163887d.png"
+				"icon": "/common/destiny_content/icons/9c5752480fef242d7e9c732baf72e5ab.png"
 			},
 			{
 				"displayName": "Brawler",
 				"description": "Guardian melee damage is greatly increased.",
-				"icon": "/common/destiny_content/icons/eb0540279904e05e27365b9a94b3b692.png"
+				"icon": "/common/destiny_content/icons/9d4e460cab2dfca569e3ed606f590809.png"
 			},
 			{
 				"displayName": "Catapult",
 				"description": "Grenade recharge rate is greatly increased.",
-				"icon": "/common/destiny_content/icons/0168aa0906a445531299700f8058b722.png"
+				"icon": "/common/destiny_content/icons/eedcb731feca3bd6a2cc1f06018db30c.png"
 			},
 			{
 				"displayName": "Chaff",
 				"description": "Player radar is disabled.",
-				"icon": "/common/destiny_content/icons/aeedca6f3a110147b367fe0bbe46f656.png"
+				"icon": "/common/destiny_content/icons/6d2670c8a0771cf6e5af63e7525b9524.png"
 			},
 			{
 				"displayName": "Fresh Troops",
 				"description": "Some enemy squads have been fortified with additional reinforcements.",
-				"icon": "/common/destiny_content/icons/367f2e0929199e45ad11378a4189daa5.png"
+				"icon": "/common/destiny_content/icons/7f0af600b441a96700ae9180a57e8341.png"
 			},
 			{
 				"displayName": "Grenade Kill Bonus",
 				"description": "Grenade kills are worth more points.",
-				"icon": "/common/destiny_content/icons/7a55183cc34fd3e0b06a9fd250ff474e.png"
+				"icon": "/common/destiny_content/icons/8aef99602ed965c7b8642c8e86b2bbcd.png"
 			},
 			{
 				"displayName": "Melee Kill Bonus",
 				"description": "Melee kills are worth more points.",
-				"icon": "/common/destiny_content/icons/6b38426e07f426d6f136784b270feb85.png"
+				"icon": "/common/destiny_content/icons/753ac3a8171cc1e52405ebd288a0a410.png"
 			},
 			{
 				"displayName": "Precision Kill Bonus",
 				"description": "Precision kills are worth more points.",
-				"icon": "/common/destiny_content/icons/0ed6a7a94d36393c43f5931d1a263a13.png"
+				"icon": "/common/destiny_content/icons/384251829625bfab31663d6b361e7ae9.png"
 			},
 			{
 				"displayName": "Super Kill Bonus",
 				"description": "Super kills are worth more points.",
-				"icon": "/common/destiny_content/icons/1935ef6ab58a074250ea27cde6d31785.png"
+				"icon": "/common/destiny_content/icons/8845608100bbecf583918d5e064235a7.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/35ee33e5b5345fc225b10bf9c18001b2.png"
+				"icon": "/common/destiny_content/icons/209d2a611121b4253b0a38a48df287e7.png"
 			},
 			{
 				"displayName": "Ironclad",
 				"description": "More enemies have shields.",
-				"icon": "/common/destiny_content/icons/a08e54d9ecbba939ee3277aca68851ef.png"
+				"icon": "/common/destiny_content/icons/af601f53555474ac6996677ff2526460.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/1d58c2dd6143b5004e27630b15495dec.png"
+				"icon": "/common/destiny_content/icons/5f5cb719beca7b8185cabb04cbcdaff1.png"
 			},
 			{
 				"displayName": "Exposure",
 				"description": "Guardian shields are increased but do not replenish.",
-				"icon": "/common/destiny_content/icons/0b7bc7e51f9a2bc4f65026e33ab7ff26.png"
+				"icon": "/common/destiny_content/icons/3fdcb1a30fb999bcd60bfe5578e5f861.png"
 			},
 			{
 				"displayName": "Small Arms",
 				"description": "Primary Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/0836cd1ef47dcbd353d0162610c4af20.png"
+				"icon": "/common/destiny_content/icons/93cf195590efad6c58c3615809a7c731.png"
 			},
 			{
 				"displayName": "Specialist",
 				"description": "Special Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/94ee817e778fd45c43492b4b32795f22.png"
+				"icon": "/common/destiny_content/icons/7d097751a40aebff3c2385c307dfe6bd.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/e7be3ed45c4871cc72c7719eb9f0395e.png"
+				"icon": "/common/destiny_content/icons/1269d2e53430de8034b70b0fa785ab2b.png"
 			},
 			{
 				"displayName": "Trickle",
 				"description": "Recharge of abilities is significantly reduced.",
-				"icon": "/common/destiny_content/icons/bdd663b3f537506d1b071a3e7ca4175d.png"
+				"icon": "/common/destiny_content/icons/113d798426645278899ad06b83985031.png"
 			}
 		],
 		"isPlaylist": true,
@@ -9017,8 +9017,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1686326716,
 		"activityName": "A New Den",
 		"activityDescription": "Track the House of Wolves across the surface of Mars.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 39,
 		"completionFlagHash": 1569490455,
@@ -9050,8 +9050,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1714839224,
 		"activityName": "Ritual of Sacrifice",
 		"activityDescription": "Descend into the Hellmouth and find the sacrificial chambers.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 26,
 		"completionFlagHash": 0,
@@ -9098,7 +9098,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1723226893,
 		"activityName": "The Warmind",
 		"activityDescription": "Break the House of Devils' grasp on the Cosmodrome and secure a vital link to the Golden Age.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -9126,7 +9126,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -9137,8 +9137,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1727851403,
 		"activityName": "The Promethean Code",
 		"activityDescription": "Slip past Rasputin's defenses and download stealth code protocols from his Golden Age database.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1287108046,
@@ -9165,7 +9165,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -9200,8 +9200,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1733556769,
 		"activityName": "King's Fall",
 		"activityDescription": "Long live the King.",
-		"icon": "/common/destiny_content/icons/6e7ad27290a6e9aeb4e493ea1428516b.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/9cdc40cedca3066397163836c3b715dc.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 3845440012,
@@ -9228,17 +9228,17 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Golgoroth Challenge",
 				"description": "You have been challenged...",
-				"icon": "/common/destiny_content/icons/86b05c16afa45ea76252c39a8c623d1b.png"
+				"icon": "/common/destiny_content/icons/87c6b1acff51b62ceac596c42c864316.png"
 			},
 			{
 				"displayName": "Oryx Challenge",
 				"description": "You have been challenged...",
-				"icon": "/common/destiny_content/icons/4b0aff3214a750fe3423fe432dc698d8.png"
+				"icon": "/common/destiny_content/icons/2e386acab8ee66a453453c962958fc6e.png"
 			},
 			{
 				"displayName": "Warpriest Challenge",
 				"description": "You have been challenged...",
-				"icon": "/common/destiny_content/icons/c1596864c28303bb0f6a3247fc02546d.png"
+				"icon": "/common/destiny_content/icons/33bff88cf0c9233a673d2f09cefe6b4b.png"
 			}
 		],
 		"isPlaylist": false,
@@ -9250,7 +9250,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Vanguard Nightfall",
 		"activityDescription": "Launches a random Nightfall strike.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 0,
@@ -9277,102 +9277,102 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/79716a9c4b690b42f9e7d4cb966ed251.png"
+				"icon": "/common/destiny_content/icons/61eb7530a98f7fa7fcc5676e24bcc6b4.png"
 			},
 			{
 				"displayName": "Arc Burn",
 				"description": "Arc Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/73a1b6bf767af389215d115c99d71026.png"
+				"icon": "/common/destiny_content/icons/f24f67eb5d6a990cf4065c1b44cf6b9c.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/e7be3ed45c4871cc72c7719eb9f0395e.png"
+				"icon": "/common/destiny_content/icons/1269d2e53430de8034b70b0fa785ab2b.png"
 			},
 			{
 				"displayName": "Void Burn",
 				"description": "Void damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/206dde36ce1afce73711cf5da1d8a371.png"
+				"icon": "/common/destiny_content/icons/c3d3e7cf01832b9f59fd9a809aec60ad.png"
 			},
 			{
 				"displayName": "Berserk",
 				"description": "Minions of the Darkness won't flinch, even after massive damage.",
-				"icon": "/common/destiny_content/icons/139e57a07b8fb612180bf87e0163887d.png"
+				"icon": "/common/destiny_content/icons/9c5752480fef242d7e9c732baf72e5ab.png"
 			},
 			{
 				"displayName": "Brawler",
 				"description": "Guardian melee damage is greatly increased.",
-				"icon": "/common/destiny_content/icons/eb0540279904e05e27365b9a94b3b692.png"
+				"icon": "/common/destiny_content/icons/9d4e460cab2dfca569e3ed606f590809.png"
 			},
 			{
 				"displayName": "Lightswitch",
 				"description": "Minions of the Darkness deal much more melee damage.",
-				"icon": "/common/destiny_content/icons/22bc24a3fe74ee1e6bdd292b8ae73163.png"
+				"icon": "/common/destiny_content/icons/02996ae1eabee9f461f024faa81e5906.png"
 			},
 			{
 				"displayName": "Specialist",
 				"description": "Special Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/94ee817e778fd45c43492b4b32795f22.png"
+				"icon": "/common/destiny_content/icons/7d097751a40aebff3c2385c307dfe6bd.png"
 			},
 			{
 				"displayName": "Small Arms",
 				"description": "Primary Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/0836cd1ef47dcbd353d0162610c4af20.png"
+				"icon": "/common/destiny_content/icons/93cf195590efad6c58c3615809a7c731.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/1d58c2dd6143b5004e27630b15495dec.png"
+				"icon": "/common/destiny_content/icons/5f5cb719beca7b8185cabb04cbcdaff1.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/35ee33e5b5345fc225b10bf9c18001b2.png"
+				"icon": "/common/destiny_content/icons/209d2a611121b4253b0a38a48df287e7.png"
 			},
 			{
 				"displayName": "Bloodthirsty",
 				"description": "Enemies fire more frequently and more accurately.",
-				"icon": "/common/destiny_content/icons/ebb654f8c2349e0b2c5ef6917114aa1c.png"
+				"icon": "/common/destiny_content/icons/18c71283f19f7e492bf167ddfc98fb9f.png"
 			},
 			{
 				"displayName": "Chaff",
 				"description": "Player radar is disabled.",
-				"icon": "/common/destiny_content/icons/aeedca6f3a110147b367fe0bbe46f656.png"
+				"icon": "/common/destiny_content/icons/6d2670c8a0771cf6e5af63e7525b9524.png"
 			},
 			{
 				"displayName": "Fresh Troops",
 				"description": "Some enemy squads have been fortified with additional reinforcements.",
-				"icon": "/common/destiny_content/icons/367f2e0929199e45ad11378a4189daa5.png"
+				"icon": "/common/destiny_content/icons/7f0af600b441a96700ae9180a57e8341.png"
 			},
 			{
 				"displayName": "Ironclad",
 				"description": "More enemies have shields.",
-				"icon": "/common/destiny_content/icons/a08e54d9ecbba939ee3277aca68851ef.png"
+				"icon": "/common/destiny_content/icons/af601f53555474ac6996677ff2526460.png"
 			},
 			{
 				"displayName": "Match Game",
 				"description": "Enemy shields are resistant to all unmatched Elemental Damage.",
-				"icon": "/common/destiny_content/icons/883cdd800901e0a8a7c6e941974e918e.png"
+				"icon": "/common/destiny_content/icons/5356f6b48fe01da8cf7592aaad651391.png"
 			},
 			{
 				"displayName": "Airborne",
 				"description": "Players deal more damage while in the air.",
-				"icon": "/common/destiny_content/icons/aeab0082d24707029d7ad319323ec841.png"
+				"icon": "/common/destiny_content/icons/3a1e342864a7fbaf09601fa40a74437d.png"
 			},
 			{
 				"displayName": "Catapult",
 				"description": "Grenade recharge rate is greatly increased.",
-				"icon": "/common/destiny_content/icons/0168aa0906a445531299700f8058b722.png"
+				"icon": "/common/destiny_content/icons/eedcb731feca3bd6a2cc1f06018db30c.png"
 			},
 			{
 				"displayName": "Exposure",
 				"description": "Guardian shields are increased but do not replenish.",
-				"icon": "/common/destiny_content/icons/0b7bc7e51f9a2bc4f65026e33ab7ff26.png"
+				"icon": "/common/destiny_content/icons/3fdcb1a30fb999bcd60bfe5578e5f861.png"
 			},
 			{
 				"displayName": "Trickle",
 				"description": "Recharge of abilities is significantly reduced.",
-				"icon": "/common/destiny_content/icons/bdd663b3f537506d1b071a3e7ca4175d.png"
+				"icon": "/common/destiny_content/icons/113d798426645278899ad06b83985031.png"
 			}
 		],
 		"isPlaylist": true,
@@ -9383,8 +9383,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1772839913,
 		"activityName": "Tenebrous Tunnels",
 		"activityDescription": "Seek out the source of the Taken blight on Mars.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 2049448260,
@@ -9416,8 +9416,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1783047867,
 		"activityName": "Inferno Control",
 		"activityDescription": "\"It's a tactical exercise in reinforcing and defending acquired territory. Should the Vanguard ever decide to expand past the walls of the City, the Guardians will be ready.\" —Lord Shaxx\n\nAll-out team warfare. Destroy the enemy. No trackers and simplified scoring.",
-		"icon": "/common/destiny_content/icons/91f7536370bf19b0000d276ab30cc2eb.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/1e54e2acfb69042ee8836093aa41554d.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 2475165134,
@@ -9440,8 +9440,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1783564050,
 		"activityName": "The Ruling House",
 		"activityDescription": "Scour the Cosmodrome for Skolas and the invading Wolves.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1172862368,
@@ -9468,7 +9468,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -9480,7 +9480,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Zone Control",
 		"activityDescription": "\"It's a tactical exercise in reinforcing and defending acquired territory. Should the Vanguard ever decide to expand past the walls of the City, the Guardians will be ready.\" —Lord Shaxx\n\nCapture zones and hold the zones to win.",
 		"icon": "/common/destiny_content/icons/icon_pvp_95758a0126585ca7a5344b1424aaec7c.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 299093107,
@@ -9528,8 +9528,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1836893116,
 		"activityName": "Crota’s End",
 		"activityDescription": "He waits in the dark below.",
-		"icon": "/common/destiny_content/icons/6e7ad27290a6e9aeb4e493ea1428516b.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"icon": "/common/destiny_content/icons/9cdc40cedca3066397163836c3b715dc.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 30,
 		"completionFlagHash": 2880236702,
@@ -9565,8 +9565,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 1836893119,
 		"activityName": "Crota’s End",
 		"activityDescription": "He waits in the dark below.",
-		"icon": "/common/destiny_content/icons/6e7ad27290a6e9aeb4e493ea1428516b.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"icon": "/common/destiny_content/icons/9cdc40cedca3066397163836c3b715dc.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 33,
 		"completionFlagHash": 1716556531,
@@ -9601,7 +9601,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -9636,7 +9636,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1846390409,
 		"activityName": "A Guardian Rises",
 		"activityDescription": "Rise in the Light of the Traveler and join the battle against the Darkness.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -9693,7 +9693,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1856964953,
 		"activityName": "A Guardian Rises",
 		"activityDescription": "Rise in the Light of the Traveler and join the battle against the Darkness.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -9745,27 +9745,27 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/79716a9c4b690b42f9e7d4cb966ed251.png"
+				"icon": "/common/destiny_content/icons/61eb7530a98f7fa7fcc5676e24bcc6b4.png"
 			},
 			{
 				"displayName": "Nightfall",
 				"description": "If all players die, your Fireteam is returned to Orbit.",
-				"icon": "/common/destiny_content/icons/087b23231911f2cff9b5f20eaf49b627.png"
+				"icon": "/common/destiny_content/icons/5e0aa788e28398d69d9ba22f3a5dbb2b.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/1d58c2dd6143b5004e27630b15495dec.png"
+				"icon": "/common/destiny_content/icons/5f5cb719beca7b8185cabb04cbcdaff1.png"
 			},
 			{
 				"displayName": "Void Burn",
 				"description": "Void Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/206dde36ce1afce73711cf5da1d8a371.png"
+				"icon": "/common/destiny_content/icons/c3d3e7cf01832b9f59fd9a809aec60ad.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/e7be3ed45c4871cc72c7719eb9f0395e.png"
+				"icon": "/common/destiny_content/icons/1269d2e53430de8034b70b0fa785ab2b.png"
 			}
 		],
 		"isPlaylist": false,
@@ -9776,7 +9776,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1940432142,
 		"activityName": "Exclusion Zone",
 		"activityDescription": "Survive the military power of the Cabal and find the Gate to the Black Garden.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -9804,7 +9804,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -9815,7 +9815,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 1973631991,
 		"activityName": "The Last Array",
 		"activityDescription": "Track down codes to raise an ancient Array and connect it to long-lost colonies throughout the solar system.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -9843,7 +9843,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -9906,27 +9906,27 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/79716a9c4b690b42f9e7d4cb966ed251.png"
+				"icon": "/common/destiny_content/icons/61eb7530a98f7fa7fcc5676e24bcc6b4.png"
 			},
 			{
 				"displayName": "Arc Burn",
 				"description": "Arc Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/73a1b6bf767af389215d115c99d71026.png"
+				"icon": "/common/destiny_content/icons/f24f67eb5d6a990cf4065c1b44cf6b9c.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/e7be3ed45c4871cc72c7719eb9f0395e.png"
+				"icon": "/common/destiny_content/icons/1269d2e53430de8034b70b0fa785ab2b.png"
 			},
 			{
 				"displayName": "Small Arms",
 				"description": "Primary Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/0836cd1ef47dcbd353d0162610c4af20.png"
+				"icon": "/common/destiny_content/icons/93cf195590efad6c58c3615809a7c731.png"
 			},
 			{
 				"displayName": "Nightfall",
 				"description": "If all players die, your Fireteam is returned to Orbit.",
-				"icon": "/common/destiny_content/icons/087b23231911f2cff9b5f20eaf49b627.png"
+				"icon": "/common/destiny_content/icons/5e0aa788e28398d69d9ba22f3a5dbb2b.png"
 			}
 		],
 		"isPlaylist": false,
@@ -9937,8 +9937,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2008529245,
 		"activityName": "Kings of Decay",
 		"activityDescription": "Hunt the source of the Taken blight across the Cosmodrome.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 643414632,
@@ -9970,8 +9970,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2022189692,
 		"activityName": "Blighted Chalice",
 		"activityDescription": "A blight of Taken now roosts In the Hellmouth. Unchecked, they could refocus the Darkness within and descend on the City.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 3299328131,
@@ -10027,7 +10027,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2045385030,
 		"activityName": "Patrol Venus",
 		"activityDescription": "Keep watch in the Ishtar Sink to aid the City in its efforts.",
-		"icon": "/common/destiny_content/icons/232fecb11e60da363dab116ffe2210b7.png",
+		"icon": "/common/destiny_content/icons/b85fc39824d660c23d835820dc2996d8.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 11,
@@ -10051,7 +10051,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2051444910,
 		"activityName": "The Dark Beyond",
 		"activityDescription": "Follow the trail of a Guardian who went dark searching for a way into the Hive Fortress.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -10079,7 +10079,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -10090,8 +10090,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2063852581,
 		"activityName": "Mayhem Clash",
 		"activityDescription": "\"Enjoy yourselves, Guardians.\" —Lord Shaxx\n\nEmbrace the chaos. Greatly increased ability recharge rates. Faster Special and Heavy Ammo spawns. No respawn delay. Scoring values multiplied by 10.",
-		"icon": "/common/destiny_content/icons/e5376e540a2c31e0396fa13b6219f1db.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/d55ded8122883dcb9f3bcb99e261efe3.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 3055539520,
@@ -10139,8 +10139,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2072729921,
 		"activityName": "Blighted Chalice",
 		"activityDescription": "A blight of Taken now roosts In the Hellmouth. Unchecked, they could refocus the Darkness within and descend on the City.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3299328131,
@@ -10172,8 +10172,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2074618692,
 		"activityName": "The Forever Eater",
 		"activityDescription": "Qodron, a Vex chronovore, sees only one outcome: your demise. Prove it wrong.",
-		"icon": "/common/destiny_content/icons/c3df7438c25ce8a6afa03108222629c2.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/3e6b15746de3a6246f7901d37966567d.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 34,
 		"completionFlagHash": 2256052094,
@@ -10213,8 +10213,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2074618695,
 		"activityName": "The Forever Eater",
 		"activityDescription": "Qodron, a Vex chronovore, sees only one outcome: your demise. Prove it wrong.",
-		"icon": "/common/destiny_content/icons/c3df7438c25ce8a6afa03108222629c2.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/3e6b15746de3a6246f7901d37966567d.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 2256052094,
@@ -10274,8 +10274,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2084208305,
 		"activityName": "The Sunless Cell",
 		"activityDescription": "Assault a prison deep in the heart of the Dreadnaught and put an end to a Hive champion.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 2001921006,
@@ -10298,8 +10298,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2084307227,
 		"activityName": "Dread Patrol",
 		"activityDescription": "Establish patrol routes and beacon sites on the Hive Dreadnaught for the Vanguard.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 35,
 		"completionFlagHash": 944830254,
@@ -10331,7 +10331,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2129294976,
 		"activityName": "The Dark Within",
 		"activityDescription": "Investigate reports of a hidden power trapped in the Cosmodrome Array stations.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -10359,7 +10359,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -10370,7 +10370,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2151413729,
 		"activityName": "Tower",
 		"activityDescription": "Home of the Guardians, where you can regroup, rearm, and form new alliances before venturing beyond.",
-		"icon": "/common/destiny_content/icons/86cbb39b7749fa818a93b7bb123d7d36.png",
+		"icon": "/common/destiny_content/icons/4bd064d6a7a5d25cbf408615bef8c258.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -10395,7 +10395,7 @@ var DestinyActivityDefinition = {
 		"activityName": "The Shadow Thief",
 		"activityDescription": "A ruthless Fallen mercenary commanding the Wolfship Kaliks-Syn has been spotted near the Moon. Board the Ketch and end the reign of Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 1665214730,
@@ -10466,8 +10466,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2197680969,
 		"activityName": "Kings of Decay",
 		"activityDescription": "Hunt the source of the Taken blight across the Cosmodrome.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 643414632,
@@ -10494,7 +10494,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -10505,7 +10505,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2198347919,
 		"activityName": "Tower",
 		"activityDescription": "Home of the Guardians, where you can regroup, rearm, and form new alliances before venturing beyond.",
-		"icon": "/common/destiny_content/icons/86cbb39b7749fa818a93b7bb123d7d36.png",
+		"icon": "/common/destiny_content/icons/4bd064d6a7a5d25cbf408615bef8c258.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -10529,7 +10529,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2201622127,
 		"activityName": "Challenge of the Elders",
 		"activityDescription": "Holders of the Elders' Sigil may join with two other Guardians to face Challenge of the Elders.",
-		"icon": "/common/destiny_content/icons/c3df7438c25ce8a6afa03108222629c2.png",
+		"icon": "/common/destiny_content/icons/3e6b15746de3a6246f7901d37966567d.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
@@ -10553,7 +10553,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2213151771,
 		"activityName": "Ishtar Collective",
 		"activityDescription": "Unravel the secrets of the Vex by reviving an ancient research station of the Ishtar Collective.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -10581,7 +10581,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -10592,8 +10592,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2234107290,
 		"activityName": "The Sunless Cell",
 		"activityDescription": "Enter the Sunless Cell and destroy Thracu, Warden of Oryx.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 2001921006,
@@ -10620,7 +10620,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/79716a9c4b690b42f9e7d4cb966ed251.png"
+				"icon": "/common/destiny_content/icons/61eb7530a98f7fa7fcc5676e24bcc6b4.png"
 			}
 		],
 		"isPlaylist": false,
@@ -10655,7 +10655,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2244550959,
 		"activityName": "Tower",
 		"activityDescription": "Home of the Guardians, where you can regroup, rearm, and form new alliances before venturing beyond.",
-		"icon": "/common/destiny_content/icons/86cbb39b7749fa818a93b7bb123d7d36.png",
+		"icon": "/common/destiny_content/icons/4bd064d6a7a5d25cbf408615bef8c258.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -10680,7 +10680,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Elimination",
 		"activityDescription": "\"Your allies are your lifeblood. No second chances except the ones you give.\" —Lord Shaxx \n\nSmall-team tactics. Revive teammates to keep fighting. Bring down the entire opposing team to claim victory.",
 		"icon": "/img/theme/destiny/icons/pvp_gametype_elimination.v2.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 3847284338,
@@ -10704,7 +10704,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 26,
 		"completionFlagHash": 4185808066,
@@ -10747,12 +10747,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Angry",
 				"description": "Minions of the Darkness won't flinch, even after massive damage.",
-				"icon": "/common/destiny_content/icons/139e57a07b8fb612180bf87e0163887d.png"
+				"icon": "/common/destiny_content/icons/9c5752480fef242d7e9c732baf72e5ab.png"
 			}
 		],
 		"isPlaylist": false,
@@ -10764,7 +10764,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 30,
 		"completionFlagHash": 4185808067,
@@ -10831,12 +10831,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Angry",
 				"description": "Minions of the Darkness won't flinch, even after massive damage.",
-				"icon": "/common/destiny_content/icons/139e57a07b8fb612180bf87e0163887d.png"
+				"icon": "/common/destiny_content/icons/9c5752480fef242d7e9c732baf72e5ab.png"
 			}
 		],
 		"isPlaylist": false,
@@ -10848,7 +10848,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 4185808064,
@@ -10939,12 +10939,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Angry",
 				"description": "Minions of the Darkness won't flinch, even after massive damage.",
-				"icon": "/common/destiny_content/icons/139e57a07b8fb612180bf87e0163887d.png"
+				"icon": "/common/destiny_content/icons/9c5752480fef242d7e9c732baf72e5ab.png"
 			}
 		],
 		"isPlaylist": false,
@@ -10955,8 +10955,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2286628407,
 		"activityName": "Paradox",
 		"activityDescription": "Investigate the signal coming from the Vault of Glass.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3604443450,
@@ -10983,7 +10983,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -10994,7 +10994,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2321224098,
 		"activityName": "A Stranger's Call",
 		"activityDescription": "Follow the Stranger's coordinates to a legendary colony lost in the jungles of Venus.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -11022,7 +11022,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -11033,8 +11033,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2326253031,
 		"activityName": "Skolas's Revenge",
 		"activityDescription": "Skolas and his crew challenge the Guardians who captured him. Face him with a Fireteam of three. End him.",
-		"icon": "/common/destiny_content/icons/c3df7438c25ce8a6afa03108222629c2.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/3e6b15746de3a6246f7901d37966567d.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 35,
 		"completionFlagHash": 1146975594,
@@ -11078,7 +11078,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2327910410,
 		"activityName": "Chamber of Night",
 		"activityDescription": "Scour the Hive Fortress for a chamber where the Speaker believes a dark ritual is silencing the Traveler.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -11106,7 +11106,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -11117,7 +11117,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2330516073,
 		"activityName": "Tower",
 		"activityDescription": "Home of the Guardians, where you can regroup, rearm, and form new alliances before venturing beyond.",
-		"icon": "/common/destiny_content/icons/86cbb39b7749fa818a93b7bb123d7d36.png",
+		"icon": "/common/destiny_content/icons/4bd064d6a7a5d25cbf408615bef8c258.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -11165,8 +11165,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2333767699,
 		"activityName": "Fear's Embrace",
 		"activityDescription": "Return to the base on Phobos. Destroy the blighted source on Mars.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3986256182,
@@ -11198,8 +11198,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2344229082,
 		"activityName": "The Undying Mind",
 		"activityDescription": "An ancient Mind, feared by the Vex themselves, hides among the channels of the Black Garden. Find this machine and end its existence.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
 		"completionFlagHash": 2868189086,
@@ -11222,8 +11222,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2344622554,
 		"activityName": "Echo Chamber",
 		"activityDescription": "Guardians destroyed the Nexus on Venus. Now, a powerful Vex mind seeks to sunder time and space and undo what was done.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 2764395773,
@@ -11246,8 +11246,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2356723745,
 		"activityName": "The Coming War",
 		"activityDescription": "Travel to Phobos and investigate the Cabal distress signal.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 25,
 		"completionFlagHash": 1805431820,
@@ -11279,8 +11279,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2364610626,
 		"activityName": "The Prime's Path",
 		"activityDescription": "Hunt the Prime Servitor that has brought together the broken House of Wolves.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1357121139,
@@ -11307,7 +11307,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -11318,8 +11318,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2369296916,
 		"activityName": "The Coming War",
 		"activityDescription": "Travel to Phobos and investigate the Cabal distress signal.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 25,
 		"completionFlagHash": 2315956863,
@@ -11342,7 +11342,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2370413227,
 		"activityName": "Tower",
 		"activityDescription": "Home of the Guardians, where you can regroup, rearm, and form new alliances before venturing beyond.",
-		"icon": "/common/destiny_content/icons/86cbb39b7749fa818a93b7bb123d7d36.png",
+		"icon": "/common/destiny_content/icons/4bd064d6a7a5d25cbf408615bef8c258.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -11367,7 +11367,7 @@ var DestinyActivityDefinition = {
 		"activityName": "The Shadow Thief",
 		"activityDescription": "A ruthless Fallen mercenary commanding the Wolfship Kaliks-Syn has been spotted near the Moon. Board the Ketch and end the reign of Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1665214730,
@@ -11390,8 +11390,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2393458461,
 		"activityName": "Entropy's Pinnacle",
 		"activityDescription": "Scale the Vex Citadel and hunt down the source of Venus's blight.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 232710236,
@@ -11418,7 +11418,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -11429,7 +11429,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2398459666,
 		"activityName": "Patrol Mars",
 		"activityDescription": "Fight through the shifting Martian dunes to protect the City's interests.",
-		"icon": "/common/destiny_content/icons/232fecb11e60da363dab116ffe2210b7.png",
+		"icon": "/common/destiny_content/icons/b85fc39824d660c23d835820dc2996d8.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 17,
@@ -11453,8 +11453,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2401705359,
 		"activityName": "Vanguard Strikes",
 		"activityDescription": "Launches a random strike.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 3667459954,
@@ -11526,8 +11526,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2450352219,
 		"activityName": "The Sunless Cell",
 		"activityDescription": "Assault a prison deep in the heart of the Dreadnaught and put an end to a Hive champion.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 2001921006,
@@ -11559,8 +11559,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2473173917,
 		"activityName": "The Silent Fang",
 		"activityDescription": "Stop Skolas's elite assassins before they tear through the Cosmodrome.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 2431342961,
@@ -11587,7 +11587,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -11598,7 +11598,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2474598319,
 		"activityName": "Patrol Venus",
 		"activityDescription": "Explore the Ishtar Sink and aid the City in their efforts.",
-		"icon": "/common/destiny_content/icons/232fecb11e60da363dab116ffe2210b7.png",
+		"icon": "/common/destiny_content/icons/b85fc39824d660c23d835820dc2996d8.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 11,
@@ -11639,8 +11639,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2488292787,
 		"activityName": "Freelance 3v3",
 		"activityDescription": "\"Sometimes your allies are a necessity rather than a choice. Don't let that stop you from taking your team to glory.\" —Lord Shaxx \n\nSolo queue only. A mix of Skirmish, Salvage and Elimination.",
-		"icon": "/common/destiny_content/icons/c6f16d1a02982f9b9aa24fbc60e4432a.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/6a5413bc40bc2573b0c11f422c54373a.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 302356822,
@@ -11688,8 +11688,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2503808507,
 		"activityName": "Last Rites",
 		"activityDescription": "Using the stealth code, travel deep into the heart of the Hellmouth and slip away with a sliver of Crota's soul.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 33,
 		"completionFlagHash": 679255950,
@@ -11745,8 +11745,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2507671226,
 		"activityName": "Outbound Signal",
 		"activityDescription": "Track a signal from the crashed Cabal ship. Board the Dreadnaught and put an end to this transmission to the stars.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 969440619,
@@ -11773,7 +11773,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -11784,8 +11784,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2522686639,
 		"activityName": "Freelance 6v6",
 		"activityDescription": "\"Sometimes your allies are a necessity rather than a choice. Don't let that stop you from taking your team to glory.\" —Lord Shaxx \n\nSolo queue only. A mix of Control, Clash and Rift.",
-		"icon": "/common/destiny_content/icons/c6f16d1a02982f9b9aa24fbc60e4432a.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/6a5413bc40bc2573b0c11f422c54373a.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 4059616658,
@@ -11834,7 +11834,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Fallen S.A.B.E.R.",
 		"activityDescription": "Rush to the aid of the AI Warmind Rasputin as he broadcasts a plea for help across the system.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3346707351,
@@ -11857,8 +11857,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2577060487,
 		"activityName": "Paradox",
 		"activityDescription": "Investigate the signal coming from the Vault of Glass.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 38,
 		"completionFlagHash": 3604443450,
@@ -11890,7 +11890,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2591739000,
 		"activityName": "The Awoken",
 		"activityDescription": "Travel to the home of the Awoken and find what they know about the Black Garden.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 10,
@@ -11914,8 +11914,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2604992012,
 		"activityName": "Lost to Light",
 		"activityDescription": "Return to the Chamber of Night and steal a shard of the crystal that once held Crota's soul.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1144851729,
@@ -11942,7 +11942,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -11953,8 +11953,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2616429373,
 		"activityName": "Fear's Embrace",
 		"activityDescription": "Return to the base on Phobos. Destroy the blighted source on Mars.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3986256182,
@@ -11986,8 +11986,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2624694148,
 		"activityName": "Blighted Coven",
 		"activityDescription": "Investigate the rumors of a Taken coven in the Cosmodrome.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 2079210505,
@@ -12014,7 +12014,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -12025,8 +12025,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2626477216,
 		"activityName": "Outbound Signal",
 		"activityDescription": "Track a signal from the crashed Cabal ship. Board the Dreadnaught and put an end to this transmission to the stars.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 38,
 		"completionFlagHash": 969440619,
@@ -12059,7 +12059,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Echo Chamber",
 		"activityDescription": "Guardians destroyed the Nexus on Venus. Now, a powerful Vex mind seeks to sunder time and space and undo what was done.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 2764395773,
@@ -12106,7 +12106,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2641355370,
 		"activityName": "The Garden's Spire",
 		"activityDescription": "Seize control of the Black Garden Spire held behind the wall of the Cabal Warbase and wake the Gate Lord's Eye.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -12134,7 +12134,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -12145,7 +12145,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2659248068,
 		"activityName": "Vault of Glass",
 		"activityDescription": "Beneath Venus, evil stirs.",
-		"icon": "/common/destiny_content/icons/6e7ad27290a6e9aeb4e493ea1428516b.png",
+		"icon": "/common/destiny_content/icons/9cdc40cedca3066397163836c3b715dc.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 30,
@@ -12181,7 +12181,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -12192,7 +12192,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2659248069,
 		"activityName": "Vault of Glass",
 		"activityDescription": "Beneath Venus, evil stirs.",
-		"icon": "/common/destiny_content/icons/6e7ad27290a6e9aeb4e493ea1428516b.png",
+		"icon": "/common/destiny_content/icons/9cdc40cedca3066397163836c3b715dc.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 31,
@@ -12228,7 +12228,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/79716a9c4b690b42f9e7d4cb966ed251.png"
+				"icon": "/common/destiny_content/icons/61eb7530a98f7fa7fcc5676e24bcc6b4.png"
 			}
 		],
 		"isPlaylist": false,
@@ -12239,7 +12239,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2659248071,
 		"activityName": "Vault of Glass",
 		"activityDescription": "Beneath Venus, evil stirs.",
-		"icon": "/common/destiny_content/icons/6e7ad27290a6e9aeb4e493ea1428516b.png",
+		"icon": "/common/destiny_content/icons/9cdc40cedca3066397163836c3b715dc.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 26,
@@ -12276,8 +12276,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2662709104,
 		"activityName": "Bottle the Arc",
 		"activityDescription": "Fight the Vex in an Arc storm on Mars. Learn to walk the Stormcaller's path.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 25,
 		"completionFlagHash": 3413543819,
@@ -12309,7 +12309,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2666433880,
 		"activityName": "The Nexus",
 		"activityDescription": "The Golden Age legends tell of ancient tunnels below the Academy, where a Vex machine once ate away at the planet. Descend into the old dig sites and find this Nexus before it churns again.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
@@ -12385,27 +12385,27 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/79716a9c4b690b42f9e7d4cb966ed251.png"
+				"icon": "/common/destiny_content/icons/61eb7530a98f7fa7fcc5676e24bcc6b4.png"
 			},
 			{
 				"displayName": "Angry",
 				"description": "Minions of the Darkness won't flinch, even after massive damage.",
-				"icon": "/common/destiny_content/icons/139e57a07b8fb612180bf87e0163887d.png"
+				"icon": "/common/destiny_content/icons/9c5752480fef242d7e9c732baf72e5ab.png"
 			},
 			{
 				"displayName": "Lightswitch",
 				"description": "Minions of the Darkness deal much more melee damage.",
-				"icon": "/common/destiny_content/icons/22bc24a3fe74ee1e6bdd292b8ae73163.png"
+				"icon": "/common/destiny_content/icons/02996ae1eabee9f461f024faa81e5906.png"
 			},
 			{
 				"displayName": "Brawler",
 				"description": "Guardian Melee damage is greatly increased.",
-				"icon": "/common/destiny_content/icons/eb0540279904e05e27365b9a94b3b692.png"
+				"icon": "/common/destiny_content/icons/9d4e460cab2dfca569e3ed606f590809.png"
 			},
 			{
 				"displayName": "Nightfall",
 				"description": "If all players die, your Fireteam is returned to Orbit.",
-				"icon": "/common/destiny_content/icons/087b23231911f2cff9b5f20eaf49b627.png"
+				"icon": "/common/destiny_content/icons/5e0aa788e28398d69d9ba22f3a5dbb2b.png"
 			}
 		],
 		"isPlaylist": false,
@@ -12416,8 +12416,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2701768038,
 		"activityName": "Fist of Crota",
 		"activityDescription": "Face the Fist of Crota leading the Spawn on Earth.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 370529543,
@@ -12444,7 +12444,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -12455,7 +12455,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2704098598,
 		"activityName": "The Devils' Lair",
 		"activityDescription": "The Fallen House of Devils in the Cosmodrome sustains its strength through a single Servitor known as Sepiks Prime. Find where this keeper of souls lies and destroy him.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
@@ -12479,8 +12479,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2708547287,
 		"activityName": "A March of Fire",
 		"activityDescription": "Head to Venus in search of the Sunbreakers, a mercenary clan of Titans.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 25,
 		"completionFlagHash": 1465105130,
@@ -12512,7 +12512,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2719526771,
 		"activityName": "Dust Palace",
 		"activityDescription": "A new Cabal force has unleashed powerful Psion Flayers to seize control of the old Martian Warmind. Face this new threat and secure what remains of the ancient network.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
@@ -12545,7 +12545,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2743106708,
 		"activityName": "Dust Palace",
 		"activityDescription": "A new Cabal force has unleashed powerful Psion Flayers to seize control of the old Martian Warmind. Face this new threat and secure what remains of the ancient network.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
@@ -12569,7 +12569,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2776273577,
 		"activityName": "Cerberus Vae III",
 		"activityDescription": "Just beyond their warbase, Valus Ta'aurc, Fleet Commander of the Cabal Siege Dancers, hides in an Imperial Land Tank. Fight through his guard and stop this terror before he destroys all of Freehold.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
@@ -12593,8 +12593,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2790114296,
 		"activityName": "The Ruling House",
 		"activityDescription": "Scour the Cosmodrome for Skolas and the invading Wolves.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
 		"completionFlagHash": 1172862368,
@@ -12626,7 +12626,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2819394450,
 		"activityName": "Vanguard Legacy",
 		"activityDescription": "Launches a random Legacy strike.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
@@ -12676,7 +12676,7 @@ var DestinyActivityDefinition = {
 		"activityName": "The Sunless Cell",
 		"activityDescription": "Assault a prison deep in the heart of the Dreadnaught and put an end to a Hive champion.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 2001921006,
@@ -12699,7 +12699,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 2853745856,
 		"activityName": "The Black Garden",
 		"activityDescription": "Fight through the Gate and enter the Black Garden to destroy its heart.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -12727,7 +12727,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -12763,7 +12763,7 @@ var DestinyActivityDefinition = {
 		"activityName": "The Sunless Cell",
 		"activityDescription": "Assault a prison deep in the heart of the Dreadnaught and put an end to a Hive champion.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 2001921006,
@@ -12834,8 +12834,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2897641944,
 		"activityName": "Blighted Chalice",
 		"activityDescription": "A blight of Taken now roosts In the Hellmouth. Unchecked, they could refocus the Darkness within and descend on the City.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 3299328131,
@@ -12867,8 +12867,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2918909691,
 		"activityName": "Summoner's Circle",
 		"activityDescription": "Stop a coven within the heart of the dreadnaught from creating a powerful Taken warbeast.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3783811726,
@@ -12900,8 +12900,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2926133958,
 		"activityName": "Arsenal",
 		"activityDescription": "\"It takes improvisation to win with what you find on the battlefield.\" —Lord Shaxx\n\nTake the Armament and destroy your foes.",
-		"icon": "/common/destiny_content/icons/e84efef3e280eaaf7ce720e2e8396b28.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/00e690ed9542799d9504380ed0fdccf8.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 865230713,
@@ -12924,8 +12924,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2931947534,
 		"activityName": "A Kell Rising",
 		"activityDescription": "Head off the House of Wolves on Venus before their Kell, Skolas, can wrest control of the House of Winter.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 16,
 		"completionFlagHash": 913134368,
@@ -12957,8 +12957,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 2947742498,
 		"activityName": "Inferno Doubles",
 		"activityDescription": "\"Leave no ally behind and no enemy standing.\" —Lord Shaxx \n\nSmall-team tactics. Kill the enemy. Revive teammates. No trackers and simplified scoring.",
-		"icon": "/common/destiny_content/icons/0c6a2c2f8581cb3cacfc6fb43563f26e.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/d20c59f251dcd50208b3923d37c2c073.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 1317423109,
@@ -13014,8 +13014,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3025411906,
 		"activityName": "The Archon-Slayer",
 		"activityDescription": "This renegade Wolf was dangerous enough before he murdered one of his own Archons.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 28,
 		"completionFlagHash": 1046756362,
@@ -13048,7 +13048,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Shield Brothers",
 		"activityDescription": "Travel deep into the heart of the Dreadnaught in pursuit of a Cabal assault team. Stop it from detonating the Hive ship's core.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 918224300,
@@ -13071,7 +13071,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3056582947,
 		"activityName": "A Rising Tide",
 		"activityDescription": "Find and destroy the source of the Vex surging to protect the Black Garden.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -13099,7 +13099,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -13111,7 +13111,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Fallen S.A.B.E.R.",
 		"activityDescription": "Rush to the aid of the AI Warmind Rasputin as he broadcasts a plea for help across the system.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 3346707351,
@@ -13134,8 +13134,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3097191720,
 		"activityName": "The Shadow Thief",
 		"activityDescription": "A ruthless Fallen mercenary commanding the Wolfship Kaliks-Syn has been spotted near the Moon. Board the Ketch and end the reign of Taniks, the Scarred.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
 		"completionFlagHash": 1665214730,
@@ -13167,8 +13167,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3098008841,
 		"activityName": "The Will of Crota",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 1872715353,
@@ -13215,8 +13215,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3102291176,
 		"activityName": "The Prime's Path",
 		"activityDescription": "Hunt the Prime Servitor that has brought together the broken House of Wolves.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 1357121139,
@@ -13249,7 +13249,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Salvage",
 		"activityDescription": "\"Treasures and forgotten tech lie waiting in the wake of the Golden Age's collapse. One must be swift and fierce to claim them.\" —Lord Shaxx \n\nRace the other team to capture and hold relics.",
 		"icon": "/common/destiny_content/icons/icon_pvp_43319e992dcbb18bf0936a2fab0c946a.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 2312665730,
@@ -13281,7 +13281,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3120201278,
 		"activityName": "Winter's Run",
 		"activityDescription": "As the Vex march to claim the Ishtar Sink, the Fallen House of Winter is raising a powerful Archon, stolen from the Prison of Elders in the Reef. Find the Archon before they fully restore his soul.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
@@ -13314,7 +13314,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3120351937,
 		"activityName": "The Warmind",
 		"activityDescription": "Break the House of Devils' grasp on the Cosmodrome and secure a vital link to the Golden Age.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 4,
@@ -13347,7 +13347,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3120351938,
 		"activityName": "The Dark Within",
 		"activityDescription": "Investigate reports of a hidden power trapped in the Cosmodrome Array stations.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 3,
@@ -13380,7 +13380,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3120351939,
 		"activityName": "Restoration",
 		"activityDescription": "Return to Fallen territory and hunt for parts to restore your ship's ability for interplanetary travel.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 2,
@@ -13413,8 +13413,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3120351941,
 		"activityName": "Siege of the Warmind",
 		"activityDescription": "Find Rasputin's bunker. Defend it against the Hive attack.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 12,
 		"completionFlagHash": 1669839107,
@@ -13446,7 +13446,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3120351943,
 		"activityName": "The Last Array",
 		"activityDescription": "Track down codes to raise an ancient Array and connect it to long-lost colonies throughout the solar system.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 6,
@@ -13547,12 +13547,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/35ee33e5b5345fc225b10bf9c18001b2.png"
+				"icon": "/common/destiny_content/icons/209d2a611121b4253b0a38a48df287e7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -13607,12 +13607,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/35ee33e5b5345fc225b10bf9c18001b2.png"
+				"icon": "/common/destiny_content/icons/209d2a611121b4253b0a38a48df287e7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -13715,12 +13715,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/35ee33e5b5345fc225b10bf9c18001b2.png"
+				"icon": "/common/destiny_content/icons/209d2a611121b4253b0a38a48df287e7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -13755,8 +13755,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3183184449,
 		"activityName": "Shield Brothers",
 		"activityDescription": "Travel deep into the heart of the Dreadnaught in pursuit of a Cabal assault team. Stop it from detonating the Hive ship's core.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 918224300,
@@ -13788,8 +13788,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3190434637,
 		"activityName": "The Dreadnaught",
 		"activityDescription": "Survive the Dreadnaught's superweapon and establish a beachhead for the Vanguard.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 28,
 		"completionFlagHash": 2617018872,
@@ -13821,8 +13821,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3200293401,
 		"activityName": "Enemy of My Enemy",
 		"activityDescription": "Assault the Cabal ship crashed on the Dreadnaught. Learn what they know about Oryx and his defenses.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3797485144,
@@ -13849,7 +13849,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -13888,27 +13888,27 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/79716a9c4b690b42f9e7d4cb966ed251.png"
+				"icon": "/common/destiny_content/icons/61eb7530a98f7fa7fcc5676e24bcc6b4.png"
 			},
 			{
 				"displayName": "Nightfall",
 				"description": "If all players die, your Fireteam is returned to Orbit.",
-				"icon": "/common/destiny_content/icons/087b23231911f2cff9b5f20eaf49b627.png"
+				"icon": "/common/destiny_content/icons/5e0aa788e28398d69d9ba22f3a5dbb2b.png"
 			},
 			{
 				"displayName": "Arc Burn",
 				"description": "Arc Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/73a1b6bf767af389215d115c99d71026.png"
+				"icon": "/common/destiny_content/icons/f24f67eb5d6a990cf4065c1b44cf6b9c.png"
 			},
 			{
 				"displayName": "Brawler",
 				"description": "Guardian Melee damage is greatly increased.",
-				"icon": "/common/destiny_content/icons/eb0540279904e05e27365b9a94b3b692.png"
+				"icon": "/common/destiny_content/icons/9d4e460cab2dfca569e3ed606f590809.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/e7be3ed45c4871cc72c7719eb9f0395e.png"
+				"icon": "/common/destiny_content/icons/1269d2e53430de8034b70b0fa785ab2b.png"
 			}
 		],
 		"isPlaylist": false,
@@ -13919,8 +13919,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3210106079,
 		"activityName": "Patrol the Dreadnaught",
 		"activityDescription": "Board the Taken King's Dreadnaught. Prove the Vanguard's dominance over the Hive and Taken.",
-		"icon": "/common/destiny_content/icons/232fecb11e60da363dab116ffe2210b7.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/b85fc39824d660c23d835820dc2996d8.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 35,
 		"completionFlagHash": 835478673,
@@ -13944,7 +13944,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Doubles",
 		"activityDescription": "\"Leave no ally behind, and no enemy standing.\" —Lord Shaxx \n\nSmall-team tactics. Kill the enemy. Revive teammates.",
 		"icon": "/common/destiny_content/icons/icon_pvp_fcef5a437dc31c4478edb531d1e9093f.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 1817554765,
@@ -13992,8 +13992,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3263216023,
 		"activityName": "Regicide",
 		"activityDescription": "Using the power of ascendance, pass through the rupture and put an end to the Taken King.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 34,
 		"completionFlagHash": 3834006058,
@@ -14049,7 +14049,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3292305209,
 		"activityName": "Winter's Run",
 		"activityDescription": "As the Vex march to claim the Ishtar Sink, the Fallen House of Winter is raising a powerful Archon, stolen from the Prison of Elders in the Reef. Find the Archon before they fully restore his soul.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 14,
@@ -14082,7 +14082,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3292305210,
 		"activityName": "The Nexus",
 		"activityDescription": "The Golden Age legends tell of ancient tunnels below the Academy, where a Vex machine once ate away at the planet. Descend into the old dig sites and find this Nexus before it churns again.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 14,
@@ -14139,8 +14139,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3315158082,
 		"activityName": "A Spark in Shadow",
 		"activityDescription": "Head to the tunnels under Freehold on Mars and face down the Conductive Mind for your own source of Arc.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 25,
 		"completionFlagHash": 1907379237,
@@ -14172,8 +14172,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3343284688,
 		"activityName": "Outbound Signal",
 		"activityDescription": "Track a signal from the crashed Cabal ship. Board the Dreadnaught and put an end to this transmission to the stars.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 38,
 		"completionFlagHash": 969440619,
@@ -14205,7 +14205,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3346215145,
 		"activityName": "The Lighthouse",
 		"activityDescription": "Only true champions of the Crucible dare set foot in these fabled halls.",
-		"icon": "/common/destiny_content/icons/86cbb39b7749fa818a93b7bb123d7d36.png",
+		"icon": "/common/destiny_content/icons/4bd064d6a7a5d25cbf408615bef8c258.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -14229,8 +14229,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3349918649,
 		"activityName": "The Dreadnaught",
 		"activityDescription": "Survive the Dreadnaught's superweapon and establish a beachhead for the Vanguard.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 2617018872,
@@ -14257,7 +14257,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -14268,8 +14268,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3393673804,
 		"activityName": "Prison of Elders",
 		"activityDescription": "Glory and treasure await those who survive.",
-		"icon": "/common/destiny_content/icons/c3df7438c25ce8a6afa03108222629c2.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/3e6b15746de3a6246f7901d37966567d.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 28,
 		"completionFlagHash": 2556072628,
@@ -14333,7 +14333,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3399843400,
 		"activityName": "A Stranger's Call",
 		"activityDescription": "Follow the Stranger's coordinates to a legendary colony lost in the jungles of Venus.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 10,
@@ -14366,7 +14366,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3399843403,
 		"activityName": "Ishtar Collective",
 		"activityDescription": "Unravel the secrets of the Vex by reviving an ancient research station of the Ishtar Collective.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 11,
@@ -14399,7 +14399,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3399843404,
 		"activityName": "The Archive",
 		"activityDescription": "Find the Collective's lost Archive, sealed for centuries, in a vault deep beneath the Ishtar Academy.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 12,
@@ -14432,7 +14432,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3399843406,
 		"activityName": "Eye of a Gate Lord",
 		"activityDescription": "Lure out the Vex Gate Lord that protects the Endless Steps and bring its head back to the Awoken.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 12,
@@ -14465,7 +14465,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3399843407,
 		"activityName": "Scourge of Winter",
 		"activityDescription": "Hunt and kill Draksis, the House of Winter's Kell, hiding deep in the caves of the Ishtar Sink.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 14,
@@ -14547,7 +14547,7 @@ var DestinyActivityDefinition = {
 		"activityName": "The Will of Crota",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
 		"icon": "/img/theme/destiny/icons/node_strike_nightfall.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 1872715353,
@@ -14570,8 +14570,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3422924470,
 		"activityName": "Blighted Coven",
 		"activityDescription": "Investigate the rumors of a Taken coven in the Cosmodrome.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 2079210505,
@@ -14603,8 +14603,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3427115544,
 		"activityName": "Fallen S.A.B.E.R.",
 		"activityDescription": "Rush to the aid of the AI Warmind Rasputin as he broadcasts a plea for help across the system.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 3346707351,
@@ -14627,7 +14627,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3464398659,
 		"activityName": "Shrine of Oryx",
 		"activityDescription": "Search the darkest corners of the Hellmouth for the fabled Shrine and destroy it.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -14655,7 +14655,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -14666,8 +14666,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3473815980,
 		"activityName": "Fist of Crota",
 		"activityDescription": "Face the Fist of Crota leading the Spawn on Earth.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 10,
 		"completionFlagHash": 370529543,
@@ -14700,7 +14700,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Vanguard Heroic Strikes",
 		"activityDescription": "Launches a random Heroic strike.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3867076814,
@@ -14767,82 +14767,82 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Arc Burn",
 				"description": "Arc Damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/73a1b6bf767af389215d115c99d71026.png"
+				"icon": "/common/destiny_content/icons/f24f67eb5d6a990cf4065c1b44cf6b9c.png"
 			},
 			{
 				"displayName": "Solar Burn",
 				"description": "Solar damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/e7be3ed45c4871cc72c7719eb9f0395e.png"
+				"icon": "/common/destiny_content/icons/1269d2e53430de8034b70b0fa785ab2b.png"
 			},
 			{
 				"displayName": "Void Burn",
 				"description": "Void damage from any source is greatly increased.",
-				"icon": "/common/destiny_content/icons/206dde36ce1afce73711cf5da1d8a371.png"
+				"icon": "/common/destiny_content/icons/c3d3e7cf01832b9f59fd9a809aec60ad.png"
 			},
 			{
 				"displayName": "Berserk",
 				"description": "Minions of the Darkness won't flinch, even after massive damage.",
-				"icon": "/common/destiny_content/icons/139e57a07b8fb612180bf87e0163887d.png"
+				"icon": "/common/destiny_content/icons/9c5752480fef242d7e9c732baf72e5ab.png"
 			},
 			{
 				"displayName": "Brawler",
 				"description": "Guardian melee damage is greatly increased.",
-				"icon": "/common/destiny_content/icons/eb0540279904e05e27365b9a94b3b692.png"
+				"icon": "/common/destiny_content/icons/9d4e460cab2dfca569e3ed606f590809.png"
 			},
 			{
 				"displayName": "Lightswitch",
 				"description": "Minions of the Darkness deal much more melee damage.",
-				"icon": "/common/destiny_content/icons/22bc24a3fe74ee1e6bdd292b8ae73163.png"
+				"icon": "/common/destiny_content/icons/02996ae1eabee9f461f024faa81e5906.png"
 			},
 			{
 				"displayName": "Small Arms",
 				"description": "Primary Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/0836cd1ef47dcbd353d0162610c4af20.png"
+				"icon": "/common/destiny_content/icons/93cf195590efad6c58c3615809a7c731.png"
 			},
 			{
 				"displayName": "Specialist",
 				"description": "Special Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/94ee817e778fd45c43492b4b32795f22.png"
+				"icon": "/common/destiny_content/icons/7d097751a40aebff3c2385c307dfe6bd.png"
 			},
 			{
 				"displayName": "Juggler",
 				"description": "No ammo drops for your equipped weapon.",
-				"icon": "/common/destiny_content/icons/1d58c2dd6143b5004e27630b15495dec.png"
+				"icon": "/common/destiny_content/icons/5f5cb719beca7b8185cabb04cbcdaff1.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/35ee33e5b5345fc225b10bf9c18001b2.png"
+				"icon": "/common/destiny_content/icons/209d2a611121b4253b0a38a48df287e7.png"
 			},
 			{
 				"displayName": "Bloodthirsty",
 				"description": "Enemies fire more frequently and more accurately.",
-				"icon": "/common/destiny_content/icons/ebb654f8c2349e0b2c5ef6917114aa1c.png"
+				"icon": "/common/destiny_content/icons/18c71283f19f7e492bf167ddfc98fb9f.png"
 			},
 			{
 				"displayName": "Chaff",
 				"description": "Player radar is disabled.",
-				"icon": "/common/destiny_content/icons/aeedca6f3a110147b367fe0bbe46f656.png"
+				"icon": "/common/destiny_content/icons/6d2670c8a0771cf6e5af63e7525b9524.png"
 			},
 			{
 				"displayName": "Fresh Troops",
 				"description": "Some enemy squads have been fortified with additional reinforcements.",
-				"icon": "/common/destiny_content/icons/367f2e0929199e45ad11378a4189daa5.png"
+				"icon": "/common/destiny_content/icons/7f0af600b441a96700ae9180a57e8341.png"
 			},
 			{
 				"displayName": "Ironclad",
 				"description": "More enemies have shields.",
-				"icon": "/common/destiny_content/icons/a08e54d9ecbba939ee3277aca68851ef.png"
+				"icon": "/common/destiny_content/icons/af601f53555474ac6996677ff2526460.png"
 			},
 			{
 				"displayName": "Match Game",
 				"description": "Enemy shields are resistant to all unmatched Elemental Damage.",
-				"icon": "/common/destiny_content/icons/883cdd800901e0a8a7c6e941974e918e.png"
+				"icon": "/common/destiny_content/icons/5356f6b48fe01da8cf7592aaad651391.png"
 			}
 		],
 		"isPlaylist": true,
@@ -14853,8 +14853,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3493774909,
 		"activityName": "The Taken King: Prelude",
 		"activityDescription": "The death of Crota was a beacon, a signal cast across the stars. The night has answered.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 1298094920,
@@ -14877,8 +14877,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3508129769,
 		"activityName": "Cult of the Worm",
 		"activityDescription": "Gulrot, Unclean has been summoned by the Worm Keepers. Don't let the beast's filth spread beyond the prison.",
-		"icon": "/common/destiny_content/icons/c3df7438c25ce8a6afa03108222629c2.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/3e6b15746de3a6246f7901d37966567d.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 2564776432,
@@ -14914,8 +14914,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3508129770,
 		"activityName": "Cult of the Worm",
 		"activityDescription": "Gulrot, Unclean has been summoned by the Worm Keepers. Don't let the beast's filth spread beyond the prison.",
-		"icon": "/common/destiny_content/icons/c3df7438c25ce8a6afa03108222629c2.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/3e6b15746de3a6246f7901d37966567d.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 34,
 		"completionFlagHash": 2564776432,
@@ -14956,7 +14956,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Skirmish",
 		"activityDescription": "\"Leave no ally behind, and no enemy standing.\" —Lord Shaxx \n\nSmall-team tactics. Kill the enemy. Revive teammates.",
 		"icon": "/common/destiny_content/icons/icon_pvp_861c57fe187f7ab2743a647b73dd1973.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 3408788159,
@@ -14988,8 +14988,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3534581229,
 		"activityName": "King's Fall",
 		"activityDescription": "Long live the King.",
-		"icon": "/common/destiny_content/icons/6e7ad27290a6e9aeb4e493ea1428516b.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/9cdc40cedca3066397163836c3b715dc.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 2897846040,
@@ -15016,22 +15016,22 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Golgoroth Challenge",
 				"description": "You have been challenged...",
-				"icon": "/common/destiny_content/icons/86b05c16afa45ea76252c39a8c623d1b.png"
+				"icon": "/common/destiny_content/icons/87c6b1acff51b62ceac596c42c864316.png"
 			},
 			{
 				"displayName": "Oryx Challenge",
 				"description": "You have been challenged...",
-				"icon": "/common/destiny_content/icons/4b0aff3214a750fe3423fe432dc698d8.png"
+				"icon": "/common/destiny_content/icons/2e386acab8ee66a453453c962958fc6e.png"
 			},
 			{
 				"displayName": "Warpriest Challenge",
 				"description": "You have been challenged...",
-				"icon": "/common/destiny_content/icons/c1596864c28303bb0f6a3247fc02546d.png"
+				"icon": "/common/destiny_content/icons/33bff88cf0c9233a673d2f09cefe6b4b.png"
 			}
 		],
 		"isPlaylist": false,
@@ -15042,8 +15042,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3543525727,
 		"activityName": "Queen's Ransom",
 		"activityDescription": "Follow Skolas into Vex territory to aid in his capture for the Queen.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 842203843,
@@ -15070,7 +15070,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -15081,8 +15081,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3549856929,
 		"activityName": "Siege of the Warmind",
 		"activityDescription": "Find Rasputin's bunker. Defend it against the Hive attack.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 1669839107,
@@ -15109,7 +15109,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -15120,8 +15120,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3565777280,
 		"activityName": "Knock Knock",
 		"activityDescription": "Hold the line against a brutal assault by the broken House of Wolves.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 204783099,
@@ -15153,8 +15153,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3575520714,
 		"activityName": "Shield Brothers",
 		"activityDescription": "Travel deep into the heart of the Dreadnaught in pursuit of a Cabal assault team. Stop it from detonating the Hive ship's core.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 918224300,
@@ -15181,12 +15181,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/79716a9c4b690b42f9e7d4cb966ed251.png"
+				"icon": "/common/destiny_content/icons/61eb7530a98f7fa7fcc5676e24bcc6b4.png"
 			},
 			{
 				"displayName": "Specialist",
 				"description": "Special Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/94ee817e778fd45c43492b4b32795f22.png"
+				"icon": "/common/destiny_content/icons/7d097751a40aebff3c2385c307dfe6bd.png"
 			}
 		],
 		"isPlaylist": false,
@@ -15197,8 +15197,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3575840788,
 		"activityName": "Wolves' Gambit",
 		"activityDescription": "Track Skolas and his crew of Wolves along the Ishtar Cliffs.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 22,
 		"completionFlagHash": 3638778960,
@@ -15230,7 +15230,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3593950004,
 		"activityName": "Destiny Credits",
 		"activityDescription": "Plays cinematic credits",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -15278,7 +15278,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3635588435,
 		"activityName": "The Speaker",
 		"activityDescription": "The Hive are on Earth, and the Speaker will need your assistance in meeting the threat.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 2,
@@ -15302,7 +15302,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3645919501,
 		"activityName": "Patrol Cosmodrome",
 		"activityDescription": "Scour the Old Russian launch port and aid the City in their exploration efforts.",
-		"icon": "/common/destiny_content/icons/232fecb11e60da363dab116ffe2210b7.png",
+		"icon": "/common/destiny_content/icons/b85fc39824d660c23d835820dc2996d8.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 4,
@@ -15344,7 +15344,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Trials of Osiris",
 		"activityDescription": "Only those who have proven their worth may enter the Trials.\n\nA string of victories will earn great rewards, but lose too many matches and your access will be denied.",
 		"icon": "/img/theme/destiny/icons/osiris_diamond.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 42,
 		"completionFlagHash": 377969578,
@@ -15367,7 +15367,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3671763238,
 		"activityName": "Cerberus Vae III",
 		"activityDescription": "Just beyond their warbase, Valus Ta'aurc, Fleet Commander of the Cabal Siege Dancers, hides in an Imperial Land Tank. Fight through his guard and stop this terror before he destroys all of Freehold.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
@@ -15400,8 +15400,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3674885127,
 		"activityName": "Regicide",
 		"activityDescription": "Using the power of ascendance, pass through the rupture and put an end to the Taken King.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 3834006058,
@@ -15428,7 +15428,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -15439,8 +15439,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3700036317,
 		"activityName": "Oryx Triumphant",
 		"activityDescription": "The Taken King revels in his triumph over the Cabal on Phobos.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
 		"completionFlagHash": 1227140840,
@@ -15463,8 +15463,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3705341715,
 		"activityName": "A Ranger Found",
 		"activityDescription": "Hold the line against the Vex of the Black Garden and save the Nightstalker Tevis.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 25,
 		"completionFlagHash": 715206198,
@@ -15496,8 +15496,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3708806801,
 		"activityName": "Entropy's Pinnacle",
 		"activityDescription": "Scale the Vex Citadel and hunt down the source of Venus's blight.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 232710236,
@@ -15529,7 +15529,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3711414560,
 		"activityName": "Chamber of Night",
 		"activityDescription": "Scour the Hive Fortress for a chamber where the Speaker believes a dark ritual is silencing the Traveler.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 9,
@@ -15562,7 +15562,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3711414561,
 		"activityName": "The Sword of Crota",
 		"activityDescription": "Infiltrate the Hive Fortress and destroy the legendary Sword of Crota, a weapon once used to slay thousands of Guardians.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 8,
@@ -15595,8 +15595,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3711414562,
 		"activityName": "The Wakening",
 		"activityDescription": "Go to the Temple of Crota and destroy Crota's soul.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 14,
 		"completionFlagHash": 1973216040,
@@ -15628,7 +15628,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3711414563,
 		"activityName": "Shrine of Oryx",
 		"activityDescription": "Search the darkest corners of the Hellmouth for the fabled Shrine and destroy it.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 9,
@@ -15661,7 +15661,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3711414564,
 		"activityName": "The Dark Beyond",
 		"activityDescription": "Follow the trail of a Guardian who went dark searching for a way into the Hive Fortress.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 7,
@@ -15698,7 +15698,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3711414566,
 		"activityName": "The World's Grave",
 		"activityDescription": "Descend into the Hellmouth to a Hive library which holds ancient secrets they have ripped from Earth.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 8,
@@ -15731,8 +15731,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3715085142,
 		"activityName": "Shadow Call",
 		"activityDescription": "Ascend the Devil's Spire and outrace the Darkness that follows close behind.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 2399059369,
@@ -15792,27 +15792,27 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Epic",
 				"description": "Heavily shielded and highly aggressive enemies appear in great numbers.",
-				"icon": "/common/destiny_content/icons/79716a9c4b690b42f9e7d4cb966ed251.png"
+				"icon": "/common/destiny_content/icons/61eb7530a98f7fa7fcc5676e24bcc6b4.png"
 			},
 			{
 				"displayName": "Nightfall",
 				"description": "If all players die, your Fireteam is returned to Orbit.",
-				"icon": "/common/destiny_content/icons/087b23231911f2cff9b5f20eaf49b627.png"
+				"icon": "/common/destiny_content/icons/5e0aa788e28398d69d9ba22f3a5dbb2b.png"
 			},
 			{
 				"displayName": "Angry",
 				"description": "Minions of the Darkness won't flinch, even after massive damage.",
-				"icon": "/common/destiny_content/icons/139e57a07b8fb612180bf87e0163887d.png"
+				"icon": "/common/destiny_content/icons/9c5752480fef242d7e9c732baf72e5ab.png"
 			},
 			{
 				"displayName": "Brawler",
 				"description": "Guardian Melee damage is greatly increased.",
-				"icon": "/common/destiny_content/icons/eb0540279904e05e27365b9a94b3b692.png"
+				"icon": "/common/destiny_content/icons/9d4e460cab2dfca569e3ed606f590809.png"
 			},
 			{
 				"displayName": "Grounded",
 				"description": "Players take more damage while airborne.",
-				"icon": "/common/destiny_content/icons/35ee33e5b5345fc225b10bf9c18001b2.png"
+				"icon": "/common/destiny_content/icons/209d2a611121b4253b0a38a48df287e7.png"
 			}
 		],
 		"isPlaylist": false,
@@ -15823,7 +15823,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3743955707,
 		"activityName": "Tower",
 		"activityDescription": "Home of the Guardians, where you can regroup, rearm, and form new alliances before venturing beyond.",
-		"icon": "/common/destiny_content/icons/86cbb39b7749fa818a93b7bb123d7d36.png",
+		"icon": "/common/destiny_content/icons/4bd064d6a7a5d25cbf408615bef8c258.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -15847,7 +15847,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 3784570118,
 		"activityName": "The Archive",
 		"activityDescription": "Find the Collective's lost Archive, sealed for centuries, in a vault deep beneath the Ishtar Academy.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
@@ -15875,7 +15875,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -15958,8 +15958,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3921931055,
 		"activityName": "The Will of Crota",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
 		"completionFlagHash": 1872715353,
@@ -15982,8 +15982,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 3974631085,
 		"activityName": "Enemy of My Enemy",
 		"activityDescription": "Assault the Cabal ship crashed on the Dreadnaught. Learn what they know about Oryx and his defenses.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 30,
 		"completionFlagHash": 3797485144,
@@ -16015,8 +16015,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 4027720491,
 		"activityName": "Shield Brothers",
 		"activityDescription": "Travel deep into the heart of the Dreadnaught in pursuit of a Cabal assault team. Stop it from detonating the Hive ship's core.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 36,
 		"completionFlagHash": 918224300,
@@ -16039,8 +16039,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 4046346128,
 		"activityName": "Fear's Embrace",
 		"activityDescription": "Return to the base on Phobos. Kill the Wizard and claim the Essence of the Feast.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 41,
 		"completionFlagHash": 2747738539,
@@ -16073,7 +16073,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Rift",
 		"activityDescription": "\"This all started as a Warlock focus drill. The things I've seen them do with Rifts would be...very useful on a battlefield.\" —Lord Shaxx \n\nCollect the Spark and ignite the enemy's Rift with it.",
 		"icon": "/common/destiny_content/icons/icon_pvp_b6f9fe6fcff889bbb26025643266f403.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 2398239304,
@@ -16105,7 +16105,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 4060895971,
 		"activityName": "Tower",
 		"activityDescription": "Home of the Guardians, where you can regroup, rearm, and form new alliances before venturing beyond.",
-		"icon": "/common/destiny_content/icons/86cbb39b7749fa818a93b7bb123d7d36.png",
+		"icon": "/common/destiny_content/icons/4bd064d6a7a5d25cbf408615bef8c258.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
@@ -16129,8 +16129,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 4079642013,
 		"activityName": "Broken Legion",
 		"activityDescription": "Valus Trau'ug seeks to prove his might by crushing all who challenge him.",
-		"icon": "/common/destiny_content/icons/c3df7438c25ce8a6afa03108222629c2.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/3e6b15746de3a6246f7901d37966567d.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 4146915710,
@@ -16166,8 +16166,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 4079642014,
 		"activityName": "Broken Legion",
 		"activityDescription": "Valus Trau'ug seeks to prove his might by crushing all who challenge him.",
-		"icon": "/common/destiny_content/icons/c3df7438c25ce8a6afa03108222629c2.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"icon": "/common/destiny_content/icons/3e6b15746de3a6246f7901d37966567d.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 34,
 		"completionFlagHash": 4146915710,
@@ -16207,8 +16207,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 4087776066,
 		"activityName": "Cayde's Stash",
 		"activityDescription": "Ascend a colony ship in the Cosmodrome in search of Cayde's lost cache.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 26,
 		"completionFlagHash": 2306572581,
@@ -16264,8 +16264,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 4129878327,
 		"activityName": "Inferno Salvage",
 		"activityDescription": "\"Treasures and forgotten tech lie waiting in the wake of the Golden Age's collapse. One must be swift and fierce to claim them.\" —Lord Shaxx \n\nRace the other team to capture and hold relics. No trackers and simplified scoring.",
-		"icon": "/common/destiny_content/icons/df58986422089a0093b81bc4bc99b5aa.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/aac433b64787890abc946d7b1600b4b5.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 3806817098,
@@ -16338,7 +16338,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Iron Banner Clash",
 		"activityDescription": "\"No mercy. No hesitation. It'll take nothing less to defeat the Darkness.\" —Lord Shaxx \n\nAll-out team warfare. Destroy the enemy. Impress the Lords of Iron.",
 		"icon": "/common/destiny_content/icons/0ee91b79ba1366243832cf810afc3b75.jpg",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
 		"completionFlagHash": 831864072,
@@ -16362,7 +16362,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 26,
 		"completionFlagHash": 4185808066,
@@ -16405,12 +16405,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Specialist",
 				"description": "Special Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/94ee817e778fd45c43492b4b32795f22.png"
+				"icon": "/common/destiny_content/icons/7d097751a40aebff3c2385c307dfe6bd.png"
 			}
 		],
 		"isPlaylist": false,
@@ -16422,7 +16422,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 30,
 		"completionFlagHash": 4185808067,
@@ -16489,12 +16489,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Specialist",
 				"description": "Special Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/94ee817e778fd45c43492b4b32795f22.png"
+				"icon": "/common/destiny_content/icons/7d097751a40aebff3c2385c307dfe6bd.png"
 			}
 		],
 		"isPlaylist": false,
@@ -16506,7 +16506,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Weekly Heroic Strike",
 		"activityDescription": "Board the Fallen Ketch above the Moon and defeat the notorious Taniks, the Scarred.",
 		"icon": "/img/theme/destiny/icons/node_strike_featured.png",
-		"releaseIcon": "/common/destiny_content/icons/1c219a5a5aff63162278977dabe60f36.png",
+		"releaseIcon": "/common/destiny_content/icons/217f2a063cb0f1aa9f15df13781aa9d5.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 4185808064,
@@ -16597,12 +16597,12 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			},
 			{
 				"displayName": "Specialist",
 				"description": "Special Weapon damage is favored.",
-				"icon": "/common/destiny_content/icons/94ee817e778fd45c43492b4b32795f22.png"
+				"icon": "/common/destiny_content/icons/7d097751a40aebff3c2385c307dfe6bd.png"
 			}
 		],
 		"isPlaylist": false,
@@ -16613,7 +16613,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 4187524452,
 		"activityName": "The Undying Mind",
 		"activityDescription": "Enter the Black Garden and claim the Essence of the Feast.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 40,
@@ -16632,7 +16632,7 @@ var DestinyActivityDefinition = {
 			{
 				"displayName": "Heroic",
 				"description": "Enemies appear in greater numbers and are more aggressive.",
-				"icon": "/common/destiny_content/icons/0e369bf735a0090cd5e0da705416f6ba.png"
+				"icon": "/common/destiny_content/icons/af93b17fec50588489ca9a1f03353631.png"
 			}
 		],
 		"isPlaylist": false,
@@ -16643,8 +16643,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 4196724507,
 		"activityName": "Inferno Rumble",
 		"activityDescription": "\"Pure combat. Your only job is to make sure you're still standing when the dust settles.\" —Lord Shaxx \n\nKill everything. Watch your back. No trackers. Only kills earn points.",
-		"icon": "/common/destiny_content/icons/ead0b800769e9e6513b69d8a38e1136b.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/cc1dfeca1ade77dcc68099748b1cc6f8.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 1592451374,
@@ -16716,8 +16716,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 4222208550,
 		"activityName": "SRL",
 		"activityDescription": "\"Speed is a weapon. Learn to wield it or be left behind.\" —Lord Shaxx\n\nSparrow racing.",
-		"icon": "/common/destiny_content/icons/30f642779879b4bc958b10827514250f.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/9e3f2c506622bc5b4997065907172e26.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 1630162137,
@@ -16740,7 +16740,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 4227723344,
 		"activityName": "The Devils' Lair",
 		"activityDescription": "The Fallen House of Devils in the Cosmodrome sustains its strength through a single Servitor known as Sepiks Prime. Find where this keeper of souls lies and destroy him.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 8,
@@ -16773,8 +16773,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 4227723347,
 		"activityName": "The Will of Crota",
 		"activityDescription": "Omnigul, the mastermind of Crota's armies, nests in the Cosmodrome. Eliminate this horror and purge its spawn.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
-		"releaseIcon": "/common/destiny_content/icons/9544bdbdf0ec52517535bab9e0610573.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
+		"releaseIcon": "/common/destiny_content/icons/8518fb1e3e4320345849d76f915145ef.png",
 		"releaseTime": 0,
 		"activityLevel": 16,
 		"completionFlagHash": 1872715353,
@@ -16806,7 +16806,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 4239017990,
 		"activityName": "A Key Awaits",
 		"activityDescription": "Present the Gate Lord's head to the Queen for entrance into the Black Garden.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 13,
@@ -16830,8 +16830,8 @@ var DestinyActivityDefinition = {
 		"activityHash": 4240750267,
 		"activityName": "The Promethean Code",
 		"activityDescription": "Slip past Rasputin's defenses and download stealth code protocols from his Golden Age database.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 32,
 		"completionFlagHash": 1287108046,
@@ -16864,7 +16864,7 @@ var DestinyActivityDefinition = {
 		"activityName": "Control",
 		"activityDescription": "\"It's a tactical exercise in reinforcing and defending acquired territory. Should the Vanguard ever decide to expand past the walls of the City, the Guardians will be ready.\" —Lord Shaxx\n\nCapture zones to increase points for every kill.",
 		"icon": "/common/destiny_content/icons/icon_pvp_80209e5d3802747a308bbdbe12bee676.png",
-		"releaseIcon": "/common/destiny_content/icons/2e9b32a211d69db78ea7bd24b43ef532.png",
+		"releaseIcon": "/common/destiny_content/icons/aa65930cf439c71bb8ded4c3218f8fd5.png",
 		"releaseTime": 0,
 		"activityLevel": 1,
 		"completionFlagHash": 3272430294,
@@ -16896,7 +16896,7 @@ var DestinyActivityDefinition = {
 		"activityHash": 4253541885,
 		"activityName": "Winter's Run",
 		"activityDescription": "As the Vex march to claim the Ishtar Sink, the Fallen House of Winter is raising a powerful Archon, stolen from the Prison of Elders in the Reef. Find the Archon before they fully restore his soul.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
 		"releaseIcon": "/img/misc/missing_icon.png",
 		"releaseTime": 0,
 		"activityLevel": 20,
@@ -16990,7 +16990,7 @@ var DestinyActivityTypeDefinition = {
 		"activityTypeHash": 55476966,
 		"identifier": "PVP_FFA_HARDCORE",
 		"activityTypeName": "Inferno Rumble",
-		"icon": "/common/destiny_content/icons/ead0b800769e9e6513b69d8a38e1136b.png",
+		"icon": "/common/destiny_content/icons/cc1dfeca1ade77dcc68099748b1cc6f8.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/crucible.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/crucible.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/crucible.png",
@@ -17043,7 +17043,7 @@ var DestinyActivityTypeDefinition = {
 		"identifier": "STORY_SOLO",
 		"activityTypeName": "Story",
 		"activityTypeDescription": "Embark on adventures alone or with a fireteam to push back the Darkness and reclaim our lost worlds.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/ministory.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/ministory.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/ministory.png",
@@ -17061,7 +17061,7 @@ var DestinyActivityTypeDefinition = {
 		"identifier": "ACTIVITY_TYPE_NIGHTFALL",
 		"activityTypeName": "Strike",
 		"activityTypeDescription": "Join a fireteam of three and face the most feared minions of the Darkness.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/strikes.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/strikes.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/strikes.png",
@@ -17100,7 +17100,7 @@ var DestinyActivityTypeDefinition = {
 		"activityTypeHash": 680256650,
 		"identifier": "ARENA",
 		"activityTypeName": "Prison of Elders",
-		"icon": "/common/destiny_content/icons/c3df7438c25ce8a6afa03108222629c2.png",
+		"icon": "/common/destiny_content/icons/3e6b15746de3a6246f7901d37966567d.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/ministory.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/ministory.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/ministory.png",
@@ -17138,7 +17138,7 @@ var DestinyActivityTypeDefinition = {
 		"identifier": "RAID_MOON1",
 		"activityTypeName": "Raid",
 		"activityTypeDescription": "Form a fireteam of six and brave the strange and powerful realms of our enemies.",
-		"icon": "/common/destiny_content/icons/6e7ad27290a6e9aeb4e493ea1428516b.png",
+		"icon": "/common/destiny_content/icons/9cdc40cedca3066397163836c3b715dc.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/raids.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/raids.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/raids.png",
@@ -17156,7 +17156,7 @@ var DestinyActivityTypeDefinition = {
 		"identifier": "PVP_MAYHEM_RUMBLE",
 		"activityTypeName": "Mayhem Rumble",
 		"activityTypeDescription": "Face your fellow Guardians in open combat. Prove your worth, and you will be rewarded.",
-		"icon": "/common/destiny_content/icons/ead0b800769e9e6513b69d8a38e1136b.png",
+		"icon": "/common/destiny_content/icons/cc1dfeca1ade77dcc68099748b1cc6f8.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/crucible.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/crucible.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/crucible.png",
@@ -17176,7 +17176,7 @@ var DestinyActivityTypeDefinition = {
 		"identifier": "PVP_FFA_ARTIFACT",
 		"activityTypeName": "Arsenal",
 		"activityTypeDescription": "Face your fellow Guardians in open combat. Prove your worth, and you will be rewarded.",
-		"icon": "/common/destiny_content/icons/e84efef3e280eaaf7ce720e2e8396b28.png",
+		"icon": "/common/destiny_content/icons/00e690ed9542799d9504380ed0fdccf8.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/crucible.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/crucible.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/crucible.png",
@@ -17212,7 +17212,7 @@ var DestinyActivityTypeDefinition = {
 		"identifier": "PVP_RACING",
 		"activityTypeName": "SRL",
 		"activityTypeDescription": "Ride fast. Be brave. Become a champion.",
-		"icon": "/common/destiny_content/icons/30f642779879b4bc958b10827514250f.png",
+		"icon": "/common/destiny_content/icons/9e3f2c506622bc5b4997065907172e26.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/crucible.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/crucible.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/crucible.png",
@@ -17232,7 +17232,7 @@ var DestinyActivityTypeDefinition = {
 		"identifier": "ACTIVITY_TYPE_TIGER_AD",
 		"activityTypeName": "It's an advertisement!",
 		"activityTypeDescription": "",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/ministory.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/ministory.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/ministory.png",
@@ -17250,7 +17250,7 @@ var DestinyActivityTypeDefinition = {
 		"identifier": "STORY_CINEMATIC",
 		"activityTypeName": "Story",
 		"activityTypeDescription": "Embark on adventures alone or with a fireteam to push back the Darkness and reclaim our lost worlds.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/ministory.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/ministory.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/ministory.png",
@@ -17287,7 +17287,7 @@ var DestinyActivityTypeDefinition = {
 		"activityTypeHash": 1526862764,
 		"identifier": "PVP_TEAM_HARDCORE",
 		"activityTypeName": "Inferno Clash",
-		"icon": "/common/destiny_content/icons/e5376e540a2c31e0396fa13b6219f1db.png",
+		"icon": "/common/destiny_content/icons/d55ded8122883dcb9f3bcb99e261efe3.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/crucible.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/crucible.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/crucible.png",
@@ -17323,7 +17323,7 @@ var DestinyActivityTypeDefinition = {
 		"identifier": "ACTIVITY_TYPE_SOCIAL",
 		"activityTypeName": "Social",
 		"activityTypeDescription": "Meet other Guardians as they prepare for new adventures.",
-		"icon": "/common/destiny_content/icons/86cbb39b7749fa818a93b7bb123d7d36.png",
+		"icon": "/common/destiny_content/icons/4bd064d6a7a5d25cbf408615bef8c258.png",
 		"order": 1,
 		"hash": 1589650888,
 		"index": 0
@@ -17332,7 +17332,7 @@ var DestinyActivityTypeDefinition = {
 		"activityTypeHash": 1646825171,
 		"identifier": "PVP_3V3_HARDCORE",
 		"activityTypeName": "Inferno Skirmish",
-		"icon": "/common/destiny_content/icons/0c6a2c2f8581cb3cacfc6fb43563f26e.png",
+		"icon": "/common/destiny_content/icons/d20c59f251dcd50208b3923d37c2c073.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/crucible.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/crucible.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/crucible.png",
@@ -17350,7 +17350,7 @@ var DestinyActivityTypeDefinition = {
 		"identifier": "ACTIVITY_TYPE_STORY",
 		"activityTypeName": "Story",
 		"activityTypeDescription": "Embark on adventures alone or with a fireteam to push back the Darkness and reclaim our lost worlds.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/ministory.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/ministory.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/ministory.png",
@@ -17368,7 +17368,7 @@ var DestinyActivityTypeDefinition = {
 		"identifier": "QUEST",
 		"activityTypeName": "Quest",
 		"activityTypeDescription": "Embark on a continuous journey for those who need the help of the Guardians.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/ministory.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/ministory.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/ministory.png",
@@ -17402,7 +17402,7 @@ var DestinyActivityTypeDefinition = {
 		"identifier": "ACTIVITY_TYPE_DLC_AD",
 		"activityTypeName": "A new expansion is available!",
 		"activityTypeDescription": "",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/ministory.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/ministory.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/ministory.png",
@@ -17420,7 +17420,7 @@ var DestinyActivityTypeDefinition = {
 		"identifier": "ACTIVITY_TYPE_RAID",
 		"activityTypeName": "Raid",
 		"activityTypeDescription": "Form a fireteam of six and brave the strange and powerful realms of our enemies.",
-		"icon": "/common/destiny_content/icons/6e7ad27290a6e9aeb4e493ea1428516b.png",
+		"icon": "/common/destiny_content/icons/9cdc40cedca3066397163836c3b715dc.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/raids.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/raids.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/raids.png",
@@ -17458,7 +17458,7 @@ var DestinyActivityTypeDefinition = {
 		"identifier": "CREDITS",
 		"activityTypeName": "Story",
 		"activityTypeDescription": "Embark on adventures alone or with a fireteam to push back the Darkness and reclaim our lost worlds.",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/ministory.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/ministory.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/ministory.png",
@@ -17475,7 +17475,7 @@ var DestinyActivityTypeDefinition = {
 		"activityTypeHash": 2691931425,
 		"identifier": "PVP_DOM_HARDCORE",
 		"activityTypeName": "Inferno Control",
-		"icon": "/common/destiny_content/icons/91f7536370bf19b0000d276ab30cc2eb.png",
+		"icon": "/common/destiny_content/icons/1e54e2acfb69042ee8836093aa41554d.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/crucible.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/crucible.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/crucible.png",
@@ -17513,7 +17513,7 @@ var DestinyActivityTypeDefinition = {
 		"identifier": "QUEST_SOLO",
 		"activityTypeName": "Quest",
 		"activityTypeDescription": "Embark on a continuous journey for those who need the help of the Guardians.",
-		"icon": "/common/destiny_content/icons/2573ea4c8e4ae2c14b85984ab7b187d1.png",
+		"icon": "/common/destiny_content/icons/82f097e739cc85fd29cd775fad4e15cf.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/ministory.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/ministory.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/ministory.png",
@@ -17531,7 +17531,7 @@ var DestinyActivityTypeDefinition = {
 		"identifier": "ACTIVITY_TYPE_STRIKE_PLAYLIST",
 		"activityTypeName": "Strike",
 		"activityTypeDescription": "Join a fireteam of three and face the most feared minions of the Darkness.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/strikes.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/strikes.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/strikes.png",
@@ -17567,7 +17567,7 @@ var DestinyActivityTypeDefinition = {
 		"identifier": "MOCK",
 		"activityTypeName": "It's an advertisement!",
 		"activityTypeDescription": "",
-		"icon": "/common/destiny_content/icons/91ae6c74d8d6daf54f3876f546ee9c47.png",
+		"icon": "/common/destiny_content/icons/5da128ff6b052a2de817a91222adb029.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/ministory.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/ministory.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/ministory.png",
@@ -17585,7 +17585,7 @@ var DestinyActivityTypeDefinition = {
 		"identifier": "PVP_MAYHEM_CLASH",
 		"activityTypeName": "Mayhem Clash",
 		"activityTypeDescription": "Face your fellow Guardians in open combat. Prove your worth, and you will be rewarded.",
-		"icon": "/common/destiny_content/icons/e5376e540a2c31e0396fa13b6219f1db.png",
+		"icon": "/common/destiny_content/icons/d55ded8122883dcb9f3bcb99e261efe3.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/crucible.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/crucible.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/crucible.png",
@@ -17641,7 +17641,7 @@ var DestinyActivityTypeDefinition = {
 		"activityTypeHash": 3433065842,
 		"activityTypeName": "Inferno Doubles",
 		"activityTypeDescription": "Face your fellow Guardians in open combat. Prove your worth, and you will be rewarded.",
-		"icon": "/common/destiny_content/icons/0c6a2c2f8581cb3cacfc6fb43563f26e.png",
+		"icon": "/common/destiny_content/icons/d20c59f251dcd50208b3923d37c2c073.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/crucible.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/crucible.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/crucible.png",
@@ -17659,7 +17659,7 @@ var DestinyActivityTypeDefinition = {
 		"identifier": "ACTIVITY_TYPE_EXPLORE",
 		"activityTypeName": "Patrol",
 		"activityTypeDescription": "Wander the frontier. Search the ruins of the Golden Age, claim vital supplies, and hunt down our enemies wherever they dare trespass.",
-		"icon": "/common/destiny_content/icons/232fecb11e60da363dab116ffe2210b7.png",
+		"icon": "/common/destiny_content/icons/b85fc39824d660c23d835820dc2996d8.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/patrols.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/patrols.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/patrols.png",
@@ -17676,7 +17676,7 @@ var DestinyActivityTypeDefinition = {
 		"activityTypeHash": 3582414910,
 		"activityTypeName": "Inferno 6v6",
 		"activityTypeDescription": "Face your fellow Guardians in open combat. Prove your worth, and you will be rewarded.",
-		"icon": "/common/destiny_content/icons/c6f16d1a02982f9b9aa24fbc60e4432a.png",
+		"icon": "/common/destiny_content/icons/6a5413bc40bc2573b0c11f422c54373a.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/crucible.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/crucible.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/crucible.png",
@@ -17693,7 +17693,7 @@ var DestinyActivityTypeDefinition = {
 		"activityTypeHash": 3597531865,
 		"activityTypeName": "Classic Free-For-All",
 		"activityTypeDescription": "Face your fellow Guardians in open combat. Prove your worth, and you will be rewarded.",
-		"icon": "/common/destiny_content/icons/c6f16d1a02982f9b9aa24fbc60e4432a.png",
+		"icon": "/common/destiny_content/icons/6a5413bc40bc2573b0c11f422c54373a.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/crucible.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/crucible.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/crucible.png",
@@ -17730,7 +17730,7 @@ var DestinyActivityTypeDefinition = {
 		"activityTypeHash": 3616808722,
 		"activityTypeName": "Inferno 3v3",
 		"activityTypeDescription": "Face your fellow Guardians in open combat. Prove your worth, and you will be rewarded.",
-		"icon": "/common/destiny_content/icons/c6f16d1a02982f9b9aa24fbc60e4432a.png",
+		"icon": "/common/destiny_content/icons/6a5413bc40bc2573b0c11f422c54373a.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/crucible.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/crucible.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/crucible.png",
@@ -17767,7 +17767,7 @@ var DestinyActivityTypeDefinition = {
 		"activityTypeHash": 3705723572,
 		"identifier": "ARENA_CHALLENGE",
 		"activityTypeName": "Challenge of the Elders",
-		"icon": "/common/destiny_content/icons/c3df7438c25ce8a6afa03108222629c2.png",
+		"icon": "/common/destiny_content/icons/3e6b15746de3a6246f7901d37966567d.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/ministory.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/ministory.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/ministory.png",
@@ -17784,7 +17784,7 @@ var DestinyActivityTypeDefinition = {
 		"activityTypeHash": 3828541881,
 		"activityTypeName": "Crimson Doubles",
 		"activityTypeDescription": "Face your fellow Guardians in open combat. Prove your worth, and you will be rewarded.",
-		"icon": "/common/destiny_content/icons/57eca1b76d983b2c20075398f3502795.png",
+		"icon": "/common/destiny_content/icons/e464bb50ca4b6a367f597e064751a2e9.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/crucible.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/crucible.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/crucible.png",
@@ -17821,7 +17821,7 @@ var DestinyActivityTypeDefinition = {
 		"activityTypeHash": 3852968078,
 		"activityTypeName": "Classic 6v6",
 		"activityTypeDescription": "Face your fellow Guardians in open combat. Prove your worth, and you will be rewarded.",
-		"icon": "/common/destiny_content/icons/c6f16d1a02982f9b9aa24fbc60e4432a.png",
+		"icon": "/common/destiny_content/icons/6a5413bc40bc2573b0c11f422c54373a.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/crucible.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/crucible.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/crucible.png",
@@ -17838,7 +17838,7 @@ var DestinyActivityTypeDefinition = {
 		"activityTypeHash": 3887258850,
 		"activityTypeName": "Classic 3v3",
 		"activityTypeDescription": "Face your fellow Guardians in open combat. Prove your worth, and you will be rewarded.",
-		"icon": "/common/destiny_content/icons/c6f16d1a02982f9b9aa24fbc60e4432a.png",
+		"icon": "/common/destiny_content/icons/6a5413bc40bc2573b0c11f422c54373a.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/crucible.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/crucible.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/crucible.png",
@@ -17855,7 +17855,7 @@ var DestinyActivityTypeDefinition = {
 		"activityTypeHash": 3923114990,
 		"identifier": "PVP_LOCK_HARDCORE",
 		"activityTypeName": "Inferno Salvage",
-		"icon": "/common/destiny_content/icons/df58986422089a0093b81bc4bc99b5aa.png",
+		"icon": "/common/destiny_content/icons/aac433b64787890abc946d7b1600b4b5.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/crucible.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/crucible.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/crucible.png",
@@ -17911,7 +17911,7 @@ var DestinyActivityTypeDefinition = {
 		"activityTypeHash": 4013076195,
 		"activityTypeName": "Freelance 3v3",
 		"activityTypeDescription": "Face your fellow Guardians in open combat. Prove your worth, and you will be rewarded.",
-		"icon": "/common/destiny_content/icons/c6f16d1a02982f9b9aa24fbc60e4432a.png",
+		"icon": "/common/destiny_content/icons/6a5413bc40bc2573b0c11f422c54373a.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/crucible.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/crucible.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/crucible.png",
@@ -17928,7 +17928,7 @@ var DestinyActivityTypeDefinition = {
 		"activityTypeHash": 4047366879,
 		"activityTypeName": "Freelance 6v6",
 		"activityTypeDescription": "Face your fellow Guardians in open combat. Prove your worth, and you will be rewarded.",
-		"icon": "/common/destiny_content/icons/c6f16d1a02982f9b9aa24fbc60e4432a.png",
+		"icon": "/common/destiny_content/icons/6a5413bc40bc2573b0c11f422c54373a.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/crucible.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/crucible.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/crucible.png",
@@ -17946,7 +17946,7 @@ var DestinyActivityTypeDefinition = {
 		"identifier": "ACTIVITY_TYPE_STRIKE",
 		"activityTypeName": "Strike",
 		"activityTypeDescription": "Join a fireteam of three and face the most feared minions of the Darkness.",
-		"icon": "/common/destiny_content/icons/99e8a29d76a42715a3175ae8b83de7d2.png",
+		"icon": "/common/destiny_content/icons/dfcc411dc182b66bf497b91311dcad53.png",
 		"activeBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Active/strikes.png",
 		"completedBackgroundVirtualPath": "/img/destiny_content/ActivityTypeBackground/Completed/strikes.png",
 		"hiddenOverrideVirtualPath": "/img/destiny_content/ActivityTypeBackground/Hidden/strikes.png",
@@ -26204,7 +26204,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 174528503,
 		"factionName": "Crota's Bane",
 		"factionDescription": "Face the Court of Oryx, the Taken Trials, and complete Quests for Eris to unlock special gear and upgrade materials.",
-		"factionIcon": "/common/destiny_content/icons/ddea45d5f54a9848029bfcd72d9afa85.png",
+		"factionIcon": "/common/destiny_content/icons/aed791ec3a560e0847b0ab8042ac5219.png",
 		"progressionHash": 174528503,
 		"hash": 174528503,
 		"index": 0
@@ -26213,7 +26213,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 354219928,
 		"factionName": "Gunsmith",
 		"factionDescription": "If City is to survive, then its Guardians must be armed.",
-		"factionIcon": "/common/destiny_content/icons/63e41c4f412fce8a931cd3696392f5ae.png",
+		"factionIcon": "/common/destiny_content/icons/ed2f87a4595b1783b162037fb78ca67f.png",
 		"progressionHash": 0,
 		"hash": 354219928,
 		"index": 0
@@ -26222,7 +26222,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 372013324,
 		"factionName": "Test Faction",
 		"factionDescription": "Faction For Testing",
-		"factionIcon": "/common/destiny_content/icons/65bfb8c2d985c8fe9f340ccde2b3cff9.png",
+		"factionIcon": "/common/destiny_content/icons/b82faf9ce2f6c61fc99bc18a95d9b294.png",
 		"progressionHash": 372013324,
 		"hash": 372013324,
 		"index": 0
@@ -26231,7 +26231,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 452808717,
 		"factionName": "Queen's Wrath",
 		"factionDescription": "Annihilate the enemies of the Reef.",
-		"factionIcon": "/common/destiny_content/icons/4c39f6f4701fad8617274dc45ee08f5e.png",
+		"factionIcon": "/common/destiny_content/icons/d348132a14022f8a7ce83ae7395f1216.png",
 		"progressionHash": 452808717,
 		"hash": 452808717,
 		"index": 0
@@ -26240,7 +26240,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 468098704,
 		"factionName": "Vanguard Reputation",
 		"factionDescription": "Complete Vanguard Bounties to unlock powerful gear for purchase.\n\nAchieve high Rank to earn rewards.",
-		"factionIcon": "/common/destiny_content/icons/6c5c648b5ee0c61b28f3bfcbdf9c3ffd.png",
+		"factionIcon": "/common/destiny_content/icons/d98a7b3ef869001462faa1047a1c78d0.png",
 		"progressionHash": 3233510749,
 		"hash": 468098704,
 		"index": 0
@@ -26249,7 +26249,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 489342053,
 		"factionName": "Future War Cult",
 		"factionDescription": "Unlocks Future War Cult gear, and grants Future War Cult reputation when earning Vanguard and Crucible reputation.",
-		"factionIcon": "/common/destiny_content/icons/d1613060cb07c66a33e87545b4c514a6.png",
+		"factionIcon": "/common/destiny_content/icons/de0b7d98be0f66429e48c22f38b604d9.png",
 		"progressionHash": 1424722124,
 		"hash": 489342053,
 		"index": 0
@@ -26258,7 +26258,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 807090922,
 		"factionName": "Queen's Wrath",
 		"factionDescription": "Complete Bounties for Petra in the Reef on behalf of the Queen.\n\nRaise your standing to unlock rewards.",
-		"factionIcon": "/common/destiny_content/icons/4c39f6f4701fad8617274dc45ee08f5e.png",
+		"factionIcon": "/common/destiny_content/icons/d348132a14022f8a7ce83ae7395f1216.png",
 		"progressionHash": 807090922,
 		"hash": 807090922,
 		"index": 0
@@ -26267,7 +26267,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 952405032,
 		"factionName": "Alpha",
 		"factionDescription": "Alpha",
-		"factionIcon": "/common/destiny_content/icons/5992bd31dee4956b3d7c15e546f48b5d.png",
+		"factionIcon": "/common/destiny_content/icons/de768d8cc9f473ea5663276893f10fe5.png",
 		"progressionHash": 0,
 		"hash": 952405032,
 		"index": 0
@@ -26276,7 +26276,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 964120289,
 		"factionName": "The Crucible",
 		"factionDescription": "Complete Crucible Bounties to unlock powerful gear for purchase.\n\nAchieve high Rank to earn rewards.",
-		"factionIcon": "/common/destiny_content/icons/a4df83a65f390c71d38ca446c8735d51.png",
+		"factionIcon": "/common/destiny_content/icons/69e44fe6adce78f3b18381a5e82ecfcb.png",
 		"progressionHash": 1357277120,
 		"hash": 964120289,
 		"index": 0
@@ -26285,7 +26285,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 1217900858,
 		"factionName": "Shipwright",
 		"factionDescription": "Slip the surly bonds of Earth.",
-		"factionIcon": "/common/destiny_content/icons/37f93dc47c6b2a0157af3ccc138205cb.png",
+		"factionIcon": "/common/destiny_content/icons/811f000a6bdbea93c616bc58d418e109.png",
 		"progressionHash": 0,
 		"hash": 1217900858,
 		"index": 0
@@ -26294,7 +26294,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 1327783731,
 		"factionName": "Crypto-Archeology",
 		"factionDescription": "Decode Engrams to unlock new Engrams for purchase.\n\nAchieve high Rank to earn rewards.",
-		"factionIcon": "/common/destiny_content/icons/65bfb8c2d985c8fe9f340ccde2b3cff9.png",
+		"factionIcon": "/common/destiny_content/icons/b82faf9ce2f6c61fc99bc18a95d9b294.png",
 		"progressionHash": 529303302,
 		"hash": 1327783731,
 		"index": 0
@@ -26303,7 +26303,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 1425364423,
 		"factionName": "Shader Hacker",
 		"factionDescription": "Metamaterial coatings and field effects can mark a suit of armor for tactical effect or personal pleasure.",
-		"factionIcon": "/common/destiny_content/icons/269ccd2ce00ab661b560ef10e6a291b1.png",
+		"factionIcon": "/common/destiny_content/icons/370bcd46f2a6bd3e063db43220e76433.png",
 		"progressionHash": 0,
 		"hash": 1425364423,
 		"index": 0
@@ -26312,7 +26312,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 2161005788,
 		"factionName": "Iron Banner",
 		"factionDescription": "The Iron Banner summons Guardians to prove their worth in the Crucible.\n\nEvent Standing starts anew with every Iron Banner.",
-		"factionIcon": "/common/destiny_content/icons/98abe9368be9e0306917e0fde06e636b.png",
+		"factionIcon": "/common/destiny_content/icons/9d3ba13ed45221c1788ed2908467ffc3.png",
 		"progressionHash": 2161005788,
 		"hash": 2161005788,
 		"index": 0
@@ -26321,7 +26321,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 2335631936,
 		"factionName": "Gunsmith",
 		"factionDescription": "Field-test Foundry weapons to place additional Armsday orders.",
-		"factionIcon": "/common/destiny_content/icons/63e41c4f412fce8a931cd3696392f5ae.png",
+		"factionIcon": "/common/destiny_content/icons/ed2f87a4595b1783b162037fb78ca67f.png",
 		"progressionHash": 2335631936,
 		"hash": 2335631936,
 		"index": 0
@@ -26330,7 +26330,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 2397602219,
 		"factionName": "Dead Orbit",
 		"factionDescription": "Unlocks Dead Orbit gear, and grants Dead Orbit reputation when earning Vanguard and Crucible reputation.",
-		"factionIcon": "/common/destiny_content/icons/1b8f96174aac5363f100536d6589702b.png",
+		"factionIcon": "/common/destiny_content/icons/1326196ff074cde6d5613588b31ca040.png",
 		"progressionHash": 2778795080,
 		"hash": 2397602219,
 		"index": 0
@@ -26339,7 +26339,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 2763619072,
 		"factionName": "SRL Event Standing",
 		"factionDescription": "Rank up your SRL license for greater rewards.",
-		"factionIcon": "/common/destiny_content/icons/37c1c74a22074142586a00c1b12829dc.png",
+		"factionIcon": "/common/destiny_content/icons/70363e89966d4eb0b9f65c1ad1eeea23.png",
 		"progressionHash": 2763619072,
 		"hash": 2763619072,
 		"index": 0
@@ -26348,7 +26348,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 3197190122,
 		"factionName": "New Monarchy",
 		"factionDescription": "Unlocks New Monarchy gear, and grants New Monarchy reputation when earning Vanguard and Crucible reputation.",
-		"factionIcon": "/common/destiny_content/icons/c37638936c599fa659ff391c61472a31.png",
+		"factionIcon": "/common/destiny_content/icons/7c60d5f050297f7e80fdf61db4ed87a9.png",
 		"progressionHash": 3871980777,
 		"hash": 3197190122,
 		"index": 0
@@ -26357,7 +26357,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 3641985238,
 		"factionName": "House of Judgment",
 		"factionDescription": "Defeat enemies in the Prison of Elders to gain notoriety with the House of Judgment.\n\nRaise your standing to unlock better rewards.",
-		"factionIcon": "/common/destiny_content/icons/7aa0ed5930d148c0b64e25e3a4c50e77.png",
+		"factionIcon": "/common/destiny_content/icons/d9dfcaadbd77d17f361a9da61c627e84.png",
 		"progressionHash": 3641985238,
 		"hash": 3641985238,
 		"index": 0
@@ -26366,7 +26366,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 3695721985,
 		"factionName": "BUG ME FFA TEAM",
 		"factionDescription": "BUG ME FFA TEAM",
-		"factionIcon": "/common/destiny_content/icons/c2a87587268f0c7ba3727ebe60f273d0.png",
+		"factionIcon": "/common/destiny_content/icons/f58a3d1bbdee82d364d85441504b48b2.png",
 		"progressionHash": 0,
 		"hash": 3695721985,
 		"index": 0
@@ -26375,7 +26375,7 @@ var DestinyFactionDefinition = {
 		"factionHash": 4255583952,
 		"factionName": "Bravo",
 		"factionDescription": "Bravo",
-		"factionIcon": "/common/destiny_content/icons/19aa7efc315bb2063e2b39630513bc09.png",
+		"factionIcon": "/common/destiny_content/icons/f225c48a4e1e089ff610728c87d2b6d0.png",
 		"progressionHash": 0,
 		"hash": 4255583952,
 		"index": 0
@@ -51860,7 +51860,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_rare_auto_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/8c0d8cc0029de0a036812140d35b64c5.png",
+		"icon": "/common/destiny_content/icons/2385985353b17dd7253fbf45ab939654.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -51905,7 +51905,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_scout_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/a0430fd8d7004bad8ec13eeb91c86664.png",
+		"icon": "/common/destiny_content/icons/d0bca52a5bb1a80058bde04bac61527e.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -51926,7 +51926,7 @@ var DestinyProgressionDefinition = {
 		"name": "faction_eris",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/e0d072cd26290a35500f4e726c76bf4b.png",
+		"icon": "/common/destiny_content/icons/0581890fec1bdd368490de55a6f0981c.png",
 		"steps": [
 			{
 				"progressTotal": 1000
@@ -51991,7 +51991,7 @@ var DestinyProgressionDefinition = {
 		"name": "armor_superior",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/09a802d51d494baad80b1cb6d5930cd3.png",
+		"icon": "/common/destiny_content/icons/e51ccffb220596850c8bd1437f927ff1.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -52012,7 +52012,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_rocket_launcher",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/9236e5b34c2c96f80031308893cfe4ba.png",
+		"icon": "/common/destiny_content/icons/958e08891a304a4669f2c0eaaadfbf6a.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -52046,7 +52046,7 @@ var DestinyProgressionDefinition = {
 		"name": "test_faction",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/b188bb4a29eea7d98f32716a0a52ab6a.png",
+		"icon": "/common/destiny_content/icons/bb41101b8e8f21dff6632c7eee0f9d6e.png",
 		"steps": [],
 		"visible": true,
 		"hash": 372013324,
@@ -52113,7 +52113,7 @@ var DestinyProgressionDefinition = {
 		"name": "faction_event_queen",
 		"scope": 1,
 		"repeatLastStep": false,
-		"icon": "/common/destiny_content/icons/a750a477478a245f9d058d3bae868104.png",
+		"icon": "/common/destiny_content/icons/c9596de9b2ca9f51c5482822e54b813d.png",
 		"identifier": "PROGRESSION_EVENT_QUEEN",
 		"steps": [
 			{
@@ -52135,7 +52135,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_common_machinegun",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/430d57d80e7a4dad945d7fe5b65dae73.png",
+		"icon": "/common/destiny_content/icons/eb4fb0261b58d948043f3dc85f9389ca.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -52296,7 +52296,7 @@ var DestinyProgressionDefinition = {
 		"name": "faction_cryptarch",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/b188bb4a29eea7d98f32716a0a52ab6a.png",
+		"icon": "/common/destiny_content/icons/bb41101b8e8f21dff6632c7eee0f9d6e.png",
 		"identifier": "PROGRESSION_CRYPTARCH",
 		"steps": [
 			{
@@ -52344,7 +52344,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_rare_scout_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/a0430fd8d7004bad8ec13eeb91c86664.png",
+		"icon": "/common/destiny_content/icons/d0bca52a5bb1a80058bde04bac61527e.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -52611,7 +52611,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_fusion_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/de8a06d8ded57d56861350d655c1eaaf.png",
+		"icon": "/common/destiny_content/icons/3c4659d4a8652baa8115269f11eff160.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -52632,7 +52632,7 @@ var DestinyProgressionDefinition = {
 		"name": "r1_s3_factions_queen",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/a750a477478a245f9d058d3bae868104.png",
+		"icon": "/common/destiny_content/icons/c9596de9b2ca9f51c5482822e54b813d.png",
 		"steps": [
 			{
 				"progressTotal": 1000
@@ -52653,7 +52653,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_rare_sidearm",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/21e929856ac6c2f409865865f665ea5b.png",
+		"icon": "/common/destiny_content/icons/6711a150c8ae8e5c0a32b2aa1c132965.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -52674,7 +52674,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_shotgun",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/53a38f5eade95e420c69408b58e3582c.png",
+		"icon": "/common/destiny_content/icons/155e8f4cbba66260564f9a04c728cd03.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -52695,7 +52695,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_rocket_launcher",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/9236e5b34c2c96f80031308893cfe4ba.png",
+		"icon": "/common/destiny_content/icons/958e08891a304a4669f2c0eaaadfbf6a.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -52726,7 +52726,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_sniper_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/eeeb1565d251dbf316874e53a3805e52.png",
+		"icon": "/common/destiny_content/icons/a18c67ad08d184bfbeb123a04695ddc1.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -52842,7 +52842,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_sidearm",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/21e929856ac6c2f409865865f665ea5b.png",
+		"icon": "/common/destiny_content/icons/6711a150c8ae8e5c0a32b2aa1c132965.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -53017,7 +53017,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_machinegun",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/430d57d80e7a4dad945d7fe5b65dae73.png",
+		"icon": "/common/destiny_content/icons/eb4fb0261b58d948043f3dc85f9389ca.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -53038,7 +53038,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_hand_cannon",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/21e929856ac6c2f409865865f665ea5b.png",
+		"icon": "/common/destiny_content/icons/6711a150c8ae8e5c0a32b2aa1c132965.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -53059,7 +53059,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_hand_cannon",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/21e929856ac6c2f409865865f665ea5b.png",
+		"icon": "/common/destiny_content/icons/6711a150c8ae8e5c0a32b2aa1c132965.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -53080,7 +53080,7 @@ var DestinyProgressionDefinition = {
 		"name": "faction_pvp",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/e3d6dffaadcd1cf17a1bb1f33b220a93.png",
+		"icon": "/common/destiny_content/icons/69e8da56abade6f8e545e29058edb1e7.png",
 		"identifier": "PROGRESSION_CRUCIBLE",
 		"steps": [
 			{
@@ -53102,7 +53102,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_rare_pulse_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/90a289f5e76737a33b48be2ec089d964.png",
+		"icon": "/common/destiny_content/icons/7d2d45ec6c44fcc1d5275b18f76196aa.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -53123,7 +53123,7 @@ var DestinyProgressionDefinition = {
 		"name": "armor_special",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/09a802d51d494baad80b1cb6d5930cd3.png",
+		"icon": "/common/destiny_content/icons/e51ccffb220596850c8bd1437f927ff1.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -53141,7 +53141,7 @@ var DestinyProgressionDefinition = {
 		"name": "faction_pvp_future_war_cult",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/6ea28d9cd1a325197ad5f184bd5e874a.png",
+		"icon": "/common/destiny_content/icons/cbe965e9b2e60fdf875269efb7350242.png",
 		"identifier": "PROGRESSION_FUTURE_WAR_CULT",
 		"steps": [
 			{
@@ -53366,7 +53366,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_common_auto_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/8c0d8cc0029de0a036812140d35b64c5.png",
+		"icon": "/common/destiny_content/icons/2385985353b17dd7253fbf45ab939654.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -53401,7 +53401,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_scout_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/a0430fd8d7004bad8ec13eeb91c86664.png",
+		"icon": "/common/destiny_content/icons/d0bca52a5bb1a80058bde04bac61527e.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -53422,7 +53422,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_rare_shotgun",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/53a38f5eade95e420c69408b58e3582c.png",
+		"icon": "/common/destiny_content/icons/155e8f4cbba66260564f9a04c728cd03.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -53627,7 +53627,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_sword",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/eeeb1565d251dbf316874e53a3805e52.png",
+		"icon": "/common/destiny_content/icons/a18c67ad08d184bfbeb123a04695ddc1.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -53648,7 +53648,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_sidearm",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/21e929856ac6c2f409865865f665ea5b.png",
+		"icon": "/common/destiny_content/icons/6711a150c8ae8e5c0a32b2aa1c132965.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -53809,7 +53809,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_common_hand_cannon",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/21e929856ac6c2f409865865f665ea5b.png",
+		"icon": "/common/destiny_content/icons/6711a150c8ae8e5c0a32b2aa1c132965.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -53830,7 +53830,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_rare_rocket_launcher",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/9236e5b34c2c96f80031308893cfe4ba.png",
+		"icon": "/common/destiny_content/icons/958e08891a304a4669f2c0eaaadfbf6a.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -53851,7 +53851,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_common_shotgun",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/53a38f5eade95e420c69408b58e3582c.png",
+		"icon": "/common/destiny_content/icons/155e8f4cbba66260564f9a04c728cd03.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -53995,7 +53995,7 @@ var DestinyProgressionDefinition = {
 		"name": "character_prestige",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/09a802d51d494baad80b1cb6d5930cd3.png",
+		"icon": "/common/destiny_content/icons/e51ccffb220596850c8bd1437f927ff1.png",
 		"identifier": "PROGRESSION_CHARACTER_PRESTIGE",
 		"steps": [
 			{
@@ -54639,7 +54639,7 @@ var DestinyProgressionDefinition = {
 		"name": "armor_exotic",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/09a802d51d494baad80b1cb6d5930cd3.png",
+		"icon": "/common/destiny_content/icons/e51ccffb220596850c8bd1437f927ff1.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -55202,7 +55202,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_sword",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/eeeb1565d251dbf316874e53a3805e52.png",
+		"icon": "/common/destiny_content/icons/a18c67ad08d184bfbeb123a04695ddc1.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -55243,7 +55243,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_machinegun",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/430d57d80e7a4dad945d7fe5b65dae73.png",
+		"icon": "/common/destiny_content/icons/eb4fb0261b58d948043f3dc85f9389ca.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -55264,7 +55264,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_rare_hand_cannon",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/21e929856ac6c2f409865865f665ea5b.png",
+		"icon": "/common/destiny_content/icons/6711a150c8ae8e5c0a32b2aa1c132965.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -55405,7 +55405,7 @@ var DestinyProgressionDefinition = {
 		"name": "r1_s4_factions_gunsmith",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/141c966ad31e2b1ec16d0d26f6b0eb7b.png",
+		"icon": "/common/destiny_content/icons/2ae434830f0d30388e8d3f6865540e42.png",
 		"steps": [
 			{
 				"progressTotal": 1500
@@ -55518,7 +55518,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_shotgun",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/53a38f5eade95e420c69408b58e3582c.png",
+		"icon": "/common/destiny_content/icons/155e8f4cbba66260564f9a04c728cd03.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -55539,7 +55539,7 @@ var DestinyProgressionDefinition = {
 		"name": "armor_basic",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/09a802d51d494baad80b1cb6d5930cd3.png",
+		"icon": "/common/destiny_content/icons/e51ccffb220596850c8bd1437f927ff1.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -55557,7 +55557,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_auto_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/8c0d8cc0029de0a036812140d35b64c5.png",
+		"icon": "/common/destiny_content/icons/2385985353b17dd7253fbf45ab939654.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -55578,7 +55578,7 @@ var DestinyProgressionDefinition = {
 		"name": "armor_rare",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/09a802d51d494baad80b1cb6d5930cd3.png",
+		"icon": "/common/destiny_content/icons/e51ccffb220596850c8bd1437f927ff1.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -55616,7 +55616,7 @@ var DestinyProgressionDefinition = {
 		"name": "r1_s4_pvp_racing",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/6cc1d87bd3b76b1bee865ceb7c00b9da.png",
+		"icon": "/common/destiny_content/icons/fb9955ac028824815924a273af86b35f.png",
 		"identifier": "PROGRESSION_R1_S4_SRL_EVENT",
 		"steps": [
 			{
@@ -55641,7 +55641,7 @@ var DestinyProgressionDefinition = {
 		"name": "faction_pvp_dead_orbit",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/b2583acf4c8faef2234b2b36ec62c596.png",
+		"icon": "/common/destiny_content/icons/a3f734d60a8b4d6f516f03ed152adf4e.png",
 		"identifier": "PROGRESSION_DEAD_ORBIT",
 		"steps": [
 			{
@@ -55729,7 +55729,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_sniper_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/eeeb1565d251dbf316874e53a3805e52.png",
+		"icon": "/common/destiny_content/icons/a18c67ad08d184bfbeb123a04695ddc1.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -55932,7 +55932,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_auto_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/8c0d8cc0029de0a036812140d35b64c5.png",
+		"icon": "/common/destiny_content/icons/2385985353b17dd7253fbf45ab939654.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -55953,7 +55953,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_common_sidearm",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/21e929856ac6c2f409865865f665ea5b.png",
+		"icon": "/common/destiny_content/icons/6711a150c8ae8e5c0a32b2aa1c132965.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -55974,7 +55974,7 @@ var DestinyProgressionDefinition = {
 		"name": "ghost_rare",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/eeeb1565d251dbf316874e53a3805e52.png",
+		"icon": "/common/destiny_content/icons/a18c67ad08d184bfbeb123a04695ddc1.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -56552,7 +56552,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_exotic_pulse_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/90a289f5e76737a33b48be2ec089d964.png",
+		"icon": "/common/destiny_content/icons/7d2d45ec6c44fcc1d5275b18f76196aa.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -56587,7 +56587,7 @@ var DestinyProgressionDefinition = {
 		"name": "r1_s2_weapons_exotic_auto_rifle0",
 		"scope": 2,
 		"repeatLastStep": false,
-		"icon": "/common/destiny_content/icons/8c0d8cc0029de0a036812140d35b64c5.png",
+		"icon": "/common/destiny_content/icons/2385985353b17dd7253fbf45ab939654.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -56605,7 +56605,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_rare_machinegun",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/430d57d80e7a4dad945d7fe5b65dae73.png",
+		"icon": "/common/destiny_content/icons/eb4fb0261b58d948043f3dc85f9389ca.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -56907,7 +56907,7 @@ var DestinyProgressionDefinition = {
 		"name": "ghost_common",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/eeeb1565d251dbf316874e53a3805e52.png",
+		"icon": "/common/destiny_content/icons/a18c67ad08d184bfbeb123a04695ddc1.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -56925,7 +56925,7 @@ var DestinyProgressionDefinition = {
 		"name": "faction_fotc_vanguard",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/cea04d1a812e94dc88a3211f881c7f6b.png",
+		"icon": "/common/destiny_content/icons/3dcf86aceb3cf9ae69d8278c6a6f90d8.png",
 		"identifier": "PROGRESSION_VANGUARD",
 		"steps": [
 			{
@@ -57017,7 +57017,7 @@ var DestinyProgressionDefinition = {
 		"name": "ghost_superior",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/eeeb1565d251dbf316874e53a3805e52.png",
+		"icon": "/common/destiny_content/icons/a18c67ad08d184bfbeb123a04695ddc1.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -57548,7 +57548,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_rare_sniper_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/eeeb1565d251dbf316874e53a3805e52.png",
+		"icon": "/common/destiny_content/icons/a18c67ad08d184bfbeb123a04695ddc1.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -57597,7 +57597,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_fusion_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/de8a06d8ded57d56861350d655c1eaaf.png",
+		"icon": "/common/destiny_content/icons/3c4659d4a8652baa8115269f11eff160.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -57618,7 +57618,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_common_scout_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/a0430fd8d7004bad8ec13eeb91c86664.png",
+		"icon": "/common/destiny_content/icons/d0bca52a5bb1a80058bde04bac61527e.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -57639,7 +57639,7 @@ var DestinyProgressionDefinition = {
 		"name": "r1_s3_factions_fallen",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/c0381284849d49705e9a5c216697335e.png",
+		"icon": "/common/destiny_content/icons/4c2a442755f8f75b058f88541335a700.png",
 		"steps": [
 			{
 				"progressTotal": 1000
@@ -57660,7 +57660,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_common_rocket_launcher",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/9236e5b34c2c96f80031308893cfe4ba.png",
+		"icon": "/common/destiny_content/icons/958e08891a304a4669f2c0eaaadfbf6a.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -57681,7 +57681,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_common_pulse_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/90a289f5e76737a33b48be2ec089d964.png",
+		"icon": "/common/destiny_content/icons/7d2d45ec6c44fcc1d5275b18f76196aa.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -57702,7 +57702,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_common_fusion_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/de8a06d8ded57d56861350d655c1eaaf.png",
+		"icon": "/common/destiny_content/icons/3c4659d4a8652baa8115269f11eff160.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -57952,7 +57952,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_common_sniper_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/eeeb1565d251dbf316874e53a3805e52.png",
+		"icon": "/common/destiny_content/icons/a18c67ad08d184bfbeb123a04695ddc1.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -57973,7 +57973,7 @@ var DestinyProgressionDefinition = {
 		"name": "faction_pvp_new_monarchy",
 		"scope": 1,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/74fc53192c4378c69c473f687d3e3784.png",
+		"icon": "/common/destiny_content/icons/1d24b190144b7413c0f7676e25cc5d65.png",
 		"identifier": "PROGRESSION_NEW_MONARCHY",
 		"steps": [
 			{
@@ -58089,7 +58089,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_rare_fusion_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/de8a06d8ded57d56861350d655c1eaaf.png",
+		"icon": "/common/destiny_content/icons/3c4659d4a8652baa8115269f11eff160.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -58152,7 +58152,7 @@ var DestinyProgressionDefinition = {
 		"name": "weapon_superior_pulse_rifle",
 		"scope": 2,
 		"repeatLastStep": true,
-		"icon": "/common/destiny_content/icons/90a289f5e76737a33b48be2ec089d964.png",
+		"icon": "/common/destiny_content/icons/7d2d45ec6c44fcc1d5275b18f76196aa.png",
 		"steps": [
 			{
 				"progressTotal": 0
@@ -58267,7 +58267,7 @@ var DestinyRecordBookDefinition = {
 		],
 		"displayName": "SRL Record Book",
 		"displayDescription": "Vol. 1",
-		"icon": "/common/destiny_content/icons/03fb0ee044500d2cb72a66883b4201fd.png",
+		"icon": "/common/destiny_content/icons/6b5828b8ee4ea03393c0a3d965796037.png",
 		"unavailableReason": "SRL Event Inactive",
 		"hash": 3192310198,
 		"index": 0
@@ -59017,7 +59017,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 18271737,
 		"displayName": "Scrambler",
 		"displayDescription": "This weapon has a chance to stun Fallen Servitors.",
-		"displayIcon": "/common/destiny_content/icons/28be5b884b77e23c31e724096d987690.png",
+		"displayIcon": "/common/destiny_content/icons/677d5034266439075a6d7a6a5941a932.png",
 		"isDisplayable": true,
 		"hash": 18271737,
 		"index": 0
@@ -59033,7 +59033,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 40760096,
 		"displayName": "Keeper of the Pack",
 		"displayDescription": "Revive teammates faster. Spawn more orbs.",
-		"displayIcon": "/common/destiny_content/icons/38432c8cd26036d83def18481628812a.png",
+		"displayIcon": "/common/destiny_content/icons/c8e94ed8c9930e6e31374fd876a56127.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -59049,7 +59049,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 51093941,
 		"displayName": "Hive Destroyer",
 		"displayDescription": "Killing a Hive with a grenade ability has a chance to spawn an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/3a6ae3df41c8509f229e596ab31cd5f1.png",
+		"displayIcon": "/common/destiny_content/icons/df15d90a779ed4b773525100def64437.png",
 		"isDisplayable": true,
 		"hash": 51093941,
 		"index": 0
@@ -59058,7 +59058,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 51093942,
 		"displayName": "Hive Striker",
 		"displayDescription": "Killing a Hive with a critical hit has a chance to spawn an Orb of  Light.",
-		"displayIcon": "/common/destiny_content/icons/3a6ae3df41c8509f229e596ab31cd5f1.png",
+		"displayIcon": "/common/destiny_content/icons/df15d90a779ed4b773525100def64437.png",
 		"isDisplayable": true,
 		"hash": 51093942,
 		"index": 0
@@ -59067,7 +59067,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 51093943,
 		"displayName": "Hive Breaker",
 		"displayDescription": "Killing a Hive with a melee attack has a chance to spawn an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/3a6ae3df41c8509f229e596ab31cd5f1.png",
+		"displayIcon": "/common/destiny_content/icons/df15d90a779ed4b773525100def64437.png",
 		"isDisplayable": true,
 		"hash": 51093943,
 		"index": 0
@@ -59076,7 +59076,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 58719660,
 		"displayName": "Spinmetal Extractor",
 		"displayDescription": "Chance to find additional spinmetal when looting engrams in the Cosmodrome.",
-		"displayIcon": "/common/destiny_content/icons/13051f1c814b09e10f0817dc6f15e60f.png",
+		"displayIcon": "/common/destiny_content/icons/1dfade18651e5bf8ce415a9ef74b6d3f.png",
 		"isDisplayable": true,
 		"hash": 58719660,
 		"index": 0
@@ -59099,7 +59099,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 77413622,
 		"displayName": "Delusions of Grandeur",
 		"displayDescription": "Take reduced damage while using Nova Bomb. Improved Energy Drain abilities.",
-		"displayIcon": "/common/destiny_content/icons/7a8b981847dcb6a102b0643587281ea5.png",
+		"displayIcon": "/common/destiny_content/icons/a609302fda7d580a37c60dbbdb74ec10.png",
 		"isDisplayable": true,
 		"hash": 77413622,
 		"index": 0
@@ -59108,7 +59108,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 77746637,
 		"displayName": "Relentless Tracker",
 		"displayDescription": "Kills with this weapon grant enhanced motion tracker resolution for a short time.",
-		"displayIcon": "/common/destiny_content/icons/81200fe152a926fde67598e853eac744.png",
+		"displayIcon": "/common/destiny_content/icons/9e30dfa4ca019b62816bc70ed521c6a1.png",
 		"isDisplayable": true,
 		"hash": 77746637,
 		"index": 0
@@ -59117,7 +59117,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 81610349,
 		"displayName": "Insatiable",
 		"displayDescription": "Nova Bomb reduces cooldown of next Nova Bomb.",
-		"displayIcon": "/common/destiny_content/icons/7a8b981847dcb6a102b0643587281ea5.png",
+		"displayIcon": "/common/destiny_content/icons/a609302fda7d580a37c60dbbdb74ec10.png",
 		"isDisplayable": true,
 		"hash": 81610349,
 		"index": 0
@@ -59126,7 +59126,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 82396446,
 		"displayName": "Last Man Standing",
 		"displayDescription": "Golden Gun gains one additional shot.",
-		"displayIcon": "/common/destiny_content/icons/a1ca08f64ce77fb48905d4f6b65502f9.png",
+		"displayIcon": "/common/destiny_content/icons/3dca31f511147cef75f44418b63098e4.png",
 		"isDisplayable": true,
 		"hash": 82396446,
 		"index": 0
@@ -59135,7 +59135,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 83047347,
 		"displayName": "Big Game",
 		"displayDescription": "Golden Gun fires one shot with 6x damage, while granting Keyhole for overpenetration.",
-		"displayIcon": "/common/destiny_content/icons/77e1bef8755b580e69fd32e1305f0b3a.png",
+		"displayIcon": "/common/destiny_content/icons/e1bc8e7b99dd895b8fa782424996d7f4.png",
 		"isDisplayable": true,
 		"hash": 83047347,
 		"index": 0
@@ -59144,7 +59144,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 91717488,
 		"displayName": "Luck in the Chamber",
 		"displayDescription": "One random bullet in the magazine causes considerable bonus damage.",
-		"displayIcon": "/common/destiny_content/icons/02ceae1bf41c0782e7bdbbbe8d72410a.png",
+		"displayIcon": "/common/destiny_content/icons/717ed4daf3ba16b749dd1077d7b8087b.png",
 		"isDisplayable": true,
 		"hash": 91717488,
 		"index": 0
@@ -59230,7 +59230,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 121974376,
 		"displayName": "Pulse Rifle Affinity",
 		"displayDescription": "Unlocks upgrades on Pulse Rifles.",
-		"displayIcon": "/common/destiny_content/icons/49d482f9cdcc096728af108a09e4ea9c.png",
+		"displayIcon": "/common/destiny_content/icons/a6f9041ae5c9b71fa066af467cc88597.png",
 		"isDisplayable": true,
 		"hash": 121974376,
 		"index": 0
@@ -59239,7 +59239,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 124234431,
 		"displayName": "Hand Cannon Ammo",
 		"displayDescription": "Increases the amount of Hand Cannon ammunition you can carry.",
-		"displayIcon": "/common/destiny_content/icons/886c7cb5a52231eb9318a67af0c1ef1e.png",
+		"displayIcon": "/common/destiny_content/icons/e107a02470e00c84021c7c1c650c62eb.png",
 		"isDisplayable": true,
 		"hash": 124234431,
 		"index": 0
@@ -59262,7 +59262,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 127926301,
 		"displayName": "Lightning Rounds",
 		"displayDescription": "This weapon fires faster and more accurately the longer the trigger is held.",
-		"displayIcon": "/common/destiny_content/icons/766a1ab111ee34a7c24efb02e6f1592a.png",
+		"displayIcon": "/common/destiny_content/icons/caca1be4c80d40f491795ca169e1a9f3.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 1,
@@ -59292,7 +59292,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 136095187,
 		"displayName": "Accelerant",
 		"displayDescription": "Grants Explosive Pyre.",
-		"displayIcon": "/common/destiny_content/icons/7d48170b2247eb7c9358a2d568d25684.png",
+		"displayIcon": "/common/destiny_content/icons/2458b1e6a94c2fd34d2715aaed68ef04.png",
 		"isDisplayable": true,
 		"hash": 136095187,
 		"index": 0
@@ -59301,7 +59301,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 138051548,
 		"displayName": "Recklessness",
 		"displayDescription": "Provides Death from Above and Headstrong for Fist of Havoc.",
-		"displayIcon": "/common/destiny_content/icons/79394f627412cfeef5743a8cd3168f19.png",
+		"displayIcon": "/common/destiny_content/icons/ba61d7cfd3b6f7d0b2301b69d2c5ac5e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -59317,7 +59317,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 139437266,
 		"displayName": "Hand Cannon Slugs",
 		"displayDescription": "Carry more ammo for Hand Cannon.",
-		"displayIcon": "/common/destiny_content/icons/886c7cb5a52231eb9318a67af0c1ef1e.png",
+		"displayIcon": "/common/destiny_content/icons/e107a02470e00c84021c7c1c650c62eb.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -59354,7 +59354,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 164606820,
 		"displayName": "String of Curses",
 		"displayDescription": "After each kill, this weapon will reload instantly and increase damage for a short time. Kills will help charge your super.",
-		"displayIcon": "/common/destiny_content/icons/246a9ff6587372b5abcc0da13237429e.png",
+		"displayIcon": "/common/destiny_content/icons/ffcabe58baf2352b2990a15420198540.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -59391,7 +59391,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 177663318,
 		"displayName": "Pulse Rifle Loader",
 		"displayDescription": "Increased reload speed with Pulse Rifles.",
-		"displayIcon": "/common/destiny_content/icons/e776211cfa2501aa7392c337e3b3c221.png",
+		"displayIcon": "/common/destiny_content/icons/83426d639e128de3105605fbaaf0e1dc.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -59407,7 +59407,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 183958561,
 		"displayName": "Arc Resonance",
 		"displayDescription": "Arc grenades have a chance to generate an Orb when killing a minion of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/7fb59979f8e7b991672b6c1d64a84ec2.png",
+		"displayIcon": "/common/destiny_content/icons/c082b8b8af704036fd7583ab57f7d36a.png",
 		"isDisplayable": true,
 		"hash": 183958561,
 		"index": 0
@@ -59416,7 +59416,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 185596886,
 		"displayName": "House of Judgment Reputation Booster",
 		"displayDescription": "AURA\nIncreased House of Judgment reputation rewards from the Prison of Elders.\n\nAuras will fade if you leave the Fireteam of the providing Guardian.",
-		"displayIcon": "/common/destiny_content/icons/e8087692126af023c80d941b95b9f39e.png",
+		"displayIcon": "/common/destiny_content/icons/dc1fff2aabcff88802b497258176cf89.png",
 		"isDisplayable": true,
 		"hash": 185596886,
 		"index": 0
@@ -59425,7 +59425,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 192233393,
 		"displayName": "Spray and Play",
 		"displayDescription": "Increases the reload speed of this weapon when its mag is empty.",
-		"displayIcon": "/common/destiny_content/icons/20823525a7e3e1daad644f593c0d94a3.png",
+		"displayIcon": "/common/destiny_content/icons/f71d153aa991de0c489496a55a3efc43.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -59448,7 +59448,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 195717330,
 		"displayName": "Luck in the Chamber",
 		"displayDescription": "One random bullet in the magazine causes considerable bonus damage.",
-		"displayIcon": "/common/destiny_content/icons/02ceae1bf41c0782e7bdbbbe8d72410a.png",
+		"displayIcon": "/common/destiny_content/icons/717ed4daf3ba16b749dd1077d7b8087b.png",
 		"isDisplayable": true,
 		"hash": 195717330,
 		"index": 0
@@ -59457,7 +59457,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 216012134,
 		"displayName": "Momentum Transfer",
 		"displayDescription": "Causing damage with a grenade reduces your melee cooldown.",
-		"displayIcon": "/common/destiny_content/icons/2f128c25f309fa36095ea8528daa02e8.png",
+		"displayIcon": "/common/destiny_content/icons/85a6a91daa7d7b36cf79b34c9c3612ed.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -59473,7 +59473,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 216012135,
 		"displayName": "Paramuscle Armature",
 		"displayDescription": "Increases grenade throw distance.",
-		"displayIcon": "/common/destiny_content/icons/2f128c25f309fa36095ea8528daa02e8.png",
+		"displayIcon": "/common/destiny_content/icons/85a6a91daa7d7b36cf79b34c9c3612ed.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -59496,7 +59496,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 231940541,
 		"displayName": "Special Weapon Analysis",
 		"displayDescription": "Increased XP gain for Special weapons.",
-		"displayIcon": "/common/destiny_content/icons/93642b1dd4fb07cdb84aea2a7d84c74b.png",
+		"displayIcon": "/common/destiny_content/icons/3221ba202a7ba1e73dd0d72df97ac9dd.png",
 		"isDisplayable": true,
 		"hash": 231940541,
 		"index": 0
@@ -59505,7 +59505,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 232250696,
 		"displayName": "Innervation",
 		"displayDescription": "Reduces grenade cooldown each time you pick up an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/e06829cf573480506d175480460c4478.png",
+		"displayIcon": "/common/destiny_content/icons/231d5f6cd85cf014f353515377fb1ce3.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -59521,7 +59521,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 232250697,
 		"displayName": "Infusion",
 		"displayDescription": "Replenishes health each time you pick up an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/e06829cf573480506d175480460c4478.png",
+		"displayIcon": "/common/destiny_content/icons/231d5f6cd85cf014f353515377fb1ce3.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -59537,7 +59537,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 232250699,
 		"displayName": "Invigoration",
 		"displayDescription": "Reduces melee cooldown each time you pick up an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/e06829cf573480506d175480460c4478.png",
+		"displayIcon": "/common/destiny_content/icons/231d5f6cd85cf014f353515377fb1ce3.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -59568,7 +59568,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 234951720,
 		"displayName": "Metal Detector",
 		"displayDescription": "Expect to find more ammo for this weapon.",
-		"displayIcon": "/common/destiny_content/icons/9cbad29bda1a21b98f8d64620bc70375.png",
+		"displayIcon": "/common/destiny_content/icons/2831b160b1f1674e7e2a1afe14931fb8.png",
 		"isDisplayable": true,
 		"hash": 234951720,
 		"index": 0
@@ -59577,7 +59577,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 242558733,
 		"displayName": "Hand Cannon Affinity",
 		"displayDescription": "Unlocks upgrades on Hand Cannons.",
-		"displayIcon": "/common/destiny_content/icons/a5323e9409d326510a11ec0c4229ed6d.png",
+		"displayIcon": "/common/destiny_content/icons/207955d33d0a778983c652bc85bbb3fd.png",
 		"isDisplayable": true,
 		"hash": 242558733,
 		"index": 0
@@ -59586,7 +59586,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 247305382,
 		"displayName": "Pulse Rifle Focus",
 		"displayDescription": "Increases the upgrade rate for Pulse Rifles.",
-		"displayIcon": "/common/destiny_content/icons/433aa2bd4357b12eb26550605e704d2b.png",
+		"displayIcon": "/common/destiny_content/icons/6175991e9a24ef2e7adf3aefab3b46f2.png",
 		"isDisplayable": true,
 		"hash": 247305382,
 		"index": 0
@@ -59602,7 +59602,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 255180203,
 		"displayName": "All Weapon Loader",
 		"displayDescription": "Increased reload speed with all weapons.",
-		"displayIcon": "/common/destiny_content/icons/59cf5e583db6ca7edb1cdf84618db64a.png",
+		"displayIcon": "/common/destiny_content/icons/c984a126c7c5ec0e042a1d29d2d653ed.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -59625,7 +59625,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 267340957,
 		"displayName": "Praise the Sun",
 		"displayDescription": "Further decreases all ability cooldowns while Radiance is active.",
-		"displayIcon": "/common/destiny_content/icons/38432c8cd26036d83def18481628812a.png",
+		"displayIcon": "/common/destiny_content/icons/c8e94ed8c9930e6e31374fd876a56127.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -59641,7 +59641,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 271664091,
 		"displayName": "Big Game",
 		"displayDescription": "Golden Gun fires one shot, delivering 6x damage, while granting Keyhole for overpenetration.",
-		"displayIcon": "/common/destiny_content/icons/77e1bef8755b580e69fd32e1305f0b3a.png",
+		"displayIcon": "/common/destiny_content/icons/e1bc8e7b99dd895b8fa782424996d7f4.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -59657,7 +59657,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 275337775,
 		"displayName": "Arc Catalyst",
 		"displayDescription": "Arc precision kills against a minion of the Darkness have a chance to generate an Orb.",
-		"displayIcon": "/common/destiny_content/icons/ada363158732860a2d000eea880d891c.png",
+		"displayIcon": "/common/destiny_content/icons/c00425fb7858fb3c7048c1a204b5bf63.png",
 		"isDisplayable": true,
 		"hash": 275337775,
 		"index": 0
@@ -59729,7 +59729,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 280851997,
 		"displayName": "Scatter Charge",
 		"displayDescription": "Enables tracking for Scatter Grenades. \nHold an extra Scatter Grenade charge.",
-		"displayIcon": "/common/destiny_content/icons/68f056a5874c464df1b14bef25086ade.png",
+		"displayIcon": "/common/destiny_content/icons/06ce391ec3e5d79f1c6f170fd5b34113.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -59745,7 +59745,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 284093622,
 		"displayName": "Volatile Light",
 		"displayDescription": "Rounds fired from this weapon have no damage falloff, overpenetrate targets and ricochet off hard surfaces.",
-		"displayIcon": "/common/destiny_content/icons/87e4d47404e59f99d35092ed80b6ca75.png",
+		"displayIcon": "/common/destiny_content/icons/4f9df49983f4611e81852bbebe8aa76d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -59775,7 +59775,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 285151207,
 		"displayName": "Resolute",
 		"displayDescription": "Provides Unstoppable for Fist of Havoc.",
-		"displayIcon": "/common/destiny_content/icons/b8804b0154590a22cb7494d4fc8b1250.png",
+		"displayIcon": "/common/destiny_content/icons/01bb247b28009da5fca6d6453856f854.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -59826,7 +59826,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 315800403,
 		"displayName": "Rewind Again",
 		"displayDescription": "Precision hits are immediately returned to the magazine.",
-		"displayIcon": "/common/destiny_content/icons/8658245a84453afea59ffd132ca12f63.png",
+		"displayIcon": "/common/destiny_content/icons/1d17a6a5cb6d6f67944787ec43bb4ed1.png",
 		"isDisplayable": true,
 		"hash": 315800403,
 		"index": 0
@@ -59835,7 +59835,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 317976013,
 		"displayName": "Buddy System",
 		"displayDescription": "Faster weapon reload while in an Aura.",
-		"displayIcon": "/common/destiny_content/icons/5ab1c24447b2ec6b65732c047b1fc777.png",
+		"displayIcon": "/common/destiny_content/icons/33b4d9ca1351a8690d47d038a6cd0e7a.png",
 		"isDisplayable": true,
 		"hash": 317976013,
 		"index": 0
@@ -59844,7 +59844,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 318657130,
 		"displayName": "Danger Close",
 		"displayDescription": "This weapon gains increased reload and handling when two or more enemies are in close proximity.",
-		"displayIcon": "/common/destiny_content/icons/447e7cb13597f4803846a310fdefc75d.png",
+		"displayIcon": "/common/destiny_content/icons/fdbd1d399537396065722896dff0ec1f.png",
 		"isDisplayable": true,
 		"hash": 318657130,
 		"index": 0
@@ -59867,7 +59867,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 319042915,
 		"displayName": "Pocket Infinity",
 		"displayDescription": "Fires in full auto mode and has a chance to return rounds that miss to the magazine.",
-		"displayIcon": "/common/destiny_content/icons/1e4f8f091fc39ba709062b80ee204265.png",
+		"displayIcon": "/common/destiny_content/icons/b72349df786ca7aa14d8dd8390e78c6e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 1,
@@ -59890,7 +59890,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 321363893,
 		"displayName": "Unstable Current",
 		"displayDescription": "Arc Blade attacks use less Super energy.",
-		"displayIcon": "/common/destiny_content/icons/decffbc52e8d85540a576e774d1528bc.png",
+		"displayIcon": "/common/destiny_content/icons/cbf1fec8d5c25daf26eb8dc688124e22.png",
 		"isDisplayable": true,
 		"hash": 321363893,
 		"index": 0
@@ -59899,7 +59899,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 335848122,
 		"displayName": "Strength of the Ram",
 		"displayDescription": "Gain increased Armor and all Voidwalker melee attacks trigger Life Steal on hit.",
-		"displayIcon": "/common/destiny_content/icons/b5ac4582ebdfd5cef0b7bcb557469fd0.png",
+		"displayIcon": "/common/destiny_content/icons/fce86cd8432ac45c4cd481987ae5862b.png",
 		"isDisplayable": true,
 		"hash": 335848122,
 		"index": 0
@@ -59922,7 +59922,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 356306776,
 		"displayName": "Shine On",
 		"displayDescription": "Increased Super energy gained from killing minions of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/6b879afd0acecf041c33122ed81f8221.png",
+		"displayIcon": "/common/destiny_content/icons/acb1db796050081625619d709674863f.png",
 		"isDisplayable": true,
 		"hash": 356306776,
 		"index": 0
@@ -59959,7 +59959,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 383243401,
 		"displayName": "Fists Flying",
 		"displayDescription": "Gain a boost to Agility per melee kill. Stacks for 20 seconds.",
-		"displayIcon": "/common/destiny_content/icons/cbfe2fbdcf8ea52b2ed193eaaf504baf.png",
+		"displayIcon": "/common/destiny_content/icons/cd7c2f478b6feb73bd3d1150dbb42266.png",
 		"isDisplayable": true,
 		"hash": 383243401,
 		"index": 0
@@ -59968,7 +59968,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 386585144,
 		"displayName": "Auto Rifle Analysis",
 		"displayDescription": "Increased XP for Auto Rifles.",
-		"displayIcon": "/common/destiny_content/icons/d725e65cde95a415c6c03800f10b9b9b.png",
+		"displayIcon": "/common/destiny_content/icons/2f522b1f2d085dddb5352e11332749df.png",
 		"isDisplayable": true,
 		"hash": 386585144,
 		"index": 0
@@ -59977,7 +59977,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 387492527,
 		"displayName": "Live by the Sword",
 		"displayDescription": "Kills with the sword have a chance to grant Orbs.",
-		"displayIcon": "/common/destiny_content/icons/e06829cf573480506d175480460c4478.png",
+		"displayIcon": "/common/destiny_content/icons/231d5f6cd85cf014f353515377fb1ce3.png",
 		"isDisplayable": true,
 		"hash": 387492527,
 		"index": 0
@@ -59986,7 +59986,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 390728111,
 		"displayName": "Old Gods' Boon",
 		"displayDescription": "Increased Armor while carrying the King's Fall relic.",
-		"displayIcon": "/common/destiny_content/icons/f95f9780d2fa645039bf2bc2e96ad1d0.png",
+		"displayIcon": "/common/destiny_content/icons/7cd92c24e59bcc52e7a9de969392fb8c.png",
 		"isDisplayable": true,
 		"hash": 390728111,
 		"index": 0
@@ -60002,7 +60002,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 397538334,
 		"displayName": "Front Lines",
 		"displayDescription": "This weapon has increased handling, stability and rate of fire when enemies are close.",
-		"displayIcon": "/common/destiny_content/icons/3ad033814a4b92f8d65134dd66371a22.png",
+		"displayIcon": "/common/destiny_content/icons/cbe77c9f6594b6c2601e94227c55c29f.png",
 		"isDisplayable": true,
 		"hash": 397538334,
 		"index": 0
@@ -60018,7 +60018,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 405554470,
 		"displayName": "The Whispers",
 		"displayDescription": "Gain an additional melee charge.",
-		"displayIcon": "/common/destiny_content/icons/e8ccc30aba195bae041b41f609f2423d.png",
+		"displayIcon": "/common/destiny_content/icons/a2a30f7232956d628a3dde62473f8c06.png",
 		"isDisplayable": true,
 		"hash": 405554470,
 		"index": 0
@@ -60041,7 +60041,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 424530568,
 		"displayName": "Rain Blows",
 		"displayDescription": "Increases melee attack speed.",
-		"displayIcon": "/common/destiny_content/icons/0c634db2bc94cb4b7f246dc519450e16.png",
+		"displayIcon": "/common/destiny_content/icons/40b6ec8314837ed27e009e6075fd4bd6.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -60057,7 +60057,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 424530569,
 		"displayName": "Impact Induction",
 		"displayDescription": "Causing damage with a melee reduces your grenade cooldown.",
-		"displayIcon": "/common/destiny_content/icons/cbc5e8cd8a60b66880dbd6217d18989a.png",
+		"displayIcon": "/common/destiny_content/icons/f182d708865b344c58287d8c41785877.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -60073,7 +60073,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 431159510,
 		"displayName": "Third Eye",
 		"displayDescription": "Radar stays active while aiming down this weapon's sights.",
-		"displayIcon": "/common/destiny_content/icons/0509998188009828226d3629db51f3cc.png",
+		"displayIcon": "/common/destiny_content/icons/0452255d864490f6720b9c69010246d2.png",
 		"isDisplayable": true,
 		"hash": 431159510,
 		"index": 0
@@ -60089,7 +60089,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 439685318,
 		"displayName": "Vex Rampart",
 		"displayDescription": "Greatly increased Armor and Melee recharge when fighting Vex in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/b66ac2d3e986c7327563d48324fa966f.png",
+		"displayIcon": "/common/destiny_content/icons/f754f0bd1f5409e0f8506d2b9996a7cf.png",
 		"isDisplayable": true,
 		"hash": 439685318,
 		"index": 0
@@ -60098,7 +60098,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 448609668,
 		"displayName": "Infusion",
 		"displayDescription": "Replenish health when you pick up an Orb.",
-		"displayIcon": "/common/destiny_content/icons/e06829cf573480506d175480460c4478.png",
+		"displayIcon": "/common/destiny_content/icons/231d5f6cd85cf014f353515377fb1ce3.png",
 		"isDisplayable": true,
 		"hash": 448609668,
 		"index": 0
@@ -60107,7 +60107,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 448609669,
 		"displayName": "Innervation",
 		"displayDescription": "Reduce grenade cooldown when you pick up an Orb.",
-		"displayIcon": "/common/destiny_content/icons/e06829cf573480506d175480460c4478.png",
+		"displayIcon": "/common/destiny_content/icons/231d5f6cd85cf014f353515377fb1ce3.png",
 		"isDisplayable": true,
 		"hash": 448609669,
 		"index": 0
@@ -60116,7 +60116,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 448609670,
 		"displayName": "Invigoration",
 		"displayDescription": "Reduce melee cooldown when you pick up an Orb.",
-		"displayIcon": "/common/destiny_content/icons/e06829cf573480506d175480460c4478.png",
+		"displayIcon": "/common/destiny_content/icons/231d5f6cd85cf014f353515377fb1ce3.png",
 		"isDisplayable": true,
 		"hash": 448609670,
 		"index": 0
@@ -60125,7 +60125,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 448789815,
 		"displayName": "Solar-Forged Guard",
 		"displayDescription": "Use  to guard. Effective against Arc and Void attacks, less effective against Solar attacks.",
-		"displayIcon": "/common/destiny_content/icons/af241d2fe5329d3a9260e9213b287450.png",
+		"displayIcon": "/common/destiny_content/icons/fa1780a61cb6e5f8c33b119fdb44bc77.png",
 		"isDisplayable": true,
 		"hash": 448789815,
 		"index": 0
@@ -60148,7 +60148,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 469911339,
 		"displayName": "Starfire Protocol",
 		"displayDescription": "Gain an additional Fusion Grenade charge.",
-		"displayIcon": "/common/destiny_content/icons/60efdb3051b47364d7f152a2ed8bf12e.png",
+		"displayIcon": "/common/destiny_content/icons/04daff01a8d5f47fe4fc37a5c7d03ada.png",
 		"isDisplayable": true,
 		"hash": 469911339,
 		"index": 0
@@ -60157,7 +60157,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 476980864,
 		"displayName": "Faction Champion",
 		"displayDescription": "Reputation gains applied to Future War Cult when equipped.",
-		"displayIcon": "/common/destiny_content/icons/0b4c861ccbdd7fbb2aea86f54e99d7e7.png",
+		"displayIcon": "/common/destiny_content/icons/ed0d0d44c2b70a88721bf6f3d5ab4035.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -60180,7 +60180,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 493631234,
 		"displayName": "Phantom Gift",
 		"displayDescription": "Rapidly landing three precision hits returns one round to the magazine.",
-		"displayIcon": "/common/destiny_content/icons/ee05c00c0e82dcfd61ce2c64faf395dc.png",
+		"displayIcon": "/common/destiny_content/icons/4dd71a0d3cd5731b6312f1ed334e7c2a.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -60203,7 +60203,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 497709326,
 		"displayName": "Cabal Stalker",
 		"displayDescription": "Greatly increased Agility and Grenade recharge when fighting Cabal in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/b66ac2d3e986c7327563d48324fa966f.png",
+		"displayIcon": "/common/destiny_content/icons/f754f0bd1f5409e0f8506d2b9996a7cf.png",
 		"isDisplayable": true,
 		"hash": 497709326,
 		"index": 0
@@ -60212,7 +60212,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 502415412,
 		"displayName": "Sun God",
 		"displayDescription": "Your Sunbreaker subclass upgrades 25% faster and your Level increases 10% faster.",
-		"displayIcon": "/common/destiny_content/icons/dd6bc73fb208fbc3cf6618977278ec56.png",
+		"displayIcon": "/common/destiny_content/icons/3d4efc5471f9496bdc77d5fd304e81ef.png",
 		"isDisplayable": true,
 		"hash": 502415412,
 		"index": 0
@@ -60228,7 +60228,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 517718709,
 		"displayName": "Die by the Sword",
 		"displayDescription": "Kills with the sword replenish grenade energy.",
-		"displayIcon": "/common/destiny_content/icons/3e68ad06673ae9874da3e2cb34bee3c8.png",
+		"displayIcon": "/common/destiny_content/icons/999fa797ccf28a0d12990785f2b6edd8.png",
 		"isDisplayable": true,
 		"hash": 517718709,
 		"index": 0
@@ -60237,7 +60237,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 522135030,
 		"displayName": "Take a Knee",
 		"displayDescription": "Gain bonus accuracy while crouched.",
-		"displayIcon": "/common/destiny_content/icons/fd90c6127a0c024adeee815afc4da9d4.png",
+		"displayIcon": "/common/destiny_content/icons/badd27295f07a8b04f7b8978cd7db4ed.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 4,
@@ -60253,7 +60253,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 525257484,
 		"displayName": "Faster Cooldown Time",
 		"displayDescription": "Reduced cooldown after the Sparrow is destroyed.",
-		"displayIcon": "/common/destiny_content/icons/982e605805c3d29f4c0a1081b88dc8a1.png",
+		"displayIcon": "/common/destiny_content/icons/d74e252c45d73aa21e3646cbf019b3cf.png",
 		"isDisplayable": true,
 		"hash": 525257484,
 		"index": 0
@@ -60262,7 +60262,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 530320458,
 		"displayName": "Shotgun Affinity",
 		"displayDescription": "Unlocks upgrades on Shotguns.",
-		"displayIcon": "/common/destiny_content/icons/151357b9b5c140b3457cb578ab948176.png",
+		"displayIcon": "/common/destiny_content/icons/4a01595f45aa226e6ed132d09424381d.png",
 		"isDisplayable": true,
 		"hash": 530320458,
 		"index": 0
@@ -60271,7 +60271,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 537242076,
 		"displayName": "Warrior of Light",
 		"displayDescription": "Increased damage for your  attack.",
-		"displayIcon": "/common/destiny_content/icons/b821a14a4402480640c9a88457e6b653.png",
+		"displayIcon": "/common/destiny_content/icons/e643be7a43a628103da122df17a1f357.png",
 		"isDisplayable": true,
 		"hash": 537242076,
 		"index": 0
@@ -60280,7 +60280,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 539512168,
 		"displayName": "Arc Burn Defense",
 		"displayDescription": "Reduces incoming Arc Burn damage.",
-		"displayIcon": "/common/destiny_content/icons/6a137d8a2adf536df7ad1594381f9dff.png",
+		"displayIcon": "/common/destiny_content/icons/798b21fbb86bc95a54f33edcdb058d23.png",
 		"isDisplayable": true,
 		"hash": 539512168,
 		"index": 0
@@ -60289,7 +60289,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 545530572,
 		"displayName": "Universal Remote",
 		"displayDescription": "Range and precision damage increases greatly while aiming down the sights.",
-		"displayIcon": "/common/destiny_content/icons/1202fb9b94acf6ab8995ba0532cc7de6.png",
+		"displayIcon": "/common/destiny_content/icons/c768d4754b7d46c201b8eb6fa7e992d7.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -60305,7 +60305,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 561092865,
 		"displayName": "Moment of Speed",
 		"displayDescription": "Gain a temporary increase to reload speed while Oversoul's Gaze is active.",
-		"displayIcon": "/common/destiny_content/icons/ca29156378092fdcf3c1cda4422cc0a6.png",
+		"displayIcon": "/common/destiny_content/icons/c8ca36fff0c8fc5e7901770dfd3ff880.png",
 		"isDisplayable": true,
 		"hash": 561092865,
 		"index": 0
@@ -60314,7 +60314,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 561936092,
 		"displayName": "White Chroma",
 		"displayDescription": "Activates a White Chroma glow.",
-		"displayIcon": "/common/destiny_content/icons/3117d447159d86480a742e1df2edbf95.png",
+		"displayIcon": "/common/destiny_content/icons/061508841a6f38218cce33c40b8bdf0a.png",
 		"isDisplayable": true,
 		"hash": 561936092,
 		"index": 0
@@ -60330,7 +60330,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 590805395,
 		"displayName": "Unsealed Power",
 		"displayDescription": "The power of the warden seethes uncontrollably.",
-		"displayIcon": "/common/destiny_content/icons/a8e3a5c9910d1e5d7b436cabf452139e.png",
+		"displayIcon": "/common/destiny_content/icons/7c24c89f30a56848856aa75112338ade.png",
 		"isDisplayable": true,
 		"hash": 590805395,
 		"index": 0
@@ -60353,7 +60353,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 597127202,
 		"displayName": "Rangefinder",
 		"displayDescription": "Aiming this weapon increases its effective range.",
-		"displayIcon": "/common/destiny_content/icons/736b9c122a5e51b976e88b5a872f274f.png",
+		"displayIcon": "/common/destiny_content/icons/a67d7aa9911630861d597931aa6cdb86.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 8,
@@ -60378,7 +60378,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 605038825,
 		"displayName": "Heavy Weapon Analysis",
 		"displayDescription": "Increased XP gain for Heavy weapons.",
-		"displayIcon": "/common/destiny_content/icons/095ae93063ff6452c523e0b7752c1ccb.png",
+		"displayIcon": "/common/destiny_content/icons/c76de692dbb46c425b7df6f866b456a1.png",
 		"isDisplayable": true,
 		"hash": 605038825,
 		"index": 0
@@ -60387,7 +60387,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 620583097,
 		"displayName": "MIRV Mini",
 		"displayDescription": "Rockets fired from this weapon split into several smaller shells upon detonating.",
-		"displayIcon": "/common/destiny_content/icons/02531ec9923bbc9d74d8556698097233.png",
+		"displayIcon": "/common/destiny_content/icons/648d42dc25529823dbf2a5c97507e3ef.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -60417,7 +60417,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 632126376,
 		"displayName": "Impact Induction",
 		"displayDescription": "Melee hits replenish Grenade energy.",
-		"displayIcon": "/common/destiny_content/icons/cbc5e8cd8a60b66880dbd6217d18989a.png",
+		"displayIcon": "/common/destiny_content/icons/f182d708865b344c58287d8c41785877.png",
 		"isDisplayable": true,
 		"hash": 632126376,
 		"index": 0
@@ -60426,7 +60426,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 632126377,
 		"displayName": "Combat Proprioceptor",
 		"displayDescription": "Increased melee attack speed.",
-		"displayIcon": "/common/destiny_content/icons/cbc5e8cd8a60b66880dbd6217d18989a.png",
+		"displayIcon": "/common/destiny_content/icons/f182d708865b344c58287d8c41785877.png",
 		"isDisplayable": true,
 		"hash": 632126377,
 		"index": 0
@@ -60463,7 +60463,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 652662008,
 		"displayName": "Rocket Launcher Mags",
 		"displayDescription": "Carry more ammo for Rocket Launcher.",
-		"displayIcon": "/common/destiny_content/icons/7fb0a83051ac420700f0574c5494e316.png",
+		"displayIcon": "/common/destiny_content/icons/8cb99a415745d1b3bc9ba416838f71ba.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -60479,7 +60479,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 653222695,
 		"displayName": "Air Control",
 		"displayDescription": "Use  to pitch the Sparrow forward or back while in the air. Pitch forward to fall faster, pitch back to fall slower.",
-		"displayIcon": "/common/destiny_content/icons/737365c50493b12218198b3172d2ed81.png",
+		"displayIcon": "/common/destiny_content/icons/33a267ac001fd5b69111faa66d8c7899.png",
 		"isDisplayable": true,
 		"hash": 653222695,
 		"index": 0
@@ -60488,7 +60488,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 661319946,
 		"displayName": "Future War Cult Champion",
 		"displayDescription": "Increases your Future War Cult reputation gains.",
-		"displayIcon": "/common/destiny_content/icons/3a0d39cc0d2ec66610eed70bd3bec43e.png",
+		"displayIcon": "/common/destiny_content/icons/8aa0ad4b08bd4cce51c2eae3bb8fb0aa.png",
 		"isDisplayable": true,
 		"hash": 661319946,
 		"index": 0
@@ -60497,7 +60497,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 661681055,
 		"displayName": "Headseeker",
 		"displayDescription": "Body shots with this weapon increase precision damage for a short time.",
-		"displayIcon": "/common/destiny_content/icons/918d0744cb43f58f2446cf6423136e3c.png",
+		"displayIcon": "/common/destiny_content/icons/db3b25e7e6c5dfb43515e960433616fc.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -60534,7 +60534,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 663801504,
 		"displayName": "Incendiary Rounds",
 		"displayDescription": "This weapon fires faster and more accurately the longer the trigger is held.",
-		"displayIcon": "/common/destiny_content/icons/0b56a49e3635e22677f9c0aded971e3a.png",
+		"displayIcon": "/common/destiny_content/icons/eaafd3b378728fb7b5f379acc4aac818.png",
 		"isDisplayable": true,
 		"hash": 663801504,
 		"index": 0
@@ -60543,7 +60543,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 671224739,
 		"displayName": "Solar Armor",
 		"displayDescription": "Increased Armor when using a Solar-based subclass.",
-		"displayIcon": "/common/destiny_content/icons/b821a14a4402480640c9a88457e6b653.png",
+		"displayIcon": "/common/destiny_content/icons/e643be7a43a628103da122df17a1f357.png",
 		"isDisplayable": true,
 		"hash": 671224739,
 		"index": 0
@@ -60552,7 +60552,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 676384175,
 		"displayName": "Metal Detector",
 		"displayDescription": "Expect to find more ammo for this weapon.",
-		"displayIcon": "/common/destiny_content/icons/9cbad29bda1a21b98f8d64620bc70375.png",
+		"displayIcon": "/common/destiny_content/icons/2831b160b1f1674e7e2a1afe14931fb8.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -60568,7 +60568,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 677215928,
 		"displayName": "Cabal Arbiter",
 		"displayDescription": "Greatly increased Recovery and Super recharge when fighting Cabal in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/b66ac2d3e986c7327563d48324fa966f.png",
+		"displayIcon": "/common/destiny_content/icons/f754f0bd1f5409e0f8506d2b9996a7cf.png",
 		"isDisplayable": true,
 		"hash": 677215928,
 		"index": 0
@@ -60591,7 +60591,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 700071256,
 		"displayName": "Auto Rifle Focus",
 		"displayDescription": "Increases the upgrade rate for Auto Rifles.",
-		"displayIcon": "/common/destiny_content/icons/d725e65cde95a415c6c03800f10b9b9b.png",
+		"displayIcon": "/common/destiny_content/icons/2f522b1f2d085dddb5352e11332749df.png",
 		"isDisplayable": true,
 		"hash": 700071256,
 		"index": 0
@@ -60600,7 +60600,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 707792617,
 		"displayName": "Hands-On",
 		"displayDescription": "Gain bonus Super energy from melee kills on minions of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/099a223914e4c2304efe18a0754fa78f.png",
+		"displayIcon": "/common/destiny_content/icons/f8b6133ebc6d9f7173aee0be2c855fa1.png",
 		"isDisplayable": true,
 		"hash": 707792617,
 		"index": 0
@@ -60609,7 +60609,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 709737102,
 		"displayName": "Shotgun Ammo",
 		"displayDescription": "Increases the amount of Shotgun ammunition you can carry.",
-		"displayIcon": "/common/destiny_content/icons/4c181fb7a5700ad31d20d61ce489936b.png",
+		"displayIcon": "/common/destiny_content/icons/e78fed6fb7e1fd4f08db0a7af4bbb187.png",
 		"isDisplayable": true,
 		"hash": 709737102,
 		"index": 0
@@ -60618,7 +60618,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 712972274,
 		"displayName": "Nocturnal",
 		"displayDescription": "Your Nightstalker subclass upgrades 25% faster and your Level increases 10% faster.",
-		"displayIcon": "/common/destiny_content/icons/cd6199555d76219ea07f9d4a90369624.png",
+		"displayIcon": "/common/destiny_content/icons/f0ef821159c4bebae133ab3b3e270e7a.png",
 		"isDisplayable": true,
 		"hash": 712972274,
 		"index": 0
@@ -60641,7 +60641,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 713298969,
 		"displayName": "Doe or Die",
 		"displayDescription": "Once per life, fast Super charge when all teammates die. \nChance to spawn with Overshield.",
-		"displayIcon": "/common/destiny_content/icons/e07fd26825b19750c75b9eda4b16a735.png",
+		"displayIcon": "/common/destiny_content/icons/4c5c6d3b51e22bd6b80a82c1ce9947ec.png",
 		"isDisplayable": true,
 		"hash": 713298969,
 		"index": 0
@@ -60650,7 +60650,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 717833322,
 		"displayName": "Scout Rifle Mags",
 		"displayDescription": "Carry more ammo for Scout Rifle.",
-		"displayIcon": "/common/destiny_content/icons/dd0b8af90b0e67a06dd88a708b5b4db5.png",
+		"displayIcon": "/common/destiny_content/icons/8eb960ab315ba0cd0520e8a5be517143.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -60666,7 +60666,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 731752060,
 		"displayName": "Feeding Frenzy",
 		"displayDescription": "Kills with this weapon increase reload speed for a short time.",
-		"displayIcon": "/common/destiny_content/icons/c7b79b552565012bccad6eeb4655c756.png",
+		"displayIcon": "/common/destiny_content/icons/e9e0a0af3b605df2b9ce0ea5af9daafd.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -60703,7 +60703,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 744321508,
 		"displayName": "Sword of Thunder",
 		"displayDescription": "Use  to shoot a beam of Arc Light from your sword creating a lingering electrical storm.",
-		"displayIcon": "/common/destiny_content/icons/e0b46c37c135cc80f05b7b88fd054617.png",
+		"displayIcon": "/common/destiny_content/icons/a2a231f0683bc1889e160eb0b7586c84.png",
 		"isDisplayable": true,
 		"hash": 744321508,
 		"index": 0
@@ -60712,7 +60712,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 745231149,
 		"displayName": "Cleansing Ritual",
 		"displayDescription": "Generate additional Glimmer when killing Hive.",
-		"displayIcon": "/common/destiny_content/icons/eefb4e7b30a3a1e3d9a89a65a86ed5cb.png",
+		"displayIcon": "/common/destiny_content/icons/dfaf6735584dc6dcb5d13ab8a73241dc.png",
 		"isDisplayable": true,
 		"hash": 745231149,
 		"index": 0
@@ -60721,7 +60721,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 750820802,
 		"displayName": "Dreg Burn",
 		"displayDescription": "This weapon deals moderate bonus damage to Fallen Dregs.",
-		"displayIcon": "/common/destiny_content/icons/b66ac2d3e986c7327563d48324fa966f.png",
+		"displayIcon": "/common/destiny_content/icons/f754f0bd1f5409e0f8506d2b9996a7cf.png",
 		"isDisplayable": true,
 		"hash": 750820802,
 		"index": 0
@@ -60730,7 +60730,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 765056859,
 		"displayName": "Special Weapon Loader",
 		"displayDescription": "Increased reload speed with Special Weapons.",
-		"displayIcon": "/common/destiny_content/icons/59cf5e583db6ca7edb1cdf84618db64a.png",
+		"displayIcon": "/common/destiny_content/icons/c984a126c7c5ec0e042a1d29d2d653ed.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -60746,7 +60746,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 768224620,
 		"displayName": "Touch of Malice",
 		"displayDescription": "Final round of the magazine regenerates and deals bonus damage at the cost of the wielder's life force.",
-		"displayIcon": "/common/destiny_content/icons/b164741e3495c9a1bb70eeabccc8a103.png",
+		"displayIcon": "/common/destiny_content/icons/c396b01e02f6e5b3ca4c2c2d234dd1d1.png",
 		"isDisplayable": true,
 		"hash": 768224620,
 		"index": 0
@@ -60755,7 +60755,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 770631416,
 		"displayName": "Third Eye",
 		"displayDescription": "Radar stays active while aiming down this weapon's sights.",
-		"displayIcon": "/common/destiny_content/icons/0509998188009828226d3629db51f3cc.png",
+		"displayIcon": "/common/destiny_content/icons/0452255d864490f6720b9c69010246d2.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -60799,7 +60799,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 791068979,
 		"displayName": "Helium Cycle",
 		"displayDescription": "Increases the duration of your Solar Grenade.",
-		"displayIcon": "/common/destiny_content/icons/38432c8cd26036d83def18481628812a.png",
+		"displayIcon": "/common/destiny_content/icons/c8e94ed8c9930e6e31374fd876a56127.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -60822,7 +60822,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 808857588,
 		"displayName": "Persistence",
 		"displayDescription": "This weapon grows more accurate the longer it is fired.",
-		"displayIcon": "/common/destiny_content/icons/f15ae1d6efe3c9ccf4dcf2d4030b6ba3.png",
+		"displayIcon": "/common/destiny_content/icons/9b12be2f4fac9a7fa73c78bf57ad566d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 4,
@@ -60854,7 +60854,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 822136484,
 		"displayName": "Light the Blade",
 		"displayDescription": "Causing damage with a grenade reduces your melee cooldown.",
-		"displayIcon": "/common/destiny_content/icons/9e77ab3f249e78be6de120e886b94f28.png",
+		"displayIcon": "/common/destiny_content/icons/89b4db1eadaec499ba4cbc53fcaa2783.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -60870,7 +60870,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 822136485,
 		"displayName": "Fastball",
 		"displayDescription": "Increases grenade throw distance.",
-		"displayIcon": "/common/destiny_content/icons/2f128c25f309fa36095ea8528daa02e8.png",
+		"displayIcon": "/common/destiny_content/icons/85a6a91daa7d7b36cf79b34c9c3612ed.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -60886,7 +60886,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 824061322,
 		"displayName": "Mulligan",
 		"displayDescription": "Missing a shot has a chance to return ammo directly to the magazine.",
-		"displayIcon": "/common/destiny_content/icons/3eb6be2be75f49e4cffcdd0d3b3cd981.png",
+		"displayIcon": "/common/destiny_content/icons/2bf59caa7d3d661c22a4895a57d6f258.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -60902,7 +60902,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 824209275,
 		"displayName": "Last Word",
 		"displayDescription": "Improved stability and target acquisition when firing from the hip.",
-		"displayIcon": "/common/destiny_content/icons/b045bfc1d89258654b280b1c0d485e2f.png",
+		"displayIcon": "/common/destiny_content/icons/fb095e866e7a3f6a9edd37de61d164a9.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 34,
@@ -60918,7 +60918,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 827597015,
 		"displayName": "Peregrine Strike",
 		"displayDescription": "Airborne Shoulder Charge deals bonus damage.",
-		"displayIcon": "/common/destiny_content/icons/b4458d5dd8e33745678fda1479c583b7.png",
+		"displayIcon": "/common/destiny_content/icons/48bb598c11ef7967e35f78acb2c35dd1.png",
 		"isDisplayable": true,
 		"hash": 827597015,
 		"index": 0
@@ -60927,7 +60927,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 832509484,
 		"displayName": "Sniper Rifle Analysis",
 		"displayDescription": "Increased XP for Sniper Rifles.",
-		"displayIcon": "/common/destiny_content/icons/8afc5a740c892b07fff361f8f2dd3d21.png",
+		"displayIcon": "/common/destiny_content/icons/f86eb81a661764744e7b1a95fd5a0377.png",
 		"isDisplayable": true,
 		"hash": 832509484,
 		"index": 0
@@ -60936,7 +60936,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 836092325,
 		"displayName": "Resolute",
 		"displayDescription": "Gain Unstoppable for Fist of Havoc.",
-		"displayIcon": "/common/destiny_content/icons/b8804b0154590a22cb7494d4fc8b1250.png",
+		"displayIcon": "/common/destiny_content/icons/01bb247b28009da5fca6d6453856f854.png",
 		"isDisplayable": true,
 		"hash": 836092325,
 		"index": 0
@@ -60945,7 +60945,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 836377941,
 		"displayName": "Machine Gun Loader",
 		"displayDescription": "Increased reload speed with Machine Guns.",
-		"displayIcon": "/common/destiny_content/icons/59cf5e583db6ca7edb1cdf84618db64a.png",
+		"displayIcon": "/common/destiny_content/icons/c984a126c7c5ec0e042a1d29d2d653ed.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -60976,7 +60976,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 862074742,
 		"displayName": "Sunforged",
 		"displayDescription": "You have found success in the Trials of Osiris. Increases all XP gains.\n\nLasts until next weekly refresh.",
-		"displayIcon": "/common/destiny_content/icons/89038070714d5dafaf1ea6e49795698d.png",
+		"displayIcon": "/common/destiny_content/icons/a829a54ee0402732ce9d95792589a246.png",
 		"isDisplayable": true,
 		"hash": 862074742,
 		"index": 0
@@ -60985,7 +60985,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 866404097,
 		"displayName": "Vanguard Reputation Booster",
 		"displayDescription": "INSPIRATION\nIncreased Vanguard reputation rewards from Strike playlists.\n\nInspirations are shared with Fireteam members.",
-		"displayIcon": "/common/destiny_content/icons/8e164444270745500e0fd11f8db7b321.png",
+		"displayIcon": "/common/destiny_content/icons/afcea3651a540cbc54e9f0a9839aa1cc.png",
 		"isDisplayable": true,
 		"hash": 866404097,
 		"index": 0
@@ -60994,7 +60994,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 878342759,
 		"displayName": "Life Support",
 		"displayDescription": "Recovering from near death grants additional ammo and briefly increases reload speed.",
-		"displayIcon": "/common/destiny_content/icons/7597d4368c42204f0857739f2a395f6c.png",
+		"displayIcon": "/common/destiny_content/icons/0bde0da264f3f266d64a2bf7e991b22c.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -61031,7 +61031,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 896109025,
 		"displayName": "Elusive Shadow",
 		"displayDescription": "Grants Shadestep.",
-		"displayIcon": "/common/destiny_content/icons/3a2b5b23f473cc2f8cca635c100a5ad2.png",
+		"displayIcon": "/common/destiny_content/icons/4ff7aafd61d89c24d9d8168123736290.png",
 		"isDisplayable": true,
 		"hash": 896109025,
 		"index": 0
@@ -61040,7 +61040,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 906425441,
 		"displayName": "Praise the Sun",
 		"displayDescription": "When Radiance is active, increased Agility and decreased ability cooldowns",
-		"displayIcon": "/common/destiny_content/icons/40562016cf849ed6713d644b56725367.png",
+		"displayIcon": "/common/destiny_content/icons/d9e300dcd6a4fa11ec71bfc3a6c33ab6.png",
 		"isDisplayable": true,
 		"hash": 906425441,
 		"index": 0
@@ -61056,7 +61056,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 910871216,
 		"displayName": "Force Multiplier",
 		"displayDescription": "Shotgun kills trigger Force Barrier and Force Barrier's duration is increased.",
-		"displayIcon": "/common/destiny_content/icons/80bc739be1b662cfdee22d348e7d54d8.png",
+		"displayIcon": "/common/destiny_content/icons/7ad46d3df31ec5ac6802d80c452e7b1a.png",
 		"isDisplayable": true,
 		"hash": 910871216,
 		"index": 0
@@ -61100,7 +61100,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 952498108,
 		"displayName": "House of Judgment Reputation Booster",
 		"displayDescription": "INSPIRATION\nIncreased House of Judgment reputation rewards from the Prison of Elders.\n\nInspirations are shared with Fireteam members.",
-		"displayIcon": "/common/destiny_content/icons/8e164444270745500e0fd11f8db7b321.png",
+		"displayIcon": "/common/destiny_content/icons/afcea3651a540cbc54e9f0a9839aa1cc.png",
 		"isDisplayable": true,
 		"hash": 952498108,
 		"index": 0
@@ -61158,7 +61158,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 972070082,
 		"displayName": "Underdog",
 		"displayDescription": "This weapon gains a boost to range and handling when health is low.",
-		"displayIcon": "/common/destiny_content/icons/3c3c504b646cf5ac139fbf0a09e85a1e.png",
+		"displayIcon": "/common/destiny_content/icons/980ee5c7e48610e3fb93298bccddf3d1.png",
 		"isDisplayable": true,
 		"hash": 972070082,
 		"index": 0
@@ -61167,7 +61167,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 975069794,
 		"displayName": "Mutineer",
 		"displayDescription": "This weapon has a chance of suppressing a Fallen Captain's abilities.",
-		"displayIcon": "/common/destiny_content/icons/2028f525205a8af493e7054131e155ad.png",
+		"displayIcon": "/common/destiny_content/icons/1edb4e7efbe89340d917bf6c5acd501f.png",
 		"isDisplayable": true,
 		"hash": 975069794,
 		"index": 0
@@ -61176,7 +61176,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 978652848,
 		"displayName": "Invigoration",
 		"displayDescription": "Reduces melee cooldown each time you pick up an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/e06829cf573480506d175480460c4478.png",
+		"displayIcon": "/common/destiny_content/icons/231d5f6cd85cf014f353515377fb1ce3.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -61192,7 +61192,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 978652850,
 		"displayName": "Infusion",
 		"displayDescription": "Replenishes health each time you pick up an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/e06829cf573480506d175480460c4478.png",
+		"displayIcon": "/common/destiny_content/icons/231d5f6cd85cf014f353515377fb1ce3.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -61208,7 +61208,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 978652851,
 		"displayName": "Innervation",
 		"displayDescription": "Reduces grenade cooldown each time you pick up an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/e06829cf573480506d175480460c4478.png",
+		"displayIcon": "/common/destiny_content/icons/231d5f6cd85cf014f353515377fb1ce3.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -61224,7 +61224,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 980692031,
 		"displayName": "Be Somewhere Else",
 		"displayDescription": "Increases the duration Shoulder Charge remains active.",
-		"displayIcon": "/common/destiny_content/icons/bffc3db9a357077c38d6bc9915c01aa1.png",
+		"displayIcon": "/common/destiny_content/icons/f7c2b845594725e6cd40581bcd719761.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -61240,7 +61240,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 983558345,
 		"displayName": "Dubious Munitions",
 		"displayDescription": "Kills from the volley add another round to the volley.",
-		"displayIcon": "/common/destiny_content/icons/f3f1adcfbdd52fa272825e0e48149081.png",
+		"displayIcon": "/common/destiny_content/icons/994db01b42dcffdd14949fa74b9cb0e8.png",
 		"isDisplayable": true,
 		"hash": 983558345,
 		"index": 0
@@ -61314,7 +61314,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1026458383,
 		"displayName": "Life Support",
 		"displayDescription": "Kills with this weapon while critically wounded have a chance to start regenerating health.",
-		"displayIcon": "/common/destiny_content/icons/7597d4368c42204f0857739f2a395f6c.png",
+		"displayIcon": "/common/destiny_content/icons/0bde0da264f3f266d64a2bf7e991b22c.png",
 		"isDisplayable": true,
 		"hash": 1026458383,
 		"index": 0
@@ -61323,7 +61323,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1028572792,
 		"displayName": "Void Armor",
 		"displayDescription": "Increased Armor when using a Void-based subclass.",
-		"displayIcon": "/common/destiny_content/icons/a24625529d3bc4f3c7494ad75dc089c3.png",
+		"displayIcon": "/common/destiny_content/icons/84a3553135a48e29bbdc26e3126e604e.png",
 		"isDisplayable": true,
 		"hash": 1028572792,
 		"index": 0
@@ -61332,7 +61332,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1029160485,
 		"displayName": "Cascade",
 		"displayDescription": "Melee kills increase the reload speed of this weapon for a short time.",
-		"displayIcon": "/common/destiny_content/icons/0a07e68038f2d32ff6aa5c2590bd145d.png",
+		"displayIcon": "/common/destiny_content/icons/b5c4d328fb6cfad8cb8019d48a119777.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -61348,7 +61348,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1035043885,
 		"displayName": "Link of Friendship",
 		"displayDescription": "Increased XP gain when playing with a Linked Friend. Lasts until Level 40.",
-		"displayIcon": "/common/destiny_content/icons/6057ca4e0680902cec1252f3c74a1b61.png",
+		"displayIcon": "/common/destiny_content/icons/1fae29da9356c7a3b11d7193d8dd53e6.png",
 		"isDisplayable": true,
 		"hash": 1035043885,
 		"index": 0
@@ -61364,7 +61364,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1047916330,
 		"displayName": "Fusion Rifle Mags",
 		"displayDescription": "Carry more ammo for Fusion Rifles.",
-		"displayIcon": "/common/destiny_content/icons/f4b575581c598ff33fa88e056e96911c.png",
+		"displayIcon": "/common/destiny_content/icons/7080ab9b4c5efb867659a37c0fcf9d0e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -61394,7 +61394,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1067185655,
 		"displayName": "The Tarantella",
 		"displayDescription": "Reduced Arc damage from minions of the Darkness. Arc grenades and Arc Blade recharge faster.",
-		"displayIcon": "/common/destiny_content/icons/0d71d3112fa5cfe1dd3076d2e128022e.png",
+		"displayIcon": "/common/destiny_content/icons/50cb2204600a1242fec181b52353b97f.png",
 		"isDisplayable": true,
 		"hash": 1067185655,
 		"index": 0
@@ -61403,7 +61403,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1075279944,
 		"displayName": "Inverse Shadow",
 		"displayDescription": "Increased Super energy gained from killing minions of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/518fb40d313b1a4742394f87d250bff9.png",
+		"displayIcon": "/common/destiny_content/icons/622b05ed60e099239a0055ff397f6e91.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -61419,7 +61419,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1075279945,
 		"displayName": "Quintessence Transfer",
 		"displayDescription": "Replenish Super energy when you kill an enemy with a grenade.",
-		"displayIcon": "/common/destiny_content/icons/6b879afd0acecf041c33122ed81f8221.png",
+		"displayIcon": "/common/destiny_content/icons/acb1db796050081625619d709674863f.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -61442,7 +61442,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1078710758,
 		"displayName": "Moment of Power",
 		"displayDescription": "Gain a temporary increase to weapon damage while Oversoul's Gaze is active.",
-		"displayIcon": "/common/destiny_content/icons/4deb1097842b2262f86d620445a0e820.png",
+		"displayIcon": "/common/destiny_content/icons/28984deb35a2bdbae17f449c4db6dffd.png",
 		"isDisplayable": true,
 		"hash": 1078710758,
 		"index": 0
@@ -61451,7 +61451,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1094584227,
 		"displayName": "Heavy Weapon Loader",
 		"displayDescription": "Increased reload speed with Heavy Weapons.",
-		"displayIcon": "/common/destiny_content/icons/59cf5e583db6ca7edb1cdf84618db64a.png",
+		"displayIcon": "/common/destiny_content/icons/c984a126c7c5ec0e042a1d29d2d653ed.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -61467,7 +61467,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1101818187,
 		"displayName": "Innervation",
 		"displayDescription": "Bonus grenade energy on Orb pickup.",
-		"displayIcon": "/common/destiny_content/icons/9e77ab3f249e78be6de120e886b94f28.png",
+		"displayIcon": "/common/destiny_content/icons/89b4db1eadaec499ba4cbc53fcaa2783.png",
 		"isDisplayable": true,
 		"hash": 1101818187,
 		"index": 0
@@ -61483,7 +61483,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1102749857,
 		"displayName": "Viper Totemic",
 		"displayDescription": "Improved Energy Drain, and weapons ready and reload very quickly.",
-		"displayIcon": "/common/destiny_content/icons/15fe54221c95e3a0a3f677d82e98126f.png",
+		"displayIcon": "/common/destiny_content/icons/05e071cbf52e4463e6434ab42f734c0c.png",
 		"isDisplayable": true,
 		"hash": 1102749857,
 		"index": 0
@@ -61506,7 +61506,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1105473874,
 		"displayName": "Sniper Rifle Affinity",
 		"displayDescription": "Unlocks upgrades on Sniper Rifles.",
-		"displayIcon": "/common/destiny_content/icons/8afc5a740c892b07fff361f8f2dd3d21.png",
+		"displayIcon": "/common/destiny_content/icons/f86eb81a661764744e7b1a95fd5a0377.png",
 		"isDisplayable": true,
 		"hash": 1105473874,
 		"index": 0
@@ -61515,7 +61515,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1120000449,
 		"displayName": "Shotgun Shells",
 		"displayDescription": "Carry more ammo for Shotgun.",
-		"displayIcon": "/common/destiny_content/icons/4c181fb7a5700ad31d20d61ce489936b.png",
+		"displayIcon": "/common/destiny_content/icons/e78fed6fb7e1fd4f08db0a7af4bbb187.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -61531,7 +61531,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1120760334,
 		"displayName": "Red Chroma",
 		"displayDescription": "Activates a Red Chroma glow.",
-		"displayIcon": "/common/destiny_content/icons/605c2b1958855db2188ed87f18fe3423.png",
+		"displayIcon": "/common/destiny_content/icons/a914985d196bddd12a24888fa5876a37.png",
 		"isDisplayable": true,
 		"hash": 1120760334,
 		"index": 0
@@ -61561,7 +61561,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1133197888,
 		"displayName": "Bathed in Light",
 		"displayDescription": "Blessing of Light and Weapons of Light last longer.",
-		"displayIcon": "/common/destiny_content/icons/6a56c682818379b5fd37bc5ad0f012f2.png",
+		"displayIcon": "/common/destiny_content/icons/c4e39f5e31d16bfe5517acd9f3d1b741.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -61584,7 +61584,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1160175599,
 		"displayName": "Titan Bounty",
 		"displayDescription": "Generate additional Glimmer when killing Titans in the Crucible.",
-		"displayIcon": "/common/destiny_content/icons/33f825dea06accc62bc0b56b7ac751e3.png",
+		"displayIcon": "/common/destiny_content/icons/85d3c9d81abe3b6c8e9ba6721a681b93.png",
 		"isDisplayable": true,
 		"hash": 1160175599,
 		"index": 0
@@ -61593,7 +61593,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1167703023,
 		"displayName": "Warrior of Light",
 		"displayDescription": "Increased damage for your  attack.",
-		"displayIcon": "/common/destiny_content/icons/a24625529d3bc4f3c7494ad75dc089c3.png",
+		"displayIcon": "/common/destiny_content/icons/84a3553135a48e29bbdc26e3126e604e.png",
 		"isDisplayable": true,
 		"hash": 1167703023,
 		"index": 0
@@ -61602,7 +61602,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1170991030,
 		"displayName": "Field Trip",
 		"displayDescription": "Increased Tripmine Grenade duration. Gain an additional Tripmine Grenade charge.",
-		"displayIcon": "/common/destiny_content/icons/38d62fa3c964bb26021722458fbda2dc.png",
+		"displayIcon": "/common/destiny_content/icons/097db4894e10a0376b765f4f4d6ba8d2.png",
 		"isDisplayable": true,
 		"hash": 1170991030,
 		"index": 0
@@ -61611,7 +61611,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1173182893,
 		"displayName": "Shoot to Loot",
 		"displayDescription": "Shooting any type of ammo picks it up.",
-		"displayIcon": "/common/destiny_content/icons/51a0bd607165e5e4307f2614c1c3b351.png",
+		"displayIcon": "/common/destiny_content/icons/c5dbc3deb97d01bd41b4b60cb4c88932.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -61627,7 +61627,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1175838572,
 		"displayName": "Hand Cannon Loader",
 		"displayDescription": "Increases the reload speed of Hand Cannons.",
-		"displayIcon": "/common/destiny_content/icons/99dbbb7349e49688cc99219036cadfc2.png",
+		"displayIcon": "/common/destiny_content/icons/88434e5c389da7643136d389b344522d.png",
 		"isDisplayable": true,
 		"hash": 1175838572,
 		"index": 0
@@ -61636,7 +61636,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1183516219,
 		"displayName": "Mark of the Devourer",
 		"displayDescription": "Rounds pierce targets and cause lingering damage over time.",
-		"displayIcon": "/common/destiny_content/icons/0876b450c2a9c27d0c1c23b17ed80344.png",
+		"displayIcon": "/common/destiny_content/icons/19054aa07e14e4c38b5fec3b1fcdcd91.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -61659,7 +61659,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1190369844,
 		"displayName": "Keeper of the Pack",
 		"displayDescription": "Supers generate an extra Orb. \nRevive and be revived faster.",
-		"displayIcon": "/common/destiny_content/icons/adf9e0eb55e95c598a0b93730a3f7122.png",
+		"displayIcon": "/common/destiny_content/icons/42dcdd4b9800bdd355d31720bc2d3221.png",
 		"isDisplayable": true,
 		"hash": 1190369844,
 		"index": 0
@@ -61675,7 +61675,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1192626580,
 		"displayName": "Arachnid Sensorium",
 		"displayDescription": "Golden Gun lasts longer, zooms in further when aimed.",
-		"displayIcon": "/common/destiny_content/icons/0d9afe738304463261adfc937f4a3cc7.png",
+		"displayIcon": "/common/destiny_content/icons/a22c25dfe253a9914faac1f698b2aacd.png",
 		"isDisplayable": true,
 		"hash": 1192626580,
 		"index": 0
@@ -61684,7 +61684,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1195575848,
 		"displayName": "Recklessness",
 		"displayDescription": "Gain Death from Above and Headstrong.",
-		"displayIcon": "/common/destiny_content/icons/f7548a08516c2d3b6994dbf6a50182dc.png",
+		"displayIcon": "/common/destiny_content/icons/c6a38f4a9fc7fbba9c95df572a4220cb.png",
 		"isDisplayable": true,
 		"hash": 1195575848,
 		"index": 0
@@ -61707,7 +61707,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1228656138,
 		"displayName": "Fusion Rifle Ammo",
 		"displayDescription": "Increases the amount of Fusion Rifle ammunition you can carry.",
-		"displayIcon": "/common/destiny_content/icons/f4b575581c598ff33fa88e056e96911c.png",
+		"displayIcon": "/common/destiny_content/icons/7080ab9b4c5efb867659a37c0fcf9d0e.png",
 		"isDisplayable": true,
 		"hash": 1228656138,
 		"index": 0
@@ -61737,7 +61737,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1257014586,
 		"displayName": "Crucible Champion",
 		"displayDescription": "Increases your Crucible reputation gains.",
-		"displayIcon": "/common/destiny_content/icons/ffcbb1544b6b26235ee1435069544ff1.png",
+		"displayIcon": "/common/destiny_content/icons/5d03c3e1c053e029b6d7bdac571caa19.png",
 		"isDisplayable": true,
 		"hash": 1257014586,
 		"index": 0
@@ -61746,7 +61746,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1258704074,
 		"displayName": "Rescue Mag",
 		"displayDescription": "Chance to refill this weapon's magazine when critically wounded.",
-		"displayIcon": "/common/destiny_content/icons/35530088de569a4b7dc2fb563ec882e4.png",
+		"displayIcon": "/common/destiny_content/icons/854cbfa7229924f645f4afc6d196dd8c.png",
 		"isDisplayable": true,
 		"hash": 1258704074,
 		"index": 0
@@ -61755,7 +61755,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1269473995,
 		"displayName": "Sidearm Ammo",
 		"displayDescription": "Increases the amount of Sidearm ammunition you can carry.",
-		"displayIcon": "/common/destiny_content/icons/57bc9429b006f41f5d1d568bd3511a92.png",
+		"displayIcon": "/common/destiny_content/icons/1969a4e7a3d906c3e5281693acdb17b0.png",
 		"isDisplayable": true,
 		"hash": 1269473995,
 		"index": 0
@@ -61764,7 +61764,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1275958706,
 		"displayName": "Secret Round",
 		"displayDescription": "Missing a shot from this weapon's burst will fire a fourth shot.",
-		"displayIcon": "/common/destiny_content/icons/fa464484054062106c1601ce0d46185f.png",
+		"displayIcon": "/common/destiny_content/icons/9e7a2f0872476ead1abd4cf5ace7df3b.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 1,
@@ -61780,7 +61780,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1279198574,
 		"displayName": "Overflow",
 		"displayDescription": "This weapon has better handling, rate of fire and stability while the wielder's Super is charged.",
-		"displayIcon": "/common/destiny_content/icons/1b955021cfdf0cfe321d5675da8943ce.png",
+		"displayIcon": "/common/destiny_content/icons/20ed5cc006df3c0d7594bd29556a4118.png",
 		"isDisplayable": true,
 		"hash": 1279198574,
 		"index": 0
@@ -61789,7 +61789,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1280559225,
 		"displayName": "Lich Bane",
 		"displayDescription": "Projectiles have a chance to disorient Hive Wizards.",
-		"displayIcon": "/common/destiny_content/icons/d314c1134afcf5dd1aac14aa682e8bf3.png",
+		"displayIcon": "/common/destiny_content/icons/426ffcc29ca5689da0f379ed4ad8e081.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -61847,7 +61847,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1316249427,
 		"displayName": "Unstable Current",
 		"displayDescription": "Arc Blade attacks use less super energy.",
-		"displayIcon": "/common/destiny_content/icons/c8da5f251b1f0d40de5dcacecf89e7ca.png",
+		"displayIcon": "/common/destiny_content/icons/03715bfd730b1ca6e18d20fe7cd40a3e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -61877,7 +61877,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1318675793,
 		"displayName": "Nightmare Fuel",
 		"displayDescription": "Gain additional melee charge, and melee damage may reload Primary Weapon.",
-		"displayIcon": "/common/destiny_content/icons/30442b12708595bf3ebab219c604c714.png",
+		"displayIcon": "/common/destiny_content/icons/a168c70ef57fcb494db96d514659a8af.png",
 		"isDisplayable": true,
 		"hash": 1318675793,
 		"index": 0
@@ -61921,7 +61921,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1334652795,
 		"displayName": "Bouncer",
 		"displayDescription": "Kills inside Ward of Dawn with Armor of Light do not expend ammo.",
-		"displayIcon": "/common/destiny_content/icons/83fc198f61473c03bd15bdafdf000b79.png",
+		"displayIcon": "/common/destiny_content/icons/0d54cae02e7ed24c9d0c6c6fd9fec375.png",
 		"isDisplayable": true,
 		"hash": 1334652795,
 		"index": 0
@@ -61981,7 +61981,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1341569328,
 		"displayName": "Versatile Shooter",
 		"displayDescription": "Chance to create Orbs on Heavy Weapon kills. \nWith a full Super, Orbs may grant Special Ammo.",
-		"displayIcon": "/common/destiny_content/icons/4470722baf00d892990acdc043d54847.png",
+		"displayIcon": "/common/destiny_content/icons/56c752a066ea639425906489982d78c1.png",
 		"isDisplayable": true,
 		"hash": 1341569328,
 		"index": 0
@@ -61997,7 +61997,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1351885744,
 		"displayName": "Hungering Void",
 		"displayDescription": "Spawn with full grenade. \nAxion Bolt gains additional seeker.",
-		"displayIcon": "/common/destiny_content/icons/533f54dcec517968bc08dfcf8b4fe9c5.png",
+		"displayIcon": "/common/destiny_content/icons/86010134df726db5d44c5a0c4df239a1.png",
 		"isDisplayable": true,
 		"hash": 1351885744,
 		"index": 0
@@ -62020,7 +62020,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1357398595,
 		"displayName": "Void Accumulator",
 		"displayDescription": "Void melees have a chance to generate an Orb when killing a minion of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/494b8c62f530e80b36f2301e1e17e18c.png",
+		"displayIcon": "/common/destiny_content/icons/6de1801d278b1b39ad2d48590e918396.png",
 		"isDisplayable": true,
 		"hash": 1357398595,
 		"index": 0
@@ -62029,7 +62029,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1359068529,
 		"displayName": "Fusion Rifle Loader",
 		"displayDescription": "Increased reload speed with Fusion Rifles.",
-		"displayIcon": "/common/destiny_content/icons/72e783736afe2d61fd659a965761de3c.png",
+		"displayIcon": "/common/destiny_content/icons/f159645276245aef5584990b28a940b4.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -62045,7 +62045,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1379106954,
 		"displayName": "Delusions of Grandeur",
 		"displayDescription": "Tougher while using Nova Bomb. Improved Energy Drain.",
-		"displayIcon": "/common/destiny_content/icons/38432c8cd26036d83def18481628812a.png",
+		"displayIcon": "/common/destiny_content/icons/c8e94ed8c9930e6e31374fd876a56127.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -62061,7 +62061,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1380004402,
 		"displayName": "Exotic Particles",
 		"displayDescription": "Grants a chance to receive an Exotic Engram on the next Ultra kill or Crucible match completion.",
-		"displayIcon": "/common/destiny_content/icons/84db39d9423f7c00043ec1239567c939.png",
+		"displayIcon": "/common/destiny_content/icons/3e0388304144f48e335a396d415646f2.png",
 		"isDisplayable": true,
 		"hash": 1380004402,
 		"index": 0
@@ -62077,7 +62077,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1392713960,
 		"displayName": "Supermassive Vortex",
 		"displayDescription": "Use  to unleash a spiral of Void energy in all directions.",
-		"displayIcon": "/common/destiny_content/icons/6103a7951ae956ed14cee58103501605.png",
+		"displayIcon": "/common/destiny_content/icons/4139d45bb3291a7a14a7c9118c3b2a95.png",
 		"isDisplayable": true,
 		"hash": 1392713960,
 		"index": 0
@@ -62086,7 +62086,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1394084296,
 		"displayName": "Scout Rifle Loader",
 		"displayDescription": "Increases the reload speed of Scout Rifles.",
-		"displayIcon": "/common/destiny_content/icons/f4b430c1e30d159f6a1d773a8f1f6e7e.png",
+		"displayIcon": "/common/destiny_content/icons/ff6c35013901487ff28aa72a9d45837a.png",
 		"isDisplayable": true,
 		"hash": 1394084296,
 		"index": 0
@@ -62095,7 +62095,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1395368594,
 		"displayName": "Switchblade",
 		"displayDescription": "Decreases melee attack cooldown time.",
-		"displayIcon": "/common/destiny_content/icons/9d4ae6a386acb63d5a929a35e2e1b930.png",
+		"displayIcon": "/common/destiny_content/icons/2973cd4c1f577f382a100383e508dab1.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -62111,7 +62111,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1395368595,
 		"displayName": "Incisive Maintenance",
 		"displayDescription": "Causing damage with a melee attack reduces your grenade cooldown.",
-		"displayIcon": "/common/destiny_content/icons/cbc5e8cd8a60b66880dbd6217d18989a.png",
+		"displayIcon": "/common/destiny_content/icons/f182d708865b344c58287d8c41785877.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -62127,7 +62127,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1405953642,
 		"displayName": "Fast Enter",
 		"displayDescription": "Reduces time needed to summon Sparrow.",
-		"displayIcon": "/common/destiny_content/icons/630cef8d86139cd092b217997a41b742.png",
+		"displayIcon": "/common/destiny_content/icons/7bb88c5195cda4d5c1eb2daa2faffd21.png",
 		"isDisplayable": true,
 		"hash": 1405953642,
 		"index": 0
@@ -62136,7 +62136,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1424250509,
 		"displayName": "Last Hope",
 		"displayDescription": "Increased Agility after becoming the last Guardian standing.",
-		"displayIcon": "/common/destiny_content/icons/8562c25f1e0228e50e3c4e974d10c68b.png",
+		"displayIcon": "/common/destiny_content/icons/0c459da69e778f6fb8cc14cf8e0b6233.png",
 		"isDisplayable": true,
 		"hash": 1424250509,
 		"index": 0
@@ -62152,7 +62152,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1426726656,
 		"displayName": "Energy Projection",
 		"displayDescription": "Increases grenade throw distance.",
-		"displayIcon": "/common/destiny_content/icons/9e77ab3f249e78be6de120e886b94f28.png",
+		"displayIcon": "/common/destiny_content/icons/89b4db1eadaec499ba4cbc53fcaa2783.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -62168,7 +62168,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1426726657,
 		"displayName": "Serpent's Mouth",
 		"displayDescription": "Causing damage with a grenade reduces your melee cooldown.",
-		"displayIcon": "/common/destiny_content/icons/2f128c25f309fa36095ea8528daa02e8.png",
+		"displayIcon": "/common/destiny_content/icons/85a6a91daa7d7b36cf79b34c9c3612ed.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -62184,7 +62184,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1435171161,
 		"displayName": "Swordbearer's Touch",
 		"displayDescription": "Gain a temporary increase to Agility while carrying the sword of a Hive Swordbearer.",
-		"displayIcon": "/common/destiny_content/icons/c54194603c73c5cb58a6572ed90c6625.png",
+		"displayIcon": "/common/destiny_content/icons/e94b8dd70c64de6aee52608979609a69.png",
 		"isDisplayable": true,
 		"hash": 1435171161,
 		"index": 0
@@ -62200,7 +62200,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1453994006,
 		"displayName": "Wolfpack Rounds",
 		"displayDescription": "Rounds fired from this weapon split into tracking cluster missiles upon detonation.",
-		"displayIcon": "/common/destiny_content/icons/824737b80534a8a86e4123a06cf6c2b9.png",
+		"displayIcon": "/common/destiny_content/icons/55729ec83390cbce1a757ca22b54b146.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -62251,7 +62251,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1456076301,
 		"displayName": "Solar Double-Down",
 		"displayDescription": "Increased Agility for 5 seconds after a Solar Double kill.",
-		"displayIcon": "/common/destiny_content/icons/29279ed9a657bd97dc82eb4e57241607.png",
+		"displayIcon": "/common/destiny_content/icons/42690a4c17066760ba54f203878c2e89.png",
 		"isDisplayable": true,
 		"hash": 1456076301,
 		"index": 0
@@ -62260,7 +62260,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1465160714,
 		"displayName": "Serpent's Tail",
 		"displayDescription": "Causing damage with a melee reduces your grenade cooldown.",
-		"displayIcon": "/common/destiny_content/icons/cbc5e8cd8a60b66880dbd6217d18989a.png",
+		"displayIcon": "/common/destiny_content/icons/f182d708865b344c58287d8c41785877.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -62276,7 +62276,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1465160715,
 		"displayName": "Snap Discharge",
 		"displayDescription": "Increases melee attack speed.",
-		"displayIcon": "/common/destiny_content/icons/4afb26a7c2fd66315e6080451ccdad91.png",
+		"displayIcon": "/common/destiny_content/icons/0237559bc56d5a8aadbcef98d377f22a.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -62306,7 +62306,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1485291076,
 		"displayName": "Hat Trick",
 		"displayDescription": "The final round in each burst deals bonus precision damage.",
-		"displayIcon": "/common/destiny_content/icons/5347883f4f3f18473bebd24917bf9c01.png",
+		"displayIcon": "/common/destiny_content/icons/fb609b7dfb2cfa3d119050cdb404f26e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -62336,7 +62336,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1488331959,
 		"displayName": "Crimson Connection",
 		"displayDescription": "Inspiration: Increases the upgrade rate for all weapons while you are in a Fireteam with the Inspiration provider. \nEffect lasts for 30 minutes and will fade if you leave the Fireteam.",
-		"displayIcon": "/common/destiny_content/icons/6de4e46b74246bc5d1fc4c8bfea45b4e.png",
+		"displayIcon": "/common/destiny_content/icons/0284e52b6aa223a3c51c91bd78febf9b.png",
 		"isDisplayable": true,
 		"hash": 1488331959,
 		"index": 0
@@ -62345,7 +62345,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1490285904,
 		"displayName": "Kneepads",
 		"displayDescription": "Slide further while this weapon is equipped.",
-		"displayIcon": "/common/destiny_content/icons/35534b5dc2f51a61d9a25f12e4cb7ddc.png",
+		"displayIcon": "/common/destiny_content/icons/4adeab4cd0fd475936237f2168d3ddbf.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -62361,7 +62361,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1491779096,
 		"displayName": "Hive Hunter",
 		"displayDescription": "Increased XP from Hive enemies.",
-		"displayIcon": "/common/destiny_content/icons/49d482f9cdcc096728af108a09e4ea9c.png",
+		"displayIcon": "/common/destiny_content/icons/a6f9041ae5c9b71fa066af467cc88597.png",
 		"isDisplayable": true,
 		"hash": 1491779096,
 		"index": 0
@@ -62370,7 +62370,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1493702833,
 		"displayName": "Boon of Osiris",
 		"displayDescription": "You have been granted a Boon. If you win your next Trials match, it will count as two wins.",
-		"displayIcon": "/common/destiny_content/icons/ae1ed9037ee4c3cd057cdfe1eea005ed.png",
+		"displayIcon": "/common/destiny_content/icons/e0bc99597bd264d2a254a812150e6282.png",
 		"isDisplayable": true,
 		"hash": 1493702833,
 		"index": 0
@@ -62379,7 +62379,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1501278848,
 		"displayName": "Vex Arbiter",
 		"displayDescription": "Greatly increased Recovery and Super recharge when fighting Vex in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/b66ac2d3e986c7327563d48324fa966f.png",
+		"displayIcon": "/common/destiny_content/icons/f754f0bd1f5409e0f8506d2b9996a7cf.png",
 		"isDisplayable": true,
 		"hash": 1501278848,
 		"index": 0
@@ -62388,7 +62388,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1506633456,
 		"displayName": "Lightning Rod",
 		"displayDescription": "Grants Landfall.",
-		"displayIcon": "/common/destiny_content/icons/679f42725318091c38e352c2343b665c.png",
+		"displayIcon": "/common/destiny_content/icons/5a0c5bd4543c9739f7eb03454538c61e.png",
 		"isDisplayable": true,
 		"hash": 1506633456,
 		"index": 0
@@ -62397,7 +62397,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1509404812,
 		"displayName": "Keeper of the Pack",
 		"displayDescription": "Supers generate an extra Orb. \nRevive and be revived faster.",
-		"displayIcon": "/common/destiny_content/icons/adf9e0eb55e95c598a0b93730a3f7122.png",
+		"displayIcon": "/common/destiny_content/icons/42dcdd4b9800bdd355d31720bc2d3221.png",
 		"isDisplayable": true,
 		"hash": 1509404812,
 		"index": 0
@@ -62448,7 +62448,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1528860941,
 		"displayName": "Prototype Trueseeker",
 		"displayDescription": "Rounds fired from this weapon seek their targets aggressively.",
-		"displayIcon": "/common/destiny_content/icons/1f391b267a76fa962a2a301b6c6b2c02.png",
+		"displayIcon": "/common/destiny_content/icons/ba08d0a0de601e5fe3c17295136c448f.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 1024,
@@ -62471,7 +62471,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1541353681,
 		"displayName": "Ether Needle",
 		"displayDescription": "Chance to generate Orbs when killing Fallen with precision hits.",
-		"displayIcon": "/common/destiny_content/icons/b66ac2d3e986c7327563d48324fa966f.png",
+		"displayIcon": "/common/destiny_content/icons/f754f0bd1f5409e0f8506d2b9996a7cf.png",
 		"isDisplayable": true,
 		"hash": 1541353681,
 		"index": 0
@@ -62501,7 +62501,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1561443109,
 		"displayName": "Iron Allegiance",
 		"displayDescription": "Increases Event Standing gained in the Iron Banner.",
-		"displayIcon": "/common/destiny_content/icons/0e0c5d74bcaa84e8af0d29c705f63226.png",
+		"displayIcon": "/common/destiny_content/icons/3176f6bff440d8fc1419f2d37e884959.png",
 		"isDisplayable": true,
 		"hash": 1561443109,
 		"index": 0
@@ -62531,7 +62531,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1566222180,
 		"displayName": "Full Auto",
 		"displayDescription": "This weapon can be fired in full auto mode.",
-		"displayIcon": "/common/destiny_content/icons/b9197f53ad91d7d44eb36d04d711867e.png",
+		"displayIcon": "/common/destiny_content/icons/c743d2b077595e74de66b190cbb6948f.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 1,
@@ -62547,7 +62547,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1568304667,
 		"displayName": "Luck in the Chamber",
 		"displayDescription": "One random bullet in the magazine causes considerable bonus damage.",
-		"displayIcon": "/common/destiny_content/icons/02ceae1bf41c0782e7bdbbbe8d72410a.png",
+		"displayIcon": "/common/destiny_content/icons/717ed4daf3ba16b749dd1077d7b8087b.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -62570,7 +62570,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1569097303,
 		"displayName": "Private Reserves",
 		"displayDescription": "Immediate health, melee, and grenade regeneration on activating your Super.",
-		"displayIcon": "/common/destiny_content/icons/b370c412a547f8e3e7af25b8bba5ca75.png",
+		"displayIcon": "/common/destiny_content/icons/720c6eb673de9ba2336c7b1c8e7e2fed.png",
 		"isDisplayable": true,
 		"hash": 1569097303,
 		"index": 0
@@ -62579,7 +62579,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1577779520,
 		"displayName": "Pulse Rifle Ammo",
 		"displayDescription": "Increases the amount of Pulse Rifle ammunition you can carry.",
-		"displayIcon": "/common/destiny_content/icons/f35ff93bea8c8e88dfc5b9912725fa44.png",
+		"displayIcon": "/common/destiny_content/icons/87fe20b5f2a3d9f1709de23945c029ce.png",
 		"isDisplayable": true,
 		"hash": 1577779520,
 		"index": 0
@@ -62588,7 +62588,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1578005732,
 		"displayName": "Radiant Light",
 		"displayDescription": "You have come through the darkness undiminished. Increases all XP gains.\n\nLasts until weekly refresh.",
-		"displayIcon": "/common/destiny_content/icons/b1e290855be29cce2e3676f5e8769069.png",
+		"displayIcon": "/common/destiny_content/icons/5949b912dbe7f47c32a551b3a864ff4d.png",
 		"isDisplayable": true,
 		"hash": 1578005732,
 		"index": 0
@@ -62597,7 +62597,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1584602733,
 		"displayName": "Performance Bonus",
 		"displayDescription": "Kills with this weapon have the chance to grant bonus reserve ammo.",
-		"displayIcon": "/common/destiny_content/icons/123dc3b01e7e9bfe672e229bf35665c6.png",
+		"displayIcon": "/common/destiny_content/icons/18589744b3af1397bc41e386eb42a16d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -62620,7 +62620,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1595332315,
 		"displayName": "Performance Bonus",
 		"displayDescription": "Kills with this weapon have the chance to grant bonus reserve ammo.",
-		"displayIcon": "/common/destiny_content/icons/123dc3b01e7e9bfe672e229bf35665c6.png",
+		"displayIcon": "/common/destiny_content/icons/18589744b3af1397bc41e386eb42a16d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -62636,7 +62636,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1600125496,
 		"displayName": "Secret Round",
 		"displayDescription": "Missing a shot from this weapon's burst will fire a fourth shot.",
-		"displayIcon": "/common/destiny_content/icons/d4bf564168b12e5efc7ec2e7bd3c752b.png",
+		"displayIcon": "/common/destiny_content/icons/b092ffc8912bb181956401a022c4e34f.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 1,
@@ -62652,7 +62652,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1605283625,
 		"displayName": "Destabilizers",
 		"displayDescription": "Use  while airborne to release roll stabilizers, and  to roll.",
-		"displayIcon": "/common/destiny_content/icons/c6cba74485556c3c6deda04cd8331c4e.png",
+		"displayIcon": "/common/destiny_content/icons/c21fd84e7252e072e18f7287f4046ec5.png",
 		"isDisplayable": true,
 		"hash": 1605283625,
 		"index": 0
@@ -62661,7 +62661,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1613412752,
 		"displayName": "Shotgun Focus",
 		"displayDescription": "Increases the upgrade rate for Shotguns.",
-		"displayIcon": "/common/destiny_content/icons/151357b9b5c140b3457cb578ab948176.png",
+		"displayIcon": "/common/destiny_content/icons/4a01595f45aa226e6ed132d09424381d.png",
 		"isDisplayable": true,
 		"hash": 1613412752,
 		"index": 0
@@ -62691,7 +62691,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1617397024,
 		"displayName": "New Tricks",
 		"displayDescription": "Improves Skip Grenade and gain an additional Skip Grenade charge.",
-		"displayIcon": "/common/destiny_content/icons/defb724481209b7f438c64ad7b32eca8.png",
+		"displayIcon": "/common/destiny_content/icons/03073c3ed6893c20752c7126dff41ffb.png",
 		"isDisplayable": true,
 		"hash": 1617397024,
 		"index": 0
@@ -62700,7 +62700,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1618254058,
 		"displayName": "Dead Eye",
 		"displayDescription": "Bonus to range, stability, and movement speed when aiming down sights.",
-		"displayIcon": "/common/destiny_content/icons/a24994584a902801bc18472d7d26aed3.png",
+		"displayIcon": "/common/destiny_content/icons/16ef13496a2e3ea722639a30f18cea7d.png",
 		"isDisplayable": true,
 		"hash": 1618254058,
 		"index": 0
@@ -62709,7 +62709,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1628451145,
 		"displayName": "XP Boost",
 		"displayDescription": "Increases experience gains for your Subclass, Weapons, and Armor.",
-		"displayIcon": "/common/destiny_content/icons/d2847a63a56d578033c9579a99e07a2d.png",
+		"displayIcon": "/common/destiny_content/icons/802d6e74d9aeff47eae3247cb7370bba.png",
 		"isDisplayable": true,
 		"hash": 1628451145,
 		"index": 0
@@ -62718,7 +62718,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1632665602,
 		"displayName": "Focused Fire",
 		"displayDescription": "When zoomed, this weapon fires slower, but causes additional damage.",
-		"displayIcon": "/common/destiny_content/icons/da2173b8568e3219db3642f9890c5827.png",
+		"displayIcon": "/common/destiny_content/icons/19ec6ba233a29b49d43d53e9f40a1ca3.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 3,
@@ -62734,7 +62734,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1633645359,
 		"displayName": "Flight of Shadows",
 		"displayDescription": "Are you the dream of a sleeping god? Or the nightmare of a dead one?",
-		"displayIcon": "/common/destiny_content/icons/d7597355a8729fa040f96e9b755c2ab3.png",
+		"displayIcon": "/common/destiny_content/icons/cd072ed44d391b9df2b48e0f345a99aa.png",
 		"isDisplayable": true,
 		"hash": 1633645359,
 		"index": 0
@@ -62764,7 +62764,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1651022462,
 		"displayName": "Unplanned Reprieve",
 		"displayDescription": "Fusion projectiles attach and detonate with a delayed Void blast.",
-		"displayIcon": "/common/destiny_content/icons/1561bdd706c0ca5fa4d04e46827fd0cf.png",
+		"displayIcon": "/common/destiny_content/icons/29b3ac56674d62fa6a0f72b96555d926.png",
 		"isDisplayable": true,
 		"hash": 1651022462,
 		"index": 0
@@ -62787,7 +62787,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1679363838,
 		"displayName": "Flaming Skull",
 		"displayDescription": "The haunting touch of the afterlife.",
-		"displayIcon": "/common/destiny_content/icons/c8167c8f00639dfe7955d7605c8b26f3.png",
+		"displayIcon": "/common/destiny_content/icons/dedb7719d3a464df2239cc49fd895482.png",
 		"isDisplayable": true,
 		"hash": 1679363838,
 		"index": 0
@@ -62810,7 +62810,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1688301903,
 		"displayName": "Counterbalance",
 		"displayDescription": "This weapon has increased stability.",
-		"displayIcon": "/common/destiny_content/icons/e35595d20ee0c6ae4fc0184eb4e28760.png",
+		"displayIcon": "/common/destiny_content/icons/ff3f13713c4935065f9cc94ad744b207.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 32,
@@ -62833,7 +62833,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1704130927,
 		"displayName": "Run for Your Life",
 		"displayDescription": "Increased Agility while Torn Between Dimensions.",
-		"displayIcon": "/common/destiny_content/icons/4deb1097842b2262f86d620445a0e820.png",
+		"displayIcon": "/common/destiny_content/icons/28984deb35a2bdbae17f449c4db6dffd.png",
 		"isDisplayable": true,
 		"hash": 1704130927,
 		"index": 0
@@ -62842,7 +62842,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1706415961,
 		"displayName": "Double Down",
 		"displayDescription": "On initial spawn only, this weapon gains additional ammo.",
-		"displayIcon": "/common/destiny_content/icons/51a0bd607165e5e4307f2614c1c3b351.png",
+		"displayIcon": "/common/destiny_content/icons/c5dbc3deb97d01bd41b4b60cb4c88932.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -62858,7 +62858,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1711887956,
 		"displayName": "Icarus",
 		"displayDescription": "Improved accuracy while airborne.",
-		"displayIcon": "/common/destiny_content/icons/48e3292b729705320ed99c3aa64c20ef.png",
+		"displayIcon": "/common/destiny_content/icons/9a3f05b6846dcd3c63ff55182fdb45bf.png",
 		"isDisplayable": true,
 		"hash": 1711887956,
 		"index": 0
@@ -62867,7 +62867,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1712006298,
 		"displayName": "Weapon XP Boost",
 		"displayDescription": "Increases experience gains for your Weapons.",
-		"displayIcon": "/common/destiny_content/icons/d478ef7b92ef5438cec506ff84cb6314.png",
+		"displayIcon": "/common/destiny_content/icons/494b64d5b23c3adaa7c9da6f4cd8c228.png",
 		"isDisplayable": true,
 		"hash": 1712006298,
 		"index": 0
@@ -62883,7 +62883,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1723656171,
 		"displayName": "Solar Burn Defense",
 		"displayDescription": "Reduces incoming Solar Burn damage.",
-		"displayIcon": "/common/destiny_content/icons/c2fb8c7d550ac2aec4b25c78d4a2ce57.png",
+		"displayIcon": "/common/destiny_content/icons/16afe97e496ff6224e3a09d452b3bfb7.png",
 		"isDisplayable": true,
 		"hash": 1723656171,
 		"index": 0
@@ -62892,7 +62892,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1724858392,
 		"displayName": "Solar Resonance",
 		"displayDescription": "Solar grenades have a chance to generate an Orb when killing a minion of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/14647e3c2b915c9a07dea71ff8a73321.png",
+		"displayIcon": "/common/destiny_content/icons/8c0d2140b9242f65bd9d8d93a1e4961b.png",
 		"isDisplayable": true,
 		"hash": 1724858392,
 		"index": 0
@@ -62915,7 +62915,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1725011707,
 		"displayName": "Air Traffic Control",
 		"displayDescription": "All Rocket Launchers gain tracking. \nVisible radar while zooming with Heavy Weapons. \nHeavy ammo drops more often.",
-		"displayIcon": "/common/destiny_content/icons/6040b64ccdd4955eb64b2ffd6d64222b.png",
+		"displayIcon": "/common/destiny_content/icons/b3e6b24a0b4854d1ba324a1f763f6fd1.png",
 		"isDisplayable": true,
 		"hash": 1725011707,
 		"index": 0
@@ -62924,7 +62924,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1734461859,
 		"displayName": "Burn Brighter",
 		"displayDescription": "Activating Radiance from death disorients nearby enemies.",
-		"displayIcon": "/common/destiny_content/icons/4bbe4843c198e0640b95068dbc43e6e0.png",
+		"displayIcon": "/common/destiny_content/icons/04bad246dd18df4f33659b1a0feff19a.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -62954,7 +62954,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1735491675,
 		"displayName": "Sleeper Simulant",
 		"displayDescription": "Weapon's laser tears through enemies and ricochets once on hard surfaces.",
-		"displayIcon": "/common/destiny_content/icons/de5710e9c544253c0c0ba83a60ee1776.png",
+		"displayIcon": "/common/destiny_content/icons/ea9bd59cf42dd98561eab736fa1574cb.png",
 		"isDisplayable": true,
 		"hash": 1735491675,
 		"index": 0
@@ -62977,7 +62977,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1737781361,
 		"displayName": "Spirit Bloom Extractor",
 		"displayDescription": "Chance to find additional spirit blooms when looting engrams on Venus.",
-		"displayIcon": "/common/destiny_content/icons/13051f1c814b09e10f0817dc6f15e60f.png",
+		"displayIcon": "/common/destiny_content/icons/1dfade18651e5bf8ce415a9ef74b6d3f.png",
 		"isDisplayable": true,
 		"hash": 1737781361,
 		"index": 0
@@ -62993,7 +62993,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1752089080,
 		"displayName": "Auto Rifle Ammo",
 		"displayDescription": "Increases the amount of Auto Rifle ammunition you can carry.",
-		"displayIcon": "/common/destiny_content/icons/f8f85cab6fdf9b2b8471d6a30026768b.png",
+		"displayIcon": "/common/destiny_content/icons/36009fdfaf1382cc1a0cd6e3f8175c3f.png",
 		"isDisplayable": true,
 		"hash": 1752089080,
 		"index": 0
@@ -63002,7 +63002,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1759552806,
 		"displayName": "Take That",
 		"displayDescription": "Orb pickups create the chance for temporary bonus precision damage to Taken.",
-		"displayIcon": "/common/destiny_content/icons/deeb553a08132455ac31b6b95c85e14f.png",
+		"displayIcon": "/common/destiny_content/icons/658663212b9df920b1bbdbceb6e813be.png",
 		"isDisplayable": true,
 		"hash": 1759552806,
 		"index": 0
@@ -63011,7 +63011,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1760211262,
 		"displayName": "Keeper of the Pack",
 		"displayDescription": "Supers generate an extra Orb. \nRevive and be revived faster.",
-		"displayIcon": "/common/destiny_content/icons/adf9e0eb55e95c598a0b93730a3f7122.png",
+		"displayIcon": "/common/destiny_content/icons/42dcdd4b9800bdd355d31720bc2d3221.png",
 		"isDisplayable": true,
 		"hash": 1760211262,
 		"index": 0
@@ -63034,7 +63034,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1765729154,
 		"displayName": "Void Double-Down",
 		"displayDescription": "Increased Agility for 5 seconds after a Void double kill.",
-		"displayIcon": "/common/destiny_content/icons/5d7005d95c1f42f255c44dd9610ebe07.png",
+		"displayIcon": "/common/destiny_content/icons/77d1c4c084885bb8902e6e7b37ec0607.png",
 		"isDisplayable": true,
 		"hash": 1765729154,
 		"index": 0
@@ -63057,7 +63057,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1797364692,
 		"displayName": "Disciplinarian",
 		"displayDescription": "This weapon deals a small amount of bonus damage to Fallen enemies.",
-		"displayIcon": "/common/destiny_content/icons/a0f8c9c1aaf41b013b5062e8aba80b6d.png",
+		"displayIcon": "/common/destiny_content/icons/e39540bfc6bd3208e2d7d5bd797cc363.png",
 		"isDisplayable": true,
 		"hash": 1797364692,
 		"index": 0
@@ -63073,7 +63073,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1826316128,
 		"displayName": "Cabal Seeker",
 		"displayDescription": "Increased Glimmer from Cabal enemies.",
-		"displayIcon": "/common/destiny_content/icons/49d482f9cdcc096728af108a09e4ea9c.png",
+		"displayIcon": "/common/destiny_content/icons/a6f9041ae5c9b71fa066af467cc88597.png",
 		"isDisplayable": true,
 		"hash": 1826316128,
 		"index": 0
@@ -63082,7 +63082,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1826868778,
 		"displayName": "Crucible Reputation Booster",
 		"displayDescription": "INSPIRATION\nIncreased Crucible reputation rewards from Crucible matches.\n\nInspirations are shared with Fireteam members.",
-		"displayIcon": "/common/destiny_content/icons/8e164444270745500e0fd11f8db7b321.png",
+		"displayIcon": "/common/destiny_content/icons/afcea3651a540cbc54e9f0a9839aa1cc.png",
 		"isDisplayable": true,
 		"hash": 1826868778,
 		"index": 0
@@ -63091,7 +63091,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1843659180,
 		"displayName": "The Master",
 		"displayDescription": "Increased precision damage. Kills briefly increase damage against next target.",
-		"displayIcon": "/common/destiny_content/icons/b3733bac9f54762e7f1c6ce5e68cf4a3.png",
+		"displayIcon": "/common/destiny_content/icons/899435f95758023c2d0ba2904b3689f1.png",
 		"isDisplayable": true,
 		"hash": 1843659180,
 		"index": 0
@@ -63100,7 +63100,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1844502900,
 		"displayName": "Primary Weapon Loader",
 		"displayDescription": "Increased reload speed with Primary Weapons.",
-		"displayIcon": "/common/destiny_content/icons/59cf5e583db6ca7edb1cdf84618db64a.png",
+		"displayIcon": "/common/destiny_content/icons/c984a126c7c5ec0e042a1d29d2d653ed.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -63116,7 +63116,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1846145321,
 		"displayName": "Angel of Mercy",
 		"displayDescription": "Gain bonus Super energy from reviving others.",
-		"displayIcon": "/common/destiny_content/icons/6e052f20cd868553213945a405dc3260.png",
+		"displayIcon": "/common/destiny_content/icons/72c16dcd8afb8754a3b75cee6c72bf38.png",
 		"isDisplayable": true,
 		"hash": 1846145321,
 		"index": 0
@@ -63132,7 +63132,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1857351259,
 		"displayName": "Luck in the Chamber",
 		"displayDescription": "One random bullet in the magazine causes considerable bonus precision damage.",
-		"displayIcon": "/common/destiny_content/icons/02ceae1bf41c0782e7bdbbbe8d72410a.png",
+		"displayIcon": "/common/destiny_content/icons/717ed4daf3ba16b749dd1077d7b8087b.png",
 		"isDisplayable": true,
 		"hash": 1857351259,
 		"index": 0
@@ -63141,7 +63141,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1863078623,
 		"displayName": "Zen Moment",
 		"displayDescription": "Causing damage with this weapon increases its stability.",
-		"displayIcon": "/common/destiny_content/icons/262703518f73b076d1fc96a5f24a892e.png",
+		"displayIcon": "/common/destiny_content/icons/b6503f046d697499f412caf3ccba581b.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 32,
@@ -63157,7 +63157,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1868041021,
 		"displayName": "Blue Chroma",
 		"displayDescription": "Activates a Blue Chroma glow.",
-		"displayIcon": "/common/destiny_content/icons/c3e9f74070521706603589d155a0bb95.png",
+		"displayIcon": "/common/destiny_content/icons/b70012569b9bc25f39096a0f7fafe2fe.png",
 		"isDisplayable": true,
 		"hash": 1868041021,
 		"index": 0
@@ -63166,7 +63166,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1869471663,
 		"displayName": "Tempered",
 		"displayDescription": "A boon from the Lords of Iron. Increases Event Standing gained in the Iron Banner.\n\nBecomes increasingly effective every day the Iron Banner is available.",
-		"displayIcon": "/common/destiny_content/icons/0e0c5d74bcaa84e8af0d29c705f63226.png",
+		"displayIcon": "/common/destiny_content/icons/3176f6bff440d8fc1419f2d37e884959.png",
 		"isDisplayable": true,
 		"hash": 1869471663,
 		"index": 0
@@ -63175,7 +63175,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1870183033,
 		"displayName": "Spirit Bloom Sensor",
 		"displayDescription": "Detects and marks nearby spirit blooms.",
-		"displayIcon": "/common/destiny_content/icons/f41ba841562c4b25f03948bd8af0b123.png",
+		"displayIcon": "/common/destiny_content/icons/78ae74c19779f0277918270eabb7d8a7.png",
 		"isDisplayable": true,
 		"hash": 1870183033,
 		"index": 0
@@ -63184,7 +63184,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1875467969,
 		"displayName": "Fusion Rifle Focus",
 		"displayDescription": "Increases the upgrade rate for Fusion Rifles.",
-		"displayIcon": "/common/destiny_content/icons/93642b1dd4fb07cdb84aea2a7d84c74b.png",
+		"displayIcon": "/common/destiny_content/icons/3221ba202a7ba1e73dd0d72df97ac9dd.png",
 		"isDisplayable": true,
 		"hash": 1875467969,
 		"index": 0
@@ -63193,7 +63193,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1880426832,
 		"displayName": "Machine Gun Ammo",
 		"displayDescription": "Increases the amount of Machine Gun ammunition you can carry.",
-		"displayIcon": "/common/destiny_content/icons/08b483865c73c0ba713b0fe97784e55f.png",
+		"displayIcon": "/common/destiny_content/icons/759d33943d6d0ceb6f6136fa8f036fc7.png",
 		"isDisplayable": true,
 		"hash": 1880426832,
 		"index": 0
@@ -63202,7 +63202,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1880837044,
 		"displayName": "Glutton",
 		"displayDescription": "Receive bonus melee energy for each enemy standing nearby you when you get a kill.",
-		"displayIcon": "/common/destiny_content/icons/d8449ab31bd7d62608bdffab950ece4f.png",
+		"displayIcon": "/common/destiny_content/icons/adedc334372fdb89cf49ef8bb7370830.png",
 		"isDisplayable": true,
 		"hash": 1880837044,
 		"index": 0
@@ -63218,7 +63218,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1900693659,
 		"displayName": "Army of One",
 		"displayDescription": "Quick unassisted kills with this weapon reduce grenade and melee cooldown.",
-		"displayIcon": "/common/destiny_content/icons/f7f40be2024d369075c79870b36b7b56.png",
+		"displayIcon": "/common/destiny_content/icons/0cc694d481c34b697634d418f8ccb7b0.png",
 		"isDisplayable": true,
 		"hash": 1900693659,
 		"index": 0
@@ -63234,7 +63234,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1913998313,
 		"displayName": "Speed Demon",
 		"displayDescription": "Increased sprint speed. \nMove faster with aimed weapon.\nTighter sprinting turn radius.",
-		"displayIcon": "/common/destiny_content/icons/e916cb08d84062bdeb0fded79d9f117d.png",
+		"displayIcon": "/common/destiny_content/icons/fb77d0634d96da8474ff9c1aab865b1b.png",
 		"isDisplayable": true,
 		"hash": 1913998313,
 		"index": 0
@@ -63250,7 +63250,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1928591453,
 		"displayName": "Cluster Bomb",
 		"displayDescription": "Rockets create cluster bombs when they detonate.",
-		"displayIcon": "/common/destiny_content/icons/dbb2ea6365e5486e9af6874808262f83.png",
+		"displayIcon": "/common/destiny_content/icons/6feb9a9410953d5c34615e1e02e924b7.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 1026,
@@ -63301,7 +63301,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1935335468,
 		"displayName": "The Roadborn",
 		"displayDescription": "Precision kills briefly grant bonus handling, range and precision damage with this weapon.",
-		"displayIcon": "/common/destiny_content/icons/b045bfc1d89258654b280b1c0d485e2f.png",
+		"displayIcon": "/common/destiny_content/icons/fb095e866e7a3f6a9edd37de61d164a9.png",
 		"isDisplayable": true,
 		"hash": 1935335468,
 		"index": 0
@@ -63310,7 +63310,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1938590973,
 		"displayName": "Rocket Launcher Loader",
 		"displayDescription": "Increased reload speed with Rocket Launchers.",
-		"displayIcon": "/common/destiny_content/icons/be3784e3a41e893c053b708061dac993.png",
+		"displayIcon": "/common/destiny_content/icons/961619e39238f6724f63d78a54efc7af.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -63340,7 +63340,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1950307497,
 		"displayName": "Momentum Transfer",
 		"displayDescription": "Gain bonus melee energy on grenade hits.",
-		"displayIcon": "/common/destiny_content/icons/3e68ad06673ae9874da3e2cb34bee3c8.png",
+		"displayIcon": "/common/destiny_content/icons/999fa797ccf28a0d12990785f2b6edd8.png",
 		"isDisplayable": true,
 		"hash": 1950307497,
 		"index": 0
@@ -63356,7 +63356,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1966098145,
 		"displayName": "Cocoon",
 		"displayDescription": "When stowed for a short time, this weapon is automatically reloaded from your reserves.",
-		"displayIcon": "/common/destiny_content/icons/433ff99d492fa37daca74e8f36c5e3dd.png",
+		"displayIcon": "/common/destiny_content/icons/a6a9a4b145e9e96ca4eaad762f9b3b8c.png",
 		"isDisplayable": true,
 		"hash": 1966098145,
 		"index": 0
@@ -63365,7 +63365,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1973740917,
 		"displayName": "Metal Detector",
 		"displayDescription": "Expect to find more ammo for this weapon.",
-		"displayIcon": "/common/destiny_content/icons/9cbad29bda1a21b98f8d64620bc70375.png",
+		"displayIcon": "/common/destiny_content/icons/2831b160b1f1674e7e2a1afe14931fb8.png",
 		"isDisplayable": true,
 		"hash": 1973740917,
 		"index": 0
@@ -63374,7 +63374,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1981671584,
 		"displayName": "Taken Imploder",
 		"displayDescription": "Grenades have a chance to generate an Orb when killing a Taken enemy.",
-		"displayIcon": "/common/destiny_content/icons/f3d52b15e5239c864460118cae8e8bdd.png",
+		"displayIcon": "/common/destiny_content/icons/6ba09f9984377944359638cf21f42edf.png",
 		"isDisplayable": true,
 		"hash": 1981671584,
 		"index": 0
@@ -63397,7 +63397,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1986661836,
 		"displayName": "Sniper Rifle Focus",
 		"displayDescription": "Increases the upgrade rate for Sniper Rifles.",
-		"displayIcon": "/common/destiny_content/icons/8afc5a740c892b07fff361f8f2dd3d21.png",
+		"displayIcon": "/common/destiny_content/icons/f86eb81a661764744e7b1a95fd5a0377.png",
 		"isDisplayable": true,
 		"hash": 1986661836,
 		"index": 0
@@ -63406,7 +63406,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1989386514,
 		"displayName": "Vacuum",
 		"displayDescription": "Increases the pick-up radius of ammo drops for this weapon.",
-		"displayIcon": "/common/destiny_content/icons/5f8e75788b13db2aef6127b740ca48c6.png",
+		"displayIcon": "/common/destiny_content/icons/799ea46d36501b6060ff27ca69d3be43.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -63422,7 +63422,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1994008776,
 		"displayName": "Snapshot",
 		"displayDescription": "This weapon aims extremely quickly.",
-		"displayIcon": "/common/destiny_content/icons/b20460aa075e5b1e2e2a8f844b248336.png",
+		"displayIcon": "/common/destiny_content/icons/f76d071764c10fe2bafccf6ef389013c.png",
 		"isDisplayable": true,
 		"hash": 1994008776,
 		"index": 0
@@ -63431,7 +63431,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 1995895907,
 		"displayName": "Hive Stalker",
 		"displayDescription": "Greatly increased Agility and Grenade recharge when fighting Hive in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/b66ac2d3e986c7327563d48324fa966f.png",
+		"displayIcon": "/common/destiny_content/icons/f754f0bd1f5409e0f8506d2b9996a7cf.png",
 		"isDisplayable": true,
 		"hash": 1995895907,
 		"index": 0
@@ -63454,7 +63454,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2011009679,
 		"displayName": "Fallen Stalker",
 		"displayDescription": "Greatly increased Agility and Grenade recharge when fighting Fallen in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/b66ac2d3e986c7327563d48324fa966f.png",
+		"displayIcon": "/common/destiny_content/icons/f754f0bd1f5409e0f8506d2b9996a7cf.png",
 		"isDisplayable": true,
 		"hash": 2011009679,
 		"index": 0
@@ -63484,7 +63484,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2026419164,
 		"displayName": "Performance Bonus",
 		"displayDescription": "Kills with this weapon have the chance to grant bonus reserve ammo.",
-		"displayIcon": "/common/destiny_content/icons/123dc3b01e7e9bfe672e229bf35665c6.png",
+		"displayIcon": "/common/destiny_content/icons/18589744b3af1397bc41e386eb42a16d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -63500,7 +63500,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2028552052,
 		"displayName": "Reactive Reload",
 		"displayDescription": "Reloading this weapon after a kill grants a damage bonus for a short time.",
-		"displayIcon": "/common/destiny_content/icons/20823525a7e3e1daad644f593c0d94a3.png",
+		"displayIcon": "/common/destiny_content/icons/f71d153aa991de0c489496a55a3efc43.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -63523,7 +63523,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2031840132,
 		"displayName": "Cover",
 		"displayDescription": "Increased Armor while peeking over cover, and increased movement speed while aiming your weapon.",
-		"displayIcon": "/common/destiny_content/icons/c1dea6e92ee4e795fdf44b9c8ee735bc.png",
+		"displayIcon": "/common/destiny_content/icons/6f7b142adababb166453064c67eea56f.png",
 		"isDisplayable": true,
 		"hash": 2031840132,
 		"index": 0
@@ -63532,7 +63532,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2031840133,
 		"displayName": "The Dance",
 		"displayDescription": "You move more quickly while aiming your weapon.",
-		"displayIcon": "/common/destiny_content/icons/c1dea6e92ee4e795fdf44b9c8ee735bc.png",
+		"displayIcon": "/common/destiny_content/icons/6f7b142adababb166453064c67eea56f.png",
 		"isDisplayable": true,
 		"hash": 2031840133,
 		"index": 0
@@ -63548,7 +63548,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2044501938,
 		"displayName": "Vex Stalker",
 		"displayDescription": "Greatly increased Agility and Grenade recharge when fighting Vex in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/b66ac2d3e986c7327563d48324fa966f.png",
+		"displayIcon": "/common/destiny_content/icons/f754f0bd1f5409e0f8506d2b9996a7cf.png",
 		"isDisplayable": true,
 		"hash": 2044501938,
 		"index": 0
@@ -63557,7 +63557,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2047535886,
 		"displayName": "Close and/or Personal",
 		"displayDescription": "Short period of 25% bonus melee damage after landing a hit with this weapon.",
-		"displayIcon": "/common/destiny_content/icons/9137570cb894b21d6983fe83060c9a2a.png",
+		"displayIcon": "/common/destiny_content/icons/aae04a6f17a2828057213ac241e33be4.png",
 		"isDisplayable": true,
 		"hash": 2047535886,
 		"index": 0
@@ -63566,7 +63566,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2047962979,
 		"displayName": "Fusion Rifle Affinity",
 		"displayDescription": "Unlocks upgrades on Fusion Rifles.",
-		"displayIcon": "/common/destiny_content/icons/93642b1dd4fb07cdb84aea2a7d84c74b.png",
+		"displayIcon": "/common/destiny_content/icons/3221ba202a7ba1e73dd0d72df97ac9dd.png",
 		"isDisplayable": true,
 		"hash": 2047962979,
 		"index": 0
@@ -63589,7 +63589,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2052052150,
 		"displayName": "Strange Angles",
 		"displayDescription": "Faster movement speed while crouching. Ammo pickups automatically reload that weapon type.",
-		"displayIcon": "/common/destiny_content/icons/3b7f7b10edf649c129b17f0cb68895e6.png",
+		"displayIcon": "/common/destiny_content/icons/122b2fcbff4f426ef68cc874fcf75cb6.png",
 		"isDisplayable": true,
 		"hash": 2052052150,
 		"index": 0
@@ -63605,7 +63605,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2057818109,
 		"displayName": "Relic Iron Extractor",
 		"displayDescription": "Chance to find additional relic iron when looting engrams on Mars.",
-		"displayIcon": "/common/destiny_content/icons/13051f1c814b09e10f0817dc6f15e60f.png",
+		"displayIcon": "/common/destiny_content/icons/1dfade18651e5bf8ce415a9ef74b6d3f.png",
 		"isDisplayable": true,
 		"hash": 2057818109,
 		"index": 0
@@ -63642,7 +63642,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2065326242,
 		"displayName": "Pack Mule",
 		"displayDescription": "This weapon has bonus backpack ammo reserves available.",
-		"displayIcon": "/common/destiny_content/icons/7d0bc8fa115fbb652cf024a9e8c9203c.png",
+		"displayIcon": "/common/destiny_content/icons/6f3d0dd7a1f3b708998d85cb222ade49.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -63658,7 +63658,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2066029413,
 		"displayName": "Shank Burn",
 		"displayDescription": "This weapon deals moderate bonus damage to Fallen Shanks.",
-		"displayIcon": "/common/destiny_content/icons/b66ac2d3e986c7327563d48324fa966f.png",
+		"displayIcon": "/common/destiny_content/icons/f754f0bd1f5409e0f8506d2b9996a7cf.png",
 		"isDisplayable": true,
 		"hash": 2066029413,
 		"index": 0
@@ -63667,7 +63667,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2070475581,
 		"displayName": "Starless Night",
 		"displayDescription": "Ward of Dawn blinds enemies who enter it.",
-		"displayIcon": "/common/destiny_content/icons/79394f627412cfeef5743a8cd3168f19.png",
+		"displayIcon": "/common/destiny_content/icons/ba61d7cfd3b6f7d0b2301b69d2c5ac5e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -63725,7 +63725,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2095340230,
 		"displayName": "Void Burn Defense",
 		"displayDescription": "Reduces incoming Void Burn damage.",
-		"displayIcon": "/common/destiny_content/icons/02b2bb0405e4b1bd14d2ad031656cdd3.png",
+		"displayIcon": "/common/destiny_content/icons/1c3e3f8c3e65d9712327a3765b64d156.png",
 		"isDisplayable": true,
 		"hash": 2095340230,
 		"index": 0
@@ -63741,7 +63741,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2118848531,
 		"displayName": "Valorous Light",
 		"displayDescription": "Your next foe in Heroic King's Fall is more likely to drop weapons and armor.",
-		"displayIcon": "/common/destiny_content/icons/d676556fa74acc20aca06f6df003dd48.png",
+		"displayIcon": "/common/destiny_content/icons/855fb68e9ed6adcb71485fbe71b239f1.png",
 		"isDisplayable": true,
 		"hash": 2118848531,
 		"index": 0
@@ -63750,7 +63750,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2121443294,
 		"displayName": "Wrath Conductors",
 		"displayDescription": "Taking damage from a melee attack deals damage in an area around you.",
-		"displayIcon": "/common/destiny_content/icons/1e4f8f091fc39ba709062b80ee204265.png",
+		"displayIcon": "/common/destiny_content/icons/b72349df786ca7aa14d8dd8390e78c6e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -63766,7 +63766,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2129300632,
 		"displayName": "Napalm",
 		"displayDescription": "Release trigger after weapon fire to drop a Solar Damage napalm canister.",
-		"displayIcon": "/common/destiny_content/icons/a55641184192ef8c5e6975a9686cd69a.png",
+		"displayIcon": "/common/destiny_content/icons/c5852a05a25eb4c37c3796d36572a013.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -63782,7 +63782,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2129333927,
 		"displayName": "Scout Rifle Loader",
 		"displayDescription": "Increased reload speed with Scout Rifles.",
-		"displayIcon": "/common/destiny_content/icons/f4b430c1e30d159f6a1d773a8f1f6e7e.png",
+		"displayIcon": "/common/destiny_content/icons/ff6c35013901487ff28aa72a9d45837a.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -63798,7 +63798,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2131801999,
 		"displayName": "Better Already",
 		"displayDescription": "Shields start recovery immediately after Orb pickup.",
-		"displayIcon": "/common/destiny_content/icons/fb98d48e1a0fccb414606150a1739302.png",
+		"displayIcon": "/common/destiny_content/icons/4c76b07e6d7aa2be83da9a3187bdb9a3.png",
 		"isDisplayable": true,
 		"hash": 2131801999,
 		"index": 0
@@ -63814,7 +63814,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2136389783,
 		"displayName": "Scout Rifle Analysis",
 		"displayDescription": "Increased XP for Scout Rifles.",
-		"displayIcon": "/common/destiny_content/icons/aeb4490fe9938a794743bb59ea9c4cc4.png",
+		"displayIcon": "/common/destiny_content/icons/60c6b287830b4b31cc17e01ecd1bdbb3.png",
 		"isDisplayable": true,
 		"hash": 2136389783,
 		"index": 0
@@ -63823,7 +63823,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2144441188,
 		"displayName": "Spinmetal Sensor",
 		"displayDescription": "Detects and marks nearby spinmetal formations.",
-		"displayIcon": "/common/destiny_content/icons/f41ba841562c4b25f03948bd8af0b123.png",
+		"displayIcon": "/common/destiny_content/icons/78ae74c19779f0277918270eabb7d8a7.png",
 		"isDisplayable": true,
 		"hash": 2144441188,
 		"index": 0
@@ -63832,7 +63832,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2151130854,
 		"displayName": "Dynamite",
 		"displayDescription": "Grants explosive rounds. Rapid kills with every round in the clip load an extra, higher-damage round for 5 seconds.",
-		"displayIcon": "/common/destiny_content/icons/91cc8888935bfb85190f8e1565ebc0d1.png",
+		"displayIcon": "/common/destiny_content/icons/a10b4649ff12d463e58167e229a359b2.png",
 		"isDisplayable": true,
 		"hash": 2151130854,
 		"index": 0
@@ -63841,7 +63841,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2152652274,
 		"displayName": "Paramuscle Armature",
 		"displayDescription": "Increased grenade throw distance.",
-		"displayIcon": "/common/destiny_content/icons/2f128c25f309fa36095ea8528daa02e8.png",
+		"displayIcon": "/common/destiny_content/icons/85a6a91daa7d7b36cf79b34c9c3612ed.png",
 		"isDisplayable": true,
 		"hash": 2152652274,
 		"index": 0
@@ -63850,7 +63850,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2152652275,
 		"displayName": "Momentum Transfer",
 		"displayDescription": "Grenade hits restore melee energy.",
-		"displayIcon": "/common/destiny_content/icons/2f128c25f309fa36095ea8528daa02e8.png",
+		"displayIcon": "/common/destiny_content/icons/85a6a91daa7d7b36cf79b34c9c3612ed.png",
 		"isDisplayable": true,
 		"hash": 2152652275,
 		"index": 0
@@ -63859,7 +63859,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2164232018,
 		"displayName": "The First Curse",
 		"displayDescription": "First precision kill of the magazine refills it, granting bonuses to range and stability until the player reloads.",
-		"displayIcon": "/common/destiny_content/icons/ae4fe09e9ec9e17c1c82369880eacb0c.png",
+		"displayIcon": "/common/destiny_content/icons/f6e103e31f65b31e6aef22611b844044.png",
 		"isDisplayable": true,
 		"hash": 2164232018,
 		"index": 0
@@ -63868,7 +63868,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2179933840,
 		"displayName": "Tracking",
 		"displayDescription": "Shells fired from this weapon track their targets",
-		"displayIcon": "/common/destiny_content/icons/d7f434569d05d61280f941db9e15f4a3.png",
+		"displayIcon": "/common/destiny_content/icons/66bb20517caa446c8bcf99344fa40274.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 1024,
@@ -63884,7 +63884,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2180748394,
 		"displayName": "Dark Breaker",
 		"displayDescription": "Projectiles will overpenetrate through Hive Knight Wall of Darkness.",
-		"displayIcon": "/common/destiny_content/icons/3a6ae3df41c8509f229e596ab31cd5f1.png",
+		"displayIcon": "/common/destiny_content/icons/df15d90a779ed4b773525100def64437.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -63900,7 +63900,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2199805312,
 		"displayName": "Vex Seeker",
 		"displayDescription": "Increased Glimmer from Vex enemies.",
-		"displayIcon": "/common/destiny_content/icons/49d482f9cdcc096728af108a09e4ea9c.png",
+		"displayIcon": "/common/destiny_content/icons/a6f9041ae5c9b71fa066af467cc88597.png",
 		"isDisplayable": true,
 		"hash": 2199805312,
 		"index": 0
@@ -63909,7 +63909,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2201881340,
 		"displayName": "Performance Bonus",
 		"displayDescription": "Kills with this weapon have the chance to grant bonus reserve ammo.",
-		"displayIcon": "/common/destiny_content/icons/123dc3b01e7e9bfe672e229bf35665c6.png",
+		"displayIcon": "/common/destiny_content/icons/18589744b3af1397bc41e386eb42a16d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -63939,7 +63939,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2239009753,
 		"displayName": "Starless Night",
 		"displayDescription": "Blind enemies inside your Ward of Dawn.",
-		"displayIcon": "/common/destiny_content/icons/796500aa50a8cf6634c3e0262e34cc48.png",
+		"displayIcon": "/common/destiny_content/icons/735adb9cbd29c4506ded26fecc72089a.png",
 		"isDisplayable": true,
 		"hash": 2239009753,
 		"index": 0
@@ -63948,7 +63948,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2249179885,
 		"displayName": "Rocket Launcher Analysis",
 		"displayDescription": "Increased XP for Rocket Launchers.",
-		"displayIcon": "/common/destiny_content/icons/095ae93063ff6452c523e0b7752c1ccb.png",
+		"displayIcon": "/common/destiny_content/icons/c76de692dbb46c425b7df6f866b456a1.png",
 		"isDisplayable": true,
 		"hash": 2249179885,
 		"index": 0
@@ -63957,7 +63957,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2249936241,
 		"displayName": "Zhalo Supercell",
 		"displayDescription": "Arc projectiles have the chance to chain lightning when enemies are close together.",
-		"displayIcon": "/common/destiny_content/icons/d9372a9ba0ac935a993412df9f5b4eeb.png",
+		"displayIcon": "/common/destiny_content/icons/b27cf96854bb9eb082c4942fc8a7d2ac.png",
 		"isDisplayable": true,
 		"hash": 2249936241,
 		"index": 0
@@ -63973,7 +63973,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2270268283,
 		"displayName": "Spinning Up",
 		"displayDescription": "The longer this weapon is fired, the faster it fires.",
-		"displayIcon": "/common/destiny_content/icons/e7166b72d52b814097d6d6e4cd3295d6.png",
+		"displayIcon": "/common/destiny_content/icons/60df0dcb17dd2bc31d78f94513f9a312.png",
 		"isDisplayable": true,
 		"hash": 2270268283,
 		"index": 0
@@ -64010,7 +64010,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2289894117,
 		"displayName": "Improved Arcbolt Grenade",
 		"displayDescription": "Arcbolt Grenade chains further. Spawn with grenade energy.",
-		"displayIcon": "/common/destiny_content/icons/c8da5f251b1f0d40de5dcacecf89e7ca.png",
+		"displayIcon": "/common/destiny_content/icons/03715bfd730b1ca6e18d20fe7cd40a3e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -64026,7 +64026,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2290550941,
 		"displayName": "Rangefinder",
 		"displayDescription": "Aiming this weapon increases its effective range.",
-		"displayIcon": "/common/destiny_content/icons/736b9c122a5e51b976e88b5a872f274f.png",
+		"displayIcon": "/common/destiny_content/icons/a67d7aa9911630861d597931aa6cdb86.png",
 		"isDisplayable": true,
 		"hash": 2290550941,
 		"index": 0
@@ -64042,7 +64042,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2333942527,
 		"displayName": "Void Catalyst",
 		"displayDescription": "Void precision kills against a minion of the Darkness have a chance to generate an Orb.",
-		"displayIcon": "/common/destiny_content/icons/d36274740d10320b18420b552f4f7ef1.png",
+		"displayIcon": "/common/destiny_content/icons/23796f77a5967e362f4fc2fc759e5ecc.png",
 		"isDisplayable": true,
 		"hash": 2333942527,
 		"index": 0
@@ -64058,7 +64058,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2339147975,
 		"displayName": "Favor of Osiris",
 		"displayDescription": "You have been granted a Favor. You will start the Trials with a win already awarded.",
-		"displayIcon": "/common/destiny_content/icons/51652e87fb99f0b93a302f67d7766c65.png",
+		"displayIcon": "/common/destiny_content/icons/ce4c8ced7cf7f4f52267c69d6252a92d.png",
 		"isDisplayable": true,
 		"hash": 2339147975,
 		"index": 0
@@ -64067,7 +64067,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2340078883,
 		"displayName": "Hit It Again",
 		"displayDescription": "Gain an additional melee charge.",
-		"displayIcon": "/common/destiny_content/icons/40122d4a174f40581a19a09a8a21c8f5.png",
+		"displayIcon": "/common/destiny_content/icons/0bac70539a399ccea71dc9309fa1fd88.png",
 		"isDisplayable": true,
 		"hash": 2340078883,
 		"index": 0
@@ -64083,7 +64083,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2343656911,
 		"displayName": "Rapid Cooldown",
 		"displayDescription": "While sprinting, gain tighter turn radius and faster grenade and melee regeneration.",
-		"displayIcon": "/common/destiny_content/icons/eae8180e0e7cb3492259b3ba5f196399.png",
+		"displayIcon": "/common/destiny_content/icons/25bc04b90b9cbd2674502fd23af503b0.png",
 		"isDisplayable": true,
 		"hash": 2343656911,
 		"index": 0
@@ -64099,7 +64099,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2375853143,
 		"displayName": "Rocket Launcher Affinity",
 		"displayDescription": "Unlocks upgrades on Rocket Launchers.",
-		"displayIcon": "/common/destiny_content/icons/095ae93063ff6452c523e0b7752c1ccb.png",
+		"displayIcon": "/common/destiny_content/icons/c76de692dbb46c425b7df6f866b456a1.png",
 		"isDisplayable": true,
 		"hash": 2375853143,
 		"index": 0
@@ -64129,7 +64129,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2390626543,
 		"displayName": "Mercy of Osiris",
 		"displayDescription": "You have been granted Mercy. Your first loss in the Trials will be forgiven.",
-		"displayIcon": "/common/destiny_content/icons/c7ee05d801dfe68e3f1573abe511b610.png",
+		"displayIcon": "/common/destiny_content/icons/ae2d0a53d6eb1793c3d0b510d13b18ff.png",
 		"isDisplayable": true,
 		"hash": 2390626543,
 		"index": 0
@@ -64152,7 +64152,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2404367057,
 		"displayName": "Performance Bonus",
 		"displayDescription": "Kills with this weapon have the chance to grant bonus reserve ammo.",
-		"displayIcon": "/common/destiny_content/icons/123dc3b01e7e9bfe672e229bf35665c6.png",
+		"displayIcon": "/common/destiny_content/icons/18589744b3af1397bc41e386eb42a16d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -64189,7 +64189,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2414762373,
 		"displayName": "Arcmage",
 		"displayDescription": "Your Stormcaller subclass upgrades 25% faster, and your Level increases 10% faster.",
-		"displayIcon": "/common/destiny_content/icons/757d2f405e3fc5d79d7b1a00884b0273.png",
+		"displayIcon": "/common/destiny_content/icons/fca22e052daccdf7a6bc6d74edf494bf.png",
 		"isDisplayable": true,
 		"hash": 2414762373,
 		"index": 0
@@ -64198,7 +64198,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2416620568,
 		"displayName": "Last Man Standing",
 		"displayDescription": "Golden Gun gains one additional shot per use.",
-		"displayIcon": "/common/destiny_content/icons/c8da5f251b1f0d40de5dcacecf89e7ca.png",
+		"displayIcon": "/common/destiny_content/icons/03715bfd730b1ca6e18d20fe7cd40a3e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -64214,7 +64214,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2417835318,
 		"displayName": "Red Death",
 		"displayDescription": "Each kill heals you and speeds up reloads.",
-		"displayIcon": "/common/destiny_content/icons/5b10a16d49386cdcc7141dea749225c4.png",
+		"displayIcon": "/common/destiny_content/icons/7f3f4a9861dd48a92797a44ff8421de7.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -64244,7 +64244,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2421244048,
 		"displayName": "Hot Swap",
 		"displayDescription": "Readying this weapon grants a brief period of bonus accuracy.",
-		"displayIcon": "/common/destiny_content/icons/ad1da9cb01684591eb436f0aa9cafa17.png",
+		"displayIcon": "/common/destiny_content/icons/0287f58103ca0bad2ca8880208783708.png",
 		"isDisplayable": true,
 		"hash": 2421244048,
 		"index": 0
@@ -64253,7 +64253,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2422511459,
 		"displayName": "Machine Gun Affinity",
 		"displayDescription": "Unlocks upgrades on Machine Guns.",
-		"displayIcon": "/common/destiny_content/icons/868ed2c0ce58f3650938bb7bdecb7cda.png",
+		"displayIcon": "/common/destiny_content/icons/66c12cdff15d267de29345b32a50a5ca.png",
 		"isDisplayable": true,
 		"hash": 2422511459,
 		"index": 0
@@ -64262,7 +64262,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2425591494,
 		"displayName": "Grenades and Horseshoes",
 		"displayDescription": "Rockets from this weapon will detonate early based on proximity to targets.",
-		"displayIcon": "/common/destiny_content/icons/989f02fc1e2094588ba0507e6a438700.png",
+		"displayIcon": "/common/destiny_content/icons/840104f32f9f265c400f194d45c046ef.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 1024,
@@ -64285,7 +64285,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2426858846,
 		"displayName": "Heavy Weapon Mags",
 		"displayDescription": "Carry more ammo for Heavy Weapons.",
-		"displayIcon": "/common/destiny_content/icons/10619ab6efa2fd4f3155cff1bfbf4e31.png",
+		"displayIcon": "/common/destiny_content/icons/dfaa37b0bc32327d8246108f45337927.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -64301,7 +64301,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2428252973,
 		"displayName": "Vex Hunter",
 		"displayDescription": "Increased XP from Vex enemies.",
-		"displayIcon": "/common/destiny_content/icons/49d482f9cdcc096728af108a09e4ea9c.png",
+		"displayIcon": "/common/destiny_content/icons/a6f9041ae5c9b71fa066af467cc88597.png",
 		"isDisplayable": true,
 		"hash": 2428252973,
 		"index": 0
@@ -64317,7 +64317,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2439761463,
 		"displayName": "Demotion",
 		"displayDescription": "This weapon has a chance to stun Fallen Captains.",
-		"displayIcon": "/common/destiny_content/icons/28be5b884b77e23c31e724096d987690.png",
+		"displayIcon": "/common/destiny_content/icons/677d5034266439075a6d7a6a5941a932.png",
 		"isDisplayable": true,
 		"hash": 2439761463,
 		"index": 0
@@ -64333,7 +64333,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2447209469,
 		"displayName": "Primary Weapon Mags",
 		"displayDescription": "Carry more ammo for Primary Weapons.",
-		"displayIcon": "/common/destiny_content/icons/49d482f9cdcc096728af108a09e4ea9c.png",
+		"displayIcon": "/common/destiny_content/icons/a6f9041ae5c9b71fa066af467cc88597.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -64349,7 +64349,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2448421045,
 		"displayName": "Relic Iron Sensor",
 		"displayDescription": "Detects and marks nearby relic iron formations.",
-		"displayIcon": "/common/destiny_content/icons/f41ba841562c4b25f03948bd8af0b123.png",
+		"displayIcon": "/common/destiny_content/icons/78ae74c19779f0277918270eabb7d8a7.png",
 		"isDisplayable": true,
 		"hash": 2448421045,
 		"index": 0
@@ -64358,7 +64358,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2450150110,
 		"displayName": "Crowd Control",
 		"displayDescription": "Kills with this weapon grant bonus damage for a short time.",
-		"displayIcon": "/common/destiny_content/icons/3c906ab3252806551cda433ff8454940.png",
+		"displayIcon": "/common/destiny_content/icons/aefd6cb80c1a8c7886d56b0c26623adc.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -64374,7 +64374,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2451422685,
 		"displayName": "Treasure Sensor",
 		"displayDescription": "Detects and marks nearby storage containers.",
-		"displayIcon": "/common/destiny_content/icons/f41ba841562c4b25f03948bd8af0b123.png",
+		"displayIcon": "/common/destiny_content/icons/78ae74c19779f0277918270eabb7d8a7.png",
 		"isDisplayable": true,
 		"hash": 2451422685,
 		"index": 0
@@ -64383,7 +64383,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2471599498,
 		"displayName": "Spinning Up",
 		"displayDescription": "The longer this weapon is fired, the faster it fires.",
-		"displayIcon": "/common/destiny_content/icons/e7166b72d52b814097d6d6e4cd3295d6.png",
+		"displayIcon": "/common/destiny_content/icons/60df0dcb17dd2bc31d78f94513f9a312.png",
 		"isDisplayable": true,
 		"hash": 2471599498,
 		"index": 0
@@ -64399,7 +64399,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2482846307,
 		"displayName": "Pulse Rifle Loader",
 		"displayDescription": "Increases the reload speed of Pulse Rifles.",
-		"displayIcon": "/common/destiny_content/icons/e776211cfa2501aa7392c337e3b3c221.png",
+		"displayIcon": "/common/destiny_content/icons/83426d639e128de3105605fbaaf0e1dc.png",
 		"isDisplayable": true,
 		"hash": 2482846307,
 		"index": 0
@@ -64408,7 +64408,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2504755345,
 		"displayName": "Yellow Chroma",
 		"displayDescription": "Activates a Yellow Chroma glow.",
-		"displayIcon": "/common/destiny_content/icons/d19771294ba3787f294606c2cdaf88f1.png",
+		"displayIcon": "/common/destiny_content/icons/e6532634e26be770042e02976cde0340.png",
 		"isDisplayable": true,
 		"hash": 2504755345,
 		"index": 0
@@ -64417,7 +64417,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2507926095,
 		"displayName": "Hidden Hand",
 		"displayDescription": "This weapon gains better target acquisition.",
-		"displayIcon": "/common/destiny_content/icons/d150581a0275341bd4b1231ebbde7591.png",
+		"displayIcon": "/common/destiny_content/icons/d08532502f9a19b03fe3fdf5e0f82a47.png",
 		"isDisplayable": true,
 		"hash": 2507926095,
 		"index": 0
@@ -64433,7 +64433,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2517656642,
 		"displayName": "Vanguard Streak",
 		"displayDescription": "Increases Vanguard Reputation and drop chance for Legendaries in Strikes. \n\nLasts until you return to orbit.",
-		"displayIcon": "/common/destiny_content/icons/1f50c0584a6ea5d3ffd45ab96e591626.png",
+		"displayIcon": "/common/destiny_content/icons/8d4cba492dc7dbdb94a115f0cb391ec9.png",
 		"isDisplayable": true,
 		"hash": 2517656642,
 		"index": 0
@@ -64442,7 +64442,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2525259694,
 		"displayName": "Private Eye",
 		"displayDescription": "Optical zoom length is increased while crouched.",
-		"displayIcon": "/common/destiny_content/icons/fd90c6127a0c024adeee815afc4da9d4.png",
+		"displayIcon": "/common/destiny_content/icons/badd27295f07a8b04f7b8978cd7db4ed.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 16,
@@ -64479,7 +64479,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2556279843,
 		"displayName": "Void Recovery",
 		"displayDescription": "Increased Recovery for 5 seconds after taking Void splash damage.",
-		"displayIcon": "/common/destiny_content/icons/02b2bb0405e4b1bd14d2ad031656cdd3.png",
+		"displayIcon": "/common/destiny_content/icons/1c3e3f8c3e65d9712327a3765b64d156.png",
 		"isDisplayable": true,
 		"hash": 2556279843,
 		"index": 0
@@ -64488,7 +64488,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2560578688,
 		"displayName": "Void-Forged Guard",
 		"displayDescription": "Use  to guard. Effective against Arc and Solar attacks, less effective against Void attacks.",
-		"displayIcon": "/common/destiny_content/icons/c70cd227b6d21287f4a93a8dee5d4318.png",
+		"displayIcon": "/common/destiny_content/icons/7e5535ed7017952b53f58a91270211c6.png",
 		"isDisplayable": true,
 		"hash": 2560578688,
 		"index": 0
@@ -64497,7 +64497,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2566491829,
 		"displayName": "Marksman",
 		"displayDescription": "This weapon gains bonus precision damage.",
-		"displayIcon": "/common/destiny_content/icons/1482dc5d2aebbab493dd6bdf126f340d.png",
+		"displayIcon": "/common/destiny_content/icons/de3b039514533d5f69f77760c1843403.png",
 		"isDisplayable": true,
 		"hash": 2566491829,
 		"index": 0
@@ -64506,7 +64506,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2568497806,
 		"displayName": "Thunderer",
 		"displayDescription": "This weapon can be fired in full auto mode.",
-		"displayIcon": "/common/destiny_content/icons/7dac9e15545cf18288b572fb6a4d7fb2.png",
+		"displayIcon": "/common/destiny_content/icons/80310c2aaac15378cc8ad2321ed1e943.png",
 		"isDisplayable": true,
 		"hash": 2568497806,
 		"index": 0
@@ -64529,7 +64529,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2577166199,
 		"displayName": "Tempered",
 		"displayDescription": "A boon from the Lords of Iron. Increases Event Standing gained in the Iron Banner.\n\nBecomes increasingly effective every day the Iron Banner is available.",
-		"displayIcon": "/common/destiny_content/icons/0e0c5d74bcaa84e8af0d29c705f63226.png",
+		"displayIcon": "/common/destiny_content/icons/3176f6bff440d8fc1419f2d37e884959.png",
 		"isDisplayable": true,
 		"hash": 2577166199,
 		"index": 0
@@ -64545,7 +64545,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2579852973,
 		"displayName": "Ether Claw",
 		"displayDescription": "Chance to generate Orbs when killing Fallen with melee attacks.",
-		"displayIcon": "/common/destiny_content/icons/b66ac2d3e986c7327563d48324fa966f.png",
+		"displayIcon": "/common/destiny_content/icons/f754f0bd1f5409e0f8506d2b9996a7cf.png",
 		"isDisplayable": true,
 		"hash": 2579852973,
 		"index": 0
@@ -64568,7 +64568,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2586594178,
 		"displayName": "Special Weapon Mags",
 		"displayDescription": "Carry more ammo for Special Weapons.",
-		"displayIcon": "/common/destiny_content/icons/10619ab6efa2fd4f3155cff1bfbf4e31.png",
+		"displayIcon": "/common/destiny_content/icons/dfaa37b0bc32327d8246108f45337927.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -64605,7 +64605,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2594448801,
 		"displayName": "Seeds of Ruin",
 		"displayDescription": "Heavy ammo drops more often, and contains more ammo in each drop.",
-		"displayIcon": "/common/destiny_content/icons/83511c650e1630c9717c38a16d69374e.png",
+		"displayIcon": "/common/destiny_content/icons/a18dd66e1175d4e82e42f5d129d2e51b.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 704,
@@ -64621,7 +64621,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2598467525,
 		"displayName": "Fallen Arbiter",
 		"displayDescription": "Greatly increased Recovery and Super recharge when fighting Fallen in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/b66ac2d3e986c7327563d48324fa966f.png",
+		"displayIcon": "/common/destiny_content/icons/f754f0bd1f5409e0f8506d2b9996a7cf.png",
 		"isDisplayable": true,
 		"hash": 2598467525,
 		"index": 0
@@ -64637,7 +64637,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2623572727,
 		"displayName": "Hive Seeker",
 		"displayDescription": "Increased Glimmer from Hive enemies.",
-		"displayIcon": "/common/destiny_content/icons/49d482f9cdcc096728af108a09e4ea9c.png",
+		"displayIcon": "/common/destiny_content/icons/a6f9041ae5c9b71fa066af467cc88597.png",
 		"isDisplayable": true,
 		"hash": 2623572727,
 		"index": 0
@@ -64646,7 +64646,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2625386363,
 		"displayName": "Dubious Ordnance",
 		"displayDescription": "This weapon delivers a high-energy volley of explosive ordnance.",
-		"displayIcon": "/common/destiny_content/icons/56cf8fd338076f8ec546a15442b94e72.png",
+		"displayIcon": "/common/destiny_content/icons/e3b6806a3bef5d14d47b7ffbaef2ea37.png",
 		"isDisplayable": true,
 		"hash": 2625386363,
 		"index": 0
@@ -64655,7 +64655,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2626112550,
 		"displayName": "Unflinching",
 		"displayDescription": "It's easier to aim under fire using this weapon.",
-		"displayIcon": "/common/destiny_content/icons/a4b0140d4a32f4d576b459e224d07c4c.png",
+		"displayIcon": "/common/destiny_content/icons/24dce6de6886a3e34ea087f55608253d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -64699,7 +64699,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2655722661,
 		"displayName": "White Nail",
 		"displayDescription": "Rapidly landing three precision shots will refill the magazine from your reserves.",
-		"displayIcon": "/common/destiny_content/icons/e6f70274b659514f2af5c3ce99ed39cc.png",
+		"displayIcon": "/common/destiny_content/icons/bded4c8bfb0008e65cee39eea628b808.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -64715,7 +64715,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2661061676,
 		"displayName": "Brawler's Draw",
 		"displayDescription": "More Super energy from Melee kills.",
-		"displayIcon": "/common/destiny_content/icons/518fb40d313b1a4742394f87d250bff9.png",
+		"displayIcon": "/common/destiny_content/icons/622b05ed60e099239a0055ff397f6e91.png",
 		"isDisplayable": true,
 		"hash": 2661061676,
 		"index": 0
@@ -64724,7 +64724,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2661061678,
 		"displayName": "Darkness Slayer",
 		"displayDescription": "More Super energy from non-Guardian kills.",
-		"displayIcon": "/common/destiny_content/icons/6b879afd0acecf041c33122ed81f8221.png",
+		"displayIcon": "/common/destiny_content/icons/acb1db796050081625619d709674863f.png",
 		"isDisplayable": true,
 		"hash": 2661061678,
 		"index": 0
@@ -64733,7 +64733,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2661061679,
 		"displayName": "Grenade Tap",
 		"displayDescription": "More Super energy from Grenade kills.",
-		"displayIcon": "/common/destiny_content/icons/518fb40d313b1a4742394f87d250bff9.png",
+		"displayIcon": "/common/destiny_content/icons/622b05ed60e099239a0055ff397f6e91.png",
 		"isDisplayable": true,
 		"hash": 2661061679,
 		"index": 0
@@ -64742,7 +64742,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2661261331,
 		"displayName": "Fallen Rampart",
 		"displayDescription": "Greatly increased Armor and Melee recharge when fighting Fallen in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/b66ac2d3e986c7327563d48324fa966f.png",
+		"displayIcon": "/common/destiny_content/icons/f754f0bd1f5409e0f8506d2b9996a7cf.png",
 		"isDisplayable": true,
 		"hash": 2661261331,
 		"index": 0
@@ -64751,7 +64751,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2664229771,
 		"displayName": "Second Thoughts",
 		"displayDescription": "Gain bonus Super energy from Special Weapon kills on minions of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/db678b552f8125409c3d3afda1cb070e.png",
+		"displayIcon": "/common/destiny_content/icons/e03134f946120d3010ae1deba45e71e8.png",
 		"isDisplayable": true,
 		"hash": 2664229771,
 		"index": 0
@@ -64760,7 +64760,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2670306210,
 		"displayName": "Warlock Bounty",
 		"displayDescription": "Generate additional Glimmer when killing Warlocks in the Crucible.",
-		"displayIcon": "/common/destiny_content/icons/4fbede56751979823962f16fcfe0d54a.png",
+		"displayIcon": "/common/destiny_content/icons/c39a1e422ce72fc035d650427852d22b.png",
 		"isDisplayable": true,
 		"hash": 2670306210,
 		"index": 0
@@ -64769,7 +64769,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2671461052,
 		"displayName": "Improved Axion Bolt",
 		"displayDescription": "Enhanced Axion Bolt. Spawn with grenade energy.",
-		"displayIcon": "/common/destiny_content/icons/38432c8cd26036d83def18481628812a.png",
+		"displayIcon": "/common/destiny_content/icons/c8e94ed8c9930e6e31374fd876a56127.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -64785,7 +64785,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2678818989,
 		"displayName": "Helium Extractor",
 		"displayDescription": "Chance to find additional helium filaments when looting engrams on the Moon.",
-		"displayIcon": "/common/destiny_content/icons/13051f1c814b09e10f0817dc6f15e60f.png",
+		"displayIcon": "/common/destiny_content/icons/1dfade18651e5bf8ce415a9ef74b6d3f.png",
 		"isDisplayable": true,
 		"hash": 2678818989,
 		"index": 0
@@ -64801,7 +64801,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2682002320,
 		"displayName": "Keeper of the Pack",
 		"displayDescription": "Revive teammates faster. Spawn more orbs.",
-		"displayIcon": "/common/destiny_content/icons/79394f627412cfeef5743a8cd3168f19.png",
+		"displayIcon": "/common/destiny_content/icons/ba61d7cfd3b6f7d0b2301b69d2c5ac5e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -64887,7 +64887,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2712575832,
 		"displayName": "Performance Bonus",
 		"displayDescription": "Kills with this weapon have the chance to grant bonus reserve ammo.",
-		"displayIcon": "/common/destiny_content/icons/123dc3b01e7e9bfe672e229bf35665c6.png",
+		"displayIcon": "/common/destiny_content/icons/18589744b3af1397bc41e386eb42a16d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -64903,7 +64903,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2725595956,
 		"displayName": "Battle Runner",
 		"displayDescription": "Kills with this weapon grant a brief boost to the sprint's top speed.",
-		"displayIcon": "/common/destiny_content/icons/8562c25f1e0228e50e3c4e974d10c68b.png",
+		"displayIcon": "/common/destiny_content/icons/0c459da69e778f6fb8cc14cf8e0b6233.png",
 		"isDisplayable": true,
 		"hash": 2725595956,
 		"index": 0
@@ -64919,7 +64919,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2751882956,
 		"displayName": "Peregrine Strike",
 		"displayDescription": "Shoulder Charge deals bonus damage when activated in the air.",
-		"displayIcon": "/common/destiny_content/icons/bffc3db9a357077c38d6bc9915c01aa1.png",
+		"displayIcon": "/common/destiny_content/icons/f7c2b845594725e6cd40581bcd719761.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -64935,7 +64935,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2758635242,
 		"displayName": "Self Spotter",
 		"displayDescription": "Increased radar resolution when this weapon is equipped.",
-		"displayIcon": "/common/destiny_content/icons/8b00da7185e2b2d73694d7ee6c08d749.png",
+		"displayIcon": "/common/destiny_content/icons/993b986b29e5be7f9a86f18b6f6a7673.png",
 		"isDisplayable": true,
 		"hash": 2758635242,
 		"index": 0
@@ -64944,7 +64944,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2768191624,
 		"displayName": "Wormspore Sensor",
 		"displayDescription": "Detects and marks nearby wormspore clusters.",
-		"displayIcon": "/common/destiny_content/icons/f41ba841562c4b25f03948bd8af0b123.png",
+		"displayIcon": "/common/destiny_content/icons/78ae74c19779f0277918270eabb7d8a7.png",
 		"isDisplayable": true,
 		"hash": 2768191624,
 		"index": 0
@@ -64953,7 +64953,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2770387802,
 		"displayName": "Sidearm Ready",
 		"displayDescription": "Increases speed at which you switch to Sidearms.",
-		"displayIcon": "/common/destiny_content/icons/6d974d3c9c0013fb2811339d39737cca.png",
+		"displayIcon": "/common/destiny_content/icons/28b1f957780b5d675231a5f344ac3fa3.png",
 		"isDisplayable": true,
 		"hash": 2770387802,
 		"index": 0
@@ -64983,7 +64983,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2779348654,
 		"displayName": "Taken Piercer",
 		"displayDescription": "Precision kills against a Taken enemy have a chance to generate an Orb.",
-		"displayIcon": "/common/destiny_content/icons/f3d52b15e5239c864460118cae8e8bdd.png",
+		"displayIcon": "/common/destiny_content/icons/6ba09f9984377944359638cf21f42edf.png",
 		"isDisplayable": true,
 		"hash": 2779348654,
 		"index": 0
@@ -64999,7 +64999,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2783259970,
 		"displayName": "One-Two Punch",
 		"displayDescription": "Grants Amplify. Grants additional melee charge.",
-		"displayIcon": "/common/destiny_content/icons/f0a7a5a8fe3759231c82436d43d05de5.png",
+		"displayIcon": "/common/destiny_content/icons/3ca1c46553239740c9d248fc7bf2d381.png",
 		"isDisplayable": true,
 		"hash": 2783259970,
 		"index": 0
@@ -65015,7 +65015,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2784842908,
 		"displayName": "Tripod",
 		"displayDescription": "This launcher's tube can hold three shells.",
-		"displayIcon": "/common/destiny_content/icons/44dda92070afa432a51e3d94a8b78948.png",
+		"displayIcon": "/common/destiny_content/icons/f19bafd72612283420b74b8cd65259e0.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -65038,7 +65038,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2796404938,
 		"displayName": "Elementalist",
 		"displayDescription": "Enemies vulnerable to this weapon's damage type explode on death.",
-		"displayIcon": "/common/destiny_content/icons/4da306aaa26735a7662c6ccf1105fc83.png",
+		"displayIcon": "/common/destiny_content/icons/49975bdeeaf9124fee116f80eea1c68e.png",
 		"isDisplayable": true,
 		"hash": 2796404938,
 		"index": 0
@@ -65054,7 +65054,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2814215427,
 		"displayName": "Hip Fire",
 		"displayDescription": "This weapon has bonus accuracy while firing from the hip.",
-		"displayIcon": "/common/destiny_content/icons/f1048affebf32bc3d052856eedfb8b4c.png",
+		"displayIcon": "/common/destiny_content/icons/d12b001638b6e48d94adb58ec6c1ba33.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 4,
@@ -65070,7 +65070,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2818471317,
 		"displayName": "Trick Master",
 		"displayDescription": "The amount of fuel you gain from performing tricks is increased.",
-		"displayIcon": "/common/destiny_content/icons/9ab6ffeea764c3ae517a64cdadd1fc38.png",
+		"displayIcon": "/common/destiny_content/icons/5d9aca8ffef214205518a435e6350068.png",
 		"isDisplayable": true,
 		"hash": 2818471317,
 		"index": 0
@@ -65079,7 +65079,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2819174431,
 		"displayName": "Make Your Luck",
 		"displayDescription": "Arcbolt Grenade chains further. \nRespawn with full grenade energy.",
-		"displayIcon": "/common/destiny_content/icons/ce2c12f77f22d4000e97119324a54126.png",
+		"displayIcon": "/common/destiny_content/icons/e787d4ac6530a702f5716d772f560124.png",
 		"isDisplayable": true,
 		"hash": 2819174431,
 		"index": 0
@@ -65088,7 +65088,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2819424643,
 		"displayName": "Iron Allegiance",
 		"displayDescription": "Increases Event Standing gained in the Iron Banner.",
-		"displayIcon": "/common/destiny_content/icons/0e0c5d74bcaa84e8af0d29c705f63226.png",
+		"displayIcon": "/common/destiny_content/icons/3176f6bff440d8fc1419f2d37e884959.png",
 		"isDisplayable": true,
 		"hash": 2819424643,
 		"index": 0
@@ -65104,7 +65104,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2838413436,
 		"displayName": "Two Tries Remaining",
 		"displayDescription": "Two tries remaining on this ticket.",
-		"displayIcon": "/common/destiny_content/icons/aa3e323fde6b88840b62d60383c8a41d.png",
+		"displayIcon": "/common/destiny_content/icons/956cf21631c4e5261664a2c6231e422a.png",
 		"isDisplayable": true,
 		"hash": 2838413436,
 		"index": 0
@@ -65113,7 +65113,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2838413437,
 		"displayName": "Three Tries Remaining",
 		"displayDescription": "Three tries remaining on this ticket.",
-		"displayIcon": "/common/destiny_content/icons/67f71b78f273f24b5d2cd53ec43418fd.png",
+		"displayIcon": "/common/destiny_content/icons/c1c0d2841a8cfe2d4eb2485a1b39b7a3.png",
 		"isDisplayable": true,
 		"hash": 2838413437,
 		"index": 0
@@ -65131,7 +65131,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2838413439,
 		"displayName": "One Try Remaining",
 		"displayDescription": "One try remaining on this ticket.",
-		"displayIcon": "/common/destiny_content/icons/5fb4f97d4eee74c2cb723dab354eb986.png",
+		"displayIcon": "/common/destiny_content/icons/f00be1d5d166c459665b954d5a2e4e39.png",
 		"isDisplayable": true,
 		"hash": 2838413439,
 		"index": 0
@@ -65140,7 +65140,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2840164558,
 		"displayName": "Placeholder",
 		"displayDescription": "Not yet implemented. Pardon our dust!",
-		"displayIcon": "/common/destiny_content/icons/76a9afd5960b1fbc93cd2f0364237f21.png",
+		"displayIcon": "/common/destiny_content/icons/afba0fd350a2e789c9d5e6c539f4598e.png",
 		"isDisplayable": true,
 		"hash": 2840164558,
 		"index": 0
@@ -65163,7 +65163,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2852658353,
 		"displayName": "MIDA Multi-Tool",
 		"displayDescription": "This weapon boosts move speed and fires on a hair trigger.",
-		"displayIcon": "/common/destiny_content/icons/e484eb3931a95ef856b28d06cc8ccf48.png",
+		"displayIcon": "/common/destiny_content/icons/98f44e0041f1c3cc3d598bc9f34b1cb9.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 256,
@@ -65179,7 +65179,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2852999565,
 		"displayName": "Hive Arbiter",
 		"displayDescription": "Greatly increased Recovery and Super recharge when fighting Hive in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/b66ac2d3e986c7327563d48324fa966f.png",
+		"displayIcon": "/common/destiny_content/icons/f754f0bd1f5409e0f8506d2b9996a7cf.png",
 		"isDisplayable": true,
 		"hash": 2852999565,
 		"index": 0
@@ -65195,7 +65195,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2859055896,
 		"displayName": "Life Leech",
 		"displayDescription": "Three rapid kills with this weapon heals a small amount and starts health regeneration",
-		"displayIcon": "/common/destiny_content/icons/ceb27528a575a7da2d32e58077141ab5.png",
+		"displayIcon": "/common/destiny_content/icons/fb66ccada98b834232080b411932a648.png",
 		"isDisplayable": true,
 		"hash": 2859055896,
 		"index": 0
@@ -65204,7 +65204,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2859547216,
 		"displayName": "Devil's Touch",
 		"displayDescription": "Kills with this weapon rally nearby allies with +3 recovery. Lasts 30 seconds.",
-		"displayIcon": "/common/destiny_content/icons/0cd52d1381b612c680690e80cfc5501a.png",
+		"displayIcon": "/common/destiny_content/icons/d51abc8c7eb0f451dfb288eac7078354.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -65227,7 +65227,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2871746970,
 		"displayName": "Solar Catalyst",
 		"displayDescription": "Solar precision kills against a minion of the Darkness have a chance to generate an Orb.",
-		"displayIcon": "/common/destiny_content/icons/83c6681fcc237127428f7d1788a313a5.png",
+		"displayIcon": "/common/destiny_content/icons/b9725e482f0ef6f3fe4a5795e2a5ecec.png",
 		"isDisplayable": true,
 		"hash": 2871746970,
 		"index": 0
@@ -65236,7 +65236,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2887187771,
 		"displayName": "Perfectionist",
 		"displayDescription": "Magazine is refunded if all shots fired are precision kills.",
-		"displayIcon": "/common/destiny_content/icons/0a07e68038f2d32ff6aa5c2590bd145d.png",
+		"displayIcon": "/common/destiny_content/icons/b5c4d328fb6cfad8cb8019d48a119777.png",
 		"isDisplayable": true,
 		"hash": 2887187771,
 		"index": 0
@@ -65266,7 +65266,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2908652391,
 		"displayName": "Improved Transfusion",
 		"displayDescription": "Storm Fist kills regenerate health. Spawn with melee energy.",
-		"displayIcon": "/common/destiny_content/icons/79394f627412cfeef5743a8cd3168f19.png",
+		"displayIcon": "/common/destiny_content/icons/ba61d7cfd3b6f7d0b2301b69d2c5ac5e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -65282,7 +65282,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2909481381,
 		"displayName": "Machine Gun Analysis",
 		"displayDescription": "Increased XP for Machine Guns.",
-		"displayIcon": "/common/destiny_content/icons/868ed2c0ce58f3650938bb7bdecb7cda.png",
+		"displayIcon": "/common/destiny_content/icons/66c12cdff15d267de29345b32a50a5ca.png",
 		"isDisplayable": true,
 		"hash": 2909481381,
 		"index": 0
@@ -65298,7 +65298,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2921300479,
 		"displayName": "Auto Rifle Mags",
 		"displayDescription": "Carry more ammo for Auto Rifles.",
-		"displayIcon": "/common/destiny_content/icons/f8f85cab6fdf9b2b8471d6a30026768b.png",
+		"displayIcon": "/common/destiny_content/icons/36009fdfaf1382cc1a0cd6e3f8175c3f.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -65314,7 +65314,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2923036788,
 		"displayName": "Iron to Gold",
 		"displayDescription": "Chance to gain Glimmer on Primary Ammo pickup\nWith full Super, Orbs recharge grenade and melee.",
-		"displayIcon": "/common/destiny_content/icons/842e872ab66ac5011391dca01cc137bb.png",
+		"displayIcon": "/common/destiny_content/icons/4c5de0cae738fa3053ad48a3c3794c9a.png",
 		"isDisplayable": true,
 		"hash": 2923036788,
 		"index": 0
@@ -65365,7 +65365,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2950181133,
 		"displayName": "The Dance",
 		"displayDescription": "You move more quickly while aiming your weapon.",
-		"displayIcon": "/common/destiny_content/icons/c1dea6e92ee4e795fdf44b9c8ee735bc.png",
+		"displayIcon": "/common/destiny_content/icons/6f7b142adababb166453064c67eea56f.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 64,
@@ -65397,7 +65397,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2978872641,
 		"displayName": "Quite a Handful",
 		"displayDescription": "Carry an additional grenade.",
-		"displayIcon": "/common/destiny_content/icons/79394f627412cfeef5743a8cd3168f19.png",
+		"displayIcon": "/common/destiny_content/icons/ba61d7cfd3b6f7d0b2301b69d2c5ac5e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -65413,7 +65413,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2979228483,
 		"displayName": "Sidearm Focus",
 		"displayDescription": "Increases the upgrade rate for Sidearms.",
-		"displayIcon": "/common/destiny_content/icons/84f1da948e318a4b5e5fcdba0d4e9731.png",
+		"displayIcon": "/common/destiny_content/icons/45a67ef7852061107e19f529dd6b6984.png",
 		"isDisplayable": true,
 		"hash": 2979228483,
 		"index": 0
@@ -65429,7 +65429,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2987746802,
 		"displayName": "Quintessence Transfer",
 		"displayDescription": "Replenish Super energy when you kill an enemy with a grenade.",
-		"displayIcon": "/common/destiny_content/icons/518fb40d313b1a4742394f87d250bff9.png",
+		"displayIcon": "/common/destiny_content/icons/622b05ed60e099239a0055ff397f6e91.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -65445,7 +65445,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2987746803,
 		"displayName": "Inverse Shadow",
 		"displayDescription": "Increased Super energy gained from killing minions of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/6b879afd0acecf041c33122ed81f8221.png",
+		"displayIcon": "/common/destiny_content/icons/acb1db796050081625619d709674863f.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -65461,7 +65461,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2988093069,
 		"displayName": "Rocket Launcher Focus",
 		"displayDescription": "Increases the upgrade rate for Rocket Launchers",
-		"displayIcon": "/common/destiny_content/icons/095ae93063ff6452c523e0b7752c1ccb.png",
+		"displayIcon": "/common/destiny_content/icons/c76de692dbb46c425b7df6f866b456a1.png",
 		"isDisplayable": true,
 		"hash": 2988093069,
 		"index": 0
@@ -65470,7 +65470,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 2999530468,
 		"displayName": "Capture King",
 		"displayDescription": "After capturing control zones in Crucible matches, weapon and movement speeds are greatly increased.",
-		"displayIcon": "/common/destiny_content/icons/ac2dc143003ca752bf573fbd0eddf8fd.png",
+		"displayIcon": "/common/destiny_content/icons/bfcbb8c1aac17a419e466c20f6e18e4b.png",
 		"isDisplayable": true,
 		"hash": 2999530468,
 		"index": 0
@@ -65479,7 +65479,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3002204708,
 		"displayName": "Primary Care",
 		"displayDescription": "This Exotic Sniper Rifle can be equipped in the primary weapon slot.",
-		"displayIcon": "/common/destiny_content/icons/da2173b8568e3219db3642f9890c5827.png",
+		"displayIcon": "/common/destiny_content/icons/19ec6ba233a29b49d43d53e9f40a1ca3.png",
 		"isDisplayable": true,
 		"hash": 3002204708,
 		"index": 0
@@ -65488,7 +65488,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3013100384,
 		"displayName": "Improved Tripmine Grenade",
 		"displayDescription": "Tripmine grenades last longer when placed.",
-		"displayIcon": "/common/destiny_content/icons/c8da5f251b1f0d40de5dcacecf89e7ca.png",
+		"displayIcon": "/common/destiny_content/icons/03715bfd730b1ca6e18d20fe7cd40a3e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -65518,7 +65518,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3031176193,
 		"displayName": "Auto Rifle Loader",
 		"displayDescription": "Increases the reload speed of Auto Rifles.",
-		"displayIcon": "/common/destiny_content/icons/813833d64238959fdb6fb1e7365720c5.png",
+		"displayIcon": "/common/destiny_content/icons/28eabec8a288a5e6f42801f0cd429445.png",
 		"isDisplayable": true,
 		"hash": 3031176193,
 		"index": 0
@@ -65527,7 +65527,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3031234337,
 		"displayName": "Guerilla Fighter",
 		"displayDescription": "Increased accuracy, handling and damage resistance when shooting this weapon from behind cover.",
-		"displayIcon": "/common/destiny_content/icons/833dcf1400e5a98d6e731c4612af13ed.png",
+		"displayIcon": "/common/destiny_content/icons/ababfecc7e43e3aa191ccfcedf41dc13.png",
 		"isDisplayable": true,
 		"hash": 3031234337,
 		"index": 0
@@ -65536,7 +65536,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3052118152,
 		"displayName": "Clown Cartridge",
 		"displayDescription": "Reloading this weapon has a chance to grant a larger than normal magazine.",
-		"displayIcon": "/common/destiny_content/icons/39bb365452ea353d85a7ecadb434adce.png",
+		"displayIcon": "/common/destiny_content/icons/c137b1c9b70ca742d524bfd0d3ea138a.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -65552,7 +65552,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3058626839,
 		"displayName": "Sniper Rifle Mags",
 		"displayDescription": "Carry more ammo for Sniper Rifle.",
-		"displayIcon": "/common/destiny_content/icons/e33f45d6c0e0c20c26c3bef2788e6fe8.png",
+		"displayIcon": "/common/destiny_content/icons/5e8e94ae5cba3765f7ad2f8fa92841b0.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -65582,7 +65582,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3059715597,
 		"displayName": "Cabal Hunter",
 		"displayDescription": "Increased XP from Cabal enemies.",
-		"displayIcon": "/common/destiny_content/icons/49d482f9cdcc096728af108a09e4ea9c.png",
+		"displayIcon": "/common/destiny_content/icons/a6f9041ae5c9b71fa066af467cc88597.png",
 		"isDisplayable": true,
 		"hash": 3059715597,
 		"index": 0
@@ -65633,7 +65633,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3084449642,
 		"displayName": "Extinguished",
 		"displayDescription": "You have succumbed to Nightfall. Unable to attempt it again until next week.",
-		"displayIcon": "/common/destiny_content/icons/01770c156ede2fbadbd1e6288b9bfa01.png",
+		"displayIcon": "/common/destiny_content/icons/1c7129ff77d04f1d9b3b19ab7037c0ee.png",
 		"isDisplayable": true,
 		"hash": 3084449642,
 		"index": 0
@@ -65649,7 +65649,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3092167570,
 		"displayName": "Hair Trigger",
 		"displayDescription": "This weapon doesn't require a full trigger pull to fire.",
-		"displayIcon": "/common/destiny_content/icons/79ca2c06bad61f0f2a62e91a60f96ee1.png",
+		"displayIcon": "/common/destiny_content/icons/71264ec8f93a5737c4f3846148ce76c6.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 256,
@@ -65672,7 +65672,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3102938162,
 		"displayName": "Exhumed",
 		"displayDescription": "This weapon gains improved range and handling for a short time after revival.",
-		"displayIcon": "/common/destiny_content/icons/a8b6525b109cd9b29ed2efdb378df05d.png",
+		"displayIcon": "/common/destiny_content/icons/a5cb8a6feca017e59a479d1101b1db65.png",
 		"isDisplayable": true,
 		"hash": 3102938162,
 		"index": 0
@@ -65681,7 +65681,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3104860955,
 		"displayName": "Overdrive",
 		"displayDescription": "Hold  for greater speed at risk of exploding.",
-		"displayIcon": "/common/destiny_content/icons/71d0e80b3e60d81699678aa4cb0dcfac.png",
+		"displayIcon": "/common/destiny_content/icons/172e754d12f7aaf6152607927e0fe438.png",
 		"isDisplayable": true,
 		"hash": 3104860955,
 		"index": 0
@@ -65690,7 +65690,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3119194123,
 		"displayName": "Glass Half Full",
 		"displayDescription": "The bottom half of each magazine causes additional damage.",
-		"displayIcon": "/common/destiny_content/icons/27f5753bd60522c3a78a33f0cf236cda.png",
+		"displayIcon": "/common/destiny_content/icons/dc16de9783fb2ec172f1972de98e532d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -65706,7 +65706,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3129120313,
 		"displayName": "Rocket Launcher Ammo",
 		"displayDescription": "Increases the amount of Rocket Launcher ammunition you can carry.",
-		"displayIcon": "/common/destiny_content/icons/7fb0a83051ac420700f0574c5494e316.png",
+		"displayIcon": "/common/destiny_content/icons/8cb99a415745d1b3bc9ba416838f71ba.png",
 		"isDisplayable": true,
 		"hash": 3129120313,
 		"index": 0
@@ -65715,7 +65715,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3133914358,
 		"displayName": "Persistence",
 		"displayDescription": "This weapon grows more accurate the longer it is fired.",
-		"displayIcon": "/common/destiny_content/icons/f15ae1d6efe3c9ccf4dcf2d4030b6ba3.png",
+		"displayIcon": "/common/destiny_content/icons/9b12be2f4fac9a7fa73c78bf57ad566d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 4,
@@ -65731,7 +65731,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3136748857,
 		"displayName": "Thrive by the Sword",
 		"displayDescription": "Kills with the sword grant Super energy.",
-		"displayIcon": "/common/destiny_content/icons/6b879afd0acecf041c33122ed81f8221.png",
+		"displayIcon": "/common/destiny_content/icons/acb1db796050081625619d709674863f.png",
 		"isDisplayable": true,
 		"hash": 3136748857,
 		"index": 0
@@ -65740,7 +65740,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3146510717,
 		"displayName": "Crimson Connection",
 		"displayDescription": "Inspiration: Increases the upgrade rate for all weapons for 30 minutes. Affects you and all Fireteam members.",
-		"displayIcon": "/common/destiny_content/icons/a58fcdbf4477df282eab3f8e06ed94f0.png",
+		"displayIcon": "/common/destiny_content/icons/ca70a5842af54a2181bc88595b6d4196.png",
 		"isDisplayable": true,
 		"hash": 3146510717,
 		"index": 0
@@ -65749,7 +65749,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3154601642,
 		"displayName": "Phoenix Uppercut",
 		"displayDescription": "Use  to launch into a Solar Light uppercut.",
-		"displayIcon": "/common/destiny_content/icons/f5760eae10070ce1a63061af5cfd31bd.png",
+		"displayIcon": "/common/destiny_content/icons/7d2fc2514f4ea9b3143fea7199ab338a.png",
 		"isDisplayable": true,
 		"hash": 3154601642,
 		"index": 0
@@ -65779,7 +65779,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3187783240,
 		"displayName": "Auto Rifle Loader",
 		"displayDescription": "Increased reload speed with Auto Rifles.",
-		"displayIcon": "/common/destiny_content/icons/813833d64238959fdb6fb1e7365720c5.png",
+		"displayIcon": "/common/destiny_content/icons/28eabec8a288a5e6f42801f0cd429445.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -65816,7 +65816,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3224445959,
 		"displayName": "The Survivor",
 		"displayDescription": "Three rapid precision kills while Born on the Road is active will return two rounds to the chamber.",
-		"displayIcon": "/common/destiny_content/icons/88acf2a5e1c7a353ec828e747d5cbdac.png",
+		"displayIcon": "/common/destiny_content/icons/f56024140a24ea02643979fd3e2eb8c8.png",
 		"isDisplayable": true,
 		"hash": 3224445959,
 		"index": 0
@@ -65825,7 +65825,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3226568521,
 		"displayName": "Bolts from the Blue",
 		"displayDescription": "Double kills with this weapon charge a small amount of Super energy and return ammo to the magazine.",
-		"displayIcon": "/common/destiny_content/icons/1df5916301a93be7bb64e55d8a6e63d7.png",
+		"displayIcon": "/common/destiny_content/icons/a5cbba35a87944b3f9c69970d06b91c1.png",
 		"isDisplayable": true,
 		"hash": 3226568521,
 		"index": 0
@@ -65834,7 +65834,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3238069786,
 		"displayName": "Unsealed Power",
 		"displayDescription": "The power of the warden seethes uncontrollably.",
-		"displayIcon": "/common/destiny_content/icons/a8e3a5c9910d1e5d7b436cabf452139e.png",
+		"displayIcon": "/common/destiny_content/icons/7c24c89f30a56848856aa75112338ade.png",
 		"isDisplayable": true,
 		"hash": 3238069786,
 		"index": 0
@@ -65843,7 +65843,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3240339843,
 		"displayName": "Scout Rifle Ammo",
 		"displayDescription": "Increases the amount of Scout Rifle ammunition you can carry.",
-		"displayIcon": "/common/destiny_content/icons/dd0b8af90b0e67a06dd88a708b5b4db5.png",
+		"displayIcon": "/common/destiny_content/icons/8eb960ab315ba0cd0520e8a5be517143.png",
 		"isDisplayable": true,
 		"hash": 3240339843,
 		"index": 0
@@ -65852,7 +65852,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3241361759,
 		"displayName": "Hand Cannon Loader",
 		"displayDescription": "Increased reload speed with Hand Cannons.",
-		"displayIcon": "/common/destiny_content/icons/99dbbb7349e49688cc99219036cadfc2.png",
+		"displayIcon": "/common/destiny_content/icons/88434e5c389da7643136d389b344522d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -65868,7 +65868,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3242604156,
 		"displayName": "Ashes to Asset",
 		"displayDescription": "Replenish Super energy when you kill an enemy with a grenade.",
-		"displayIcon": "/common/destiny_content/icons/518fb40d313b1a4742394f87d250bff9.png",
+		"displayIcon": "/common/destiny_content/icons/622b05ed60e099239a0055ff397f6e91.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -65884,7 +65884,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3242604157,
 		"displayName": "Inverse Shadow",
 		"displayDescription": "Increased Super energy gained from killing minions of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/6b879afd0acecf041c33122ed81f8221.png",
+		"displayIcon": "/common/destiny_content/icons/acb1db796050081625619d709674863f.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -65900,7 +65900,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3242610063,
 		"displayName": "Hand Cannon Analysis",
 		"displayDescription": "Increased XP for Hand Cannons.",
-		"displayIcon": "/common/destiny_content/icons/a5323e9409d326510a11ec0c4229ed6d.png",
+		"displayIcon": "/common/destiny_content/icons/207955d33d0a778983c652bc85bbb3fd.png",
 		"isDisplayable": true,
 		"hash": 3242610063,
 		"index": 0
@@ -65930,7 +65930,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3245550306,
 		"displayName": "Full Auto",
 		"displayDescription": "This weapon can be fired in full auto mode.",
-		"displayIcon": "/common/destiny_content/icons/4a7ec04193c6eec2be13e04a49c05672.png",
+		"displayIcon": "/common/destiny_content/icons/bc636db742391ecb35d5528d32ceca66.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 1,
@@ -65946,7 +65946,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3260564088,
 		"displayName": "Not Bound by Law",
 		"displayDescription": "Upgrades Double Jump with an additional jump.",
-		"displayIcon": "/common/destiny_content/icons/afaea599f8a3c3128c84a967c72307fd.png",
+		"displayIcon": "/common/destiny_content/icons/8c852eb941ae389f3ce8b8ca03a01e7e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -65983,7 +65983,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3271157554,
 		"displayName": "",
 		"displayDescription": "",
-		"displayIcon": "/common/destiny_content/icons/9495b13bbe9652712325f8b2a58545d3.png",
+		"displayIcon": "/common/destiny_content/icons/d9950b90471c727a2674fe7eafda2777.png",
 		"isDisplayable": false,
 		"hash": 3271157554,
 		"index": 0
@@ -65999,7 +65999,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3277833527,
 		"displayName": "Metal Detector",
 		"displayDescription": "Expect to find more ammo for this weapon.",
-		"displayIcon": "/common/destiny_content/icons/9cbad29bda1a21b98f8d64620bc70375.png",
+		"displayIcon": "/common/destiny_content/icons/2831b160b1f1674e7e2a1afe14931fb8.png",
 		"isDisplayable": true,
 		"hash": 3277833527,
 		"index": 0
@@ -66008,7 +66008,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3283108368,
 		"displayName": "Grenadier",
 		"displayDescription": "Kills with this weapon reduce the cooldown of your grenade.",
-		"displayIcon": "/common/destiny_content/icons/9e6f8dc7b67c47710f4414a59d9dd093.png",
+		"displayIcon": "/common/destiny_content/icons/21ad80e8febdc4f8f484fadca26a34c7.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -66045,7 +66045,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3297782632,
 		"displayName": "Shot Package",
 		"displayDescription": "Aiming this weapon reduces the spread of its projectiles.",
-		"displayIcon": "/common/destiny_content/icons/da2173b8568e3219db3642f9890c5827.png",
+		"displayIcon": "/common/destiny_content/icons/19ec6ba233a29b49d43d53e9f40a1ca3.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2048,
@@ -66068,7 +66068,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3300391898,
 		"displayName": "SUROS Regime",
 		"displayDescription": "The bottom half of each magazine deals bonus damage and has a chance to return health on kill.",
-		"displayIcon": "/common/destiny_content/icons/c232eba4ca062b8affbc74243a02ab3e.png",
+		"displayIcon": "/common/destiny_content/icons/8cbb79559da4577976fdb08718211ac9.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -66098,7 +66098,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3302053862,
 		"displayName": "Heavy Lifting",
 		"displayDescription": "Gain bonus Super energy from Heavy Weapon kills on minions of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/ee05c00c0e82dcfd61ce2c64faf395dc.png",
+		"displayIcon": "/common/destiny_content/icons/4dd71a0d3cd5731b6312f1ed334e7c2a.png",
 		"isDisplayable": true,
 		"hash": 3302053862,
 		"index": 0
@@ -66107,7 +66107,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3309086364,
 		"displayName": "Elemental Transfusion",
 		"displayDescription": "Causing damage with subclass abilities will transfuse that damage type to this weapon for a period of time.",
-		"displayIcon": "/common/destiny_content/icons/e2185817864d8a50b145348fa9d10322.png",
+		"displayIcon": "/common/destiny_content/icons/15d1b068d4317f83a0d85b8ef0bca835.png",
 		"isDisplayable": true,
 		"hash": 3309086364,
 		"index": 0
@@ -66144,7 +66144,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3317503477,
 		"displayName": "Surplus",
 		"displayDescription": "Expect to find more ammo for this weapon.",
-		"displayIcon": "/common/destiny_content/icons/23f12bb2648d783981d837d20ece065f.png",
+		"displayIcon": "/common/destiny_content/icons/50207ff0c20e82ce7836399ddd525159.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -66160,7 +66160,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3318043226,
 		"displayName": "Taken Breaker",
 		"displayDescription": "Melees have a chance to generate an Orb when killing a Taken enemy.",
-		"displayIcon": "/common/destiny_content/icons/f3d52b15e5239c864460118cae8e8bdd.png",
+		"displayIcon": "/common/destiny_content/icons/6ba09f9984377944359638cf21f42edf.png",
 		"isDisplayable": true,
 		"hash": 3318043226,
 		"index": 0
@@ -66176,7 +66176,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3325943374,
 		"displayName": "Solar Accumulator",
 		"displayDescription": "Solar melees have a chance to generate an Orb when killing a minion of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/0e28e32080d211c42a75fea0d4fa4f84.png",
+		"displayIcon": "/common/destiny_content/icons/544f606126be0b80395286409677804b.png",
 		"isDisplayable": true,
 		"hash": 3325943374,
 		"index": 0
@@ -66185,7 +66185,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3326413736,
 		"displayName": "Sniper Rifle Ammo",
 		"displayDescription": "Increases the amount of Sniper Rifle ammunition you can carry.",
-		"displayIcon": "/common/destiny_content/icons/e33f45d6c0e0c20c26c3bef2788e6fe8.png",
+		"displayIcon": "/common/destiny_content/icons/5e8e94ae5cba3765f7ad2f8fa92841b0.png",
 		"isDisplayable": true,
 		"hash": 3326413736,
 		"index": 0
@@ -66215,7 +66215,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3336527326,
 		"displayName": "Arc-Forged Guard",
 		"displayDescription": "Use  to guard. Effective against Solar and Void attacks, less effective against Arc attacks.",
-		"displayIcon": "/common/destiny_content/icons/e7996cdf47cd9d11584dc3cff0a20888.png",
+		"displayIcon": "/common/destiny_content/icons/5400b2499ec17a2007b28eaba451070f.png",
 		"isDisplayable": true,
 		"hash": 3336527326,
 		"index": 0
@@ -66245,7 +66245,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3350178149,
 		"displayName": "Ether Seeds",
 		"displayDescription": "Generate additional Glimmer when killing Fallen.",
-		"displayIcon": "/common/destiny_content/icons/eefb4e7b30a3a1e3d9a89a65a86ed5cb.png",
+		"displayIcon": "/common/destiny_content/icons/dfaf6735584dc6dcb5d13ab8a73241dc.png",
 		"isDisplayable": true,
 		"hash": 3350178149,
 		"index": 0
@@ -66261,7 +66261,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3369212512,
 		"displayName": "Blinding Light",
 		"displayDescription": "Precision kills with this weapon cause a bright flash that can blind nearby enemies.",
-		"displayIcon": "/common/destiny_content/icons/3ea5ea1dbf9e58efdd21b7b1a04f4885.png",
+		"displayIcon": "/common/destiny_content/icons/f14895a3d059d9a6422b46f6414e5234.png",
 		"isDisplayable": true,
 		"hash": 3369212512,
 		"index": 0
@@ -66291,7 +66291,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3386889548,
 		"displayName": "Touch of Venom",
 		"displayDescription": "Invisible while crouching. \nInvisible melee from behind deals 4x damage. \nMelee attacks cause lingering damage.",
-		"displayIcon": "/common/destiny_content/icons/b24a7e1a16dfe1c710c25dd7e2be5850.png",
+		"displayIcon": "/common/destiny_content/icons/5773300239727f9b3b8063a784e937e4.png",
 		"isDisplayable": true,
 		"hash": 3386889548,
 		"index": 0
@@ -66307,7 +66307,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3387032895,
 		"displayName": "Hive Rampart",
 		"displayDescription": "Greatly increased Armor and Melee recharge when fighting Hive in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/b66ac2d3e986c7327563d48324fa966f.png",
+		"displayIcon": "/common/destiny_content/icons/f754f0bd1f5409e0f8506d2b9996a7cf.png",
 		"isDisplayable": true,
 		"hash": 3387032895,
 		"index": 0
@@ -66316,7 +66316,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3388395086,
 		"displayName": "Dead Orbit Champion",
 		"displayDescription": "Increases your Dead Orbit reputation gains.",
-		"displayIcon": "/common/destiny_content/icons/5f7ce9bd2a7296cd4a5f5de7f0d4fe0c.png",
+		"displayIcon": "/common/destiny_content/icons/1c69650a49b659b0a71d1c0d49f8e83f.png",
 		"isDisplayable": true,
 		"hash": 3388395086,
 		"index": 0
@@ -66325,7 +66325,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3389346365,
 		"displayName": "Tactical Air Support",
 		"displayDescription": "Press ,  while airborne to evade.",
-		"displayIcon": "/common/destiny_content/icons/d1e941e02db224232398695658bd213f.png",
+		"displayIcon": "/common/destiny_content/icons/0d5db19c95fc6877ecb1e731354bd7ba.png",
 		"isDisplayable": true,
 		"hash": 3389346365,
 		"index": 0
@@ -66341,7 +66341,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3397144243,
 		"displayName": "Ether Bomb",
 		"displayDescription": "Chance to generate Orbs when killing Fallen with grenades.",
-		"displayIcon": "/common/destiny_content/icons/b66ac2d3e986c7327563d48324fa966f.png",
+		"displayIcon": "/common/destiny_content/icons/f754f0bd1f5409e0f8506d2b9996a7cf.png",
 		"isDisplayable": true,
 		"hash": 3397144243,
 		"index": 0
@@ -66371,7 +66371,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3403957994,
 		"displayName": "Machine Gun Mags",
 		"displayDescription": "Carry more ammo for Machine Guns.",
-		"displayIcon": "/common/destiny_content/icons/08b483865c73c0ba713b0fe97784e55f.png",
+		"displayIcon": "/common/destiny_content/icons/759d33943d6d0ceb6f6136fa8f036fc7.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -66387,7 +66387,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3406171126,
 		"displayName": "The Whispers",
 		"displayDescription": "Gain an additional charge for all Warlock-charged melees.",
-		"displayIcon": "/common/destiny_content/icons/e8ccc30aba195bae041b41f609f2423d.png",
+		"displayIcon": "/common/destiny_content/icons/a2a30f7232956d628a3dde62473f8c06.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -66403,7 +66403,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3410490572,
 		"displayName": "Improved Disintegrate",
 		"displayDescription": "Increases the duration of Force Barrier.",
-		"displayIcon": "/common/destiny_content/icons/79394f627412cfeef5743a8cd3168f19.png",
+		"displayIcon": "/common/destiny_content/icons/ba61d7cfd3b6f7d0b2301b69d2c5ac5e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -66419,7 +66419,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3420774760,
 		"displayName": "Fallen Hunter",
 		"displayDescription": "Increased XP from Fallen enemies.",
-		"displayIcon": "/common/destiny_content/icons/49d482f9cdcc096728af108a09e4ea9c.png",
+		"displayIcon": "/common/destiny_content/icons/a6f9041ae5c9b71fa066af467cc88597.png",
 		"isDisplayable": true,
 		"hash": 3420774760,
 		"index": 0
@@ -66435,7 +66435,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3435618587,
 		"displayName": "Plan C",
 		"displayDescription": "Charge and equip times are very short immediately after weapon swap.",
-		"displayIcon": "/common/destiny_content/icons/52d234a1a887c051c3c954b4359cf540.png",
+		"displayIcon": "/common/destiny_content/icons/a9c26f108c2e04b708ba2a4de10f48e1.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 4096,
@@ -66458,7 +66458,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3451607363,
 		"displayName": "Pulse Rifle Mags",
 		"displayDescription": "Carry more ammo for Pulse Rifles.",
-		"displayIcon": "/common/destiny_content/icons/f35ff93bea8c8e88dfc5b9912725fa44.png",
+		"displayIcon": "/common/destiny_content/icons/87fe20b5f2a3d9f1709de23945c029ce.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -66502,7 +66502,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3457701870,
 		"displayName": "Arc Double-Down",
 		"displayDescription": "Increased Agility for 5 seconds after an Arc double kill.",
-		"displayIcon": "/common/destiny_content/icons/cc065c28fa1828f0f1cf9b696c8e8b21.png",
+		"displayIcon": "/common/destiny_content/icons/01c41d517fcb301a198560150de98b5e.png",
 		"isDisplayable": true,
 		"hash": 3457701870,
 		"index": 0
@@ -66511,7 +66511,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3457907232,
 		"displayName": "Shader Version 1",
 		"displayDescription": "Recolor armor with Type I coating.",
-		"displayIcon": "/common/destiny_content/icons/66b70084e7612199c12c3784b00ae034.png",
+		"displayIcon": "/common/destiny_content/icons/292c0091765b2ea6f2865ce36bb9fb04.png",
 		"isDisplayable": true,
 		"hash": 3457907232,
 		"index": 0
@@ -66520,7 +66520,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3457907234,
 		"displayName": "Shader Version 3",
 		"displayDescription": "Recolor armor with Type I to III coating.",
-		"displayIcon": "/common/destiny_content/icons/66b70084e7612199c12c3784b00ae034.png",
+		"displayIcon": "/common/destiny_content/icons/292c0091765b2ea6f2865ce36bb9fb04.png",
 		"isDisplayable": true,
 		"hash": 3457907234,
 		"index": 0
@@ -66529,7 +66529,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3457907235,
 		"displayName": "Shader Version 2",
 		"displayDescription": "Recolor armor with Type I to II coating.",
-		"displayIcon": "/common/destiny_content/icons/66b70084e7612199c12c3784b00ae034.png",
+		"displayIcon": "/common/destiny_content/icons/292c0091765b2ea6f2865ce36bb9fb04.png",
 		"isDisplayable": true,
 		"hash": 3457907235,
 		"index": 0
@@ -66538,7 +66538,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3457907236,
 		"displayName": "Shader Version 5",
 		"displayDescription": "Recolor armor with Type I to V coating.",
-		"displayIcon": "/common/destiny_content/icons/66b70084e7612199c12c3784b00ae034.png",
+		"displayIcon": "/common/destiny_content/icons/292c0091765b2ea6f2865ce36bb9fb04.png",
 		"isDisplayable": true,
 		"hash": 3457907236,
 		"index": 0
@@ -66547,7 +66547,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3457907237,
 		"displayName": "Shader Version 4",
 		"displayDescription": "Recolor armor with Type I to IV coating.",
-		"displayIcon": "/common/destiny_content/icons/66b70084e7612199c12c3784b00ae034.png",
+		"displayIcon": "/common/destiny_content/icons/292c0091765b2ea6f2865ce36bb9fb04.png",
 		"isDisplayable": true,
 		"hash": 3457907237,
 		"index": 0
@@ -66556,7 +66556,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3457907239,
 		"displayName": "Shader Version 6",
 		"displayDescription": "Recolor armor with Type I to VI coating.",
-		"displayIcon": "/common/destiny_content/icons/66b70084e7612199c12c3784b00ae034.png",
+		"displayIcon": "/common/destiny_content/icons/292c0091765b2ea6f2865ce36bb9fb04.png",
 		"isDisplayable": true,
 		"hash": 3457907239,
 		"index": 0
@@ -66565,7 +66565,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3464328064,
 		"displayName": "Surrounded",
 		"displayDescription": "This weapon gains bonus damage when three or more enemies are in close proximity.",
-		"displayIcon": "/common/destiny_content/icons/ddf598e4ff4085e58a1e9b5e4a626baf.png",
+		"displayIcon": "/common/destiny_content/icons/a75401d23dc86df32b106490fb69d34a.png",
 		"isDisplayable": true,
 		"hash": 3464328064,
 		"index": 0
@@ -66574,7 +66574,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3465602758,
 		"displayName": "Super Good Advice",
 		"displayDescription": "Missed shots may be returned to the magazine. Landed shots may be replaced in the magazine from your reserves.",
-		"displayIcon": "/common/destiny_content/icons/c124904da0d78adaff5253733c51d5da.png",
+		"displayIcon": "/common/destiny_content/icons/89c29e8578a04f53a33e22358790c093.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -66590,7 +66590,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3467141629,
 		"displayName": "Void Resonance",
 		"displayDescription": "Void grenades have a chance to generate an Orb when killing a minion of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/5075218df6def774180c8844e9e32f98.png",
+		"displayIcon": "/common/destiny_content/icons/7e9f49f6708e2cdac6585d6237f9c454.png",
 		"isDisplayable": true,
 		"hash": 3467141629,
 		"index": 0
@@ -66620,7 +66620,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3471016318,
 		"displayName": "Starfire Protocol",
 		"displayDescription": "Gain an additional Fusion Grenade.",
-		"displayIcon": "/common/destiny_content/icons/60efdb3051b47364d7f152a2ed8bf12e.png",
+		"displayIcon": "/common/destiny_content/icons/04daff01a8d5f47fe4fc37a5c7d03ada.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -66643,7 +66643,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3474991791,
 		"displayName": "Hand Cannon Focus",
 		"displayDescription": "Increases the upgrade rate for Hand Cannons.",
-		"displayIcon": "/common/destiny_content/icons/a5323e9409d326510a11ec0c4229ed6d.png",
+		"displayIcon": "/common/destiny_content/icons/207955d33d0a778983c652bc85bbb3fd.png",
 		"isDisplayable": true,
 		"hash": 3474991791,
 		"index": 0
@@ -66652,7 +66652,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3477506204,
 		"displayName": "Faction Champion",
 		"displayDescription": "Reputation gains applied to Dead Orbit when equipped.",
-		"displayIcon": "/common/destiny_content/icons/95007dcd9ea2bc2d89f35a9210183115.png",
+		"displayIcon": "/common/destiny_content/icons/8cd0fd846492cc921ef08b09e8836b45.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -66668,7 +66668,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3480879699,
 		"displayName": "Mortal Medicine",
 		"displayDescription": "Gain a boost to Recovery per grenade kill. Stacks for 20 seconds.",
-		"displayIcon": "/common/destiny_content/icons/2f128c25f309fa36095ea8528daa02e8.png",
+		"displayIcon": "/common/destiny_content/icons/85a6a91daa7d7b36cf79b34c9c3612ed.png",
 		"isDisplayable": true,
 		"hash": 3480879699,
 		"index": 0
@@ -66691,7 +66691,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3505787429,
 		"displayName": "Target Mark",
 		"displayDescription": "Enemies hit by this weapon are briefly highlighted.",
-		"displayIcon": "/common/destiny_content/icons/aab217683593f36c6e0425b23e816f37.png",
+		"displayIcon": "/common/destiny_content/icons/d509b077e7c69dbfcc8090729b54ece8.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -66735,7 +66735,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3519358610,
 		"displayName": "Performance Bonus",
 		"displayDescription": "Kills with this weapon have the chance to grant bonus reserve ammo.",
-		"displayIcon": "/common/destiny_content/icons/123dc3b01e7e9bfe672e229bf35665c6.png",
+		"displayIcon": "/common/destiny_content/icons/18589744b3af1397bc41e386eb42a16d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -66751,7 +66751,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3520318545,
 		"displayName": "Scout Rifle Affinity",
 		"displayDescription": "Unlocks upgrades on Scout Rifles.",
-		"displayIcon": "/common/destiny_content/icons/49d482f9cdcc096728af108a09e4ea9c.png",
+		"displayIcon": "/common/destiny_content/icons/a6f9041ae5c9b71fa066af467cc88597.png",
 		"isDisplayable": true,
 		"hash": 3520318545,
 		"index": 0
@@ -66760,7 +66760,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3521486086,
 		"displayName": "Pulse Rifle Analysis",
 		"displayDescription": "Increased XP for Pulse Rifles.",
-		"displayIcon": "/common/destiny_content/icons/433aa2bd4357b12eb26550605e704d2b.png",
+		"displayIcon": "/common/destiny_content/icons/6175991e9a24ef2e7adf3aefab3b46f2.png",
 		"isDisplayable": true,
 		"hash": 3521486086,
 		"index": 0
@@ -66769,7 +66769,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3522094958,
 		"displayName": "Touch of Venom",
 		"displayDescription": "Gain invisibility after crouching in place for a short time. Melee attacking an enemy from behind while invisible delivers 4x damage.",
-		"displayIcon": "/common/destiny_content/icons/b24a7e1a16dfe1c710c25dd7e2be5850.png",
+		"displayIcon": "/common/destiny_content/icons/5773300239727f9b3b8063a784e937e4.png",
 		"isDisplayable": true,
 		"hash": 3522094958,
 		"index": 0
@@ -66785,7 +66785,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3523239750,
 		"displayName": "Last Resort",
 		"displayDescription": "This weapon handles and reloads faster when the wielder is the last living player of their Fireteam.",
-		"displayIcon": "/common/destiny_content/icons/a1a05c2d6085e218cf626a8e705b6329.png",
+		"displayIcon": "/common/destiny_content/icons/e597040627af19cb089b70dee16f298f.png",
 		"isDisplayable": true,
 		"hash": 3523239750,
 		"index": 0
@@ -66794,7 +66794,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3524981766,
 		"displayName": "Primary Weapon Analysis",
 		"displayDescription": "Increased XP gain for Primary weapons.",
-		"displayIcon": "/common/destiny_content/icons/d725e65cde95a415c6c03800f10b9b9b.png",
+		"displayIcon": "/common/destiny_content/icons/2f522b1f2d085dddb5352e11332749df.png",
 		"isDisplayable": true,
 		"hash": 3524981766,
 		"index": 0
@@ -66803,7 +66803,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3531312446,
 		"displayName": "With a Laser Beam",
 		"displayDescription": "The extra round from Dynamite causes a massive explosion.",
-		"displayIcon": "/common/destiny_content/icons/91011913221624f20a54c11189fb33da.png",
+		"displayIcon": "/common/destiny_content/icons/3e97d26ba2f9522115a4561fa09b2697.png",
 		"isDisplayable": true,
 		"hash": 3531312446,
 		"index": 0
@@ -66812,7 +66812,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3533846394,
 		"displayName": "Vandal Burn",
 		"displayDescription": "This weapon deals moderate bonus damage to Fallen Vandals.",
-		"displayIcon": "/common/destiny_content/icons/b66ac2d3e986c7327563d48324fa966f.png",
+		"displayIcon": "/common/destiny_content/icons/f754f0bd1f5409e0f8506d2b9996a7cf.png",
 		"isDisplayable": true,
 		"hash": 3533846394,
 		"index": 0
@@ -66821,7 +66821,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3534625748,
 		"displayName": "Strength of the Ram",
 		"displayDescription": "Increased armor. \nAll Voidwalker melees trigger Life Steal on hit.",
-		"displayIcon": "/common/destiny_content/icons/b5ac4582ebdfd5cef0b7bcb557469fd0.png",
+		"displayIcon": "/common/destiny_content/icons/fce86cd8432ac45c4cd481987ae5862b.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -66837,7 +66837,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3538671621,
 		"displayName": "Machine Gun Focus",
 		"displayDescription": "Increases the upgrade rate for Machine Guns.",
-		"displayIcon": "/common/destiny_content/icons/868ed2c0ce58f3650938bb7bdecb7cda.png",
+		"displayIcon": "/common/destiny_content/icons/66c12cdff15d267de29345b32a50a5ca.png",
 		"isDisplayable": true,
 		"hash": 3538671621,
 		"index": 0
@@ -66846,7 +66846,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3544054727,
 		"displayName": "Helium Cycle",
 		"displayDescription": "Increases the duration of your Solar Grenade while gaining an additional Solar Grenade charge.",
-		"displayIcon": "/common/destiny_content/icons/15efdc65c4b589d4046ce2659ebcb196.png",
+		"displayIcon": "/common/destiny_content/icons/a7b76a2a2e45d733793ea30440853be9.png",
 		"isDisplayable": true,
 		"hash": 3544054727,
 		"index": 0
@@ -66890,7 +66890,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3572254272,
 		"displayName": "Wormspore Extractor",
 		"displayDescription": "Chance to find additional wormspore when looting engrams on Oryx's Dreadnaught.",
-		"displayIcon": "/common/destiny_content/icons/13051f1c814b09e10f0817dc6f15e60f.png",
+		"displayIcon": "/common/destiny_content/icons/1dfade18651e5bf8ce415a9ef74b6d3f.png",
 		"isDisplayable": true,
 		"hash": 3572254272,
 		"index": 0
@@ -66913,7 +66913,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3582449302,
 		"displayName": "Harbinger's Spark",
 		"displayDescription": "Multikills with this weapon spawn Orbs for your allies.",
-		"displayIcon": "/common/destiny_content/icons/4199a248fd014c367eb1008c3757ae14.png",
+		"displayIcon": "/common/destiny_content/icons/12668988b9018266b14d033f90c8bccc.png",
 		"isDisplayable": true,
 		"hash": 3582449302,
 		"index": 0
@@ -66929,7 +66929,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3598160917,
 		"displayName": "Goliath",
 		"displayDescription": "Non precision kills temporarily increase Armor stat for 15 seconds.",
-		"displayIcon": "/common/destiny_content/icons/ba0b4708c029b7411371e758c9bebd77.png",
+		"displayIcon": "/common/destiny_content/icons/c65d803f08e9579c546c8278b98ac154.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -66945,7 +66945,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3598336611,
 		"displayName": "New Monarchy Champion",
 		"displayDescription": "Increases your New Monarchy reputation gains.",
-		"displayIcon": "/common/destiny_content/icons/80fbc00b430ae531e6349b598723a5c3.png",
+		"displayIcon": "/common/destiny_content/icons/9a200205a995b615ef25b01ca215f1f0.png",
 		"isDisplayable": true,
 		"hash": 3598336611,
 		"index": 0
@@ -66954,7 +66954,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3598653482,
 		"displayName": "Iron Allegiance",
 		"displayDescription": "Increases Event Standing gained in the Iron Banner.",
-		"displayIcon": "/common/destiny_content/icons/0e0c5d74bcaa84e8af0d29c705f63226.png",
+		"displayIcon": "/common/destiny_content/icons/3176f6bff440d8fc1419f2d37e884959.png",
 		"isDisplayable": true,
 		"hash": 3598653482,
 		"index": 0
@@ -66963,7 +66963,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3609996527,
 		"displayName": "Invective",
 		"displayDescription": "This weapon regenerates ammo over time.",
-		"displayIcon": "/common/destiny_content/icons/873c05dafd52619c3a27b69ca225c790.png",
+		"displayIcon": "/common/destiny_content/icons/381190803cf5ec6c6cb5d79c72df54ed.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -66979,7 +66979,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3612834164,
 		"displayName": "Crucible Reputation Booster",
 		"displayDescription": "AURA\nIncreased Crucible reputation rewards from Crucible matches.\n\nAuras will fade if you leave the Fireteam of the providing Guardian.",
-		"displayIcon": "/common/destiny_content/icons/e8087692126af023c80d941b95b9f39e.png",
+		"displayIcon": "/common/destiny_content/icons/dc1fff2aabcff88802b497258176cf89.png",
 		"isDisplayable": true,
 		"hash": 3612834164,
 		"index": 0
@@ -67003,7 +67003,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3615851562,
 		"displayName": "Antigrav Thrusters",
 		"displayDescription": "Aiming weapons while airborne holds you in place.\nWith full Super, Orbs recharge melee.",
-		"displayIcon": "/common/destiny_content/icons/868459882b8e3089cf4df043e11fe7c7.png",
+		"displayIcon": "/common/destiny_content/icons/a233897bbcfdfbec6b9c4d1fa0f20599.png",
 		"isDisplayable": true,
 		"hash": 3615851562,
 		"index": 0
@@ -67033,7 +67033,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3630880630,
 		"displayName": "Be Somewhere Else",
 		"displayDescription": "Increases the duration of Shoulder Charge and tighter turn radius while sprinting.",
-		"displayIcon": "/common/destiny_content/icons/bffc3db9a357077c38d6bc9915c01aa1.png",
+		"displayIcon": "/common/destiny_content/icons/f7c2b845594725e6cd40581bcd719761.png",
 		"isDisplayable": true,
 		"hash": 3630880630,
 		"index": 0
@@ -67042,7 +67042,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3632688592,
 		"displayName": "Boost",
 		"displayDescription": "Hold  to accelerate to higher speed.",
-		"displayIcon": "/common/destiny_content/icons/9bef5cccf10270dadaf75af1aaa1fe0e.png",
+		"displayIcon": "/common/destiny_content/icons/07c5e1d001d9ce8ec203a9c99d6f00f5.png",
 		"isDisplayable": true,
 		"hash": 3632688592,
 		"index": 0
@@ -67051,7 +67051,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3639200586,
 		"displayName": "Cabal Rampart",
 		"displayDescription": "Greatly increased Armor and Melee recharge when fighting Cabal in the Prison of Elders. \nEquip prior to first Wave of each Round.",
-		"displayIcon": "/common/destiny_content/icons/b66ac2d3e986c7327563d48324fa966f.png",
+		"displayIcon": "/common/destiny_content/icons/f754f0bd1f5409e0f8506d2b9996a7cf.png",
 		"isDisplayable": true,
 		"hash": 3639200586,
 		"index": 0
@@ -67067,7 +67067,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3649859369,
 		"displayName": "Impact Induction",
 		"displayDescription": "Bonus grenade energy on melee hits.",
-		"displayIcon": "/common/destiny_content/icons/3e68ad06673ae9874da3e2cb34bee3c8.png",
+		"displayIcon": "/common/destiny_content/icons/999fa797ccf28a0d12990785f2b6edd8.png",
 		"isDisplayable": true,
 		"hash": 3649859369,
 		"index": 0
@@ -67076,7 +67076,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3659348245,
 		"displayName": "Faction Champion",
 		"displayDescription": "Reputation gains applied to New Monarchy when equipped.",
-		"displayIcon": "/common/destiny_content/icons/592ee26e5e1a4c2a54d42e640eafc999.png",
+		"displayIcon": "/common/destiny_content/icons/2975a5efc1002912fbff714b199f452e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -67092,7 +67092,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3661306029,
 		"displayName": "Replenish",
 		"displayDescription": "This weapon's magazine will be refilled whenever you unleash your Super.",
-		"displayIcon": "/common/destiny_content/icons/32a44d8ce255b5c25fde1cd858dcd061.png",
+		"displayIcon": "/common/destiny_content/icons/47391800ad6ef39c0752151b9c41542d.png",
 		"isDisplayable": true,
 		"hash": 3661306029,
 		"index": 0
@@ -67101,7 +67101,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3669655943,
 		"displayName": "Vanguard Champion",
 		"displayDescription": "Increases your Vanguard reputation gains.",
-		"displayIcon": "/common/destiny_content/icons/f3ac785da3e2109a72349a89f9985619.png",
+		"displayIcon": "/common/destiny_content/icons/9bc1ef18363f2adb42258f0ae397e009.png",
 		"isDisplayable": true,
 		"hash": 3669655943,
 		"index": 0
@@ -67110,7 +67110,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3673801889,
 		"displayName": "Fusion Rifle Analysis",
 		"displayDescription": "Increased XP for Fusion Rifles.",
-		"displayIcon": "/common/destiny_content/icons/93642b1dd4fb07cdb84aea2a7d84c74b.png",
+		"displayIcon": "/common/destiny_content/icons/3221ba202a7ba1e73dd0d72df97ac9dd.png",
 		"isDisplayable": true,
 		"hash": 3673801889,
 		"index": 0
@@ -67119,7 +67119,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3686406336,
 		"displayName": "Who's Next?",
 		"displayDescription": "A kill with the final round in the magazine increases reload speed.",
-		"displayIcon": "/common/destiny_content/icons/d4bf564168b12e5efc7ec2e7bd3c752b.png",
+		"displayIcon": "/common/destiny_content/icons/b092ffc8912bb181956401a022c4e34f.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -67142,7 +67142,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3689182788,
 		"displayName": "Sidearm Loader",
 		"displayDescription": "Increases the reload speed of Sidearms.",
-		"displayIcon": "/common/destiny_content/icons/964b7a79eaf8c9ac945bfbab4008b003.png",
+		"displayIcon": "/common/destiny_content/icons/716c70c61793667f9126e14029313927.png",
 		"isDisplayable": true,
 		"hash": 3689182788,
 		"index": 0
@@ -67158,7 +67158,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3694049353,
 		"displayName": "Sensor Pack",
 		"displayDescription": "Radar remains visible while aiming Primary Weapons.",
-		"displayIcon": "/common/destiny_content/icons/c8da5f251b1f0d40de5dcacecf89e7ca.png",
+		"displayIcon": "/common/destiny_content/icons/03715bfd730b1ca6e18d20fe7cd40a3e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -67174,7 +67174,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3695773985,
 		"displayName": "Patience and Time",
 		"displayDescription": "You gain active camouflage while aiming down the sights.",
-		"displayIcon": "/common/destiny_content/icons/dec382cd7e6b6b0bba4db2caf058c05b.png",
+		"displayIcon": "/common/destiny_content/icons/1732ee2044d2e30c451bc05735337fe7.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -67211,7 +67211,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3697933879,
 		"displayName": "Holding Aces",
 		"displayDescription": "Two more random bullets in your magazine deal considerable bonus damage.",
-		"displayIcon": "/common/destiny_content/icons/10a7f3b9cad383142dc6130ea34113d6.png",
+		"displayIcon": "/common/destiny_content/icons/d2d9ffac240c07f8255e7b1ee48f8237.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -67234,7 +67234,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3712414159,
 		"displayName": "Shock Rounds",
 		"displayDescription": "High ricochet shock rounds with enhanced target acquisition.",
-		"displayIcon": "/common/destiny_content/icons/42d1ffd95f76a7d841a663cff2ef5107.png",
+		"displayIcon": "/common/destiny_content/icons/5dbe896722f47fb47d209c0343cfec4e.png",
 		"isDisplayable": true,
 		"hash": 3712414159,
 		"index": 0
@@ -67250,7 +67250,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3722223157,
 		"displayName": "Eye of the Storm",
 		"displayDescription": "This weapon becomes more accurate as your health gets lower.",
-		"displayIcon": "/common/destiny_content/icons/e1e0ff3c4f0b53fbe43b720aeac64bff.png",
+		"displayIcon": "/common/destiny_content/icons/9387182f08a6a1b62e0ea6c02d703b65.png",
 		"isDisplayable": true,
 		"hash": 3722223157,
 		"index": 0
@@ -67259,7 +67259,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3727135605,
 		"displayName": "David",
 		"displayDescription": "Precision kills temporarily increase Agility stat for 15 seconds.",
-		"displayIcon": "/common/destiny_content/icons/7959166306fa35185dbfaebd6280a7f8.png",
+		"displayIcon": "/common/destiny_content/icons/8085b9699eff0d34578ba01651cfc6ff.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -67275,7 +67275,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3733789933,
 		"displayName": "Hunter Bounty",
 		"displayDescription": "Generate additional Glimmer when killing Hunters in the Crucible.",
-		"displayIcon": "/common/destiny_content/icons/944cc0fe95bac13988870e4437d7d7ff.png",
+		"displayIcon": "/common/destiny_content/icons/78c58db81d803acb35172943c776446b.png",
 		"isDisplayable": true,
 		"hash": 3733789933,
 		"index": 0
@@ -67284,7 +67284,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3735909663,
 		"displayName": "Second Wind",
 		"displayDescription": "On respawn, weapon and movement speeds are greatly increased.",
-		"displayIcon": "/common/destiny_content/icons/ac2dc143003ca752bf573fbd0eddf8fd.png",
+		"displayIcon": "/common/destiny_content/icons/bfcbb8c1aac17a419e466c20f6e18e4b.png",
 		"isDisplayable": true,
 		"hash": 3735909663,
 		"index": 0
@@ -67293,7 +67293,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3743041729,
 		"displayName": "Invigoration",
 		"displayDescription": "Gain bonus melee energy on Orb pickups.",
-		"displayIcon": "/common/destiny_content/icons/d50e63b1f157687d5a812d3f55b45446.png",
+		"displayIcon": "/common/destiny_content/icons/2d5b972c6a5780c7dd1858e68c700179.png",
 		"isDisplayable": true,
 		"hash": 3743041729,
 		"index": 0
@@ -67302,7 +67302,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3751386087,
 		"displayName": "Fallen Seeker",
 		"displayDescription": "Increased Glimmer from Fallen enemies.",
-		"displayIcon": "/common/destiny_content/icons/49d482f9cdcc096728af108a09e4ea9c.png",
+		"displayIcon": "/common/destiny_content/icons/a6f9041ae5c9b71fa066af467cc88597.png",
 		"isDisplayable": true,
 		"hash": 3751386087,
 		"index": 0
@@ -67311,7 +67311,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3752206822,
 		"displayName": "Final Round",
 		"displayDescription": "The last round in a magazine deals bonus damage.",
-		"displayIcon": "/common/destiny_content/icons/fa464484054062106c1601ce0d46185f.png",
+		"displayIcon": "/common/destiny_content/icons/9e7a2f0872476ead1abd4cf5ace7df3b.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -67327,7 +67327,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3752818343,
 		"displayName": "Defensive Reflex",
 		"displayDescription": "Taking damage from a melee attack makes you briefly invisible.",
-		"displayIcon": "/common/destiny_content/icons/39264ab7b64ce1f3917527d7dadb2845.png",
+		"displayIcon": "/common/destiny_content/icons/d4800fc0c40009b8fa7a47cb10dca72c.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -67357,7 +67357,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3772402178,
 		"displayName": "Reserve Ammo",
 		"displayDescription": "This weapon always has ammo on respawn.",
-		"displayIcon": "/common/destiny_content/icons/123dc3b01e7e9bfe672e229bf35665c6.png",
+		"displayIcon": "/common/destiny_content/icons/18589744b3af1397bc41e386eb42a16d.png",
 		"isDisplayable": true,
 		"hash": 3772402178,
 		"index": 0
@@ -67366,7 +67366,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3787917923,
 		"displayName": "Aspect Swap",
 		"displayDescription": "This weapon can swap between Arc and Solar damage.",
-		"displayIcon": "/common/destiny_content/icons/39ecd31f9aac908f4ce4a7b6dee57255.png",
+		"displayIcon": "/common/destiny_content/icons/d9573a69f4e941c4f47fa4d5f2863e65.png",
 		"isDisplayable": true,
 		"hash": 3787917923,
 		"index": 0
@@ -67375,7 +67375,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3789456319,
 		"displayName": "Insatiable",
 		"displayDescription": "Nova Bomb kills reduce the cooldown of your next Nova Bomb.",
-		"displayIcon": "/common/destiny_content/icons/7a8b981847dcb6a102b0643587281ea5.png",
+		"displayIcon": "/common/destiny_content/icons/a609302fda7d580a37c60dbbdb74ec10.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -67391,7 +67391,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3792198727,
 		"displayName": "Ashes to Assets",
 		"displayDescription": "Gain bonus Super energy on Grenade kills.",
-		"displayIcon": "/common/destiny_content/icons/3e5a9cf80116573f1c1d035fb12a6f5f.png",
+		"displayIcon": "/common/destiny_content/icons/237fdcc73706e17cd791a40324c54df1.png",
 		"isDisplayable": true,
 		"hash": 3792198727,
 		"index": 0
@@ -67400,7 +67400,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3795565363,
 		"displayName": "Arc Recovery",
 		"displayDescription": "Increased Recovery for 5 seconds after taking Arc splash damage.",
-		"displayIcon": "/common/destiny_content/icons/6a137d8a2adf536df7ad1594381f9dff.png",
+		"displayIcon": "/common/destiny_content/icons/798b21fbb86bc95a54f33edcdb058d23.png",
 		"isDisplayable": true,
 		"hash": 3795565363,
 		"index": 0
@@ -67409,7 +67409,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3798969172,
 		"displayName": "Reclamation",
 		"displayDescription": "Generate additional Glimmer when killing Taken.",
-		"displayIcon": "/common/destiny_content/icons/eefb4e7b30a3a1e3d9a89a65a86ed5cb.png",
+		"displayIcon": "/common/destiny_content/icons/dfaf6735584dc6dcb5d13ab8a73241dc.png",
 		"isDisplayable": true,
 		"hash": 3798969172,
 		"index": 0
@@ -67474,7 +67474,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3818491110,
 		"displayName": "Inverse Shadow",
 		"displayDescription": "Gain bonus Super energy on kills.",
-		"displayIcon": "/common/destiny_content/icons/5b10a16d49386cdcc7141dea749225c4.png",
+		"displayIcon": "/common/destiny_content/icons/7f3f4a9861dd48a92797a44ff8421de7.png",
 		"isDisplayable": true,
 		"hash": 3818491110,
 		"index": 0
@@ -67483,7 +67483,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3820455159,
 		"displayName": "Cursebringer",
 		"displayDescription": "Precision kills with this weapon trigger a Cursed Thrall explosion.",
-		"displayIcon": "/common/destiny_content/icons/4432e6e59920edfe0de14fcba68ba8a0.png",
+		"displayIcon": "/common/destiny_content/icons/e1f3b9b6299f8e80e141bbe2da1706e8.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -67499,7 +67499,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3821972036,
 		"displayName": "Keeper of the Pack",
 		"displayDescription": "Revive teammates faster. Spawn more orbs.",
-		"displayIcon": "/common/destiny_content/icons/c8da5f251b1f0d40de5dcacecf89e7ca.png",
+		"displayIcon": "/common/destiny_content/icons/03715bfd730b1ca6e18d20fe7cd40a3e.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -67522,7 +67522,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3843250350,
 		"displayName": "Auto Rifle Affinity",
 		"displayDescription": "Unlocks upgrades on Auto Rifles.",
-		"displayIcon": "/common/destiny_content/icons/49d482f9cdcc096728af108a09e4ea9c.png",
+		"displayIcon": "/common/destiny_content/icons/a6f9041ae5c9b71fa066af467cc88597.png",
 		"isDisplayable": true,
 		"hash": 3843250350,
 		"index": 0
@@ -67531,7 +67531,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3848963378,
 		"displayName": "Partial Refund",
 		"displayDescription": "Chance to return a portion of the magazine after an assist.",
-		"displayIcon": "/common/destiny_content/icons/1974cb1689ad18fe5173393a75aa478a.png",
+		"displayIcon": "/common/destiny_content/icons/9208c665ef668a017ad3dc099ae56681.png",
 		"isDisplayable": true,
 		"hash": 3848963378,
 		"index": 0
@@ -67547,7 +67547,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3857263415,
 		"displayName": "Scout Rifle Focus",
 		"displayDescription": "Increases the upgrade rate for Scout Rifles",
-		"displayIcon": "/common/destiny_content/icons/aeb4490fe9938a794743bb59ea9c4cc4.png",
+		"displayIcon": "/common/destiny_content/icons/60c6b287830b4b31cc17e01ecd1bdbb3.png",
 		"isDisplayable": true,
 		"hash": 3857263415,
 		"index": 0
@@ -67556,7 +67556,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3867556616,
 		"displayName": "Indomitable Light",
 		"displayDescription": "Your next foe in King's Fall is more likely to drop weapons and armor.",
-		"displayIcon": "/common/destiny_content/icons/d676556fa74acc20aca06f6df003dd48.png",
+		"displayIcon": "/common/destiny_content/icons/855fb68e9ed6adcb71485fbe71b239f1.png",
 		"isDisplayable": true,
 		"hash": 3867556616,
 		"index": 0
@@ -67565,7 +67565,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3870041558,
 		"displayName": "Arachnid Sensorium",
 		"displayDescription": "Your Golden Gun zooms in for accuracy when aimed.",
-		"displayIcon": "/common/destiny_content/icons/14565035dce9f22af25044cee86faf21.png",
+		"displayIcon": "/common/destiny_content/icons/dc5ddd53005e21e9fc8acb39df1972c9.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 16,
@@ -67588,7 +67588,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3877389831,
 		"displayName": "Rodeo",
 		"displayDescription": "Reduces the severity of this weapon’s recoil.",
-		"displayIcon": "/common/destiny_content/icons/33b45d241b6b37c3538d24e03ba4456d.png",
+		"displayIcon": "/common/destiny_content/icons/d1b8189bccee534b1f7a5b29176131ce.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 32,
@@ -67604,7 +67604,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3879685265,
 		"displayName": "Return to Sender",
 		"displayDescription": "Kills with this weapon have the chance to grant bonus ammo to the magazine.",
-		"displayIcon": "/common/destiny_content/icons/83d66af06fcdd1029c7a282a1f9ccfaa.png",
+		"displayIcon": "/common/destiny_content/icons/8893149209ae63efea8eea56c14314ef.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -67620,7 +67620,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3887884227,
 		"displayName": "Performance Bonus",
 		"displayDescription": "Kills with this weapon have the chance to grant bonus reserve ammo.",
-		"displayIcon": "/common/destiny_content/icons/123dc3b01e7e9bfe672e229bf35665c6.png",
+		"displayIcon": "/common/destiny_content/icons/18589744b3af1397bc41e386eb42a16d.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -67636,7 +67636,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3888728992,
 		"displayName": "The Fate of All Fools",
 		"displayDescription": "Chain body shots to gain bonus damage on your next precision shot and return ammo to the mag.",
-		"displayIcon": "/common/destiny_content/icons/a1a85e66b0a02c1d2b2d14b7bdb84b3c.png",
+		"displayIcon": "/common/destiny_content/icons/d3eee6926b1a35cc1b6ead1eb1ab6825.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -67652,7 +67652,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3896456312,
 		"displayName": "Ice Breaker",
 		"displayDescription": "Ice Breaker's victims spontaneously combust, dealing damage to others nearby.",
-		"displayIcon": "/common/destiny_content/icons/a0295f8626515e80146a660e72faca33.png",
+		"displayIcon": "/common/destiny_content/icons/2778a942a42bdc05b643cce62baf6281.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -67668,7 +67668,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3900386992,
 		"displayName": "Shotgun Analysis",
 		"displayDescription": "Increased XP for Shotguns.",
-		"displayIcon": "/common/destiny_content/icons/151357b9b5c140b3457cb578ab948176.png",
+		"displayIcon": "/common/destiny_content/icons/4a01595f45aa226e6ed132d09424381d.png",
 		"isDisplayable": true,
 		"hash": 3900386992,
 		"index": 0
@@ -67677,7 +67677,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3909966040,
 		"displayName": "Network Tap",
 		"displayDescription": "Generate additional Glimmer when killing Cabal.",
-		"displayIcon": "/common/destiny_content/icons/eefb4e7b30a3a1e3d9a89a65a86ed5cb.png",
+		"displayIcon": "/common/destiny_content/icons/dfaf6735584dc6dcb5d13ab8a73241dc.png",
 		"isDisplayable": true,
 		"hash": 3909966040,
 		"index": 0
@@ -67686,7 +67686,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3911170550,
 		"displayName": "Firefly",
 		"displayDescription": "Precision kills with this weapon cause the target to explode.",
-		"displayIcon": "/common/destiny_content/icons/f3d8809006549f6839057f8965f7118e.png",
+		"displayIcon": "/common/destiny_content/icons/0bfeaea58991a1a82cb97dd862bf2133.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -67702,7 +67702,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3911579221,
 		"displayName": "And Another Thing",
 		"displayDescription": "Gain an additional grenade charge.",
-		"displayIcon": "/common/destiny_content/icons/9e6f8dc7b67c47710f4414a59d9dd093.png",
+		"displayIcon": "/common/destiny_content/icons/21ad80e8febdc4f8f484fadca26a34c7.png",
 		"isDisplayable": true,
 		"hash": 3911579221,
 		"index": 0
@@ -67711,7 +67711,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3914201853,
 		"displayName": "Invigoration",
 		"displayDescription": "Reduces melee cooldown each time you pick up an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/e06829cf573480506d175480460c4478.png",
+		"displayIcon": "/common/destiny_content/icons/231d5f6cd85cf014f353515377fb1ce3.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -67727,7 +67727,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3914201854,
 		"displayName": "Innervation",
 		"displayDescription": "Reduces grenade cooldown each time you pick up an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/e06829cf573480506d175480460c4478.png",
+		"displayIcon": "/common/destiny_content/icons/231d5f6cd85cf014f353515377fb1ce3.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -67743,7 +67743,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3914201855,
 		"displayName": "Infusion",
 		"displayDescription": "Replenishes health each time you pick up an Orb of Light.",
-		"displayIcon": "/common/destiny_content/icons/e06829cf573480506d175480460c4478.png",
+		"displayIcon": "/common/destiny_content/icons/231d5f6cd85cf014f353515377fb1ce3.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -67759,7 +67759,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3917692394,
 		"displayName": "Deep Squeeze",
 		"displayDescription": "This weapon fires faster the deeper its trigger is pulled.",
-		"displayIcon": "/common/destiny_content/icons/fb1251202f77da26a47ba178c06df2ab.png",
+		"displayIcon": "/common/destiny_content/icons/a10bafea0d5df4a45f86d9d6ce55c6fd.png",
 		"isDisplayable": true,
 		"hash": 3917692394,
 		"index": 0
@@ -67768,7 +67768,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3921735041,
 		"displayName": "Final Round",
 		"displayDescription": "Bonus precision damage on last round in clip.",
-		"displayIcon": "/common/destiny_content/icons/fa464484054062106c1601ce0d46185f.png",
+		"displayIcon": "/common/destiny_content/icons/9e7a2f0872476ead1abd4cf5ace7df3b.png",
 		"isDisplayable": true,
 		"hash": 3921735041,
 		"index": 0
@@ -67777,7 +67777,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3923255656,
 		"displayName": "Teleportation",
 		"displayDescription": "Reduces Blink cooldown and increases travel distance.",
-		"displayIcon": "/common/destiny_content/icons/7bcdd2b3776c6c1b6885cea40042807f.png",
+		"displayIcon": "/common/destiny_content/icons/2a1dcf65f17424abcd27decef1dd8dbe.png",
 		"isDisplayable": true,
 		"hash": 3923255656,
 		"index": 0
@@ -67793,7 +67793,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3943006857,
 		"displayName": "Fuel Efficiency",
 		"displayDescription": "Side boost takes less fuel.",
-		"displayIcon": "/common/destiny_content/icons/e2bbceca3caf3f15b7c6446ab9180852.png",
+		"displayIcon": "/common/destiny_content/icons/3366d219fa02aba230977bf17e5f2ba5.png",
 		"isDisplayable": true,
 		"hash": 3943006857,
 		"index": 0
@@ -67802,7 +67802,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3944665868,
 		"displayName": "Arc Armor",
 		"displayDescription": "Increased Armor when using an Arc-based subclass.",
-		"displayIcon": "/common/destiny_content/icons/c077b2e5382829c994eb82ea0e5c027f.png",
+		"displayIcon": "/common/destiny_content/icons/fbadecb9534bc1c4e2ce895afd0af9cd.png",
 		"isDisplayable": true,
 		"hash": 3944665868,
 		"index": 0
@@ -67811,7 +67811,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3956418394,
 		"displayName": "Burn Brighter",
 		"displayDescription": "Activating Radiance from death disorients nearby enemies.",
-		"displayIcon": "/common/destiny_content/icons/4bbe4843c198e0640b95068dbc43e6e0.png",
+		"displayIcon": "/common/destiny_content/icons/04bad246dd18df4f33659b1a0feff19a.png",
 		"isDisplayable": true,
 		"hash": 3956418394,
 		"index": 0
@@ -67827,7 +67827,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 3975873763,
 		"displayName": "Warrior of Light",
 		"displayDescription": "Increased damage for your  attack.",
-		"displayIcon": "/common/destiny_content/icons/c077b2e5382829c994eb82ea0e5c027f.png",
+		"displayIcon": "/common/destiny_content/icons/fbadecb9534bc1c4e2ce895afd0af9cd.png",
 		"isDisplayable": true,
 		"hash": 3975873763,
 		"index": 0
@@ -67843,7 +67843,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4003736558,
 		"displayName": "The Hereafter",
 		"displayDescription": "Crouching increases scope zoom and makes it easier to aim under fire.",
-		"displayIcon": "/common/destiny_content/icons/4498f8570f8e0390664d7719e4a8414d.png",
+		"displayIcon": "/common/destiny_content/icons/a58bffccd545cc82e181fe729df05710.png",
 		"isDisplayable": true,
 		"hash": 4003736558,
 		"index": 0
@@ -67852,7 +67852,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4010719013,
 		"displayName": "Not Bound by Law",
 		"displayDescription": "Upgrades Double Jump with an additional jump.",
-		"displayIcon": "/common/destiny_content/icons/afaea599f8a3c3128c84a967c72307fd.png",
+		"displayIcon": "/common/destiny_content/icons/8c852eb941ae389f3ce8b8ca03a01e7e.png",
 		"isDisplayable": true,
 		"hash": 4010719013,
 		"index": 0
@@ -67861,7 +67861,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4012764433,
 		"displayName": "Jackolyte",
 		"displayDescription": "The Hive may haunt the dreams of children, but you haunt the dreams of the Hive.",
-		"displayIcon": "/common/destiny_content/icons/c8167c8f00639dfe7955d7605c8b26f3.png",
+		"displayIcon": "/common/destiny_content/icons/dedb7719d3a464df2239cc49fd895482.png",
 		"isDisplayable": true,
 		"hash": 4012764433,
 		"index": 0
@@ -67877,7 +67877,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4021253087,
 		"displayName": "Metal Detector",
 		"displayDescription": "Expect to find more ammo for this weapon.",
-		"displayIcon": "/common/destiny_content/icons/9cbad29bda1a21b98f8d64620bc70375.png",
+		"displayIcon": "/common/destiny_content/icons/2831b160b1f1674e7e2a1afe14931fb8.png",
 		"isDisplayable": true,
 		"hash": 4021253087,
 		"index": 0
@@ -67886,7 +67886,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4023922623,
 		"displayName": "Triple Tap",
 		"displayDescription": "Rapidly landing precision hits will return one round to the magazine.",
-		"displayIcon": "/common/destiny_content/icons/53cafea13c61f8eaee04db52b8fdf561.png",
+		"displayIcon": "/common/destiny_content/icons/0469249d06ef191436d191d26f262d79.png",
 		"isDisplayable": true,
 		"hash": 4023922623,
 		"index": 0
@@ -67895,7 +67895,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4027173315,
 		"displayName": "Activate IKELOS",
 		"displayDescription": "Upgrades laser to allow multiple ricochets on hard surfaces.",
-		"displayIcon": "/common/destiny_content/icons/9f17ba987bed60c1b5afe8604403d9a2.png",
+		"displayIcon": "/common/destiny_content/icons/f89140522112585cc92aa43d0cb7a7c5.png",
 		"isDisplayable": true,
 		"hash": 4027173315,
 		"index": 0
@@ -67904,7 +67904,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4036458532,
 		"displayName": "Maverick",
 		"displayDescription": "Precision kills move one round from your ammo reserves into the magazine.",
-		"displayIcon": "/common/destiny_content/icons/19b8c27c0053f8bd62d0f56b0ae1aee1.png",
+		"displayIcon": "/common/destiny_content/icons/0147c0e0e393660b7292626e9b767ff5.png",
 		"isDisplayable": true,
 		"hash": 4036458532,
 		"index": 0
@@ -67934,7 +67934,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4045214213,
 		"displayName": "Heuristic Light",
 		"displayDescription": "Killing your next foe in King's Fall will grant an additional Moldering Shard.",
-		"displayIcon": "/common/destiny_content/icons/d676556fa74acc20aca06f6df003dd48.png",
+		"displayIcon": "/common/destiny_content/icons/855fb68e9ed6adcb71485fbe71b239f1.png",
 		"isDisplayable": true,
 		"hash": 4045214213,
 		"index": 0
@@ -67943,7 +67943,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4051254786,
 		"displayName": "Solar Recovery",
 		"displayDescription": "Increased Recovery for 5 seconds after taking Solar splash damage.",
-		"displayIcon": "/common/destiny_content/icons/c2fb8c7d550ac2aec4b25c78d4a2ce57.png",
+		"displayIcon": "/common/destiny_content/icons/16afe97e496ff6224e3a09d452b3bfb7.png",
 		"isDisplayable": true,
 		"hash": 4051254786,
 		"index": 0
@@ -67966,7 +67966,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4060987422,
 		"displayName": "SRL Champion",
 		"displayDescription": "Increases SRL Event Standing.",
-		"displayIcon": "/common/destiny_content/icons/f3ac785da3e2109a72349a89f9985619.png",
+		"displayIcon": "/common/destiny_content/icons/9bc1ef18363f2adb42258f0ae397e009.png",
 		"isDisplayable": true,
 		"hash": 4060987422,
 		"index": 0
@@ -68073,7 +68073,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4090945472,
 		"displayName": "Shotgun Loader",
 		"displayDescription": "Increased reload speed with Shotguns.",
-		"displayIcon": "/common/destiny_content/icons/50a69c8b4ca8dcb55db1f7124b56988c.png",
+		"displayIcon": "/common/destiny_content/icons/31f151c5f67820a66aaf466fe1097b0b.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -68089,7 +68089,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4091143788,
 		"displayName": "Vernier Thrusters",
 		"displayDescription": "Use  or  and  or  for quick lateral movements.",
-		"displayIcon": "/common/destiny_content/icons/2291075d6f5d3326a140338710977c75.png",
+		"displayIcon": "/common/destiny_content/icons/6619ec882a855b0aaa2a97f24d3d7d8a.png",
 		"isDisplayable": true,
 		"hash": 4091143788,
 		"index": 0
@@ -68098,7 +68098,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4096399315,
 		"displayName": "Arc Accumulator",
 		"displayDescription": "Arc melees have a chance to generate an Orb when killing a minion of the Darkness.",
-		"displayIcon": "/common/destiny_content/icons/746b12cd922deffac8dbd73ab0007d50.png",
+		"displayIcon": "/common/destiny_content/icons/97471479530142ce9d0c76d66f8630e7.png",
 		"isDisplayable": true,
 		"hash": 4096399315,
 		"index": 0
@@ -68107,7 +68107,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4109126941,
 		"displayName": "Scatter Charge",
 		"displayDescription": "Enables Scatter Grenade tracking. \n Gain an additional Scatter Grenade charge.",
-		"displayIcon": "/common/destiny_content/icons/2b1343a509e7c4cfacfc1c581d9b0453.png",
+		"displayIcon": "/common/destiny_content/icons/e8135c66ed8b2d449dc5615954b4ec38.png",
 		"isDisplayable": true,
 		"hash": 4109126941,
 		"index": 0
@@ -68116,7 +68116,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4111868508,
 		"displayName": "Sniper Rifle Loader",
 		"displayDescription": "Increased reload speed with Sniper Rifles.",
-		"displayIcon": "/common/destiny_content/icons/6e9d152af1c827e8847ad70037733c8e.png",
+		"displayIcon": "/common/destiny_content/icons/1a102c7a62c0b09dde382bc1187d00b4.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -68132,7 +68132,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4114259013,
 		"displayName": "Chasm Rounds",
 		"displayDescription": "This weapon fires faster and more accurately the longer the trigger is held.",
-		"displayIcon": "/common/destiny_content/icons/f63794e16b19e619d8485a8a3202566b.png",
+		"displayIcon": "/common/destiny_content/icons/23ac8cc1bf7f741ce05487a297e2c27d.png",
 		"isDisplayable": true,
 		"hash": 4114259013,
 		"index": 0
@@ -68141,7 +68141,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4142402532,
 		"displayName": "Touch of Mercy",
 		"displayDescription": "Three rapid kills will return a portion of the wielder's health.",
-		"displayIcon": "/common/destiny_content/icons/b4161c2c87de853446c7bbf73a61c1a7.png",
+		"displayIcon": "/common/destiny_content/icons/8262bea5d86d20562837e3821c31e848.png",
 		"isDisplayable": true,
 		"hash": 4142402532,
 		"index": 0
@@ -68157,7 +68157,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4148534176,
 		"displayName": "Blue Polyphage",
 		"displayDescription": "Generate additional Glimmer when killing Vex.",
-		"displayIcon": "/common/destiny_content/icons/eefb4e7b30a3a1e3d9a89a65a86ed5cb.png",
+		"displayIcon": "/common/destiny_content/icons/dfaf6735584dc6dcb5d13ab8a73241dc.png",
 		"isDisplayable": true,
 		"hash": 4148534176,
 		"index": 0
@@ -68166,7 +68166,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4182717269,
 		"displayName": "Helium Filament Sensor",
 		"displayDescription": "Detects and marks nearby helium filament collectors.",
-		"displayIcon": "/common/destiny_content/icons/f41ba841562c4b25f03948bd8af0b123.png",
+		"displayIcon": "/common/destiny_content/icons/78ae74c19779f0277918270eabb7d8a7.png",
 		"isDisplayable": true,
 		"hash": 4182717269,
 		"index": 0
@@ -68210,7 +68210,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4189070124,
 		"displayName": "Air Brakes",
 		"displayDescription": "Use  to brake and corner more aggressively.",
-		"displayIcon": "/common/destiny_content/icons/737365c50493b12218198b3172d2ed81.png",
+		"displayIcon": "/common/destiny_content/icons/33a267ac001fd5b69111faa66d8c7899.png",
 		"isDisplayable": true,
 		"hash": 4189070124,
 		"index": 0
@@ -68219,7 +68219,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4198986151,
 		"displayName": "Outlaw",
 		"displayDescription": "Precision kills with this weapon dramatically increase reload speed.",
-		"displayIcon": "/common/destiny_content/icons/79ca2c06bad61f0f2a62e91a60f96ee1.png",
+		"displayIcon": "/common/destiny_content/icons/71264ec8f93a5737c4f3846148ce76c6.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 128,
@@ -68235,7 +68235,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4205188814,
 		"displayName": "Monte Carlo Method",
 		"displayDescription": "Dealing damage with this weapon reduces your melee cooldown and grants a chance to fully charge your melee ability with each kill.",
-		"displayIcon": "/common/destiny_content/icons/b5a5ffe328131838f641feaff56b7a68.png",
+		"displayIcon": "/common/destiny_content/icons/14e2a3c8c31af970765ebb2468beccb5.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -68251,7 +68251,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4207691867,
 		"displayName": "Private Reserves",
 		"displayDescription": "Activating your Super regenerates your health.",
-		"displayIcon": "/common/destiny_content/icons/38432c8cd26036d83def18481628812a.png",
+		"displayIcon": "/common/destiny_content/icons/c8e94ed8c9930e6e31374fd876a56127.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 0,
@@ -68274,7 +68274,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4231021906,
 		"displayName": "Bathed in Light",
 		"displayDescription": "Blessing of Light and Weapons of Light lasts longer.",
-		"displayIcon": "/common/destiny_content/icons/6a56c682818379b5fd37bc5ad0f012f2.png",
+		"displayIcon": "/common/destiny_content/icons/c4e39f5e31d16bfe5517acd9f3d1b741.png",
 		"isDisplayable": true,
 		"hash": 4231021906,
 		"index": 0
@@ -68304,7 +68304,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4249798551,
 		"displayName": "Vanguard Reputation Booster",
 		"displayDescription": "AURA\nIncreased Vanguard reputation rewards from Strike playlists.\n\nAuras will fade if you leave the Fireteam of the providing Guardian.",
-		"displayIcon": "/common/destiny_content/icons/e8087692126af023c80d941b95b9f39e.png",
+		"displayIcon": "/common/destiny_content/icons/dc1fff2aabcff88802b497258176cf89.png",
 		"isDisplayable": true,
 		"hash": 4249798551,
 		"index": 0
@@ -68313,7 +68313,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4262725708,
 		"displayName": "Rewind",
 		"displayDescription": "Missing a shot has a chance to return ammo directly to the magazine.",
-		"displayIcon": "/common/destiny_content/icons/8658245a84453afea59ffd132ca12f63.png",
+		"displayIcon": "/common/destiny_content/icons/1d17a6a5cb6d6f67944787ec43bb4ed1.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 512,
@@ -68329,7 +68329,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4266524967,
 		"displayName": "Grave Robber",
 		"displayDescription": "Melee kills while this weapon is equipped have a chance to refill the magazine.",
-		"displayIcon": "/common/destiny_content/icons/d23b3881e0bb6bea5ebc671bc2e4781e.png",
+		"displayIcon": "/common/destiny_content/icons/b7d82c274c76255470456c419fff37a6.png",
 		"isDisplayable": true,
 		"hash": 4266524967,
 		"index": 0
@@ -68345,7 +68345,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4271995221,
 		"displayName": "The Master",
 		"displayDescription": "Increased precision damage. Kills briefly increase damage against next target.",
-		"displayIcon": "/common/destiny_content/icons/b3733bac9f54762e7f1c6ce5e68cf4a3.png",
+		"displayIcon": "/common/destiny_content/icons/899435f95758023c2d0ba2904b3689f1.png",
 		"isDisplayable": true,
 		"perkGroups": {
 			"weaponPerformance": 2,
@@ -68361,7 +68361,7 @@ var DestinySandboxPerkDefinition = {
 		"perkHash": 4276523228,
 		"displayName": "Unsealed Power",
 		"displayDescription": "The power of the warden seethes uncontrollably.",
-		"displayIcon": "/common/destiny_content/icons/a8e3a5c9910d1e5d7b436cabf452139e.png",
+		"displayIcon": "/common/destiny_content/icons/7c24c89f30a56848856aa75112338ade.png",
 		"isDisplayable": true,
 		"hash": 4276523228,
 		"index": 0
@@ -68726,7 +68726,7 @@ var DestinyStatDefinition = {
 		"statHash": 144602215,
 		"statName": "Intellect",
 		"statDescription": "Decreases the cooldown of your super ability.\n\nIntellect can be increased by your Armor.",
-		"icon": "/common/destiny_content/icons/6e7e8b4139f19d086cc001298d0cd7da.png",
+		"icon": "/common/destiny_content/icons/1735c8d7be8ccc834e220967bbec1025.png",
 		"statIdentifier": "STAT_INTELLECT",
 		"interpolate": false,
 		"hash": 144602215,
@@ -68836,7 +68836,7 @@ var DestinyStatDefinition = {
 		"statHash": 1735777505,
 		"statName": "Discipline",
 		"statDescription": "Discipline decreases the cooldown time of your grenades, allowing you to use them more often.\n\nFind and equip armor with Discipline to boost this effect.",
-		"icon": "/common/destiny_content/icons/5fd41382142e47f4f0828f3575037f39.png",
+		"icon": "/common/destiny_content/icons/4573394b2993baf060b066461acada4c.png",
 		"statIdentifier": "STAT_DISCIPLINE",
 		"interpolate": false,
 		"hash": 1735777505,
@@ -68866,7 +68866,7 @@ var DestinyStatDefinition = {
 		"statHash": 2391494160,
 		"statName": "Light",
 		"statDescription": "Light increases your level, increasing the damage your abilities deal against higher-level enemies.",
-		"icon": "/common/destiny_content/icons/b38e1da2501e43a537fc9d043c8c0eb8.png",
+		"icon": "/common/destiny_content/icons/e64c1f3402ebd78dffdf477a2a1381e8.png",
 		"statIdentifier": "STAT_LIGHT",
 		"interpolate": false,
 		"hash": 2391494160,
@@ -69060,7 +69060,7 @@ var DestinyStatDefinition = {
 		"statHash": 4244567218,
 		"statName": "Strength",
 		"statDescription": "Strength reduces the cooldown time of your melee ability, allowing you to use it more often.\n\nFind and equip armor with Strength to boost this effect.",
-		"icon": "/common/destiny_content/icons/1c8103b9f4ae7a15109cf8c7f1fe1235.png",
+		"icon": "/common/destiny_content/icons/73b024eb137f1ff86cfb7706601232b5.png",
 		"statIdentifier": "STAT_STRENGTH",
 		"interpolate": false,
 		"hash": 4244567218,
@@ -112817,6 +112817,13 @@ var DestinyUnlockFlagDefinition = {
 		"hash": 3997765526,
 		"index": 0
 	},
+	"3998083514": {
+		"flagHash": 3998083514,
+		"isOffer": false,
+		"unlockType": 0,
+		"hash": 3998083514,
+		"index": 0
+	},
 	"3998508077": {
 		"flagHash": 3998508077,
 		"isOffer": false,
@@ -115878,10 +115885,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1990950,
 			"vendorName": "Titan Vanguard",
 			"vendorDescription": "A veteran Titan who coordinates the defense of the City, Zavala helps to outfit and mentor other Titans.",
-			"vendorIcon": "/common/destiny_content/icons/fa0317eede7cb0d9aa329066481dbee0.png",
+			"vendorIcon": "/common/destiny_content/icons/99d66a0927ec0be43dd1932a81b21e73.png",
 			"vendorOrder": 70,
 			"factionName": "Vanguard Reputation",
-			"factionIcon": "/common/destiny_content/icons/cea04d1a812e94dc88a3211f881c7f6b.png",
+			"factionIcon": "/common/destiny_content/icons/3dcf86aceb3cf9ae69d8278c6a6f90d8.png",
 			"factionHash": 468098704,
 			"factionDescription": "Complete Vanguard Bounties to unlock powerful gear for purchase.\n\nAchieve high Rank to earn rewards.",
 			"resetIntervalMinutes": 180,
@@ -116759,7 +116766,7 @@ var DestinyVendorDefinition = {
 		"summary": {
 			"vendorHash": 44395194,
 			"vendorName": "Vehicles",
-			"vendorIcon": "/common/destiny_content/icons/c6261235ea31a59c722618faaefdafca.png",
+			"vendorIcon": "/common/destiny_content/icons/b2ae3f8bcce28a4001438b678b31a289.png",
 			"vendorOrder": 31,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -116981,7 +116988,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 134701236,
 			"vendorName": "Guardian Outfitter",
 			"vendorDescription": "An artist with micromaterial programs, Eva provides Guardians ways to customize their appearance.",
-			"vendorIcon": "/common/destiny_content/icons/24e59c2075574596d800310f4a0f0e72.png",
+			"vendorIcon": "/common/destiny_content/icons/c97ef3f677d7991825dfbd304f0a6bfa.png",
 			"vendorOrder": 230,
 			"factionHash": 0,
 			"resetIntervalMinutes": 1440,
@@ -117389,7 +117396,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 163657562,
 			"vendorName": "Taken Sterling Treasure",
 			"vendorDescription": "\"A friend at the Reef helped me with this delivery, my dear niece. Open with caution.\" —Fenchurch Everis\nContains 1 Guaranteed Taken Item and may contain 1 Taken Class Item.",
-			"vendorIcon": "/common/destiny_content/icons/73b22bb57a346816eed58b8b49fd5b2f.png",
+			"vendorIcon": "/common/destiny_content/icons/8fda48560dff0a5d0b71cf85d6ba11a3.png",
 			"vendorOrder": -1,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -117426,10 +117433,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 174528503,
 			"vendorName": "Eris Morn",
 			"vendorDescription": "Among the last of those Guardians who faced Crota, Eris works in the shadows to bring about his end.",
-			"vendorIcon": "/common/destiny_content/icons/5118dde6e904cb1f6f90ad3be4815321.png",
+			"vendorIcon": "/common/destiny_content/icons/b5c4676b194b4220346dc0800ba7835c.png",
 			"vendorOrder": 30,
 			"factionName": "Crota's Bane",
-			"factionIcon": "/common/destiny_content/icons/e0d072cd26290a35500f4e726c76bf4b.png",
+			"factionIcon": "/common/destiny_content/icons/0581890fec1bdd368490de55a6f0981c.png",
 			"factionHash": 174528503,
 			"factionDescription": "Face the Court of Oryx, the Taken Trials, and complete Quests for Eris to unlock special gear and upgrade materials.",
 			"resetIntervalMinutes": 10080,
@@ -118266,10 +118273,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 242140165,
 			"vendorName": "Iron Banner",
 			"vendorDescription": "The Iron Banner seeks to forge ever stronger Guardians in the fires of the Crucible.",
-			"vendorIcon": "/common/destiny_content/icons/73b22bb57a346816eed58b8b49fd5b2f.png",
+			"vendorIcon": "/common/destiny_content/icons/8fda48560dff0a5d0b71cf85d6ba11a3.png",
 			"vendorOrder": 30,
 			"factionName": "Iron Banner",
-			"factionIcon": "/common/destiny_content/icons/1d2b87f0b8c2147c398867d79856caee.png",
+			"factionIcon": "/common/destiny_content/icons/99923e9fdc36189a0aeae72568193066.png",
 			"factionHash": 2161005788,
 			"factionDescription": "The Iron Banner summons Guardians to prove their worth in the Crucible.\n\nEvent Standing starts anew with every Iron Banner.",
 			"resetIntervalMinutes": 1440,
@@ -119897,10 +119904,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 459708109,
 			"vendorName": "Shipwright",
 			"vendorDescription": "The shipwrights of the Tower repair and recommission the ships of the City's Guardians.",
-			"vendorIcon": "/common/destiny_content/icons/c6261235ea31a59c722618faaefdafca.png",
+			"vendorIcon": "/common/destiny_content/icons/b2ae3f8bcce28a4001438b678b31a289.png",
 			"vendorOrder": 200,
 			"factionName": "SRL Event Standing",
-			"factionIcon": "/common/destiny_content/icons/6cc1d87bd3b76b1bee865ceb7c00b9da.png",
+			"factionIcon": "/common/destiny_content/icons/fb9955ac028824815924a273af86b35f.png",
 			"factionHash": 2763619072,
 			"factionDescription": "Rank up your SRL license for greater rewards.",
 			"resetIntervalMinutes": 4320,
@@ -120266,7 +120273,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 529545063,
 			"vendorName": "New Monarchy Package",
 			"vendorDescription": "\"You have helped to defend the Last City. It is only right that you be rewarded.\" —Executor Hideo\nContains 1 Guaranteed Item and may contain up to 2 Possible Items.",
-			"vendorIcon": "/common/destiny_content/icons/fa0317eede7cb0d9aa329066481dbee0.png",
+			"vendorIcon": "/common/destiny_content/icons/99d66a0927ec0be43dd1932a81b21e73.png",
 			"vendorOrder": -1,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -120334,10 +120341,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 570929315,
 			"vendorName": "Gunsmith",
 			"vendorDescription": "There are few weapons that Banshee-44 has not seen, and fewer still that he cannot fix.",
-			"vendorIcon": "/common/destiny_content/icons/86087e5aba76029bc3df6b8e380255c3.png",
+			"vendorIcon": "/common/destiny_content/icons/49d7c70e69778751bc8d8ead750ef27f.png",
 			"vendorOrder": 180,
 			"factionName": "Gunsmith",
-			"factionIcon": "/common/destiny_content/icons/141c966ad31e2b1ec16d0d26f6b0eb7b.png",
+			"factionIcon": "/common/destiny_content/icons/2ae434830f0d30388e8d3f6865540e42.png",
 			"factionHash": 2335631936,
 			"factionDescription": "Field-test Foundry weapons to place additional Armsday orders.",
 			"resetIntervalMinutes": 10080,
@@ -121469,7 +121476,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 614738178,
 			"vendorName": "Emote Collection",
 			"vendorDescription": "Emote Collection",
-			"vendorIcon": "/common/destiny_content/icons/24e59c2075574596d800310f4a0f0e72.png",
+			"vendorIcon": "/common/destiny_content/icons/c97ef3f677d7991825dfbd304f0a6bfa.png",
 			"vendorOrder": 31,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -121565,7 +121572,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 863056813,
 			"vendorName": "Crucible Package",
 			"vendorDescription": "\"You've fought well, Guardian. Don't get complacent now.\" —Lord Shaxx\nContains 1 Guaranteed Item and may contain up to 2 Possible Items.",
-			"vendorIcon": "/common/destiny_content/icons/73b22bb57a346816eed58b8b49fd5b2f.png",
+			"vendorIcon": "/common/destiny_content/icons/8fda48560dff0a5d0b71cf85d6ba11a3.png",
 			"vendorOrder": -1,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -121660,7 +121667,7 @@ var DestinyVendorDefinition = {
 		"summary": {
 			"vendorHash": 892630493,
 			"vendorName": "Vault",
-			"vendorIcon": "/common/destiny_content/icons/2dd31506c2e9273ef1cf2469dcb1cfca.png",
+			"vendorIcon": "/common/destiny_content/icons/a8c62fad076a85567fa1cd721de89db1.png",
 			"vendorOrder": 210,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -121784,10 +121791,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1303406887,
 			"vendorName": "Cryptarch",
 			"vendorDescription": "Wherever Guardians go, Cryptarchs often find their services needed. Albeit at a safe distance.",
-			"vendorIcon": "/common/destiny_content/icons/ef58fe97cf2b79096dca44364b2abade.png",
+			"vendorIcon": "/common/destiny_content/icons/d1f884ac33cd3b8852c74cfd27030d53.png",
 			"vendorOrder": 31,
 			"factionName": "Crypto-Archeology",
-			"factionIcon": "/common/destiny_content/icons/b188bb4a29eea7d98f32716a0a52ab6a.png",
+			"factionIcon": "/common/destiny_content/icons/bb41101b8e8f21dff6632c7eee0f9d6e.png",
 			"factionHash": 1327783731,
 			"factionDescription": "Decode Engrams to unlock new Engrams for purchase.\n\nAchieve high Rank to earn rewards.",
 			"resetIntervalMinutes": 10080,
@@ -122120,7 +122127,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1353750121,
 			"vendorName": "Sparrow Toolkit",
 			"vendorDescription": "\"Style and speed ... it's the perfect combination.\" — Tess Everis\nContains 1 Guaranteed Item.",
-			"vendorIcon": "/common/destiny_content/icons/b4b8eac29a0ec4b3a491bbb62e3c6876.png",
+			"vendorIcon": "/common/destiny_content/icons/9f9cde17738bbec93ca77ef2b20d9654.png",
 			"vendorOrder": -1,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -122188,10 +122195,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1410745145,
 			"vendorName": "Queen's Wrath",
 			"vendorDescription": "Petra serves the Queen of the Awoken, directing the allies of the Reef in the Queen's service.",
-			"vendorIcon": "/common/destiny_content/icons/89e7074f9e89b225b5ac4a099081f02f.png",
+			"vendorIcon": "/common/destiny_content/icons/0250a9ea3edce6910dd2e567b8508d80.png",
 			"vendorOrder": 31,
 			"factionName": "Queen's Wrath",
-			"factionIcon": "/common/destiny_content/icons/a750a477478a245f9d058d3bae868104.png",
+			"factionIcon": "/common/destiny_content/icons/c9596de9b2ca9f51c5482822e54b813d.png",
 			"factionHash": 807090922,
 			"factionDescription": "Complete Bounties for Petra in the Reef on behalf of the Queen.\n\nRaise your standing to unlock rewards.",
 			"resetIntervalMinutes": 10080,
@@ -122562,7 +122569,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1460182514,
 			"vendorName": "Exotic Weapon Blueprints",
 			"vendorDescription": "Exotic Weapon Blueprints",
-			"vendorIcon": "/common/destiny_content/icons/24e59c2075574596d800310f4a0f0e72.png",
+			"vendorIcon": "/common/destiny_content/icons/c97ef3f677d7991825dfbd304f0a6bfa.png",
 			"vendorOrder": 31,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -122733,7 +122740,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1527174714,
 			"vendorName": "Bounty Tracker",
 			"vendorDescription": "When a Guardian's prowess in the field is required, bounties are posted here.",
-			"vendorIcon": "/common/destiny_content/icons/d85fcb82389e31b4f3d9fabf09f5a80e.png",
+			"vendorIcon": "/common/destiny_content/icons/95fd862a1a5cc72911ea0a42aa5b7e04.png",
 			"vendorOrder": 50,
 			"factionHash": 0,
 			"resetIntervalMinutes": 1440,
@@ -123389,10 +123396,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1575820975,
 			"vendorName": "Warlock Vanguard",
 			"vendorDescription": "Respected among all Orders, Ikora Rey tutors new Warlocks with a lifetime of hard-earned knowledge.",
-			"vendorIcon": "/common/destiny_content/icons/fa0317eede7cb0d9aa329066481dbee0.png",
+			"vendorIcon": "/common/destiny_content/icons/99d66a0927ec0be43dd1932a81b21e73.png",
 			"vendorOrder": 90,
 			"factionName": "Vanguard Reputation",
-			"factionIcon": "/common/destiny_content/icons/cea04d1a812e94dc88a3211f881c7f6b.png",
+			"factionIcon": "/common/destiny_content/icons/3dcf86aceb3cf9ae69d8278c6a6f90d8.png",
 			"factionHash": 468098704,
 			"factionDescription": "Complete Vanguard Bounties to unlock powerful gear for purchase.\n\nAchieve high Rank to earn rewards.",
 			"resetIntervalMinutes": 180,
@@ -124229,7 +124236,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1588933401,
 			"vendorName": "Fall 2015 Emote",
 			"vendorDescription": "\"Sometimes the only thing you can do is dance.\" —Tess Everis\nContains one emote from Fall 2015. Highly likely to contain an emote not currently owned.",
-			"vendorIcon": "/common/destiny_content/icons/b4b8eac29a0ec4b3a491bbb62e3c6876.png",
+			"vendorIcon": "/common/destiny_content/icons/9f9cde17738bbec93ca77ef2b20d9654.png",
 			"vendorOrder": -1,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -124297,7 +124304,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1653856985,
 			"vendorName": "House of Judgment Package",
 			"vendorDescription": "\"The Reef honors you for your efforts… as do I.\" —Variks\nContains 1 Guaranteed Item and may contain up to 2 Possible Items.",
-			"vendorIcon": "/common/destiny_content/icons/913e1114397f0f7e16f2e1e326e5eb88.png",
+			"vendorIcon": "/common/destiny_content/icons/67377706b3cbb3f6eab337c21b8d1ecd.png",
 			"vendorOrder": -1,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -124365,7 +124372,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1660667815,
 			"vendorName": "Dead Orbit Package",
 			"vendorDescription": "\"Every star is a possibility. Every world could be home.\" —Arach Jalaal\nContains 1 Guaranteed Item and may contain up to 2 Possible Items.",
-			"vendorIcon": "/common/destiny_content/icons/fa0317eede7cb0d9aa329066481dbee0.png",
+			"vendorIcon": "/common/destiny_content/icons/99d66a0927ec0be43dd1932a81b21e73.png",
 			"vendorOrder": -1,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -124433,10 +124440,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1808244981,
 			"vendorName": "New Monarchy",
 			"vendorDescription": "The New Monarchy gathers adherents in the Tower, and arms them well for the Crucible.",
-			"vendorIcon": "/common/destiny_content/icons/fa0317eede7cb0d9aa329066481dbee0.png",
+			"vendorIcon": "/common/destiny_content/icons/99d66a0927ec0be43dd1932a81b21e73.png",
 			"vendorOrder": 150,
 			"factionName": "New Monarchy",
-			"factionIcon": "/common/destiny_content/icons/74fc53192c4378c69c473f687d3e3784.png",
+			"factionIcon": "/common/destiny_content/icons/1d24b190144b7413c0f7676e25cc5d65.png",
 			"factionHash": 3197190122,
 			"factionDescription": "Unlocks New Monarchy gear, and grants New Monarchy reputation when earning Vanguard and Crucible reputation.",
 			"resetIntervalMinutes": 10080,
@@ -124888,10 +124895,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1821699360,
 			"vendorName": "Future War Cult",
 			"vendorDescription": "The War Cult has always been an open secret in the Tower, arming and advising those who represent them in the Crucible.",
-			"vendorIcon": "/common/destiny_content/icons/fa0317eede7cb0d9aa329066481dbee0.png",
+			"vendorIcon": "/common/destiny_content/icons/99d66a0927ec0be43dd1932a81b21e73.png",
 			"vendorOrder": 130,
 			"factionName": "Future War Cult",
-			"factionIcon": "/common/destiny_content/icons/6ea28d9cd1a325197ad5f184bd5e874a.png",
+			"factionIcon": "/common/destiny_content/icons/cbe965e9b2e60fdf875269efb7350242.png",
 			"factionHash": 489342053,
 			"factionDescription": "Unlocks Future War Cult gear, and grants Future War Cult reputation when earning Vanguard and Crucible reputation.",
 			"resetIntervalMinutes": 10080,
@@ -125372,7 +125379,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1889676839,
 			"vendorName": "Disciple of Osiris",
 			"vendorDescription": "Osiris seeks the strongest Guardians to stem the tide of the Darkness.",
-			"vendorIcon": "/common/destiny_content/icons/9adb1bb6ac77f20c70c5263f6799217c.png",
+			"vendorIcon": "/common/destiny_content/icons/30ddf496319643e28529f3a487ed3e59.png",
 			"vendorOrder": 31,
 			"factionHash": 0,
 			"resetIntervalMinutes": 10080,
@@ -125648,10 +125655,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 1998812735,
 			"vendorName": "House of Judgment",
 			"vendorDescription": "Variks is loyal to the Queen, and has no love for the Kells who have taken command of the Fallen Houses.",
-			"vendorIcon": "/common/destiny_content/icons/913e1114397f0f7e16f2e1e326e5eb88.png",
+			"vendorIcon": "/common/destiny_content/icons/67377706b3cbb3f6eab337c21b8d1ecd.png",
 			"vendorOrder": 31,
 			"factionName": "House of Judgment",
-			"factionIcon": "/common/destiny_content/icons/c0381284849d49705e9a5c216697335e.png",
+			"factionIcon": "/common/destiny_content/icons/4c2a442755f8f75b058f88541335a700.png",
 			"factionHash": 3641985238,
 			"factionDescription": "Defeat enemies in the Prison of Elders to gain notoriety with the House of Judgment.\n\nRaise your standing to unlock better rewards.",
 			"resetIntervalMinutes": 10080,
@@ -126031,7 +126038,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 2016602161,
 			"vendorName": "Winter 2015 Emote",
 			"vendorDescription": "\"Looks like you could use some new moves, Guardian.\" —Tess Everis\nContains one emote from Winter 2015. Highly likely to contain an emote not currently owned.",
-			"vendorIcon": "/common/destiny_content/icons/b4b8eac29a0ec4b3a491bbb62e3c6876.png",
+			"vendorIcon": "/common/destiny_content/icons/9f9cde17738bbec93ca77ef2b20d9654.png",
 			"vendorOrder": -1,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -126099,7 +126106,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 2021251983,
 			"vendorName": "Postmaster",
 			"vendorDescription": "Deliveries and messages are left with the Postmaster to be collected by Guardians when their travels bring them home.",
-			"vendorIcon": "/common/destiny_content/icons/d89370803269a0964213d6f3367a2ec7.png",
+			"vendorIcon": "/common/destiny_content/icons/019cd7ad885bac40dcf62cea32d0a6c2.png",
 			"vendorOrder": 220,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -126153,7 +126160,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 2244880194,
 			"vendorName": "Ship Collection",
 			"vendorDescription": "Ships",
-			"vendorIcon": "/common/destiny_content/icons/c6261235ea31a59c722618faaefdafca.png",
+			"vendorIcon": "/common/destiny_content/icons/b2ae3f8bcce28a4001438b678b31a289.png",
 			"vendorOrder": 31,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -126370,7 +126377,7 @@ var DestinyVendorDefinition = {
 		"summary": {
 			"vendorHash": 2420628997,
 			"vendorName": "Shader Collection",
-			"vendorIcon": "/common/destiny_content/icons/24e59c2075574596d800310f4a0f0e72.png",
+			"vendorIcon": "/common/destiny_content/icons/c97ef3f677d7991825dfbd304f0a6bfa.png",
 			"vendorOrder": 31,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -126607,7 +126614,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 2586808090,
 			"vendorName": "Future War Cult Package",
 			"vendorDescription": "\"Through confict, we become strong. Take this. It may help you in your next battle.\" —Lakshmi-2\nContains 1 Guaranteed Item and may contain up to 2 Possible Items.",
-			"vendorIcon": "/common/destiny_content/icons/fa0317eede7cb0d9aa329066481dbee0.png",
+			"vendorIcon": "/common/destiny_content/icons/99d66a0927ec0be43dd1932a81b21e73.png",
 			"vendorOrder": -1,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -126675,10 +126682,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 2668878854,
 			"vendorName": "Vanguard Quartermaster",
 			"vendorDescription": "Roni 55-30 maintains a stock of select weapons for those proven among the Vanguard.",
-			"vendorIcon": "/common/destiny_content/icons/86087e5aba76029bc3df6b8e380255c3.png",
+			"vendorIcon": "/common/destiny_content/icons/49d7c70e69778751bc8d8ead750ef27f.png",
 			"vendorOrder": 100,
 			"factionName": "Vanguard Reputation",
-			"factionIcon": "/common/destiny_content/icons/cea04d1a812e94dc88a3211f881c7f6b.png",
+			"factionIcon": "/common/destiny_content/icons/3dcf86aceb3cf9ae69d8278c6a6f90d8.png",
 			"factionHash": 468098704,
 			"factionDescription": "Complete Vanguard Bounties to unlock powerful gear for purchase.\n\nAchieve high Rank to earn rewards.",
 			"resetIntervalMinutes": 0,
@@ -126808,7 +126815,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 2680694281,
 			"vendorName": "The Speaker",
 			"vendorDescription": "An ancient scholar of the Traveler, the Speaker keeps special items for Guardians who explore the Light's mysteries.",
-			"vendorIcon": "/common/destiny_content/icons/24e59c2075574596d800310f4a0f0e72.png",
+			"vendorIcon": "/common/destiny_content/icons/c97ef3f677d7991825dfbd304f0a6bfa.png",
 			"vendorOrder": 160,
 			"factionHash": 0,
 			"resetIntervalMinutes": 10080,
@@ -127303,7 +127310,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 2698860028,
 			"vendorName": "Custom Horn Kit",
 			"vendorDescription": "\"I always like to make a bit of a production of my passage. It may not be gentlemanly, but it is entertaining.\" — Fenchurch Everis\nContains 1 Guaranteed Item and may contain 1 Possible Item.",
-			"vendorIcon": "/common/destiny_content/icons/b4b8eac29a0ec4b3a491bbb62e3c6876.png",
+			"vendorIcon": "/common/destiny_content/icons/9f9cde17738bbec93ca77ef2b20d9654.png",
 			"vendorOrder": -1,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -127371,7 +127378,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 2762206170,
 			"vendorName": "Postmaster",
 			"vendorDescription": "For Guardians' convenience, one Reef postmaster was granted access to the Tower's messaging and delivery network.",
-			"vendorIcon": "/common/destiny_content/icons/d89370803269a0964213d6f3367a2ec7.png",
+			"vendorIcon": "/common/destiny_content/icons/019cd7ad885bac40dcf62cea32d0a6c2.png",
 			"vendorOrder": 31,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -127425,7 +127432,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 2796397637,
 			"vendorName": "Agent of the Nine",
 			"vendorDescription": "Xûr comes and goes freely, his strange curios eagerly sought by adventurous Guardians.",
-			"vendorIcon": "/common/destiny_content/icons/878447e61a4809e260e1f72595c494fd.png",
+			"vendorIcon": "/common/destiny_content/icons/cce13eb40b8556aad0a3847830e1e1de.png",
 			"vendorOrder": 10,
 			"factionHash": 0,
 			"resetIntervalMinutes": 10080,
@@ -128268,10 +128275,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 3003633346,
 			"vendorName": "Hunter Vanguard",
 			"vendorDescription": "Saddled with Tower duty, Cayde-6 dutifully advises and arms Hunters who seek him out.",
-			"vendorIcon": "/common/destiny_content/icons/fa0317eede7cb0d9aa329066481dbee0.png",
+			"vendorIcon": "/common/destiny_content/icons/99d66a0927ec0be43dd1932a81b21e73.png",
 			"vendorOrder": 80,
 			"factionName": "Vanguard Reputation",
-			"factionIcon": "/common/destiny_content/icons/cea04d1a812e94dc88a3211f881c7f6b.png",
+			"factionIcon": "/common/destiny_content/icons/3dcf86aceb3cf9ae69d8278c6a6f90d8.png",
 			"factionHash": 468098704,
 			"factionDescription": "Complete Vanguard Bounties to unlock powerful gear for purchase.\n\nAchieve high Rank to earn rewards.",
 			"resetIntervalMinutes": 180,
@@ -129052,7 +129059,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 3019290222,
 			"vendorName": "Cryptarch Package",
 			"vendorDescription": "\"There is no greater joy than the mystery of a closed box. Until it is opened, it contains wonders.\" —Master Rahool\nContains 1 Guaranteed Item and may contain up to 2 Possible Items.",
-			"vendorIcon": "/common/destiny_content/icons/ef58fe97cf2b79096dca44364b2abade.png",
+			"vendorIcon": "/common/destiny_content/icons/d1f884ac33cd3b8852c74cfd27030d53.png",
 			"vendorOrder": -1,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -129120,7 +129127,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 3165969428,
 			"vendorName": "Vanguard Package",
 			"vendorDescription": "\"The fight continues, and you are needed. Accept this in honor of your service to the Light.\" —Commander Zavala\nContains 1 Guaranteed Item and may contain up to 2 Possible Items.",
-			"vendorIcon": "/common/destiny_content/icons/86087e5aba76029bc3df6b8e380255c3.png",
+			"vendorIcon": "/common/destiny_content/icons/49d7c70e69778751bc8d8ead750ef27f.png",
 			"vendorOrder": -1,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -129216,7 +129223,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 3301500998,
 			"vendorName": "Emblem Collection",
 			"vendorDescription": "Emblem Collection",
-			"vendorIcon": "/common/destiny_content/icons/24e59c2075574596d800310f4a0f0e72.png",
+			"vendorIcon": "/common/destiny_content/icons/c97ef3f677d7991825dfbd304f0a6bfa.png",
 			"vendorOrder": 31,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -129481,10 +129488,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 3611686524,
 			"vendorName": "Dead Orbit",
 			"vendorDescription": "Dead Orbit only grudgingly maintains a presence in the Tower to arm and outfit their champions in the Crucible.",
-			"vendorIcon": "/common/destiny_content/icons/fa0317eede7cb0d9aa329066481dbee0.png",
+			"vendorIcon": "/common/destiny_content/icons/99d66a0927ec0be43dd1932a81b21e73.png",
 			"vendorOrder": 140,
 			"factionName": "Dead Orbit",
-			"factionIcon": "/common/destiny_content/icons/b2583acf4c8faef2234b2b36ec62c596.png",
+			"factionIcon": "/common/destiny_content/icons/a3f734d60a8b4d6f516f03ed152adf4e.png",
 			"factionHash": 2397602219,
 			"factionDescription": "Unlocks Dead Orbit gear, and grants Dead Orbit reputation when earning Vanguard and Crucible reputation.",
 			"resetIntervalMinutes": 10080,
@@ -129950,10 +129957,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 3658200622,
 			"vendorName": "Crucible Quartermaster",
 			"vendorDescription": "The Crucible is a demanding place, and Arcite 99-40 assists Shaxx in arming Guardians to withstand it.",
-			"vendorIcon": "/common/destiny_content/icons/73b22bb57a346816eed58b8b49fd5b2f.png",
+			"vendorIcon": "/common/destiny_content/icons/8fda48560dff0a5d0b71cf85d6ba11a3.png",
 			"vendorOrder": 110,
 			"factionName": "The Crucible",
-			"factionIcon": "/common/destiny_content/icons/e3d6dffaadcd1cf17a1bb1f33b220a93.png",
+			"factionIcon": "/common/destiny_content/icons/69e8da56abade6f8e545e29058edb1e7.png",
 			"factionHash": 964120289,
 			"factionDescription": "Complete Crucible Bounties to unlock powerful gear for purchase.\n\nAchieve high Rank to earn rewards.",
 			"resetIntervalMinutes": 10080,
@@ -130128,10 +130135,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 3746647075,
 			"vendorName": "Crucible Handler",
 			"vendorDescription": "A veteran of the Crucible, Lord Shaxx both arms and oversees those who seek to forge themselves within it.",
-			"vendorIcon": "/common/destiny_content/icons/73b22bb57a346816eed58b8b49fd5b2f.png",
+			"vendorIcon": "/common/destiny_content/icons/8fda48560dff0a5d0b71cf85d6ba11a3.png",
 			"vendorOrder": 110,
 			"factionName": "The Crucible",
-			"factionIcon": "/common/destiny_content/icons/e3d6dffaadcd1cf17a1bb1f33b220a93.png",
+			"factionIcon": "/common/destiny_content/icons/69e8da56abade6f8e545e29058edb1e7.png",
 			"factionHash": 964120289,
 			"factionDescription": "Complete Crucible Bounties to unlock powerful gear for purchase.\n\nAchieve high Rank to earn rewards.",
 			"resetIntervalMinutes": 10080,
@@ -130814,7 +130821,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 3902439767,
 			"vendorName": "Exotic Armor Blueprints",
 			"vendorDescription": "Exotic Armor Blueprints",
-			"vendorIcon": "/common/destiny_content/icons/24e59c2075574596d800310f4a0f0e72.png",
+			"vendorIcon": "/common/destiny_content/icons/c97ef3f677d7991825dfbd304f0a6bfa.png",
 			"vendorOrder": 31,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -130998,7 +131005,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 3917130357,
 			"vendorName": "Eververse",
 			"vendorDescription": "Tess is the proprietor of Eververse, where Guardians can purchase unique curiosities and stylish wares.",
-			"vendorIcon": "/common/destiny_content/icons/b4b8eac29a0ec4b3a491bbb62e3c6876.png",
+			"vendorIcon": "/common/destiny_content/icons/9f9cde17738bbec93ca77ef2b20d9654.png",
 			"vendorOrder": 230,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,
@@ -131157,10 +131164,10 @@ var DestinyVendorDefinition = {
 			"vendorHash": 4269570979,
 			"vendorName": "Cryptarch",
 			"vendorDescription": "Crypto-archeologists decode the past and our enemies, seeking new discoveries in matter engrams and artifacts returned by Guardians.",
-			"vendorIcon": "/common/destiny_content/icons/ef58fe97cf2b79096dca44364b2abade.png",
+			"vendorIcon": "/common/destiny_content/icons/d1f884ac33cd3b8852c74cfd27030d53.png",
 			"vendorOrder": 170,
 			"factionName": "Crypto-Archeology",
-			"factionIcon": "/common/destiny_content/icons/b188bb4a29eea7d98f32716a0a52ab6a.png",
+			"factionIcon": "/common/destiny_content/icons/bb41101b8e8f21dff6632c7eee0f9d6e.png",
 			"factionHash": 1327783731,
 			"factionDescription": "Decode Engrams to unlock new Engrams for purchase.\n\nAchieve high Rank to earn rewards.",
 			"resetIntervalMinutes": 10080,
@@ -131521,7 +131528,7 @@ var DestinyVendorDefinition = {
 			"vendorHash": 4275962006,
 			"vendorName": "Sterling Treasure",
 			"vendorDescription": "\"Looking good, Guardian.\" —Tess Everis\nContains 1 Guaranteed Item and may contain up to 4 Possible Items.",
-			"vendorIcon": "/common/destiny_content/icons/73b22bb57a346816eed58b8b49fd5b2f.png",
+			"vendorIcon": "/common/destiny_content/icons/8fda48560dff0a5d0b71cf85d6ba11a3.png",
 			"vendorOrder": -1,
 			"factionHash": 0,
 			"resetIntervalMinutes": 0,

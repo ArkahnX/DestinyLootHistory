@@ -16,6 +16,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	var backupDataButton = document.getElementById("backupData");
 	var exportDataButton = document.getElementById("exportData");
 	var closeOptions = document.getElementById("closeOptions");
+	var minDateInput = document.getElementById("MinDate");
+	minDateInput.value = moment("2016-04-26T17:00:00Z").format("YYYY-MM-DDTHH:mm:ss");
+	var maxDateInput = document.getElementById("MaxDate");
+	maxDateInput.value = moment("2016-05-03T09:00:00Z").format("YYYY-MM-DDTHH:mm:ss");
+	var gameModeInput = document.getElementById("GameMode");
+	var ironBannerInput = document.getElementById("ironBanner");
+	var resultsInput = document.getElementById("Results");
+	var lightLevelInput = document.getElementById("lightLevel");
+
 	closeOptions.addEventListener("click", function() {
 		window.location.href = chrome.extension.getURL('newui.html');
 	});
@@ -24,7 +33,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			permissions: ['downloads']
 		}, function(result) {
 			if (result) {
-				// The extension has the permissions.
+				backupDataButton.classList.add("loading");
+				backupDataButton.setAttribute("disabled", true);
+				backupData();
 			} else {
 				chrome.permissions.request({
 					permissions: ['downloads']
@@ -41,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	exportDataButton.addEventListener("click", function() {
 		exportDataButton.classList.add("loading");
 		exportDataButton.setAttribute("disabled", true);
-		exportData();
+		exportData(gameModeInput.value, moment(minDateInput.value).utc().format(),moment(maxDateInput.value).utc().format(),parseInt(resultsInput.value),ironBannerInput.checked,lightLevelInput.checked);
 	});
 
 	function handleFileSelect(evt) {
