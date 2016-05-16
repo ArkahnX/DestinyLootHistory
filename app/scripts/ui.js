@@ -276,6 +276,7 @@ function makeProgress(itemDiff, moveType, index) {
 	container.appendChild(stat);
 	docfrag.appendChild(container);
 	container.classList.add("kinetic", "common", "faction")
+	console.log(DestinyProgressionDefinition[progressData.progressionHash],progressData)
 	if (DestinyFactionDefinition[progressData.factionHash]) {
 		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyFactionDefinition[progressData.factionHash].factionIcon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
 	} else if (DestinyProgressionDefinition[progressData.progressionHash].icon) {
