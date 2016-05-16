@@ -31,6 +31,7 @@ function setTooltipData(dataset) {
 		classRequirement.textContent = dataset.classRequirement;
 		handleStats(dataset.itemTypeName, dataset).then(function() {
 			tooltip.classList.remove("hidden", "arc", "void", "solar", "kinetic", "common", "legendary", "rare", "uncommon", "exotic");
+			tooltip.classList.add(dataset.tierTypeName.toLowerCase(),dataset.damageTypeName.toLowerCase());
 		});
 	}
 }

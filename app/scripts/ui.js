@@ -277,9 +277,9 @@ function makeProgress(itemDiff, moveType, index) {
 	docfrag.appendChild(container);
 	container.classList.add("kinetic", "common", "faction")
 	if (DestinyFactionDefinition[progressData.factionHash]) {
-		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyFactionDefinition[progressData.factionHash].factionIcon + "')");
+		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyFactionDefinition[progressData.factionHash].factionIcon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
 	} else if (DestinyProgressionDefinition[progressData.progressionHash].icon) {
-		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyProgressionDefinition[progressData.progressionHash].icon + "')");
+		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyProgressionDefinition[progressData.progressionHash].icon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
 	} else {
 		container.setAttribute("style", "background-image: url('http://bungie.net/img/misc/missing_icon.png')");
 	}
