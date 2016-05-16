@@ -2,53 +2,68 @@ var dirtyTimeout = null;
 var oldFactionProgress = 0;
 
 function dirtyItemCheck() {
-	var factionProgress = 0;
-	sequence(characterIdList, function(item, resolve) {
-		if (item !== "vault") {
-			bungie.factions(item, resolve);
-		} else {
-			resolve();
-		}
-	}, function(result, item, index) {
-		if (result) {
-			var data = result.data;
-			for (var i = 0; i < data.progressions.length; i++) {
-				factionProgress += data.progressions[i].currentProgress;
+	if (localStorage["error"] === "false") {
+		chrome.browserAction.setBadgeText({
+			text: ""
+		});
+		var factionProgress = 0;
+		clearTimeout(dirtyTimeout);
+		sequence(characterIdList, function(item, resolve) {
+			if (item !== "vault") {
+				bungie.factions(item, resolve);
+			} else {
+				resolve();
 			}
-		}
-	}).then(function() {
-		if (factionProgress !== oldFactionProgress) {
-			console.log("Beginning tracking again.")
-			recursiveIdleTracking();
-			oldFactionProgress = factionProgress;
-		}
-		if (localStorage["listening"] === "false") {
-			dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 10);
-		}
-	});
+		}, function(result, item, index) {
+			if (result) {
+				var data = result.data;
+				for (var i = 0; i < data.progressions.length; i++) {
+					factionProgress += data.progressions[i].currentProgress;
+				}
+			}
+		}).then(function() {
+			if (factionProgress !== oldFactionProgress) {
+				console.log("Beginning tracking again.")
+				recursiveIdleTracking();
+				oldFactionProgress = factionProgress;
+			}
+			if (localStorage["listening"] === "false") {
+				dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 10);
+			}
+		});
+	} else {
+		chrome.browserAction.setBadgeText({
+			text: "!"
+		});
+		dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 10);
+	}
 }
 
 function checkForUpdates() {
-	characterDescriptions = JSON.parse(localStorage["characterDescriptions"]);
-	if (!localStorage["listening"] || localStorage["listening"] === "false") {
-		var header = document.querySelector("#status");
-		header.classList.add("idle");
-		header.classList.remove("active");
-		var element = document.querySelector("#startTracking");
-		element.setAttribute("value", "Begin Tracking");
-	}
-	if (localStorage["listening"] === "true") {
-		var header = document.querySelector("#status");
+	var header = document.querySelector("#status");
+	var element = document.querySelector("#startTracking");
+	if (localStorage["error"] === "true") {
+		header.classList.add("active", "error");
 		header.classList.remove("idle");
-		header.classList.add("active");
-		var element = document.querySelector("#startTracking");
-		element.setAttribute("value", "Stop Tracking");
+		characterDescriptions = JSON.parse(localStorage["characterDescriptions"]);
+	} else {
+		if (!localStorage["listening"] || localStorage["listening"] === "false") {
+			header.classList.add("idle");
+			header.classList.remove("active", "error");
+			element.setAttribute("value", "Begin Tracking");
+		}
+		if (localStorage["listening"] === "true") {
+			header.classList.remove("idle", "error");
+			header.classList.add("active");
+			element.setAttribute("value", "Stop Tracking");
+		}
 	}
 	chrome.storage.local.get(null, function(localData) {
 		data = localData;
-		displayResults();
+		displayResults().then(function() {
+			setTimeout(checkForUpdates, 5000);
+		});
 	});
-	// setTimeout(checkForUpdates, 5000);
 }
 
 function startListening() {
@@ -111,7 +126,11 @@ function recursiveIdleTracking() {
 	var startTime = window.performance.now();
 	runningCheck = true;
 	clearTimeout(timeoutTracker);
+	clearTimeout(dirtyTimeout);
 	timeoutTracker = null;
+	chrome.browserAction.setBadgeText({
+		text: ""
+	});
 	checkInventory().then(function() {
 		var endTime = window.performance.now();
 		var resultTime = Math.floor(endTime - startTime);
@@ -122,7 +141,19 @@ function recursiveIdleTracking() {
 			idleTimer = 0;
 		}
 		console.log(moment().utc().format())
-		if (localStorage["flag"] === "true" || (localStorage["listening"] === "true" && idleTimer < 15)) {
+		if (localStorage["error"] === "true") {
+			chrome.browserAction.setBadgeText({
+				text: "!"
+			});
+			idleTimer = 0;
+			localStorage["listening"] = "true";
+			var endTime = window.performance.now();
+			var resultTime = Math.floor(endTime - startTime);
+			console.log("Scheduling check for ", ((5 * 1000) - resultTime) / 1000, "s from now.")
+			timeoutTracker = setTimeout(recursiveIdleTracking, (5 * 1000) - resultTime);
+			dirtyItemCheck();
+			runningCheck = false;
+		} else if (localStorage["flag"] === "true" || (localStorage["listening"] === "true" && idleTimer < 15)) {
 			console.log(15 - idleTimer, "checks remaining.")
 			localStorage["listening"] = "true";
 			localStorage["flag"] = "false";

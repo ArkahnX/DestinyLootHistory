@@ -111,7 +111,7 @@ function dirtyItemCheck() {
 			console.log(factionProgress, oldFactionProgress)
 			oldFactionProgress = factionProgress;
 		}
-		dirtyTimeout = setTimeout(dirtyItemCheck,1000*10);
+		dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 10);
 	});
 }
 
@@ -145,10 +145,11 @@ for (var itemDiff of data.itemChanges) {
 }
 
 for (var itemDiff of data.itemChanges) {
-	if (itemDiff.added.length > 10) {
+	if (itemDiff.added.length > 30) {
 		console.log(data.itemChanges.indexOf(itemDiff), itemDiff)
 	}
 }
+chrome.storage.local.set(data, function() {})
 
 for (var i = data.itemChanges.length - 1; i > -1; i--) {
 	var itemDiff = data.itemChanges[i];
@@ -156,4 +157,10 @@ for (var i = data.itemChanges.length - 1; i > -1; i--) {
 		data.itemChanges.splice(i, 1);
 	}
 }
-chrome.storage.local.set(data, function() {})
+
+for (var i = data.itemChanges.length - 1; i > -1; i--) {
+	var itemDiff = data.itemChanges[i];
+	if (itemDiff.added.length > 20 || itemDiff.removed.length > 20) {
+		data.itemChanges.splice(i, 1);
+	}
+}

@@ -59,23 +59,38 @@ function sequence(array, networkTask, resultTask) {
 function initItems(callback) {
 	console.time("load Bungie Data");
 	bungie.user(function(u) {
-		bungie.search(function(e) {
+		if (u.error) {
+			localStorage["error"] = "true";
+			localStorage["listening"] = "false";
+			chrome.browserAction.setBadgeText({
+				text: "!"
+			});
+			setTimeout(function() {
+				initItems(callback);
+			}, 1000 * 5)
+		} else {
+			localStorage["error"] = "false";
+			chrome.browserAction.setBadgeText({
+				text: ""
+			});
+			bungie.search(function(e) {
 
-			var avatars = e.data.characters;
-			for (var c = 0; c < avatars.length; c++) {
-				characterDescriptions[avatars[c].characterBase.characterId] = {
-					name: DestinyClassDefinition[avatars[c].characterBase.classHash].className,
-					gender: DestinyGenderDefinition[avatars[c].characterBase.genderHash].genderName,
-					level: avatars[c].baseCharacterLevel,
-					light: avatars[c].characterBase.powerLevel,
-					race: DestinyRaceDefinition[avatars[c].characterBase.raceHash].raceName
-				};
-				characterIdList.push(avatars[c].characterBase.characterId);
-			}
-			localStorage["characterDescriptions"] = JSON.stringify(characterDescriptions);
-			console.timeEnd("load Bungie Data");
-			callback();
-		});
+				var avatars = e.data.characters;
+				for (var c = 0; c < avatars.length; c++) {
+					characterDescriptions[avatars[c].characterBase.characterId] = {
+						name: DestinyClassDefinition[avatars[c].characterBase.classHash].className,
+						gender: DestinyGenderDefinition[avatars[c].characterBase.genderHash].genderName,
+						level: avatars[c].baseCharacterLevel,
+						light: avatars[c].characterBase.powerLevel,
+						race: DestinyRaceDefinition[avatars[c].characterBase.raceHash].raceName
+					};
+					characterIdList.push(avatars[c].characterBase.characterId);
+				}
+				localStorage["characterDescriptions"] = JSON.stringify(characterDescriptions);
+				console.timeEnd("load Bungie Data");
+				callback();
+			});
+		}
 	});
 }
 
@@ -320,29 +335,37 @@ function checkInventory() {
 		var currentDateString = moment().utc().format();
 		bungie.search(function(e) {
 			console.timeEnd("Bungie Search");
-			var avatars = e.data.characters;
-			for (var c = 0; c < avatars.length; c++) {
-				characterDescriptions[avatars[c].characterBase.characterId].light = avatars[c].characterBase.powerLevel;
-			}
-			console.time("Bungie Items");
-			sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
-				console.timeEnd("Bungie Items");
-				console.time("Bungie Faction");
-				sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
-					console.timeEnd("Bungie Faction");
-					console.time("Local Inventory");
-					chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
-						data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
-						data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
-						// data.progression = handleInput(result.progression, data.progression);
-						// data.inventories = handleInput(result.inventories, data.inventories);
-						oldProgression = handleInput(result.progression, newProgression);
-						oldInventories = handleInput(result.inventories, newInventories);
-						console.timeEnd("Local Inventory");
-						processDifference(currentDateString, resolve);
+			if (e.error) {
+				localStorage["listening"] = "false";
+				chrome.browserAction.setBadgeText({
+					text: "!"
+				});
+				resolve() // RECOVER FROM THIS NETWORK ISSUE
+			} else {
+				var avatars = e.data.characters;
+				for (var c = 0; c < avatars.length; c++) {
+					characterDescriptions[avatars[c].characterBase.characterId].light = avatars[c].characterBase.powerLevel;
+				}
+				console.time("Bungie Items");
+				sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
+					console.timeEnd("Bungie Items");
+					console.time("Bungie Faction");
+					sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
+						console.timeEnd("Bungie Faction");
+						console.time("Local Inventory");
+						chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
+							data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
+							data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
+							// data.progression = handleInput(result.progression, data.progression);
+							// data.inventories = handleInput(result.inventories, data.inventories);
+							oldProgression = handleInput(result.progression, newProgression);
+							oldInventories = handleInput(result.inventories, newInventories);
+							console.timeEnd("Local Inventory");
+							processDifference(currentDateString, resolve);
+						});
 					});
 				});
-			});
+			}
 		});
 	});
 }

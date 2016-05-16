@@ -77,8 +77,10 @@ function createItems(itemDiff, className, moveType) {
 	var subContainer = document.createElement("div");
 	subContainer.classList.add("sub-section", className);
 	var docfrag = document.createDocumentFragment();
-	for (var i = 0; i < itemDiff[moveType].length; i++) {
-		docfrag.appendChild(makeItem(itemDiff, moveType, i));
+	if (itemDiff[moveType]) {
+		for (var i = 0; i < itemDiff[moveType].length; i++) {
+			docfrag.appendChild(makeItem(itemDiff, moveType, i));
+		}
 	}
 	subContainer.appendChild(docfrag);
 	return subContainer;
@@ -120,74 +122,72 @@ var resultQuantity = 100;
 var arrayStep = 0;
 
 function displayResults() {
-	console.timeEnd("grab matches");
-	constructMatchInterface();
-	console.time("loadResults");
-	var timestamps = document.querySelectorAll(".timestamp");
-	for (var item of timestamps) {
-		item.textContent = moment.utc(item.dataset.timestamp).tz(moment.tz.guess()).fromNow() + item.dataset.activity;
-		item.setAttribute("title", moment.utc(item.dataset.timestamp).tz(moment.tz.guess()).format("ddd[,] ll LTS"));
-	}
-	var date = document.getElementById("date");
-	var added = document.getElementById("added");
-	var removed = document.getElementById("removed");
-	var transferred = document.getElementById("transferred");
-	var progression = document.getElementById("progression");
-	var dateFrag = document.createDocumentFragment();
-	var addedFrag = document.createDocumentFragment();
-	var removedFrag = document.createDocumentFragment();
-	var transferredFrag = document.createDocumentFragment();
-	var progressionFrag = document.createDocumentFragment();
-	// The dataset
-	var myArr = [];
-	// Number of operations per call
-	var batchSize = 50;
-	// The actual processing method
-	function work(item, index) {
+	return new Promise(function(resolve, reject) {
+		console.timeEnd("grab matches");
+		constructMatchInterface();
+		console.time("loadResults");
+		var timestamps = document.querySelectorAll(".timestamp");
+		for (var item of timestamps) {
+			item.textContent = moment.utc(item.dataset.timestamp).tz(moment.tz.guess()).fromNow() + item.dataset.activity;
+			item.setAttribute("title", moment.utc(item.dataset.timestamp).tz(moment.tz.guess()).format("ddd[,] ll LTS"));
+		}
+		var date = document.getElementById("date");
+		var added = document.getElementById("added");
+		var removed = document.getElementById("removed");
+		var transferred = document.getElementById("transferred");
+		var progression = document.getElementById("progression");
 		var dateFrag = document.createDocumentFragment();
 		var addedFrag = document.createDocumentFragment();
 		var removedFrag = document.createDocumentFragment();
 		var transferredFrag = document.createDocumentFragment();
 		var progressionFrag = document.createDocumentFragment();
-		// console.time("part1")
-		var addedQty = item.added.length;
-		var removedQty = item.removed.length;
-		var transferredQty = item.transferred.length;
-		var progressionQty = 0;
-		if (item.progression) {
-			progressionQty = item.progression.length;
+		// The dataset
+		var myArr = [];
+		// Number of operations per call
+		var batchSize = 50;
+		// The actual processing method
+		function work(item, index) {
+			if (lastIndex < index) {
+				// console.time("part1")
+				var addedQty = item.added.length;
+				var removedQty = item.removed.length;
+				var progressionQty = 0;
+				if (item.progression) {
+					progressionQty = item.progression.length;
+				}
+				var transferredQty = 0;
+				if (item.transferred) {
+					transferredQty = item.transferred.length;
+				}
+				var className = rowHeight(addedQty, removedQty, transferredQty, progressionQty);
+				lastIndex = index;
+				// console.timeEnd("part1")
+				// console.time("part2")
+				dateFrag.insertBefore(createDate(item, className), dateFrag.firstChild);
+				addedFrag.insertBefore(createItems(item, className, "added"), addedFrag.firstChild);
+				removedFrag.insertBefore(createItems(item, className, "removed"), removedFrag.firstChild);
+				transferredFrag.insertBefore(createItems(item, className, "transferred"), transferredFrag.firstChild);
+				progressionFrag.insertBefore(createProgress(item, className, "progression"), progressionFrag.firstChild);
+				// console.timeEnd("part2")
+			}
 		}
-		var className = rowHeight(addedQty, removedQty, transferredQty, progressionQty);
-		lastIndex = index;
-		// console.timeEnd("part1")
-		// console.time("part2")
-		dateFrag.insertBefore(createDate(item, className), dateFrag.firstChild);
-		addedFrag.insertBefore(createItems(item, className, "added"), addedFrag.firstChild);
-		removedFrag.insertBefore(createItems(item, className, "removed"), removedFrag.firstChild);
-		transferredFrag.insertBefore(createItems(item, className, "transferred"), transferredFrag.firstChild);
-		progressionFrag.insertBefore(createProgress(item, className, "progression"), progressionFrag.firstChild);
-		// console.timeEnd("part2")
-		date.insertBefore(dateFrag, date.firstChild)
-		added.insertBefore(addedFrag, added.firstChild)
-		removed.insertBefore(removedFrag, removed.firstChild)
-		transferred.insertBefore(transferredFrag, transferred.firstChild)
-		progression.insertBefore(progressionFrag, progression.firstChild)
-	}
 
-	// Start iterator, it will return a promise
-	var promise = asyncIterator(data.itemChanges, work, batchSize);
+		// Start iterator, it will return a promise
+		var promise = asyncIterator(data.itemChanges, work, batchSize);
 
-	// When promise is resolved, output results
-	promise.then(function(results) {
-		console.time("part3")
-		date.insertBefore(dateFrag, date.firstChild)
-		added.insertBefore(addedFrag, added.firstChild)
-		removed.insertBefore(removedFrag, removed.firstChild)
-		transferred.insertBefore(transferredFrag, transferred.firstChild)
-		progression.insertBefore(progressionFrag, progression.firstChild)
-		console.timeEnd("part3")
-		console.timeEnd("loadResults");
-		console.log('Done processing', results);
+		// When promise is resolved, output results
+		promise.then(function(results) {
+			console.time("part3")
+			date.insertBefore(dateFrag, date.firstChild)
+			added.insertBefore(addedFrag, added.firstChild)
+			removed.insertBefore(removedFrag, removed.firstChild)
+			transferred.insertBefore(transferredFrag, transferred.firstChild)
+			progression.insertBefore(progressionFrag, progression.firstChild)
+			console.timeEnd("part3")
+			console.timeEnd("loadResults");
+			console.log('Done processing', results);
+			resolve();
+		});
 	});
 	// sequence(data.itemChanges, function(arrayItem, callback, index) {
 	// 	if (lastIndex < index) {

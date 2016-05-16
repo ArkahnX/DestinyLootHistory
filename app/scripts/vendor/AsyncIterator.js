@@ -17,7 +17,7 @@ var asyncIterator = function(arr, cb, batchSize) {
 
 			var currentItem = arr[position];
 
-			results[position] = cb(currentItem, position);
+			cb(currentItem, position);
 
 			position++;
 		}
