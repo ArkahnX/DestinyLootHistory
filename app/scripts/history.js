@@ -299,3 +299,7 @@ function buildCompactItem(itemData, bucketHash) {
 	}
 	return newItemData;
 }
+var bungie = new Bungie();
+initItems(function() {
+	
+})
