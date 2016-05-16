@@ -1,3 +1,5 @@
+var transferQ = [];
+
 function processDifference(currentDateString, resolve) {
 	console.time("Process Difference");
 	var previousItem = data.itemChanges[data.itemChanges.length - 1];
@@ -84,7 +86,7 @@ function processDifference(currentDateString, resolve) {
 								added = JSON.parse(added.item);
 								if (itemData.itemInstanceId === added.itemInstanceId && itemData.stackSize !== added.stackSize) {
 									console.log(added)
-									if (parseInt(progress.stackSize, 10) >= 100) {
+									if (parseInt(added.stackSize, 10) >= 100) {
 										forceupdate = true;
 									}
 									found = true;
@@ -116,11 +118,21 @@ function processDifference(currentDateString, resolve) {
 					if (isSameItem(addition.item, removal.item)) {
 						var movedItem = additions.splice(i, 1)[0];
 						removals.splice(e, 1);
-						transfers.push({
+						var TQTemp = {
 							from: removal.characterId,
 							to: addition.characterId,
 							item: movedItem.item
-						});
+						};
+						var isUnique = true;
+						for (var item of transferQ) {
+							if (JSON.stringify(item) === JSON.stringify(TQTemp)) {
+								isUnique = false;
+								break;
+							}
+						}
+						if (isUnique) {
+							transferQ.push(TQTemp);
+						}
 						break;
 					}
 				}
@@ -153,7 +165,6 @@ function processDifference(currentDateString, resolve) {
 			light: characterDescriptions[characterId].light,
 			removed: [],
 			added: [],
-			transferred: [],
 			id: uniqueIndex,
 			characterId: characterId,
 			secondsSinceLastDiff: (new Date(currentDateString) - previousItemDate) / 1000,
@@ -180,16 +191,28 @@ function processDifference(currentDateString, resolve) {
 				diff.removed.push(removal.item);
 			}
 		}
-		for (var transfer of transfers) {
-			if (transfer.to === characterId) {
-				diff.transferred.push(transfer);
+		if (diff.added.length || diff.removed.length) {
+			for (var q = transferQ.length - 1; q > -1; q--) {
+				var transfer = transferQ[q];
+				if (!diff.transferred) {
+					diff.transferred = [];
+				}
+				diff.transferred.push(transferQ.splice(q, 1)[0]);
 			}
 		}
-		if (diff.removed.length || diff.added.length || diff.transferred.length || (diff.progression && diff.progression.length)) {
+		// for (var transfer of transferQ) {
+		// 	if (transfer.to === characterId || transfer.from === characterId) {
+		// 		if (!diff.transferred) {
+		// 			diff.transferred = [];
+		// 		}
+		// 		diff.transferred.push(transfer);
+		// 	}
+		// }
+		if (diff.removed.length || diff.added.length || (transferQ.length) || (diff.progression && diff.progression.length)) {
 			localStorage["flag"] = "true";
-			console.log(diff)
+			console.log(diff, transferQ)
 		}
-		if (diff.removed.length || diff.added.length || diff.transferred.length || (diff.progression && diff.progression.length && forceupdate)) {
+		if (diff.removed.length || diff.added.length || (diff.transferred && diff.transferred.length && forceupdate) || (diff.progression && diff.progression.length && forceupdate)) {
 			if (diff.progression && diff.progression.length) {
 				oldProgression[characterId] = newProgression[characterId];
 				data.progression[characterId] = newProgression[characterId];
