@@ -277,10 +277,11 @@ function makeProgress(itemDiff, moveType, index) {
 	docfrag.appendChild(container);
 	container.classList.add("kinetic", "common", "faction")
 	console.log(DestinyProgressionDefinition[progressData.progressionHash],progressData)
+	// NO BACKGROUND IMAGE ON FACTION ICONS BECAUSE THEY ARE TRANSPARENT
 	if (DestinyFactionDefinition[progressData.factionHash]) {
-		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyFactionDefinition[progressData.factionHash].factionIcon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
+		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyFactionDefinition[progressData.factionHash].factionIcon + "')");
 	} else if (DestinyProgressionDefinition[progressData.progressionHash].icon) {
-		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyProgressionDefinition[progressData.progressionHash].icon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
+		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyProgressionDefinition[progressData.progressionHash].icon + "')");
 	} else {
 		container.setAttribute("style", "background-image: url('http://bungie.net/img/misc/missing_icon.png')");
 	}
