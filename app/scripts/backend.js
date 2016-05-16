@@ -1,4 +1,5 @@
 var bungie = new Bungie();
+consoleLog.disable();
 (function() {
 	chrome.storage.local.get(null, function(result) {
 			console.log(result)
