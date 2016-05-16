@@ -49,11 +49,16 @@ function Bungie() {
 			if (this.status >= 200 && this.status < 400) {
 				var response = JSON.parse(this.response);
 
-				if (response.ErrorCode === 36) setTimeout(function() {
-					_request(opts);
-				}, 1000);
-				else opts.complete(response.Response, response);
+				if (response.ErrorCode === 36) {
+					setTimeout(function() {
+						_request(opts);
+					}, 1000);
+				} else {
+					localStorage["error"] = "false";
+					opts.complete(response.Response, response);
+				}
 			} else {
+				localStorage["error"] = "true";
 				opts.complete({
 					error: 'network error:' + this.status
 				}, this.response);
@@ -61,6 +66,7 @@ function Bungie() {
 		};
 
 		r.onerror = function() {
+			localStorage["error"] = "true";
 			opts.complete({
 				error: 'connection error'
 			});
@@ -72,6 +78,7 @@ function Bungie() {
 				r.setRequestHeader('x-csrf', token);
 				r.send(JSON.stringify(opts.payload));
 			} else {
+				localStorage["error"] = "true";
 				opts.complete({
 					error: 'cookie not found'
 				});
@@ -127,14 +134,17 @@ function Bungie() {
 				if (this.status >= 200 && this.status < 400) {
 					var response = JSON.parse(this.response);
 
-					if (response.ErrorCode === 36) setTimeout(function() {
-						_request(opts);
-					}, 1000);
-					else {
+					if (response.ErrorCode === 36) {
+						setTimeout(function() {
+							_request(opts);
+						}, 1000);
+					} else {
+						localStorage["error"] = "false";
 						// opts.complete(response.Response, response);
 						resolve(response.Response, response);
 					}
 				} else {
+					localStorage["error"] = "true";
 					reject({
 						error: 'network error:' + this.status
 					}, this.response);
@@ -146,6 +156,7 @@ function Bungie() {
 
 			// Handle network errors
 			r.onerror = function() {
+				localStorage["error"] = "true";
 				reject({
 					error: 'connection error'
 				});
@@ -158,6 +169,7 @@ function Bungie() {
 					r.setRequestHeader('x-csrf', token);
 					r.send(JSON.stringify(opts.payload));
 				} else {
+					localStorage["error"] = "true";
 					reject({
 						error: 'cookie not found'
 					});
@@ -184,6 +196,7 @@ function Bungie() {
 			method: 'GET',
 			complete: function(res) {
 				if (res === undefined) {
+					localStorage["error"] = "true";
 					callback({
 						error: 'no response'
 					})
@@ -205,9 +218,14 @@ function Bungie() {
 					active = systemIds.psn;
 				}
 				if (res.error) {
+					localStorage["error"] = "true";
 					console.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.');
+					callback({
+						error: 'no response'
+					})
 					return;
 				}
+				localStorage["error"] = "false";
 				callback(res);
 			}
 		});
@@ -227,6 +245,7 @@ function Bungie() {
 		if (platform == 2) {
 			active = systemIds.psn;
 		}
+		localStorage["error"] = "false";
 		callback();
 	}
 	this.search = function(callback) {
@@ -241,8 +260,13 @@ function Bungie() {
 					// })
 					// return;
 					console.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.');
+					localStorage["error"] = "true";
+					callback({
+						error: 'no response'
+					})
 					return;
 				}
+				localStorage["error"] = "false";
 				membershipId = membership[0].membershipId;
 				_request({
 					route: '/Destiny/Tiger' + (active.type == 1 ? 'Xbox' : 'PSN') + '/Account/' + membershipId + '/',
@@ -250,8 +274,13 @@ function Bungie() {
 					complete: function(result) {
 						if (result.error) {
 							console.error('Bungie.net user found, but was unable to find your linked ' + (bungie.active().type == 1 ? 'Xbox' : 'PSN') + ' account.');
+							localStorage["error"] = "true";
+							callback({
+								error: 'no response'
+							})
 							return;
 						}
+						localStorage["error"] = "false";
 						callback(result);
 					}
 				});
@@ -259,6 +288,7 @@ function Bungie() {
 		});
 	}
 	this.activity = function(characterId, gameMode, count, page, callback) {
+		localStorage["error"] = "false";
 		_request({
 			route: '/Destiny/Stats/ActivityHistory/' + active.type + '/' + membershipId + '/' + characterId + "/?mode=" + gameMode + "&count=" + count + "&page=" + page,
 			method: 'GET',
@@ -266,6 +296,7 @@ function Bungie() {
 		});
 	}
 	this.inventorySummary = function(membershipType, membershipId, characterId, callback) {
+		localStorage["error"] = "false";
 		_request({
 			route: '/Destiny/' + membershipType + '/Account/' + membershipId + '/Character/' + characterId + '/Inventory/Summary/',
 			method: 'GET',
@@ -273,6 +304,7 @@ function Bungie() {
 		});
 	}
 	this.carnage = function(instanceId, callback) {
+		localStorage["error"] = "false";
 		_request({
 			route: '/Destiny/Stats/PostGameCarnageReport/' + instanceId + '/',
 			method: 'GET',
@@ -285,14 +317,17 @@ function Bungie() {
 			method: 'GET',
 			complete: function(result) {
 				if (result.error) {
+					localStorage["error"] = "true";
 					console.error('Bungie.net user found, but was unable to find your linked ' + (bungie.active().type == 1 ? 'Xbox' : 'PSN') + ' account.');
 					return;
 				}
+				localStorage["error"] = "false";
 				callback(result);
 			}
 		});
 	}
 	this.inventory = function(characterId, callback) {
+		localStorage["error"] = "false";
 		_request({
 			route: '/Destiny/' + active.type + '/Account/' + membershipId + '/Character/' + characterId + '/Inventory/?definitions=false',
 			method: 'GET',
@@ -300,6 +335,7 @@ function Bungie() {
 		});
 	}
 	this.factions = function(characterId, callback) {
+		localStorage["error"] = "false";
 		_request({
 			route: '/Destiny/' + active.type + '/Account/' + membershipId + '/Character/' + characterId + '/Progression/?definitions=false',
 			method: 'GET',
@@ -307,6 +343,7 @@ function Bungie() {
 		});
 	}
 	this.getItem = function(characterId, itemId, callback) {
+		localStorage["error"] = "false";
 		_request({
 			route: '/Destiny/' + active.type + '/Account/' + membershipId + '/Character/' + characterId + '/Inventory/' + itemId,
 			method: 'GET',
@@ -314,6 +351,7 @@ function Bungie() {
 		});
 	}
 	this.transfer = function(characterId, itemId, itemHash, amount, toVault, callback) {
+		localStorage["error"] = "false";
 		_request({
 			route: '/Destiny/TransferItem/',
 			method: 'POST',
@@ -329,6 +367,7 @@ function Bungie() {
 		});
 	}
 	this.equip = function(characterId, itemId, callback) {
+			localStorage["error"] = "false";
 			_request({
 				route: '/Destiny/EquipItem/',
 				method: 'POST',
@@ -345,6 +384,7 @@ function Bungie() {
 		// .character.inventory.buckets -useful to resync data maybe?
 		// .summary - useful if we want to update character level/emblem/etc
 	this.equipall = function(characterId, itemIds, callback) {
+		localStorage["error"] = "false";
 		_request({
 			route: '/Destiny/EquipItems/',
 			method: 'POST',
