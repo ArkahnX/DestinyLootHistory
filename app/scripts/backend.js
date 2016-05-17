@@ -1,11 +1,15 @@
 var bungie = new Bungie();
-consoleLog.disable();
+var manifest = chrome.runtime.getManifest();
+if (manifest.key) {
+	window['console']['time'] = function() {};
+	window['console']['timeEnd'] = function() {};
+}
 (function() {
 	chrome.storage.local.get(null, function(result) {
 			console.log(result)
 		})
 		// Instance specific extension URL
-	var appUrl = chrome.extension.getURL('newui.html');
+	var appUrl = chrome.extension.getURL('index.html');
 
 	function appClicked() {
 		chrome.tabs.create({

@@ -1,4 +1,11 @@
 function initUi() {
+	var manifest = chrome.runtime.getManifest();
+	if (typeof manifest.key === "undefined") {
+		document.getElementById("version").textContent = (manifest.version);
+	} else {
+		window['console']['time'] = function() {};
+		window['console']['timeEnd'] = function() {};
+	}
 	var header = document.querySelector("#status");
 	header.classList.add("idle");
 	var element = document.querySelector("#startTracking");
@@ -142,13 +149,11 @@ function displayResults() {
 		var transferredFrag = document.createDocumentFragment();
 		var progressionFrag = document.createDocumentFragment();
 		// The dataset
-		var myArr = [];
 		// Number of operations per call
 		var batchSize = 50;
 		// The actual processing method
 		function work(item, index) {
 			if (lastIndex < index) {
-				// console.time("part1")
 				var addedQty = item.added.length;
 				var removedQty = item.removed.length;
 				var progressionQty = 0;
@@ -161,14 +166,11 @@ function displayResults() {
 				}
 				var className = rowHeight(addedQty, removedQty, transferredQty, progressionQty);
 				lastIndex = index;
-				// console.timeEnd("part1")
-				// console.time("part2")
 				dateFrag.insertBefore(createDate(item, className), dateFrag.firstChild);
 				addedFrag.insertBefore(createItems(item, className, "added"), addedFrag.firstChild);
 				removedFrag.insertBefore(createItems(item, className, "removed"), removedFrag.firstChild);
 				transferredFrag.insertBefore(createItems(item, className, "transferred"), transferredFrag.firstChild);
 				progressionFrag.insertBefore(createProgress(item, className, "progression"), progressionFrag.firstChild);
-				// console.timeEnd("part2")
 			}
 		}
 
@@ -177,59 +179,16 @@ function displayResults() {
 
 		// When promise is resolved, output results
 		promise.then(function(results) {
-			console.time("part3")
 			date.insertBefore(dateFrag, date.firstChild)
 			added.insertBefore(addedFrag, added.firstChild)
 			removed.insertBefore(removedFrag, removed.firstChild)
 			transferred.insertBefore(transferredFrag, transferred.firstChild)
 			progression.insertBefore(progressionFrag, progression.firstChild)
-			console.timeEnd("part3")
 			console.timeEnd("loadResults");
-			console.log('Done processing', results);
+			// console.log('Done processing', results);
 			resolve();
 		});
 	});
-	// sequence(data.itemChanges, function(arrayItem, callback, index) {
-	// 	if (lastIndex < index) {
-	// 		console.time("part1")
-	// 		var addedQty = arrayItem.added.length;
-	// 		var removedQty = arrayItem.removed.length;
-	// 		var transferredQty = arrayItem.transferred.length;
-	// 		var progressionQty = 0;
-	// 		if (arrayItem.progression) {
-	// 			progressionQty = arrayItem.progression.length;
-	// 		}
-	// 		var className = rowHeight(addedQty, removedQty, transferredQty, progressionQty);
-	// 		lastIndex = index;
-	// 		console.timeEnd("part1")
-	// 		callback({
-	// 			className: className,
-	// 			itemDiff: arrayItem
-	// 		});
-	// 	}
-	// 	callback(false);
-	// }, function(result, arrayItem, index) {
-	// 	if (result) {
-	// 		console.time("part2")
-	// 		var itemDiff = result.itemDiff;
-	// 		var className = result.className;
-	// 		dateFrag.insertBefore(createDate(itemDiff, className), dateFrag.firstChild);
-	// 		addedFrag.insertBefore(createItems(itemDiff, className, "added"), addedFrag.firstChild);
-	// 		removedFrag.insertBefore(createItems(itemDiff, className, "removed"), removedFrag.firstChild);
-	// 		transferredFrag.insertBefore(createItems(itemDiff, className, "transferred"), transferredFrag.firstChild);
-	// 		progressionFrag.insertBefore(createProgress(itemDiff, className, "progression"), progressionFrag.firstChild);
-	// 		console.timeEnd("part2")
-	// 	}
-	// }).then(function() {
-	// 	console.time("part3")
-	// 	date.insertBefore(dateFrag, date.firstChild)
-	// 	added.insertBefore(addedFrag, added.firstChild)
-	// 	removed.insertBefore(removedFrag, removed.firstChild)
-	// 	transferred.insertBefore(transferredFrag, transferred.firstChild)
-	// 	progression.insertBefore(progressionFrag, progression.firstChild)
-	// 	console.timeEnd("part3")
-	// 	console.timeEnd("loadResults");
-	// });
 }
 
 function delayNode(index, className, latestItemChange, date, added, removed, transferred) {
@@ -276,7 +235,7 @@ function makeProgress(itemDiff, moveType, index) {
 	container.appendChild(stat);
 	docfrag.appendChild(container);
 	container.classList.add("kinetic", "common", "faction")
-	// NO BACKGROUND IMAGE ON FACTION ICONS BECAUSE THEY ARE TRANSPARENT
+		// NO BACKGROUND IMAGE ON FACTION ICONS BECAUSE THEY ARE TRANSPARENT
 	if (DestinyFactionDefinition[progressData.factionHash]) {
 		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyFactionDefinition[progressData.factionHash].factionIcon + "')");
 	} else if (DestinyProgressionDefinition[progressData.progressionHash].icon) {
