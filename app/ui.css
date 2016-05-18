@@ -90,7 +90,7 @@ input[disabled]:hover {
 	background-color: #B0BEC5;
 }
 
-#status {
+header {
 	transition: box-shadow .2s linear,background-color .2s ease-in,background-image .2s ease-in;
 
 	background-color: rgba(238,238,238,.7);
