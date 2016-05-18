@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	var lightLevelInput = document.getElementById("lightLevel");
 
 	closeOptions.addEventListener("click", function() {
-		window.location.href = chrome.extension.getURL('newui.html');
+		window.location.href = chrome.extension.getURL('index.html');
 	});
 	backupDataButton.addEventListener("click", function() {
 		chrome.permissions.contains({
