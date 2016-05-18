@@ -125,9 +125,9 @@ function checkInventory() {
 						div = document.createElement("div");
 						div.classList.add("sub-section");
 						div.classList.add(source.identifier);
-						var description = document.createElement("div");
-						description.textContent = source.sourceName;
-						div.appendChild(description);
+						var sourceDescription = document.createElement("div");
+						sourceDescription.textContent = source.sourceName;
+						div.appendChild(sourceDescription);
 						sourceIndex++;
 					}
 				}
@@ -301,5 +301,5 @@ function buildCompactItem(itemData, bucketHash) {
 }
 var bungie = new Bungie();
 initItems(function() {
-	
-})
+
+});

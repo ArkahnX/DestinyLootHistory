@@ -2,35 +2,33 @@
  * Batch processes large datasets with the help of requestAnimationFrame in order
  * to not lock up the single thread.
  */
-var asyncIterator = function(arr, cb, batchSize) {
-	var arr = arr;
-	var cb = cb;
-	var batchSize = parseInt(batchSize) || 10;
+var asyncIterator = function(array, workFunction, size) {
+	var batchSize = parseInt(size, 10) || 10;
 	var position = 0;
 	var results = [];
 
 	var _iterate = function(resolve, reject) {
 		for (var i = 0; i < batchSize; i++) {
-			if (position >= arr.length) {
+			if (position >= array.length) {
 				break;
 			}
 
-			var currentItem = arr[position];
+			var currentItem = array[position];
 
-			cb(currentItem, position);
+			workFunction(currentItem, position);
 
 			position++;
 		}
-		if (!arr) {
-			console.log(this)
+		if (!array) {
+			console.log(this);
 		}
-		if (position < arr.length) {
+		if (position < array.length) {
 			window.requestAnimationFrame(function() {
 				_iterate(resolve, reject);
 			});
 		} else {
 			resolve(results);
 		}
-	}
+	};
 	return new Promise(_iterate);
 };

@@ -24,13 +24,13 @@ function processDifference(currentDateString, resolve) {
 	}
 	console.timeEnd("Concat New Items");
 	if (oldInventories) {
-		for (var characterId in oldInventories) {
+		for (var character in oldInventories) {
 			var diff = {
 				timestamp: currentDateString,
 				secondsSinceLastDiff: (new Date(currentDateString) - previousItemDate) / 1000,
-				characterId: characterId,
-				added: checkDiff(newInventories[characterId], oldInventories[characterId]),
-				removed: checkDiff(oldInventories[characterId], newInventories[characterId])
+				characterId: character,
+				added: checkDiff(newInventories[character], oldInventories[character]),
+				removed: checkDiff(oldInventories[character], newInventories[character])
 			};
 			if (diff.added.length || diff.removed.length) {
 				diffs.push(diff);
@@ -38,42 +38,42 @@ function processDifference(currentDateString, resolve) {
 		}
 	}
 	if (diffs.length) {
-		for (var diff of diffs) {
-			for (var addition of diff.added) {
+		for (var diffObject of diffs) {
+			for (var addition of diffObject.added) {
 				if (addition) {
 					var itemData = JSON.parse(addition);
 					var itemDefinition = DestinyCompactItemDefinition[itemData.itemHash];
 					if (itemDefinition.bucketTypeHash === 2197472680 || itemDefinition.bucketTypeHash === 1801258597 || itemData.objectives) {
 						if (parseInt(itemData.stackSize, 10) > 0) {
-							console.log("passed to progression")
+							console.log("passed to progression");
 							progression.push({
-								characterId: diff.characterId,
+								characterId: diffObject.characterId,
 								item: addition
 							});
 						} else {
 							additions.push({
-								characterId: diff.characterId,
+								characterId: diffObject.characterId,
 								item: addition
 							});
 						}
 					} else {
 						additions.push({
-							characterId: diff.characterId,
+							characterId: diffObject.characterId,
 							item: addition
 						});
 					}
 				}
 			}
-			for (var removal of diff.removed) {
+			for (var removal of diffObject.removed) {
 				if (removal) {
-					var itemData = JSON.parse(removal);
-					var itemDefinition = DestinyCompactItemDefinition[itemData.itemHash];
-					if (itemDefinition.bucketTypeHash === 2197472680 || itemDefinition.bucketTypeHash === 1801258597 || itemData.objectives) {
+					var localDefinition = JSON.parse(removal);
+					var databaseDefinition = DestinyCompactItemDefinition[localDefinition.itemHash];
+					if (databaseDefinition.bucketTypeHash === 2197472680 || databaseDefinition.bucketTypeHash === 1801258597 || localDefinition.objectives) {
 						var found = false;
 						for (var progress of progression) {
 							progress = JSON.parse(progress.item);
-							if (itemData.itemInstanceId === progress.itemInstanceId && itemData.stackSize !== progress.stackSize) {
-								console.log(progress)
+							if (localDefinition.itemInstanceId === progress.itemInstanceId && localDefinition.stackSize !== progress.stackSize) {
+								console.log(progress);
 								if (parseInt(progress.stackSize, 10) >= 100) {
 									forceupdate = true;
 								}
@@ -84,8 +84,8 @@ function processDifference(currentDateString, resolve) {
 						if (!found) {
 							for (var added of additions) {
 								added = JSON.parse(added.item);
-								if (itemData.itemInstanceId === added.itemInstanceId && itemData.stackSize !== added.stackSize) {
-									console.log(added)
+								if (localDefinition.itemInstanceId === added.itemInstanceId && localDefinition.stackSize !== added.stackSize) {
+									console.log(added);
 									if (parseInt(added.stackSize, 10) >= 100) {
 										forceupdate = true;
 									}
@@ -94,16 +94,16 @@ function processDifference(currentDateString, resolve) {
 								}
 							}
 						}
-						console.log(found)
+						console.log(found);
 						if (found === false) {
 							removals.push({
-								characterId: diff.characterId,
+								characterId: diffObject.characterId,
 								item: removal
 							});
 						}
 					} else {
 						removals.push({
-							characterId: diff.characterId,
+							characterId: diffObject.characterId,
 							item: removal
 						});
 					}
@@ -111,16 +111,16 @@ function processDifference(currentDateString, resolve) {
 			}
 		}
 		for (var i = additions.length - 1; i >= 0; i--) {
-			var addition = additions[i];
+			var addedItem = additions[i];
 			for (var e = removals.length - 1; e >= 0; e--) {
-				var removal = removals[e];
-				if (addition.characterId !== removal.characterId) {
-					if (isSameItem(addition.item, removal.item)) {
+				var removedItem = removals[e];
+				if (addedItem.characterId !== removedItem.characterId) {
+					if (isSameItem(addedItem.item, removedItem.item)) {
 						var movedItem = additions.splice(i, 1)[0];
 						removals.splice(e, 1);
 						var TQTemp = {
-							from: removal.characterId,
-							to: addition.characterId,
+							from: removedItem.characterId,
+							to: addedItem.characterId,
 							item: movedItem.item
 						};
 						var isUnique = true;
@@ -140,8 +140,8 @@ function processDifference(currentDateString, resolve) {
 		}
 	}
 	if (oldProgression) {
-		for (var characterId in oldProgression) {
-			var diff = {
+		for (let characterId in oldProgression) {
+			let diff = {
 				characterId: characterId,
 				progress: checkFactionDiff(oldProgression[characterId].progressions, newProgression[characterId].progressions)
 			};
@@ -149,7 +149,7 @@ function processDifference(currentDateString, resolve) {
 			// 	diff.level[attr] = newProgression[characterId].levelProgression[attr];
 			// }
 			if (diff.progress.length > 0) {
-				for (var progress of diff.progress) {
+				for (let progress of diff.progress) {
 					if (progress) {
 						progression.push({
 							characterId: diff.characterId,
@@ -160,8 +160,8 @@ function processDifference(currentDateString, resolve) {
 			}
 		}
 	}
-	for (var characterId in newInventories) {
-		var diff = {
+	for (let characterId in newInventories) {
+		let diff = {
 			light: characterDescriptions[characterId].light,
 			removed: [],
 			added: [],
@@ -172,7 +172,7 @@ function processDifference(currentDateString, resolve) {
 		};
 		if (newProgression[characterId]) {
 			// diff.level = newProgression[characterId].levelProgression;
-			for (var progress of progression) {
+			for (let progress of progression) {
 				if (progress.characterId === characterId) {
 					if (!diff.progression) {
 						diff.progression = [];
@@ -181,12 +181,12 @@ function processDifference(currentDateString, resolve) {
 				}
 			}
 		}
-		for (var addition of additions) {
+		for (let addition of additions) {
 			if (addition.characterId === characterId) {
 				diff.added.push(addition.item);
 			}
 		}
-		for (var removal of removals) {
+		for (let removal of removals) {
 			if (removal.characterId === characterId) {
 				diff.removed.push(removal.item);
 			}
@@ -209,8 +209,8 @@ function processDifference(currentDateString, resolve) {
 		// 	}
 		// }
 		if (diff.removed.length || diff.added.length || (transferQ.length) || (diff.progression && diff.progression.length)) {
-			localStorage["flag"] = "true";
-			console.log(diff, transferQ)
+			localStorage.flag = "true";
+			console.log(diff, transferQ);
 		}
 		if (diff.removed.length || diff.added.length || (diff.transferred && diff.transferred.length && forceupdate) || (diff.progression && diff.progression.length && forceupdate)) {
 			if (diff.progression && diff.progression.length) {
@@ -249,6 +249,6 @@ function processDifference(currentDateString, resolve) {
 		progression: data.progression
 	}, function() {});
 	console.timeEnd("Process Difference");
-	console.time("grab matches")
+	console.time("grab matches");
 	getLocalMatches().then(getRemoteMatches).then(applyMatchData).then(resolve);
 }

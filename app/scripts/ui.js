@@ -3,22 +3,22 @@ function initUi() {
 	if (typeof manifest.key === "undefined") {
 		document.getElementById("version").textContent = (manifest.version);
 	} else {
-		window['console']['time'] = function() {};
-		window['console']['timeEnd'] = function() {};
+		window.console.time = function() {};
+		window.console.timeEnd = function() {};
 	}
 	var header = document.querySelector("#status");
 	header.classList.add("idle");
 	var element = document.querySelector("#startTracking");
 	element.removeAttribute("disabled");
 	element.addEventListener("click", function(event) {
-		if (!localStorage["listening"] || localStorage["listening"] === "false") {
+		if (!localStorage.listening || localStorage.listening === "false") {
 			var d = new Date();
 			d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
 			d = d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + (d.getHours() - 0)).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2);
-			localStorage["listening"] = "true";
-			localStorage["manual"] = "true";
+			localStorage.listening = "true";
+			localStorage.manual = "true";
 		} else {
-			localStorage["listening"] = "false";
+			localStorage.listening = "false";
 		}
 	});
 	var historyLink = document.querySelector("#viewhistory");
@@ -179,11 +179,11 @@ function displayResults() {
 
 		// When promise is resolved, output results
 		promise.then(function(results) {
-			date.insertBefore(dateFrag, date.firstChild)
-			added.insertBefore(addedFrag, added.firstChild)
-			removed.insertBefore(removedFrag, removed.firstChild)
-			transferred.insertBefore(transferredFrag, transferred.firstChild)
-			progression.insertBefore(progressionFrag, progression.firstChild)
+			date.insertBefore(dateFrag, date.firstChild);
+			added.insertBefore(addedFrag, added.firstChild);
+			removed.insertBefore(removedFrag, removed.firstChild);
+			transferred.insertBefore(transferredFrag, transferred.firstChild);
+			progression.insertBefore(progressionFrag, progression.firstChild);
 			console.timeEnd("loadResults");
 			// console.log('Done processing', results);
 			resolve();
@@ -234,7 +234,7 @@ function makeProgress(itemDiff, moveType, index) {
 	var stat = document.createElement("div");
 	container.appendChild(stat);
 	docfrag.appendChild(container);
-	container.classList.add("kinetic", "common", "faction")
+	container.classList.add("kinetic", "common", "faction");
 		// NO BACKGROUND IMAGE ON FACTION ICONS BECAUSE THEY ARE TRANSPARENT
 	if (DestinyFactionDefinition[progressData.factionHash]) {
 		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyFactionDefinition[progressData.factionHash].factionIcon + "')");
@@ -244,7 +244,7 @@ function makeProgress(itemDiff, moveType, index) {
 		container.setAttribute("style", "background-image: url('http://bungie.net/img/misc/missing_icon.png')");
 	}
 	stat.classList.add("primary-stat");
-	stat.textContent = progressData.progressChange
+	stat.textContent = progressData.progressChange;
 	passFactionData(container, itemDiff, moveType, index);
 	return docfrag;
 }
@@ -304,7 +304,7 @@ function primaryStatName(itemData) {
 	if (itemData.primaryStat) {
 		return itemData.primaryStat.statName;
 	} else if (itemData.bucketHash === 2197472680) {
-		return "Completed"
+		return "Completed";
 	} else {
 		return "Quantity";
 	}
@@ -346,11 +346,11 @@ function passFactionData(DomNode, itemDiff, moveType, index) {
 	var diffData = itemDiff[moveType][index];
 	diffData = JSON.parse(diffData);
 	if (diffData.factionHash) {
-		var factionData = DestinyFactionDefinition[diffData.factionHash];
+		let factionData = DestinyFactionDefinition[diffData.factionHash];
 		DomNode.dataset.itemName = factionData.factionName;
 		DomNode.dataset.itemDescription = factionData.factionDescription;
 	} else {
-		var factionData = DestinyProgressionDefinition[diffData.progressionHash];
+		let factionData = DestinyProgressionDefinition[diffData.progressionHash];
 		DomNode.dataset.itemName = factionData.name;
 		DomNode.dataset.itemDescription = "";
 	}

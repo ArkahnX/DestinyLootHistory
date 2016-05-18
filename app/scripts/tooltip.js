@@ -1,6 +1,6 @@
 function handleTooltipData(dataset) {
 	transitionInterval = setTimeout(function() {
-		setTooltipData(dataset)
+		setTooltipData(dataset);
 	}, 100);
 }
 
@@ -31,7 +31,7 @@ function setTooltipData(dataset) {
 		classRequirement.textContent = dataset.classRequirement;
 		handleStats(dataset.itemTypeName, dataset).then(function() {
 			tooltip.classList.remove("hidden", "arc", "void", "solar", "kinetic", "common", "legendary", "rare", "uncommon", "exotic");
-			tooltip.classList.add(dataset.tierTypeName.toLowerCase(),dataset.damageTypeName.toLowerCase());
+			tooltip.classList.add(dataset.tierTypeName.toLowerCase(), dataset.damageTypeName.toLowerCase());
 		});
 	}
 }
@@ -47,7 +47,7 @@ function handleStats(statType, dataset) {
 		if (statType === "Material" || statType === "Consumable") {
 			return handleEmptyStats(dataset, resolve, reject);
 		}
-		return handleOtherStats(dataset, resolve, reject)
+		return handleOtherStats(dataset, resolve, reject);
 	});
 }
 
@@ -70,14 +70,14 @@ function handleOtherStats(dataset, resolve, reject) {
 				};
 			}
 		}
-		for (var stat of stats) {
+		for (let stat of stats) {
 			if (!sortedStats[stat.statHash]) {
-				console.error(sortedStats, stats)
+				console.error(sortedStats, stats);
 			}
 			sortedStats[stat.statHash].value = stat.value;
 			// sortedStats[stat.statHash].statName = stat.statName;
 		}
-		for (var stat of sortedStats) {
+		for (let stat of sortedStats) {
 			var statDef = itemDef.stats[stat.statHash];
 			var tableRow = document.createElement("tr");
 			tableRow.classList.add("itemStat");
@@ -98,18 +98,18 @@ function handleOtherStats(dataset, resolve, reject) {
 	}
 	if (dataset.objectiveTree) {
 		var objectives = JSON.parse(dataset.objectiveTree);
-		for (var stat of objectives) {
+		for (let stat of objectives) {
 			var displayDescription = DestinyObjectiveDefinition[stat.objectiveHash].displayDescription;
 			var completionValue = DestinyObjectiveDefinition[stat.objectiveHash].completionValue;
 			var tableRowOne = document.createElement("tr");
 			tableRowOne.classList.add("itemStat", "bounty");
 			var tableRowTwo = document.createElement("tr");
 			tableRowTwo.classList.add("itemStat", "bounty");
-			var tableText = document.createElement("td");
+			let tableText = document.createElement("td");
 			tableText.classList.add("statName");
 			tableText.setAttribute("colspan", "2");
 			tableText.textContent = displayDescription;
-			var tableData = document.createElement("td");
+			let tableData = document.createElement("td");
 			tableData.classList.add("valueBar");
 			tableData.setAttribute("colspan", "2");
 			tableData.appendChild(statBar(stat.progress, completionValue, 0, stat.progress));

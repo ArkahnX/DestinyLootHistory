@@ -8,7 +8,7 @@ function backupData() {
 		});
 		backupDataButton.classList.remove("loading");
 		backupDataButton.removeAttribute("disabled");
-	})
+	});
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	exportDataButton.addEventListener("click", function() {
 		exportDataButton.classList.add("loading");
 		exportDataButton.setAttribute("disabled", true);
-		exportData(gameModeInput.value, moment(minDateInput.value).utc().format(),moment(maxDateInput.value).utc().format(),parseInt(resultsInput.value),ironBannerInput.checked,lightLevelInput.checked);
+		exportData(gameModeInput.value, moment(minDateInput.value).utc().format(), moment(maxDateInput.value).utc().format(), parseInt(resultsInput.value), ironBannerInput.checked, lightLevelInput.checked);
 	});
 
 	function handleFileSelect(evt) {
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 				}, function() {
 					dropZone.classList.remove("loading");
 				});
-			}
+			};
 			r.readAsText(files);
 		}
 	}

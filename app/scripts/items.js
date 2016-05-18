@@ -60,16 +60,16 @@ function initItems(callback) {
 	console.time("load Bungie Data");
 	bungie.user(function(u) {
 		if (u.error) {
-			localStorage["error"] = "true";
-			localStorage["listening"] = "false";
+			localStorage.error = "true";
+			localStorage.listening = "false";
 			chrome.browserAction.setBadgeText({
 				text: "!"
 			});
 			setTimeout(function() {
 				initItems(callback);
-			}, 1000 * 5)
+			}, 1000 * 5);
 		} else {
-			localStorage["error"] = "false";
+			localStorage.error = "false";
 			chrome.browserAction.setBadgeText({
 				text: ""
 			});
@@ -86,7 +86,7 @@ function initItems(callback) {
 					};
 					characterIdList.push(avatars[c].characterBase.characterId);
 				}
-				localStorage["characterDescriptions"] = JSON.stringify(characterDescriptions);
+				localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
 				console.timeEnd("load Bungie Data");
 				callback();
 			});
@@ -95,7 +95,7 @@ function initItems(callback) {
 }
 
 function itemNetworkTask(characterId, callback) {
-	console.time("itemTask")
+	console.time("itemTask");
 	if (characterId === "vault") {
 		bungie.vault(callback);
 	} else {
@@ -104,7 +104,7 @@ function itemNetworkTask(characterId, callback) {
 }
 
 function factionNetworkTask(characterId, callback) {
-	console.time("factionTask")
+	console.time("factionTask");
 	if (characterId !== "vault") {
 		bungie.factions(characterId, callback);
 	} else {
@@ -113,7 +113,7 @@ function factionNetworkTask(characterId, callback) {
 }
 
 function itemResultTask(result, characterId) {
-	console.timeEnd("itemTask")
+	console.timeEnd("itemTask");
 	if (result) {
 		if (!data.inventories[characterId]) {
 			data.inventories[characterId] = [];
@@ -124,7 +124,7 @@ function itemResultTask(result, characterId) {
 }
 
 function factionResultTask(result, characterId) {
-	console.timeEnd("factionTask")
+	console.timeEnd("factionTask");
 	if (result) {
 		if (!data.progression[characterId]) {
 			data.progression[characterId] = [];
@@ -215,7 +215,7 @@ function buildCompactItem(itemData) {
 		newItemData.nodes = [];
 		for (var node of itemData.nodes) {
 			if (!node) {
-				console.log(itemData, itemData.nodes, itemData.nodes.length)
+				console.log(itemData, itemData.nodes, itemData.nodes.length);
 			}
 			if (node && !node.hidden) {
 				newItemData.nodes.push({
@@ -336,11 +336,11 @@ function checkInventory() {
 		bungie.search(function(e) {
 			console.timeEnd("Bungie Search");
 			if (e.error) {
-				localStorage["listening"] = "false";
+				localStorage.listening = "false";
 				chrome.browserAction.setBadgeText({
 					text: "!"
 				});
-				resolve() // RECOVER FROM THIS NETWORK ISSUE
+				resolve(); // RECOVER FROM THIS NETWORK ISSUE
 			} else {
 				var avatars = e.data.characters;
 				for (var c = 0; c < avatars.length; c++) {

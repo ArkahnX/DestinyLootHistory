@@ -2,12 +2,12 @@ var matchIdList = [];
 
 function getLocalMatches() {
 	return new Promise(function(resolve, reject) {
-		console.time("Local Matches")
+		console.time("Local Matches");
 		chrome.storage.local.get(["matches"], function(result) {
 			data.matches = handleInput(result.matches, data.matches);
 			for (var activity of data.matches) {
-				if (matchIdList.indexOf(activity.characterId+"-"+activity.activityInstance) === -1) {
-					matchIdList.push(activity.characterId+"-"+activity.activityInstance);
+				if (matchIdList.indexOf(activity.characterId + "-" + activity.activityInstance) === -1) {
+					matchIdList.push(activity.characterId + "-" + activity.activityInstance);
 				}
 			}
 			console.timeEnd("Local Matches");
@@ -18,13 +18,13 @@ function getLocalMatches() {
 
 function getRemoteMatches() {
 	return new Promise(function(resolve, reject) {
-		console.time("Remote Matches")
+		console.time("Remote Matches");
 		if (data.itemChanges[0]) {
 			sequence(characterIdList, getBungieMatchData, function() {}).then(function() {
 				data.matches.sort(function(a, b) {
 					return new Date(a.timestamp) - new Date(b.timestamp);
 				});
-				console.timeEnd("Remote Matches")
+				console.timeEnd("Remote Matches");
 				resolve();
 			});
 		}
@@ -43,15 +43,15 @@ function getBungieMatchData(characterId, resolve) {
 }
 
 function _remoteMatch(page, firstDateString, characterId, resolve) {
-	console.time("Look Up Match")
+	console.time("Look Up Match");
 	bungie.activity(characterId, "None", 10, page, function(result) {
 		var foundOldDate = false;
 		if (result.data && result.data.activities.length) {
 			for (var activity of result.data.activities) {
 				if (new Date(activity.period) >= new Date(firstDateString)) {
-					if (matchIdList.indexOf(characterId+"-"+activity.activityDetails.instanceId) === -1) {
-						matchIdList.push(characterId+"-"+activity.activityDetails.instanceId);
-						data.matches.push(compactMatch(activity,characterId));
+					if (matchIdList.indexOf(characterId + "-" + activity.activityDetails.instanceId) === -1) {
+						matchIdList.push(characterId + "-" + activity.activityDetails.instanceId);
+						data.matches.push(compactMatch(activity, characterId));
 					} else {
 						foundOldDate = true;
 						break;
@@ -61,7 +61,7 @@ function _remoteMatch(page, firstDateString, characterId, resolve) {
 					break;
 				}
 			}
-			console.timeEnd("Look Up Match")
+			console.timeEnd("Look Up Match");
 			if (!foundOldDate) {
 				_remoteMatch(page + 1, firstDateString, characterId, resolve);
 			} else {
@@ -71,20 +71,20 @@ function _remoteMatch(page, firstDateString, characterId, resolve) {
 	});
 }
 
-function compactMatch(activity,characterId) {
+function compactMatch(activity, characterId) {
 	return {
 		timestamp: activity.period,
 		activityHash: activity.activityDetails.referenceId,
 		activityInstance: activity.activityDetails.instanceId,
 		activityTypeHashOverride: activity.activityDetails.activityTypeHashOverride,
 		activityTime: activity.values.activityDurationSeconds.basic.value,
-		characterId:characterId
+		characterId: characterId
 	};
 }
 
 function applyMatchData() {
 	return new Promise(function(resolve, reject) {
-		console.time("Match Data")
+		console.time("Match Data");
 		for (var itemDiff of data.itemChanges) {
 			var timestamp = new Date(itemDiff.timestamp).getTime();
 			for (var match of data.matches) {
@@ -99,9 +99,9 @@ function applyMatchData() {
 			itemChanges: data.itemChanges,
 			matches: data.matches,
 		}, function() {
-			console.timeEnd("Match Data")
+			console.timeEnd("Match Data");
 			resolve();
-		})
+		});
 	});
 }
 
