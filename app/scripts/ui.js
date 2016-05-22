@@ -326,7 +326,6 @@ function primaryStatName(itemData) {
 	} else if (itemData.bucketHash === 2197472680) {
 		return "Completed";
 	} else {
-		console.log(itemData)
 		return "Quantity";
 	}
 }

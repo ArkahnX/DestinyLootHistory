@@ -5,7 +5,7 @@
 
 	cursor: default;
 	-webkit-user-select: none;
-	user-select:none;
+	        user-select: none;
 }
 a {
 	cursor: pointer;
@@ -68,7 +68,9 @@ select:hover {
 }
 
 input:active,
-select:active {
+select:active,
+input:focus,
+select:focus {
 	transition: background-color 0s;
 
 	background-color: #00396C;
@@ -538,9 +540,10 @@ textarea {
 }
 
 input[type=text] {
-    background: white;
-    cursor: text;
-    color: black;
+	cursor: text;
+
+	color: black;
+	background: white;
 }
 
 input[type=text]:focus {

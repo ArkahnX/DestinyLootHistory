@@ -32,60 +32,66 @@ function nameTypes() {
 	select.appendChild(itemDescription);
 	var tierTypeName = document.createElement("option");
 	tierTypeName.setAttribute("value", "tierTypeName");
-	tierTypeName.textContent = "Tier Name";
+	tierTypeName.textContent = "Rarity";
 	select.appendChild(tierTypeName);
-	var primaryStat = document.createElement("option");
-	primaryStat.setAttribute("value", "primaryStat");
-	primaryStat.textContent = "Primary Attribute";
-	select.appendChild(primaryStat);
+	var element = document.createElement("option");
+	element.setAttribute("value", "element");
+	element.textContent = "Damage Type";
+	select.appendChild(element);
+	var light = document.createElement("option");
+	light.setAttribute("value", "light");
+	light.textContent = "Light Level";
+	select.appendChild(light);
 	return select;
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
+function addSearchTerm() {
 	var searchTermsContainer = document.getElementById("searchTerms");
-	document.getElementById("addSearchTerm").addEventListener("click", function(e) {
-		var ID = searchTerms.length;
-		var li = document.createElement("li");
-		li.dataset.id = uniqueId;
-		li.appendChild(nameTypes());
-		var nameBox = document.createElement("input");
-		nameBox.classList.add("nameBox");
-		nameBox.setAttribute("type", "text");
-		nameBox.setAttribute("placeholder", "Search Term");
-		li.appendChild(nameBox);
-		var select = document.createElement("select");
-		select.classList.add("termType");
-		var add = document.createElement("option");
-		add.setAttribute("value", "added");
-		add.setAttribute("selected", "true");
-		add.textContent = "Added";
-		select.appendChild(add);
-		var remove = document.createElement("option");
-		remove.setAttribute("value", "removed");
-		remove.textContent = "Removed";
-		select.appendChild(remove);
-		var both = document.createElement("option");
-		both.setAttribute("value", "both");
-		both.textContent = "Both";
-		select.appendChild(both);
-		li.appendChild(select);
-		var removeSearchTerm = document.createElement("input");
-		removeSearchTerm.classList.add("removeSearchTerm");
-		removeSearchTerm.setAttribute("type", "button");
-		removeSearchTerm.setAttribute("value", "Remove Term");
-		li.appendChild(removeSearchTerm);
-		searchTermsContainer.appendChild(li);
-		searchTerms.push({
-			id: uniqueId,
-			type: "added",
-			property: "itemName",
-			item: ""
-		});
-		uniqueId++;
-		addListeners();
+	var ID = searchTerms.length;
+	var li = document.createElement("li");
+	li.dataset.id = uniqueId;
+	li.appendChild(nameTypes());
+	var nameBox = document.createElement("input");
+	nameBox.classList.add("nameBox");
+	nameBox.setAttribute("type", "text");
+	nameBox.setAttribute("placeholder", "Search Term");
+	li.appendChild(nameBox);
+	var select = document.createElement("select");
+	select.classList.add("termType");
+	var add = document.createElement("option");
+	add.setAttribute("value", "added");
+	add.setAttribute("selected", "true");
+	add.textContent = "Added";
+	select.appendChild(add);
+	var remove = document.createElement("option");
+	remove.setAttribute("value", "removed");
+	remove.textContent = "Removed";
+	select.appendChild(remove);
+	var both = document.createElement("option");
+	both.setAttribute("value", "both");
+	both.textContent = "Both";
+	select.appendChild(both);
+	li.appendChild(select);
+	var removeSearchTerm = document.createElement("input");
+	removeSearchTerm.classList.add("removeSearchTerm");
+	removeSearchTerm.setAttribute("type", "button");
+	removeSearchTerm.setAttribute("value", "Remove Term");
+	li.appendChild(removeSearchTerm);
+	searchTermsContainer.appendChild(li);
+	searchTerms.push({
+		id: uniqueId,
+		type: "added",
+		property: "itemName",
+		item: ""
 	});
-	document.getElementById("searchButton").addEventListener("click", handleSearch);
+	uniqueId++;
 	addListeners();
+}
+
+document.addEventListener("DOMContentLoaded", function(event) {
+	document.getElementById("addSearchTerm").addEventListener("click", addSearchTerm);
+	document.getElementById("searchButton").addEventListener("click", handleSearch);
+	addSearchTerm();
 });
 
 function removeSearchTerms(e) {
@@ -152,6 +158,16 @@ function addListeners() {
 
 function handleSearch() {
 	var resultQuantity = document.getElementById("resultQuantity");
+	// var script = document.createElement('script');
+	// script.onload = function() {
+	// 	//do stuff with the script
+	// };
+	// script.src = something;
+	// FIXME USE SEQUENCE FOR NETWORK LOADING ALL SCRIPTS
+	// FIXME 2 ONLY LOAD TALENTGRID WHEN SEARCHING TALENTS
+	// FIXME 3 ONLY LOAD COMPACTDEFS WHEN SEARCHING DAMAGE TYPE
+
+	document.head.appendChild(script); //or something of the likes
 	var searchResults = [];
 	chrome.storage.local.get(null, function(data) {
 		for (let term of searchTerms) {
@@ -162,14 +178,15 @@ function handleSearch() {
 					for (let item of itemDiff[type]) {
 						var baseItem = JSON.parse(item);
 						var itemData = DestinyCompactItemDefinition[baseItem.itemHash];
-						if (property === "primaryStat") {
+						if (property === "element" || property === "light") {
 							if (typeof baseItem.primaryStat !== "undefined") {
 								if (isNaN(parseInt(term.item, 10))) {
 									var statDef = DestinyDamageTypeDefinition[baseItem.damageTypeHash];
-									console.log(statDef.damageTypeName)
-									if (statDef.damageTypeName.match(new RegExp(term.item, "i"))) {
-										searchResults.push(itemDiff);
-										break;
+									if (statDef) {
+										if (statDef.damageTypeName.match(new RegExp(term.item, "i"))) {
+											searchResults.push(itemDiff);
+											break;
+										}
 									}
 								} else if (baseItem.primaryStat.value === parseInt(term.item, 10)) {
 									searchResults.push(itemDiff);
