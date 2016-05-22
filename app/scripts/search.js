@@ -163,11 +163,11 @@ function handleSearch() {
 	// 	//do stuff with the script
 	// };
 	// script.src = something;
+	// document.head.appendChild(script); //or something of the likes
 	// FIXME USE SEQUENCE FOR NETWORK LOADING ALL SCRIPTS
 	// FIXME 2 ONLY LOAD TALENTGRID WHEN SEARCHING TALENTS
 	// FIXME 3 ONLY LOAD COMPACTDEFS WHEN SEARCHING DAMAGE TYPE
 
-	document.head.appendChild(script); //or something of the likes
 	var searchResults = [];
 	chrome.storage.local.get(null, function(data) {
 		for (let term of searchTerms) {
