@@ -54,11 +54,8 @@ function sequence(array, networkTask, resultTask) {
 }
 
 function initItems(callback) {
-	var optionsLink = document.querySelector("#closeHistory");
-	optionsLink.addEventListener("click", function() {
-		window.location.href = chrome.extension.getURL('index.html');
-	});
 	console.time("load Bungie Data");
+	initUi();
 	bungie.user(function(u) {
 		bungie.search(function(e) {
 
