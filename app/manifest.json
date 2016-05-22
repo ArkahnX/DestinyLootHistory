@@ -1,0 +1,41 @@
+{
+	"manifest_version": 2,
+	"name": "Destiny Loot History",
+	"version": "0.7.4",
+	"description": "Track your Destiny item changes.",
+	"icons": {
+		"16": "icon16.png",
+		"32": "icon32.png",
+		"48": "icon48.png",
+		"128": "icon128.png"
+	},
+	"short_name": "Loot",
+	"background": {
+		"scripts": [
+			"scripts/vendor/moment.js",
+			"DestinyDatabase/DestinyCompactItemDefinition.js",
+			"DestinyDatabase/DestinyCompactTalentDefinition.js",
+			"DestinyDatabase/DestinyCompactDefinition.js",
+			"scripts/bungie.js",
+			"scripts/matches.js",
+			"scripts/items.js",
+			"scripts/itemDiff.js",
+			"scripts/timers.js",
+			"scripts/backend.js"
+		]
+	},
+	"permissions": [
+		"storage",
+		"*://*.bungie.net/*",
+		"cookies",
+		"unlimitedStorage"
+	],
+	"optional_permissions": ["downloads"],
+	"browser_action": {
+		"default_icon": "icon16.png"
+	},
+	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+	"incognito": "split",
+	"offline_enabled": false,
+	"options_page": "options.html"
+}
