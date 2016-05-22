@@ -532,3 +532,21 @@ textarea {
 .sub-section:nth-child(even) {
 	background-color: rgba(255,255,255,.2);
 }
+
+#viewHome {
+	position: absolute;
+}
+
+input[type=text] {
+    background: white;
+    cursor: text;
+    color: black;
+}
+
+input[type=text]:focus {
+	outline: 2px solid #004A8C;
+}
+
+select {
+	border: 1px solid transparent;
+}
