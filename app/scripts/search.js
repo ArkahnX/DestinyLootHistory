@@ -22,10 +22,10 @@ function nameTypes() {
 	itemName.setAttribute("selected", "true");
 	itemName.textContent = "Name";
 	select.appendChild(itemName);
-	var itemHash = document.createElement("option");
-	itemHash.setAttribute("value", "itemHash");
-	itemHash.textContent = "Hash";
-	select.appendChild(itemHash);
+	var itemTypeName = document.createElement("option");
+	itemTypeName.setAttribute("value", "itemTypeName");
+	itemTypeName.textContent = "Item Type";
+	select.appendChild(itemTypeName);
 	var itemDescription = document.createElement("option");
 	itemDescription.setAttribute("value", "itemDescription");
 	itemDescription.textContent = "Description";
@@ -103,7 +103,7 @@ function removeSearchTerms(e) {
 		}
 	}
 	e.target.parentNode.parentNode.removeChild(e.target.parentNode);
-	document.getElementById("container").style.height = "calc(100% - " + document.getElementById("status").clientHeight + "px)";
+	document.getElementById("container").style.height = "calc(100% - " + (document.getElementById("status").clientHeight + 32) + "px)";
 }
 
 function updateSearchTerm(e) {
@@ -129,7 +129,7 @@ function addListeners() {
 	var searchTermType = document.querySelectorAll(".termType");
 	var nameType = document.querySelectorAll(".nameType");
 	var removeSearchTerm = document.querySelectorAll(".removeSearchTerm");
-	document.getElementById("container").style.height = "calc(100% - " + document.getElementById("status").clientHeight + "px)";
+	document.getElementById("container").style.height = "calc(100% - " + (document.getElementById("status").clientHeight + 32) + "px)";
 	if (removeSearchTerm.length) {
 		for (let item of removeSearchTerm) {
 			item.removeEventListener("click", removeSearchTerms);
@@ -156,63 +156,90 @@ function addListeners() {
 	}
 }
 
-function handleSearch() {
-	var resultQuantity = document.getElementById("resultQuantity");
-	// var script = document.createElement('script');
-	// script.onload = function() {
-	// 	//do stuff with the script
-	// };
-	// script.src = something;
-	// document.head.appendChild(script); //or something of the likes
-	// FIXME USE SEQUENCE FOR NETWORK LOADING ALL SCRIPTS
-	// FIXME 2 ONLY LOAD TALENTGRID WHEN SEARCHING TALENTS
-	// FIXME 3 ONLY LOAD COMPACTDEFS WHEN SEARCHING DAMAGE TYPE
+function loadScript(scriptName, id) {
+	return new Promise(function(resolve, reject) {
+		if (document.getElementById(id)) {
+			resolve();
+		} else {
+			var script = document.createElement("script");
+			script.id = id;
+			script.onload = resolve;
+			script.src = scriptName;
+			document.body.appendChild(script);
+		}
+	});
+}
 
+function handleSearch() {
+	document.getElementById("status").classList.add("active");
+	document.getElementById("status").classList.remove("idle");
 	var searchResults = [];
-	chrome.storage.local.get(null, function(data) {
-		for (let term of searchTerms) {
-			var type = term.type;
-			var property = term.property;
-			for (let itemDiff of data.itemChanges) {
-				if (itemDiff[type].length) {
-					for (let item of itemDiff[type]) {
-						var baseItem = JSON.parse(item);
-						var itemData = DestinyCompactItemDefinition[baseItem.itemHash];
-						if (property === "element" || property === "light") {
-							if (typeof baseItem.primaryStat !== "undefined") {
-								if (isNaN(parseInt(term.item, 10))) {
-									var statDef = DestinyDamageTypeDefinition[baseItem.damageTypeHash];
-									if (statDef) {
-										if (statDef.damageTypeName.match(new RegExp(term.item, "i"))) {
-											searchResults.push(itemDiff);
+	var terms = 0;
+	loadScript("DestinyDatabase/DestinyCompactItemDefinition.js", "DestinyCompactItemDefinition").then(function() {
+		loadScript("DestinyDatabase/DestinyCompactDefinition.js", "DestinyCompactDefinition").then(function() {
+			chrome.storage.local.get(null, function(data) {
+				for (let term of searchTerms) {
+					var type = term.type;
+					var property = term.property;
+					var searchData = data.itemChanges;
+					if (terms > 0 && searchResults.length === 0) {
+						return finishSearch(searchResults);
+					} else if (terms > 0) {
+						searchData = searchResults;
+					}
+					var tempSearchResults = [];
+					for (let itemDiff of searchData) {
+						if (itemDiff[type].length) {
+							for (let item of itemDiff[type]) {
+								var baseItem = JSON.parse(item);
+								var itemData = DestinyCompactItemDefinition[baseItem.itemHash];
+								if (property === "element" || property === "light") {
+
+									if (typeof baseItem.primaryStat !== "undefined") {
+										if (isNaN(parseInt(term.item, 10))) {
+											var statDef = DestinyDamageTypeDefinition[baseItem.damageTypeHash];
+											if (statDef) {
+												if (statDef.damageTypeName.match(new RegExp(term.item, "i"))) {
+													tempSearchResults.push(itemDiff);
+													break;
+												}
+											}
+										} else if (baseItem.primaryStat.value === parseInt(term.item, 10)) {
+											tempSearchResults.push(itemDiff);
 											break;
 										}
 									}
-								} else if (baseItem.primaryStat.value === parseInt(term.item, 10)) {
-									searchResults.push(itemDiff);
+								} else if (typeof baseItem[property] !== "undefined" && baseItem[property].match(new RegExp(term.item, "i"))) {
+									tempSearchResults.push(itemDiff);
+									break;
+								} else if (typeof itemData[property] !== "undefined" && itemData[property].match(new RegExp(term.item, "i"))) {
+									tempSearchResults.push(itemDiff);
 									break;
 								}
 							}
-						} else if (typeof baseItem[property] !== "undefined" && baseItem[property].match(new RegExp(term.item, "i"))) {
-							searchResults.push(itemDiff);
-							break;
-						} else if (typeof itemData[property] !== "undefined" && itemData[property].match(new RegExp(term.item, "i"))) {
-							searchResults.push(itemDiff);
-							break;
 						}
 					}
+					terms++;
+					searchResults = tempSearchResults;
+					// Array.prototype.push.apply(searchResults, tempSearchResults);
 				}
-			}
-		}
-		console.log(searchResults);
-		document.getElementById("date").innerHTML = "";
-		document.getElementById("progression").innerHTML = "";
-		document.getElementById("added").innerHTML = "";
-		document.getElementById("transferred").innerHTML = "";
-		document.getElementById("removed").innerHTML = "";
-		lastIndex = -1;
-		resultQuantity = 100;
-		arrayStep = 0;
-		displayResults(searchResults);
+				return finishSearch(searchResults);
+			});
+		});
 	});
+}
+
+function finishSearch(results) {
+	console.log(results);
+	document.getElementById("date").innerHTML = "";
+	document.getElementById("progression").innerHTML = "";
+	document.getElementById("added").innerHTML = "";
+	document.getElementById("transferred").innerHTML = "";
+	document.getElementById("removed").innerHTML = "";
+	lastIndex = -1;
+	resultQuantity = 100;
+	arrayStep = 0;
+	displayResults(results);
+	document.getElementById("status").classList.remove("active");
+	document.getElementById("status").classList.add("idle");
 }
