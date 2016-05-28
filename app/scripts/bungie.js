@@ -48,11 +48,16 @@ function Bungie() {
 		r.onload = function() {
 			if (this.status >= 200 && this.status < 400) {
 				var response = JSON.parse(this.response);
-
+				console.log(response.ErrorCode, response.Message, response.ErrorStatus);
 				if (response.ErrorCode === 36) {
 					setTimeout(function() {
 						_request(opts);
 					}, 1000);
+				} else if (response.ErrorCode === 99) {
+					localStorage.error = "true";
+					opts.complete({
+						error: response.ErrorStatus + ":" + response.Message
+					}, this.response);
 				} else {
 					localStorage.error = "false";
 					opts.complete(response.Response, response);
