@@ -73,7 +73,9 @@ function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, light
 												}
 											} else if (/(camelot)/i.test(mainItemData.itemName)) {
 												matchDrops[match.activityInstance].rewards.push("PS " + mainItemData.tierTypeName + " " + bucketData.bucketName.split(" ")[0] + " (" + light + ")");
-											} else {
+											} else if(/(rare)/i.test(mainItemData.tierTypeName)) {
+												matchDrops[match.activityInstance].rewards.push(mainItemData.tierTypeName + " " + bucketData.bucketName.split(" ")[0] + " " + (mainItemData.itemTypeName.split(" ")[2] || "") + " (" + light + ")");
+											} else if(mainItemData.sourceHashes.indexOf(2770509343) > -1 || mainItemData.sourceHashes.indexOf(478645002) > -1) {
 												matchDrops[match.activityInstance].rewards.push(mainItemData.tierTypeName + " " + bucketData.bucketName.split(" ")[0] + " " + (mainItemData.itemTypeName.split(" ")[2] || "") + " (" + light + ")");
 											}
 										}
