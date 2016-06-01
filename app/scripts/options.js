@@ -12,22 +12,18 @@ function backupData() {
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
+	initUi();
 	var startOnLaunchButton = document.getElementById("startOnLaunch");
 	var backupDataButton = document.getElementById("backupData");
 	var exportDataButton = document.getElementById("exportData");
-	var closeOptions = document.getElementById("closeOptions");
 	var minDateInput = document.getElementById("MinDate");
-	minDateInput.value = moment("2016-04-26T17:00:00Z").format("YYYY-MM-DDTHH:mm:ss");
+	minDateInput.value = moment("2016-05-25T17:00:00Z").format("YYYY-MM-DDTHH:mm:ss");
 	var maxDateInput = document.getElementById("MaxDate");
-	maxDateInput.value = moment("2016-05-03T09:00:00Z").format("YYYY-MM-DDTHH:mm:ss");
+	maxDateInput.value = moment("2016-05-31T09:00:00Z").format("YYYY-MM-DDTHH:mm:ss");
 	var gameModeInput = document.getElementById("GameMode");
 	var ironBannerInput = document.getElementById("ironBanner");
 	var resultsInput = document.getElementById("Results");
 	var lightLevelInput = document.getElementById("lightLevel");
-
-	closeOptions.addEventListener("click", function() {
-		window.location.href = chrome.extension.getURL('index.html');
-	});
 	backupDataButton.addEventListener("click", function() {
 		chrome.permissions.contains({
 			permissions: ['downloads']

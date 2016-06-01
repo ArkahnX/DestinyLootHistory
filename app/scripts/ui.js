@@ -1,26 +1,32 @@
 function initUi() {
 	var manifest = chrome.runtime.getManifest();
 	if (typeof manifest.key === "undefined") {
-		document.getElementById("version").textContent = (manifest.version);
+		if (document.getElementById("version")) {
+			document.getElementById("version").textContent = (manifest.version);
+		}
 	} else {
 		window.console.time = function() {};
 		window.console.timeEnd = function() {};
 	}
 	var header = document.querySelector("#status");
-	header.classList.add("idle");
-	var element = document.querySelector("#startTracking");
-	element.removeAttribute("disabled");
-	element.addEventListener("click", function(event) {
-		if (!localStorage.listening || localStorage.listening === "false") {
-			var d = new Date();
-			d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
-			d = d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + (d.getHours() - 0)).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2);
-			localStorage.listening = "true";
-			localStorage.manual = "true";
-		} else {
-			localStorage.listening = "false";
+	if (header) {
+		header.classList.add("idle");
+		var element = document.querySelector("#startTracking");
+		if (element) {
+			element.removeAttribute("disabled");
+			element.addEventListener("click", function(event) {
+				if (!localStorage.listening || localStorage.listening === "false") {
+					var d = new Date();
+					d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
+					d = d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + (d.getHours() - 0)).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2);
+					localStorage.listening = "true";
+					localStorage.manual = "true";
+				} else {
+					localStorage.listening = "false";
+				}
+			});
 		}
-	});
+	}
 	var historyLink = document.querySelector("#viewhistory");
 	if (historyLink) {
 		historyLink.addEventListener("click", function() {
@@ -33,29 +39,43 @@ function initUi() {
 			window.location.href = chrome.extension.getURL('options.html');
 		});
 	}
-	document.querySelector("#container").addEventListener("mouseover", function(event) {
-		var target = null;
-		if (event.target.classList.contains("item") || event.target.classList.contains("faction")) {
-			target = event.target;
-		} else if (event.target.parentNode.classList.contains("item") || event.target.parentNode.classList.contains("faction")) {
-			target = event.target.parentNode;
-		}
-		if (target && target !== previousElement) {
-			tooltip.classList.add("hidden");
-			previousElement = target;
-			if (transitionInterval) {
-				clearInterval(transitionInterval);
+	var searchLink = document.querySelector("#viewSearch");
+	if (searchLink) {
+		searchLink.addEventListener("click", function() {
+			window.location.href = chrome.extension.getURL('search.html');
+		});
+	}
+	var homeLink = document.querySelector("#viewHome");
+	if (homeLink) {
+		homeLink.addEventListener("click", function() {
+			window.location.href = chrome.extension.getURL('index.html');
+		});
+	}
+	if (document.querySelector("#container")) {
+		document.querySelector("#container").addEventListener("mouseover", function(event) {
+			var target = null;
+			if (event.target.classList.contains("item") || event.target.classList.contains("faction")) {
+				target = event.target;
+			} else if (event.target.parentNode.classList.contains("item") || event.target.parentNode.classList.contains("faction")) {
+				target = event.target.parentNode;
 			}
-			handleTooltipData(event.target.dataset);
-		}
-		if (!target) {
-			if (transitionInterval) {
-				clearInterval(transitionInterval);
+			if (target && target !== previousElement) {
+				tooltip.classList.add("hidden");
+				previousElement = target;
+				if (transitionInterval) {
+					clearInterval(transitionInterval);
+				}
+				handleTooltipData(event.target.dataset);
 			}
-			tooltip.classList.add("hidden");
-			previousElement = null;
-		}
-	}, false);
+			if (!target) {
+				if (transitionInterval) {
+					clearInterval(transitionInterval);
+				}
+				tooltip.classList.add("hidden");
+				previousElement = null;
+			}
+		}, false);
+	}
 }
 
 var transitionInterval = null;
@@ -128,7 +148,7 @@ var lastIndex = -1;
 var resultQuantity = 100;
 var arrayStep = 0;
 
-function displayResults() {
+function displayResults(customItems) {
 	return new Promise(function(resolve, reject) {
 		console.timeEnd("grab matches");
 		constructMatchInterface();
@@ -175,7 +195,7 @@ function displayResults() {
 		}
 
 		// Start iterator, it will return a promise
-		var promise = asyncIterator(data.itemChanges, work, batchSize);
+		var promise = asyncIterator(customItems || data.itemChanges, work, batchSize);
 
 		// When promise is resolved, output results
 		promise.then(function(results) {
@@ -235,7 +255,7 @@ function makeProgress(itemDiff, moveType, index) {
 	container.appendChild(stat);
 	docfrag.appendChild(container);
 	container.classList.add("kinetic", "common", "faction");
-		// NO BACKGROUND IMAGE ON FACTION ICONS BECAUSE THEY ARE TRANSPARENT
+	// NO BACKGROUND IMAGE ON FACTION ICONS BECAUSE THEY ARE TRANSPARENT
 	if (DestinyFactionDefinition[progressData.factionHash]) {
 		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyFactionDefinition[progressData.factionHash].factionIcon + "')");
 	} else if (DestinyProgressionDefinition[progressData.progressionHash].icon) {
@@ -302,7 +322,7 @@ function elementType(itemData) {
 
 function primaryStatName(itemData) {
 	if (itemData.primaryStat) {
-		return itemData.primaryStat.statName;
+		return DestinyStatDefinition[itemData.primaryStat.statHash].statName;
 	} else if (itemData.bucketHash === 2197472680) {
 		return "Completed";
 	} else {
@@ -327,7 +347,7 @@ function passData(DomNode, itemDiff, moveType, index) {
 	DomNode.dataset.itemTypeName = itemDefinition.itemTypeName;
 	DomNode.dataset.equipRequiredLevel = itemData.equipRequiredLevel || 0;
 	DomNode.dataset.primaryStat = primaryStat(itemData);
-	DomNode.dataset.primaryStatName = primaryStatName(itemDefinition);
+	DomNode.dataset.primaryStatName = primaryStatName(itemData);
 	DomNode.dataset.itemDescription = itemDefinition.itemDescription;
 	DomNode.dataset.damageTypeName = elementType(itemData);
 	DomNode.dataset.classRequirement = characterSource(itemDiff, moveType, index);

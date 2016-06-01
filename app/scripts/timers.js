@@ -1,5 +1,7 @@
 var dirtyTimeout = null;
 var oldFactionProgress = 0;
+var listenLoop = null;
+var stopLoop = null;
 
 function dirtyItemCheck() {
 	if (localStorage.error === "false") {
@@ -10,7 +12,7 @@ function dirtyItemCheck() {
 		clearTimeout(dirtyTimeout);
 		sequence(characterIdList, function(item, resolve) {
 			if (item !== "vault") {
-				bungie.factions(item, resolve);
+				bungie.factions(item).then(resolve);
 			} else {
 				resolve();
 			}
@@ -114,6 +116,17 @@ function beginBackendTracking() {
 			localStorage.listening = "true";
 			console.log("Forcing check now");
 			recursiveIdleTracking();
+		}
+	}, 1000);
+	setInterval(function() {
+		if (localStorage.error === "true") {
+			chrome.browserAction.setBadgeText({
+				text: "!"
+			});
+		} else {
+			chrome.browserAction.setBadgeText({
+				text: ""
+			});
 		}
 	}, 1000);
 }

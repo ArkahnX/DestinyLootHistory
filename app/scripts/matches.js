@@ -44,7 +44,7 @@ function getBungieMatchData(characterId, resolve) {
 
 function _remoteMatch(page, firstDateString, characterId, resolve) {
 	console.time("Look Up Match");
-	bungie.activity(characterId, "None", 10, page, function(result) {
+	bungie.activity(characterId, "None", 10, page).then(function(result) {
 		var foundOldDate = false;
 		if (result.data && result.data.activities.length) {
 			for (var activity of result.data.activities) {

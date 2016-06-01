@@ -1,10 +1,9 @@
-var bungie = new Bungie();
 var manifest = chrome.runtime.getManifest();
 if (manifest.key) {
 	window.console.time = function() {};
 	window.console.timeEnd = function() {};
 }
-characterDescriptions = JSON.parse(localStorage.characterDescriptions);
+characterDescriptions = JSON.parse(localStorage.characterDescriptions); // FIXME error with no value
 initUi();
 checkForUpdates();
 
