@@ -1,4 +1,3 @@
-var bungie = new Bungie();
 var manifest = chrome.runtime.getManifest();
 if (manifest.key) {
 	window.console.time = function() {};

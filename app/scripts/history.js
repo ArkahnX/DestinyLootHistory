@@ -48,7 +48,7 @@ function recursive(index, array, networkTask, resultTask, endRecursion) {
 }
 
 function sequence(array, networkTask, resultTask) {
-	return new Promise(function(resolve, reject) {
+	return new Promise(function(resolve) {
 		recursive(0, array, networkTask, resultTask, resolve);
 	});
 }
@@ -56,8 +56,13 @@ function sequence(array, networkTask, resultTask) {
 function initItems(callback) {
 	console.time("load Bungie Data");
 	initUi();
-	bungie.user(function(u) {
-		bungie.search(function(e) {
+	bungie.user().then(function(u) {
+		if (u.error) {
+			return setTimeout(function() {
+				initItems(callback);
+			}, 1000);
+		}
+		bungie.search().then(function(e) {
 
 			var avatars = e.data.characters;
 			for (var c = 0; c < avatars.length; c++) {
@@ -156,15 +161,15 @@ function makeHistoryItem(itemData, index) {
 
 function itemNetworkTask(characterId, callback) {
 	if (characterId === "vault") {
-		bungie.vault(callback);
+		bungie.vault().then(callback);
 	} else {
-		bungie.inventory(characterId, callback);
+		bungie.inventory(characterId).then(callback);
 	}
 }
 
 function factionNetworkTask(characterId, callback) {
 	if (characterId !== "vault") {
-		bungie.factions(characterId, callback);
+		bungie.factions(characterId).then(callback);
 	} else {
 		callback();
 	}
@@ -296,7 +301,7 @@ function buildCompactItem(itemData, bucketHash) {
 	}
 	return newItemData;
 }
-var bungie = new Bungie();
+// var bungie = new Bungie();
 initItems(function() {
 
 });

@@ -157,10 +157,12 @@ for (var i = data.itemChanges.length - 1; i > -1; i--) {
 		data.itemChanges.splice(i, 1);
 	}
 }
-
+chrome.storage.local.get(null,function(data) {
 for (var i = data.itemChanges.length - 1; i > -1; i--) {
 	var itemDiff = data.itemChanges[i];
 	if (itemDiff.added.length > 20 || itemDiff.removed.length > 20) {
 		data.itemChanges.splice(i, 1);
 	}
 }
+chrome.storage.local.set(data, function() {});
+});
