@@ -1,87 +1,30 @@
+function hasQuality(item) {
+	var itemDef = DestinyCompactItemDefinition[item.itemHash];
+	return (item.primaryStat && item.primaryStat.statHash === 3897883278 && item.primaryStat.value > 199 && (itemDef.tierTypeName === "Legendary" || itemDef.tierTypeName === "Exotic") && item.stats);
+}
+
 function parseQuality(startingStat, startingDefense, endingDefense) {
-	var maxStat = Math.floor(statValues[endingDefense] / statValues[startingDefense] * (startingStat + 1), 1);
-	var minStat = Math.floor(statValues[endingDefense] / statValues[startingDefense] * startingStat, 1);
+	var max = Math.floor(statValues[endingDefense] / statValues[startingDefense] * (startingStat + 1));
+	var min = Math.floor(statValues[endingDefense] / statValues[startingDefense] * startingStat);
 	return {
-		maxStat,
-		minStat
+		max,
+		min
 	};
 }
 
 function parseItemQuality(item) {
-	// console.log(JSON.stringify(item.stats));
 	var grid = getNodes(item);
-	var itemDef = DestinyCompactItemDefinition[item.itemHash]
+	var itemDef = DestinyCompactItemDefinition[item.itemHash];
 	var itemType = itemDef.itemTypeName.split(" ")[0];
 	if (itemDef.itemTypeName.split(" ")[1]) {
 		itemType = itemType + " " + itemDef.itemTypeName.split(" ")[1];
 	}
-	var finalTier = {
-		stat: 0,
-		max: 0,
-		color: "rgba(255, 255, 255, .9)",
-		results: []
-	};
-	for (var stat of item.stats) {
-		var statValue = stat.value;
-		for (var node of grid) {
-			if (node.isActivated) {
-				var statBonus = getBonus(item.primaryStat.value, itemType);
-				if (stat.statHash === 144602215 && node.nodeStepHash === 1034209669) { // intellect
-					statValue = stat.value - statBonus;
-				} else if (stat.statHash === 1735777505 && node.nodeStepHash === 1263323987) { // discipline
-					statValue = stat.value - statBonus;
-					console.log(itemDef.itemName, statValue, stat.value, statBonus);
-				} else if (stat.statHash === 4244567218 && node.nodeStepHash === 193091484) { // strength
-					statValue = stat.value - statBonus;
-				}
-			}
-		}
-
-		var minStat = parseQuality(statValue, item.primaryStat.value, 335).minStat;
-		let result = {
-			stat: minStat,
-			tier: Math.round(100 * minStat / maxStatRolls[itemType])
-		};
-		if (stat.value > 0) {
-			finalTier.stat += minStat;
-			finalTier.max += maxStatRolls[itemType];
-			finalTier.color = getColor(Math.round(finalTier.stat / finalTier.max * 100));
-		}
-		finalTier.results.push(result);
-		// console.log(result);
-	}
-	return finalTier;
-	// console.log(finalTier, results);
-}
-
-function getQualityRating(stats, light, type) { // FIXME: try this function
-	if (!stats || light.value < 200) {
-		return null;
-	}
+	var stats = item.stats;
+	var light = item.primaryStat.value;
 
 	var split = 0;
-	switch (type.toLowerCase()) {
-		case 'helmet':
-			split = 46; // bungie reports 48, but i've only seen 46
-			break;
-		case 'gauntlets':
-			split = 41; // bungie reports 43, but i've only seen 41
-			break;
-		case 'chest':
-			split = 61;
-			break;
-		case 'leg':
-			split = 56;
-			break;
-		case 'classitem':
-		case 'ghost':
-			split = 25;
-			break;
-		case 'artifact':
-			split = 38;
-			break;
-		default:
-			return null;
+	if (maxStatRolls[itemType]) {
+		split = maxStatRolls[itemType];
 	}
 
 	var ret = {
@@ -95,8 +38,21 @@ function getQualityRating(stats, light, type) { // FIXME: try this function
 	var pure = 0;
 	stats.forEach(function(stat) {
 		var scaled = 0;
-		if (stat.base) {
-			scaled = getScaledStat(stat.base, light.value);
+		var statValue = stat.value;
+		for (var node of grid) {
+			if (node.isActivated) {
+				var statBonus = getBonus(item.primaryStat.value, itemType);
+				if (stat.statHash === 144602215 && node.nodeStepHash === 1034209669) { // intellect
+					statValue = stat.value - statBonus;
+				} else if (stat.statHash === 1735777505 && node.nodeStepHash === 1263323987) { // discipline
+					statValue = stat.value - statBonus;
+				} else if (stat.statHash === 4244567218 && node.nodeStepHash === 193091484) { // strength
+					statValue = stat.value - statBonus;
+				}
+			}
+		}
+		if (statValue) {
+			scaled = parseQuality(statValue, light, 335);
 			pure = scaled.min;
 		}
 		stat.scaled = scaled;
@@ -124,29 +80,20 @@ function getQualityRating(stats, light, type) { // FIXME: try this function
 
 	return {
 		min: Math.round(ret.total.min / ret.max * 100),
-		max: Math.round(ret.total.max / ret.max * 100)
+		max: Math.round(ret.total.max / ret.max * 100),
+		color: getColor(Math.round(ret.total.min / ret.max * 100))
 	};
 }
 
 function getColor(value) {
-	var color = 0;
-	if (value <= 85) {
-		color = 0;
-	} else if (value <= 90) {
-		color = 20;
-	} else if (value <= 95) {
-		color = 60;
-	} else if (value <= 99) {
-		color = 120;
-	} else if (value >= 100) {
-		color = 190;
-	} else {
-		return 'rgba(255, 255, 255, .9)';
-	}
-	return 'hsl(' + color + ',85%,60%)';
+	return value <= 85 ? "#F04242" :
+		value <= 90 ? "#F07C42" :
+		value <= 95 ? "#F0F042" :
+		value <= 99 ? "#42F042" :
+		value >= 100 ? "#42D3F0" : "rgba(255, 255, 255, .9)";
 }
 
-function getBonus(light, type) { // FIXME: figure out stat node increases from light 200-280. Might need to make a new character on a new account.
+function getBonus(light, type) {
 	switch (type.toLowerCase()) {
 		case 'helmet':
 			return light < 292 ? 15 :
@@ -187,9 +134,6 @@ function getBonus(light, type) { // FIXME: figure out stat node increases from l
 				light < 319 ? 39 :
 				light < 325 ? 40 :
 				light < 330 ? 41 : 42;
-		case 'lost items':
-			// TODO: this can be improved when we separate an item's type from its location, but for now we don't know
-			return 0;
 	}
 	console.warn('item bonus not found', type);
 	return 0;
@@ -372,11 +316,13 @@ var statValues = {
 };
 
 for (var item of data.inventories["2305843009221440972"]) {
-	if (item.primaryStat && item.primaryStat.statHash === 3897883278 && item.stats) {
+	if (hasQuality(item)) {
 		var itemType = DestinyCompactItemDefinition[item.itemHash].itemTypeName;
 		var itemName = DestinyCompactItemDefinition[item.itemHash].itemName;
 		console.log(`itemName: ${itemName} itemType: ${itemType} itemLevel: ${item.primaryStat.value}`);
-		var result = parseItemQuality(DestinyCompactItemDefinition[item.itemHash]);
-		console.log(item);
+		var result = parseItemQuality(item);
+		for (var stat of item.stats) {
+			console.log(stat, JSON.stringify(stat.qualityPercentage), JSON.stringify(result));
+		}
 	}
 }

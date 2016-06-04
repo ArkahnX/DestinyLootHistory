@@ -144,15 +144,15 @@ function makeHistoryItem(itemData) {
 	var docfrag = document.createDocumentFragment();
 	var container = document.createElement("div");
 	var stat = document.createElement("div");
-	var itemDef = DestinyCompactItemDefinition[itemData.itemHash];
-	if (itemData.primaryStat && itemData.primaryStat.statHash === 3897883278 && itemData.primaryStat.value > 199 && (itemDef.tierTypeName === "Legendary"||itemDef.tierTypeName === "Exotic") && itemData.stats) {
+	if (hasQuality(itemData)) {
 		var quality = document.createElement("div");
 		container.appendChild(quality);
 		quality.classList.add("quality");
 		stat.classList.add("with-quality");
 		var qualityData = parseItemQuality(itemData);
-		quality.style.background = qualityData.color;
-		quality.textContent = Math.round((qualityData.stat / qualityData.max)*100) + "%";
+		quality
+		.style.background = qualityData.color;
+		quality.textContent = qualityData.min + "%";
 	}
 	container.appendChild(stat);
 	docfrag.appendChild(container);
