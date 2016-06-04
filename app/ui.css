@@ -157,6 +157,30 @@ header {
 	background: rgba(255, 255, 255, .9);
 }
 
+.with-quality {
+	background:transparent;
+}
+
+.quality {
+	font-size: 10px;
+	font-weight: bold;
+	line-height: 13px;
+
+	position: absolute;
+	bottom: 0;
+	left: 0;
+
+	box-sizing: content-box;
+	width: calc(100% - 4px);/* border width*/
+	min-width: 10px;
+	padding: 0 2px;
+
+	text-align: left;
+
+	color: #000;
+	background: rgba(255, 255, 255, .9);
+}
+
 .arc .primary-stat,
 .solar .primary-stat,
 .void .primary-stat {

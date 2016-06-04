@@ -13,7 +13,7 @@ Object.prototype[Symbol.iterator] = function() {
 		}
 	};
 };
-
+initUi();
 var data = {
 	inventories: {},
 	progression: {},
@@ -140,11 +140,20 @@ function checkInventory() {
 	});
 }
 
-function makeHistoryItem(itemData, index) {
-	// itemData = JSON.parse(itemData);
+function makeHistoryItem(itemData) {
 	var docfrag = document.createDocumentFragment();
 	var container = document.createElement("div");
 	var stat = document.createElement("div");
+	var itemDef = DestinyCompactItemDefinition[itemData.itemHash];
+	if (itemData.primaryStat && itemData.primaryStat.statHash === 3897883278 && itemData.primaryStat.value > 199 && (itemDef.tierTypeName === "Legendary"||itemDef.tierTypeName === "Exotic") && itemData.stats) {
+		var quality = document.createElement("div");
+		container.appendChild(quality);
+		quality.classList.add("quality");
+		stat.classList.add("with-quality");
+		var qualityData = parseItemQuality(itemData);
+		quality.style.background = qualityData.color;
+		quality.textContent = Math.round((qualityData.stat / qualityData.max)*100) + "%";
+	}
 	container.appendChild(stat);
 	docfrag.appendChild(container);
 	DOMTokenList.prototype.add.apply(container.classList, itemClasses(itemData));
@@ -155,8 +164,35 @@ function makeHistoryItem(itemData, index) {
 	}
 	stat.classList.add("primary-stat");
 	stat.textContent = primaryStat(itemData);
-	// passData(container, itemDiff, moveType, index);
+	passData(container, itemData);
 	return docfrag;
+}
+
+function passData(DomNode, itemData) {
+	var itemDefinition = DestinyCompactItemDefinition[itemData.itemHash];
+	if (itemDefinition.tierTypeName) {
+		DomNode.dataset.tierTypeName = itemDefinition.tierTypeName;
+	} else {
+		DomNode.dataset.tierTypeName = "Common";
+	}
+	DomNode.dataset.itemHash = itemDefinition.itemHash;
+	DomNode.dataset.itemName = itemDefinition.itemName;
+	DomNode.dataset.itemTypeName = itemDefinition.itemTypeName;
+	DomNode.dataset.equipRequiredLevel = itemData.equipRequiredLevel || 0;
+	DomNode.dataset.primaryStat = primaryStat(itemData);
+	DomNode.dataset.primaryStatName = primaryStatName(itemData);
+	DomNode.dataset.itemDescription = itemDefinition.itemDescription;
+	DomNode.dataset.damageTypeName = elementType(itemData);
+	DomNode.dataset.classRequirement = "";
+	if (itemData.stats && itemData.stats.length) {
+		DomNode.dataset.statTree = JSON.stringify(itemData.stats);
+	}
+	if (itemData.nodes && itemData.nodes.length) {
+		DomNode.dataset.nodeTree = JSON.stringify(itemData.nodes);
+	}
+	if (itemData.objectives && itemData.objectives.length) {
+		DomNode.dataset.objectiveTree = JSON.stringify(itemData.objectives);
+	}
 }
 
 function itemNetworkTask(characterId, callback) {

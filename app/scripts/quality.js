@@ -8,30 +8,147 @@ function parseQuality(startingStat, startingDefense, endingDefense) {
 }
 
 function parseItemQuality(item) {
-	var itemType = DestinyCompactItemDefinition[item.itemHash].itemTypeName.split(" ")[0];
-	var results = [];
+	// console.log(JSON.stringify(item.stats));
+	var grid = getNodes(item);
+	var itemDef = DestinyCompactItemDefinition[item.itemHash]
+	var itemType = itemDef.itemTypeName.split(" ")[0];
+	if (itemDef.itemTypeName.split(" ")[1]) {
+		itemType = itemType + " " + itemDef.itemTypeName.split(" ")[1];
+	}
 	var finalTier = {
-		stat:0,
-		max:0
+		stat: 0,
+		max: 0,
+		color: "rgba(255, 255, 255, .9)",
+		results: []
 	};
 	for (var stat of item.stats) {
-		var maxStat = parseQuality(stat.value, item.primaryStat.value, 335).maxStat;
-		let result = {
-			stat: maxStat,
-			tier: Math.round(100 * maxStat/maxStatRolls[itemType])
-		};
-		finalTier.stat += maxStat;
-		finalTier.max += maxStatRolls[itemType];
-		results.push(result);
-		console.log(result);
-	}
+		var statValue = stat.value;
+		for (var node of grid) {
+			if (node.isActivated) {
+				var statBonus = getBonus(item.primaryStat.value, itemType);
+				if (stat.statHash === 144602215 && node.nodeStepHash === 1034209669) { // intellect
+					statValue = stat.value - statBonus;
+				} else if (stat.statHash === 1735777505 && node.nodeStepHash === 1263323987) { // discipline
+					statValue = stat.value - statBonus;
+					console.log(itemDef.itemName, statValue, stat.value, statBonus);
+				} else if (stat.statHash === 4244567218 && node.nodeStepHash === 193091484) { // strength
+					statValue = stat.value - statBonus;
+				}
+			}
+		}
 
+		var minStat = parseQuality(statValue, item.primaryStat.value, 335).minStat;
+		let result = {
+			stat: minStat,
+			tier: Math.round(100 * minStat / maxStatRolls[itemType])
+		};
+		if (stat.value > 0) {
+			finalTier.stat += minStat;
+			finalTier.max += maxStatRolls[itemType];
+			finalTier.color = getColor(Math.round(finalTier.stat / finalTier.max * 100));
+		}
+		finalTier.results.push(result);
+		// console.log(result);
+	}
+	return finalTier;
+	// console.log(finalTier, results);
 }
 
-function getBonus(light, type) {
+function getQualityRating(stats, light, type) { // FIXME: try this function
+	if (!stats || light.value < 200) {
+		return null;
+	}
+
+	var split = 0;
 	switch (type.toLowerCase()) {
 		case 'helmet':
-		case 'helmets':
+			split = 46; // bungie reports 48, but i've only seen 46
+			break;
+		case 'gauntlets':
+			split = 41; // bungie reports 43, but i've only seen 41
+			break;
+		case 'chest':
+			split = 61;
+			break;
+		case 'leg':
+			split = 56;
+			break;
+		case 'classitem':
+		case 'ghost':
+			split = 25;
+			break;
+		case 'artifact':
+			split = 38;
+			break;
+		default:
+			return null;
+	}
+
+	var ret = {
+		total: {
+			min: 0,
+			max: 0
+		},
+		max: split * 2
+	};
+
+	var pure = 0;
+	stats.forEach(function(stat) {
+		var scaled = 0;
+		if (stat.base) {
+			scaled = getScaledStat(stat.base, light.value);
+			pure = scaled.min;
+		}
+		stat.scaled = scaled;
+		stat.split = split;
+		stat.qualityPercentage = {
+			min: Math.min(100, Math.round(100 * stat.scaled.min / stat.split)),
+			max: Math.min(100, Math.round(100 * stat.scaled.max / stat.split))
+		};
+		ret.total.min += scaled.min || 0;
+		ret.total.max += scaled.max || 0;
+	});
+
+	if (pure === ret.total.min) {
+		stats.forEach(function(stat) {
+			stat.scaled = {
+				min: Math.floor(stat.scaled.min / 2),
+				max: Math.floor(stat.scaled.max / 2)
+			};
+			stat.qualityPercentage = {
+				min: Math.min(100, Math.round(100 * stat.scaled.min / stat.split)),
+				max: Math.min(100, Math.round(100 * stat.scaled.max / stat.split))
+			};
+		});
+	}
+
+	return {
+		min: Math.round(ret.total.min / ret.max * 100),
+		max: Math.round(ret.total.max / ret.max * 100)
+	};
+}
+
+function getColor(value) {
+	var color = 0;
+	if (value <= 85) {
+		color = 0;
+	} else if (value <= 90) {
+		color = 20;
+	} else if (value <= 95) {
+		color = 60;
+	} else if (value <= 99) {
+		color = 120;
+	} else if (value >= 100) {
+		color = 190;
+	} else {
+		return 'rgba(255, 255, 255, .9)';
+	}
+	return 'hsl(' + color + ',85%,60%)';
+}
+
+function getBonus(light, type) { // FIXME: figure out stat node increases from light 200-280. Might need to make a new character on a new account.
+	switch (type.toLowerCase()) {
+		case 'helmet':
 			return light < 292 ? 15 :
 				light < 307 ? 16 :
 				light < 319 ? 17 :
@@ -41,28 +158,27 @@ function getBonus(light, type) {
 				light < 305 ? 14 :
 				light < 319 ? 15 :
 				light < 333 ? 16 : 17;
-		case 'chest':
 		case 'chest armor':
 			return light < 287 ? 20 :
 				light < 300 ? 21 :
 				light < 310 ? 22 :
 				light < 319 ? 23 :
 				light < 328 ? 24 : 25;
-		case 'leg':
 		case 'leg armor':
 			return light < 284 ? 18 :
 				light < 298 ? 19 :
 				light < 309 ? 20 :
 				light < 319 ? 21 :
 				light < 329 ? 22 : 23;
-		case 'classitem':
-		case 'class items':
-		case 'ghost':
-		case 'ghosts':
+		case 'warlock bond':
+		case 'titan mark':
+		case 'hunter cloak':
+		case 'ghost shell':
 			return light < 295 ? 8 :
 				light < 319 ? 9 : 10;
-		case 'artifact':
-		case 'artifacts':
+		case 'hunter artifact':
+		case 'warlock artifact':
+		case 'titan artifact':
 			return light < 287 ? 34 :
 				light < 295 ? 35 :
 				light < 302 ? 36 :
@@ -79,15 +195,41 @@ function getBonus(light, type) {
 	return 0;
 }
 
+function getNodes(item) {
+	if (item.nodes) {
+		var grid = DestinyCompactTalentDefinition[item.talentGridHash];
+		var parsedNodes = [];
+		for (var node of item.nodes) {
+			for (var data of grid.nodes) {
+				if (data.nodeHash === node.nodeHash) {
+					var step = data.steps[node.stepIndex];
+					var nodeData = {
+						icon: step.icon,
+						nodeStepDescription: step.nodeStepDescription,
+						nodeStepHash: step.nodeStepHash,
+						nodeStepName: step.nodeStepName,
+						isActivated: node.isActivated,
+					};
+					parsedNodes.push(nodeData);
+				}
+			}
+		}
+		return parsedNodes;
+	}
+}
+
 var maxStatRolls = {
 	Helmet: 48,
 	Gauntlets: 43,
-	Chest: 61,
-	Leg: 56,
-	Hunter: 25,
-	Titan: 25,
-	Warlock: 25,
-	Ghost: 25
+	"Chest Armor": 61,
+	"Leg Armor": 56,
+	"Hunter Cloak": 25,
+	"Titan Mark": 25,
+	"Warlock Bond": 25,
+	"Ghost Shell": 25,
+	"Hunter Artifact": 25,
+	"Titan Artifact": 25,
+	"Warlock Artifact": 25
 };
 
 var statValues = {
@@ -230,9 +372,11 @@ var statValues = {
 };
 
 for (var item of data.inventories["2305843009221440972"]) {
-	if (item.primaryStat && item.primaryStat.statHash === 3897883278) {
+	if (item.primaryStat && item.primaryStat.statHash === 3897883278 && item.stats) {
 		var itemType = DestinyCompactItemDefinition[item.itemHash].itemTypeName;
-		console.log(`itemType: ${itemType} itemLevel: ${item.primaryStat.value} itemStats: ${JSON.stringify(item.stats)}`);
-		parseItemQuality(item);
+		var itemName = DestinyCompactItemDefinition[item.itemHash].itemName;
+		console.log(`itemName: ${itemName} itemType: ${itemType} itemLevel: ${item.primaryStat.value}`);
+		var result = parseItemQuality(DestinyCompactItemDefinition[item.itemHash]);
+		console.log(item);
 	}
 }

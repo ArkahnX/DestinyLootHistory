@@ -229,6 +229,16 @@ function makeItem(itemDiff, moveType, index) {
 	var docfrag = document.createDocumentFragment();
 	var container = document.createElement("div");
 	var stat = document.createElement("div");
+	var itemDef = DestinyCompactItemDefinition[itemData.itemHash];
+	if (itemData.primaryStat && itemData.primaryStat.statHash === 3897883278 && itemData.primaryStat.value > 199 && (itemDef.tierTypeName === "Legendary"||itemDef.tierTypeName === "Exotic") && itemData.stats) {
+		var quality = document.createElement("div");
+		container.appendChild(quality);
+		quality.classList.add("quality");
+		stat.classList.add("with-quality");
+		var qualityData = parseItemQuality(itemData);
+		quality.style.background = qualityData.color;
+		quality.textContent = Math.round((qualityData.stat / qualityData.max)*100) + "%";
+	}
 	container.appendChild(stat);
 	docfrag.appendChild(container);
 	DOMTokenList.prototype.add.apply(container.classList, itemClasses(itemData));
