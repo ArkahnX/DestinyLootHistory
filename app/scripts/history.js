@@ -101,13 +101,17 @@ function checkInventory() {
 				}
 			}
 			console.log(inventoryData);
+			var sourceIndex = 0;
 			var sources = [3107502809, 36493462, 460228854, 3945957624, 344892955, 3739898362];
+			var descriptions = ["Dark Below","House of Wolves","The Taken King","Sparrow Racing League","Crimson Doubles","April Update"];
 			var div = document.createElement("div");
 			div.classList.add("sub-section");
-			var description = document.createElement("div");
-			description.textContent = "Base Game";
+			var description = document.createElement("h1");
+			description.textContent = "Destiny";
 			div.appendChild(description);
-			var sourceIndex = 0;
+			characterHistory.appendChild(div);
+			var div = document.createElement("div");
+			div.classList.add("sub-section");
 			for (var item of inventoryData) {
 				var itemDefinition = DestinyCompactItemDefinition[item.itemHash];
 				var found = false;
@@ -127,9 +131,12 @@ function checkInventory() {
 						div = document.createElement("div");
 						div.classList.add("sub-section");
 						div.classList.add(source.identifier);
-						var sourceDescription = document.createElement("div");
-						sourceDescription.textContent = source.sourceName;
+						var sourceDescription = document.createElement("h1");
+						sourceDescription.textContent = descriptions[sourceIndex];
 						div.appendChild(sourceDescription);
+						characterHistory.appendChild(div);
+						var div = document.createElement("div");
+						div.classList.add("sub-section");
 						sourceIndex++;
 					}
 				}
@@ -142,20 +149,22 @@ function checkInventory() {
 
 function makeHistoryItem(itemData) {
 	var docfrag = document.createDocumentFragment();
+	var itemContainer = document.createElement("div");
+	itemContainer.classList.add("item-container");
 	var container = document.createElement("div");
 	var stat = document.createElement("div");
+	itemContainer.appendChild(container);
 	if (hasQuality(itemData)) {
 		var quality = document.createElement("div");
-		container.appendChild(quality);
+		itemContainer.appendChild(quality);
 		quality.classList.add("quality");
 		stat.classList.add("with-quality");
 		var qualityData = parseItemQuality(itemData);
-		quality
-		.style.background = qualityData.color;
+		quality.style.background = qualityData.color;
 		quality.textContent = qualityData.min + "%";
 	}
-	container.appendChild(stat);
-	docfrag.appendChild(container);
+	itemContainer.appendChild(stat);
+	docfrag.appendChild(itemContainer);
 	DOMTokenList.prototype.add.apply(container.classList, itemClasses(itemData));
 	if (DestinyCompactItemDefinition[itemData.itemHash].hasIcon || (DestinyCompactItemDefinition[itemData.itemHash].icon && DestinyCompactItemDefinition[itemData.itemHash].icon.length)) {
 		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[itemData.itemHash].icon + "'),url('http://bungie.net/img/misc/missing_icon.png')");

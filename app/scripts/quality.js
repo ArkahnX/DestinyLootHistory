@@ -315,14 +315,14 @@ var statValues = {
 	335: 61.466
 };
 
-for (var item of data.inventories["2305843009221440972"]) {
-	if (hasQuality(item)) {
-		var itemType = DestinyCompactItemDefinition[item.itemHash].itemTypeName;
-		var itemName = DestinyCompactItemDefinition[item.itemHash].itemName;
-		console.log(`itemName: ${itemName} itemType: ${itemType} itemLevel: ${item.primaryStat.value}`);
-		var result = parseItemQuality(item);
-		for (var stat of item.stats) {
-			console.log(stat, JSON.stringify(stat.qualityPercentage), JSON.stringify(result));
-		}
-	}
-}
+// for (var item of data.inventories["2305843009221440972"]) {
+// 	if (hasQuality(item)) {
+// 		var itemType = DestinyCompactItemDefinition[item.itemHash].itemTypeName;
+// 		var itemName = DestinyCompactItemDefinition[item.itemHash].itemName;
+// 		console.log(`itemName: ${itemName} itemType: ${itemType} itemLevel: ${item.primaryStat.value}`);
+// 		var result = parseItemQuality(item);
+// 		for (var stat of item.stats) {
+// 			console.log(stat, JSON.stringify(stat.qualityPercentage), JSON.stringify(result));
+// 		}
+// 	}
+// }
