@@ -35,8 +35,7 @@ function parseItemQuality(item) {
 		max: split * 2
 	};
 
-	var pure = 0;
-	stats.forEach(function(stat) {
+	for(var stat of stats) {
 		var scaled = 0;
 		var statValue = stat.value;
 		for (var node of grid) {
@@ -53,29 +52,9 @@ function parseItemQuality(item) {
 		}
 		if (statValue) {
 			scaled = parseQuality(statValue, light, 335);
-			pure = scaled.min;
 		}
-		stat.scaled = scaled;
-		stat.split = split;
-		stat.qualityPercentage = {
-			min: Math.min(100, Math.round(100 * stat.scaled.min / stat.split)),
-			max: Math.min(100, Math.round(100 * stat.scaled.max / stat.split))
-		};
 		ret.total.min += scaled.min || 0;
 		ret.total.max += scaled.max || 0;
-	});
-
-	if (pure === ret.total.min) {
-		stats.forEach(function(stat) {
-			stat.scaled = {
-				min: Math.floor(stat.scaled.min / 2),
-				max: Math.floor(stat.scaled.max / 2)
-			};
-			stat.qualityPercentage = {
-				min: Math.min(100, Math.round(100 * stat.scaled.min / stat.split)),
-				max: Math.min(100, Math.round(100 * stat.scaled.max / stat.split))
-			};
-		});
 	}
 
 	return {
@@ -314,15 +293,3 @@ var statValues = {
 	334: 61.2114,
 	335: 61.466
 };
-
-// for (var item of data.inventories["2305843009221440972"]) {
-// 	if (hasQuality(item)) {
-// 		var itemType = DestinyCompactItemDefinition[item.itemHash].itemTypeName;
-// 		var itemName = DestinyCompactItemDefinition[item.itemHash].itemName;
-// 		console.log(`itemName: ${itemName} itemType: ${itemType} itemLevel: ${item.primaryStat.value}`);
-// 		var result = parseItemQuality(item);
-// 		for (var stat of item.stats) {
-// 			console.log(stat, JSON.stringify(stat.qualityPercentage), JSON.stringify(result));
-// 		}
-// 	}
-// }
