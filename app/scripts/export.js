@@ -47,9 +47,8 @@ function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, light
 								if (itemDiff.added.length) {
 									if (itemDiff.progression) {
 										for (var progress of itemDiff.progression) {
-											console.log(progress);
 											progress = JSON.parse(progress);
-											if (/faction_event_iron_banner/i.test(progress.name) && progress.level > matchDrops[match.activityInstance].level) {
+											if (gameMode === "IronBanner" && /faction_event_iron_banner/i.test(progress.name) && progress.level > matchDrops[match.activityInstance].level) {
 												matchDrops[match.activityInstance].level = factionLevel = progress.level;
 											}
 										}
@@ -63,7 +62,6 @@ function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, light
 											light = added.primaryStat.value;
 										}
 										if (!/(bounty|quest|shader|emblem|mission|ship)/i.test(mainItemData.itemTypeName) && !/(weapon|armor|desolate|chroma|spektar|medal)/i.test(mainItemData.itemName) && added.stackSize < 5) {
-											console.log(added, DestinyInventoryBucketDefinition[mainItemData.bucketTypeHash].bucketName);
 											if (/(exotic)/i.test(mainItemData.itemName)) {
 												var name = mainItemData.itemTypeName.split(" ");
 												matchDrops[match.activityInstance].exotic = name[0] + " " + (name[2] || name[1]);

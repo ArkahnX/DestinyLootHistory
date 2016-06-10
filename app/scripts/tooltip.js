@@ -51,37 +51,40 @@ function handleStats(statType, dataset) {
 	});
 }
 
-var statHashes = [155624089, 943549884, 1240592695, 1345609583, 3555269338, 3871231066, 4043523819, 4188031367, 4284893193, 144602215, 1735777505, 4244567218, 2961396640, 3614673599, 2837207746, 2762071195, 209426660, 925767036, 2523465841];
+var statHashes = [4284893193, 2837207746, 2961396640, 4043523819, 3614673599, 1240592695, 2523465841, 155624089, 2762071195, 4188031367, 3871231066, 943549884, 1345609583, 3555269338, 144602215, 1735777505, 4244567218, 209426660, 925767036];
 
-function handleOtherStats(dataset, resolve, reject) {
+function handleOtherStats(dataset, resolve) {
 	var statContainer = document.getElementById("stat-table");
 	statContainer.innerHTML = "";
 	var itemDef = DestinyCompactItemDefinition[dataset.itemHash];
 	if (dataset.statTree) {
 		var stats = JSON.parse(dataset.statTree);
-		var sortedStats = {};
-		for (var stat of itemDef.stats) {
-			if (statHashes.indexOf(stat.statHash) > -1) {
-				sortedStats[stat.statHash] = {
-					minimum: stat.minimum,
-					maximum: stat.maximum,
-					value: stat.value,
-					statName: DestinyStatDefinition[stat.statHash].statName
-				};
+		var sortedStats = [];
+		for (var statHash of statHashes) {
+			for (var statDef of itemDef.stats) {
+				for (var stat of stats) {
+					if (stat.statHash === statHash && statDef.statHash === statHash) {
+						sortedStats.push({
+							minimum: statDef.minimum,
+							maximum: statDef.maximum,
+							value: stat.value,
+							statName: DestinyStatDefinition[stat.statHash].statName
+						});
+					}
+				}
 			}
 		}
-		for (let stat of stats) {
-			if (!sortedStats[stat.statHash]) {
-				sortedStats[stat.statHash] = {
-					minimum: 0,
-					maximum: 0,
-					value: 0,
-					statName: DestinyStatDefinition[stat.statHash].statName
-				};
-			}
-			sortedStats[stat.statHash].value = stat.value;
-			// sortedStats[stat.statHash].statName = stat.statName;
-		}
+		// for (let stat of sortedStats) {
+		// 		sortedStats[stat.statHash] = {
+		// 			minimum: 0,
+		// 			maximum: 0,
+		// 			value: 0,
+		// 			statName: DestinyStatDefinition[stat.statHash].statName
+		// 		};
+		// 	}
+		// 	sortedStats[stat.statHash].value = stat.value;
+		// 	// sortedStats[stat.statHash].statName = stat.statName;
+		// }
 		for (let stat of sortedStats) {
 			var statDef = itemDef.stats[stat.statHash];
 			var tableRow = document.createElement("tr");
