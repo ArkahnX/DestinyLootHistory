@@ -176,62 +176,64 @@ function handleSearch() {
 	// var terms = 0;
 	loadScript("DestinyDatabase/DestinyCompactItemDefinition.js", "DestinyCompactItemDefinition").then(function() {
 		loadScript("DestinyDatabase/DestinyCompactDefinition.js", "DestinyCompactDefinition").then(function() {
-			chrome.storage.local.get(null, function(data) {
-				// var searchData = data.itemChanges;
-				// if (terms > 0 && searchResults.length === 0) {
-				// return finishSearch(searchResults);
-				// } else if (terms > 0) {
-				// searchData = searchResults;
-				// }
-				// var tempSearchResults = [];
-				for (let itemDiff of data.itemChanges) {
-					if (itemDiff.added.length) {
-						for (let item of itemDiff.added) {
-							var baseItem = JSON.parse(item);
-							var itemData = DestinyCompactItemDefinition[baseItem.itemHash];
-							var searchMatches = 0;
-							for (let term of searchTerms) {
-								var type = term.type;
-								var property = term.property;
-								if (property === "element" || property === "light") {
+			loadScript("DestinyDatabase/DestinyCompactTalentDefinition.js", "DestinyCompactTalentDefinition").then(function() {
+				chrome.storage.local.get(null, function(data) {
+					// var searchData = data.itemChanges;
+					// if (terms > 0 && searchResults.length === 0) {
+					// return finishSearch(searchResults);
+					// } else if (terms > 0) {
+					// searchData = searchResults;
+					// }
+					// var tempSearchResults = [];
+					for (let itemDiff of data.itemChanges) {
+						if (itemDiff.added.length) {
+							for (let item of itemDiff.added) {
+								var baseItem = JSON.parse(item);
+								var itemData = DestinyCompactItemDefinition[baseItem.itemHash];
+								var searchMatches = 0;
+								for (let term of searchTerms) {
+									var type = term.type;
+									var property = term.property;
+									if (property === "element" || property === "light") {
 
-									if (typeof baseItem.primaryStat !== "undefined") {
-										if (isNaN(parseInt(term.item, 10))) {
-											var statDef = DestinyDamageTypeDefinition[baseItem.damageTypeHash];
-											if (statDef) {
-												if (statDef.damageTypeName.match(new RegExp(term.item, "i"))) {
-													searchMatches += 1;
-													// searchResults.push(itemDiff);
-													// break;
+										if (typeof baseItem.primaryStat !== "undefined") {
+											if (isNaN(parseInt(term.item, 10))) {
+												var statDef = DestinyDamageTypeDefinition[baseItem.damageTypeHash];
+												if (statDef) {
+													if (statDef.damageTypeName.match(new RegExp(term.item, "i"))) {
+														searchMatches += 1;
+														// searchResults.push(itemDiff);
+														// break;
+													}
 												}
+											} else if (baseItem.primaryStat.value === parseInt(term.item, 10)) {
+												searchMatches += 1;
+												// searchResults.push(itemDiff);
+												// break;
 											}
-										} else if (baseItem.primaryStat.value === parseInt(term.item, 10)) {
-											searchMatches += 1;
-											// searchResults.push(itemDiff);
-											// break;
 										}
+									} else if (typeof baseItem[property] !== "undefined" && baseItem[property].match(new RegExp(term.item, "i"))) {
+										searchMatches += 1;
+										// searchResults.push(itemDiff);
+										// break;
+									} else if (typeof itemData[property] !== "undefined" && itemData[property].match(new RegExp(term.item, "i"))) {
+										searchMatches += 1;
+										// searchResults.push(itemDiff);
+										// break;
 									}
-								} else if (typeof baseItem[property] !== "undefined" && baseItem[property].match(new RegExp(term.item, "i"))) {
-									searchMatches += 1;
-									// searchResults.push(itemDiff);
-									// break;
-								} else if (typeof itemData[property] !== "undefined" && itemData[property].match(new RegExp(term.item, "i"))) {
-									searchMatches += 1;
-									// searchResults.push(itemDiff);
-									// break;
+								}
+								if (searchMatches === searchTerms.length) {
+									searchResults.push(itemDiff);
+									break;
 								}
 							}
-							if (searchMatches === searchTerms.length) {
-								searchResults.push(itemDiff);
-								break;
-							}
 						}
+						// terms++;
+						// searchResults = tempSearchResults;
+						// Array.prototype.push.apply(searchResults, tempSearchResults);
 					}
-					// terms++;
-					// searchResults = tempSearchResults;
-					// Array.prototype.push.apply(searchResults, tempSearchResults);
-				}
-				return finishSearch(searchResults);
+					return finishSearch(searchResults);
+				});
 			});
 		});
 	});

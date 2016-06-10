@@ -72,7 +72,12 @@ function handleOtherStats(dataset, resolve, reject) {
 		}
 		for (let stat of stats) {
 			if (!sortedStats[stat.statHash]) {
-				console.error(sortedStats, stats);
+				sortedStats[stat.statHash] = {
+					minimum: 0,
+					maximum: 0,
+					value: 0,
+					statName: DestinyStatDefinition[stat.statHash].statName
+				};
 			}
 			sortedStats[stat.statHash].value = stat.value;
 			// sortedStats[stat.statHash].statName = stat.statName;
@@ -83,13 +88,17 @@ function handleOtherStats(dataset, resolve, reject) {
 			tableRow.classList.add("itemStat");
 			var tableText = document.createElement("td");
 			tableText.classList.add("statName");
-			tableText.textContent = stat.statName;
+			tableText.textContent = stat.statName + " (" + stat.value + "/" + stat.maximum + ")";
 			var tableData = document.createElement("td");
 			tableData.classList.add("valueBar");
+			var maximum = 100;
+			if (stat.maximum > 100) {
+				maximum = stat.maximum + (stat.maximum * 0.2);
+			}
 			if (stat.value === 0) {
-				tableData.appendChild(statBar(stat.maximum, 100, stat.maximum, stat.value));
+				tableData.appendChild(statBar(stat.maximum, maximum, stat.maximum, stat.value));
 			} else {
-				tableData.appendChild(statBar(stat.maximum, 100, stat.maximum - stat.value, stat.value));
+				tableData.appendChild(statBar(stat.maximum, maximum, stat.maximum - stat.value, stat.value));
 			}
 			tableRow.appendChild(tableText);
 			tableRow.appendChild(tableData);

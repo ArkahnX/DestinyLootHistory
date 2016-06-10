@@ -5,19 +5,32 @@
 	<title>Loot History</title>
 	<link rel="stylesheet" type="text/css" href="ui.css">
 	<style>
-	.item {
-		width:96px;
-		height:96px;
-	}
-	#container {
-		height: calc(100% - 32px);
-	}
-	.sub-section {
-		margin-bottom:30px;
-	}
-	input {
-		float:left;
-	}
+		.item {
+			width:90px;
+			height:90px;
+			min-width: 15px;
+		}
+		.item-container {
+			width:96px;
+			height:96px;
+			margin:6px;
+		}
+		#container {
+			height: calc(100% - 32px);
+		}
+		.sub-section {
+			margin-bottom:30px;
+		}
+		.primary-stat {
+			padding: 0 6px;
+			font-size: 15px;
+		}
+		.quality {
+			font-size: 15px;
+		}
+		input {
+			float:left;
+		}
 	</style>
 </head>
 
@@ -52,6 +65,11 @@
 			<h1 id="item-primary-stat"></h1><div id="item-stat-text"></div>
 			<div id="item-description"></div>
 		</section>
+		<section id="item-stats">
+			<table>
+				<tbody id="stat-table"></tbody>
+			</table>
+		</section>
 	</div>
 	<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>
 	<script type="text/javascript" src="DestinyDatabase/DestinyCompactTalentDefinition.js"></script>
@@ -59,6 +77,7 @@
 	<script type="text/javascript" src="scripts/vendor/moment.js"></script>
 	<script type="text/javascript" src="scripts/vendor/moment-timezone.js"></script>
 	<script type="text/javascript" src="scripts/bungie.js"></script>
+	<script type="text/javascript" src="scripts/quality.js"></script>
 	<script type="text/javascript" src="scripts/ui.js"></script>
 	<script type="text/javascript" src="scripts/tooltip.js"></script>
 	<script type="text/javascript" src="scripts/history.js"></script>

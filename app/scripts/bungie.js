@@ -167,6 +167,15 @@ var bungie = (function Bungie() {
 			});
 		});
 	};
+	bungie.carnage = function(activityId) {
+		return new Promise(function(resolve) {
+			_request({
+				route: '/Destiny/Stats/PostGameCarnageReport/' + activityId + '/?definitions=false',
+				method: 'GET',
+				complete: resolve
+			});
+		});
+	};
 	bungie.factions = function(characterId) {
 		return new Promise(function(resolve) {
 			_request({

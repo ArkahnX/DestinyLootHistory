@@ -227,10 +227,22 @@ function makeItem(itemDiff, moveType, index) {
 	}
 	itemData = JSON.parse(itemData);
 	var docfrag = document.createDocumentFragment();
+	var itemContainer = document.createElement("div");
+	itemContainer.classList.add("item-container");
 	var container = document.createElement("div");
 	var stat = document.createElement("div");
-	container.appendChild(stat);
-	docfrag.appendChild(container);
+	itemContainer.appendChild(container);
+	if (hasQuality(itemData)) {
+		var quality = document.createElement("div");
+		itemContainer.appendChild(quality);
+		quality.classList.add("quality");
+		stat.classList.add("with-quality");
+		var qualityData = parseItemQuality(itemData);
+		quality.style.background = qualityData.color;
+		quality.textContent = qualityData.min + "%";
+	}
+	itemContainer.appendChild(stat);
+	docfrag.appendChild(itemContainer);
 	DOMTokenList.prototype.add.apply(container.classList, itemClasses(itemData));
 	if (DestinyCompactItemDefinition[itemData.itemHash].hasIcon || (DestinyCompactItemDefinition[itemData.itemHash].icon && DestinyCompactItemDefinition[itemData.itemHash].icon.length)) {
 		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[itemData.itemHash].icon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
@@ -250,10 +262,13 @@ function makeProgress(itemDiff, moveType, index) {
 		return makeItem(itemDiff, moveType, index);
 	}
 	var docfrag = document.createDocumentFragment();
+	var itemContainer = document.createElement("div");
+	itemContainer.classList.add("item-container");
 	var container = document.createElement("div");
 	var stat = document.createElement("div");
-	container.appendChild(stat);
-	docfrag.appendChild(container);
+	itemContainer.appendChild(container);
+	itemContainer.appendChild(stat);
+	docfrag.appendChild(itemContainer);
 	container.classList.add("kinetic", "common", "faction");
 	// NO BACKGROUND IMAGE ON FACTION ICONS BECAUSE THEY ARE TRANSPARENT
 	if (DestinyFactionDefinition[progressData.factionHash]) {

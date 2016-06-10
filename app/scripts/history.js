@@ -13,7 +13,7 @@ Object.prototype[Symbol.iterator] = function() {
 		}
 	};
 };
-
+initUi();
 var data = {
 	inventories: {},
 	progression: {},
@@ -101,13 +101,17 @@ function checkInventory() {
 				}
 			}
 			console.log(inventoryData);
+			var sourceIndex = 0;
 			var sources = [3107502809, 36493462, 460228854, 3945957624, 344892955, 3739898362];
+			var descriptions = ["Dark Below","House of Wolves","The Taken King","Sparrow Racing League","Crimson Doubles","April Update"];
 			var div = document.createElement("div");
 			div.classList.add("sub-section");
-			var description = document.createElement("div");
-			description.textContent = "Base Game";
+			var description = document.createElement("h1");
+			description.textContent = "Destiny";
 			div.appendChild(description);
-			var sourceIndex = 0;
+			characterHistory.appendChild(div);
+			var div = document.createElement("div");
+			div.classList.add("sub-section");
 			for (var item of inventoryData) {
 				var itemDefinition = DestinyCompactItemDefinition[item.itemHash];
 				var found = false;
@@ -127,9 +131,12 @@ function checkInventory() {
 						div = document.createElement("div");
 						div.classList.add("sub-section");
 						div.classList.add(source.identifier);
-						var sourceDescription = document.createElement("div");
-						sourceDescription.textContent = source.sourceName;
+						var sourceDescription = document.createElement("h1");
+						sourceDescription.textContent = descriptions[sourceIndex];
 						div.appendChild(sourceDescription);
+						characterHistory.appendChild(div);
+						var div = document.createElement("div");
+						div.classList.add("sub-section");
 						sourceIndex++;
 					}
 				}
@@ -140,13 +147,24 @@ function checkInventory() {
 	});
 }
 
-function makeHistoryItem(itemData, index) {
-	// itemData = JSON.parse(itemData);
+function makeHistoryItem(itemData) {
 	var docfrag = document.createDocumentFragment();
+	var itemContainer = document.createElement("div");
+	itemContainer.classList.add("item-container");
 	var container = document.createElement("div");
 	var stat = document.createElement("div");
-	container.appendChild(stat);
-	docfrag.appendChild(container);
+	itemContainer.appendChild(container);
+	if (hasQuality(itemData)) {
+		var quality = document.createElement("div");
+		itemContainer.appendChild(quality);
+		quality.classList.add("quality");
+		stat.classList.add("with-quality");
+		var qualityData = parseItemQuality(itemData);
+		quality.style.background = qualityData.color;
+		quality.textContent = qualityData.min + "%";
+	}
+	itemContainer.appendChild(stat);
+	docfrag.appendChild(itemContainer);
 	DOMTokenList.prototype.add.apply(container.classList, itemClasses(itemData));
 	if (DestinyCompactItemDefinition[itemData.itemHash].hasIcon || (DestinyCompactItemDefinition[itemData.itemHash].icon && DestinyCompactItemDefinition[itemData.itemHash].icon.length)) {
 		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[itemData.itemHash].icon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
@@ -155,8 +173,35 @@ function makeHistoryItem(itemData, index) {
 	}
 	stat.classList.add("primary-stat");
 	stat.textContent = primaryStat(itemData);
-	// passData(container, itemDiff, moveType, index);
+	passData(container, itemData);
 	return docfrag;
+}
+
+function passData(DomNode, itemData) {
+	var itemDefinition = DestinyCompactItemDefinition[itemData.itemHash];
+	if (itemDefinition.tierTypeName) {
+		DomNode.dataset.tierTypeName = itemDefinition.tierTypeName;
+	} else {
+		DomNode.dataset.tierTypeName = "Common";
+	}
+	DomNode.dataset.itemHash = itemDefinition.itemHash;
+	DomNode.dataset.itemName = itemDefinition.itemName;
+	DomNode.dataset.itemTypeName = itemDefinition.itemTypeName;
+	DomNode.dataset.equipRequiredLevel = itemData.equipRequiredLevel || 0;
+	DomNode.dataset.primaryStat = primaryStat(itemData);
+	DomNode.dataset.primaryStatName = primaryStatName(itemData);
+	DomNode.dataset.itemDescription = itemDefinition.itemDescription;
+	DomNode.dataset.damageTypeName = elementType(itemData);
+	DomNode.dataset.classRequirement = "";
+	if (itemData.stats && itemData.stats.length) {
+		DomNode.dataset.statTree = JSON.stringify(itemData.stats);
+	}
+	if (itemData.nodes && itemData.nodes.length) {
+		DomNode.dataset.nodeTree = JSON.stringify(itemData.nodes);
+	}
+	if (itemData.objectives && itemData.objectives.length) {
+		DomNode.dataset.objectiveTree = JSON.stringify(itemData.objectives);
+	}
 }
 
 function itemNetworkTask(characterId, callback) {
