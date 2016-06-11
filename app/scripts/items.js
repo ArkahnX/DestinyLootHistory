@@ -44,7 +44,8 @@ function initItems(callback) {
 						gender: DestinyGenderDefinition[avatars[c].characterBase.genderHash].genderName,
 						level: avatars[c].baseCharacterLevel,
 						light: avatars[c].characterBase.powerLevel,
-						race: DestinyRaceDefinition[avatars[c].characterBase.raceHash].raceName
+						race: DestinyRaceDefinition[avatars[c].characterBase.raceHash].raceName,
+						dateLastPlayed: avatars[c].characterBase.dateLastPlayed
 					};
 					characterIdList.push(avatars[c].characterBase.characterId);
 				}
@@ -289,33 +290,94 @@ function isSameItem(item1, item2) {
 
 function checkInventory() {
 	return new Promise(function(resolve) {
-		console.time("Bungie Search");
-		var currentDateString = moment().utc().format();
-		bungie.search().then(function(guardian) {
-			console.timeEnd("Bungie Search");
-			let characters = guardian.data.characters;
-			for (let character of characters) {
-				characterDescriptions[character.characterBase.characterId].light = character.characterBase.powerLevel;
-			}
-			console.time("Bungie Items");
-			sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
-				console.timeEnd("Bungie Items");
-				console.time("Bungie Faction");
-				sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
-					console.timeEnd("Bungie Faction");
-					console.time("Local Inventory");
-					chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
-						data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
-						data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
-						// data.progression = handleInput(result.progression, data.progression);
-						// data.inventories = handleInput(result.inventories, data.inventories);
-						oldProgression = handleInput(result.progression, newProgression);
-						oldInventories = handleInput(result.inventories, newInventories);
-						console.timeEnd("Local Inventory");
-						processDifference(currentDateString, resolve);
-					});
+		if (data.inventories.vault) {
+			var material = findHighestMaterial();
+			bungie.transfer(material.characterId, material.itemId, material.itemReferenceHash, material.stackSize, material.transferToVault).then(function() {
+				var material = findHighestMaterial();
+				bungie.transfer(material.characterId, material.itemId, material.itemReferenceHash, material.stackSize, material.transferToVault).then(function() {
+					grabRemoteInventory(resolve);
+				});
+			});
+		} else {
+			grabRemoteInventory(resolve);
+		}
+	});
+}
+
+function grabRemoteInventory(resolve) {
+	console.time("Bungie Search");
+	var currentDateString = moment().utc().format();
+	bungie.search().then(function(guardian) {
+		console.timeEnd("Bungie Search");
+		let characters = guardian.data.characters;
+		for (let character of characters) {
+			characterDescriptions[character.characterBase.characterId].light = character.characterBase.powerLevel;
+		}
+		console.time("Bungie Items");
+		sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
+			console.timeEnd("Bungie Items");
+			console.time("Bungie Faction");
+			sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
+				console.timeEnd("Bungie Faction");
+				console.time("Local Inventory");
+				chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
+					data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
+					data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
+					// data.progression = handleInput(result.progression, data.progression);
+					// data.inventories = handleInput(result.inventories, data.inventories);
+					oldProgression = handleInput(result.progression, newProgression);
+					oldInventories = handleInput(result.inventories, newInventories);
+					console.timeEnd("Local Inventory");
+					processDifference(currentDateString, resolve);
 				});
 			});
 		});
 	});
 }
+
+var findHighestMaterial = (function() {
+	var stage = false;
+	var oldestCharacterDate = null;
+	var oldestCharacter = null;
+	var bigItem = null;
+	return function() {
+		console.time("bigmat");
+		if (stage === false) {
+			console.time("char");
+			for (let characterId of characterIdList) {
+				if (characterId !== "vault") {
+					var date = new Date(characterDescriptions[characterId].dateLastPlayed);
+					if (!oldestCharacter || date < oldestCharacterDate) {
+						oldestCharacterDate = date;
+						oldestCharacter = characterId;
+					}
+				}
+			}
+			console.timeEnd("char");
+			console.time("mats");
+			for (let item of data.inventories[oldestCharacter]) {
+				let itemDefinition = DestinyCompactItemDefinition[item.itemHash];
+				if (itemDefinition.bucketTypeHash === 3865314626) {
+					if (!bigItem || item.stackSize > bigItem.stackSize) {
+						bigItem = item;
+					}
+				}
+			}
+			console.timeEnd("mats");
+		}
+		if (stage === true) {
+			stage = false;
+		} else {
+			stage = true;
+		}
+		console.timeEnd("bigmat");
+		return {
+			characterId: oldestCharacter,
+			itemId: "0",
+			itemReferenceHash: bigItem.itemHash,
+			membershipType: bungie.membershipType(),
+			stackSize: 1,
+			transferToVault: stage
+		};
+	};
+}());

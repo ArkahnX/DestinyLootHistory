@@ -97,6 +97,10 @@ var bungie = (function Bungie() {
 		});
 	}
 
+	bungie.membershipType = function() {
+		return active.type;
+	};
+
 	bungie.user = function() {
 		return new Promise(function(resolve) {
 			_request({
@@ -185,7 +189,7 @@ var bungie = (function Bungie() {
 			});
 		});
 	};
-	bungie.transfer = function(characterId, itemId, itemHash, amount, toVault) {
+	bungie.transfer = function(characterId, itemId, itemReferenceHash, stackSize, transferToVault) {
 		return new Promise(function(resolve) {
 			_request({
 				route: '/Destiny/TransferItem/',
@@ -194,9 +198,9 @@ var bungie = (function Bungie() {
 					characterId: characterId,
 					membershipType: active.type,
 					itemId: itemId,
-					itemReferenceHash: itemHash,
-					stackSize: amount,
-					transferToVault: toVault
+					itemReferenceHash: itemReferenceHash,
+					stackSize: stackSize,
+					transferToVault: transferToVault
 				},
 				complete: resolve
 			});
