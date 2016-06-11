@@ -1,19 +1,3 @@
-Object.prototype[Symbol.iterator] = function() {
-	var keyList = Object.keys(this);
-	let index = 0;
-	return {
-		next: () => {
-			let value = this[keyList[index]];
-			let done = index >= keyList.length;
-			index++;
-			return {
-				value,
-				done
-			};
-		}
-	};
-};
-
 var data = {
 	inventories: {},
 	progression: {},
@@ -34,27 +18,6 @@ var characterDescriptions = {
 		level: "0"
 	}
 };
-
-function recursive(index, array, networkTask, resultTask, endRecursion) {
-	if (array[index]) {
-		new Promise(function(resolve, reject) {
-			// console.time("sequence")
-			networkTask(array[index], resolve, index);
-		}).then(function(result) {
-			// console.timeEnd("sequence")
-			resultTask(result, array[index], index);
-			recursive(index + 1, array, networkTask, resultTask, endRecursion);
-		});
-	} else {
-		endRecursion();
-	}
-}
-
-function sequence(array, networkTask, resultTask) {
-	return new Promise(function(resolve, reject) {
-		recursive(0, array, networkTask, resultTask, resolve);
-	});
-}
 
 function initItems(callback) {
 	console.time("load Bungie Data");
@@ -325,42 +288,34 @@ function isSameItem(item1, item2) {
 }
 
 function checkInventory() {
-	return new Promise(function(resolve, reject) {
+	return new Promise(function(resolve) {
 		console.time("Bungie Search");
 		var currentDateString = moment().utc().format();
-		bungie.search().then(function(e) {
+		bungie.search().then(function(guardian) {
 			console.timeEnd("Bungie Search");
-			if (e.error) {
-				localStorage.listening = "false";
-				chrome.browserAction.setBadgeText({
-					text: "!"
-				});
-				resolve(); // RECOVER FROM THIS NETWORK ISSUE
-			} else {
-				var avatars = e.data.characters;
-				for (var c = 0; c < avatars.length; c++) {
-					characterDescriptions[avatars[c].characterBase.characterId].light = avatars[c].characterBase.powerLevel;
-				}
-				console.time("Bungie Items");
-				sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
-					console.timeEnd("Bungie Items");
-					console.time("Bungie Faction");
-					sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
-						console.timeEnd("Bungie Faction");
-						console.time("Local Inventory");
-						chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
-							data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
-							data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
-							// data.progression = handleInput(result.progression, data.progression);
-							// data.inventories = handleInput(result.inventories, data.inventories);
-							oldProgression = handleInput(result.progression, newProgression);
-							oldInventories = handleInput(result.inventories, newInventories);
-							console.timeEnd("Local Inventory");
-							processDifference(currentDateString, resolve);
-						});
+			let characters = guardian.data.characters;
+			for (let character of characters) {
+				characterDescriptions[character.characterBase.characterId].light = character.characterBase.powerLevel;
+			}
+			console.time("Bungie Items");
+			sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
+				console.timeEnd("Bungie Items");
+				console.time("Bungie Faction");
+				sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
+					console.timeEnd("Bungie Faction");
+					console.time("Local Inventory");
+					chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
+						data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
+						data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
+						// data.progression = handleInput(result.progression, data.progression);
+						// data.inventories = handleInput(result.inventories, data.inventories);
+						oldProgression = handleInput(result.progression, newProgression);
+						oldInventories = handleInput(result.inventories, newInventories);
+						console.timeEnd("Local Inventory");
+						processDifference(currentDateString, resolve);
 					});
 				});
-			}
+			});
 		});
 	});
 }

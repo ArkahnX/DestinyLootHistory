@@ -1,18 +1,4 @@
-Object.prototype[Symbol.iterator] = function() {
-	var keyList = Object.keys(this);
-	let index = 0;
-	return {
-		next: () => {
-			let value = this[keyList[index]];
-			let done = index >= keyList.length;
-			index++;
-			return {
-				value,
-				done
-			};
-		}
-	};
-};
+
 initUi();
 var data = {
 	inventories: {},
@@ -20,8 +6,6 @@ var data = {
 	itemChanges: [],
 	factionChanges: []
 };
-var oldInventories = {};
-var oldProgression = {};
 var relevantStats = ["itemHash", "itemInstanceId", "isEquipped", "itemInstanceId", "stackSize", "itemLevel", "qualityLevel", "stats", "primaryStat", "equipRequiredLevel", "damageTypeHash", "progression", "talentGridHash", "nodes", "isGridComplete", "objectives"];
 var characterIdList = ["vault"];
 var characterDescriptions = {
@@ -33,25 +17,6 @@ var characterDescriptions = {
 		light: ""
 	}
 };
-
-function recursive(index, array, networkTask, resultTask, endRecursion) {
-	if (array[index]) {
-		new Promise(function(resolve, reject) {
-			networkTask(array[index], resolve, index);
-		}).then(function(result) {
-			resultTask(result, array[index], index);
-			recursive(index + 1, array, networkTask, resultTask, endRecursion);
-		});
-	} else {
-		endRecursion();
-	}
-}
-
-function sequence(array, networkTask, resultTask) {
-	return new Promise(function(resolve) {
-		recursive(0, array, networkTask, resultTask, resolve);
-	});
-}
 
 function initItems(callback) {
 	console.time("load Bungie Data");
