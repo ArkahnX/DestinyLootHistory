@@ -48,7 +48,8 @@ var bungie = (function Bungie() {
 					console.warn("Please report the following error for investigation.");
 					console.error({
 						status: response.ErrorStatus,
-						message: response.Message
+						message: response.Message,
+						response
 					});
 					console.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.', response.Message);
 					setTimeout(function() {

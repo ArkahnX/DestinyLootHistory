@@ -99,65 +99,67 @@ var findHighestMaterial = (function() {
 
 function checkInventory() {
 	console.time("Bungie Inventory");
-	sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
-		sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
-			var mat = findHighestMaterial();
-			console.log(mat);
-			var characterHistory = document.getElementById("history");
-			var inventoryData = [];
-			for (var characterId in data.inventories) {
-				if (inventoryData.length === 0) {
-					Array.prototype.push.apply(inventoryData, data.inventories[characterId]);
-				} else {
-					var arrayToMerge = [];
-					for (var item of data.inventories[characterId]) {
-						if (item.itemInstanceId !== "0") {
-							arrayToMerge.push(item);
-						} else {
-							var located = false;
-							for (var storedItem of inventoryData) {
-								if (item.itemInstanceId === "0" && item.itemHash === storedItem.itemHash) {
-									storedItem.stackSize += item.stackSize;
-									located = true;
-								}
-							}
-							if (!located) {
-								arrayToMerge.push(item);
+	chrome.storage.local.get(null, function(remoteData) {
+		console.log(remoteData)
+		data = remoteData;
+		// sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
+		// sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
+		var mat = findHighestMaterial();
+		console.log(mat);
+		var characterHistory = document.getElementById("history");
+		var inventoryData = [];
+		for (var characterId in data.inventories) {
+			if (inventoryData.length === 0) {
+				Array.prototype.push.apply(inventoryData, data.inventories[characterId]);
+			} else {
+				var arrayToMerge = [];
+				for (var item of data.inventories[characterId]) {
+					if (item.itemInstanceId !== "0") {
+						arrayToMerge.push(item);
+					} else {
+						var located = false;
+						for (var storedItem of inventoryData) {
+							if (item.itemInstanceId === "0" && item.itemHash === storedItem.itemHash) {
+								storedItem.stackSize += item.stackSize;
+								located = true;
 							}
 						}
+						if (!located) {
+							arrayToMerge.push(item);
+						}
 					}
-					console.log(arrayToMerge.length);
-					Array.prototype.push.apply(inventoryData, arrayToMerge);
 				}
+				console.log(arrayToMerge.length);
+				Array.prototype.push.apply(inventoryData, arrayToMerge);
 			}
-			inventoryData.sort(function(a, b) {
-				if (a.itemInstanceId === "0") {
-					return b.stackSize - a.stackSize;
-				} else {
-					return a.itemInstanceId - b.itemInstanceId;
-				}
-			});
-			var containingDiv = null;
-			for (var item of inventoryData) {
-				var itemDefinition = DestinyCompactItemDefinition[item.itemHash];
-				var bucketName = DestinyInventoryBucketDefinition[itemDefinition.bucketTypeHash].bucketName;
-				if (document.getElementById(bucketName) === null) {
-					var div = document.createElement("div");
-					div.classList.add("sub-section");
-					var description = document.createElement("h1");
-					description.textContent = bucketName;
-					div.appendChild(description);
-					characterHistory.appendChild(div);
-					var nodeList = document.createElement("div");
-					nodeList.classList.add("sub-section");
-					nodeList.id = bucketName;
-					characterHistory.appendChild(nodeList);
-				}
-				containingDiv = document.getElementById(bucketName);
-				containingDiv.appendChild(makeHistoryItem(item, "vault"));
+		}
+		inventoryData.sort(function(a, b) {
+			if (a.itemInstanceId === "0") {
+				return b.stackSize - a.stackSize;
+			} else {
+				return a.itemInstanceId - b.itemInstanceId;
 			}
-			console.timeEnd("Bungie Inventory");
 		});
+		var containingDiv = null;
+		for (var item of inventoryData) {
+			var itemDefinition = DestinyCompactItemDefinition[item.itemHash];
+			var bucketName = DestinyInventoryBucketDefinition[itemDefinition.bucketTypeHash].bucketName;
+			if (document.getElementById(bucketName) === null) {
+				var div = document.createElement("div");
+				div.classList.add("sub-section");
+				var description = document.createElement("h1");
+				description.textContent = bucketName;
+				div.appendChild(description);
+				characterHistory.appendChild(div);
+				var nodeList = document.createElement("div");
+				nodeList.classList.add("sub-section");
+				nodeList.id = bucketName;
+				characterHistory.appendChild(nodeList);
+			}
+			containingDiv = document.getElementById(bucketName);
+			containingDiv.appendChild(makeHistoryItem(item, "vault"));
+		}
+		console.timeEnd("Bungie Inventory");
 	});
 }
 

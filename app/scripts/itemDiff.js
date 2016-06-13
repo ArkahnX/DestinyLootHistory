@@ -1,6 +1,7 @@
 var transferQ = [];
 
 function processDifference(currentDateString, resolve) {
+	transferQ.length = 0;
 	console.time("Process Difference");
 	var previousItem = data.itemChanges[data.itemChanges.length - 1];
 	var uniqueIndex = 0;
@@ -118,20 +119,22 @@ function processDifference(currentDateString, resolve) {
 					if (isSameItem(addedItem.item, removedItem.item)) {
 						var movedItem = additions.splice(i, 1)[0];
 						removals.splice(e, 1);
-						var TQTemp = {
-							from: removedItem.characterId,
-							to: addedItem.characterId,
-							item: movedItem.item
-						};
-						var isUnique = true;
-						for (var item of transferQ) {
-							if (JSON.stringify(item) === JSON.stringify(TQTemp)) {
-								isUnique = false;
-								break;
+						if (JSON.parse(addedItem.item).itemHash !== parseInt(localStorage.transferMaterial)) {
+							var TQTemp = {
+								from: removedItem.characterId,
+								to: addedItem.characterId,
+								item: movedItem.item
+							};
+							var isUnique = true;
+							for (var item of transferQ) {
+								if (JSON.stringify(item) === JSON.stringify(TQTemp)) {
+									isUnique = false;
+									break;
+								}
 							}
-						}
-						if (isUnique) {
-							transferQ.push(TQTemp);
+							if (isUnique) {
+								transferQ.push(TQTemp);
+							}
 						}
 						break;
 					}
@@ -210,7 +213,7 @@ function processDifference(currentDateString, resolve) {
 		// }
 		if (diff.removed.length || diff.added.length || (transferQ.length) || (diff.progression && diff.progression.length)) {
 			localStorage.flag = "true";
-			console.log(diff, transferQ);
+			// console.log(diff, transferQ);
 		}
 		if (diff.removed.length || diff.added.length || (diff.transferred && diff.transferred.length && forceupdate) || (diff.progression && diff.progression.length && forceupdate)) {
 			if (diff.progression && diff.progression.length) {
@@ -226,6 +229,30 @@ function processDifference(currentDateString, resolve) {
 			}
 			finalChanges.push(diff);
 		} else {
+			var _inventories = {};
+			for (let bucket in data.inventories) {
+				_inventories[bucket] = 0;
+				for (let item of data.inventories[bucket]) {
+					if (typeof item.stackSize !== "number") {
+						_inventories[bucket] += 1;
+					} else {
+						_inventories[bucket] += item.stackSize || 1;
+					}
+				}
+			}
+			var _inventories2 = {};
+			for (let bucket in newInventories) {
+				_inventories2[bucket] = 0;
+				for (let item of newInventories[bucket]) {
+					if (typeof item.stackSize !== "number") {
+						_inventories2[bucket] += 1;
+					} else {
+						_inventories2[bucket] += item.stackSize || 1;
+					}
+				}
+			}
+			// console.log(_inventories,_inventories2);
+			console.log(`Vault ${_inventories.vault}/${_inventories2.vault}/${inventories.vault} Char1 ${_inventories[characterIdList[1]]}/${_inventories2[characterIdList[1]]}/${inventories[characterIdList[1]]} Char2 ${_inventories[characterIdList[2]]}/${_inventories2[characterIdList[2]]}/${inventories[characterIdList[2]]} Char3 ${_inventories[characterIdList[3]]}/${_inventories2[characterIdList[3]]}/${inventories[characterIdList[3]]} TRANSFER ${transferQ.length}`)
 			oldProgression[characterId] = oldProgression[characterId];
 			data.progression[characterId] = oldProgression[characterId];
 			oldInventories = oldInventories;
