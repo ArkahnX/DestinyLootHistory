@@ -213,15 +213,15 @@ header {
 	text-shadow: 1px 1px black;
 }
 
-.arc .primary-stat {
+.arc + .primary-stat {
 	background: #85C5EC;
 }
 
-.solar .primary-stat {
+.solar + .primary-stat {
 	background: #F2721B;
 }
 
-.void .primary-stat {
+.void + .primary-stat {
 	background: #B184C5;
 }
 
