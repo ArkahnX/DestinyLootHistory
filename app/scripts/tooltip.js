@@ -62,6 +62,10 @@ function handleOtherStats(dataset, resolve) {
 		var sortedStats = [];
 		for (var statHash of statHashes) {
 			for (var statDef of itemDef.stats) {
+				let found = false;
+				if (statDef.statHash === statHash) {
+					found = true;
+				}
 				for (var stat of stats) {
 					if (stat.statHash === statHash && statDef.statHash === statHash) {
 						sortedStats.push({
@@ -70,7 +74,16 @@ function handleOtherStats(dataset, resolve) {
 							value: stat.value,
 							statName: DestinyStatDefinition[stat.statHash].statName
 						});
+						found = false;
 					}
+				}
+				if (found === true) {
+					sortedStats.push({
+						minimum: statDef.minimum,
+						maximum: statDef.maximum,
+						value: statDef.value,
+						statName: DestinyStatDefinition[statDef.statHash].statName
+					});
 				}
 			}
 		}
