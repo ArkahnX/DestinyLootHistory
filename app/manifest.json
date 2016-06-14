@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Destiny Loot History",
-	"version": "0.10.0",
+	"version": "0.11.0",
 	"description": "Track your Destiny item changes.",
 	"icons": {
 		"16": "icon16.png",
@@ -16,6 +16,7 @@
 			"DestinyDatabase/DestinyCompactItemDefinition.js",
 			"DestinyDatabase/DestinyCompactTalentDefinition.js",
 			"DestinyDatabase/DestinyCompactDefinition.js",
+			"scripts/shared.js",
 			"scripts/bungie.js",
 			"scripts/matches.js",
 			"scripts/items.js",

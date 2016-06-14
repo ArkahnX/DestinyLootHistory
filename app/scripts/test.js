@@ -1,4 +1,3 @@
-
 initUi();
 var data = {
 	inventories: {},
@@ -31,12 +30,14 @@ function initItems(callback) {
 
 			var avatars = e.data.characters;
 			for (var c = 0; c < avatars.length; c++) {
+				console.log(avatars[c].characterBase)
 				characterDescriptions[avatars[c].characterBase.characterId] = {
 					name: DestinyClassDefinition[avatars[c].characterBase.classHash].className,
 					gender: DestinyGenderDefinition[avatars[c].characterBase.genderHash].genderName,
 					level: avatars[c].baseCharacterLevel,
 					light: avatars[c].characterBase.powerLevel,
-					race: DestinyRaceDefinition[avatars[c].characterBase.raceHash].raceName
+					race: DestinyRaceDefinition[avatars[c].characterBase.raceHash].raceName,
+					dateLastPlayed: avatars[c].characterBase.dateLastPlayed
 				};
 				characterIdList.push(avatars[c].characterBase.characterId);
 			}
@@ -48,67 +49,117 @@ function initItems(callback) {
 	});
 }
 
+
+var findHighestMaterial = (function() {
+	var stage = false;
+	var oldestCharacterDate = null;
+	var oldestCharacter = null;
+	var bigItem = null;
+	return function() {
+		console.time("bigmat");
+		if (stage === false) {
+			console.time("char");
+			for (let characterId of characterIdList) {
+				if (characterId !== "vault") {
+					var date = new Date(characterDescriptions[characterId].dateLastPlayed);
+					if (!oldestCharacter || date < oldestCharacterDate) {
+						oldestCharacterDate = date;
+						oldestCharacter = characterId;
+					}
+				}
+			}
+			console.timeEnd("char");
+			console.time("mats");
+			for (let item of data.inventories[oldestCharacter]) {
+				let itemDefinition = DestinyCompactItemDefinition[item.itemHash];
+				if (itemDefinition.bucketTypeHash === 3865314626) {
+					if (!bigItem || item.stackSize > bigItem.stackSize) {
+						bigItem = item;
+					}
+				}
+			}
+			console.timeEnd("mats");
+		}
+		if (stage === true) {
+			stage = false;
+		} else {
+			stage = true;
+		}
+		console.timeEnd("bigmat");
+		return {
+			characterId: oldestCharacter,
+			itemId: "0",
+			itemReferenceHash: bigItem.itemHash,
+			membershipType: bungie.membershipType(),
+			stackSize: 1,
+			transferToVault: stage
+		};
+	};
+}());
+
 function checkInventory() {
 	console.time("Bungie Inventory");
-	sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
-		sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
-			var characterHistory = document.getElementById("history");
-			var inventoryData = [];
-			for (var characterId in data.inventories) {
+	chrome.storage.local.get(null, function(remoteData) {
+		console.log(remoteData)
+		data = remoteData;
+		// sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
+		// sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
+		var mat = findHighestMaterial();
+		console.log(mat);
+		var characterHistory = document.getElementById("history");
+		var inventoryData = [];
+		for (var characterId in data.inventories) {
+			if (inventoryData.length === 0) {
 				Array.prototype.push.apply(inventoryData, data.inventories[characterId]);
-			}
-			inventoryData.sort(function(a, b) {
-				return a.itemInstanceId - b.itemInstanceId;
-			});
-			for (var i = inventoryData.length - 1; i >= 0; i--) {
-				if (inventoryData[i].itemInstanceId === "0") {
-					inventoryData.splice(i, 1);
-				}
-			}
-			console.log(inventoryData);
-			var sourceIndex = 0;
-			var sources = [3107502809, 36493462, 460228854, 3945957624, 344892955, 3739898362];
-			var descriptions = ["Dark Below","House of Wolves","The Taken King","Sparrow Racing League","Crimson Doubles","April Update"];
-			var div = document.createElement("div");
-			div.classList.add("sub-section");
-			var description = document.createElement("h1");
-			description.textContent = "Destiny";
-			div.appendChild(description);
-			characterHistory.appendChild(div);
-			var div = document.createElement("div");
-			div.classList.add("sub-section");
-			for (var item of inventoryData) {
-				var itemDefinition = DestinyCompactItemDefinition[item.itemHash];
-				var found = false;
-				if (itemDefinition.sourceHashes && itemDefinition.sourceHashes.length && sources[sourceIndex] && itemDefinition.sourceHashes.indexOf(sources[sourceIndex]) > -1) {
-					if (sources[sourceIndex - 1] && sources[sourceIndex - 1] !== 460228854) {
-						if (itemDefinition.sourceHashes.indexOf(sources[sourceIndex - 1]) === -1) {
-							if (itemDefinition.tierTypeName !== "Exotic" && itemDefinition.bucketTypeHash !== 284967655 && itemDefinition.tierTypeName !== "Rare") {
-								found = true;
+			} else {
+				var arrayToMerge = [];
+				for (var item of data.inventories[characterId]) {
+					if (item.itemInstanceId !== "0") {
+						arrayToMerge.push(item);
+					} else {
+						var located = false;
+						for (var storedItem of inventoryData) {
+							if (item.itemInstanceId === "0" && item.itemHash === storedItem.itemHash) {
+								storedItem.stackSize += item.stackSize;
+								located = true;
 							}
 						}
-					} else {
-						found = true;
-					}
-					if (found) {
-						var source = DestinyRewardSourceDefinition[sources[sourceIndex]];
-						characterHistory.appendChild(div);
-						div = document.createElement("div");
-						div.classList.add("sub-section");
-						div.classList.add(source.identifier);
-						var sourceDescription = document.createElement("h1");
-						sourceDescription.textContent = descriptions[sourceIndex];
-						div.appendChild(sourceDescription);
-						characterHistory.appendChild(div);
-						var div = document.createElement("div");
-						div.classList.add("sub-section");
-						sourceIndex++;
+						if (!located) {
+							arrayToMerge.push(item);
+						}
 					}
 				}
-				div.appendChild(makeHistoryItem(item, "vault"));
+				console.log(arrayToMerge.length);
+				Array.prototype.push.apply(inventoryData, arrayToMerge);
 			}
-			characterHistory.appendChild(div);
+		}
+		inventoryData.sort(function(a, b) {
+			if (a.itemInstanceId === "0") {
+				return b.stackSize - a.stackSize;
+			} else {
+				return a.itemInstanceId - b.itemInstanceId;
+			}
 		});
+		var containingDiv = null;
+		for (var item of inventoryData) {
+			var itemDefinition = DestinyCompactItemDefinition[item.itemHash];
+			var bucketName = DestinyInventoryBucketDefinition[itemDefinition.bucketTypeHash].bucketName;
+			if (document.getElementById(bucketName) === null) {
+				var div = document.createElement("div");
+				div.classList.add("sub-section");
+				var description = document.createElement("h1");
+				description.textContent = bucketName;
+				div.appendChild(description);
+				characterHistory.appendChild(div);
+				var nodeList = document.createElement("div");
+				nodeList.classList.add("sub-section");
+				nodeList.id = bucketName;
+				characterHistory.appendChild(nodeList);
+			}
+			containingDiv = document.getElementById(bucketName);
+			containingDiv.appendChild(makeHistoryItem(item, "vault"));
+		}
+		console.timeEnd("Bungie Inventory");
 	});
 }
 

@@ -48,7 +48,8 @@ var bungie = (function Bungie() {
 					console.warn("Please report the following error for investigation.");
 					console.error({
 						status: response.ErrorStatus,
-						message: response.Message
+						message: response.Message,
+						response
 					});
 					console.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.', response.Message);
 					setTimeout(function() {
@@ -96,6 +97,10 @@ var bungie = (function Bungie() {
 			}
 		});
 	}
+
+	bungie.membershipType = function() {
+		return active.type;
+	};
 
 	bungie.user = function() {
 		return new Promise(function(resolve) {
@@ -185,7 +190,7 @@ var bungie = (function Bungie() {
 			});
 		});
 	};
-	bungie.transfer = function(characterId, itemId, itemHash, amount, toVault) {
+	bungie.transfer = function(characterId, itemId, itemReferenceHash, stackSize, transferToVault) {
 		return new Promise(function(resolve) {
 			_request({
 				route: '/Destiny/TransferItem/',
@@ -194,9 +199,9 @@ var bungie = (function Bungie() {
 					characterId: characterId,
 					membershipType: active.type,
 					itemId: itemId,
-					itemReferenceHash: itemHash,
-					stackSize: amount,
-					transferToVault: toVault
+					itemReferenceHash: itemReferenceHash,
+					stackSize: stackSize,
+					transferToVault: transferToVault
 				},
 				complete: resolve
 			});

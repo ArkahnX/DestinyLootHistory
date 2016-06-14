@@ -4,34 +4,51 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Loot History</title>
 	<link rel="stylesheet" type="text/css" href="ui.css">
+	<style>
+		.item {
+			width:90px;
+			height:90px;
+			min-width: 15px;
+		}
+		.item-container {
+			width:96px;
+			height:96px;
+			margin:6px;
+		}
+		#container {
+			height: calc(100% - 32px);
+		}
+		.sub-section {
+			margin-bottom:30px;
+		}
+		.primary-stat {
+			padding: 0 6px;
+			font-size: 15px;
+		}
+		.quality {
+			font-size: 15px;
+		}
+		input {
+			float:left;
+		}
+	</style>
 </head>
 
 <body>
-	<header id="status">
+	<header id="status" class="hidden">
 		<nav>
 			<input type="button" value="Begin Tracking" id="startTracking" disabled />
-			<input type="button" value="View History" id="viewHistory" />
-			<input type="button" value="View Options" id="viewOptions" />
-			<input type="button" value="Search Results" id="viewSearch" />
-			<span id="version"></span>
 		</nav>
 	</header>
 	<div class="title-bar">
-		<div class="center">
-			<div class="title"><h1 class="section-title">DATE</h1></div>
-			<div class="title"><h1 class="section-title">PROGRESS</h1></div>
-			<div class="title"><h1 class="section-title">ADDED</h1></div>
-			<div class="title"><h1 class="section-title">REMOVED</h1></div>
-			<div class="title"><h1 class="section-title">TRANSFERRED</h1></div>
+				<input type="button" value="Return to Item Tracking" id="viewHome" />
+			<div class="center" id="character-headers" style="text-align: center;">
+				<div class="title"><h1 class="section-title">ITEM HISTORY</h1></div>
+			</div>
 		</div>
-	</div>
 	<div id="container">
-		<div class="center">
-			<div id="date" class="main-section"></div>
-			<div id="progression" class="main-section"></div>
-			<div id="added" class="main-section"></div>
-			<div id="removed" class="main-section"></div>
-			<div id="transferred" class="main-section"></div>
+		<div class="center" id="character-sections">
+			<div id="history" class="main-section" style="width: inherit;"></div>
 		</div>
 	</div>
 	<div id="tooltip" class="hidden">
@@ -57,19 +74,14 @@
 	<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>
 	<script type="text/javascript" src="DestinyDatabase/DestinyCompactTalentDefinition.js"></script>
 	<script type="text/javascript" src="DestinyDatabase/DestinyCompactDefinition.js"></script>
-	<script type="text/javascript" src="scripts/vendor/AsyncIterator.js"></script>
 	<script type="text/javascript" src="scripts/vendor/moment.js"></script>
 	<script type="text/javascript" src="scripts/vendor/moment-timezone.js"></script>
 	<script type="text/javascript" src="scripts/shared.js"></script>
 	<script type="text/javascript" src="scripts/bungie.js"></script>
 	<script type="text/javascript" src="scripts/quality.js"></script>
-	<script type="text/javascript" src="scripts/items.js"></script>
-	<script type="text/javascript" src="scripts/itemDiff.js"></script>
-	<script type="text/javascript" src="scripts/tooltip.js"></script>
 	<script type="text/javascript" src="scripts/ui.js"></script>
-	<script type="text/javascript" src="scripts/matches.js"></script>
-	<script type="text/javascript" src="scripts/timers.js"></script>
-	<script type="text/javascript" src="scripts/main.js"></script>
+	<script type="text/javascript" src="scripts/tooltip.js"></script>
+	<script type="text/javascript" src="scripts/test.js"></script>
 </body>
 
 </html>

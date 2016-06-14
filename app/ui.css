@@ -247,6 +247,7 @@ header {
 	z-index: auto;
 	z-index: 1;
 	top: auto;
+	    font-size: 2em;
 
 	width: 240px;
 
@@ -589,4 +590,8 @@ input[type=text]:focus {
 
 select {
 	border: 1px solid transparent;
+}
+
+h1 {
+	font-size: 6em;
 }
