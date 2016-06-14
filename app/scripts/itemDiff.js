@@ -119,7 +119,7 @@ function processDifference(currentDateString, resolve) {
 					if (isSameItem(addedItem.item, removedItem.item)) {
 						var movedItem = additions.splice(i, 1)[0];
 						removals.splice(e, 1);
-						if (JSON.parse(addedItem.item).itemHash !== parseInt(localStorage.transferMaterial)) {
+						if (JSON.parse(movedItem.item).itemHash !== parseInt(localStorage.transferMaterial) && JSON.parse(movedItem.item).itemHash !== parseInt(localStorage.oldTransferMaterial)) {
 							var TQTemp = {
 								from: removedItem.characterId,
 								to: addedItem.characterId,

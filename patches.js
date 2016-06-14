@@ -76,7 +76,7 @@ function rt(result, characterId) {
 		if (Array.isArray(result.data.buckets)) {
 			for (var bucket of result.data.buckets) {
 				for (var i = 0; i < bucket.items.length; i++) {
-						inventories[characterId] += bucket.items[i].stackSize || 1;
+					inventories[characterId] += bucket.items[i].stackSize || 1;
 				}
 			}
 		} else {
@@ -94,7 +94,7 @@ function rt(result, characterId) {
 function quickInventory() {
 	sequence(characterIdList, nw, rt).then(function() {
 		console.log(inventories);
-		if(!stop) {
+		if (!stop) {
 			quickInventory();
 		}
 	});
@@ -173,7 +173,34 @@ for (var i = data.itemChanges.length - 1; i > -1; i--) {
 chrome.storage.local.get(null, function(data) {
 	for (var i = data.itemChanges.length - 1; i > -1; i--) {
 		var itemDiff = data.itemChanges[i];
-		if (itemDiff.added.length > 20 || itemDiff.removed.length > 20) {
+		if (itemDiff.added.length > 20 || itemDiff.removed.length > 20 || (itemDiff.transferred && itemDiff.transferred.length > 20)) {
+			data.itemChanges.splice(i, 1);
+		}
+	}
+	chrome.storage.local.set(data, function() {});
+});
+
+chrome.storage.local.get(null, function(data) {
+	for (var i = data.itemChanges.length - 1; i > -1; i--) {
+		var itemDiff = data.itemChanges[i];
+		var found = false;
+		for (let property in itemDiff) {
+			if (Array.isArray(itemDiff[property])) {
+				for (var e = itemDiff[property].length - 1; e > -1; e--) {
+					var itemJson = itemDiff[property][e];
+					var item = null;
+					if (itemJson.item) {
+						item = JSON.parse(itemJson.item);
+					} else {
+						item = JSON.parse(itemJson);
+					}
+					if (item.itemHash === 1542293174) {
+						itemDiff[property].splice(e, 1);
+					}
+				}
+			}
+		}
+		if(itemDiff.added.length === 0 && itemDiff.removed.length === 0 && (!itemDiff.transferred || itemDiff.transferred.length === 0)) {
 			data.itemChanges.splice(i, 1);
 		}
 	}

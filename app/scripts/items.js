@@ -367,15 +367,27 @@ var findHighestMaterial = (function() {
 				}
 			}
 		}
+		var vaultQuantity = 0;
+		if (localStorage.transferMaterial !== "null") {
+			for (let item of newInventories["vault"]) {
+				if (item.itemHash === parseInt(localStorage.transferMaterial)) {
+					vaultQuantity = item.stackSize;
+				}
+			}
+		}
 		// console.log(localStorage.transferMaterial, itemQuantity)
 		// console.log(localStorage.transferMaterial !== "null" && localStorage.newestCharacter !== "null" && parseInt(localStorage.transferQuantity) > 0, reset, parseInt(localStorage.transferQuantity) > itemQuantity)
-		// console.log(localStorage.transferMaterial, localStorage.newestCharacter, parseInt(localStorage.transferQuantity))
+		console.log(parseInt(localStorage.transferQuantity), itemQuantity)
 		if ((localStorage.transferMaterial !== "null" && localStorage.newestCharacter !== "null" && parseInt(localStorage.transferQuantity) > 0) && (reset || parseInt(localStorage.transferQuantity) > itemQuantity)) {
 			let localCharacter = localStorage.newestCharacter;
 			let localMaterial = parseInt(localStorage.transferMaterial);
-			let localTarnsferQuantity = parseInt(localStorage.transferQuantity);
-			console.error("HERERERER")
-			bungie.transfer(localCharacter, "0", localMaterial, localTarnsferQuantity, false);
+			let localTransferQuantity = parseInt(localStorage.transferQuantity);
+			if (localTransferQuantity > vaultQuantity) {
+				localTransferQuantity = vaultQuantity;
+			}
+			console.log(`%c Moved ${localTransferQuantity} ${DestinyCompactItemDefinition[localMaterial].itemName} to Guardian`,"font-weight:bold");
+			bungie.transfer(localCharacter, "0", localMaterial, localTransferQuantity, false);
+			localStorage.oldTransferMaterial = localStorage.transferMaterial;
 			localStorage.transferMaterial = null;
 			localStorage.transferMaterialStack = 0;
 			localStorage.newestCharacter = null;
@@ -388,17 +400,21 @@ var findHighestMaterial = (function() {
 			if (characterId !== "vault") {
 				var date = new Date(characterDescriptions[characterId].dateLastPlayed);
 				if ((!localStorage.newestCharacter || localStorage.newestCharacter === "null") || date > newestCharacterDate) {
-					if (localStorage.newestCharacter !== characterId) {
+					if (localStorage.newestCharacter !== characterId || new Date().getTime() > date.getTime()+(1000*60*10)) {
 						// console.log(characterId, localStorage.newestCharacter)
 						if (parseInt(localStorage.transferQuantity) > 0 && localStorage.transferMaterial !== "null") {
 							let localCharacter = localStorage.newestCharacter;
 							let localMaterial = parseInt(localStorage.transferMaterial);
-							let localTarnsferQuantity = parseInt(localStorage.transferQuantity);
-							console.error("HERERERER")
-							bungie.transfer(localCharacter, "0", localMaterial, localTarnsferQuantity, false);
+							let localTransferQuantity = parseInt(localStorage.transferQuantity);
+							if (localTransferQuantity > vaultQuantity) {
+								localTransferQuantity = vaultQuantity;
+							}
+							console.log(`%c Moved ${localTransferQuantity} ${DestinyCompactItemDefinition[localMaterial].itemName} to Guardian`,"font-weight:bold");
+							bungie.transfer(localCharacter, "0", localMaterial, localTransferQuantity, false);
 						}
 						localStorage.newestCharacter = characterId;
 						localStorage.transferQuantity = 0;
+						localStorage.oldTransferMaterial = localStorage.transferMaterial;
 						localStorage.transferMaterial = null;
 						localStorage.transferMaterialStack = 0;
 					}
@@ -415,6 +431,7 @@ var findHighestMaterial = (function() {
 				if (itemDefinition.bucketTypeHash === 3865314626 || itemDefinition.bucketTypeHash === 1469714392) {
 					// console.log(!localStorage.transferMaterial, item.stackSize > transferMaterial.stackSize)
 					if ((!localStorage.transferMaterial || localStorage.transferMaterial === "null") || item.stackSize > parseInt(localStorage.transferMaterialStack)) {
+						localStorage.oldTransferMaterial = localStorage.transferMaterial;
 						localStorage.transferMaterial = item.itemHash;
 						localStorage.transferMaterialStack = item.stackSize;
 					}
@@ -422,8 +439,8 @@ var findHighestMaterial = (function() {
 			}
 			console.timeEnd("mats");
 		}
-		console.log(`Moved 1 ${DestinyCompactItemDefinition[localStorage.transferMaterial].itemName} to Vault`)
-		// console.log(localStorage.transferMaterial)
+		console.log(`%c Moved 1 ${DestinyCompactItemDefinition[localStorage.transferMaterial].itemName} to Vault`,"font-weight:bold");
+			// console.log(localStorage.transferMaterial)
 		localStorage.transferQuantity = parseInt(localStorage.transferQuantity) + 1;
 		console.timeEnd("bigmat");
 		// console.log(localStorage.newestCharacter, "0", localStorage.transferMaterial, 1, true, localStorage);
