@@ -41,16 +41,19 @@ nav {
 	text-align: center;
 }
 input,
-select {
+select,
+.button {
+	font-family:Arial;
 	font-weight: 700;
 	line-height: 1.5;
+	font-size:13px;
 
 	position: relative;
 
 	display: inline-block;
 
 	box-sizing: border-box;
-	padding: .55em 1.5em;
+	padding: 7px 20px;
 
 	transition: background-color .5s;
 	text-transform: uppercase;
@@ -58,10 +61,14 @@ select {
 	color: #FFF;
 	border: none;
 	background-color: #128FFF;
+	text-decoration:none;
+	text-transform:uppercase;
+	
 }
 
 input:hover,
-select:hover {
+select:hover,
+.button:hover {
 	transition: background-color 0s;
 
 	background-color: #004A8C;
@@ -70,13 +77,15 @@ select:hover {
 input:active,
 select:active,
 input:focus,
-select:focus {
+select:focus,
+.button:active,
+.button:focus {
 	transition: background-color 0s;
 
 	background-color: #00396C;
 }
 
-input[type=button] {
+.button {
 	cursor: pointer;
 }
 
@@ -243,11 +252,12 @@ header {
 }
 
 .section-title {
+	font-size: 2em;
+
 	position: fixed;
 	z-index: auto;
 	z-index: 1;
 	top: auto;
-	    font-size: 2em;
 
 	width: 240px;
 

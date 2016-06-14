@@ -27,30 +27,6 @@ function initUi() {
 			});
 		}
 	}
-	var historyLink = document.querySelector("#viewhistory");
-	if (historyLink) {
-		historyLink.addEventListener("click", function() {
-			window.location.href = chrome.extension.getURL('history.html');
-		});
-	}
-	var optionsLink = document.querySelector("#viewOptions");
-	if (optionsLink) {
-		optionsLink.addEventListener("click", function() {
-			window.location.href = chrome.extension.getURL('options.html');
-		});
-	}
-	var searchLink = document.querySelector("#viewSearch");
-	if (searchLink) {
-		searchLink.addEventListener("click", function() {
-			window.location.href = chrome.extension.getURL('search.html');
-		});
-	}
-	var homeLink = document.querySelector("#viewHome");
-	if (homeLink) {
-		homeLink.addEventListener("click", function() {
-			window.location.href = chrome.extension.getURL('index.html');
-		});
-	}
 	if (document.querySelector("#container")) {
 		document.querySelector("#container").addEventListener("mouseover", function(event) {
 			var target = null;
