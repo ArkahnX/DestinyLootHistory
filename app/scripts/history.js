@@ -78,7 +78,7 @@ function checkInventory() {
 			var div = document.createElement("div");
 			div.classList.add("sub-section");
 			for (var item of inventoryData) {
-				var itemDefinition = DestinyCompactItemDefinition[item.itemHash];
+				var itemDefinition = getItemDefinition(item.itemHash);
 				var found = false;
 				if (itemDefinition.sourceHashes && itemDefinition.sourceHashes.length && sources[sourceIndex] && itemDefinition.sourceHashes.indexOf(sources[sourceIndex]) > -1) {
 					if (sources[sourceIndex - 1] && sources[sourceIndex - 1] !== 460228854) {
@@ -131,8 +131,8 @@ function makeHistoryItem(itemData) {
 	itemContainer.appendChild(stat);
 	docfrag.appendChild(itemContainer);
 	DOMTokenList.prototype.add.apply(container.classList, itemClasses(itemData));
-	if (DestinyCompactItemDefinition[itemData.itemHash].hasIcon || (DestinyCompactItemDefinition[itemData.itemHash].icon && DestinyCompactItemDefinition[itemData.itemHash].icon.length)) {
-		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[itemData.itemHash].icon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
+	if (getItemDefinition(itemData.itemHash).hasIcon || (getItemDefinition(itemData.itemHash).icon && getItemDefinition(itemData.itemHash).icon.length)) {
+		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + getItemDefinition(itemData.itemHash).icon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
 	} else {
 		container.setAttribute("style", "background-image: url('http://bungie.net/img/misc/missing_icon.png')");
 	}
@@ -143,7 +143,7 @@ function makeHistoryItem(itemData) {
 }
 
 function passData(DomNode, itemData) {
-	var itemDefinition = DestinyCompactItemDefinition[itemData.itemHash];
+	var itemDefinition = getItemDefinition(itemData.itemHash);
 	if (itemDefinition.tierTypeName) {
 		DomNode.dataset.tierTypeName = itemDefinition.tierTypeName;
 	} else {
@@ -249,9 +249,9 @@ function buildCompactItem(itemData, bucketHash) {
 			}
 		}
 	}
-	newItemData.itemName = DestinyCompactItemDefinition[hash].itemName;
-	newItemData.itemTypeName = DestinyCompactItemDefinition[hash].itemTypeName;
-	newItemData.tierTypeName = DestinyCompactItemDefinition[hash].tierTypeName;
+	newItemData.itemName = getItemDefinition(hash).itemName;
+	newItemData.itemTypeName = getItemDefinition(hash).itemTypeName;
+	newItemData.tierTypeName = getItemDefinition(hash).tierTypeName;
 	newItemData.bucketHash = bucketHash;
 	newItemData.bucketName = DestinyInventoryBucketDefinition[bucketHash].bucketName;
 	if (newItemData.stats) {
@@ -259,8 +259,8 @@ function buildCompactItem(itemData, bucketHash) {
 			newItemData.stats[e].statName = DestinyStatDefinition[newItemData.stats[e].statHash].statName;
 		}
 	}
-	if (DestinyCompactItemDefinition[hash].sourceHashes) {
-		var sourceHashes = DestinyCompactItemDefinition[hash].sourceHashes;
+	if (getItemDefinition(hash).sourceHashes) {
+		var sourceHashes = getItemDefinition(hash).sourceHashes;
 		for (var q = 0; q < sourceHashes.length; q++) {
 			var sourceHash = sourceHashes[q];
 			var rewardSource = DestinyRewardSourceDefinition[sourceHash];

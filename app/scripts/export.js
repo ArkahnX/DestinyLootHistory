@@ -55,7 +55,7 @@ function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, light
 									}
 									for (var item of itemDiff.added) {
 										var added = JSON.parse(item);
-										var mainItemData = DestinyCompactItemDefinition[added.itemHash];
+										var mainItemData = getItemDefinition(added.itemHash);
 										var bucketData = DestinyInventoryBucketDefinition[mainItemData.bucketTypeHash];
 										var light = added.stackSize;
 										if (added.primaryStat) {

@@ -56,7 +56,7 @@ var statHashes = [4284893193, 2837207746, 2961396640, 4043523819, 3614673599, 12
 function handleOtherStats(dataset, resolve) {
 	var statContainer = document.getElementById("stat-table");
 	statContainer.innerHTML = "";
-	var itemDef = DestinyCompactItemDefinition[dataset.itemHash];
+	var itemDef = getItemDefinition(dataset.itemHash);
 	if (dataset.statTree) {
 		var stats = JSON.parse(dataset.statTree);
 		var sortedStats = [];
@@ -150,7 +150,7 @@ function handleOtherStats(dataset, resolve) {
 function handleBountyStats(dataset, resolve, reject) {
 	var statContainer = document.getElementById("stat-table");
 	statContainer.innerHTML = "";
-	var itemDef = DestinyCompactItemDefinition[dataset.itemHash];
+	var itemDef = getItemDefinition(dataset.itemHash);
 	if (dataset.objectiveTree) {
 		var objectives = JSON.parse(dataset.objectiveTree);
 		for (var stat of objectives) {

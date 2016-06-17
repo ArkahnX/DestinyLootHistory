@@ -43,7 +43,7 @@ function processDifference(currentDateString, resolve) {
 			for (var addition of diffObject.added) {
 				if (addition) {
 					var itemData = JSON.parse(addition);
-					var itemDefinition = DestinyCompactItemDefinition[itemData.itemHash];
+					var itemDefinition = getItemDefinition(itemData.itemHash);
 					if (itemDefinition.bucketTypeHash === 2197472680 || itemDefinition.bucketTypeHash === 1801258597 || itemData.objectives) {
 						if (parseInt(itemData.stackSize, 10) > 0) {
 							console.log("passed to progression");
@@ -68,7 +68,7 @@ function processDifference(currentDateString, resolve) {
 			for (var removal of diffObject.removed) {
 				if (removal) {
 					var localDefinition = JSON.parse(removal);
-					var databaseDefinition = DestinyCompactItemDefinition[localDefinition.itemHash];
+					var databaseDefinition = getItemDefinition(localDefinition.itemHash);
 					if (databaseDefinition.bucketTypeHash === 2197472680 || databaseDefinition.bucketTypeHash === 1801258597 || localDefinition.objectives) {
 						var found = false;
 						for (var progress of progression) {

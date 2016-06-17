@@ -1,5 +1,5 @@
 function hasQuality(item) {
-	var itemDef = DestinyCompactItemDefinition[item.itemHash];
+	var itemDef = getItemDefinition(item.itemHash);
 	return (item.primaryStat && item.primaryStat.statHash === 3897883278 && item.primaryStat.value > 199 && (itemDef.tierTypeName === "Legendary" || itemDef.tierTypeName === "Exotic") && item.stats);
 }
 
@@ -14,7 +14,7 @@ function parseQuality(startingStat, startingDefense, endingDefense) {
 
 function parseItemQuality(item) {
 	var grid = getNodes(item);
-	var itemDef = DestinyCompactItemDefinition[item.itemHash];
+	var itemDef = getItemDefinition(item.itemHash);
 	var itemType = itemDef.itemTypeName.split(" ")[0];
 	if (itemDef.itemTypeName.split(" ")[1]) {
 		itemType = itemType + " " + itemDef.itemTypeName.split(" ")[1];

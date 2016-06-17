@@ -13,6 +13,7 @@
 	"background": {
 		"scripts": [
 			"scripts/vendor/moment.js",
+			"DestinyDatabase/DestinyHistoricalItemDefinition.js",
 			"DestinyDatabase/DestinyCompactItemDefinition.js",
 			"DestinyDatabase/DestinyCompactTalentDefinition.js",
 			"DestinyDatabase/DestinyCompactDefinition.js",

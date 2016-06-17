@@ -220,8 +220,8 @@ function makeItem(itemDiff, moveType, index) {
 	itemContainer.appendChild(stat);
 	docfrag.appendChild(itemContainer);
 	DOMTokenList.prototype.add.apply(container.classList, itemClasses(itemData));
-	if (DestinyCompactItemDefinition[itemData.itemHash].hasIcon || (DestinyCompactItemDefinition[itemData.itemHash].icon && DestinyCompactItemDefinition[itemData.itemHash].icon.length)) {
-		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[itemData.itemHash].icon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
+	if (getItemDefinition(itemData.itemHash).hasIcon || (getItemDefinition(itemData.itemHash).icon && getItemDefinition(itemData.itemHash).icon.length)) {
+		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + getItemDefinition(itemData.itemHash).icon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
 	} else {
 		container.setAttribute("style", "background-image: url('http://bungie.net/img/misc/missing_icon.png')");
 	}
@@ -265,7 +265,13 @@ function itemClasses(itemData) {
 	if (itemData.isGridComplete) {
 		classList.push("complete");
 	}
-	var itemDefinition = DestinyCompactItemDefinition[itemData.itemHash];
+	if (itemData.itemHash === 3392485744) {
+		itemData.itemHash = 298210614;
+	}
+	var itemDefinition = getItemDefinition(itemData.itemHash);
+	if (!itemDefinition) {
+		console.log(itemData.itemHash, itemData, DestinyCompactItemDefinition)
+	}
 	if (itemDefinition.tierTypeName === "Exotic") {
 		classList.push("exotic");
 	} else if (itemDefinition.tierTypeName === "Legendary") {
@@ -327,7 +333,13 @@ function passData(DomNode, itemDiff, moveType, index) {
 		itemData = itemData.item;
 	}
 	itemData = JSON.parse(itemData);
-	var itemDefinition = DestinyCompactItemDefinition[itemData.itemHash];
+	if (itemData.itemHash === 3392485744) {
+		itemData.itemHash = 298210614;
+	}
+	var itemDefinition = getItemDefinition(itemData.itemHash);
+	if (!itemDefinition) {
+		console.log(itemData.itemHash, itemData, DestinyCompactItemDefinition)
+	}
 	if (itemDefinition.tierTypeName) {
 		DomNode.dataset.tierTypeName = itemDefinition.tierTypeName;
 	} else {

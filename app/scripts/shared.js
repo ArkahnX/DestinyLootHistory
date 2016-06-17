@@ -34,3 +34,12 @@ function sequence(array, networkTask, resultTask) {
 		recursive(0, array, networkTask, resultTask, resolve);
 	});
 }
+
+function getItemDefinition(hash) {
+	if(DestinyHistoricalItemDefinition[hash]) {
+		return DestinyHistoricalItemDefinition[hash];
+	} else if(DestinyCompactItemDefinition[hash]) {
+		return DestinyCompactItemDefinition[hash];
+	}
+	console.error(`Item Reference ${hash} is not in database. Please file a bug report.`);
+}
