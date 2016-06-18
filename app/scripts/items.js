@@ -385,7 +385,7 @@ var findHighestMaterial = (function() {
 				localTransferQuantity = vaultQuantity;
 			}
 			let localDescription = characterDescriptions[localCharacter];
-			console.log(`%c Moved ${localTransferQuantity} ${getItemDefinition(localMaterial).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name}`, "font-weight:bold");
+			console.log(`%c Moved ${localTransferQuantity} ${getItemDefinition(localMaterial).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (${vaultQuantity} in Vault)`, "font-weight:bold");
 			bungie.transfer(localCharacter, "0", localMaterial, localTransferQuantity, false);
 			localStorage.oldTransferMaterial = localStorage.transferMaterial;
 			localStorage.transferMaterial = null;
@@ -411,7 +411,7 @@ var findHighestMaterial = (function() {
 								localTransferQuantity = vaultQuantity;
 							}
 							let localDescription = characterDescriptions[localCharacter];
-							console.log(`%c Moved ${localTransferQuantity} ${getItemDefinition(localMaterial).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name}`, "font-weight:bold");
+							console.log(`%c Moved ${localTransferQuantity} ${getItemDefinition(localMaterial).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (${vaultQuantity} in Vault)`, "font-weight:bold");
 							bungie.transfer(localCharacter, "0", localMaterial, localTransferQuantity, false);
 						}
 						localStorage.newestCharacter = characterId;
@@ -441,7 +441,7 @@ var findHighestMaterial = (function() {
 			}
 			console.timeEnd("mats");
 		}
-		console.log(`%c Moved 1 ${getItemDefinition(localStorage.transferMaterial).itemName} to Vault`, "font-weight:bold");
+		console.log(`%c Moved 1 ${getItemDefinition(localStorage.transferMaterial).itemName} to Vault (${vaultQuantity} in Vault)`, "font-weight:bold");
 		// console.log(localStorage.transferMaterial)
 		localStorage.transferQuantity = parseInt(localStorage.transferQuantity) + 1;
 		console.timeEnd("bigmat");

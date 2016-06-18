@@ -43,10 +43,10 @@ nav {
 input,
 select,
 .button {
-	font-family:Arial;
+	font-family: Arial;
+	font-size: 13px;
 	font-weight: 700;
 	line-height: 1.5;
-	font-size:13px;
 
 	position: relative;
 
@@ -56,14 +56,13 @@ select,
 	padding: 7px 20px;
 
 	transition: background-color .5s;
+	text-decoration: none;
+	text-transform: uppercase;
 	text-transform: uppercase;
 
 	color: #FFF;
 	border: none;
 	background-color: #128FFF;
-	text-decoration:none;
-	text-transform:uppercase;
-	
 }
 
 input:hover,
@@ -267,6 +266,8 @@ header {
 .center {
 	width: 1200px;
 	margin: auto;
+
+	text-align: center;
 }
 
 #tooltip {

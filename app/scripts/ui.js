@@ -54,6 +54,35 @@ function initUi() {
 	}
 }
 
+function makePages(customLength) {
+	if (document.querySelector("#paginate") && data.itemChanges && oldItemChangeQuantity !== (customLength || data.itemChanges.length)) {
+		var paginateContainer = document.querySelector("#paginate");
+		while (paginateContainer.lastChild) {
+			paginateContainer.removeChild(paginateContainer.lastChild);
+		}
+		var tempContainer = document.createDocumentFragment();
+		for (let i = 0; i < Math.ceil((customLength || data.itemChanges.length) / pageQuantity); i++) {
+			var option = document.createElement("option");
+			option.value = i;
+			if (i === pageNumber) {
+				option.selected = true;
+			}
+			option.textContent = `Page ${i+1}`;
+			tempContainer.appendChild(option);
+		}
+		paginateContainer.appendChild(tempContainer);
+		paginateContainer.addEventListener("change", function() {
+			pageNumber = parseInt(paginateContainer.value, 10);
+			clearTimeout(updateTimeout);
+			checkForUpdates();
+		}, false);
+	}
+}
+
+var pageQuantity = 50;
+var pageNumber = 0;
+var oldItemChangeQuantity = 0;
+var oldPageNumber = -1;
 var transitionInterval = null;
 var previousElement = null;
 
@@ -121,29 +150,50 @@ function createDate(itemDiff, className) {
 }
 
 var lastIndex = -1;
-var resultQuantity = 100;
-var arrayStep = 0;
+var dateFrag = document.createDocumentFragment();
+var addedFrag = document.createDocumentFragment();
+var removedFrag = document.createDocumentFragment();
+var transferredFrag = document.createDocumentFragment();
+var progressionFrag = document.createDocumentFragment();
 
 function displayResults(customItems) {
+	makePages(customItems && customItems.length);
+	var date = document.getElementById("date");
+	var added = document.getElementById("added");
+	var removed = document.getElementById("removed");
+	var transferred = document.getElementById("transferred");
+	var progression = document.getElementById("progression");
 	return new Promise(function(resolve, reject) {
 		console.timeEnd("grab matches");
 		constructMatchInterface();
 		console.time("loadResults");
+		if (oldItemChangeQuantity !== ((customItems && customItems.length) || data.itemChanges.length) || oldPageNumber !== pageNumber) {
+			while (date.lastChild) {
+				date.removeChild(date.lastChild);
+			}
+			while (added.lastChild) {
+				added.removeChild(added.lastChild);
+			}
+			while (removed.lastChild) {
+				removed.removeChild(removed.lastChild);
+			}
+			while (transferred.lastChild) {
+				transferred.removeChild(transferred.lastChild);
+			}
+			while (progression.lastChild) {
+				progression.removeChild(progression.lastChild);
+			}
+			date.innerHTML = "<h2 class='section-title'>Loading...</h2>";
+			added.innerHTML = "<h2 class='section-title'>Loading...</h2>";
+			removed.innerHTML = "<h2 class='section-title'>Loading...</h2>";
+			transferred.innerHTML = "<h2 class='section-title'>Loading...</h2>";
+			progression.innerHTML = "<h2 class='section-title'>Loading...</h2>";
+		}
 		var timestamps = document.querySelectorAll(".timestamp");
 		for (var item of timestamps) {
 			item.textContent = moment.utc(item.dataset.timestamp).tz(moment.tz.guess()).fromNow() + item.dataset.activity;
 			item.setAttribute("title", moment.utc(item.dataset.timestamp).tz(moment.tz.guess()).format("ddd[,] ll LTS"));
 		}
-		var date = document.getElementById("date");
-		var added = document.getElementById("added");
-		var removed = document.getElementById("removed");
-		var transferred = document.getElementById("transferred");
-		var progression = document.getElementById("progression");
-		var dateFrag = document.createDocumentFragment();
-		var addedFrag = document.createDocumentFragment();
-		var removedFrag = document.createDocumentFragment();
-		var transferredFrag = document.createDocumentFragment();
-		var progressionFrag = document.createDocumentFragment();
 		// The dataset
 		// Number of operations per call
 		var batchSize = 50;
@@ -170,21 +220,76 @@ function displayResults(customItems) {
 			}
 		}
 
-		// Start iterator, it will return a promise
-		var promise = asyncIterator(customItems || data.itemChanges, work, batchSize);
+		if (oldItemChangeQuantity !== ((customItems && customItems.length) || data.itemChanges.length) || oldPageNumber !== pageNumber) {
+			// Start iterator, it will return a promise
+			var promise = asyncIterator(customItems || data.itemChanges, work, batchSize);
 
-		// When promise is resolved, output results
-		promise.then(function(results) {
-			date.insertBefore(dateFrag, date.firstChild);
-			added.insertBefore(addedFrag, added.firstChild);
-			removed.insertBefore(removedFrag, removed.firstChild);
-			transferred.insertBefore(transferredFrag, transferred.firstChild);
-			progression.insertBefore(progressionFrag, progression.firstChild);
-			console.timeEnd("loadResults");
-			// console.log('Done processing', results);
-			resolve();
-		});
+			// When promise is resolved, output results
+			promise.then(function() {
+				postWork(resolve, customItems);
+			});
+		} else {
+			postWork(resolve, customItems);
+		}
 	});
+
+	function postWork(resolve, customItems) {
+		if (oldItemChangeQuantity !== ((customItems && customItems.length) || data.itemChanges.length) || oldPageNumber !== pageNumber) {
+			while (date.lastChild) {
+				date.removeChild(date.lastChild);
+			}
+			while (added.lastChild) {
+				added.removeChild(added.lastChild);
+			}
+			while (removed.lastChild) {
+				removed.removeChild(removed.lastChild);
+			}
+			while (transferred.lastChild) {
+				transferred.removeChild(transferred.lastChild);
+			}
+			while (progression.lastChild) {
+				progression.removeChild(progression.lastChild);
+			}
+			var maxLength = dateFrag.children.length;
+			if ((pageNumber + 1) * pageQuantity < maxLength) {
+				maxLength = (pageNumber + 1) * pageQuantity;
+			}
+			var minNumber = (pageNumber * pageQuantity) - 1;
+			if (minNumber < 0) {
+				minNumber = 0;
+			}
+			var tempDate = document.createDocumentFragment();
+			for (let i = minNumber; i < maxLength; i++) {
+				tempDate.appendChild(dateFrag.children[i].cloneNode(true));
+			}
+			date.appendChild(tempDate);
+			var tempAdded = document.createDocumentFragment();
+			for (let i = minNumber; i < maxLength; i++) {
+				tempAdded.appendChild(addedFrag.children[i].cloneNode(true));
+			}
+			added.appendChild(tempAdded);
+			var tempRemoved = document.createDocumentFragment();
+			for (let i = minNumber; i < maxLength; i++) {
+				tempRemoved.appendChild(removedFrag.children[i].cloneNode(true));
+			}
+			removed.appendChild(tempRemoved);
+			var tempTransferred = document.createDocumentFragment();
+			for (let i = minNumber; i < maxLength; i++) {
+				tempTransferred.appendChild(transferredFrag.children[i].cloneNode(true));
+			}
+			transferred.appendChild(tempTransferred);
+			var tempProgression = document.createDocumentFragment();
+			for (let i = minNumber; i < maxLength; i++) {
+				tempProgression.appendChild(progressionFrag.children[i].cloneNode(true));
+			}
+			progression.appendChild(tempProgression);
+		}
+		oldItemChangeQuantity = ((customItems && customItems.length) || data.itemChanges.length);
+		oldPageNumber = pageNumber;
+		console.timeEnd("loadResults");
+		// console.log('Done processing', results);
+		resolve();
+	}
 }
 
 function delayNode(index, className, latestItemChange, date, added, removed, transferred) {

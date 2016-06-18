@@ -63,10 +63,12 @@ function checkForUpdates() {
 	chrome.storage.local.get(null, function(localData) {
 		data = localData;
 		displayResults().then(function() {
-			setTimeout(checkForUpdates, 5000);
+			updateTimeout = setTimeout(checkForUpdates, 5000);
 		});
 	});
 }
+
+var updateTimeout = null;
 
 function startListening() {
 	if (listenLoop === null) {
