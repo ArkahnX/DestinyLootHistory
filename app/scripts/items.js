@@ -399,7 +399,7 @@ var findHighestMaterial = (function() {
 		for (let characterId of characterIdList) {
 			if (characterId !== "vault") {
 				var date = new Date(characterDescriptions[characterId].dateLastPlayed);
-				console.log(characterDescriptions[characterId], date > newestCharacterDate, characterId, localStorage.newestCharacter);
+				// console.log(characterDescriptions[characterId], date > newestCharacterDate, characterId, localStorage.newestCharacter);
 				if ((!localStorage.newestCharacter || localStorage.newestCharacter === "null") || date > newestCharacterDate) {
 					if (localStorage.newestCharacter !== characterId || new Date().getTime() > date.getTime() + (1000 * 60 * 10)) {
 						// console.log(characterId, localStorage.newestCharacter)
