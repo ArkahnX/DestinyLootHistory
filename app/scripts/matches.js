@@ -27,6 +27,8 @@ function getRemoteMatches() {
 				console.timeEnd("Remote Matches");
 				resolve();
 			});
+		} else {
+			resolve();
 		}
 	});
 }
