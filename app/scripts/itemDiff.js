@@ -163,101 +163,115 @@ function processDifference(currentDateString, resolve) {
 			}
 		}
 	}
+	let localCharacter = localStorage.newestCharacter;
+	let finalDiff = {
+		light: characterDescriptions[localCharacter].light,
+		removed: [],
+		added: [],
+		id: uniqueIndex,
+		characterId: localCharacter,
+		secondsSinceLastDiff: (new Date(currentDateString) - previousItemDate) / 1000,
+		timestamp: currentDateString
+	};
+	var addedCharacters = [];
+	var removedCharacters = [];
+	var transferredCharacters = [];
+	var progressionCharacters = [];
 	for (let characterId in newInventories) {
-		let diff = {
-			light: characterDescriptions[characterId].light,
-			removed: [],
-			added: [],
-			id: uniqueIndex,
-			characterId: characterId,
-			secondsSinceLastDiff: (new Date(currentDateString) - previousItemDate) / 1000,
-			timestamp: currentDateString
-		};
 		if (newProgression[characterId]) {
-			// diff.level = newProgression[characterId].levelProgression;
+			// finalDiff.level = newProgression[characterId].levelProgression;
 			for (let progress of progression) {
 				if (progress.characterId === characterId) {
-					if (!diff.progression) {
-						diff.progression = [];
+					if (!finalDiff.progression) {
+						finalDiff.progression = [];
 					}
-					diff.progression.push(progress.item);
+					finalDiff.progression.push(progress.item);
+					progressionCharacters.push(characterId);
 				}
 			}
 		}
 		for (let addition of additions) {
 			if (addition.characterId === characterId) {
-				diff.added.push(addition.item);
+				finalDiff.added.push(addition.item);
+				addedCharacters.push(characterId);
 			}
 		}
 		for (let removal of removals) {
 			if (removal.characterId === characterId) {
-				diff.removed.push(removal.item);
+				finalDiff.removed.push(removal.item);
+				removedCharacters.push(characterId);
 			}
 		}
-		if (diff.added.length || diff.removed.length) {
-			for (var q = transferQ.length - 1; q > -1; q--) {
-				var transfer = transferQ[q];
-				if (!diff.transferred) {
-					diff.transferred = [];
-				}
-				diff.transferred.push(transferQ.splice(q, 1)[0]);
-			}
-		}
-		// for (var transfer of transferQ) {
-		// 	if (transfer.to === characterId || transfer.from === characterId) {
-		// 		if (!diff.transferred) {
-		// 			diff.transferred = [];
+		// if (finalDiff.added.length || finalDiff.removed.length) {
+		// 	for (var q = transferQ.length - 1; q > -1; q--) {
+		// 		// var transfer = transferQ[q];
+		// 		if (!finalDiff.transferred) {
+		// 			finalDiff.transferred = [];
 		// 		}
-		// 		diff.transferred.push(transfer);
+		// 		finalDiff.transferred.push(transferQ.splice(q, 1)[0]);
+		// 		transferredCharacters.push(characterId);
 		// 	}
 		// }
-		if (diff.removed.length || diff.added.length || (transferQ.length) || (diff.progression && diff.progression.length)) {
-			localStorage.flag = "true";
-			// console.log(diff, transferQ);
+	}
+	for (let transfer of transferQ) {
+		if (!finalDiff.transferred) {
+			finalDiff.transferred = [];
 		}
-		if (diff.removed.length || diff.added.length || (diff.transferred && diff.transferred.length && forceupdate) || (diff.progression && diff.progression.length && forceupdate)) {
-			if (diff.progression && diff.progression.length) {
+		finalDiff.transferred.push(Object.assign({}, transfer));
+	}
+	if (finalDiff.removed.length || finalDiff.added.length /* || (transferQ.length) || (finalDiff.progression && finalDiff.progression.length)*/ ) {
+		localStorage.flag = "true";
+		// console.log(finalDiff, transferQ);
+	}
+	if (idleTimer > 13) {
+		forceupdate = true;
+	}
+	console.log(`idleTimer ${idleTimer}, forceUpdate ${forceupdate}, removed ${finalDiff.removed.length}, added ${finalDiff.added.length}, transferred ${(finalDiff.transferred && finalDiff.transferred.length && forceupdate)}, transferQ ${(transferQ.length && forceupdate)}, progression ${(finalDiff.progression && finalDiff.progression.length && forceupdate)}`);
+	if (finalDiff.removed.length || finalDiff.added.length || (finalDiff.transferred && finalDiff.transferred.length && forceupdate) || (transferQ.length && forceupdate) || (finalDiff.progression && finalDiff.progression.length && forceupdate)) {
+		if (finalDiff.progression && finalDiff.progression.length) {
+			for (let characterId of progressionCharacters) {
 				oldProgression[characterId] = newProgression[characterId];
 				data.progression[characterId] = newProgression[characterId];
-				oldInventories = newInventories;
-				data.inventories = newInventories;
-			} else {
-				oldProgression[characterId] = oldProgression[characterId];
-				data.progression[characterId] = oldProgression[characterId];
-				oldInventories = newInventories;
-				data.inventories = newInventories;
 			}
-			finalChanges.push(diff);
+			oldInventories = newInventories;
+			data.inventories = newInventories;
 		} else {
-			var _inventories = {};
-			for (let bucket in data.inventories) {
-				_inventories[bucket] = 0;
-				for (let item of data.inventories[bucket]) {
-					if (typeof item.stackSize !== "number") {
-						_inventories[bucket] += 1;
-					} else {
-						_inventories[bucket] += item.stackSize || 1;
-					}
-				}
-			}
-			var _inventories2 = {};
-			for (let bucket in newInventories) {
-				_inventories2[bucket] = 0;
-				for (let item of newInventories[bucket]) {
-					if (typeof item.stackSize !== "number") {
-						_inventories2[bucket] += 1;
-					} else {
-						_inventories2[bucket] += item.stackSize || 1;
-					}
-				}
-			}
-			// console.log(_inventories,_inventories2);
-			console.log(`Vault ${_inventories.vault}/${_inventories2.vault}/${inventories.vault} Char1 ${_inventories[characterIdList[1]]}/${_inventories2[characterIdList[1]]}/${inventories[characterIdList[1]]} Char2 ${_inventories[characterIdList[2]]}/${_inventories2[characterIdList[2]]}/${inventories[characterIdList[2]]} Char3 ${_inventories[characterIdList[3]]}/${_inventories2[characterIdList[3]]}/${inventories[characterIdList[3]]} TRANSFER ${transferQ.length}`)
-			oldProgression[characterId] = oldProgression[characterId];
-			data.progression[characterId] = oldProgression[characterId];
-			oldInventories = oldInventories;
-			data.inventories = oldInventories;
+			oldProgression = oldProgression;
+			data.progression = oldProgression;
+			oldInventories = newInventories;
+			data.inventories = newInventories;
 		}
+		finalChanges.push(finalDiff);
+		transferQ.length = 0;
+	} else {
+		var _inventories = {};
+		for (let bucket in data.inventories) {
+			_inventories[bucket] = 0;
+			for (let item of data.inventories[bucket]) {
+				if (typeof item.stackSize !== "number") {
+					_inventories[bucket] += 1;
+				} else {
+					_inventories[bucket] += item.stackSize || 1;
+				}
+			}
+		}
+		var _inventories2 = {};
+		for (let bucket in newInventories) {
+			_inventories2[bucket] = 0;
+			for (let item of newInventories[bucket]) {
+				if (typeof item.stackSize !== "number") {
+					_inventories2[bucket] += 1;
+				} else {
+					_inventories2[bucket] += item.stackSize || 1;
+				}
+			}
+		}
+		// console.log(_inventories,_inventories2);
+		console.log(`Vault ${_inventories.vault}/${_inventories2.vault}/${inventories.vault} Char1 ${_inventories[characterIdList[1]]}/${_inventories2[characterIdList[1]]}/${inventories[characterIdList[1]]} Char2 ${_inventories[characterIdList[2]]}/${_inventories2[characterIdList[2]]}/${inventories[characterIdList[2]]} Char3 ${_inventories[characterIdList[3]]}/${_inventories2[characterIdList[3]]}/${inventories[characterIdList[3]]} TRANSFER ${transferQ.length}`);
+		oldProgression = oldProgression;
+		data.progression = oldProgression;
+		oldInventories = oldInventories;
+		data.inventories = oldInventories;
 	}
 	if (additions.length || removals.length || transfers.length || progression.length) {
 		trackIdle();
