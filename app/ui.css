@@ -606,3 +606,10 @@ select {
 h1 {
 	font-size: 6em;
 }
+
+.currency {
+	/*width: 48px;*/
+	/*height: 48px;*/
+
+	border: none;
+}

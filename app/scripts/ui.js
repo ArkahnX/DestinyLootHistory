@@ -200,6 +200,9 @@ function displayResults(customItems) {
 		// The actual processing method
 		function work(item, index) {
 			if (lastIndex < index) {
+				if (!item.added) {
+					console.log(item)
+				}
 				var addedQty = item.added.length;
 				var removedQty = item.removed.length;
 				var progressionQty = 0;
@@ -325,7 +328,9 @@ function makeItem(itemDiff, moveType, index) {
 	itemContainer.appendChild(stat);
 	docfrag.appendChild(itemContainer);
 	DOMTokenList.prototype.add.apply(container.classList, itemClasses(itemData));
-	if (getItemDefinition(itemData.itemHash).hasIcon || (getItemDefinition(itemData.itemHash).icon && getItemDefinition(itemData.itemHash).icon.length)) {
+	if (itemData.itemHash === 3159615086 || itemData.itemHash === 2534352370 || itemData.itemHash === 2749350776) {
+		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + getItemDefinition(itemData.itemHash).icon + "')");
+	} else if (getItemDefinition(itemData.itemHash).hasIcon || (getItemDefinition(itemData.itemHash).icon && getItemDefinition(itemData.itemHash).icon.length)) {
 		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + getItemDefinition(itemData.itemHash).icon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
 	} else {
 		container.setAttribute("style", "background-image: url('http://bungie.net/img/misc/missing_icon.png')");
@@ -366,16 +371,18 @@ function makeProgress(itemDiff, moveType, index) {
 }
 
 function itemClasses(itemData) {
-	var classList = ["item"];
+	var classList = [];
 	if (itemData.isGridComplete) {
 		classList.push("complete");
-	}
-	if (itemData.itemHash === 3392485744) {
-		itemData.itemHash = 298210614;
 	}
 	var itemDefinition = getItemDefinition(itemData.itemHash);
 	if (!itemDefinition) {
 		console.log(itemData.itemHash, itemData, DestinyCompactItemDefinition)
+	}
+	if (itemData.itemHash === 3159615086 || itemData.itemHash === 2534352370 || itemData.itemHash === 2749350776) {
+		classList.push("faction");
+	} else {
+		classList.push("item");
 	}
 	if (itemDefinition.tierTypeName === "Exotic") {
 		classList.push("exotic");
@@ -502,17 +509,26 @@ function characterName(characterId, light) {
 	if (characterId === "vault") {
 		return "Vault";
 	}
+	if (!characterDescriptions[characterId]) {
+		console.log(light)
+	}
 	return characterDescriptions[characterId].race + " " + characterDescriptions[characterId].gender + " " + characterDescriptions[characterId].name + " (" + (light || characterDescriptions[characterId].light) + ")";
 }
 
 function characterSource(itemDiff, moveType, index) {
 	var itemData = itemDiff[moveType][index];
 	var light = itemDiff.light;
+	// console.log(itemDiff.characterId,itemData);
 	var toId = itemDiff.characterId;
 	var fromId = "";
 	var starter = "Added to ";
 	if (itemData.item) {
-		fromId = itemData.from;
+		if (itemData.from && itemData.to) {
+			fromId = itemData.from;
+			toId = itemData.to;
+		} else {
+			toId = itemData.characterId;
+		}
 	}
 	if (moveType === "removed") {
 		starter = "Removed from ";

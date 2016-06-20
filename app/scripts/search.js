@@ -189,6 +189,9 @@ function handleSearch() {
 						for (let itemDiff of data.itemChanges) {
 							if (itemDiff.added.length) {
 								for (let item of itemDiff.added) {
+									if (item.item) {
+										item = item.item;
+									}
 									var baseItem = JSON.parse(item);
 									var itemData = getItemDefinition(baseItem.itemHash);
 									var searchMatches = 0;

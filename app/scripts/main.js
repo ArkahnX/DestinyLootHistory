@@ -1,5 +1,6 @@
+var NO_DEBUG = true;
 var manifest = chrome.runtime.getManifest();
-if (manifest.key) {
+if (manifest.key || NO_DEBUG) {
 	window.console.time = function() {};
 	window.console.timeEnd = function() {};
 }

@@ -2,7 +2,8 @@ var data = {
 	inventories: {},
 	progression: {},
 	itemChanges: [],
-	matches: []
+	matches: [],
+	currencies: []
 };
 var oldInventories = {};
 var oldProgression = {};
@@ -57,6 +58,9 @@ function initItems(callback) {
 }
 
 var inventories = {};
+var oldCurrencies = [];
+var newCurrencies = [];
+var currencyTotal = 0;
 
 function itemNetworkTask(characterId, callback) {
 	console.time("itemTask");
@@ -82,6 +86,9 @@ function itemResultTask(result, characterId) {
 		if (!data.inventories[characterId]) {
 			data.inventories[characterId] = [];
 			newInventories[characterId] = [];
+		}
+		if (result.data.currencies) {
+			newCurrencies = result.data.currencies;
 		}
 		newInventories[characterId] = result.data.buckets;
 	}
@@ -213,6 +220,9 @@ function buildCompactItem(itemData) {
 }
 
 function handleInput(source, alt) {
+	if (Array.isArray(source) && Array.isArray(alt) === false) {
+		return alt;
+	}
 	if (typeof source !== "undefined") {
 		if (typeof source === "string") {
 			return JSON.parse(source);
@@ -322,6 +332,7 @@ function checkInventory() {
 function grabRemoteInventory(resolve) {
 	console.time("Bungie Search");
 	var currentDateString = moment().utc().format();
+	console.log(`${moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}`);
 	bungie.search().then(function(guardian) {
 		console.timeEnd("Bungie Search");
 		let characters = guardian.data.characters;
@@ -336,13 +347,17 @@ function grabRemoteInventory(resolve) {
 			sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
 				console.timeEnd("Bungie Faction");
 				console.time("Local Inventory");
-				chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
+				chrome.storage.local.get(["itemChanges", "progression", "currencies", "inventories"], function(result) {
 					data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
 					data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
 					// data.progression = handleInput(result.progression, data.progression);
 					// data.inventories = handleInput(result.inventories, data.inventories);
 					oldProgression = handleInput(result.progression, newProgression);
+					for (var attr in result.progression) {
+						oldProgression[attr] = handleInput(result.progression[attr], newProgression[attr]);
+					}
 					oldInventories = handleInput(result.inventories, newInventories);
+					oldCurrencies = handleInput(result.currencies, newCurrencies);
 					console.timeEnd("Local Inventory");
 					processDifference(currentDateString, resolve);
 				});
@@ -376,7 +391,6 @@ var findHighestMaterial = (function() {
 		}
 		// console.log(localStorage.transferMaterial, itemQuantity)
 		// console.log(localStorage.transferMaterial !== "null" && localStorage.newestCharacter !== "null" && parseInt(localStorage.transferQuantity) > 0, reset, parseInt(localStorage.transferQuantity) > itemQuantity)
-		console.log(parseInt(localStorage.transferQuantity), itemQuantity);
 		if ((localStorage.transferMaterial !== "null" && localStorage.newestCharacter !== "null" && parseInt(localStorage.transferQuantity) > 0) && (reset || parseInt(localStorage.transferQuantity) > itemQuantity)) {
 			let localCharacter = localStorage.newestCharacter;
 			let localMaterial = parseInt(localStorage.transferMaterial);
