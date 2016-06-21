@@ -316,7 +316,6 @@ function processDifference(currentDateString, resolve) {
 		localStorage.flag = "true";
 		// console.log(finalDiff, transferQ);
 	}
-	if (trackingTimer > 14) {
 		forceupdate = true;
 		trackingTimer = 0;
 	}
