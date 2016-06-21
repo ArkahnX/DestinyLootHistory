@@ -38,6 +38,8 @@ function initItems(callback) {
 			bungie.search().then(function(e) {
 
 				var avatars = e.data.characters;
+				var newestCharacter = "vault";
+				var newestDate = 0;
 				for (var c = 0; c < avatars.length; c++) {
 					characterDescriptions[avatars[c].characterBase.characterId] = {
 						name: DestinyClassDefinition[avatars[c].characterBase.classHash].className,
@@ -47,8 +49,13 @@ function initItems(callback) {
 						race: DestinyRaceDefinition[avatars[c].characterBase.raceHash].raceName,
 						dateLastPlayed: avatars[c].characterBase.dateLastPlayed
 					};
+					if (new Date(avatars[c].characterBase.dateLastPlayed).getTime() > new Date(newestDate).getTime()) {
+						newestDate = avatars[c].characterBase.dateLastPlayed;
+						newestCharacter = avatars[c].characterBase.characterId;
+					}
 					characterIdList.push(avatars[c].characterBase.characterId);
 				}
+				localStorage.newestCharacter = newestCharacter;
 				localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
 				console.timeEnd("load Bungie Data");
 				callback();
@@ -319,13 +326,9 @@ function isSameItem(item1, item2) {
 
 function checkInventory() {
 	return new Promise(function(resolve) {
-		if (data.inventories.vault) {
-			findHighestMaterial().then(function() {
-				grabRemoteInventory(resolve);
-			});
-		} else {
-			grabRemoteInventory(resolve);
-		}
+		grabRemoteInventory(function() {
+			findHighestMaterial().then(resolve);
+		});
 	});
 }
 
