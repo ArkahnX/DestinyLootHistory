@@ -45,10 +45,12 @@ function checkForUpdates() {
 	var header = document.querySelector("#status");
 	var element = document.querySelector("#startTracking");
 	if (localStorage.error === "true") {
+		notification.show();
 		header.classList.add("active", "error");
 		header.classList.remove("idle");
 		characterDescriptions = JSON.parse(localStorage.characterDescriptions);
 	} else {
+		notification.hide();
 		if (!localStorage.listening || localStorage.listening === "false") {
 			header.classList.add("idle");
 			header.classList.remove("active", "error");

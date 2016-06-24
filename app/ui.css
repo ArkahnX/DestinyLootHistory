@@ -619,3 +619,54 @@ h1 {
 
 	background-size: cover;
 }
+
+#notification {
+	font-size: 24px;
+
+	position: fixed;
+	z-index: 99999;
+	top: -100px;
+
+	display: table;
+	/*display: none;*/
+
+	width: 100%;
+
+	transition: all .3s ease;
+	text-align: center;
+
+	background-color: #7AC0FF;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
+}
+
+#notification.live {
+	/*top: 0;*/
+
+	display: table;
+
+	transition: all .3s ease;
+}
+
+#notification-inner {
+	display: table-cell;
+
+	padding: 20px;
+}
+
+#notification-content {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+#notification-text {
+	color: #FFF;
+}
+
+
+#notification ul {
+	display: inline-block;
+}
+
+#notification li {
+	text-align: left;
+}

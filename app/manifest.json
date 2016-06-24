@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Destiny Loot History",
-	"version": "0.12.3",
+	"version": "0.12.4",
 	"description": "Track your Destiny item changes.",
 	"icons": {
 		"16": "icon16.png",
@@ -30,7 +30,8 @@
 		"storage",
 		"*://*.bungie.net/*",
 		"cookies",
-		"unlimitedStorage"
+		"unlimitedStorage",
+		"background"
 	],
 	"optional_permissions": ["downloads"],
 	"browser_action": {

@@ -51,24 +51,27 @@ var bungie = (function Bungie() {
 						message: response.Message,
 						response
 					});
-					console.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.', response.Message);
+					console.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>', response.Message);
+					localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>'+ JSON.stringify(response.Message);
 					setTimeout(function() {
 						_request(opts);
 					}, 5000);
 				} else {
-					localStorage.error = "false";
 					if (response.Response === undefined || (Array.isArray(response.Response) && response.Response[0] === undefined)) {
-						console.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.', response.Message);
+						console.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>', response.Message);
+						localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message);
 						setTimeout(function() {
 							_request(opts);
 						}, 5000);
 					} else {
+						localStorage.error = "false";
 						opts.complete(response.Response, response);
 					}
 				}
 			} else {
 				localStorage.error = "true";
 				console.error("Network Error: Please check your internet connection.");
+				localStorage.errorMessage = "Network Error: Please check your internet connection.";
 				setTimeout(function() {
 					_request(opts);
 				}, 5000);
@@ -77,6 +80,7 @@ var bungie = (function Bungie() {
 
 		r.onerror = function() {
 			console.error("Network Error: Please check your internet connection.");
+			localStorage.errorMessage = "Network Error: Please check your internet connection.";
 			localStorage.error = "true";
 			setTimeout(function() {
 				_request(opts);
@@ -91,6 +95,7 @@ var bungie = (function Bungie() {
 			} else {
 				localStorage.error = "true";
 				console.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.');
+				localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.';
 				setTimeout(function() {
 					_request(opts);
 				}, 5000);
