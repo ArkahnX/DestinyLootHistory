@@ -343,6 +343,9 @@ function makeItem(itemDiff, moveType, index) {
 
 function makeProgress(itemDiff, moveType, index) {
 	var progressData = itemDiff[moveType][index];
+	if (progressData.item) {
+		progressData = progressData.item;
+	}
 	progressData = JSON.parse(progressData);
 	if (progressData.itemHash) {
 		return makeItem(itemDiff, moveType, index);
@@ -470,6 +473,7 @@ function passData(DomNode, itemDiff, moveType, index) {
 		DomNode.dataset.statTree = JSON.stringify(itemData.stats);
 	}
 	if (itemData.nodes && itemData.nodes.length) {
+		DomNode.dataset.talentGridHash = itemData.talentGridHash;
 		DomNode.dataset.nodeTree = JSON.stringify(itemData.nodes);
 	}
 	if (itemData.objectives && itemData.objectives.length) {
@@ -479,6 +483,9 @@ function passData(DomNode, itemDiff, moveType, index) {
 
 function passFactionData(DomNode, itemDiff, moveType, index) {
 	var diffData = itemDiff[moveType][index];
+	if (diffData.item) {
+		diffData = diffData.item;
+	}
 	diffData = JSON.parse(diffData);
 	if (diffData.factionHash) {
 		let factionData = DestinyFactionDefinition[diffData.factionHash];

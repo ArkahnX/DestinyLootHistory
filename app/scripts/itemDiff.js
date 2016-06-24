@@ -134,7 +134,7 @@ function processDifference(currentDateString, resolve) {
 						console.log(`Stacksize ${stackSizeResult}, addition stack ${tempAddition.stackSize}, removal stack ${tempRemoval.stackSize}`);
 						if (tempAddition.itemHash !== parseInt(localStorage.transferMaterial) && tempAddition.itemHash !== parseInt(localStorage.oldTransferMaterial)) {
 							let parsedItem = JSON.parse(tempAddition.item);
-							parsedItem.stackSize = tempAddition.stackSize;
+							parsedItem.stackSize = Math.abs(tempAddition.stackSize);
 							let TQTemp = {
 								from: tempRemoval.characterId,
 								to: tempAddition.characterId,
@@ -143,9 +143,9 @@ function processDifference(currentDateString, resolve) {
 							transferQ.push(TQTemp);
 						}
 						tempRemoval.stackSize = tempRemoval.stackSize - tempAddition.stackSize;
-						console.log(`${tempRemoval.itemHash} partial transfer with removals ${tempRemoval.stackSize - tempAddition.stackSize} stack remaining`);
+						console.log(`${tempRemoval.itemHash} partial transfer with removals ${tempRemoval.stackSize} stack remaining`);
 						let parsedItem = JSON.parse(tempRemoval.item);
-						parsedItem.stackSize = tempRemoval.stackSize - tempAddition.stackSize;
+						parsedItem.stackSize = tempRemoval.stackSize;
 						tempRemoval.item = JSON.stringify(parsedItem);
 						// removals.push({
 						// 	characterId: tempRemoval.characterId,
@@ -316,6 +316,7 @@ function processDifference(currentDateString, resolve) {
 		localStorage.flag = "true";
 		// console.log(finalDiff, transferQ);
 	}
+	if (trackingTimer > 45) {
 		forceupdate = true;
 		trackingTimer = 0;
 	}

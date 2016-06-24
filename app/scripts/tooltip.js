@@ -38,6 +38,10 @@ function setTooltipData(dataset) {
 
 function handleStats(statType, dataset) {
 	return new Promise(function(resolve, reject) {
+		var statContainer = document.getElementById("stat-table");
+		statContainer.innerHTML = "";
+		var nodeContainer = document.getElementById("node-table");
+		nodeContainer.innerHTML = "";
 		if (statType === "Faction") {
 			return handleFactionStats(dataset, resolve, reject);
 		}
@@ -56,6 +60,8 @@ var statHashes = [4284893193, 2837207746, 2961396640, 4043523819, 3614673599, 12
 function handleOtherStats(dataset, resolve) {
 	var statContainer = document.getElementById("stat-table");
 	statContainer.innerHTML = "";
+	var nodeContainer = document.getElementById("node-table");
+	nodeContainer.innerHTML = "";
 	var itemDef = getItemDefinition(dataset.itemHash);
 	if (dataset.statTree) {
 		var stats = JSON.parse(dataset.statTree);
@@ -143,6 +149,23 @@ function handleOtherStats(dataset, resolve) {
 			statContainer.appendChild(tableRowOne);
 			statContainer.appendChild(tableRowTwo);
 		}
+	}
+	if (dataset.nodeTree && dataset.talentGridHash) {
+		var nodes = getNodes(false, JSON.parse(dataset.nodeTree), parseInt(dataset.talentGridHash, 10));
+		console.log(nodes);
+		var NodeList = document.createElement("tr");
+		NodeList.classList.add("node-list");
+		for (let node of nodes) {
+			let tableText = document.createElement("td");
+			tableText.classList.add("node");
+			if (node.icon) {
+				tableText.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + node.icon + "')");
+			}
+			tableText.title = node.nodeStepName;
+			NodeList.appendChild(tableText);
+		}
+		console.log(NodeList);
+		nodeContainer.appendChild(NodeList);
 	}
 	resolve();
 }

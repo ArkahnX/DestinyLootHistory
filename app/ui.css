@@ -610,6 +610,12 @@ h1 {
 .currency {
 	/*width: 48px;*/
 	/*height: 48px;*/
-
 	border: none;
+}
+
+.node {
+	width: 50px;
+	height: 50px;
+
+	background-size: cover;
 }

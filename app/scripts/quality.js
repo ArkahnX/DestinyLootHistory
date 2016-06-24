@@ -118,11 +118,18 @@ function getBonus(light, type) {
 	return 0;
 }
 
-function getNodes(item) {
-	if (item.nodes) {
-		var grid = DestinyCompactTalentDefinition[item.talentGridHash];
+function getNodes(item, nodes, talentGridHash) {
+	let itemData = item;
+	if(!item) {
+		console.log(arguments)
+		itemData = {};
+		itemData.nodes = nodes;
+		itemData.talentGridHash = talentGridHash;
+	}
+	if (itemData.nodes) {
+		var grid = DestinyCompactTalentDefinition[itemData.talentGridHash];
 		var parsedNodes = [];
-		for (var node of item.nodes) {
+		for (var node of itemData.nodes) {
 			for (var data of grid.nodes) {
 				if (data.nodeHash === node.nodeHash) {
 					var step = data.steps[node.stepIndex];
