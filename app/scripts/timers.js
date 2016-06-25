@@ -42,6 +42,7 @@ function dirtyItemCheck() {
 }
 
 function checkForUpdates() {
+	clearTimeout(updateTimeout);
 	var header = document.querySelector("#status");
 	var element = document.querySelector("#startTracking");
 	if (localStorage.error === "true") {

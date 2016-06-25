@@ -254,15 +254,19 @@ function checkDiff(sourceArray, newArray) {
 				found = true;
 				if (newArray[e].stackSize !== sourceArray[i].stackSize) {
 					var newItem = JSON.parse(JSON.stringify(sourceArray[i]));
-					if (typeof sourceArray[i].stackSize === "number") {
-						newItem.stackSize = sourceArray[i].stackSize - newArray[e].stackSize;
-						if (newItem.stackSize > 0) {
-							itemsRemovedFromSource.push(JSON.stringify(newItem));
-						}
+					if (newItem.primaryStat && newItem.primaryStat.value !== sourceArray[i].primaryStat.value) {
+						itemsRemovedFromSource.push(JSON.stringify(newItem));
 					} else {
-						newItem.stackSize = sourceArray[i].stackSize;
-						if (parseInt(newArray[e].stackSize, 10) !== parseInt(sourceArray[i].stackSize, 10)) {
-							itemsRemovedFromSource.push(JSON.stringify(newItem));
+						if (typeof sourceArray[i].stackSize === "number") {
+							newItem.stackSize = sourceArray[i].stackSize - newArray[e].stackSize;
+							if (newItem.stackSize > 0) {
+								itemsRemovedFromSource.push(JSON.stringify(newItem));
+							}
+						} else {
+							newItem.stackSize = sourceArray[i].stackSize;
+							if (parseInt(newArray[e].stackSize, 10) !== parseInt(sourceArray[i].stackSize, 10)) {
+								itemsRemovedFromSource.push(JSON.stringify(newItem));
+							}
 						}
 					}
 				}

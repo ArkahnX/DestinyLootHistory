@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	var startOnLaunchButton = document.getElementById("startOnLaunch");
 	var backupDataButton = document.getElementById("backupData");
 	var exportDataButton = document.getElementById("exportData");
+	var exportLogsButton = document.getElementById("exportLogs");
 	var minDateInput = document.getElementById("MinDate");
 	minDateInput.value = moment("2016-05-25T17:00:00Z").format("YYYY-MM-DDTHH:mm:ss");
 	var maxDateInput = document.getElementById("MaxDate");
@@ -44,6 +45,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 				});
 			}
 		});
+	});
+	exportDataButton.addEventListener("click", function() {
+		exportDataButton.classList.add("loading");
+		exportDataButton.setAttribute("disabled", true);
+		exportData(gameModeInput.value, moment(minDateInput.value).utc().format(), moment(maxDateInput.value).utc().format(), parseInt(resultsInput.value), ironBannerInput.checked, lightLevelInput.checked);
 	});
 	exportDataButton.addEventListener("click", function() {
 		exportDataButton.classList.add("loading");

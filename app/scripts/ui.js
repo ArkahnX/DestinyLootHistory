@@ -14,7 +14,7 @@ function initUi() {
 		var element = document.querySelector("#startTracking");
 		if (element) {
 			element.removeAttribute("disabled");
-			element.addEventListener("click", function(event) {
+			element.addEventListener("click", function() {
 				if (!localStorage.listening || localStorage.listening === "false") {
 					var d = new Date();
 					d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
@@ -73,7 +73,6 @@ function makePages(customLength) {
 		paginateContainer.appendChild(tempContainer);
 		paginateContainer.addEventListener("change", function() {
 			pageNumber = parseInt(paginateContainer.value, 10);
-			clearTimeout(updateTimeout);
 			checkForUpdates();
 		}, false);
 	}

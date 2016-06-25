@@ -18,6 +18,7 @@
 			"DestinyDatabase/DestinyCompactTalentDefinition.js",
 			"DestinyDatabase/DestinyCompactDefinition.js",
 			"scripts/shared.js",
+			"scripts/logger.js",
 			"scripts/bungie.js",
 			"scripts/matches.js",
 			"scripts/items.js",
