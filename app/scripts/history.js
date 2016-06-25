@@ -162,6 +162,7 @@ function passData(DomNode, itemData) {
 		DomNode.dataset.statTree = JSON.stringify(itemData.stats);
 	}
 	if (itemData.nodes && itemData.nodes.length) {
+		DomNode.dataset.talentGridHash = itemData.talentGridHash;
 		DomNode.dataset.nodeTree = JSON.stringify(itemData.nodes);
 	}
 	if (itemData.objectives && itemData.objectives.length) {

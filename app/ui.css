@@ -641,7 +641,6 @@ h1 {
 
 #notification.live {
 	/*top: 0;*/
-
 	display: table;
 
 	transition: all .3s ease;
@@ -669,4 +668,18 @@ h1 {
 
 #notification li {
 	text-align: left;
+}
+
+#notification-close {
+	font-size: 16px;
+
+	position: absolute;
+	right: 0;
+	bottom: 0;
+
+	display: inline-block;
+
+	padding: 10px;
+
+	color: white;
 }

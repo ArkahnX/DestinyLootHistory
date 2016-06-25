@@ -151,21 +151,63 @@ function handleOtherStats(dataset, resolve) {
 		}
 	}
 	if (dataset.nodeTree && dataset.talentGridHash) {
-		var nodes = getNodes(false, JSON.parse(dataset.nodeTree), parseInt(dataset.talentGridHash, 10));
-		console.log(nodes);
-		var NodeList = document.createElement("tr");
-		NodeList.classList.add("node-list");
-		for (let node of nodes) {
-			let tableText = document.createElement("td");
-			tableText.classList.add("node");
+		var nodeData = getNodes(false, JSON.parse(dataset.nodeTree), parseInt(dataset.talentGridHash, 10));
+		if (itemDef.bucketTypeHash === 4023194814) {
+			nodeData.columns = nodeData.columns + 1;
+		}
+		for (var i = 0; i < nodeData.rows; i++) {
+			let NodeList = document.createElement("tr");
+			NodeList.classList.add("node-list");
+			for (var e = 0; e < nodeData.columns; e++) {
+				let tableText = document.createElement("td");
+				tableText.id = `row${i+1}column${e+1}`;
+				tableText.classList.add("node");
+				NodeList.appendChild(tableText);
+			}
+			nodeContainer.appendChild(NodeList);
+		}
+		for (let node of nodeData.nodes) {
+			let tableText = document.getElementById(`row${node.row}column${node.column}`);
+			// tableText.classList.add("node");
 			if (node.icon) {
 				tableText.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + node.icon + "')");
 			}
 			tableText.title = node.nodeStepName;
-			NodeList.appendChild(tableText);
 		}
-		console.log(NodeList);
-		nodeContainer.appendChild(NodeList);
+		if (itemDef.bucketTypeHash === 4023194814) {
+			if (nodeData.rows > 1 && nodeData.columns > 1) {
+				let materialIcon = document.getElementById(`row${1}column${nodeData.columns}`);
+				let guardianIcon = document.getElementById(`row${2}column${nodeData.columns}`);
+				let guardianText = document.getElementById(`row${1}column${4}`).title.split(" ")[0];
+				let materialText = document.getElementById(`row${1}column${3}`).title.split(" ")[0];
+				if (materialText === "Relic") {
+					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[3242866270].icon + "')");
+				} else if (materialText === "Spinmetal") {
+					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[2882093969].icon + "')");
+				} else if (materialText === "Helium") {
+					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[2254123540].icon + "')");
+				} else if (materialText === "Spirit") {
+					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[2254123540].icon + "')");
+				} else if (materialText === "Wormspore") {
+					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[3164836592].icon + "')");
+				}
+				if(guardianText === "Titan") {
+					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[1723894001].icon + "')");
+				} else if(guardianText === "Warlock") {
+					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[776529032].icon + "')");
+				} else if(guardianText === "Hunter") {
+					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[855333071].icon + "')");
+				}
+				materialIcon.title = materialText;
+				guardianIcon.title = guardianText;
+
+				// tableText.classList.add("node");
+				// if (node.icon) {
+				// tableText.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + node.icon + "')");
+				// }
+				// tableText.title = node.nodeStepName;
+			}
+		}
 	}
 	resolve();
 }

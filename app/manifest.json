@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Destiny Loot History",
-	"version": "0.12.4",
+	"version": "0.12.5",
 	"description": "Track your Destiny item changes.",
 	"icons": {
 		"16": "icon16.png",

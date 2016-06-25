@@ -4,9 +4,10 @@ var notification = (function() {
 <ul>
 	<li>Clickable notifications.</li>
 	<li>Item perks.</li>
+	<li>Ghosts show material detector.</li>
 </ul>`;
 
-	let active = false;
+	let active = true;
 	localStorage.notificationClosed = localStorage.notificationClosed || "true";
 	let container = document.getElementById("notification");
 	let text = document.getElementById("notification-text");
@@ -15,7 +16,7 @@ var notification = (function() {
 		localStorage.version = manifest.version;
 		localStorage.notificationClosed = "false";
 	}
-
+	console.log(active,localStorage.notificationClosed)
 	if (localStorage.notificationClosed === "false") {
 		show(changelog);
 	} else {
@@ -23,19 +24,21 @@ var notification = (function() {
 	}
 
 	container.addEventListener("click", function() {
-		hide();
+		active = false;
+		container.style.top = ((container.offsetHeight + 5) * -1) + "px";
+		container.classList.remove("error");
+		localStorage.notificationClosed = "true";
 	}, true);
 
 	function show(content) {
-		if (!active) {
+		active = false;
+		if (!content) {
 			active = true;
-			if (!content) {
-				container.classList.add("error");
-			}
-			text.innerHTML = content || localStorage.errorMessage;
-			// container.classList.add("live");
-			container.style.top = "0px";
+			container.classList.add("error");
 		}
+		text.innerHTML = content || localStorage.errorMessage;
+		// container.classList.add("live");
+		container.style.top = "0px";
 	}
 
 	function hide() {

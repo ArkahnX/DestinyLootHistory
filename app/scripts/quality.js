@@ -35,7 +35,7 @@ function parseItemQuality(item) {
 		max: split * 2
 	};
 
-	for(var stat of stats) {
+	for (var stat of stats) {
 		var scaled = 0;
 		var statValue = stat.value;
 		for (var node of grid) {
@@ -120,8 +120,8 @@ function getBonus(light, type) {
 
 function getNodes(item, nodes, talentGridHash) {
 	let itemData = item;
-	if(!item) {
-		console.log(arguments)
+	if (!item) {
+		// console.log(arguments)
 		itemData = {};
 		itemData.nodes = nodes;
 		itemData.talentGridHash = talentGridHash;
@@ -129,11 +129,21 @@ function getNodes(item, nodes, talentGridHash) {
 	if (itemData.nodes) {
 		var grid = DestinyCompactTalentDefinition[itemData.talentGridHash];
 		var parsedNodes = [];
+		var columns = 1;
+		var rows = 1;
 		for (var node of itemData.nodes) {
 			for (var data of grid.nodes) {
-				if (data.nodeHash === node.nodeHash) {
+				if (data.nodeHash === node.nodeHash || node.nodeHash === 0 && !data.nodeHash) {
 					var step = data.steps[node.stepIndex];
+					if (data.column + 1 > columns) {
+						columns = data.column + 1;
+					}
+					if (data.row + 1 > rows) {
+						rows = data.row + 1;
+					}
 					var nodeData = {
+						column: data.column + 1 || 1,
+						row: data.row + 1 || 1,
 						icon: step.icon,
 						nodeStepDescription: step.nodeStepDescription,
 						nodeStepHash: step.nodeStepHash,
@@ -143,6 +153,13 @@ function getNodes(item, nodes, talentGridHash) {
 					parsedNodes.push(nodeData);
 				}
 			}
+		}
+		if (nodes && talentGridHash) {
+			return {
+				nodes: parsedNodes,
+				rows,
+				columns
+			};
 		}
 		return parsedNodes;
 	}
