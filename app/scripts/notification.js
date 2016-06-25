@@ -5,6 +5,7 @@ var notification = (function() {
 	<li>Clickable notifications.</li>
 	<li>Item perks.</li>
 	<li>Ghosts show material detector.</li>
+	<li>Ghosts show guardian and minion icons.</li>
 </ul>`;
 
 	let active = true;

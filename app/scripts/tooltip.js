@@ -197,6 +197,18 @@ function handleOtherStats(dataset, resolve) {
 					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[776529032].icon + "')");
 				} else if(guardianText === "Hunter") {
 					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[855333071].icon + "')");
+				} else if(guardianText === "Hunter") {
+					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[855333071].icon + "')");
+				} else if(guardianText === "Cleansing") {
+					guardianIcon.setAttribute("style", "background-image: url(" + "'img/hive.png')");
+				} else if(guardianText === "Reclamation") {
+					guardianIcon.setAttribute("style", "background-image: url(" + "'img/taken.png')");
+				} else if(guardianText === "Blue") {
+					guardianIcon.setAttribute("style", "background-image: url(" + "'img/vex.png')");
+				} else if(guardianText === "Network") {
+					guardianIcon.setAttribute("style", "background-image: url(" + "'img/cabal.png')");
+				} else if(guardianText === "Ether") {
+					guardianIcon.setAttribute("style", "background-image: url(" + "'img/fallen.png')");
 				}
 				materialIcon.title = materialText;
 				guardianIcon.title = guardianText;
