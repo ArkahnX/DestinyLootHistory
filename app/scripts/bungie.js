@@ -36,29 +36,29 @@ var bungie = (function Bungie() {
 		r.open(opts.method, "https://www.bungie.net/Platform" + opts.route, true);
 		r.setRequestHeader('X-API-Key', '4a6cc3aa21d94c949e3f44736d036a8f');
 		r.onload = function() {
+			logger.startLogging("bungie");
 			if (this.status >= 200 && this.status < 400) {
 				var response = JSON.parse(this.response);
-				// console.log(response.ErrorCode, response.Message, response.ErrorStatus, r);
 				if (response.ErrorCode === 36) {
 					setTimeout(function() {
 						_request(opts);
 					}, 1000);
 				} else if (response.ErrorCode !== 1) {
+					logger.info(response.ErrorCode, response.Message, response.ErrorStatus);
 					localStorage.error = "true";
-					console.warn("Please report the following error for investigation.");
-					console.error({
+					logger.error(Json.stringify({
 						status: response.ErrorStatus,
 						message: response.Message,
 						response
-					});
-					console.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>', response.Message);
-					localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>'+ JSON.stringify(response.Message);
+					}, null, "/t"));
+					logger.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message));
+					localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message);
 					setTimeout(function() {
 						_request(opts);
 					}, 5000);
 				} else {
 					if (response.Response === undefined || (Array.isArray(response.Response) && response.Response[0] === undefined)) {
-						console.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>', response.Message);
+						logger.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message));
 						localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message);
 						setTimeout(function() {
 							_request(opts);
@@ -70,7 +70,7 @@ var bungie = (function Bungie() {
 				}
 			} else {
 				localStorage.error = "true";
-				console.error("Network Error: Please check your internet connection.");
+				logger.error("Network Error: Please check your internet connection.");
 				localStorage.errorMessage = "Network Error: Please check your internet connection.";
 				setTimeout(function() {
 					_request(opts);
@@ -79,7 +79,8 @@ var bungie = (function Bungie() {
 		};
 
 		r.onerror = function() {
-			console.error("Network Error: Please check your internet connection.");
+			logger.startLogging("bungie");
+			logger.error("Network Error: Please check your internet connection.");
 			localStorage.errorMessage = "Network Error: Please check your internet connection.";
 			localStorage.error = "true";
 			setTimeout(function() {
@@ -88,13 +89,14 @@ var bungie = (function Bungie() {
 		};
 
 		_getCookie('bungled').then(function(token) {
+			logger.startLogging("bungie");
 			if (token !== null) {
 				r.withCredentials = true;
 				r.setRequestHeader('x-csrf', token);
 				r.send(JSON.stringify(opts.payload));
 			} else {
 				localStorage.error = "true";
-				console.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.');
+				logger.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.');
 				localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.';
 				setTimeout(function() {
 					_request(opts);

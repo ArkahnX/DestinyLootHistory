@@ -1,10 +1,9 @@
 var NO_DEBUG = true;
 var manifest = chrome.runtime.getManifest();
-if (manifest.key || NO_DEBUG) {
-	window.console.time = function() {};
-	window.console.timeEnd = function() {};
+if (localStorage.characterDescriptions) {
+	characterDescriptions = JSON.parse(localStorage.characterDescriptions); // FIXME error with no value
 }
-characterDescriptions = JSON.parse(localStorage.characterDescriptions); // FIXME error with no value
+logger.disable();
 initUi();
 checkForUpdates();
 

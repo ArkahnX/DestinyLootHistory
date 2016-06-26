@@ -20,7 +20,8 @@ var characterDescriptions = {
 };
 
 function initItems(callback) {
-	console.time("load Bungie Data");
+	logger.startLogging("items");
+	logger.time("load Bungie Data");
 	bungie.user().then(function(u) {
 		if (u.error) {
 			localStorage.listening = "false";
@@ -57,7 +58,7 @@ function initItems(callback) {
 				}
 				localStorage.newestCharacter = newestCharacter;
 				localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
-				console.timeEnd("load Bungie Data");
+				logger.timeEnd("load Bungie Data");
 				callback();
 			});
 		}
@@ -70,7 +71,8 @@ var newCurrencies = [];
 var currencyTotal = 0;
 
 function itemNetworkTask(characterId, callback) {
-	console.time("itemTask");
+	logger.startLogging("items");
+	logger.time("itemTask");
 	if (characterId === "vault") {
 		bungie.vault().then(callback);
 	} else {
@@ -79,7 +81,8 @@ function itemNetworkTask(characterId, callback) {
 }
 
 function factionNetworkTask(characterId, callback) {
-	console.time("factionTask");
+	logger.startLogging("items");
+	logger.time("factionTask");
 	if (characterId !== "vault") {
 		bungie.factions(characterId).then(callback);
 	} else {
@@ -88,7 +91,8 @@ function factionNetworkTask(characterId, callback) {
 }
 
 function itemResultTask(result, characterId) {
-	console.timeEnd("itemTask");
+	logger.startLogging("items");
+	logger.timeEnd("itemTask");
 	if (result) {
 		if (!data.inventories[characterId]) {
 			data.inventories[characterId] = [];
@@ -120,7 +124,8 @@ function itemResultTask(result, characterId) {
 }
 
 function factionResultTask(result, characterId) {
-	console.timeEnd("factionTask");
+	logger.startLogging("items");
+	logger.timeEnd("factionTask");
 	if (result) {
 		if (!data.progression[characterId]) {
 			data.progression[characterId] = [];
@@ -162,6 +167,7 @@ function concatItems(itemBucketList) {
 }
 
 function buildCompactItem(itemData) {
+	logger.startLogging("items");
 	var newItemData = {};
 	var hash = itemData.itemHash;
 	for (var i = 0; i < relevantStats.length; i++) {
@@ -211,7 +217,7 @@ function buildCompactItem(itemData) {
 		newItemData.nodes = [];
 		for (var node of itemData.nodes) {
 			if (!node) {
-				console.log(itemData, itemData.nodes, itemData.nodes.length);
+				logger.info(itemData, itemData.nodes, itemData.nodes.length);
 			}
 			if (node && !node.hidden) {
 				newItemData.nodes.push({
@@ -240,14 +246,15 @@ function handleInput(source, alt) {
 }
 
 function checkDiff(sourceArray, newArray) {
+	logger.startLogging("items");
 	var itemsRemovedFromSource = [];
 	for (var i = 0; i < sourceArray.length; i++) {
 		var found = false;
 		for (var e = 0; e < newArray.length; e++) {
 			if (sourceArray[i].bucketHash === 2197472680 && newArray[e].itemInstanceId === sourceArray[i].itemInstanceId) {
 				if (sourceArray[i].stackSize !== newArray[e].stackSize) {
-					// console.log(sourceArray[i], newArray[e]);
-					// console.log(newArray[e].itemInstanceId === sourceArray[i].itemInstanceId && newArray[e].itemHash === sourceArray[i].itemHash, newArray[e].stackSize !== sourceArray[i].stackSize)
+					// logger.log(sourceArray[i], newArray[e]);
+					// logger.log(newArray[e].itemInstanceId === sourceArray[i].itemInstanceId && newArray[e].itemHash === sourceArray[i].itemHash, newArray[e].stackSize !== sourceArray[i].stackSize)
 				}
 			}
 			if (newArray[e].itemInstanceId === sourceArray[i].itemInstanceId && newArray[e].itemHash === sourceArray[i].itemHash) {
@@ -337,23 +344,23 @@ function checkInventory() {
 }
 
 function grabRemoteInventory(resolve) {
-	console.time("Bungie Search");
+	logger.startLogging("items");
+	logger.time("Bungie Search");
 	var currentDateString = moment().utc().format();
-	console.log(`${moment().format("dddd, MMMM Do YYYY, h:mm:ss a")}`);
 	bungie.search().then(function(guardian) {
-		console.timeEnd("Bungie Search");
+		logger.timeEnd("Bungie Search");
 		let characters = guardian.data.characters;
 		for (let character of characters) {
 			characterDescriptions[character.characterBase.characterId].light = character.characterBase.powerLevel;
 			characterDescriptions[character.characterBase.characterId].dateLastPlayed = character.characterBase.dateLastPlayed;
 		}
-		console.time("Bungie Items");
+		logger.time("Bungie Items");
 		sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
-			console.timeEnd("Bungie Items");
-			console.time("Bungie Faction");
+			logger.timeEnd("Bungie Items");
+			logger.time("Bungie Faction");
 			sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
-				console.timeEnd("Bungie Faction");
-				console.time("Local Inventory");
+				logger.timeEnd("Bungie Faction");
+				logger.time("Local Inventory");
 				chrome.storage.local.get(["itemChanges", "progression", "currencies", "inventories"], function(result) {
 					data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
 					data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
@@ -365,7 +372,7 @@ function grabRemoteInventory(resolve) {
 					}
 					oldInventories = handleInput(result.inventories, newInventories);
 					oldCurrencies = handleInput(result.currencies, newCurrencies);
-					console.timeEnd("Local Inventory");
+					logger.timeEnd("Local Inventory");
 					processDifference(currentDateString, resolve);
 				});
 			});
@@ -379,7 +386,8 @@ var findHighestMaterial = (function() {
 	// localStorage.transferMaterial = null;
 	// localStorage.newestCharacter = null;
 	return function() {
-		console.time("bigmat");
+	logger.startLogging("items");
+		logger.time("bigmat");
 		var itemQuantity = 0;
 		if (localStorage.transferMaterial && localStorage.transferMaterial !== "null") {
 			for (let item of newInventories[localStorage.newestCharacter]) {
@@ -396,8 +404,8 @@ var findHighestMaterial = (function() {
 				}
 			}
 		}
-		// console.log(localStorage.transferMaterial, itemQuantity)
-		// console.log(localStorage.transferMaterial !== "null" && localStorage.newestCharacter !== "null" && parseInt(localStorage.transferQuantity) > 0, reset, parseInt(localStorage.transferQuantity) > itemQuantity)
+		// logger.log(localStorage.transferMaterial, itemQuantity)
+		// logger.log(localStorage.transferMaterial !== "null" && localStorage.newestCharacter !== "null" && parseInt(localStorage.transferQuantity) > 0, reset, parseInt(localStorage.transferQuantity) > itemQuantity)
 		if ((localStorage.transferMaterial !== "null" && localStorage.newestCharacter !== "null" && parseInt(localStorage.transferQuantity) > 0) && (reset || parseInt(localStorage.transferQuantity) > itemQuantity)) {
 			let localCharacter = localStorage.newestCharacter;
 			let localMaterial = parseInt(localStorage.transferMaterial);
@@ -406,7 +414,7 @@ var findHighestMaterial = (function() {
 				localTransferQuantity = vaultQuantity;
 			}
 			let localDescription = characterDescriptions[localCharacter];
-			console.log(`%c Moved ${localTransferQuantity} ${getItemDefinition(localMaterial).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (${vaultQuantity} in Vault)`, "font-weight:bold");
+			logger.log(`Moved ${localTransferQuantity} ${getItemDefinition(localMaterial).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (${vaultQuantity} in Vault)`);
 			bungie.transfer(localCharacter, "0", localMaterial, localTransferQuantity, false);
 			localStorage.oldTransferMaterial = localStorage.transferMaterial;
 			localStorage.transferMaterial = null;
@@ -416,14 +424,14 @@ var findHighestMaterial = (function() {
 			reset = false;
 		}
 
-		console.time("char");
+		logger.time("char");
 		for (let characterId of characterIdList) {
 			if (characterId !== "vault") {
 				var date = new Date(characterDescriptions[characterId].dateLastPlayed);
-				// console.log(characterDescriptions[characterId], date > newestCharacterDate, characterId, localStorage.newestCharacter);
+				// logger.log(characterDescriptions[characterId], date > newestCharacterDate, characterId, localStorage.newestCharacter);
 				if ((!localStorage.newestCharacter || localStorage.newestCharacter === "null") || date > newestCharacterDate) {
 					if (localStorage.newestCharacter !== characterId || new Date().getTime() > date.getTime() + (1000 * 60 * 10)) {
-						// console.log(characterId, localStorage.newestCharacter)
+						// logger.log(characterId, localStorage.newestCharacter)
 						if (parseInt(localStorage.transferQuantity) > 0 && localStorage.transferMaterial !== "null") {
 							let localCharacter = localStorage.newestCharacter;
 							let localMaterial = parseInt(localStorage.transferMaterial);
@@ -432,7 +440,7 @@ var findHighestMaterial = (function() {
 								localTransferQuantity = vaultQuantity;
 							}
 							let localDescription = characterDescriptions[localCharacter];
-							console.log(`%c Moved ${localTransferQuantity} ${getItemDefinition(localMaterial).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (${vaultQuantity} in Vault)`, "font-weight:bold");
+							logger.log(`Moved ${localTransferQuantity} ${getItemDefinition(localMaterial).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (${vaultQuantity} in Vault)`);
 							bungie.transfer(localCharacter, "0", localMaterial, localTransferQuantity, false);
 						}
 						localStorage.newestCharacter = characterId;
@@ -445,14 +453,14 @@ var findHighestMaterial = (function() {
 				}
 			}
 		}
-		console.timeEnd("char");
-		// console.log(localStorage.transferMaterial, !localStorage.transferMaterial, localStorage.transferMaterial === "null")
+		logger.timeEnd("char");
+		// logger.log(localStorage.transferMaterial, !localStorage.transferMaterial, localStorage.transferMaterial === "null")
 		if (!localStorage.transferMaterial || localStorage.transferMaterial === "null") {
-			console.time("mats");
+			logger.time("mats");
 			for (let item of newInventories[localStorage.newestCharacter]) {
 				let itemDefinition = getItemDefinition(item.itemHash);
 				if (itemDefinition.bucketTypeHash === 3865314626 || itemDefinition.bucketTypeHash === 1469714392) {
-					// console.log(!localStorage.transferMaterial, item.stackSize > transferMaterial.stackSize)
+					// logger.log(!localStorage.transferMaterial, item.stackSize > transferMaterial.stackSize)
 					if ((!localStorage.transferMaterial || localStorage.transferMaterial === "null") || item.stackSize > parseInt(localStorage.transferMaterialStack)) {
 						localStorage.oldTransferMaterial = localStorage.transferMaterial;
 						localStorage.transferMaterial = item.itemHash;
@@ -460,14 +468,14 @@ var findHighestMaterial = (function() {
 					}
 				}
 			}
-			console.timeEnd("mats");
+			logger.timeEnd("mats");
 		}
-		console.log(`%c Moved 1 ${getItemDefinition(localStorage.transferMaterial).itemName} to Vault (${vaultQuantity} in Vault)`, "font-weight:bold");
-		// console.log(localStorage.transferMaterial)
+		logger.log(`Moved 1 ${getItemDefinition(localStorage.transferMaterial).itemName} to Vault (${vaultQuantity} in Vault)`);
+		// logger.log(localStorage.transferMaterial)
 		localStorage.transferQuantity = parseInt(localStorage.transferQuantity) + 1;
-		console.timeEnd("bigmat");
-		// console.log(localStorage.newestCharacter, "0", localStorage.transferMaterial, 1, true, localStorage);
-		// console.error("HERERERER")
+		logger.timeEnd("bigmat");
+		// logger.log(localStorage.newestCharacter, "0", localStorage.transferMaterial, 1, true, localStorage);
+		// logger.error("HERERERER")
 		return bungie.transfer(localStorage.newestCharacter, "0", localStorage.transferMaterial, 1, true);
 	};
 }());

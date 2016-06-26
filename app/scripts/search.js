@@ -1,8 +1,4 @@
 var manifest = chrome.runtime.getManifest();
-if (manifest.key) {
-	window.console.time = function() {};
-	window.console.timeEnd = function() {};
-}
 characterDescriptions = JSON.parse(localStorage.characterDescriptions);
 initUi();
 
@@ -244,7 +240,8 @@ function handleSearch() {
 }
 
 function finishSearch(results) {
-	console.log(results);
+	logger.startLogging("search");
+	logger.info(results);
 	document.getElementById("date").innerHTML = "";
 	document.getElementById("progression").innerHTML = "";
 	document.getElementById("added").innerHTML = "";

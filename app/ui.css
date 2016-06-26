@@ -82,7 +82,7 @@ select:not(#tags),
 	box-sizing: border-box;
 	padding: 7px 20px;
 
-	transition: background-color .5s;
+	transition: background-color .5s,color .5s;
 	text-decoration: none;
 	text-transform: uppercase;
 	text-transform: uppercase;
@@ -98,20 +98,21 @@ select:not(#tags):hover,
 /*#tags option:checked,
 #tags option:checked:hover,*/
 .button:hover {
-	transition: background-color 0s;
+	transition: background-color 0s,color 0s;
 
-	background-color: #004A8C;
+	color: white;
+	background-color: #0065BD;
 }
 
 input:active,
 select:not(#tags):active,
 #tags option:active,
-input:focus,
+/*input:focus,*/
 select:not(#tags):focus,
 #tags option:focus,
 .button:active,
 .button:focus {
-	transition: background-color 0s;
+	transition: background-color 0s,color 0s;
 
 	background-color: #00396C;
 }
@@ -606,6 +607,9 @@ textarea {
 	width: 100%;
 	height: 300px;
 	margin-top: 12px;
+
+	cursor: text;
+	-webkit-user-select: initial;
 }
 
 .bounty td {
@@ -722,4 +726,19 @@ h1 {
 
 #tags {
 	float: right;
+}
+
+#tags option {
+	display: block!important;
+}
+
+#copyright {
+	position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-right: 25px;
+    background: rgba(238,238,238,.7);
+    border-radius: 5px 0 0 0;
+    padding: 3px;
+    padding-right: 25px;
 }

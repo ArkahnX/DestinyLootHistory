@@ -4,9 +4,6 @@ function initUi() {
 		if (document.getElementById("version")) {
 			document.getElementById("version").textContent = (manifest.version);
 		}
-	} else {
-		window.console.time = function() {};
-		window.console.timeEnd = function() {};
 	}
 	var header = document.querySelector("#status");
 	if (header) {
@@ -156,6 +153,7 @@ var transferredFrag = document.createDocumentFragment();
 var progressionFrag = document.createDocumentFragment();
 
 function displayResults(customItems) {
+	logger.startLogging("UI");
 	makePages(customItems && customItems.length);
 	var date = document.getElementById("date");
 	var added = document.getElementById("added");
@@ -163,9 +161,10 @@ function displayResults(customItems) {
 	var transferred = document.getElementById("transferred");
 	var progression = document.getElementById("progression");
 	return new Promise(function(resolve, reject) {
-		console.timeEnd("grab matches");
+		logger.startLogging("UI");
+		logger.timeEnd("grab matches");
 		constructMatchInterface();
-		console.time("loadResults");
+		logger.time("loadResults");
 		if (oldItemChangeQuantity !== ((customItems && customItems.length) || data.itemChanges.length) || oldPageNumber !== pageNumber) {
 			while (date.lastChild) {
 				date.removeChild(date.lastChild);
@@ -198,9 +197,10 @@ function displayResults(customItems) {
 		var batchSize = 50;
 		// The actual processing method
 		function work(item, index) {
+			logger.startLogging("UI");
 			if (lastIndex < index) {
 				if (!item.added) {
-					console.log(item)
+					logger.log(item)
 				}
 				var addedQty = item.added.length;
 				var removedQty = item.removed.length;
@@ -236,6 +236,7 @@ function displayResults(customItems) {
 	});
 
 	function postWork(resolve, customItems) {
+		logger.startLogging("UI");
 		if (oldItemChangeQuantity !== ((customItems && customItems.length) || data.itemChanges.length) || oldPageNumber !== pageNumber) {
 			while (date.lastChild) {
 				date.removeChild(date.lastChild);
@@ -288,8 +289,8 @@ function displayResults(customItems) {
 		}
 		oldItemChangeQuantity = ((customItems && customItems.length) || data.itemChanges.length);
 		oldPageNumber = pageNumber;
-		console.timeEnd("loadResults");
-		// console.log('Done processing', results);
+		logger.timeEnd("loadResults");
+		// logger.log('Done processing', results);
 		resolve();
 	}
 }
@@ -373,13 +374,14 @@ function makeProgress(itemDiff, moveType, index) {
 }
 
 function itemClasses(itemData) {
+	logger.startLogging("UI");
 	var classList = [];
 	if (itemData.isGridComplete) {
 		classList.push("complete");
 	}
 	var itemDefinition = getItemDefinition(itemData.itemHash);
 	if (!itemDefinition) {
-		console.log(itemData.itemHash, itemData, DestinyCompactItemDefinition)
+		logger.log(itemData.itemHash, itemData, DestinyCompactItemDefinition)
 	}
 	if (itemData.itemHash === 3159615086 || itemData.itemHash === 2534352370 || itemData.itemHash === 2749350776) {
 		classList.push("faction");
@@ -442,6 +444,7 @@ function primaryStatName(itemData) {
 }
 
 function passData(DomNode, itemDiff, moveType, index) {
+	logger.startLogging("UI");
 	var itemData = itemDiff[moveType][index];
 	if (itemData.item) {
 		itemData = itemData.item;
@@ -452,7 +455,7 @@ function passData(DomNode, itemDiff, moveType, index) {
 	}
 	var itemDefinition = getItemDefinition(itemData.itemHash);
 	if (!itemDefinition) {
-		console.log(itemData.itemHash, itemData, DestinyCompactItemDefinition)
+		logger.log(itemData.itemHash, itemData, DestinyCompactItemDefinition)
 	}
 	if (itemDefinition.tierTypeName) {
 		DomNode.dataset.tierTypeName = itemDefinition.tierTypeName;
@@ -509,6 +512,7 @@ function passFactionData(DomNode, itemDiff, moveType, index) {
 }
 
 function characterName(characterId, light) {
+	logger.startLogging("UI");
 	if (light === null) {
 		return characterDescriptions[characterId].name;
 	}
@@ -516,7 +520,7 @@ function characterName(characterId, light) {
 		return "Vault";
 	}
 	if (!characterDescriptions[characterId]) {
-		console.log(light)
+		logger.log(light)
 	}
 	return characterDescriptions[characterId].race + " " + characterDescriptions[characterId].gender + " " + characterDescriptions[characterId].name + " (" + (light || characterDescriptions[characterId].light) + ")";
 }
@@ -524,7 +528,7 @@ function characterName(characterId, light) {
 function characterSource(itemDiff, moveType, index) {
 	var itemData = itemDiff[moveType][index];
 	var light = itemDiff.light;
-	// console.log(itemDiff.characterId,itemData);
+	// logger.log(itemDiff.characterId,itemData);
 	var toId = itemDiff.characterId;
 	var fromId = "";
 	var starter = "Added to ";

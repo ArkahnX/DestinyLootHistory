@@ -1,5 +1,6 @@
 function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, lightLevel) {
 	chrome.storage.local.get(null, function(data) {
+		logger.startLogging("export");
 		var exportDataButton = document.getElementById("exportData");
 		var regexMatch = new RegExp(gameMode, "i");
 		var matchDrops = {};
@@ -43,7 +44,7 @@ function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, light
 						if (itemDiff.match) {
 							var itemMatch = JSON.parse(itemDiff.match);
 							if (itemMatch.activityInstance === match.activityInstance) {
-								console.log(match.timestamp);
+								logger.log(match.timestamp);
 								if (itemDiff.added.length) {
 									if (itemDiff.progression) {
 										for (var progress of itemDiff.progression) {
@@ -112,11 +113,11 @@ function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, light
 			}
 			sortedData.push(join(result) + "\n");
 			if (rewards[4]) {
-				console.log(rewards);
+				logger.info(rewards);
 			}
-			console.log(join(result));
+			logger.log(join(result));
 		}
-		console.log(sortedData.length);
+		logger.log(sortedData.length);
 		var textarea = document.getElementById("export");
 		textarea.value = sortedData.join("");
 		exportDataButton.classList.remove("loading");

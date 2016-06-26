@@ -18,7 +18,8 @@ var characterDescriptions = {
 };
 
 function initItems(callback) {
-	console.time("load Bungie Data");
+	logger.startLogging("items");
+	logger.time("load Bungie Data");
 	initUi();
 	bungie.user().then(function(u) {
 		if (u.error) {
@@ -30,7 +31,7 @@ function initItems(callback) {
 
 			var avatars = e.data.characters;
 			for (var c = 0; c < avatars.length; c++) {
-				console.log(avatars[c].characterBase)
+				logger.log(avatars[c].characterBase)
 				characterDescriptions[avatars[c].characterBase.characterId] = {
 					name: DestinyClassDefinition[avatars[c].characterBase.classHash].className,
 					gender: DestinyGenderDefinition[avatars[c].characterBase.genderHash].genderName,
@@ -42,7 +43,7 @@ function initItems(callback) {
 				characterIdList.push(avatars[c].characterBase.characterId);
 			}
 
-			console.timeEnd("load Bungie Data");
+			logger.timeEnd("load Bungie Data");
 			callback();
 			checkInventory();
 		});
@@ -51,14 +52,15 @@ function initItems(callback) {
 
 
 var findHighestMaterial = (function() {
+	logger.startLogging("items");
 	var stage = false;
 	var oldestCharacterDate = null;
 	var oldestCharacter = null;
 	var bigItem = null;
 	return function() {
-		console.time("bigmat");
+		logger.time("bigmat");
 		if (stage === false) {
-			console.time("char");
+			logger.time("char");
 			for (let characterId of characterIdList) {
 				if (characterId !== "vault") {
 					var date = new Date(characterDescriptions[characterId].dateLastPlayed);
@@ -68,8 +70,8 @@ var findHighestMaterial = (function() {
 					}
 				}
 			}
-			console.timeEnd("char");
-			console.time("mats");
+			logger.timeEnd("char");
+			logger.time("mats");
 			for (let item of data.inventories[oldestCharacter]) {
 				let itemDefinition = getItemDefinition(item.itemHash);
 				if (itemDefinition.bucketTypeHash === 3865314626) {
@@ -78,14 +80,14 @@ var findHighestMaterial = (function() {
 					}
 				}
 			}
-			console.timeEnd("mats");
+			logger.timeEnd("mats");
 		}
 		if (stage === true) {
 			stage = false;
 		} else {
 			stage = true;
 		}
-		console.timeEnd("bigmat");
+		logger.timeEnd("bigmat");
 		return {
 			characterId: oldestCharacter,
 			itemId: "0",
@@ -98,14 +100,15 @@ var findHighestMaterial = (function() {
 }());
 
 function checkInventory() {
-	console.time("Bungie Inventory");
+	logger.startLogging("items");
+	logger.time("Bungie Inventory");
 	chrome.storage.local.get(null, function(remoteData) {
-		console.log(remoteData)
+		logger.log(remoteData)
 		data = remoteData;
 		// sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
 		// sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
 		var mat = findHighestMaterial();
-		console.log(mat);
+		logger.log(mat);
 		var characterHistory = document.getElementById("history");
 		var inventoryData = [];
 		for (var characterId in data.inventories) {
@@ -129,7 +132,7 @@ function checkInventory() {
 						}
 					}
 				}
-				console.log(arrayToMerge.length);
+				logger.log(arrayToMerge.length);
 				Array.prototype.push.apply(inventoryData, arrayToMerge);
 			}
 		}
@@ -159,7 +162,7 @@ function checkInventory() {
 			containingDiv = document.getElementById(bucketName);
 			containingDiv.appendChild(makeHistoryItem(item, "vault"));
 		}
-		console.timeEnd("Bungie Inventory");
+		logger.timeEnd("Bungie Inventory");
 	});
 }
 

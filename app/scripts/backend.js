@@ -1,9 +1,5 @@
 var NO_DEBUG = true;
 var manifest = chrome.runtime.getManifest();
-if (manifest.key || NO_DEBUG) {
-	window.console.time = function() {};
-	window.console.timeEnd = function() {};
-}
 if (!manifest.key) {
 	backupHistory();
 }
@@ -24,7 +20,7 @@ function backupHistory() {
 			});
 		}
 	});
-	setTimeout(backupHistory,1000*60*30);
+	setTimeout(backupHistory, 1000 * 60 * 30);
 }
 
 function _backup() {
@@ -46,17 +42,19 @@ function appClicked() {
 
 function init() {
 	if (bungie) {
-		chrome.storage.local.get(null, function(result) {
-			console.log(result);
-		});
-
-
-		chrome.browserAction.onClicked.addListener(appClicked);
-		initItems(function() {
-			beginBackendTracking();
+		logger.init().then(function() {
+			initItems(function() {
+				beginBackendTracking();
+			});
 		});
 	} else {
 		setTimeout(init, 50);
 	}
 }
 setTimeout(init, 50);
+chrome.storage.local.get(null, function(result) {
+	console.log(result);
+	logger.startLogging("backend");
+	logger.info(result);
+});
+chrome.browserAction.onClicked.addListener(appClicked);

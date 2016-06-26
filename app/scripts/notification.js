@@ -3,9 +3,8 @@ var notification = (function() {
 	let changelog = `New in ${manifest.version}:<br>
 <ul>
 	<li>Clickable notifications.</li>
-	<li>Item perks.</li>
-	<li>Ghosts show material detector.</li>
-	<li>Ghosts show guardian and minion icons.</li>
+	<li>Hover to display item perks.</li>
+	<li>Use the "Report Issue" button to create logs.</li>
 </ul>`;
 
 	let active = true;
@@ -17,7 +16,6 @@ var notification = (function() {
 		localStorage.version = manifest.version;
 		localStorage.notificationClosed = "false";
 	}
-	console.log(active,localStorage.notificationClosed)
 	if (localStorage.notificationClosed === "false") {
 		show(changelog);
 	} else {

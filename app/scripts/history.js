@@ -19,7 +19,8 @@ var characterDescriptions = {
 };
 
 function initItems(callback) {
-	console.time("load Bungie Data");
+	logger.startLogging("history");
+	logger.time("load Bungie Data");
 	initUi();
 	bungie.user().then(function(u) {
 		if (u.error) {
@@ -41,7 +42,7 @@ function initItems(callback) {
 				characterIdList.push(avatars[c].characterBase.characterId);
 			}
 
-			console.timeEnd("load Bungie Data");
+			logger.timeEnd("load Bungie Data");
 			callback();
 			checkInventory();
 		});
@@ -49,7 +50,8 @@ function initItems(callback) {
 }
 
 function checkInventory() {
-	console.time("Bungie Inventory");
+	logger.startLogging("history");
+	logger.time("Bungie Inventory");
 	sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
 		sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
 			var characterHistory = document.getElementById("history");
@@ -65,7 +67,7 @@ function checkInventory() {
 					inventoryData.splice(i, 1);
 				}
 			}
-			console.log(inventoryData);
+			logger.info(inventoryData);
 			var sourceIndex = 0;
 			var sources = [3107502809, 36493462, 460228854, 3945957624, 344892955, 3739898362];
 			var descriptions = ["Dark Below","House of Wolves","The Taken King","Sparrow Racing League","Crimson Doubles","April Update"];

@@ -24,8 +24,9 @@ function dirtyItemCheck() {
 				}
 			}
 		}).then(function() {
+			logger.startLogging("Timers");
 			if (factionProgress !== oldFactionProgress) {
-				console.log("Beginning tracking again.");
+				logger.log("Beginning tracking again.");
 				recursiveIdleTracking();
 				oldFactionProgress = factionProgress;
 			}
@@ -39,6 +40,7 @@ function dirtyItemCheck() {
 		});
 		dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 10);
 	}
+	logger.saveData();
 }
 
 function checkForUpdates() {
@@ -116,10 +118,11 @@ function beginBackendTracking() {
 	stopLoop = null;
 	recursiveIdleTracking();
 	setInterval(function() {
+		logger.startLogging("Timers");
 		if (localStorage.manual === "true" && runningCheck === false) {
 			localStorage.manual = "false";
 			localStorage.listening = "true";
-			console.log("Forcing check now");
+			logger.log("Forcing check now");
 			recursiveIdleTracking();
 		}
 	}, 1000);
@@ -150,6 +153,7 @@ function recursiveIdleTracking() {
 		text: ""
 	});
 	checkInventory().then(function() {
+		logger.startLogging("Timers");
 		var endTime = window.performance.now();
 		var resultTime = Math.floor(endTime - startTime);
 		if (localStorage.flag === "false") {
@@ -166,23 +170,24 @@ function recursiveIdleTracking() {
 			localStorage.listening = "true";
 			let endTime = window.performance.now();
 			let resultTime = Math.floor(endTime - startTime);
-			console.log(`Scheduling check for ${moment().add(((5 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((5 * 1000) - resultTime) / 1000} seconds`);
+			logger.log(`Scheduling check for ${moment().add(((5 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((5 * 1000) - resultTime) / 1000} seconds`);
 			timeoutTracker = setTimeout(recursiveIdleTracking, (5 * 1000) - resultTime);
 			dirtyItemCheck();
 			runningCheck = false;
 		} else if (localStorage.flag === "true" || (localStorage.listening === "true" && idleTimer < 15)) {
-			console.log(15 - idleTimer, "checks remaining.");
+			logger.log(`${15 - idleTimer} checks remaining.`);
 			localStorage.listening = "true";
 			localStorage.flag = "false";
-			console.log(`Scheduling check for ${moment().add(((20 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((20 * 1000) - resultTime) / 1000} seconds`);
+			logger.log(`Scheduling check for ${moment().add(((20 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((20 * 1000) - resultTime) / 1000} seconds`);
 			timeoutTracker = setTimeout(recursiveIdleTracking, (20 * 1000) - resultTime);
 		} else {
 			idleTimer = 0;
 			localStorage.listening = "false";
-			console.log(`Scheduling check for ${moment().add(((5 * 60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((5 * 60 * 1000) - resultTime) / 1000} seconds`);
+			logger.log(`Scheduling check for ${moment().add(((5 * 60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((5 * 60 * 1000) - resultTime) / 1000} seconds`);
 			timeoutTracker = setTimeout(recursiveIdleTracking, (5 * 60 * 1000) - resultTime);
 			dirtyItemCheck();
 		}
+		logger.saveData();
 		runningCheck = false;
 	});
 }

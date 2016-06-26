@@ -73,6 +73,7 @@ function getColor(value) {
 }
 
 function getBonus(light, type) {
+	logger.startLogging("quality");
 	switch (type.toLowerCase()) {
 		case 'helmet':
 			return light < 292 ? 15 :
@@ -114,14 +115,13 @@ function getBonus(light, type) {
 				light < 325 ? 40 :
 				light < 330 ? 41 : 42;
 	}
-	console.warn('item bonus not found', type);
+	logger.warn('item bonus not found', type);
 	return 0;
 }
 
 function getNodes(item, nodes, talentGridHash) {
 	let itemData = item;
 	if (!item) {
-		// console.log(arguments)
 		itemData = {};
 		itemData.nodes = nodes;
 		itemData.talentGridHash = talentGridHash;

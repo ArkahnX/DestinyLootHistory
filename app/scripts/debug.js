@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", function loaded() {
-	logger.startLogging("debug")
+logger.disable();
+logger.init().then(function debugInit() {
 	var outPutArea = document.getElementById("logOutput");
 	var logOption = document.getElementById("showLog");
 	var infoOption = document.getElementById("showInfo");
@@ -7,29 +7,34 @@ document.addEventListener("DOMContentLoaded", function loaded() {
 	var errorOption = document.getElementById("showError");
 	var timeOption = document.getElementById("showTime");
 	var tagHolder = document.getElementById("tags");
+	var sizeHolder = document.getElementById("size");
 	var exportButton = document.getElementById("exportLogs");
 	var tags = logger.getAllTags();
-	for(var tag of tags) {
+	for (var tag of tags) {
 		var optionElement = document.createElement("option");
 		optionElement.textContent = tag;
 		optionElement.value = tag;
 		optionElement.selected = true;
 		tagHolder.appendChild(optionElement);
-		logger.log(tag)
 	}
-	exportButton.addEventListener("click",function() {
-		logger.startLogging("export")
+	exportButton.addEventListener("click", function exportDebug() {
 		var selectedTags = [];
-		for(var child of tagHolder.children) {
-			if(child.selected) {
+		for (var child of tagHolder.children) {
+			if (child.selected) {
 				selectedTags.push(child.value);
 			}
 		}
-		logger.log(`tags length ${tags.length}`);
-		if(selectedTags.length === 0) {
+		if (selectedTags.length === 0 || selectedTags.indexOf("all") > -1) {
 			selectedTags = false;
 		}
-		var output = logger.returnLogs(selectedTags, logOption.checked, infoOption.checked, warnOption.checked, errorOption.checked,timeOption.checked);
-		outPutArea.textContent = output;
+		logger.returnLogs(selectedTags, logOption.checked, infoOption.checked, warnOption.checked, errorOption.checked, timeOption.checked).then(function(output) {
+			var trimmed = output.trim();
+			outPutArea.textContent = trimmed;
+			// Matches only the 10.. bytes that are non-initial characters in a multi-byte sequence.
+			var m = encodeURIComponent(trimmed).match(/%[89ABab]/g);
+			var bytes = trimmed.length + (m ? m.length : 0);
+			var rounded = +(Math.round((bytes/1000) + "e+2")  + "e-2")
+			sizeHolder.textContent = `${rounded} KB`;
+		});
 	});
 });

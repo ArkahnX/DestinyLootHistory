@@ -17,10 +17,10 @@ Object.prototype[Symbol.iterator] = function() {
 function recursive(index, array, networkTask, resultTask, endRecursion) {
 	if (array[index]) {
 		new Promise(function(resolve) {
-			// console.time("sequence")
+			// logger.time("sequence")
 			networkTask(array[index], resolve, index);
 		}).then(function(result) {
-			// console.timeEnd("sequence")
+			// logger.timeEnd("sequence")
 			resultTask(result, array[index], index);
 			recursive(index + 1, array, networkTask, resultTask, endRecursion);
 		});
@@ -41,5 +41,5 @@ function getItemDefinition(hash) {
 	} else if(DestinyCompactItemDefinition[hash]) {
 		return DestinyCompactItemDefinition[hash];
 	}
-	console.error(`Item Reference ${hash} is not in database. Please file a bug report.`);
+	logger.error(`Item Reference ${hash} is not in database. Please file a bug report.`);
 }
