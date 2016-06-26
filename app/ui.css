@@ -41,7 +41,8 @@ nav {
 	text-align: center;
 }
 input,
-select,
+select:not(#tags),
+#tags option:checked,
 .button {
 	font-family: Arial;
 	font-size: 13px;
@@ -65,8 +66,37 @@ select,
 	background-color: #128FFF;
 }
 
+input,
+select:not(#tags),
+#tags option:not(:checked),
+.button {
+	font-family: Arial;
+	font-size: 13px;
+	font-weight: 700;
+	line-height: 1.5;
+
+	position: relative;
+
+	display: inline-block;
+
+	box-sizing: border-box;
+	padding: 7px 20px;
+
+	transition: background-color .5s;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-transform: uppercase;
+	/*color: #FFF;*/
+
+	border: none;
+	/*background-color: #128FFF;*/
+}
+
 input:hover,
-select:hover,
+select:not(#tags):hover,
+#tags option:hover,
+/*#tags option:checked,
+#tags option:checked:hover,*/
 .button:hover {
 	transition: background-color 0s;
 
@@ -74,9 +104,11 @@ select:hover,
 }
 
 input:active,
-select:active,
+select:not(#tags):active,
+#tags option:active,
 input:focus,
-select:focus,
+select:not(#tags):focus,
+#tags option:focus,
 .button:active,
 .button:focus {
 	transition: background-color 0s;
@@ -495,8 +527,8 @@ label {
 
 	text-align: center;
 
-	color: #BBB;
-	border: 2px dashed #BBB;
+	color: #777;
+	border: 2px dashed #777;
 	border-radius: 10px;
 }
 
@@ -682,4 +714,12 @@ h1 {
 	padding: 10px;
 
 	color: white;
+}
+
+.solidBackground {
+	background: rgba(238,238,238,.7);
+}
+
+#tags {
+	float: right;
 }

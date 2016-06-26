@@ -8,7 +8,6 @@ var logger = (function() {
 
 	var pageWidth = 0;
 
-
 	var currentLog = null;
 
 	function startLogging(tag) {
@@ -33,20 +32,43 @@ var logger = (function() {
 		}
 	}
 
+	function getAllTags() {
+		var tags = [];
+		for (var log of logList) {
+			if (tags.indexOf(log.tag) === -1) {
+				tags.push(log.tag);
+			}
+		}
+		if (currentLog) {
+			if (tags.indexOf(currentLog.tag) === -1) {
+				tags.push(currentLog.tag);
+			}
+		}
+		return tags;
+	}
+
 	function _getSource() {
 		var err = _getErrorObject();
 		var caller_line = err.stack.split("\n")[6];
 		var index = caller_line.split("/");
 		index = index[index.length - 1];
-		var clean = `${caller_line.split(" ")[5]} (${index.slice(0, index.length-3)})`;
-		if(clean.length > pageWidth) {
+		var pageLine = index.split(":");
+		pageLine = pageLine[1];
+		var functionName = caller_line.split(" ")[5];
+		functionName = functionName.split(":")[0];
+		var fileName = index.split(" ");
+		fileName = fileName[fileName.length - 1].split(":");
+		fileName = fileName[0];
+		console.log(caller_line,functionName, fileName, pageLine)
+		var clean = `${functionName} (${fileName}:${pageLine})`;
+		if (clean.length > pageWidth) {
 			pageWidth = clean.length;
 		}
 		return clean;
 	}
 
 	function _log(type, data) {
-		if(!currentLog) {
+		if (!currentLog) {
 			startLogging(type);
 		}
 		return {
@@ -86,16 +108,16 @@ var logger = (function() {
 		currentLog.logs.push(_log(WARN, data));
 	}
 
-	function _pad(string,width) {
+	function _pad(string, width) {
 		return " ".repeat(Math.max(0, width - string.length)) + string;
 	}
 
 	function returnLogs(tagsToShow, showLog, showInfo, showWarn, showError, showTime) {
 		startLogging();
-		console.log(logList)
+		console.log(logList,tagsToShow)
 		var endLogs = ["\n"];
 		for (var logData of logList) {
-			if (!tagsToShow || tagsToShow.indexOf(logData.tag)) {
+			if (!tagsToShow || tagsToShow.indexOf(logData.tag) > -1) {
 				for (var log of logData.logs) {
 					if (log.type === LOG && (showLog || !tagsToShow)) {
 						endLogs.push(`${log.timestamp} (${log.utcTime}): ${_pad(log.source,pageWidth)}: ${_pad(log.type,5)}: ${log.data}`);
@@ -130,6 +152,7 @@ var logger = (function() {
 		info,
 		time,
 		timeEnd,
+		getAllTags,
 		returnLogs,
 		startLogging
 	};
