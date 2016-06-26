@@ -165,7 +165,7 @@ function displayResults(customItems) {
 		logger.timeEnd("grab matches");
 		constructMatchInterface();
 		logger.time("loadResults");
-		if (oldItemChangeQuantity !== ((customItems && customItems.length) || data.itemChanges.length) || oldPageNumber !== pageNumber) {
+		if (oldItemChangeQuantity !== ((customItems && customItems.length) || (data.itemChanges && data.itemChanges.length)) || oldPageNumber !== pageNumber) {
 			while (date.lastChild) {
 				date.removeChild(date.lastChild);
 			}

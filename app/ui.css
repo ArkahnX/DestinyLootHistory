@@ -82,6 +82,7 @@ select:not(#tags),
 	box-sizing: border-box;
 	padding: 7px 20px;
 
+	cursor: pointer;
 	transition: background-color .5s,color .5s;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -121,16 +122,18 @@ select:not(#tags):focus,
 	cursor: pointer;
 }
 
-input[disabled] {
-	cursor: default;
+input[disabled],
+select[disabled] {
+	cursor: default!important;
 
-	color: #607D8B;
-	background-color: #CFD8DC;
+	color: #607D8B!important;
+	background-color: #CFD8DC!important;
 }
 
-input[disabled]:hover {
-	color: #607D8B;
-	background-color: #B0BEC5;
+input[disabled]:hover,
+select[disabled]:hover {
+	color: #607D8B!important;
+	background-color: #B0BEC5!important;
 }
 
 header {
@@ -528,9 +531,10 @@ label {
 
 	text-align: center;
 
-	color: #777;
-	border: 2px dashed #777;
+	color: #444;
+	border: 2px dashed #444;
 	border-radius: 10px;
+	background: rgba(238,238,238,.7);
 }
 
 .valueBar {
@@ -722,6 +726,7 @@ h1 {
 
 .solidBackground {
 	background: rgba(238,238,238,.7);
+	    padding-top: 5px;
 }
 
 #tags {
@@ -734,11 +739,24 @@ h1 {
 
 #copyright {
 	position: absolute;
-    bottom: 0;
-    right: 0;
-    padding-right: 25px;
-    background: rgba(238,238,238,.7);
-    border-radius: 5px 0 0 0;
-    padding: 3px;
-    padding-right: 25px;
+	right: 0;
+	bottom: 0;
+
+	padding: 3px;
+	padding-right: 25px;
+	padding-right: 25px;
+
+	border-radius: 5px 0 0 0;
+	background: rgba(238,238,238,.7);
+}
+
+
+#viewDebug {
+	background:#6f6f6f;
+}
+
+p {
+	font-size:17px;
+	padding-top:5px;
+	padding-bottom:10px;
 }

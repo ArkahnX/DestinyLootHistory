@@ -19,10 +19,10 @@ var logger = (function() {
 	function init() {
 		return new Promise(function(resolve) {
 			chrome.storage.local.get("logger", function(data) {
-				if (data.logger.logList) {
+				if (data.logger && data.logger.logList) {
 					logList = data.logger.logList;
 				}
-				if (data.logger.resetTime) {
+				if (data.logger && data.logger.resetTime) {
 					resetTime = moment(data.logger.resetTime).format();
 				} else {
 					saveData(true);

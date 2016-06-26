@@ -18,9 +18,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	var exportDataButton = document.getElementById("exportData");
 	var exportLogsButton = document.getElementById("exportLogs");
 	var minDateInput = document.getElementById("MinDate");
-	minDateInput.value = moment("2016-05-25T17:00:00Z").format("YYYY-MM-DDTHH:mm:ss");
+	minDateInput.value = moment("2016-06-28T17:00:00Z").format("YYYY-MM-DDTHH:mm:ss");
 	var maxDateInput = document.getElementById("MaxDate");
-	maxDateInput.value = moment("2016-05-31T09:00:00Z").format("YYYY-MM-DDTHH:mm:ss");
+	maxDateInput.value = moment("2016-07-05T09:00:00Z").format("YYYY-MM-DDTHH:mm:ss");
 	var gameModeInput = document.getElementById("GameMode");
 	var ironBannerInput = document.getElementById("ironBanner");
 	var resultsInput = document.getElementById("Results");
