@@ -20,7 +20,8 @@ var bungie = (function Bungie() {
 		return new Promise(function(resolve) {
 			_getAllCookies(function(cookies) {
 				var bungled = null;
-				for (var cookie of cookies) {
+				for (var cookieName in cookies) {
+					var cookie = cookies[cookieName];
 					if (cookie.name === name && cookie.value) {
 						bungled = cookie.value;
 						break;
@@ -46,7 +47,7 @@ var bungie = (function Bungie() {
 				} else if (response.ErrorCode !== 1) {
 					logger.info(response.ErrorCode, response.Message, response.ErrorStatus);
 					localStorage.error = "true";
-					logger.error(Json.stringify({
+					logger.error(JSON.stringify({
 						status: response.ErrorStatus,
 						message: response.Message,
 						response

@@ -275,8 +275,15 @@ function processDifference(currentDateString, resolve) {
 	logger.startLogging("itemDiff");
 	var progressionCharacters = [];
 	for (let addition of additions) {
+		if(!localStorage.oldTransferMaterial) {
+			if(localStorage.transferMaterial) {
+				localStorage.oldTransferMaterial = localStorage.transferMaterial;
+			} else {
+				localStorage.oldTransferMaterial = 0;
+			}
+		}
 		var parsedItemHash = JSON.parse(addition.item).itemHash;
-		logger.log(`%c ${addition.characterId} === vault, ${parsedItemHash} !== ${parseInt(localStorage.transferMaterial)}, ${parsedItemHash} !== ${parseInt(localStorage.oldTransferMaterial)}`, "font-weight:bold;color:red;");
+		logger.log(`${addition.characterId} === vault, ${parsedItemHash} !== ${parseInt(localStorage.transferMaterial)}, ${parsedItemHash} !== ${parseInt(localStorage.oldTransferMaterial)}`);
 		if (addition.characterId === diffCharacterId) {
 			finalDiff.added.push(addition.item);
 		} else {
@@ -406,7 +413,7 @@ function processDifference(currentDateString, resolve) {
 	logger.timeEnd("Process Difference");
 	logger.time("grab matches");
 	trackingTimer++;
-	getLocalMatches().then(getRemoteMatches).then(applyMatchData).then(resolve);
+	getLocalMatches().then(getRemoteMatches).then(check3oC).then(applyMatchData).then(resolve);
 }
 
 var trackingTimer = 0;

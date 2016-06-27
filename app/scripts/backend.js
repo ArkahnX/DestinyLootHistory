@@ -1,8 +1,4 @@
 var NO_DEBUG = true;
-var manifest = chrome.runtime.getManifest();
-if (!manifest.key) {
-	backupHistory();
-}
 
 function backupHistory() {
 	chrome.permissions.contains({
@@ -42,6 +38,10 @@ function appClicked() {
 
 function init() {
 	if (bungie) {
+		var manifest = chrome.runtime.getManifest();
+		if (!manifest.key) {
+			backupHistory();
+		}
 		logger.init().then(function() {
 			initItems(function() {
 				beginBackendTracking();

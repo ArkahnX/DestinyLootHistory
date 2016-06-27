@@ -479,3 +479,16 @@ var findHighestMaterial = (function() {
 		return bungie.transfer(localStorage.newestCharacter, "0", localStorage.transferMaterial, 1, true);
 	};
 }());
+
+function check3oC() {
+	return new Promise(function(resolve) {
+		if(localStorage.move3oC && localStorage.move3oC === "true") { // we have just completed an activity, remind the User about Three of Coins
+			if(localStorage.newestCharacter) {
+				resolve();
+			} else {
+				logger.warn("Unable to determine 3oC target.");
+				resolve(); // we don't know who you are playing :(
+			}
+		}
+	});
+}

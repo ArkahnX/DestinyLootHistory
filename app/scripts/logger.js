@@ -201,6 +201,9 @@ var logger = (function() {
 	}
 
 	function saveData(saveTime) {
+		if(logList.length > 6000) {
+			clean();
+		}
 		if (!saveTime) {
 			chrome.storage.local.set({
 				logger: {

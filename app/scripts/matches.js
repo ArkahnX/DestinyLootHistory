@@ -57,6 +57,7 @@ function _remoteMatch(page, firstDateString, characterId, resolve) {
 					if (matchIdList.indexOf(characterId + "-" + activity.activityDetails.instanceId) === -1) {
 						matchIdList.push(characterId + "-" + activity.activityDetails.instanceId);
 						data.matches.push(compactMatch(activity, characterId));
+						localStorage.move3oC = "true";
 					} else {
 						foundOldDate = true;
 						break;

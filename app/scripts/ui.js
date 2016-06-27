@@ -222,7 +222,7 @@ function displayResults(customItems) {
 			}
 		}
 
-		if (oldItemChangeQuantity !== ((customItems && customItems.length) || data.itemChanges.length) || oldPageNumber !== pageNumber) {
+		if (oldItemChangeQuantity !== ((customItems && customItems.length) || (data.itemChanges && data.itemChanges.length)) || oldPageNumber !== pageNumber) {
 			// Start iterator, it will return a promise
 			var promise = asyncIterator(customItems || data.itemChanges, work, batchSize);
 
@@ -237,7 +237,7 @@ function displayResults(customItems) {
 
 	function postWork(resolve, customItems) {
 		logger.startLogging("UI");
-		if (oldItemChangeQuantity !== ((customItems && customItems.length) || data.itemChanges.length) || oldPageNumber !== pageNumber) {
+		if (oldItemChangeQuantity !== ((customItems && customItems.length) || (data.itemChanges && data.itemChanges.length)) || oldPageNumber !== pageNumber) {
 			while (date.lastChild) {
 				date.removeChild(date.lastChild);
 			}
@@ -287,7 +287,7 @@ function displayResults(customItems) {
 			}
 			progression.appendChild(tempProgression);
 		}
-		oldItemChangeQuantity = ((customItems && customItems.length) || data.itemChanges.length);
+		oldItemChangeQuantity = ((customItems && customItems.length) || (data.itemChanges && data.itemChanges.length));
 		oldPageNumber = pageNumber;
 		logger.timeEnd("loadResults");
 		// logger.log('Done processing', results);
