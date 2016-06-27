@@ -52,7 +52,7 @@ function processDifference(currentDateString, resolve) {
 					let parsedItem = JSON.parse(addition);
 					let itemId = parsedItem.itemHash + "-" + parsedItem.itemInstanceId + "-" + diffObject.characterId;
 					if (tempAdditions[itemId]) {
-						logger.error("Invalid duplicate of item", parsedItem, itemId, tempAdditions[itemId],addition,diffObject);
+						logger.error("Invalid duplicate of item", parsedItem, itemId, tempAdditions[itemId], addition, diffObject);
 					} else {
 						tempAdditions[itemId] = {
 							characterId: diffObject.characterId,
@@ -223,13 +223,14 @@ function processDifference(currentDateString, resolve) {
 
 	if (oldProgression) {
 		for (let characterId in oldProgression) {
-			var progressDiff = checkFactionDiff(oldProgression[characterId].progressions, newProgression[characterId].progressions);
+			var progressDiff = checkFactionDiff(oldProgression[characterId].progressions, newProgression[characterId].progressions, characterId);
 			for (let progress of progressDiff) {
 				if (progress) {
 					progression.push({
 						characterId: characterId,
 						item: progress
 					});
+
 				} else {
 					logger.error("This is an incorrectly logged item.", progressDiff, progress);
 				}
@@ -275,8 +276,8 @@ function processDifference(currentDateString, resolve) {
 	logger.startLogging("itemDiff");
 	var progressionCharacters = [];
 	for (let addition of additions) {
-		if(!localStorage.oldTransferMaterial) {
-			if(localStorage.transferMaterial) {
+		if (!localStorage.oldTransferMaterial) {
+			if (localStorage.transferMaterial) {
 				localStorage.oldTransferMaterial = localStorage.transferMaterial;
 			} else {
 				localStorage.oldTransferMaterial = 0;
@@ -355,7 +356,9 @@ function processDifference(currentDateString, resolve) {
 			oldCurrencies = newCurrencies;
 			data.currencies = newCurrencies;
 		}
+
 		finalChanges.push(finalDiff);
+
 		transferQ.length = 0;
 		trackingTimer = 0;
 		addedCurrencyQ.length = 0;

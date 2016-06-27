@@ -286,30 +286,53 @@ function checkDiff(sourceArray, newArray) {
 	return itemsRemovedFromSource;
 }
 
-function checkFactionDiff(sourceArray, newArray) {
+function checkFactionDiff(sourceArray, newArray, characterId) {
 	var itemsRemovedFromSource = [];
 	for (var i = 0; i < sourceArray.length; i++) {
 		for (var e = 0; e < newArray.length; e++) {
 			var diff = false;
-			if (newArray[e].progressionHash !== 3298204156) { // strip character_display_xp
-				if (newArray[e].progressionHash == sourceArray[i].progressionHash && newArray[e].currentProgress !== sourceArray[i].currentProgress) {
-					var newItem = {
-						progressionHash: newArray[e].progressionHash,
-						level: newArray[e].level,
-						progressToNextLevel: newArray[e].progressToNextLevel,
-						progressChange: newArray[e].currentProgress - sourceArray[i].currentProgress,
-						currentProgress: newArray[e].currentProgress,
-						nextLevelAt: newArray[e].nextLevelAt,
-						name: DestinyProgressionDefinition[newArray[e].progressionHash].name
-					};
-					for (var faction of DestinyFactionDefinition) {
-						if (faction.progressionHash === newArray[e].progressionHash) {
-							newItem.factionHash = faction.factionHash;
-						}
-					}
-					itemsRemovedFromSource.push(JSON.stringify(newItem));
+			if (newArray[e].progressionHash == sourceArray[i].progressionHash && newArray[e].progressionHash === 3298204156) {
+				if (!localStorage[`old3oCProgress${characterId}`]) {
+					localStorage[`old3oCProgress${characterId}`] = sourceArray[i].currentProgress;
 				}
+				var old3oCProgress = parseInt(localStorage[`old3oCProgress${characterId}`], 10);
+				var progressChange = newArray[e].currentProgress - old3oCProgress;
+				if (!localStorage.move3oCCooldown) {
+					localStorage.move3oCCooldown = "false";
+				}
+				if (!localStorage.move3oC) {
+					localStorage.move3oC = "false";
+				}
+				if (localStorage.move3oCCooldown === "true") {
+					if (newArray[e].currentProgress > 0 && progressChange > 0) {
+						localStorage.move3oCCooldown = "false";
+					}
+				}
+				if (newArray[e].currentProgress === 0 && progressChange < 0 && localStorage.move3oCCooldown === "false") {
+					localStorage.move3oC = "true";
+					localStorage.move3oCCooldown = "true";
+					// forceupdate = true;
+				}
+				localStorage[`old3oCProgress${characterId}`] = newArray[e].currentProgress;
+				console.log(progressChange, newArray[e].currentProgress);
+			} else if (newArray[e].progressionHash == sourceArray[i].progressionHash && newArray[e].currentProgress !== sourceArray[i].currentProgress) {
+				var newItem = {
+					progressionHash: newArray[e].progressionHash,
+					level: newArray[e].level,
+					progressToNextLevel: newArray[e].progressToNextLevel,
+					progressChange: newArray[e].currentProgress - sourceArray[i].currentProgress,
+					currentProgress: newArray[e].currentProgress,
+					nextLevelAt: newArray[e].nextLevelAt,
+					name: DestinyProgressionDefinition[newArray[e].progressionHash].name
+				};
+				for (var faction of DestinyFactionDefinition) {
+					if (faction.progressionHash === newArray[e].progressionHash) {
+						newItem.factionHash = faction.factionHash;
+					}
+				}
+				itemsRemovedFromSource.push(JSON.stringify(newItem));
 			}
+
 		}
 	}
 	return itemsRemovedFromSource;
@@ -386,7 +409,7 @@ var findHighestMaterial = (function() {
 	// localStorage.transferMaterial = null;
 	// localStorage.newestCharacter = null;
 	return function() {
-	logger.startLogging("items");
+		logger.startLogging("items");
 		logger.time("bigmat");
 		var itemQuantity = 0;
 		if (localStorage.transferMaterial && localStorage.transferMaterial !== "null") {
@@ -461,7 +484,7 @@ var findHighestMaterial = (function() {
 				let itemDefinition = getItemDefinition(item.itemHash);
 				if (itemDefinition.bucketTypeHash === 3865314626 || itemDefinition.bucketTypeHash === 1469714392) {
 					// logger.log(!localStorage.transferMaterial, item.stackSize > transferMaterial.stackSize)
-					if ((!localStorage.transferMaterial || localStorage.transferMaterial === "null") || item.stackSize > parseInt(localStorage.transferMaterialStack)) {
+					if (item.itemHash !== 342707700 && item.itemHash !== 342707701 && item.itemHash !== 342707703 && ((!localStorage.transferMaterial || localStorage.transferMaterial === "null") || item.stackSize > parseInt(localStorage.transferMaterialStack))) {
 						localStorage.oldTransferMaterial = localStorage.transferMaterial;
 						localStorage.transferMaterial = item.itemHash;
 						localStorage.transferMaterialStack = item.stackSize;
@@ -481,21 +504,34 @@ var findHighestMaterial = (function() {
 }());
 
 function findThreeOfCoins(characterId) {
-	if(newInventories && newInventories[characterId]) {
-		for(var item of newInventories[characterId]) {
-
+	if (newInventories && newInventories[characterId]) {
+		for (let item of newInventories[characterId]) {
+			if (item.itemHash === 417308266) {
+				return characterId;
+			}
+		}
+		for (let character in newInventories) {
+			for (let item of newInventories[character]) {
+				if (item.itemHash === 417308266) {
+					return character;
+				}
+			}
 		}
 	}
+	return false;
 }
 
 function check3oC() {
 	return new Promise(function(resolve) {
-		if(localStorage.move3oC && localStorage.move3oC === "true") { // we have just completed an activity, remind the User about Three of Coins
-			if(localStorage.newestCharacter) {
-				var threeOfCoinsCharacter = findThreeOfCoins(characterId);
-				if(threeOfCoinsCharacter) {
-
+		if (localStorage.move3oC && localStorage.move3oC === "true") { // we have just completed an activity, remind the User about Three of Coins
+			if (localStorage.newestCharacter) {
+				var threeOfCoinsCharacter = findThreeOfCoins(localStorage.newestCharacter);
+				if (threeOfCoinsCharacter) {
+					bungie.transfer(threeOfCoinsCharacter, "0", 417308266, 1, true).then(function() {
+						bungie.transfer(threeOfCoinsCharacter, "0", 417308266, 1, false);
+					});
 				}
+				localStorage.move3oC = "false";
 				resolve();
 			} else {
 				logger.warn("Unable to determine 3oC target.");

@@ -351,6 +351,9 @@ function makeProgress(itemDiff, moveType, index) {
 		return makeItem(itemDiff, moveType, index);
 	}
 	var docfrag = document.createDocumentFragment();
+	if(progressData.progressionHash && progressData.progressionHash === 3298204156) {
+		return docfrag;
+	}
 	var itemContainer = document.createElement("div");
 	itemContainer.classList.add("item-container");
 	var container = document.createElement("div");

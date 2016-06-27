@@ -2,6 +2,8 @@ var notification = (function() {
 	let manifest = chrome.runtime.getManifest();
 	let changelog = `New in ${manifest.version}:<br>
 <ul>
+	<li>If possible, Three of Coins will be transferred to your primary character after each activity completion.</li>
+	<li>We can't generate Three of Coins from thin air. If you don't own any, we can't transfer them.</li>
 	<li>Use the "Report Issue" button to create logs.</li>
 </ul>`;
 

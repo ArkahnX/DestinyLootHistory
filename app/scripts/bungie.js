@@ -50,9 +50,7 @@ var bungie = (function Bungie() {
 					logger.error(opts);
 					localStorage.error = "true";
 					localStorage.errorMessage = 'Invalid item selection, please use the report issue feature.' + JSON.stringify(response.Message);
-					setTimeout(function() {
-						_request(opts);
-					}, 5000);
+					opts.complete(response.Response, response);
 				} else if (response.ErrorCode !== 1) {
 					logger.error('Unhandled Bungie Error' + JSON.stringify(response.Message));
 					logger.error(response);
