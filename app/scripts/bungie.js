@@ -44,16 +44,21 @@ var bungie = (function Bungie() {
 					setTimeout(function() {
 						_request(opts);
 					}, 1000);
-				} else if (response.ErrorCode !== 1) {
-					logger.info(response.ErrorCode, response.Message, response.ErrorStatus);
+				} else if(response.ErrorCode === 1623) {
+					logger.error('Invalid Item Selection.');
+					logger.error(response);
+					logger.error(opts);
 					localStorage.error = "true";
-					logger.error(JSON.stringify({
-						status: response.ErrorStatus,
-						message: response.Message,
-						response
-					}, null, "/t"));
-					logger.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message));
-					localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message);
+					localStorage.errorMessage = 'Invalid item selection, please use the report issue feature.' + JSON.stringify(response.Message);
+					setTimeout(function() {
+						_request(opts);
+					}, 5000);
+				} else if (response.ErrorCode !== 1) {
+					logger.error('Unhandled Bungie Error' + JSON.stringify(response.Message));
+					logger.error(response);
+					logger.error(opts);
+					localStorage.error = "true";
+					localStorage.errorMessage = 'Unhandled Bungie Error, please use the report issue feature.' + JSON.stringify(response.Message);
 					setTimeout(function() {
 						_request(opts);
 					}, 5000);

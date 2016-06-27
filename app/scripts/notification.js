@@ -2,8 +2,6 @@ var notification = (function() {
 	let manifest = chrome.runtime.getManifest();
 	let changelog = `New in ${manifest.version}:<br>
 <ul>
-	<li>Clickable notifications.</li>
-	<li>Hover to display item perks.</li>
 	<li>Use the "Report Issue" button to create logs.</li>
 </ul>`;
 

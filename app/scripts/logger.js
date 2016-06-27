@@ -14,18 +14,12 @@ var logger = (function() {
 
 	var disabled = false;
 
-	var resetTime = moment().format();
 
 	function init() {
 		return new Promise(function(resolve) {
 			chrome.storage.local.get("logger", function(data) {
 				if (data.logger && data.logger.logList) {
 					logList = data.logger.logList;
-				}
-				if (data.logger && data.logger.resetTime) {
-					resetTime = moment(data.logger.resetTime).format();
-				} else {
-					saveData(true);
 				}
 				resolve();
 			});
@@ -200,22 +194,12 @@ var logger = (function() {
 		return " ".repeat(Math.max(0, width - string.length)) + string;
 	}
 
-	function saveData(saveTime) {
-		if(logList.length > 6000) {
+	function saveData() {
+		if (logList.length > 6000) {
 			clean();
-		}
-		if (!saveTime) {
-			chrome.storage.local.set({
-				logger: {
-					resetTime: resetTime,
-					currentLog: currentLog,
-					logList: logList
-				}
-			});
 		} else {
 			chrome.storage.local.set({
 				logger: {
-					resetTime: moment().format(),
 					currentLog: currentLog,
 					logList: logList
 				}
@@ -264,7 +248,6 @@ var logger = (function() {
 		logList = [];
 		chrome.storage.local.set({
 			logger: {
-				resetTime: moment().format(),
 				currentLog: currentLog,
 				logList: []
 			}

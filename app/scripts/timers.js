@@ -4,6 +4,7 @@ var listenLoop = null;
 var stopLoop = null;
 
 function dirtyItemCheck() {
+	logger.saveData();
 	if (localStorage.error === "false") {
 		chrome.browserAction.setBadgeText({
 			text: ""
@@ -144,6 +145,7 @@ var idleTimer = 0;
 var timeoutTracker = null;
 
 function recursiveIdleTracking() {
+	logger.saveData();
 	var startTime = window.performance.now();
 	runningCheck = true;
 	clearTimeout(timeoutTracker);
