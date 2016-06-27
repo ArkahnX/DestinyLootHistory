@@ -314,7 +314,6 @@ function checkFactionDiff(sourceArray, newArray, characterId) {
 					// forceupdate = true;
 				}
 				localStorage[`old3oCProgress${characterId}`] = newArray[e].currentProgress;
-				console.log(progressChange, newArray[e].currentProgress);
 			} else if (newArray[e].progressionHash == sourceArray[i].progressionHash && newArray[e].currentProgress !== sourceArray[i].currentProgress) {
 				var newItem = {
 					progressionHash: newArray[e].progressionHash,
