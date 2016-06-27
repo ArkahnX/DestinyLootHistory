@@ -1,10 +1,10 @@
-function handleTooltipData(dataset) {
+function handleTooltipData(dataset, element, event) {
 	transitionInterval = setTimeout(function() {
-		setTooltipData(dataset);
+		setTooltipData(dataset, element, event);
 	}, 100);
 }
 
-function setTooltipData(dataset) {
+function setTooltipData(dataset, element, event) {
 	if (dataset.tierTypeName) {
 		var tooltip = document.getElementById("tooltip");
 		var itemName = document.getElementById("item-name");
@@ -32,6 +32,9 @@ function setTooltipData(dataset) {
 		handleStats(dataset.itemTypeName, dataset).then(function() {
 			tooltip.classList.remove("hidden", "arc", "void", "solar", "kinetic", "common", "legendary", "rare", "uncommon", "exotic");
 			tooltip.classList.add(dataset.tierTypeName.toLowerCase(), dataset.damageTypeName.toLowerCase());
+			// console.log(event, tooltip.clientHeight, element.parentNode.offsetTop);
+			// console.dir(element.parentNode.getBoundingClientRect())
+			// tooltip.
 		});
 	}
 }

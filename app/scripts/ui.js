@@ -38,7 +38,7 @@ function initUi() {
 				if (transitionInterval) {
 					clearInterval(transitionInterval);
 				}
-				handleTooltipData(event.target.dataset);
+				handleTooltipData(event.target.dataset, event.target, event);
 			}
 			if (!target) {
 				if (transitionInterval) {
