@@ -95,7 +95,20 @@ var bungie = (function Bungie() {
 					}
 				}
 			} else {
+				logger.startLogging("Bungie Logs");
 				localStorage.error = "true";
+				if (this.response.length) {
+					let response;
+					try {
+						response = JSON.parse(response);
+					} catch (e) {
+						logger.error(`not valid JSON ${this.response}`);
+					}
+					if (response) {
+						logger.error(`code ${response.ErrorCode}, error ${response.ErrorStatus}, message ${response.Message}`);
+					}
+				}
+				logger.error(`status ${this.status}, route ${opts.route}`);
 				logger.error("Network Error: Please check your internet connection.");
 				localStorage.errorMessage = "Network Error: Please check your internet connection.";
 				setTimeout(function() {
@@ -105,13 +118,16 @@ var bungie = (function Bungie() {
 			}
 		};
 
-		r.onerror = function() {
-			logger.startLogging("bungie");
+		r.onerror = function(err) {
+			logger.startLogging("Bungie Logs");
+			logger.error(err);
+			logger.error(`route ${opts.route}`);
 			logger.error("Network Error: Please check your internet connection.");
 			localStorage.errorMessage = "Network Error: Please check your internet connection.";
 			localStorage.error = "true";
 			setTimeout(function() {
 				_request(opts);
+				logger.saveData();
 			}, 5000);
 		};
 
