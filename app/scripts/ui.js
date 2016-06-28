@@ -54,16 +54,16 @@ function initUi() {
 			document.querySelector("#ToCReminder").value = "Turn on ToC reminder";
 		}
 		document.querySelector("#ToCReminder").addEventListener("click", function(event) {
-				if (localStorage.track3oC === "false") {
-					localStorage.track3oC = "true";
-					document.querySelector("#ToCReminder").value = "Turn off ToC reminder";
-				} else {
-					localStorage.track3oC = "false";
-					document.querySelector("#ToCReminder").value = "Turn on ToC reminder";
-				}
+			if (localStorage.track3oC === "false") {
+				localStorage.track3oC = "true";
+				document.querySelector("#ToCReminder").value = "Turn off ToC reminder";
+			} else {
+				localStorage.track3oC = "false";
+				document.querySelector("#ToCReminder").value = "Turn on ToC reminder";
 			}
+
 		}, false);
-}
+	}
 }
 
 function makePages(customLength) {

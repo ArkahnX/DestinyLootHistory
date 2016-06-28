@@ -43,7 +43,7 @@ var bungie = (function Bungie() {
 					setTimeout(function() {
 						_request(opts);
 					}, 1000);
-				} else if (response.ErrorCode === 1623) {
+				} else if (response.ErrorCode === 1623 || response.ErrorCode === 1663) {
 					logger.startLogging("Bungie Logs");
 					logger.error(response.ErrorStatus, response.Message, opts.route);
 					if (Object.keys(opts.payload).length > 0) {
