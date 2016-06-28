@@ -129,8 +129,21 @@ var bungie = (function Bungie() {
 		});
 	}
 
-	bungie.membershipType = function() {
+	bungie.getMemberships = function() {
+		return Object.keys(systemIds);
+	};
+
+	bungie.getActive = function() {
 		return active.type;
+	};
+
+	bungie.changeActiveMembership = function() {
+		if(active.type === 1 && systemIds.psn.id) {
+			active = systemIds.psn;
+		}
+		if(active.type === 2 && systemIds.xbl.id) {
+			active = systemIds.xbl;
+		}
 	};
 
 	bungie.user = function() {
@@ -139,33 +152,33 @@ var bungie = (function Bungie() {
 				route: '/User/GetBungieNetUser/',
 				method: 'GET',
 				complete: function(res) {
-					if(res.gamerTag && publicCredentialTypes.indexOf(1) > -1) {
+					if(res.gamerTag && res.publicCredentialTypes.indexOf(1) > -1) {
 						systemDetails.xbo = {
 							id:res.gamerTag,
 							type:1
-						}
+						};
 					}
-					if(res.psnId && publicCredentialTypes.indexOf(2) > -1) {
+					if(res.psnId && res.publicCredentialTypes.indexOf(2) > -1) {
 						systemDetails.ps4 = {
 							id:res.psnId,
 							type:2
-						}
+						};
 					}
-					// systemIds.xbl = {
-					// 	id: res.gamerTag,
-					// 	type: 1
-					// };
-					// systemIds.psn = {
-					// 	id: res.psnId,
-					// 	type: 2
-					// };
+					systemIds.xbl = {
+						id: res.gamerTag,
+						type: 1
+					};
+					systemIds.psn = {
+						id: res.psnId,
+						type: 2
+					};
 
-					// active = systemIds.xbl;
+					active = systemIds.xbl;
 
-					// if (res.psnId) {
-					// 	active = systemIds.psn;
-					// }
-					resolve();
+					if (res.psnId) {
+						active = systemIds.psn;
+					}
+					resolve(res);
 				}
 			});
 		});

@@ -71,6 +71,27 @@ function initUi() {
 
 		}, false);
 	}
+	if (document.querySelector("#toggleSystem")) {
+		var systemToggleDiv = document.querySelector("#toggleSystem");
+		if (bungie.getMemberships().length > 1) {
+			threeOfCoinsDiv.classList.remove("hidden");
+		}
+		if (bungie.getActive() === 2) {
+			systemToggleDiv.value = "Swap to XBOX";
+			systemToggleDiv.classList.remove("green");
+		}
+		systemToggleDiv.addEventListener("click", function(event) {
+			bungie.changeActiveMembership();
+			if (bungie.getActive() === 2) {
+				systemToggleDiv.value = "Swap to XBOX";
+				systemToggleDiv.classList.add("green");
+			} else {
+				systemToggleDiv.value = "Swap to PSN";
+				systemToggleDiv.classList.remove("green");
+			}
+
+		}, false);
+	}
 	if (document.querySelector("#accurateTracking")) {
 		var accurateTrackingDiv = document.querySelector("#accurateTracking");
 		if (localStorage.accurateTracking === "true") {
