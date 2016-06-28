@@ -150,9 +150,9 @@ var bungie = (function Bungie() {
 	};
 
 	bungie.setActive = function(type) {
-		if (type === "psn" && systemIds.psn.id) {
+		if (type === "psn" && systemIds.psn && systemIds.psn.id) {
 			active = systemIds.psn;
-		} else if (type === "xbl" && systemIds.xbl.id) {
+		} else if (type === "xbl" && systemIds.xbl && systemIds.xbl.id) {
 			active = systemIds.xbl;
 		}
 	};
@@ -166,13 +166,15 @@ var bungie = (function Bungie() {
 					if (res.gamerTag && res.publicCredentialTypes.indexOf(1) > -1) {
 						systemDetails.xbo = {
 							id: res.gamerTag,
-							type: 1
+							type: 1,
+							characters: []
 						};
 					}
 					if (res.psnId && res.publicCredentialTypes.indexOf(2) > -1) {
 						systemDetails.ps4 = {
 							id: res.psnId,
-							type: 2
+							type: 2,
+							characters: []
 						};
 					}
 					systemIds.xbl = {
@@ -218,6 +220,44 @@ var bungie = (function Bungie() {
 						complete: resolve
 					});
 				}
+			});
+		});
+	};
+	bungie.getCharacters = function() {
+		return new Promise(function(resolve) {
+			sequence(Object.keys(systemDetails), function(item, complete) {
+				var details = systemDetails[item];
+				_request({
+					route: '/Destiny/SearchDestinyPlayer/' + details.type + '/' + details.id + '/',
+					method: 'GET',
+					complete: function(membership) {
+						membershipId = membership[0].membershipId;
+						_request({
+							route: '/Destiny/Tiger' + (details.type == 1 ? 'Xbox' : 'PSN') + '/Account/' + membershipId + '/',
+							method: 'GET',
+							complete: complete
+						});
+					}
+				});
+			}, function(networkResult, item) {
+				var details = systemDetails[item];
+				var avatars = networkResult.data.characters;
+				details.characters.push("vault" + details.type);
+				for (let avatar of avatars) {
+					details.characters.push(avatar.characterBase.characterId);
+					characterMap[avatar.characterBase.characterId] = JSON.stringify(avatar);
+				}
+				for (var character in characterMap) {
+					characterMap[character] = JSON.parse(characterMap[character]);
+					characterMap[character].type = details.type;
+					characterMap[character].characterId = characterMap[character].characterBase.characterId;
+				}
+				characterMap["vault" + details.type] = {
+					type: details.type,
+					characterId: "vault"
+				};
+			}).then(function() {
+				resolve(characterMap);
 			});
 		});
 	};
