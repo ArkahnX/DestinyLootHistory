@@ -2,6 +2,8 @@
 var bungie = (function Bungie() {
 	var bungie = {};
 	// private vars
+	var systemDetails = {};
+	var characterMap = {};
 	var systemIds = {};
 	var membershipId = 0;
 
@@ -137,21 +139,33 @@ var bungie = (function Bungie() {
 				route: '/User/GetBungieNetUser/',
 				method: 'GET',
 				complete: function(res) {
-					systemIds.xbl = {
-						id: res.gamerTag,
-						type: 1
-					};
-					systemIds.psn = {
-						id: res.psnId,
-						type: 2
-					};
-
-					active = systemIds.xbl;
-
-					if (res.psnId) {
-						active = systemIds.psn;
+					if(res.gamerTag && publicCredentialTypes.indexOf(1) > -1) {
+						systemDetails.xbo = {
+							id:res.gamerTag,
+							type:1
+						}
 					}
-					resolve(res);
+					if(res.psnId && publicCredentialTypes.indexOf(2) > -1) {
+						systemDetails.ps4 = {
+							id:res.psnId,
+							type:2
+						}
+					}
+					// systemIds.xbl = {
+					// 	id: res.gamerTag,
+					// 	type: 1
+					// };
+					// systemIds.psn = {
+					// 	id: res.psnId,
+					// 	type: 2
+					// };
+
+					// active = systemIds.xbl;
+
+					// if (res.psnId) {
+					// 	active = systemIds.psn;
+					// }
+					resolve();
 				}
 			});
 		});

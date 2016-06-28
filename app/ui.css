@@ -186,6 +186,8 @@ header {
 	box-sizing: content-box;
 	width: 44px;
 	height: 44px;
+
+	vertical-align: bottom;
 	/*margin: 3px;*/
 
 	border: 3px solid #FFF;
@@ -725,8 +727,9 @@ h1 {
 }
 
 .solidBackground {
+	padding-top: 5px;
+
 	background: rgba(238,238,238,.7);
-	    padding-top: 5px;
 }
 
 #tags {
@@ -751,12 +754,23 @@ h1 {
 }
 
 
-#viewDebug {
-	background:#6f6f6f;
+.grey {
+	background: #6F6F6F!important;
+}
+
+.green {
+	background: #00b300!important;
 }
 
 p {
-	font-size:17px;
-	padding-top:5px;
-	padding-bottom:10px;
+	font-size: 17px;
+
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+
+.small {
+	width:33px;
+	height:33px;
+	border:none;
 }

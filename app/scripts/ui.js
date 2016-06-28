@@ -50,16 +50,48 @@ function initUi() {
 		}, false);
 	}
 	if (document.querySelector("#ToCReminder")) {
+		var threeOfCoinsDiv = document.querySelector("#ToCReminder");
 		if (localStorage.track3oC === "false") {
-			document.querySelector("#ToCReminder").value = "Turn on ToC reminder";
+			threeOfCoinsDiv.value = "Turn on 3oC reminder";
+			threeOfCoinsDiv.classList.add("grey");
+			threeOfCoinsDiv.classList.remove("green");
 		}
-		document.querySelector("#ToCReminder").addEventListener("click", function(event) {
+		threeOfCoinsDiv.addEventListener("click", function(event) {
 			if (localStorage.track3oC === "false") {
 				localStorage.track3oC = "true";
-				document.querySelector("#ToCReminder").value = "Turn off ToC reminder";
+				threeOfCoinsDiv.value = "Turn off 3oC reminder";
+				threeOfCoinsDiv.classList.remove("grey");
+				threeOfCoinsDiv.classList.add("green");
 			} else {
 				localStorage.track3oC = "false";
-				document.querySelector("#ToCReminder").value = "Turn on ToC reminder";
+				threeOfCoinsDiv.value = "Turn on 3oC reminder";
+				threeOfCoinsDiv.classList.add("grey");
+				threeOfCoinsDiv.classList.remove("green");
+			}
+
+		}, false);
+	}
+	if (document.querySelector("#accurateTracking")) {
+		var accurateTrackingDiv = document.querySelector("#accurateTracking");
+		if (localStorage.accurateTracking === "true") {
+			accurateTrackingDiv.value = "disable accurate tracking";
+			accurateTrackingDiv.classList.remove("grey");
+			accurateTrackingDiv.classList.add("green");
+		}
+		accurateTrackingDiv.addEventListener("click", function(event) {
+			if (localStorage.accurateTracking === "false") {
+				var confirmation = window.confirm("This tracking will move items from your guardian to the vault and back.\n Make sure you have a stack of ideally 500 armor or weapon parts for minimal interruption. 200 is the minimal acceptance.\n\n This feature is known to cause issues with full vaults, or inventories with low consumables / materials.\n If you split your inventories between all three characters, this feature is completely safe to enable.\n\n Press OK to track items within 20 seconds of accuracy. Press cancel to retain within 60 seconds of accuracy.");
+				if (confirmation) {
+					localStorage.accurateTracking = "true";
+					accurateTrackingDiv.value = "disable accurate tracking";
+					accurateTrackingDiv.classList.remove("grey");
+					accurateTrackingDiv.classList.add("green");
+				}
+			} else {
+				localStorage.accurateTracking = "false";
+				accurateTrackingDiv.value = "enable accurate tracking";
+				accurateTrackingDiv.classList.add("grey");
+				accurateTrackingDiv.classList.remove("green");
 			}
 
 		}, false);
@@ -175,6 +207,14 @@ function displayResults(customItems) {
 	var removed = document.getElementById("removed");
 	var transferred = document.getElementById("transferred");
 	var progression = document.getElementById("progression");
+	var trackerIcon = document.getElementById("trackingItem");
+	if (localStorage.accurateTracking === "true") {
+		trackerIcon.style.display = "inline-block";
+		trackerIcon.style.backgroundImage = "url(" + "'http://www.bungie.net" + getItemDefinition(localStorage.transferMaterial).icon + "')";
+
+	} else {
+		trackerIcon.style.display = "none";
+	}
 	return new Promise(function(resolve, reject) {
 		logger.startLogging("UI");
 		logger.timeEnd("grab matches");

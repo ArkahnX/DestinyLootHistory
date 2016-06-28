@@ -2,9 +2,10 @@ var notification = (function() {
 	let manifest = chrome.runtime.getManifest();
 	let changelog = `New in ${manifest.version}:<br>
 <ul>
-	<li>If possible, Three of Coins will be transferred to your primary character after each activity completion.</li>
-	<li>We can't generate Three of Coins from thin air. If you don't own any, we can't transfer them.</li>
-	<li>Partial fix for issues where guardians had full inventories or full vaults. If you are still having issues, please <a href="debug.html">send me your logs</a>.</li>
+	<li>Three of coins notification at the start of each activity. Can be toggled.</li>
+	<li>Optional Accurate tracking. Please regard the strict requirements before activating.</li>
+	<li>After activating, the active item being transferred will display beside the button.</li>
+	<li>Recommended that you have a stack of 500 armor or weapon parts on your active guardian.</li>
 	<li>Use the "Report Issue" button to create logs.</li>
 </ul>`;
 
