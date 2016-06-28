@@ -1,5 +1,8 @@
 /* jshint indent: 1, unused: true, esversion:6 */
 var bungie = (function Bungie() {
+	if (!localStorage.activeType) {
+		localStorage.activeType = "xbl";
+	}
 	var bungie = {};
 	// private vars
 	var systemDetails = {};
@@ -138,10 +141,18 @@ var bungie = (function Bungie() {
 	};
 
 	bungie.changeActiveMembership = function() {
-		if(active.type === 1 && systemIds.psn.id) {
+		if (active.type === 1 && systemIds.psn.id) {
 			active = systemIds.psn;
 		}
-		if(active.type === 2 && systemIds.xbl.id) {
+		if (active.type === 2 && systemIds.xbl.id) {
+			active = systemIds.xbl;
+		}
+	};
+
+	bungie.setActive = function(type) {
+		if (type === "psn" && systemIds.psn.id) {
+			active = systemIds.psn;
+		} else if (type === "xbl" && systemIds.xbl.id) {
 			active = systemIds.xbl;
 		}
 	};
@@ -152,16 +163,16 @@ var bungie = (function Bungie() {
 				route: '/User/GetBungieNetUser/',
 				method: 'GET',
 				complete: function(res) {
-					if(res.gamerTag && res.publicCredentialTypes.indexOf(1) > -1) {
+					if (res.gamerTag && res.publicCredentialTypes.indexOf(1) > -1) {
 						systemDetails.xbo = {
-							id:res.gamerTag,
-							type:1
+							id: res.gamerTag,
+							type: 1
 						};
 					}
-					if(res.psnId && res.publicCredentialTypes.indexOf(2) > -1) {
+					if (res.psnId && res.publicCredentialTypes.indexOf(2) > -1) {
 						systemDetails.ps4 = {
-							id:res.psnId,
-							type:2
+							id: res.psnId,
+							type: 2
 						};
 					}
 					systemIds.xbl = {
@@ -173,10 +184,21 @@ var bungie = (function Bungie() {
 						type: 2
 					};
 
-					active = systemIds.xbl;
+					// active = systemIds.xbl;
 
-					if (res.psnId) {
+					// if (res.psnId) {
+					// 	active = systemIds.psn;
+					// }
+					if (localStorage.activeType === "psn" && res.psnId) {
 						active = systemIds.psn;
+					} else if (localStorage.activeType === "xbl" && res.gamerTag) {
+						active = systemIds.xbl;
+					} else if (localStorage.activeType === "psn" && res.gamerTag) {
+						active = systemIds.xbl;
+						localStorage.activeType = "xbl";
+					} else if (localStorage.activeType === "xbl" && res.psnId) {
+						active = systemIds.psn;
+						localStorage.activeType = "psn";
 					}
 					resolve(res);
 				}

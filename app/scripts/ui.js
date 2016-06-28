@@ -85,9 +85,11 @@ function initUi() {
 			if (bungie.getActive() === 2) {
 				systemToggleDiv.value = "Swap to XBOX";
 				systemToggleDiv.classList.add("green");
+				localStorage.activeType = "psn";
 			} else {
 				systemToggleDiv.value = "Swap to PSN";
 				systemToggleDiv.classList.remove("green");
+				localStorage.activeType = "xbl";
 			}
 
 		}, false);

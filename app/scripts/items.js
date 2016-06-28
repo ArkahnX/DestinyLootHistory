@@ -22,6 +22,7 @@ var characterDescriptions = {
 function initItems(callback) {
 	logger.startLogging("items");
 	logger.time("load Bungie Data");
+	bungie.setActive(localStorage.activeType);
 	bungie.user().then(function() {
 		localStorage.error = "false";
 		chrome.browserAction.setBadgeText({
@@ -366,6 +367,7 @@ function grabRemoteInventory(resolve) {
 	logger.startLogging("items");
 	logger.time("Bungie Search");
 	var currentDateString = moment().utc().format();
+	bungie.setActive(localStorage.activeType);
 	bungie.search().then(function(guardian) {
 		logger.timeEnd("Bungie Search");
 		let characters = guardian.data.characters;

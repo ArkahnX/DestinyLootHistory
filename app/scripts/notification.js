@@ -6,6 +6,7 @@ var notification = (function() {
 	<li>Optional Accurate tracking. Please regard the strict requirements before activating.</li>
 	<li>After activating, the active item being transferred will display beside the button.</li>
 	<li>Recommended that you have a stack of 500 armor or weapon parts on your active guardian.</li>
+	<li>Users of multiple consoles should be able to see a toggle to swap their console. I don't have an easy way to test, so please report any issues.</li>
 	<li>Use the "Report Issue" button to create logs.</li>
 </ul>`;
 

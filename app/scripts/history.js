@@ -1,4 +1,4 @@
-
+bungie.setActive(localStorage.activetype);
 initUi();
 var data = {
 	inventories: {},
