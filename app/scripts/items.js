@@ -402,42 +402,122 @@ function grabRemoteInventory(resolve) {
 	});
 }
 
+function hasInventorySpace(characterId, itemHash) {
+	if (!characterId || !itemHash) {
+		return false;
+	}
+	let itemBucketHash = getItemDefinition(itemHash).bucketTypeHash;
+	let bucketHash = itemBucketHash;
+	if (characterId === "vault") {
+		bucketHash = 138197802;
+	}
+	let vaultSize = DestinyInventoryBucketDefinition[bucketHash].itemCount;
+	var totalStackSize = 0;
+	for (let item of newInventories[characterId]) {
+		let itemDef = getItemDefinition(item.itemHash);
+		if (itemDef.bucketTypeHash === 4023194814 || itemDef.bucketTypeHash === 434908299 || itemDef.bucketTypeHash === 2973005342 || itemDef.bucketTypeHash === 1469714392 || itemDef.bucketTypeHash === 3865314626 || itemDef.bucketTypeHash === 284967655 || itemDef.bucketTypeHash === 4274335291 || itemDef.bucketTypeHash === 3796357825 || itemDef.bucketTypeHash === 2025709351 || itemDef.bucketTypeHash === 3054419239) {
+			if (itemDef.bucketTypeHash === itemBucketHash || characterId === "vault") {
+				let itemStackSize = parseInt(item.stackSize, 10);
+				if (item.objectives) {
+					itemStackSize = 1;
+				}
+				let stacks = Math.ceil(itemStackSize / itemDef.maxStackSize);
+				totalStackSize += stacks;
+			}
+		}
+	}
+	return totalStackSize < vaultSize;
+}
+
+function moveLargestItemTo(characterId) {
+	let largestItem = null;
+	for (let item of newInventories.vault) {
+		let itemDef = getItemDefinition(item.itemHash);
+		if (item.itemHash !== 342707700 && item.itemHash !== 342707701 && item.itemHash !== 342707703 && item.itemHash !== 142694124 && item.itemHash !== 3881084295 && item.itemHash !== 1565194903 && item.itemHash !== 3026483582 && item.itemHash !== 1027379218 && item.itemHash !== 1556533319 && (itemDef.bucketTypeHash === 1469714392 || itemDef.bucketTypeHash === 3865314626)) {
+			if (!localStorage.oldTransferMaterial || (localStorage.oldTransferMaterial && parseInt(localStorage.oldTransferMaterial) !== item.itemHash)) {
+				console.log(item.itemHash, localStorage.oldTransferMaterial)
+				if (!largestItem) {
+					largestItem = item;
+				}
+				if (parseInt(item.stackSize) > parseInt(largestItem.stackSize)) {
+					largestItem = item;
+				}
+			}
+		}
+	}
+	if (largestItem) {
+		let localDescription = characterDescriptions[characterId];
+		if (hasInventorySpace(characterId, largestItem.itemHash)) {
+			logger.log(`Moved ${largestItem.stackSize} ${getItemDefinition(largestItem.itemHash).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (${findQuantityIn("vault", largestItem.itemHash)} in Vault)`);
+			logger.info(`Bungie Transfer to character: ${characterId}, material: ${largestItem.itemHash}, quantity: ${largestItem.stackSize}, vaultQuantity: ${findQuantityIn("vault", largestItem.itemHash)}`);
+			localStorage.oldTransferMaterial = "null";
+			localStorage.transferMaterial = largestItem.itemHash;
+			localStorage.transferMaterialStack = largestItem.stackSize;
+			localStorage.transferQuantity = 0;
+			return bungie.transfer(characterId, "0", largestItem.itemHash, largestItem.stackSize, false);
+		} else {
+			logger.info(`No Space to move to character`);
+			return new Promise(function(resolve) {
+				resolve();
+			});
+		}
+	}
+	return largestItem;
+}
+
+function findQuantityIn(characterId, item) {
+	if (characterId && item) {
+		if (localStorage.transferMaterial !== "null") {
+			for (let item of newInventories[characterId]) {
+				if (item.itemHash === parseInt(localStorage.transferMaterial)) {
+					return item.stackSize;
+				}
+			}
+		}
+	}
+	return 0;
+}
+
 var findHighestMaterial = (function() {
 	var newestCharacterDate = null;
 	var reset = true;
-	// localStorage.transferMaterial = null;
-	// localStorage.newestCharacter = null;
+	if (!localStorage.transferMaterial) {
+		localStorage.transferMaterial = "null";
+	}
+	if (!localStorage.newestCharacter) {
+		localStorage.newestCharacter = "null";
+	}
+	if (!localStorage.transferQuantity) {
+		localStorage.transferQuantity = 0;
+	}
 	return function() {
 		logger.startLogging("items");
 		logger.time("bigmat");
-		var itemQuantity = 0;
-		if (localStorage.transferMaterial && localStorage.transferMaterial !== "null") {
-			for (let item of newInventories[localStorage.newestCharacter]) {
-				if (item.itemHash === parseInt(localStorage.transferMaterial)) {
-					itemQuantity = item.stackSize;
-				}
-			}
-		}
-		var vaultQuantity = 0;
-		if (localStorage.transferMaterial && localStorage.transferMaterial !== "null") {
-			for (let item of newInventories.vault) {
-				if (item.itemHash === parseInt(localStorage.transferMaterial)) {
-					vaultQuantity = item.stackSize;
-				}
-			}
-		}
-		// logger.log(localStorage.transferMaterial, itemQuantity)
-		// logger.log(localStorage.transferMaterial !== "null" && localStorage.newestCharacter !== "null" && parseInt(localStorage.transferQuantity) > 0, reset, parseInt(localStorage.transferQuantity) > itemQuantity)
+		var itemQuantity = findQuantityIn(localStorage.newestCharacter, parseInt(localStorage.transferMaterial));
+		var vaultQuantity = findQuantityIn("vault", parseInt(localStorage.transferMaterial));
 		if ((localStorage.transferMaterial !== "null" && localStorage.newestCharacter !== "null" && parseInt(localStorage.transferQuantity) > 0) && (reset || parseInt(localStorage.transferQuantity) > itemQuantity)) {
-			let localCharacter = localStorage.newestCharacter;
-			let localMaterial = parseInt(localStorage.transferMaterial);
-			let localTransferQuantity = parseInt(localStorage.transferQuantity);
-			if (localTransferQuantity > vaultQuantity) {
-				localTransferQuantity = vaultQuantity;
+			if (vaultQuantity !== 0) {
+				let localCharacter = localStorage.newestCharacter;
+				let localMaterial = parseInt(localStorage.transferMaterial);
+				let localTransferQuantity = parseInt(localStorage.transferQuantity);
+				if (localTransferQuantity > vaultQuantity) {
+					localTransferQuantity = vaultQuantity;
+				}
+				let localDescription = characterDescriptions[localCharacter];
+				if (hasInventorySpace(localCharacter, localMaterial)) {
+					logger.log(`Moved ${localTransferQuantity} ${getItemDefinition(localMaterial).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (${vaultQuantity} in Vault)`);
+					logger.info(`Bungie Transfer to character: ${localCharacter}, material: ${localMaterial}, quantity: ${localTransferQuantity}, vaultQuantity: ${findQuantityIn("vault", parseInt(localStorage.transferMaterial))}`);
+					bungie.transfer(localCharacter, "0", localMaterial, localTransferQuantity, false);
+				} else {
+					logger.info(`No Space to move to character`);
+					return new Promise(function(resolve) {
+						resolve();
+					});
+				}
+			} else {
+				let localDescription = characterDescriptions[localStorage.newestCharacter];
+				logger.info(`Skipped moving ${localStorage.transferQuantity} ${getItemDefinition(parseInt(localStorage.transferMaterial)).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (Reason: 0 in Vault)`);
 			}
-			let localDescription = characterDescriptions[localCharacter];
-			logger.log(`Moved ${localTransferQuantity} ${getItemDefinition(localMaterial).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (${vaultQuantity} in Vault)`);
-			bungie.transfer(localCharacter, "0", localMaterial, localTransferQuantity, false);
 			localStorage.oldTransferMaterial = localStorage.transferMaterial;
 			localStorage.transferMaterial = null;
 			localStorage.transferMaterialStack = 0;
@@ -450,24 +530,37 @@ var findHighestMaterial = (function() {
 		for (let characterId of characterIdList) {
 			if (characterId !== "vault") {
 				var date = new Date(characterDescriptions[characterId].dateLastPlayed);
-				// logger.log(characterDescriptions[characterId], date > newestCharacterDate, characterId, localStorage.newestCharacter);
 				if ((!localStorage.newestCharacter || localStorage.newestCharacter === "null") || date > newestCharacterDate) {
 					if (localStorage.newestCharacter !== characterId || new Date().getTime() > date.getTime() + (1000 * 60 * 10)) {
-						// logger.log(characterId, localStorage.newestCharacter)
 						if (parseInt(localStorage.transferQuantity) > 0 && localStorage.transferMaterial !== "null") {
-							let localCharacter = localStorage.newestCharacter;
-							let localMaterial = parseInt(localStorage.transferMaterial);
-							let localTransferQuantity = parseInt(localStorage.transferQuantity);
-							if (localTransferQuantity > vaultQuantity) {
-								localTransferQuantity = vaultQuantity;
+							if (vaultQuantity !== 0) {
+								let localCharacter = localStorage.newestCharacter;
+								let localMaterial = parseInt(localStorage.transferMaterial);
+								let localTransferQuantity = parseInt(localStorage.transferQuantity);
+								if (localTransferQuantity > vaultQuantity) {
+									localTransferQuantity = vaultQuantity;
+								}
+								let localDescription = characterDescriptions[localCharacter];
+								if (hasInventorySpace(localCharacter, localMaterial)) {
+									logger.log(`Moved ${localTransferQuantity} ${getItemDefinition(localMaterial).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (${vaultQuantity} in Vault)`);
+									logger.info(`Bungie Transfer to character: ${localCharacter}, material: ${localMaterial}, quantity: ${localTransferQuantity}, vaultQuantity: ${findQuantityIn("vault", parseInt(localStorage.transferMaterial))}`);
+									bungie.transfer(localCharacter, "0", localMaterial, localTransferQuantity, false);
+								} else {
+									logger.info(`No Space to move to character`);
+									return new Promise(function(resolve) {
+										resolve();
+									});
+								}
+							} else {
+								let localDescription = characterDescriptions[localStorage.newestCharacter];
+								logger.info(`Skipped moving ${localStorage.transferQuantity} ${getItemDefinition(parseInt(localStorage.transferMaterial)).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (Reason: 0 in Vault)`);
 							}
-							let localDescription = characterDescriptions[localCharacter];
-							logger.log(`Moved ${localTransferQuantity} ${getItemDefinition(localMaterial).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (${vaultQuantity} in Vault)`);
-							bungie.transfer(localCharacter, "0", localMaterial, localTransferQuantity, false);
 						}
 						localStorage.newestCharacter = characterId;
 						localStorage.transferQuantity = 0;
-						localStorage.oldTransferMaterial = localStorage.transferMaterial;
+						if (localStorage.transferMaterial) {
+							localStorage.oldTransferMaterial = localStorage.transferMaterial;
+						}
 						localStorage.transferMaterial = null;
 						localStorage.transferMaterialStack = 0;
 					}
@@ -476,14 +569,12 @@ var findHighestMaterial = (function() {
 			}
 		}
 		logger.timeEnd("char");
-		// logger.log(localStorage.transferMaterial, !localStorage.transferMaterial, localStorage.transferMaterial === "null")
 		if (!localStorage.transferMaterial || localStorage.transferMaterial === "null") {
 			logger.time("mats");
 			for (let item of newInventories[localStorage.newestCharacter]) {
 				let itemDefinition = getItemDefinition(item.itemHash);
 				if (itemDefinition.bucketTypeHash === 3865314626 || itemDefinition.bucketTypeHash === 1469714392) {
-					// logger.log(!localStorage.transferMaterial, item.stackSize > transferMaterial.stackSize)
-					if (item.itemHash !== 342707700 && item.itemHash !== 342707701 && item.itemHash !== 342707703 && ((!localStorage.transferMaterial || localStorage.transferMaterial === "null") || item.stackSize > parseInt(localStorage.transferMaterialStack))) {
+					if (item.itemHash !== 342707700 && item.itemHash !== 342707701 && item.itemHash !== 342707703 && item.itemHash !== 142694124 && item.itemHash !== 3881084295 && item.itemHash !== 1565194903 && item.itemHash !== 3026483582 && item.itemHash !== 1027379218 && item.itemHash !== 1556533319 && ((!localStorage.transferMaterial || localStorage.transferMaterial === "null") || item.stackSize > parseInt(localStorage.transferMaterialStack)) && item.stackSize > 40) {
 						localStorage.oldTransferMaterial = localStorage.transferMaterial;
 						localStorage.transferMaterial = item.itemHash;
 						localStorage.transferMaterialStack = item.stackSize;
@@ -492,13 +583,29 @@ var findHighestMaterial = (function() {
 			}
 			logger.timeEnd("mats");
 		}
-		logger.log(`Moved 1 ${getItemDefinition(localStorage.transferMaterial).itemName} to Vault (${vaultQuantity} in Vault)`);
-		// logger.log(localStorage.transferMaterial)
+		if (localStorage.transferMaterial === "null") {
+			logger.error("no valid materials on guardian");
+			// moveLargestItemTo(localStorage.newestCharacter);
+		}
 		localStorage.transferQuantity = parseInt(localStorage.transferQuantity) + 1;
 		logger.timeEnd("bigmat");
-		// logger.log(localStorage.newestCharacter, "0", localStorage.transferMaterial, 1, true, localStorage);
-		// logger.error("HERERERER")
-		return bungie.transfer(localStorage.newestCharacter, "0", localStorage.transferMaterial, 1, true);
+		if (hasInventorySpace("vault", parseInt(localStorage.transferMaterial, 10))) {
+			if (hasInventorySpace(localStorage.newestCharacter, parseInt(localStorage.transferMaterial, 10))) {
+				logger.log(`Moved 1 ${getItemDefinition(localStorage.transferMaterial).itemName} to Vault (${vaultQuantity} in Vault)`);
+				logger.info(`Bungie Transfer to vault from: ${localStorage.newestCharacter}, material: ${localStorage.transferMaterial}, quantity: 1, guardianQuantity: ${findQuantityIn(localStorage.newestCharacter, parseInt(localStorage.transferMaterial))}`);
+				return bungie.transfer(localStorage.newestCharacter, "0", localStorage.transferMaterial, 1, true);
+			} else {
+				logger.info(`No Space to move to character`);
+				return new Promise(function(resolve) {
+					resolve();
+				});
+			}
+		} else {
+			logger.info(`No Space to move to vault`);
+			return new Promise(function(resolve) {
+				resolve();
+			});
+		}
 	};
 }());
 
@@ -509,32 +616,42 @@ function findThreeOfCoins(characterId) {
 				return characterId;
 			}
 		}
-		for (let character in newInventories) {
-			for (let item of newInventories[character]) {
-				if (item.itemHash === 417308266) {
-					return character;
-				}
-			}
-		}
+		// for (let character in newInventories) {
+		// 	for (let item of newInventories[character]) {
+		// 		if (item.itemHash === 417308266) {
+		// 			return character;
+		// 		}
+		// 	}
+		// }
 	}
 	return false;
 }
 
 function check3oC() {
 	return new Promise(function(resolve) {
-		if (localStorage.move3oC && localStorage.move3oC === "true") { // we have just completed an activity, remind the User about Three of Coins
-			if (localStorage.newestCharacter) {
-				var threeOfCoinsCharacter = findThreeOfCoins(localStorage.newestCharacter);
-				if (threeOfCoinsCharacter) {
-					bungie.transfer(threeOfCoinsCharacter, "0", 417308266, 1, true).then(function() {
-						bungie.transfer(threeOfCoinsCharacter, "0", 417308266, 1, false);
-					});
+		if (!localStorage.track3oC) {
+			localStorage.track3oC = "true";
+		}
+		if (localStorage.track3oC === "true") {
+			if (localStorage.move3oC && localStorage.move3oC === "true") { // we have just completed an activity, remind the User about Three of Coins
+				if (localStorage.newestCharacter) {
+					logger.log("three of coins reminder sent")
+					var threeOfCoinsCharacter = findThreeOfCoins(localStorage.newestCharacter);
+					if (threeOfCoinsCharacter && hasInventorySpace("vault", 417308266)) {
+						setTimeout(function() {
+							bungie.transfer(threeOfCoinsCharacter, "0", 417308266, 1, true).then(function() {
+								bungie.transfer(threeOfCoinsCharacter, "0", 417308266, 1, false);
+							});
+						},5000);
+					}
+					localStorage.move3oC = "false";
+					resolve();
+				} else {
+					logger.warn("Unable to determine 3oC target.");
+					resolve(); // we don't know who you are playing :(
 				}
-				localStorage.move3oC = "false";
-				resolve();
 			} else {
-				logger.warn("Unable to determine 3oC target.");
-				resolve(); // we don't know who you are playing :(
+				resolve();
 			}
 		} else {
 			resolve();

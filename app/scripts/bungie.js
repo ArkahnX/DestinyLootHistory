@@ -37,35 +37,52 @@ var bungie = (function Bungie() {
 		r.open(opts.method, "https://www.bungie.net/Platform" + opts.route, true);
 		r.setRequestHeader('X-API-Key', '4a6cc3aa21d94c949e3f44736d036a8f');
 		r.onload = function() {
-			logger.startLogging("bungie");
 			if (this.status >= 200 && this.status < 400) {
 				var response = JSON.parse(this.response);
 				if (response.ErrorCode === 36) {
 					setTimeout(function() {
 						_request(opts);
 					}, 1000);
-				} else if(response.ErrorCode === 1623) {
-					logger.error('Invalid Item Selection.');
-					logger.error(response);
-					logger.error(opts);
+				} else if (response.ErrorCode === 1623) {
+					logger.startLogging("Bungie Logs");
+					logger.error(response.ErrorStatus, response.Message, opts.route);
+					if (Object.keys(opts.payload).length > 0) {
+						logger.error(`Character: ${opts.payload.characterId}, Membership: ${opts.payload.membershipType}, itemHash: ${opts.payload.itemReferenceHash}, stackSize: ${opts.payload.stackSize}, transferToVault: ${opts.payload.transferToVault}`);
+					}
 					localStorage.error = "true";
-					localStorage.errorMessage = 'Invalid item selection, please use the report issue feature.' + JSON.stringify(response.Message);
+					localStorage.errorMessage = 'Invalid item selection, please use the <a href="debug.html">report issue feature</a>.<br>' + JSON.stringify(response.Message);
+					logger.saveData();
+					opts.complete(response.Response, response);
+				} else if (response.ErrorCode === 1642) {
+					logger.startLogging("Bungie Logs");
+					logger.error(response.ErrorStatus, response.Message, opts.route);
+					if (Object.keys(opts.payload).length > 0) {
+						logger.error(`Character: ${opts.payload.characterId}, Membership: ${opts.payload.membershipType}, itemHash: ${opts.payload.itemReferenceHash}, stackSize: ${opts.payload.stackSize}, transferToVault: ${opts.payload.transferToVault}`);
+					}
+					localStorage.error = "true";
+					localStorage.errorMessage = 'No space in vault, please free up some space! Or use the <a href="debug.html">report issue feature</a>.<br>' + JSON.stringify(response.Message);
+					logger.saveData();
 					opts.complete(response.Response, response);
 				} else if (response.ErrorCode !== 1) {
-					logger.error('Unhandled Bungie Error' + JSON.stringify(response.Message));
-					logger.error(response);
-					logger.error(opts);
+					logger.startLogging("Bungie Logs");
+					logger.error(response.ErrorCode, response.ErrorStatus, response.Message, opts.route);
+					if (Object.keys(opts.payload).length > 0) {
+						logger.error(`Character: ${opts.payload.characterId}, Membership: ${opts.payload.membershipType}, itemHash: ${opts.payload.itemReferenceHash}, stackSize: ${opts.payload.stackSize}, transferToVault: ${opts.payload.transferToVault}`);
+					}
 					localStorage.error = "true";
-					localStorage.errorMessage = 'Unhandled Bungie Error, please use the report issue feature.' + JSON.stringify(response.Message);
+					localStorage.errorMessage = 'Unhandled Bungie Error, please use the <a href="debug.html">report issue feature</a>.<br>' + JSON.stringify(response.Message);
 					setTimeout(function() {
 						_request(opts);
+						logger.saveData();
 					}, 5000);
 				} else {
 					if (response.Response === undefined || (Array.isArray(response.Response) && response.Response[0] === undefined)) {
+						logger.startLogging("Bungie Logs");
 						logger.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message));
 						localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message);
 						setTimeout(function() {
 							_request(opts);
+							logger.saveData();
 						}, 5000);
 					} else {
 						localStorage.error = "false";
@@ -78,6 +95,7 @@ var bungie = (function Bungie() {
 				localStorage.errorMessage = "Network Error: Please check your internet connection.";
 				setTimeout(function() {
 					_request(opts);
+					logger.saveData();
 				}, 5000);
 			}
 		};

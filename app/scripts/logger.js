@@ -155,6 +155,11 @@ var logger = (function() {
 	}
 
 	function _multi(type, data) {
+		if (!chrome.runtime.getManifest().key) {
+			if (type !== "time" && type !== "timeEnd") {
+				console[type](data);
+			}
+		}
 		if (Array.isArray(data)) {
 			currentLog.logs.push(_log(type, `Array[${data.length}]`));
 		} else if (typeof data === "object") {

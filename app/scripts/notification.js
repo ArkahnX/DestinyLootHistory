@@ -4,6 +4,7 @@ var notification = (function() {
 <ul>
 	<li>If possible, Three of Coins will be transferred to your primary character after each activity completion.</li>
 	<li>We can't generate Three of Coins from thin air. If you don't own any, we can't transfer them.</li>
+	<li>Partial fix for issues where guardians had full inventories or full vaults. If you are still having issues, please <a href="debug.html">send me your logs</a>.</li>
 	<li>Use the "Report Issue" button to create logs.</li>
 </ul>`;
 

@@ -161,7 +161,7 @@ header {
 }
 
 .error {
-	background-color: #D85617;
+	background-color: #D85617!important;
 }
 
 .faction {

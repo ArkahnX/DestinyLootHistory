@@ -49,6 +49,21 @@ function initUi() {
 			}
 		}, false);
 	}
+	if (document.querySelector("#ToCReminder")) {
+		if (localStorage.track3oC === "false") {
+			document.querySelector("#ToCReminder").value = "Turn on ToC reminder";
+		}
+		document.querySelector("#ToCReminder").addEventListener("click", function(event) {
+				if (localStorage.track3oC === "false") {
+					localStorage.track3oC = "true";
+					document.querySelector("#ToCReminder").value = "Turn off ToC reminder";
+				} else {
+					localStorage.track3oC = "false";
+					document.querySelector("#ToCReminder").value = "Turn on ToC reminder";
+				}
+			}
+		}, false);
+}
 }
 
 function makePages(customLength) {
@@ -351,7 +366,7 @@ function makeProgress(itemDiff, moveType, index) {
 		return makeItem(itemDiff, moveType, index);
 	}
 	var docfrag = document.createDocumentFragment();
-	if(progressData.progressionHash && progressData.progressionHash === 3298204156) {
+	if (progressData.progressionHash && progressData.progressionHash === 3298204156) {
 		return docfrag;
 	}
 	var itemContainer = document.createElement("div");
