@@ -11,6 +11,7 @@ function dirtyItemCheck() {
 		});
 		var factionProgress = 0;
 		clearTimeout(dirtyTimeout);
+		bungie.setActive(localStorage.activeType);
 		sequence(characterIdList, function(item, resolve) {
 			if (item !== "vault") {
 				bungie.factions(item).then(resolve);

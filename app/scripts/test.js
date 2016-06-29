@@ -21,6 +21,7 @@ function initItems(callback) {
 	logger.startLogging("items");
 	logger.time("load Bungie Data");
 	initUi();
+	bungie.setActive(localStorage.activeType);
 	bungie.user().then(function(u) {
 		if (u.error) {
 			return setTimeout(function() {

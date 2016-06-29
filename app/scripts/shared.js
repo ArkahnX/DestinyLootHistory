@@ -42,4 +42,5 @@ function getItemDefinition(hash) {
 		return DestinyCompactItemDefinition[hash];
 	}
 	logger.error(`Item Reference ${hash} is not in database. Please file a bug report.`);
+	return {};
 }

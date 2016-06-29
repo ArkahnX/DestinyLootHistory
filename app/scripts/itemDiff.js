@@ -356,8 +356,11 @@ function processDifference(currentDateString, resolve) {
 			oldCurrencies = newCurrencies;
 			data.currencies = newCurrencies;
 		}
-
-		finalChanges.push(finalDiff);
+		if (finalDiff.added.length < 25 && finalDiff.removed.length < 25) {
+			finalChanges.push(finalDiff);
+		} else {
+			logger.warn(`bungie systems ${JSON.stringify(bungie.getMemberships())}, bungie active ${JSON.stringify(bungie.getActive())}`);
+		}
 
 		transferQ.length = 0;
 		trackingTimer = 0;

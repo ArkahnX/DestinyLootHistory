@@ -374,10 +374,30 @@ function grabRemoteInventory(resolve) {
 	bungie.search().then(function(guardian) {
 		logger.timeEnd("Bungie Search");
 		let characters = guardian.data.characters;
-		for (let character of characters) {
-			characterDescriptions[character.characterBase.characterId].light = character.characterBase.powerLevel;
-			characterDescriptions[character.characterBase.characterId].dateLastPlayed = character.characterBase.dateLastPlayed;
+		var newestDate = 0;
+		for (let avatar of characters) {
+			if (!characterDescriptions[avatar.characterBase.characterId]) {
+				characterDescriptions[avatar.characterBase.characterId] = {
+					name: DestinyClassDefinition[avatar.characterBase.classHash].className,
+					gender: DestinyGenderDefinition[avatar.characterBase.genderHash].genderName,
+					level: avatar.baseCharacterLevel,
+					light: avatar.characterBase.powerLevel,
+					race: DestinyRaceDefinition[avatar.characterBase.raceHash].raceName,
+					dateLastPlayed: avatar.characterBase.dateLastPlayed
+				};
+			} else {
+				characterDescriptions[avatar.characterBase.characterId].level = avatar.baseCharacterLevel;
+				characterDescriptions[avatar.characterBase.characterId].light = avatar.characterBase.powerLevel;
+				characterDescriptions[avatar.characterBase.characterId].dateLastPlayed = avatar.characterBase.dateLastPlayed;
+			}
+			if (new Date(avatar.characterBase.dateLastPlayed).getTime() > new Date(newestDate).getTime()) {
+				newestDate = avatar.characterBase.dateLastPlayed;
+				newestCharacter = avatar.characterBase.characterId;
+			}
+			characterIdList.push(avatar.characterBase.characterId);
 		}
+		localStorage.newestCharacter = newestCharacter;
+		localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
 		logger.time("Bungie Items");
 		sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
 			logger.timeEnd("Bungie Items");

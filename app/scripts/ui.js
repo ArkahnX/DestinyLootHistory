@@ -74,14 +74,13 @@ function initUi() {
 	if (document.querySelector("#toggleSystem")) {
 		var systemToggleDiv = document.querySelector("#toggleSystem");
 		if (bungie.getMemberships().length > 1) {
-			threeOfCoinsDiv.classList.remove("hidden");
+			systemToggleDiv.classList.remove("hidden");
 		}
 		if (bungie.getActive() === 2) {
 			systemToggleDiv.value = "Swap to XBOX";
 			systemToggleDiv.classList.remove("green");
 		}
 		systemToggleDiv.addEventListener("click", function(event) {
-			bungie.changeActiveMembership();
 			if (bungie.getActive() === 2) {
 				systemToggleDiv.value = "Swap to XBOX";
 				systemToggleDiv.classList.add("green");
@@ -445,6 +444,8 @@ function makeProgress(itemDiff, moveType, index) {
 		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyFactionDefinition[progressData.factionHash].factionIcon + "')");
 	} else if (DestinyProgressionDefinition[progressData.progressionHash].icon) {
 		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyProgressionDefinition[progressData.progressionHash].icon + "')");
+	} else if (progressData.name === "pvp_iron_banner.loss_tokens") {
+		container.setAttribute("style", "background-image: url('http://bungie.net" + getItemDefinition(3397982326).icon + "')");
 	} else {
 		container.setAttribute("style", "background-image: url('http://bungie.net/img/misc/missing_icon.png')");
 	}
