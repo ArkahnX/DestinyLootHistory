@@ -29,7 +29,7 @@ logger.init().then(function debugInit() {
 		}
 		logger.returnLogs(selectedTags, logOption.checked, infoOption.checked, warnOption.checked, errorOption.checked, timeOption.checked).then(function(output) {
 			var trimmed = output.trim();
-			outPutArea.textContent = trimmed;
+			outPutArea.textContent = trimmed + "\n" + JSON.stringify();
 			// Matches only the 10.. bytes that are non-initial characters in a multi-byte sequence.
 			var m = encodeURIComponent(trimmed).match(/%[89ABab]/g);
 			var bytes = trimmed.length + (m ? m.length : 0);

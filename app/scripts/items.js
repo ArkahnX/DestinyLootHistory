@@ -283,28 +283,32 @@ function checkFactionDiff(sourceArray, newArray, characterId) {
 		for (var e = 0; e < newArray.length; e++) {
 			var diff = false;
 			if (newArray[e].progressionHash == sourceArray[i].progressionHash && newArray[e].progressionHash === 3298204156) {
-				if (!localStorage[`old3oCProgress${characterId}`]) {
-					localStorage[`old3oCProgress${characterId}`] = sourceArray[i].currentProgress;
-				}
-				var old3oCProgress = parseInt(localStorage[`old3oCProgress${characterId}`], 10);
-				var progressChange = newArray[e].currentProgress - old3oCProgress;
-				if (!localStorage.move3oCCooldown) {
-					localStorage.move3oCCooldown = "false";
-				}
-				if (!localStorage.move3oC) {
-					localStorage.move3oC = "false";
-				}
-				if (localStorage.move3oCCooldown === "true") {
-					if (newArray[e].currentProgress > 0 && progressChange > 0) {
+				if (localStorage.track3oC === "true") {
+					logger.startLogging("3oC");
+					if (!localStorage[`old3oCProgress${characterId}`]) {
+						localStorage[`old3oCProgress${characterId}`] = sourceArray[i].currentProgress;
+					}
+					var old3oCProgress = parseInt(localStorage[`old3oCProgress${characterId}`], 10);
+					var progressChange = newArray[e].currentProgress - old3oCProgress;
+					if (!localStorage.move3oCCooldown) {
 						localStorage.move3oCCooldown = "false";
 					}
+					if (!localStorage.move3oC) {
+						localStorage.move3oC = "false";
+					}
+					if (localStorage.move3oCCooldown === "true") {
+						if (newArray[e].currentProgress > 0 && progressChange > 0) {
+							localStorage.move3oCCooldown = "false";
+						}
+					}
+					logger.log(`Progress === 0 = ${newArray[e].currentProgress} && progressChange < 0 = ${newArray[e].currentProgress} && move3oCCooldown === "false" ${localStorage.move3oCCooldown}`);
+					if (newArray[e].currentProgress === 0 && progressChange < 0 && localStorage.move3oCCooldown === "false") {
+						localStorage.move3oC = "true";
+						localStorage.move3oCCooldown = "true";
+						// forceupdate = true;
+					}
+					localStorage[`old3oCProgress${characterId}`] = newArray[e].currentProgress;
 				}
-				if (newArray[e].currentProgress === 0 && progressChange < 0 && localStorage.move3oCCooldown === "false") {
-					localStorage.move3oC = "true";
-					localStorage.move3oCCooldown = "true";
-					// forceupdate = true;
-				}
-				localStorage[`old3oCProgress${characterId}`] = newArray[e].currentProgress;
 			} else if (newArray[e].progressionHash == sourceArray[i].progressionHash && newArray[e].currentProgress !== sourceArray[i].currentProgress) {
 				var newItem = {
 					progressionHash: newArray[e].progressionHash,
@@ -322,7 +326,6 @@ function checkFactionDiff(sourceArray, newArray, characterId) {
 				}
 				itemsRemovedFromSource.push(JSON.stringify(newItem));
 			}
-
 		}
 	}
 	return itemsRemovedFromSource;
@@ -628,13 +631,15 @@ function findThreeOfCoins(characterId) {
 
 function check3oC() {
 	return new Promise(function(resolve) {
+		logger.startLogging("3oC")
 		if (!localStorage.track3oC) {
 			localStorage.track3oC = "true";
 		}
 		if (localStorage.track3oC === "true") {
+			logger.log("We ARE tracking 3oC");
 			if (localStorage.move3oC && localStorage.move3oC === "true") { // we have just completed an activity, remind the User about Three of Coins
 				if (localStorage.newestCharacter) {
-					logger.log("three of coins reminder sent")
+					logger.log("three of coins reminder sent");
 					var threeOfCoinsCharacter = findThreeOfCoins(localStorage.newestCharacter);
 					if (threeOfCoinsCharacter && hasInventorySpace("vault", 417308266)) {
 						setTimeout(function() {
@@ -642,6 +647,8 @@ function check3oC() {
 								bungie.transfer(threeOfCoinsCharacter, "0", 417308266, 1, false);
 							});
 						}, 5000);
+					} else {
+						logger.log("three of coins reminder sent, but no space in vault.");
 					}
 					localStorage.move3oC = "false";
 					resolve();
@@ -650,9 +657,11 @@ function check3oC() {
 					resolve(); // we don't know who you are playing :(
 				}
 			} else {
+				logger.warn(`We cannot move 3oC because move3oC = ${localStorage.move3oC}`);
 				resolve();
 			}
 		} else {
+			logger.warn("We are NOT tracking 3oC");
 			resolve();
 		}
 	});
