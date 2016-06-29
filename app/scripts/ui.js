@@ -301,7 +301,7 @@ function displayResults(customItems) {
 
 		if (oldItemChangeQuantity !== ((customItems && customItems.length) || (data.itemChanges && data.itemChanges.length)) || oldPageNumber !== pageNumber) {
 			// Start iterator, it will return a promise
-			var promise = asyncIterator(customItems || data.itemChanges, work, batchSize);
+			var promise = asyncIterator(customItems || data.itemChanges || [], work, batchSize);
 
 			// When promise is resolved, output results
 			promise.then(function() {
