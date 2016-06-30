@@ -33,14 +33,14 @@ function dirtyItemCheck() {
 				oldFactionProgress = factionProgress;
 			}
 			if (localStorage.listening === "false") {
-				dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 10);
+				dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 60);
 			}
 		});
 	} else {
 		chrome.browserAction.setBadgeText({
 			text: "!"
 		});
-		dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 10);
+		dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 60);
 	}
 	logger.saveData();
 }
@@ -173,16 +173,16 @@ function recursiveIdleTracking() {
 			localStorage.listening = "true";
 			let endTime = window.performance.now();
 			let resultTime = Math.floor(endTime - startTime);
-			logger.log(`Scheduling check for ${moment().add(((5 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((5 * 1000) - resultTime) / 1000} seconds`);
-			timeoutTracker = setTimeout(recursiveIdleTracking, (5 * 1000) - resultTime);
+			logger.log(`Scheduling check for ${moment().add(((60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((60 * 1000) - resultTime) / 1000} seconds`);
+			timeoutTracker = setTimeout(recursiveIdleTracking, (60 * 1000) - resultTime);
 			dirtyItemCheck();
 			runningCheck = false;
 		} else if (localStorage.flag === "true" || (localStorage.listening === "true" && idleTimer < 15)) {
 			logger.log(`${15 - idleTimer} checks remaining.`);
 			localStorage.listening = "true";
 			localStorage.flag = "false";
-			logger.log(`Scheduling check for ${moment().add(((20 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((20 * 1000) - resultTime) / 1000} seconds`);
-			timeoutTracker = setTimeout(recursiveIdleTracking, (20 * 1000) - resultTime);
+			logger.log(`Scheduling check for ${moment().add(((60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((60 * 1000) - resultTime) / 1000} seconds`);
+			timeoutTracker = setTimeout(recursiveIdleTracking, (60 * 1000) - resultTime);
 		} else {
 			idleTimer = 0;
 			localStorage.listening = "false";

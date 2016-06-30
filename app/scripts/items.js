@@ -46,7 +46,9 @@ function initItems(callback) {
 					newestDate = avatars[c].characterBase.dateLastPlayed;
 					newestCharacter = avatars[c].characterBase.characterId;
 				}
-				characterIdList.push(avatars[c].characterBase.characterId);
+				if (characterIdList.indexOf(avatars[c].characterBase.characterId) === -1) {
+					characterIdList.push(avatars[c].characterBase.characterId);
+				}
 			}
 			localStorage.newestCharacter = newestCharacter;
 			localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
@@ -67,6 +69,7 @@ function itemNetworkTask(characterId, callback) {
 	if (characterId === "vault") {
 		bungie.vault().then(callback);
 	} else {
+		console.log(characterId)
 		bungie.inventory(characterId).then(callback);
 	}
 }
@@ -415,7 +418,9 @@ function grabRemoteInventory(resolve) {
 				newestDate = avatar.characterBase.dateLastPlayed;
 				newestCharacter = avatar.characterBase.characterId;
 			}
-			characterIdList.push(avatar.characterBase.characterId);
+			if (characterIdList.indexOf(avatar.characterBase.characterId) === -1) {
+				characterIdList.push(avatar.characterBase.characterId);
+			}
 		}
 		localStorage.newestCharacter = newestCharacter;
 		localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
@@ -698,11 +703,11 @@ function check3oC() {
 					resolve(); // we don't know who you are playing :(
 				}
 			} else {
-				logger.warn(`We cannot move 3oC because move3oC = ${localStorage.move3oC}`);
+				logger.log(`We cannot move 3oC because move3oC = ${localStorage.move3oC}`);
 				resolve();
 			}
 		} else {
-			logger.warn("We are NOT tracking 3oC");
+			logger.log("We are NOT tracking 3oC");
 			resolve();
 		}
 	});

@@ -9,6 +9,8 @@ var bungie = (function Bungie() {
 	var characterMap = {};
 	var systemIds = {};
 	var membershipId = 0;
+	var lastRoute = "";
+	var lastRequestTime = new Date().getTime();
 
 	var active = {
 		id: 'loading'
@@ -38,114 +40,127 @@ var bungie = (function Bungie() {
 	}
 
 	function _request(opts) {
-		var r = new XMLHttpRequest();
-		r.open(opts.method, "https://www.bungie.net/Platform" + opts.route, true);
-		r.setRequestHeader('X-API-Key', '4a6cc3aa21d94c949e3f44736d036a8f');
-		r.onload = function() {
-			if (this.status >= 200 && this.status < 400) {
-				var response = JSON.parse(this.response);
-				if (response.ErrorCode === 36) {
-					setTimeout(function() {
-						_request(opts);
-					}, 1000);
-				} else if (response.ErrorCode === 1623 || response.ErrorCode === 1663) {
-					logger.startLogging("Bungie Logs");
-					logger.error(response.ErrorStatus, response.Message, opts.route);
-					if (Object.keys(opts.payload).length > 0) {
-						logger.error(`Character: ${opts.payload.characterId}, Membership: ${opts.payload.membershipType}, itemHash: ${opts.payload.itemReferenceHash}, stackSize: ${opts.payload.stackSize}, transferToVault: ${opts.payload.transferToVault}`);
-					}
-					localStorage.error = "true";
-					localStorage.errorMessage = 'Invalid item selection, please use the <a href="debug.html">report issue feature</a>.<br>' + JSON.stringify(response.Message);
-					logger.saveData();
-					opts.complete(response.Response, response);
-				} else if (response.ErrorCode === 1642) {
-					logger.startLogging("Bungie Logs");
-					logger.error(response.ErrorStatus, response.Message, opts.route);
-					if (Object.keys(opts.payload).length > 0) {
-						logger.error(`Character: ${opts.payload.characterId}, Membership: ${opts.payload.membershipType}, itemHash: ${opts.payload.itemReferenceHash}, stackSize: ${opts.payload.stackSize}, transferToVault: ${opts.payload.transferToVault}`);
-					}
-					localStorage.error = "true";
-					localStorage.errorMessage = 'No space in vault, please free up some space! Or use the <a href="debug.html">report issue feature</a>.<br>' + JSON.stringify(response.Message);
-					logger.saveData();
-					opts.complete(response.Response, response);
-				} else if (response.ErrorCode !== 1) {
-					logger.startLogging("Bungie Logs");
-					logger.error(response.ErrorCode, response.ErrorStatus, response.Message, opts.route);
-					if (Object.keys(opts.payload).length > 0) {
-						logger.error(`Character: ${opts.payload.characterId}, Membership: ${opts.payload.membershipType}, itemHash: ${opts.payload.itemReferenceHash}, stackSize: ${opts.payload.stackSize}, transferToVault: ${opts.payload.transferToVault}`);
-					}
-					localStorage.error = "true";
-					localStorage.errorMessage = 'Unhandled Bungie Error, please use the <a href="debug.html">report issue feature</a>.<br>' + JSON.stringify(response.Message);
-					setTimeout(function() {
-						_request(opts);
-						logger.saveData();
-					}, 5000);
-				} else {
-					if (response.Response === undefined || (Array.isArray(response.Response) && response.Response[0] === undefined)) {
+		var newDate = new Date().getTime();
+		if ((lastRoute === opts.shortRoute && newDate - lastRequestTime >= 800) || lastRoute !== opts.shortRoute) {
+			lastRoute = opts.shortRoute;
+			lastRequestTime = newDate;
+			var r = new XMLHttpRequest();
+			r.open(opts.method, "https://www.bungie.net/Platform" + opts.route, true);
+			r.setRequestHeader('X-API-Key', '4a6cc3aa21d94c949e3f44736d036a8f');
+			r.onload = function() {
+				if (this.status >= 200 && this.status < 400) {
+					var response = JSON.parse(this.response);
+					if (response.ErrorCode === 36 || response.ErrorCode === 51) {
+						logger.warn(`We accidentally encountered Error ${response.ErrorCode} when attempting ${opts.route}`)
+						setTimeout(function() {
+							_request(opts);
+						}, 1000);
+					} else if (response.ErrorCode === 1623 || response.ErrorCode === 1663) {
 						logger.startLogging("Bungie Logs");
-						logger.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message));
-						localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message);
+						logger.error(response.ErrorStatus, response.Message, opts.route);
+						if (Object.keys(opts.payload).length > 0) {
+							logger.error(`Character: ${opts.payload.characterId}, Membership: ${opts.payload.membershipType}, itemHash: ${opts.payload.itemReferenceHash}, stackSize: ${opts.payload.stackSize}, transferToVault: ${opts.payload.transferToVault}`);
+						}
+						localStorage.error = "true";
+						localStorage.errorMessage = 'Invalid item selection, please use the <a href="debug.html">report issue feature</a>.<br>' + JSON.stringify(response.Message);
+						logger.saveData();
+						opts.complete(response.Response, response);
+					} else if (response.ErrorCode === 1642) {
+						logger.startLogging("Bungie Logs");
+						logger.error(response.ErrorStatus, response.Message, opts.route);
+						if (Object.keys(opts.payload).length > 0) {
+							logger.error(`Character: ${opts.payload.characterId}, Membership: ${opts.payload.membershipType}, itemHash: ${opts.payload.itemReferenceHash}, stackSize: ${opts.payload.stackSize}, transferToVault: ${opts.payload.transferToVault}`);
+						}
+						localStorage.error = "true";
+						localStorage.errorMessage = 'No space in vault, please free up some space! Or use the <a href="debug.html">report issue feature</a>.<br>' + JSON.stringify(response.Message);
+						logger.saveData();
+						opts.complete(response.Response, response);
+					} else if (response.ErrorCode !== 1) {
+						logger.startLogging("Bungie Logs");
+						logger.error(response.ErrorCode, response.ErrorStatus, response.Message, opts.route);
+						if (opts.payload && Object.keys(opts.payload).length > 0) {
+							logger.error(`Character: ${opts.payload.characterId}, Membership: ${opts.payload.membershipType}, itemHash: ${opts.payload.itemReferenceHash}, stackSize: ${opts.payload.stackSize}, transferToVault: ${opts.payload.transferToVault}`);
+						}
+						localStorage.error = "true";
+						localStorage.errorMessage = 'Unhandled Bungie Error, please use the <a href="debug.html">report issue feature</a>.<br>' + JSON.stringify(response.Message);
 						setTimeout(function() {
 							_request(opts);
 							logger.saveData();
 						}, 5000);
 					} else {
-						localStorage.error = "false";
-						opts.complete(response.Response, response);
+						if (response.Response === undefined || (Array.isArray(response.Response) && response.Response[0] === undefined)) {
+							logger.startLogging("Bungie Logs");
+							logger.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message));
+							localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message);
+							setTimeout(function() {
+								_request(opts);
+								logger.saveData();
+							}, 5000);
+						} else {
+							localStorage.error = "false";
+							opts.complete(response.Response, response);
+						}
 					}
+				} else {
+					logger.startLogging("Bungie Logs");
+					localStorage.error = "true";
+					if (this.response.length) {
+						let response;
+						try {
+							response = JSON.parse(response);
+						} catch (e) {
+							logger.error(`not valid JSON ${this.response}`);
+						}
+						if (response) {
+							logger.error(`code ${response.ErrorCode}, error ${response.ErrorStatus}, message ${response.Message}`);
+						}
+					}
+					logger.error(`status ${this.status}, route ${opts.route}`);
+					logger.error("Network Error: Please check your internet connection.");
+					localStorage.errorMessage = "Network Error: Please check your internet connection.";
+					setTimeout(function() {
+						_request(opts);
+						logger.saveData();
+					}, 5000);
 				}
-			} else {
+			};
+
+			r.onerror = function(err) {
 				logger.startLogging("Bungie Logs");
-				localStorage.error = "true";
-				if (this.response.length) {
-					let response;
-					try {
-						response = JSON.parse(response);
-					} catch (e) {
-						logger.error(`not valid JSON ${this.response}`);
-					}
-					if (response) {
-						logger.error(`code ${response.ErrorCode}, error ${response.ErrorStatus}, message ${response.Message}`);
-					}
-				}
-				logger.error(`status ${this.status}, route ${opts.route}`);
+				logger.error(err);
+				logger.error(`route ${opts.route}`);
 				logger.error("Network Error: Please check your internet connection.");
 				localStorage.errorMessage = "Network Error: Please check your internet connection.";
+				localStorage.error = "true";
 				setTimeout(function() {
 					_request(opts);
 					logger.saveData();
 				}, 5000);
-			}
-		};
+			};
 
-		r.onerror = function(err) {
-			logger.startLogging("Bungie Logs");
-			logger.error(err);
-			logger.error(`route ${opts.route}`);
-			logger.error("Network Error: Please check your internet connection.");
-			localStorage.errorMessage = "Network Error: Please check your internet connection.";
-			localStorage.error = "true";
+			_getCookie('bungled').then(function(token) {
+				logger.startLogging("bungie");
+				if (token !== null) {
+					r.withCredentials = true;
+					r.setRequestHeader('x-csrf', token);
+					r.send(JSON.stringify(opts.payload));
+				} else {
+					localStorage.error = "true";
+					logger.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.');
+					localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.';
+					setTimeout(function() {
+						_request(opts);
+					}, 5000);
+				}
+			});
+		} else {
+			if (newDate - lastRequestTime > 300) {
+				logger.warn(`Request exceeded threshhold during ${opts.route} from ${lastRoute}, lastTime ${lastRequestTime} currentTime ${newDate} sum ${newDate-lastRequestTime}, ${1000-(newDate-lastRequestTime)}`);
+			}
 			setTimeout(function() {
 				_request(opts);
-				logger.saveData();
-			}, 5000);
-		};
-
-		_getCookie('bungled').then(function(token) {
-			logger.startLogging("bungie");
-			if (token !== null) {
-				r.withCredentials = true;
-				r.setRequestHeader('x-csrf', token);
-				r.send(JSON.stringify(opts.payload));
-			} else {
-				localStorage.error = "true";
-				logger.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.');
-				localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.';
-				setTimeout(function() {
-					_request(opts);
-				}, 5000);
-			}
-		});
+			}, 1000 - (newDate - lastRequestTime));
+		}
 	}
 
 	bungie.getMemberships = function() {
@@ -177,6 +192,7 @@ var bungie = (function Bungie() {
 		return new Promise(function(resolve) {
 			_request({
 				route: '/User/GetBungieNetUser/',
+				shortRoute: '/User/GetBungieNetUser/',
 				method: 'GET',
 				complete: function(res) {
 					if (res.gamerTag && res.publicCredentialTypes.indexOf(1) > -1) {
@@ -227,11 +243,13 @@ var bungie = (function Bungie() {
 		return new Promise(function(resolve) {
 			_request({
 				route: '/Destiny/SearchDestinyPlayer/' + active.type + '/' + active.id + '/',
+				shortRoute: '/Destiny/SearchDestinyPlayer/',
 				method: 'GET',
 				complete: function(membership) {
 					membershipId = membership[0].membershipId;
 					_request({
 						route: '/Destiny/Tiger' + (active.type == 1 ? 'Xbox' : 'PSN') + '/Account/' + membershipId + '/',
+						shortRoute: '/Destiny/Tiger/Account/',
 						method: 'GET',
 						complete: resolve
 					});
@@ -245,11 +263,13 @@ var bungie = (function Bungie() {
 				var details = systemDetails[item];
 				_request({
 					route: '/Destiny/SearchDestinyPlayer/' + details.type + '/' + details.id + '/',
+					shortRoute: '/Destiny/SearchDestinyPlayer/',
 					method: 'GET',
 					complete: function(membership) {
 						membershipId = membership[0].membershipId;
 						_request({
 							route: '/Destiny/Tiger' + (details.type == 1 ? 'Xbox' : 'PSN') + '/Account/' + membershipId + '/',
+							shortRoute: '/Destiny/Tiger/Account/',
 							method: 'GET',
 							complete: complete
 						});
@@ -281,6 +301,7 @@ var bungie = (function Bungie() {
 		return new Promise(function(resolve) {
 			_request({
 				route: '/Destiny/Stats/ActivityHistory/' + active.type + '/' + membershipId + '/' + characterId + "/?mode=" + gameMode + "&count=" + count + "&page=" + page,
+				shortRoute: '/Destiny/Stats/ActivityHistory/',
 				method: 'GET',
 				complete: resolve
 			});
@@ -290,6 +311,7 @@ var bungie = (function Bungie() {
 		return new Promise(function(resolve) {
 			_request({
 				route: '/Destiny/' + active.type + '/MyAccount/Vault/',
+				shortRoute: '/Destiny//MyAccount/Vault/',
 				method: 'GET',
 				complete: function(result) {
 					resolve(result);
@@ -301,6 +323,7 @@ var bungie = (function Bungie() {
 		return new Promise(function(resolve) {
 			_request({
 				route: '/Destiny/' + active.type + '/Account/' + membershipId + '/Character/' + characterId + '/Inventory/?definitions=false',
+				shortRoute: '/Destiny//Account//Character//Inventory/?definitions=false',
 				method: 'GET',
 				complete: resolve
 			});
@@ -310,6 +333,7 @@ var bungie = (function Bungie() {
 		return new Promise(function(resolve) {
 			_request({
 				route: '/Destiny/Stats/PostGameCarnageReport/' + activityId + '/?definitions=false',
+				shortRoute: '/Destiny/Stats/PostGameCarnageReport//?definitions=false',
 				method: 'GET',
 				complete: resolve
 			});
@@ -319,6 +343,7 @@ var bungie = (function Bungie() {
 		return new Promise(function(resolve) {
 			_request({
 				route: '/Destiny/' + active.type + '/Account/' + membershipId + '/Character/' + characterId + '/Progression/?definitions=false',
+				shortRoute: '/Destiny//Account//Character//Progression/?definitions=false',
 				method: 'GET',
 				complete: resolve
 			});
@@ -328,6 +353,7 @@ var bungie = (function Bungie() {
 		return new Promise(function(resolve) {
 			_request({
 				route: '/Destiny/TransferItem/',
+				shortRoute: '/Destiny/TransferItem/',
 				method: 'POST',
 				payload: {
 					characterId: characterId,
