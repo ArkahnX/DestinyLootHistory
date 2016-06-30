@@ -92,7 +92,18 @@ function itemResultTask(result, characterId) {
 		if (result.data.currencies) {
 			newCurrencies = result.data.currencies;
 		}
-		newInventories[characterId] = result.data.buckets;
+		newInventories[characterId] = concatItems(result.data.buckets);
+		if (newInventories.length === 0) {
+			if (result.data) {
+				if (result.data.buckets) {
+					logger.error(result.data.buckets);
+				} else {
+					logger.error(result.data);
+				}
+			} else {
+				logger.error(result);
+			}
+		}
 	}
 	inventories[characterId] = 0;
 	if (result) {
@@ -224,7 +235,17 @@ function buildCompactItem(itemData) {
 }
 
 function handleInput(source, alt) {
+	if (typeof source === "object") {
+		for (var item of source) {
+			if (Array.isArray(item) && item.length === 0) {
+				return alt;
+			}
+		}
+	}
 	if (Array.isArray(source) && Array.isArray(alt) === false) {
+		return alt;
+	}
+	if (Array.isArray(source) && source.length === 0) {
 		return alt;
 	}
 	if (typeof source !== "undefined") {

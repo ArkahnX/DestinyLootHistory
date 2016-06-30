@@ -24,11 +24,6 @@ function processDifference(currentDateString, resolve) {
 	var transfers = [];
 	var progression = [];
 	var finalChanges = [];
-	logger.time("Concat New Items");
-	for (var characterId of characterIdList) {
-		newInventories[characterId] = concatItems(newInventories[characterId]);
-	}
-	logger.timeEnd("Concat New Items");
 	if (oldInventories) {
 		for (let characterId in oldInventories) {
 			var diff = {
@@ -284,7 +279,7 @@ function processDifference(currentDateString, resolve) {
 			}
 		}
 		var parsedItemHash = JSON.parse(addition.item).itemHash;
-		logger.log(`${addition.characterId} === vault, ${parsedItemHash} !== ${parseInt(localStorage.transferMaterial)}, ${parsedItemHash} !== ${parseInt(localStorage.oldTransferMaterial)}`);
+		// logger.log(`${addition.characterId} === vault, ${parsedItemHash} !== ${parseInt(localStorage.transferMaterial)}, ${parsedItemHash} !== ${parseInt(localStorage.oldTransferMaterial)}`);
 		if (addition.characterId === diffCharacterId) {
 			finalDiff.added.push(addition.item);
 		} else {
@@ -344,6 +339,9 @@ function processDifference(currentDateString, resolve) {
 				data.progression[characterId] = newProgression[characterId];
 			}
 			oldInventories = newInventories;
+			if(oldInventories.length === 0) {
+				logger.error(newInventories.length);
+			}
 			data.inventories = newInventories;
 			oldCurrencies = newCurrencies;
 			data.currencies = newCurrencies;
@@ -352,6 +350,9 @@ function processDifference(currentDateString, resolve) {
 			oldProgression = oldProgression;
 			data.progression = oldProgression;
 			oldInventories = newInventories;
+			if(oldInventories.length === 0) {
+				logger.error(newInventories.length);
+			}
 			data.inventories = newInventories;
 			oldCurrencies = newCurrencies;
 			data.currencies = newCurrencies;

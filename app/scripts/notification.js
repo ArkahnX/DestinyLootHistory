@@ -3,9 +3,8 @@ var notification = (function() {
 	let changelog = `New in ${manifest.version}:<br>
 <ul>
 	<li>Three of coins notification at the start of each activity. Can be toggled.</li>
-	<li>Optional Accurate tracking. Please regard the strict requirements before activating.</li>
 	<li>Users of multiple consoles should be able to see a toggle to swap their console. I don't have an easy way to test, so please report any issues.</li>
-	<li>Export feature works again. Iron Banner Spreadsheet to follow soon!</li>
+	<li>Fixed weird bug with no items being tracked. Please let me know ASAP if the app stops reporting item drops. (With a log link attached please!)</li>
 	<li>Use the "Report Issue" button to create logs.</li>
 </ul>`;
 
