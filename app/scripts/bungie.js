@@ -86,7 +86,7 @@ var bungie = (function Bungie() {
 						setTimeout(function() {
 							_request(opts);
 							logger.saveData();
-						}, 5000);
+						}, 60000);
 					} else {
 						if (response.Response === undefined || (Array.isArray(response.Response) && response.Response[0] === undefined)) {
 							logger.startLogging("Bungie Logs");
@@ -95,7 +95,7 @@ var bungie = (function Bungie() {
 							setTimeout(function() {
 								_request(opts);
 								logger.saveData();
-							}, 5000);
+							}, 60000);
 						} else {
 							localStorage.error = "false";
 							opts.complete(response.Response, response);
@@ -121,7 +121,7 @@ var bungie = (function Bungie() {
 					setTimeout(function() {
 						_request(opts);
 						logger.saveData();
-					}, 5000);
+					}, 60000);
 				}
 			};
 
@@ -135,7 +135,7 @@ var bungie = (function Bungie() {
 				setTimeout(function() {
 					_request(opts);
 					logger.saveData();
-				}, 5000);
+				}, 30000);
 			};
 
 			_getCookie('bungled').then(function(token) {
@@ -150,7 +150,7 @@ var bungie = (function Bungie() {
 					localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.';
 					setTimeout(function() {
 						_request(opts);
-					}, 5000);
+					}, 60000);
 				}
 			});
 		} else {

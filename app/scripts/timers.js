@@ -112,22 +112,23 @@ function trackIdle() {
 	}, 1000 * 60 * 30);
 }
 
+function allowBungieTracking() {
+	return new Promise(function(resolve, reject) {
+		var r = new XMLHttpRequest();
+		r.open("GET", "http://arkahnx.technology/loot.php", true);
+		r.onload = function() {
+			if (this.status >= 200 && this.status < 400) {
+				resolve(JSON.parse(this.response));
+			}
+		};
+		r.send();
+	});
+}
+
+var checkInterval = null;
+
 function beginBackendTracking() {
-	localStorage.listening = "true";
-	clearInterval(listenLoop);
-	listenLoop = null;
-	clearInterval(stopLoop);
-	stopLoop = null;
-	recursiveIdleTracking();
-	setInterval(function() {
-		logger.startLogging("Timers");
-		if (localStorage.manual === "true" && runningCheck === false) {
-			localStorage.manual = "false";
-			localStorage.listening = "true";
-			logger.log("Forcing check now");
-			recursiveIdleTracking();
-		}
-	}, 1000);
+	clearInterval(checkInterval);
 	setInterval(function() {
 		if (localStorage.error === "true") {
 			chrome.browserAction.setBadgeText({
@@ -139,6 +140,33 @@ function beginBackendTracking() {
 			});
 		}
 	}, 1000);
+	allowBungieTracking().then(function(allowTracking) {
+		if (allowTracking.allow_tracking === 1) {
+			localStorage.listening = "true";
+			clearInterval(listenLoop);
+			listenLoop = null;
+			clearInterval(stopLoop);
+			stopLoop = null;
+			recursiveIdleTracking();
+			clearInterval(checkInterval);
+			checkInterval = setInterval(function() {
+				logger.startLogging("Timers");
+				if (localStorage.manual === "true" && runningCheck === false) {
+					localStorage.manual = "false";
+					localStorage.listening = "true";
+					logger.log("Forcing check now");
+					recursiveIdleTracking();
+				}
+			}, 1000);
+		} else {
+			localStorage.error = "true";
+			localStorage.errorMessage = allowTracking.tracking_message;
+			clearInterval(checkInterval);
+			checkInterval = setInterval(function() {
+				beginBackendTracking();
+			}, 30000);
+		}
+	});
 }
 
 var runningCheck = false;

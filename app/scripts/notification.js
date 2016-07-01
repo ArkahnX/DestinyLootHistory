@@ -2,10 +2,10 @@ var notification = (function() {
 	let manifest = chrome.runtime.getManifest();
 	let changelog = `New in ${manifest.version}:<br>
 <ul>
-	<li>Three of coins notification at the start of each activity. Can be toggled.</li>
-	<li>Users of multiple consoles should be able to see a toggle to swap their console. I don't have an easy way to test, so please report any issues.</li>
-	<li>Fixed weird bug with no items being tracked. Please let me know ASAP if the app stops reporting item drops. (With a log link attached please!)</li>
-	<li>Use the "Report Issue" button to create logs.</li>
+	<li>This extension may need to be limited as Bungie has reached out to me indicating that it is causing excess wear on their servers.</li>
+	<li>I am currently working with Bungie to determine the best course of action.</li>
+	<li>Tracking has been reduced, and may be stopped entirely if further action needs to be taken.</li>
+	<li>Sorry for the inconvinience, and thank you for your patience and support.</li>
 </ul>`;
 
 	let active = true;
@@ -14,7 +14,7 @@ var notification = (function() {
 	let text = document.getElementById("notification-text");
 	var localVersion = localStorage.version.split(".");
 	var manifestVersion = manifest.version.split(".");
-	if (localVersion[0] !== maniferstVersion[0] || localVersion[1] !== manifestVersion[1]) {
+	if (localVersion[0] !== manifestVersion[0] || localVersion[1] !== manifestVersion[1]) {
 		localStorage.version = manifest.version;
 		localStorage.notificationClosed = "false";
 	}
