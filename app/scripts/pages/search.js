@@ -1,3 +1,4 @@
+tracker.sendAppView('SearchScreen');
 var manifest = chrome.runtime.getManifest();
 characterDescriptions = JSON.parse(localStorage.characterDescriptions);
 initUi();

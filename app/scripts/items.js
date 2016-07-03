@@ -20,16 +20,19 @@ var characterDescriptions = {
 };
 
 function initItems(callback) {
+	console.warn("initItems")
+	// logger.log("Arrived at initItems");
 	logger.startLogging("items");
 	logger.time("load Bungie Data");
 	bungie.setActive(localStorage.activeType);
 	bungie.user().then(function() {
+		localStorage.itemError = "false";
 		localStorage.error = "false";
 		chrome.browserAction.setBadgeText({
 			text: ""
 		});
 		bungie.search().then(function(e) {
-
+			localStorage.itemError = "false";
 			var avatars = e.data.characters;
 			var newestCharacter = "vault";
 			var newestDate = 0;
@@ -53,15 +56,28 @@ function initItems(callback) {
 			localStorage.newestCharacter = newestCharacter;
 			localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
 			logger.timeEnd("load Bungie Data");
-			callback();
+			if (typeof callback === "function") {
+				callback();
+			}
+		}).catch(function(err) {
+			localStorage.itemError = "true";
+			if (typeof callback === "function") {
+				callback();
+			}
+			// console.log(err, err.stack)
 		});
+	}).catch(function(err) {
+		localStorage.itemError = "true";
+		if (typeof callback === "function") {
+			callback();
+		}
+		// console.log(err, err.stack)
 	});
 }
 
 var inventories = {};
 var oldCurrencies = [];
 var newCurrencies = [];
-var currencyTotal = 0;
 
 function itemNetworkTask(characterId, callback) {
 	logger.startLogging("items");
@@ -69,7 +85,6 @@ function itemNetworkTask(characterId, callback) {
 	if (characterId === "vault") {
 		bungie.vault().then(callback);
 	} else {
-		console.log(characterId)
 		bungie.inventory(characterId).then(callback);
 	}
 }
@@ -374,79 +389,105 @@ function isSameItem(item1, item2) {
 	}
 	return false;
 }
-
+/**
+ * STEP 4
+ * grabs guardian inventories. Accurate tracking is off by default, so by default we finish this function and then grabRemoteInventory and head back to step 3 in timers.js
+ */
 function checkInventory() {
-	if (!localStorage.accurateTracking) {
-		localStorage.accurateTracking = "false";
-	}
-	return new Promise(function(resolve) {
-		grabRemoteInventory(function() {
-			if (localStorage.accurateTracking === "true") {
-				findHighestMaterial().then(resolve);
-			} else {
-				resolve();
-			}
-		});
+	console.warn("checkInventory")
+	return new Promise(function(resolve, reject) {
+		// grabRemoteInventory(function() {
+		// 	if (localStorage.accurateTracking === "true") {
+		// 		findHighestMaterial().then(resolve, reject);
+		// 	} else {
+		// 		resolve();
+		// 	}
+		// });
+		grabRemoteInventory(resolve, reject);
 	});
 }
 
-function grabRemoteInventory(resolve) {
+/**
+ * Step 5
+ */
+
+function grabRemoteInventory(resolve, reject) {
+	console.warn("grabRemoteInventory")
+	// logger.log("Arrived at grabRemoteInventory");
 	logger.startLogging("items");
 	logger.time("Bungie Search");
 	var currentDateString = moment().utc().format();
 	bungie.setActive(localStorage.activeType);
-	bungie.search().then(function(guardian) {
-		logger.timeEnd("Bungie Search");
-		let characters = guardian.data.characters;
-		var newestDate = 0;
-		for (let avatar of characters) {
-			if (!characterDescriptions[avatar.characterBase.characterId]) {
-				characterDescriptions[avatar.characterBase.characterId] = {
-					name: DestinyClassDefinition[avatar.characterBase.classHash].className,
-					gender: DestinyGenderDefinition[avatar.characterBase.genderHash].genderName,
-					level: avatar.baseCharacterLevel,
-					light: avatar.characterBase.powerLevel,
-					race: DestinyRaceDefinition[avatar.characterBase.raceHash].raceName,
-					dateLastPlayed: avatar.characterBase.dateLastPlayed
-				};
-			} else {
-				characterDescriptions[avatar.characterBase.characterId].level = avatar.baseCharacterLevel;
-				characterDescriptions[avatar.characterBase.characterId].light = avatar.characterBase.powerLevel;
-				characterDescriptions[avatar.characterBase.characterId].dateLastPlayed = avatar.characterBase.dateLastPlayed;
+	// found in bungie.js
+	bungie.user().then(function() {
+		localStorage.itemError = "false";
+		bungie.search().then(function(guardian) {
+			localStorage.itemError = "false";
+			logger.timeEnd("Bungie Search");
+			let characters = guardian.data.characters;
+			var newestDate = 0;
+			// record some descriptors for each character
+			for (let avatar of characters) {
+				if (!characterDescriptions[avatar.characterBase.characterId]) {
+					characterDescriptions[avatar.characterBase.characterId] = {
+						name: DestinyClassDefinition[avatar.characterBase.classHash].className,
+						gender: DestinyGenderDefinition[avatar.characterBase.genderHash].genderName,
+						level: avatar.baseCharacterLevel,
+						light: avatar.characterBase.powerLevel,
+						race: DestinyRaceDefinition[avatar.characterBase.raceHash].raceName,
+						dateLastPlayed: avatar.characterBase.dateLastPlayed
+					};
+				} else { // we already have set these characters so just update their data.
+					characterDescriptions[avatar.characterBase.characterId].level = avatar.baseCharacterLevel;
+					characterDescriptions[avatar.characterBase.characterId].light = avatar.characterBase.powerLevel;
+					characterDescriptions[avatar.characterBase.characterId].dateLastPlayed = avatar.characterBase.dateLastPlayed;
+				}
+				if (new Date(avatar.characterBase.dateLastPlayed).getTime() > new Date(newestDate).getTime()) { // set newest character for 3oC reminder
+					newestDate = avatar.characterBase.dateLastPlayed;
+					newestCharacter = avatar.characterBase.characterId;
+				}
+				if (characterIdList.indexOf(avatar.characterBase.characterId) === -1) {
+					characterIdList.push(avatar.characterBase.characterId);
+				}
 			}
-			if (new Date(avatar.characterBase.dateLastPlayed).getTime() > new Date(newestDate).getTime()) {
-				newestDate = avatar.characterBase.dateLastPlayed;
-				newestCharacter = avatar.characterBase.characterId;
-			}
-			if (characterIdList.indexOf(avatar.characterBase.characterId) === -1) {
-				characterIdList.push(avatar.characterBase.characterId);
-			}
-		}
-		localStorage.newestCharacter = newestCharacter;
-		localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
-		logger.time("Bungie Items");
-		sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
-			logger.timeEnd("Bungie Items");
-			logger.time("Bungie Faction");
-			sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
-				logger.timeEnd("Bungie Faction");
-				logger.time("Local Inventory");
-				chrome.storage.local.get(["itemChanges", "progression", "currencies", "inventories"], function(result) {
-					data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
-					data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
-					// data.progression = handleInput(result.progression, data.progression);
-					// data.inventories = handleInput(result.inventories, data.inventories);
-					oldProgression = handleInput(result.progression, newProgression);
-					for (var attr in result.progression) {
-						oldProgression[attr] = handleInput(result.progression[attr], newProgression[attr]);
-					}
-					oldInventories = handleInput(result.inventories, newInventories);
-					oldCurrencies = handleInput(result.currencies, newCurrencies);
-					logger.timeEnd("Local Inventory");
-					processDifference(currentDateString, resolve);
+			localStorage.newestCharacter = newestCharacter;
+			localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
+			logger.time("Bungie Items");
+			// Loop through all found characters and save their new Item data to newInventories
+			logger.info("Character List", characterIdList);
+			sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
+				logger.timeEnd("Bungie Items");
+				logger.time("Bungie Faction");
+				// loop through all characters and save their new Faction data to newProgression
+				sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
+					logger.timeEnd("Bungie Faction");
+					logger.time("Local Inventory");
+					// get old data saved from the last pass
+					chrome.storage.local.get(["itemChanges", "progression", "currencies", "inventories"], function(result) {
+						// check if data is valid. If not, use newly grabbed data instead.
+						data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
+						data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
+						oldProgression = handleInput(result.progression, newProgression);
+						for (var attr in result.progression) {
+							oldProgression[attr] = handleInput(result.progression[attr], newProgression[attr]);
+						}
+						oldInventories = handleInput(result.inventories, newInventories);
+						oldCurrencies = handleInput(result.currencies, newCurrencies);
+						logger.timeEnd("Local Inventory");
+						// itemDiff.js
+						processDifference(currentDateString, resolve);
+					});
 				});
 			});
+		}).catch(function() {
+			// logger.log("left at grabRemoteInventory");
+			localStorage.itemError = "true";
+			reject();
 		});
+	}).catch(function() {
+		// logger.log("left at grabRemoteInventory");
+		localStorage.itemError = "true";
+		reject();
 	});
 }
 

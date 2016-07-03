@@ -11,6 +11,7 @@
 	<section class="center solidBackground">
 		<!-- <label for="startOnLaunch" class="sub-section">Start Tracking on Launch<input type="checkbox" id="startOnLaunch" /></label> -->
 		<div id="drop_zone">Place itemChanges.json here to restore</div>
+		<p id="uniqueId"></p>
 		<input type="button" value="Create itemChanges.json backup" id="backupData" title="Download a copy of your data to move elsewhere." />
 		<br />
 		<label for="ironBanner">Iron Banner: <input type="checkbox" id="ironBanner" checked disabled></label>
@@ -66,9 +67,10 @@
 	<div id="copyright">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
 	<script type="text/javascript" src="scripts/vendor/moment.js"></script>
 	<script type="text/javascript" src="scripts/vendor/moment-timezone.js"></script>
+	<script type="text/javascript" src="scripts/vendor/google-analytics-bundle.js"></script>
 	<script type="text/javascript" src="scripts/shared.js"></script>
 	<script type="text/javascript" src="scripts/logger.js"></script>
-	<script type="text/javascript" src="scripts/options.js"></script>
+	<script type="text/javascript" src="scripts/pages/options.js"></script>
 	<script type="text/javascript" src="scripts/export.js"></script>
 	<script type="text/javascript" src="scripts/ui.js"></script>
 	<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js"></script>

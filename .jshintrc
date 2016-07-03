@@ -1,5 +1,29 @@
 {
 	"indent": 1,
 	"esversion": 6,
-	"unused":true
+	"unused":true,
+	"bitwise":true,
+	"curly":true,
+	"eqeqeq":true,
+	"futurehostile":true,
+	"latedef":true,
+	"noarg":true,
+	"notypeof":true,
+	"strict":"implied",
+	"undef":true,
+	"globals":{
+		"moment":false,
+		"asyncIterator":false,
+		"bungie":false,
+		"chrome":false,
+		"localStorage":false,
+		"setTimeout":false,
+		"logger":false,
+		"XMLHttpRequest":false,
+		"_gaq":true,
+		"sequence":false,
+		"clearInterval":false,
+		"clearTimeout":false,
+		"document":false
+	}
 }

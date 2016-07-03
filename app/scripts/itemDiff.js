@@ -3,6 +3,7 @@ var addedCurrencyQ = [];
 var removedCurrencyQ = [];
 
 function processDifference(currentDateString, resolve) {
+	// reset variables
 	logger.startLogging("itemDiff");
 	transferQ.length = 0;
 	addedCurrencyQ.length = 0;
@@ -26,6 +27,7 @@ function processDifference(currentDateString, resolve) {
 	var finalChanges = [];
 	if (oldInventories) {
 		for (let characterId in oldInventories) {
+			// build diffs for each character, comparing old inventory vs new inventory
 			var diff = {
 				timestamp: currentDateString,
 				secondsSinceLastDiff: (new Date(currentDateString) - previousItemDate) / 1000,
@@ -44,6 +46,7 @@ function processDifference(currentDateString, resolve) {
 		for (var diffObject of diffs) {
 			for (var addition of diffObject.added) {
 				if (addition) {
+					// combine all additions. Useful for transfers. Keep unique
 					let parsedItem = JSON.parse(addition);
 					let itemId = parsedItem.itemHash + "-" + parsedItem.itemInstanceId + "-" + diffObject.characterId;
 					if (tempAdditions[itemId]) {
@@ -64,6 +67,7 @@ function processDifference(currentDateString, resolve) {
 			}
 			for (var removal of diffObject.removed) {
 				if (removal) {
+					// combine all removals. Character irrelevant
 					let parsedItem = JSON.parse(removal);
 					let itemId = parsedItem.itemHash + "-" + parsedItem.itemInstanceId;
 					if (tempRemovals[itemId]) {
@@ -94,7 +98,12 @@ function processDifference(currentDateString, resolve) {
 		let localDefinition = JSON.parse(tempAddition.item);
 		let databaseDefinition = getItemDefinition(localDefinition.itemHash);
 		if (databaseDefinition.bucketTypeHash !== 2197472680 && databaseDefinition.bucketTypeHash !== 1801258597 && !localDefinition.objectives) {
-			for (let tempRemoval of tempRemovals) {
+			for (let tempRemoval of tempRemovals) { // figure out transfers
+				/**
+				  * Item Transfers
+				  * If we have a removal and an addition with the same itemHash and instanceId its probably a transfer
+				  * We check the stackSize of the items to confirm how much of the item was transferred.
+				  */
 				if (tempAddition.itemHash === tempRemoval.itemHash && tempAddition.itemInstanceId === tempRemoval.itemInstanceId) { // same items
 					foundAddition = true;
 					var stackSizeResult = tempAddition.stackSize - tempRemoval.stackSize; // 0 = full transfer, >0 some added, <0 means some removed
@@ -154,6 +163,9 @@ function processDifference(currentDateString, resolve) {
 				}
 			}
 		}
+		/**
+		  * If this was not a transfer, but it was removed, then its a bounty change of sorts.
+		  */
 		if (!foundAddition) {
 			if ((databaseDefinition.bucketTypeHash === 2197472680 || databaseDefinition.bucketTypeHash === 1801258597 || localDefinition.objectives) && parseInt(localDefinition.stackSize, 10) > 0) {
 				logger.log("passed to progression");
@@ -201,6 +213,9 @@ function processDifference(currentDateString, resolve) {
 				// if (!found) {
 				// 	logger.error("Unable to locate progression item.", tempRemoval, progression, tempAdditions, additions);
 				// }
+				/**
+				  * Bounty was probably completed
+				  */
 				if (found === false) {
 					removals.push({
 						characterId: tempRemoval.characterId,
@@ -241,6 +256,9 @@ function processDifference(currentDateString, resolve) {
 		secondsSinceLastDiff: (new Date(currentDateString) - previousItemDate) / 1000,
 		timestamp: currentDateString
 	};
+	/**
+	  * Track currency Diffs
+	  */
 	if (oldCurrencies) {
 		for (var oldCurrency of oldCurrencies) {
 			for (var newCurrency of newCurrencies) {
@@ -318,7 +336,7 @@ function processDifference(currentDateString, resolve) {
 	}
 	logger.log(`FINAL DIFF INFO`, finalDiff)
 	if (finalDiff.removed.length || finalDiff.added.length || (transferQ.length) || (finalDiff.progression && finalDiff.progression.length)) {
-		localStorage.flag = "true";
+		localStorage.diffFlag = "true";
 		// logger.log(finalDiff, transferQ);
 	}
 	if (trackingTimer > 45) {

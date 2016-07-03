@@ -1,3 +1,5 @@
+tracker.sendAppView('TestScreen');
+logger.disable();
 initUi();
 var data = {
 	inventories: {},
@@ -45,9 +47,19 @@ function initItems(callback) {
 			}
 
 			logger.timeEnd("load Bungie Data");
-			callback();
+			if (typeof callback === "function") {
+				callback();
+			}
 			checkInventory();
+		}).catch(function() {
+			if (typeof callback === "function") {
+				callback();
+			}
 		});
+	}).catch(function() {
+		if (typeof callback === "function") {
+			callback();
+		}
 	});
 }
 
@@ -93,7 +105,7 @@ var findHighestMaterial = (function() {
 			characterId: oldestCharacter,
 			itemId: "0",
 			itemReferenceHash: bigItem.itemHash,
-			membershipType: bungie.membershipType(),
+			// membershipType: bungie.membershipType(),
 			stackSize: 1,
 			transferToVault: stage
 		};
@@ -368,6 +380,12 @@ function buildCompactItem(itemData, bucketHash) {
 	return newItemData;
 }
 // var bungie = new Bungie();
-initItems(function() {
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-});
+ga('create', 'UA-77020265-2', 'auto');
+ga('set', 'checkProtocolTask', null);
+ga('send', 'pageview');
+initItems(function() {});

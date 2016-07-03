@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Destiny Loot History",
-	"version": "0.17.0",
+	"version": "0.17.5",
 	"description": "Track your Destiny item changes.",
 	"icons": {
 		"16": "icon16.png",
@@ -10,6 +10,7 @@
 		"128": "icon128.png"
 	},
 	"short_name": "Loot",
+	"content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
 	"background": {
 		"scripts": [
 			"scripts/vendor/moment.js",
@@ -17,6 +18,7 @@
 			"DestinyDatabase/DestinyCompactItemDefinition.js",
 			"DestinyDatabase/DestinyCompactTalentDefinition.js",
 			"DestinyDatabase/DestinyCompactDefinition.js",
+			"scripts/vendor/google-analytics-bundle.js",
 			"scripts/shared.js",
 			"scripts/logger.js",
 			"scripts/bungie.js",
@@ -24,13 +26,15 @@
 			"scripts/items.js",
 			"scripts/itemDiff.js",
 			"scripts/timers.js",
-			"scripts/backend.js"
+			"scripts/init.js",
+			"scripts/pages/backend.js"
 		]
 	},
 	"permissions": [
 		"storage",
 		"*://*.bungie.net/*",
 		"*://*.arkahnx.technology/*",
+		"https://www.google-analytics.com/",
 		"cookies",
 		"unlimitedStorage",
 		"background"
@@ -39,7 +43,6 @@
 	"browser_action": {
 		"default_icon": "icon16.png"
 	},
-	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
 	"incognito": "split",
 	"offline_enabled": false,
 	"options_page": "options.html"

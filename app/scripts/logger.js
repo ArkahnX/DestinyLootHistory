@@ -157,9 +157,10 @@ var logger = (function() {
 	function _multi(type, data) {
 		if (!chrome.runtime.getManifest().key) {
 			if (type !== "time" && type !== "timeEnd") {
-				console[type](data);
+				console[type](moment().format(), _getSource(), data);
 			}
 		}
+
 		if (Array.isArray(data)) {
 			currentLog.logs.push(_log(type, `Array[${data.length}]`));
 		} else if (typeof data === "object") {
@@ -210,6 +211,43 @@ var logger = (function() {
 				}
 			});
 		}
+	}
+
+	function exportLogs() {
+		return new Promise(function(resolve) {
+			chrome.storage.local.get("logger", function(data) {
+				var localLogList = data.logger.logList;
+				var endLogs = ["\n"];
+				var startingPoint = localLogList.length - 500;
+				if (localLogList.length < 500) {
+					startingPoint = 0;
+				}
+				for (var i = startingPoint; i < localLogList.length; i++) {
+					var logData = localLogList[i];
+					var tempLog = [];
+					for (var log of logData.logs) {
+						if (log.type === LOG) {
+							tempLog.push(`${log.timestamp}: ${_pad(log.source,pageWidth)}: ${_pad(log.type,5)}: ${log.data}`);
+						}
+						if (log.type === INFO) {
+							tempLog.push(`${log.timestamp}: ${_pad(log.source,pageWidth)}: ${_pad(log.type,5)}: ${log.data}`);
+						}
+						if (log.type === WARN) {
+							tempLog.push(`${log.timestamp}: ${_pad(log.source,pageWidth)}: ${_pad(log.type,5)}: ${log.data}`);
+						}
+						if (log.type === ERROR) {
+							tempLog.push(`${log.timestamp}: ${_pad(log.source,pageWidth)}: ${_pad(log.type,5)}: ${log.data}`);
+						}
+					}
+					if (tempLog.length) {
+						endLogs.push(`-----------------------------------------------------------`);
+						endLogs.push(`${logData.timestamp}: ${log.source}: "${logData.tag}"`);
+						Array.prototype.push.apply(endLogs, tempLog);
+					}
+				}
+				resolve(endLogs.join("\n"));
+			});
+		});
 	}
 
 	function returnLogs(tagsToShow, showLog, showInfo, showWarn, showError, showTime) {
@@ -287,6 +325,7 @@ var logger = (function() {
 		clean,
 		getLogs,
 		disable,
-		saveData
+		saveData,
+		exportLogs
 	};
 }());

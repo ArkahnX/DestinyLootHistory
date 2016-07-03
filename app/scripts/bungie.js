@@ -1,4 +1,3 @@
-/* jshint indent: 1, unused: true, esversion:6 */
 var bungie = (function Bungie() {
 	if (!localStorage.activeType) {
 		localStorage.activeType = "xbl";
@@ -26,6 +25,9 @@ var bungie = (function Bungie() {
 	function _getCookie(name) {
 		return new Promise(function(resolve) {
 			_getAllCookies(function(cookies) {
+				if (chrome.runtime.lastError) {
+					logger.error(chrome.runtime.lastError);
+				}
 				var bungled = null;
 				for (var cookieName in cookies) {
 					var cookie = cookies[cookieName];
@@ -39,21 +41,57 @@ var bungie = (function Bungie() {
 		});
 	}
 
-	function _request(opts) {
+	function _request(opts, errors) {
+		if (!errors) {
+			errors = 0;
+		}
+		if (errors >= 20 || (errors > 0 && localStorage.permanentError === "true")) {
+			logger.warn("too many errors");
+			localStorage.error = "true";
+			tracker.sendEvent('Too Many Retries', opts.route, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
+			// _gaq.push(['_trackEvent', 'BungieError', `Too many error retries, killing tracking.`, opts.route, `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
+			localStorage.errorMessage = "Too many errors encountered. This has been reported. If possible, please attempt to resolve the following error before continuing. " + localStorage.errorMessage;
+			localStorage.flag = "false";
+			localStorage.listening = "false";
+			localStorage.manual = "false";
+			if (localStorage.permanentError === "false") {
+				let r = new XMLHttpRequest();
+				r.open("POST", "http://arkahnx.technology/loot2.php", true);
+				r.onload = function() {
+					console.log(this.response);
+				};
+				logger.exportLogs().then(function(data) {
+					r.send(JSON.stringify({
+						id: localStorage.uniqueId,
+						debuglog: data,
+						allowTracking: 0
+					}));
+				});
+			}
+			localStorage.permanentError = "true";
+			if (opts.incomplete) {
+				opts.incomplete();
+			}
+		}
 		var newDate = new Date().getTime();
-		if ((lastRoute === opts.shortRoute && newDate - lastRequestTime >= 800) || lastRoute !== opts.shortRoute) {
+		if ((lastRoute === opts.shortRoute && newDate - lastRequestTime >= 800) || lastRoute !== opts.shortRoute) { // make sure not to poll more than once per second for the same type of request
+			logger.info(`Bungie API Query Route ${opts.route}`);
+			// console.trace()
 			lastRoute = opts.shortRoute;
 			lastRequestTime = newDate;
-			var r = new XMLHttpRequest();
+			let r = new XMLHttpRequest();
 			r.open(opts.method, "https://www.bungie.net/Platform" + opts.route, true);
 			r.setRequestHeader('X-API-Key', '4a6cc3aa21d94c949e3f44736d036a8f');
 			r.onload = function() {
+				// If this code encounters an error, it will retry every 60 seconds until it succeeds
 				if (this.status >= 200 && this.status < 400) {
 					var response = JSON.parse(this.response);
 					if (response.ErrorCode === 36 || response.ErrorCode === 51) {
-						logger.warn(`We accidentally encountered Error ${response.ErrorCode} when attempting ${opts.route}`)
+						tracker.sendEvent('Too Frequent', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
+						// _gaq.push(['_trackEvent', 'BungieError', `Error Code ${response.ErrorCode}`, opts.shortRoute, `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
+						logger.warn(`We accidentally encountered Error ${response.ErrorCode} when attempting ${opts.route}`);
 						setTimeout(function() {
-							_request(opts);
+							_request(opts, errors + 1);
 						}, 1000);
 					} else if (response.ErrorCode === 1623 || response.ErrorCode === 1663) {
 						logger.startLogging("Bungie Logs");
@@ -62,6 +100,8 @@ var bungie = (function Bungie() {
 							logger.error(`Character: ${opts.payload.characterId}, Membership: ${opts.payload.membershipType}, itemHash: ${opts.payload.itemReferenceHash}, stackSize: ${opts.payload.stackSize}, transferToVault: ${opts.payload.transferToVault}`);
 						}
 						localStorage.error = "true";
+						tracker.sendEvent('Invalid Item Selection', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
+						// _gaq.push(['_trackEvent', 'BungieError', `Invalid Item Selection`, JSON.stringify(response.Message), `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
 						localStorage.errorMessage = 'Invalid item selection, please use the <a href="debug.html">report issue feature</a>.<br>' + JSON.stringify(response.Message);
 						logger.saveData();
 						opts.complete(response.Response, response);
@@ -69,12 +109,30 @@ var bungie = (function Bungie() {
 						logger.startLogging("Bungie Logs");
 						logger.error(response.ErrorStatus, response.Message, opts.route);
 						if (Object.keys(opts.payload).length > 0) {
+							tracker.sendEvent('No Vault Space', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
+							// _gaq.push(['_trackEvent', 'BungieError', `No Space in Vault`, "no space in vault", `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
 							logger.error(`Character: ${opts.payload.characterId}, Membership: ${opts.payload.membershipType}, itemHash: ${opts.payload.itemReferenceHash}, stackSize: ${opts.payload.stackSize}, transferToVault: ${opts.payload.transferToVault}`);
 						}
 						localStorage.error = "true";
 						localStorage.errorMessage = 'No space in vault, please free up some space! Or use the <a href="debug.html">report issue feature</a>.<br>' + JSON.stringify(response.Message);
 						logger.saveData();
 						opts.complete(response.Response, response);
+					} else if (response.ErrorCode === 99) {
+						logger.startLogging("Bungie Logs");
+						tracker.sendEvent('User Not Found', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
+						// _gaq.push(['_trackEvent', 'BungieError', `User not found`, response.Message, `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
+						logger.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message));
+						localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message);
+						logger.saveData();
+						opts.incomplete();
+					} else if (response.ErrorCode === 7) {
+						logger.startLogging("Bungie Logs");
+						tracker.sendEvent('Invalid URL', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
+						// _gaq.push(['_trackEvent', 'BungieError', `Invalid URL Parameters`, opts.route, `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
+						logger.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message));
+						localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message);
+						logger.saveData();
+						opts.incomplete();
 					} else if (response.ErrorCode !== 1) {
 						logger.startLogging("Bungie Logs");
 						logger.error(response.ErrorCode, response.ErrorStatus, response.Message, opts.route);
@@ -82,22 +140,25 @@ var bungie = (function Bungie() {
 							logger.error(`Character: ${opts.payload.characterId}, Membership: ${opts.payload.membershipType}, itemHash: ${opts.payload.itemReferenceHash}, stackSize: ${opts.payload.stackSize}, transferToVault: ${opts.payload.transferToVault}`);
 						}
 						localStorage.error = "true";
+						tracker.sendEvent('Unhandled Error', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
+						// _gaq.push(['_trackEvent', 'BungieError', `Unhandled Error Code ${response.ErrorCode}`, response.Message, `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
 						localStorage.errorMessage = 'Unhandled Bungie Error, please use the <a href="debug.html">report issue feature</a>.<br>' + JSON.stringify(response.Message);
 						setTimeout(function() {
-							_request(opts);
+							_request(opts, errors + 1);
 							logger.saveData();
 						}, 60000);
 					} else {
 						if (response.Response === undefined || (Array.isArray(response.Response) && response.Response[0] === undefined)) {
 							logger.startLogging("Bungie Logs");
+							tracker.sendEvent('User Not Found', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
+							// _gaq.push(['_trackEvent', 'BungieError', `User not found`, response.Message, `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
 							logger.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message));
 							localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message);
-							setTimeout(function() {
-								_request(opts);
-								logger.saveData();
-							}, 60000);
+							logger.saveData();
+							opts.incomplete();
 						} else {
 							localStorage.error = "false";
+							localStorage.permanentError = "false";
 							opts.complete(response.Response, response);
 						}
 					}
@@ -112,14 +173,18 @@ var bungie = (function Bungie() {
 							logger.error(`not valid JSON ${this.response}`);
 						}
 						if (response) {
+							tracker.sendEvent('Unhandled Response', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
+							// _gaq.push(['_trackEvent', 'BungieError', `Unhandled Error Code ${response.ErrorCode}`, response.Message, `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
 							logger.error(`code ${response.ErrorCode}, error ${response.ErrorStatus}, message ${response.Message}`);
 						}
 					}
-					logger.error(`status ${this.status}, route ${opts.route}`);
-					logger.error("Network Error: Please check your internet connection.");
-					localStorage.errorMessage = "Network Error: Please check your internet connection.";
+					tracker.sendEvent('Unhandled Response', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
+					// _gaq.push(['_trackEvent', 'BungieError', `Unhandled Response ${this.status}`, opts.shortRoute, `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
+					logger.error(`status ${this.status}, route ${opts.route}, response ${this.response}`);
+					logger.error("Response Error: Response did not contain expected values.");
+					localStorage.errorMessage = "Response Error: Response did not contain expected values.";
 					setTimeout(function() {
-						_request(opts);
+						_request(opts, errors + 1);
 						logger.saveData();
 					}, 60000);
 				}
@@ -127,13 +192,15 @@ var bungie = (function Bungie() {
 
 			r.onerror = function(err) {
 				logger.startLogging("Bungie Logs");
+				tracker.sendEvent('No Network Connection', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
+				// _gaq.push(['_trackEvent', 'BungieError', `No Network connection`, "", `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
 				logger.error(err);
 				logger.error(`route ${opts.route}`);
 				logger.error("Network Error: Please check your internet connection.");
 				localStorage.errorMessage = "Network Error: Please check your internet connection.";
 				localStorage.error = "true";
 				setTimeout(function() {
-					_request(opts);
+					_request(opts, errors + 1);
 					logger.saveData();
 				}, 30000);
 			};
@@ -146,11 +213,12 @@ var bungie = (function Bungie() {
 					r.send(JSON.stringify(opts.payload));
 				} else {
 					localStorage.error = "true";
+					tracker.sendEvent('Cookie Not Found', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
+					// _gaq.push(['_trackEvent', 'BungieError', `User cookie not found.`, opts.shortRoute, `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
 					logger.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.');
 					localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.';
-					setTimeout(function() {
-						_request(opts);
-					}, 60000);
+					logger.saveData();
+					opts.incomplete();
 				}
 			});
 		} else {
@@ -189,11 +257,12 @@ var bungie = (function Bungie() {
 	};
 
 	bungie.user = function() {
-		return new Promise(function(resolve) {
+		return new Promise(function(resolve, reject) {
 			_request({
 				route: '/User/GetBungieNetUser/',
 				shortRoute: '/User/GetBungieNetUser/',
 				method: 'GET',
+				incomplete: reject,
 				complete: function(res) {
 					if (res.gamerTag && res.publicCredentialTypes.indexOf(1) > -1) {
 						systemDetails.xbo = {
@@ -240,17 +309,19 @@ var bungie = (function Bungie() {
 		});
 	};
 	bungie.search = function() {
-		return new Promise(function(resolve) {
+		return new Promise(function(resolve, reject) {
 			_request({
 				route: '/Destiny/SearchDestinyPlayer/' + active.type + '/' + active.id + '/',
 				shortRoute: '/Destiny/SearchDestinyPlayer/',
 				method: 'GET',
+				incomplete: reject,
 				complete: function(membership) {
 					membershipId = membership[0].membershipId;
 					_request({
-						route: '/Destiny/Tiger' + (active.type == 1 ? 'Xbox' : 'PSN') + '/Account/' + membershipId + '/',
+						route: '/Destiny/Tiger' + (parseInt(active.type, 10) === 1 ? 'Xbox' : 'PSN') + '/Account/' + membershipId + '/',
 						shortRoute: '/Destiny/Tiger/Account/',
 						method: 'GET',
+						incomplete: reject,
 						complete: resolve
 					});
 				}
@@ -258,19 +329,21 @@ var bungie = (function Bungie() {
 		});
 	};
 	bungie.getCharacters = function() {
-		return new Promise(function(resolve) {
+		return new Promise(function(resolve, reject) {
 			sequence(Object.keys(systemDetails), function(item, complete) {
 				var details = systemDetails[item];
 				_request({
 					route: '/Destiny/SearchDestinyPlayer/' + details.type + '/' + details.id + '/',
 					shortRoute: '/Destiny/SearchDestinyPlayer/',
 					method: 'GET',
+					incomplete: reject,
 					complete: function(membership) {
 						membershipId = membership[0].membershipId;
 						_request({
-							route: '/Destiny/Tiger' + (details.type == 1 ? 'Xbox' : 'PSN') + '/Account/' + membershipId + '/',
+							route: '/Destiny/Tiger' + (parseInt(details.type, 10) === 1 ? 'Xbox' : 'PSN') + '/Account/' + membershipId + '/',
 							shortRoute: '/Destiny/Tiger/Account/',
 							method: 'GET',
+							incomplete: reject,
 							complete: complete
 						});
 					}
@@ -298,21 +371,23 @@ var bungie = (function Bungie() {
 		});
 	};
 	bungie.activity = function(characterId, gameMode, count, page) {
-		return new Promise(function(resolve) {
+		return new Promise(function(resolve, reject) {
 			_request({
 				route: '/Destiny/Stats/ActivityHistory/' + active.type + '/' + membershipId + '/' + characterId + "/?mode=" + gameMode + "&count=" + count + "&page=" + page,
 				shortRoute: '/Destiny/Stats/ActivityHistory/',
 				method: 'GET',
+				incomplete: reject,
 				complete: resolve
 			});
 		});
 	};
 	bungie.vault = function() {
-		return new Promise(function(resolve) {
+		return new Promise(function(resolve, reject) {
 			_request({
 				route: '/Destiny/' + active.type + '/MyAccount/Vault/',
 				shortRoute: '/Destiny//MyAccount/Vault/',
 				method: 'GET',
+				incomplete: reject,
 				complete: function(result) {
 					resolve(result);
 				}
@@ -320,37 +395,40 @@ var bungie = (function Bungie() {
 		});
 	};
 	bungie.inventory = function(characterId) {
-		return new Promise(function(resolve) {
+		return new Promise(function(resolve, reject) {
 			_request({
 				route: '/Destiny/' + active.type + '/Account/' + membershipId + '/Character/' + characterId + '/Inventory/?definitions=false',
 				shortRoute: '/Destiny//Account//Character//Inventory/?definitions=false',
 				method: 'GET',
+				incomplete: reject,
 				complete: resolve
 			});
 		});
 	};
 	bungie.carnage = function(activityId) {
-		return new Promise(function(resolve) {
+		return new Promise(function(resolve, reject) {
 			_request({
 				route: '/Destiny/Stats/PostGameCarnageReport/' + activityId + '/?definitions=false',
 				shortRoute: '/Destiny/Stats/PostGameCarnageReport//?definitions=false',
 				method: 'GET',
+				incomplete: reject,
 				complete: resolve
 			});
 		});
 	};
 	bungie.factions = function(characterId) {
-		return new Promise(function(resolve) {
+		return new Promise(function(resolve, reject) {
 			_request({
 				route: '/Destiny/' + active.type + '/Account/' + membershipId + '/Character/' + characterId + '/Progression/?definitions=false',
 				shortRoute: '/Destiny//Account//Character//Progression/?definitions=false',
 				method: 'GET',
+				incomplete: reject,
 				complete: resolve
 			});
 		});
 	};
 	bungie.transfer = function(characterId, itemId, itemReferenceHash, stackSize, transferToVault) {
-		return new Promise(function(resolve) {
+		return new Promise(function(resolve, reject) {
 			_request({
 				route: '/Destiny/TransferItem/',
 				shortRoute: '/Destiny/TransferItem/',
@@ -363,6 +441,7 @@ var bungie = (function Bungie() {
 					stackSize: stackSize,
 					transferToVault: transferToVault
 				},
+				incomplete: reject,
 				complete: resolve
 			});
 		});

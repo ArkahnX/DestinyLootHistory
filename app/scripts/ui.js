@@ -12,10 +12,8 @@ function initUi() {
 		if (element) {
 			element.removeAttribute("disabled");
 			element.addEventListener("click", function() {
-				if (!localStorage.listening || localStorage.listening === "false") {
-					var d = new Date();
-					d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
-					d = d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + (d.getHours() - 0)).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2);
+				if (localStorage.listening === "false") {
+					console.log("Set Tracking to Manual");
 					localStorage.listening = "true";
 					localStorage.manual = "true";
 				} else {
@@ -594,6 +592,9 @@ function passFactionData(DomNode, itemDiff, moveType, index) {
 }
 
 function characterName(characterId, light) {
+	if(!characterDescriptions[characterId]) {
+		return "";
+	}
 	logger.startLogging("UI");
 	if (light === null) {
 		return characterDescriptions[characterId].name;

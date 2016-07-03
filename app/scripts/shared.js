@@ -14,6 +14,13 @@ Object.prototype[Symbol.iterator] = function() {
 	};
 };
 
+// You'll usually only ever have to create one service instance.
+var service = analytics.getService('DestinyLootHistory');
+
+// You can create as many trackers as you want. Each tracker has its own state
+// independent of other tracker instances.
+var tracker = service.getTracker('UA-77020265-2');  // Supply your GA Tracking ID.
+
 function recursive(index, array, networkTask, resultTask, endRecursion) {
 	if (array[index]) {
 		new Promise(function(resolve) {
@@ -36,11 +43,20 @@ function sequence(array, networkTask, resultTask) {
 }
 
 function getItemDefinition(hash) {
-	if(DestinyHistoricalItemDefinition[hash]) {
+	if (DestinyHistoricalItemDefinition[hash]) {
 		return DestinyHistoricalItemDefinition[hash];
-	} else if(DestinyCompactItemDefinition[hash]) {
+	} else if (DestinyCompactItemDefinition[hash]) {
 		return DestinyCompactItemDefinition[hash];
 	}
-	logger.error(`Item Reference ${hash} is not in database. Please file a bug report.`);
-	return {};
+	_gaq.push(['_trackEvent', 'missingItemHash', hash]);
+	logger.error(`Item Reference ${hash} is not in database. This has been reported.`);
+	return {
+		hasIcon: false,
+		icon: "",
+		sourceHashes: [],
+		tierTypeName: "",
+		itemTypeName: "",
+		itemName: "",
+		bucketTypeHash: 215593132
+	};
 }
