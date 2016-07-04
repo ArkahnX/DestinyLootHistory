@@ -45,7 +45,8 @@ var bungie = (function Bungie() {
 		if (!errors) {
 			errors = 0;
 		}
-		if (errors >= 20 || (errors > 0 && localStorage.permanentError === "true")) {
+		if (errors >= 20 || (errors > 1 && localStorage.permanentError === "true" && localStorage.uniqueId)) {
+			logger.startLogging("Bungie Logs");
 			logger.warn("too many errors");
 			localStorage.error = "true";
 			tracker.sendEvent('Too Many Retries', opts.route, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
@@ -58,7 +59,7 @@ var bungie = (function Bungie() {
 				let r = new XMLHttpRequest();
 				r.open("POST", "http://arkahnx.technology/loot2.php", true);
 				r.onload = function() {
-					console.log(this.response);
+					// console.log(this.response);
 				};
 				logger.exportLogs().then(function(data) {
 					r.send(JSON.stringify({
@@ -75,6 +76,7 @@ var bungie = (function Bungie() {
 		}
 		var newDate = new Date().getTime();
 		if ((lastRoute === opts.shortRoute && newDate - lastRequestTime >= 800) || lastRoute !== opts.shortRoute) { // make sure not to poll more than once per second for the same type of request
+			logger.startLogging("Bungie Logs");
 			logger.info(`Bungie API Query Route ${opts.route}`);
 			// console.trace()
 			lastRoute = opts.shortRoute;
@@ -87,6 +89,7 @@ var bungie = (function Bungie() {
 				if (this.status >= 200 && this.status < 400) {
 					var response = JSON.parse(this.response);
 					if (response.ErrorCode === 36 || response.ErrorCode === 51) {
+						logger.startLogging("Bungie Logs");
 						tracker.sendEvent('Too Frequent', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
 						// _gaq.push(['_trackEvent', 'BungieError', `Error Code ${response.ErrorCode}`, opts.shortRoute, `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
 						logger.warn(`We accidentally encountered Error ${response.ErrorCode} when attempting ${opts.route}`);

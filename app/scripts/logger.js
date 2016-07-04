@@ -20,6 +20,7 @@ var logger = (function() {
 			chrome.storage.local.get("logger", function(data) {
 				if (data.logger && data.logger.logList) {
 					logList = data.logger.logList;
+					currentLog = data.logger.currentLog;
 				}
 				resolve();
 			});

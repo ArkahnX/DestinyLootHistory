@@ -20,9 +20,9 @@ var characterDescriptions = {
 };
 
 function initItems(callback) {
-	console.warn("initItems")
-	// logger.log("Arrived at initItems");
 	logger.startLogging("items");
+	logger.log("initItems");
+	// logger.log("Arrived at initItems");
 	logger.time("load Bungie Data");
 	bungie.setActive(localStorage.activeType);
 	bungie.user().then(function() {
@@ -394,7 +394,7 @@ function isSameItem(item1, item2) {
  * grabs guardian inventories. Accurate tracking is off by default, so by default we finish this function and then grabRemoteInventory and head back to step 3 in timers.js
  */
 function checkInventory() {
-	console.warn("checkInventory")
+	logger.log("checkInventory")
 	return new Promise(function(resolve, reject) {
 		// grabRemoteInventory(function() {
 		// 	if (localStorage.accurateTracking === "true") {
@@ -412,9 +412,9 @@ function checkInventory() {
  */
 
 function grabRemoteInventory(resolve, reject) {
-	console.warn("grabRemoteInventory")
-	// logger.log("Arrived at grabRemoteInventory");
 	logger.startLogging("items");
+	logger.log("grabRemoteInventory")
+	// logger.log("Arrived at grabRemoteInventory");
 	logger.time("Bungie Search");
 	var currentDateString = moment().utc().format();
 	bungie.setActive(localStorage.activeType);
@@ -524,7 +524,7 @@ function moveLargestItemTo(characterId) {
 		let itemDef = getItemDefinition(item.itemHash);
 		if (item.itemHash !== 342707700 && item.itemHash !== 342707701 && item.itemHash !== 342707703 && item.itemHash !== 142694124 && item.itemHash !== 3881084295 && item.itemHash !== 1565194903 && item.itemHash !== 3026483582 && item.itemHash !== 1027379218 && item.itemHash !== 1556533319 && (itemDef.bucketTypeHash === 1469714392 || itemDef.bucketTypeHash === 3865314626)) {
 			if (!localStorage.oldTransferMaterial || (localStorage.oldTransferMaterial && parseInt(localStorage.oldTransferMaterial) !== item.itemHash)) {
-				console.log(item.itemHash, localStorage.oldTransferMaterial)
+				logger.log(item.itemHash, localStorage.oldTransferMaterial)
 				if (!largestItem) {
 					largestItem = item;
 				}

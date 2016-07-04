@@ -8,36 +8,35 @@ var stopLoop = null;
  * Do a rough faction check to see if the player has played recently. Can be replaced with lastPlayedDate.
  */
 function dirtyItemCheck() {
-	console.warn("dirtyItemCheck")
+	logger.startLogging("timers");
+	logger.log("dirtyItemCheck");
 	logger.saveData();
 	allowBungieTracking().then(function(allowTracking) {
+		logger.startLogging("timers");
 		if (allowTracking.allow_tracking) {
 			if (localStorage.error === "false") {
 				chrome.browserAction.setBadgeText({
 					text: ""
 				});
-				var factionProgress = 0;
 				clearTimeout(dirtyTimeout);
-				bungie.setActive(localStorage.activeType);
-				sequence(characterIdList, function(item, resolve) {
-					if (item !== "vault") {
-						bungie.factions(item).then(resolve);
-					} else {
-						resolve();
+				var oldCharacterDates = 0;
+				var newCharacterDates = 0;
+				for (var character in characterDescriptions) {
+					if (character.dateLastPlayed) {
+						oldCharacterDates += new Date(character.dateLastPlayed).getTime();
 					}
-				}, function(result, item, index) {
-					if (result) {
-						var data = result.data;
-						for (var i = 0; i < data.progressions.length; i++) {
-							factionProgress += data.progressions[i].currentProgress;
+				}
+				initItems(function() {
+					for (var character in characterDescriptions) {
+						if (character.dateLastPlayed) {
+							newCharacterDates += new Date(character.dateLastPlayed).getTime();
 						}
 					}
-				}).then(function() { // if new faction progress is not equal to old faction progress
 					logger.startLogging("Timers");
-					if (factionProgress !== oldFactionProgress) {
-						logger.log("Beginning tracking again.");
+					if (newCharacterDates !== oldCharacterDates) { // if new character dates is not equal to old character dates
+						logger.log("Beginning tracking");
+						localStorage.listening = "true";
 						recursiveIdleTracking(); // found in this script.
-						oldFactionProgress = factionProgress;
 					}
 					if (localStorage.listening === "false") {
 						dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 60); // check 60 seconds later
@@ -56,8 +55,11 @@ function dirtyItemCheck() {
 	});
 }
 
+var updateTimeout = null;
+
 function checkForUpdates() {
-	console.warn("checkForUpdates")
+	logger.startLogging("timers");
+	logger.log("checkForUpdates");
 	clearTimeout(updateTimeout);
 	var header = document.querySelector("#status");
 	var element = document.querySelector("#startTracking");
@@ -87,7 +89,6 @@ function checkForUpdates() {
 	});
 }
 
-var updateTimeout = null;
 
 
 function stopListening() {
@@ -102,7 +103,8 @@ function stopListening() {
 }
 
 function trackIdle() {
-	console.warn("trackIdle")
+	logger.startLogging("timers");
+	logger.log("trackIdle");
 	if (stopLoop !== null) {
 		clearInterval(stopLoop);
 	}
@@ -119,7 +121,8 @@ var checkInterval = null;
  * Check to see if we should force run, or if we are allowed to run
  */
 function beginBackendTracking(allowTracking) {
-	console.warn("beginBackendTracking")
+	logger.startLogging("timers");
+	logger.log("beginBackendTracking");
 	// logger.log("Arrived at beginBackendTracking");
 	// If we have an error, throw an exclamation mark on the extension icon.
 	clearInterval(checkInterval);
@@ -127,7 +130,7 @@ function beginBackendTracking(allowTracking) {
 	listenLoop = null;
 	clearInterval(stopLoop);
 	stopLoop = null;
-	if (allowTracking.allow_tracking === 1 && localStorage.itemError === "false") {
+	if ((allowTracking.allow_tracking === 1 && localStorage.itemError === "false") || !chrome.runtime.getManifest().key) {
 		localStorage.manual = "false";
 		localStorage.listening = "true";
 		recursiveIdleTracking(); // found in this script.
@@ -144,6 +147,7 @@ function beginBackendTracking(allowTracking) {
 	// this timer checks if "start tracking" was pressed, but only if we aren't already tracking.
 	checkInterval = setTimeout(apiCheck, 1000);
 }
+var runningCheck = false;
 
 function apiCheck() {
 	// logger.log("Arrived at apiCheck");
@@ -152,7 +156,7 @@ function apiCheck() {
 	if (localStorage.manual === "true" && runningCheck === false) {
 		allowBungieTracking().then(function(allowTracking) {
 			initItems(function() {
-				if (allowTracking.allow_tracking === 1) {
+				if (allowTracking.allow_tracking === 1 || !chrome.runtime.getManifest().key) {
 					localStorage.manual = "false";
 					localStorage.listening = "true";
 					logger.log("Forcing check now");
@@ -174,7 +178,6 @@ function apiCheck() {
 	}
 }
 
-var runningCheck = false;
 var idleTimer = 0;
 var timeoutTracker = null;
 
@@ -184,8 +187,9 @@ var timeoutTracker = null;
  * main inventory checker. 
  */
 function recursiveIdleTracking() {
-	console.warn("recursiveIdleTracking")
-	// logger.log("Arrived at recursiveIdleTracking");
+	logger.startLogging("timers");
+	logger.log("recursiveIdleTracking")
+		// logger.log("Arrived at recursiveIdleTracking");
 	logger.saveData();
 	var startTime = window.performance.now();
 	runningCheck = true;
@@ -196,9 +200,10 @@ function recursiveIdleTracking() {
 		text: ""
 	});
 	allowBungieTracking().then(function(allowTracking) {
-		if (allowTracking.allow_tracking) {
+		if (allowTracking.allow_tracking || !chrome.runtime.getManifest().key) {
 			checkInventory().then(function() { // found in items.js
-				console.warn("recursiveIdleTracking")
+				logger.startLogging("timers");
+				logger.log("recursiveIdleTracking2");
 				tracker.sendEvent('Passed BungieTracking and CheckInventory', `No Issues`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
 				// _gaq.push(['_trackEvent', 'Tracking', `Passed BungieTracking and CheckInventory.`, "", `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
 				// reset a bunch of variables

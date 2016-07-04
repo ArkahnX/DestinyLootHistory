@@ -155,8 +155,7 @@ function init() {
 setTimeout(init, 50);
 // logging some backend data. Saved my butt during the issue that deleted my saved data.
 chrome.storage.local.get(null, function(result) {
-	console.log(result);
-	logger.startLogging("backend");
+	logger.startLogging("Backend");
 	logger.info(result);
 });
 

@@ -411,12 +411,24 @@ function processDifference(currentDateString, resolve) {
 		// logger.log(_inventories,_inventories2);
 		logger.log(`Vault ${_inventories.vault}/${_inventories2.vault}/${inventories.vault} Char1 ${_inventories[characterIdList[1]]}/${_inventories2[characterIdList[1]]}/${inventories[characterIdList[1]]} Char2 ${_inventories[characterIdList[2]]}/${_inventories2[characterIdList[2]]}/${inventories[characterIdList[2]]} Char3 ${_inventories[characterIdList[3]]}/${_inventories2[characterIdList[3]]}/${inventories[characterIdList[3]]} TRANSFER ${transferQ.length}`);
 		logger.log(`GLIMMER ${oldCurrencies[0].value}/${newCurrencies[0].value}` + ` LEGENDARY MARKS ${oldCurrencies[1].value}/${newCurrencies[1].value}` + ` SILVER ${oldCurrencies[2].value}/${newCurrencies[2].value}`);
+		console.log(oldInventories,oldProgression,oldCurrencies,newInventories,newProgression,newCurrencies)
+		if(Object.keys(oldInventories).length === 0) {
+			oldInventories = newInventories;
+		}
+		if(Object.keys(oldProgression).length === 0) {
+			oldProgression = newProgression;
+		}
+		if(oldCurrencies.length === 0) {
+			oldCurrencies = newCurrencies;
+		}
+		console.log(oldInventories,oldProgression,oldCurrencies,newInventories,newProgression,newCurrencies)
 		oldProgression = oldProgression;
 		data.progression = oldProgression;
 		oldInventories = oldInventories;
 		data.inventories = oldInventories;
 		data.currencies = oldCurrencies;
 		oldCurrencies = oldCurrencies;
+		console.log(oldInventories,oldProgression,oldCurrencies,newInventories,newProgression,newCurrencies)
 	}
 	if (additions.length || removals.length || transfers.length || progression.length) {
 		trackIdle();

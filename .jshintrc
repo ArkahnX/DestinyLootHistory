@@ -11,6 +11,7 @@
 	"notypeof":true,
 	"strict":"implied",
 	"undef":true,
+	"browser":true,
 	"globals":{
 		"moment":false,
 		"asyncIterator":false,

@@ -89,7 +89,16 @@ function initializeStoredVariables() {
 		localStorage.itemError = "false";
 		localStorage.uniqueId = _checkValue(localStorage.uniqueId, _checkLength, "false");
 		var manifest = chrome.runtime.getManifest();
-		localStorage.version = _checkValue(localStorage.version, manifest.version);
+		if(!localStorage.version) {
+			localStorage.version = manifest.version;
+		}
+		var localVersion = localStorage.version.split(".");
+		var manifestVersion = manifest.version.split(".");
+		if (localVersion[0] !== manifestVersion[0] || localVersion[1] !== manifestVersion[1]) {
+			localStorage.notificationClosed = "false";
+		}
+		localStorage.version = manifest.version;
+		tracker.sendEvent('Backend Initialized', `No Issues`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
 		chrome.storage.local.get(null, function(data) {
 			var newData = {};
 			if (!data.currencies) {
@@ -97,6 +106,7 @@ function initializeStoredVariables() {
 			} else {
 				newData.currencies = data.currencies;
 			}
+			console.log(!data.inventories);
 			if (!data.inventories) {
 				newData.inventories = {};
 			} else {
@@ -114,7 +124,7 @@ function initializeStoredVariables() {
 			}
 			if (!data.logger) {
 				newData.logger = {
-					currentLog: {},
+					currentLog: null,
 					logList: []
 				};
 			} else {

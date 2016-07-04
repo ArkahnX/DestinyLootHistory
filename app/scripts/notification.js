@@ -12,12 +12,6 @@ var notification = (function() {
 	localStorage.notificationClosed = localStorage.notificationClosed || "true";
 	let container = document.getElementById("notification");
 	let text = document.getElementById("notification-text");
-	var localVersion = localStorage.version.split(".");
-	var manifestVersion = manifest.version.split(".");
-	if (localVersion[0] !== manifestVersion[0] || localVersion[1] !== manifestVersion[1]) {
-		localStorage.notificationClosed = "false";
-	}
-	localStorage.version = manifest.version;
 	if (localStorage.notificationClosed === "false") {
 		show(changelog);
 	} else {

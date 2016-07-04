@@ -4,7 +4,7 @@ characterDescriptions = JSON.parse(localStorage.characterDescriptions);
 initUi();
 
 chrome.storage.local.get(null, function(result) {
-	console.log(result);
+	logger.log(result);
 });
 
 var uniqueId = 0;

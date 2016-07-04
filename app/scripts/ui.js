@@ -13,7 +13,6 @@ function initUi() {
 			element.removeAttribute("disabled");
 			element.addEventListener("click", function() {
 				if (localStorage.listening === "false") {
-					console.log("Set Tracking to Manual");
 					localStorage.listening = "true";
 					localStorage.manual = "true";
 				} else {
