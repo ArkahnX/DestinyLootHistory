@@ -1,6 +1,7 @@
 var transferQ = [];
 var addedCurrencyQ = [];
 var removedCurrencyQ = [];
+var trackingTimer = 0;
 
 function processDifference(currentDateString, resolve) {
 	// reset variables
@@ -336,10 +337,10 @@ function processDifference(currentDateString, resolve) {
 	}
 	logger.log(`FINAL DIFF INFO`, finalDiff)
 	if (finalDiff.removed.length || finalDiff.added.length || (transferQ.length) || (finalDiff.progression && finalDiff.progression.length)) {
-		localStorage.diffFlag = "true";
+		localStorage.itemChangeDetected = "true";
 		// logger.log(finalDiff, transferQ);
 	}
-	if (trackingTimer > 45) {
+	if (trackingTimer > 15) {
 		forceupdate = true;
 		trackingTimer = 0;
 	}
@@ -375,7 +376,7 @@ function processDifference(currentDateString, resolve) {
 			oldCurrencies = newCurrencies;
 			data.currencies = newCurrencies;
 		}
-		if (finalDiff.added.length < 25 && finalDiff.removed.length < 25) {
+		if (finalDiff.added.length < 30 && finalDiff.removed.length < 30) {
 			finalChanges.push(finalDiff);
 		} else {
 			logger.warn(`bungie systems ${JSON.stringify(bungie.getMemberships())}, bungie active ${JSON.stringify(bungie.getActive())}`);
@@ -411,7 +412,6 @@ function processDifference(currentDateString, resolve) {
 		// logger.log(_inventories,_inventories2);
 		logger.log(`Vault ${_inventories.vault}/${_inventories2.vault}/${inventories.vault} Char1 ${_inventories[characterIdList[1]]}/${_inventories2[characterIdList[1]]}/${inventories[characterIdList[1]]} Char2 ${_inventories[characterIdList[2]]}/${_inventories2[characterIdList[2]]}/${inventories[characterIdList[2]]} Char3 ${_inventories[characterIdList[3]]}/${_inventories2[characterIdList[3]]}/${inventories[characterIdList[3]]} TRANSFER ${transferQ.length}`);
 		logger.log(`GLIMMER ${oldCurrencies[0].value}/${newCurrencies[0].value}` + ` LEGENDARY MARKS ${oldCurrencies[1].value}/${newCurrencies[1].value}` + ` SILVER ${oldCurrencies[2].value}/${newCurrencies[2].value}`);
-		console.log(oldInventories,oldProgression,oldCurrencies,newInventories,newProgression,newCurrencies)
 		if(Object.keys(oldInventories).length === 0) {
 			oldInventories = newInventories;
 		}
@@ -421,14 +421,12 @@ function processDifference(currentDateString, resolve) {
 		if(oldCurrencies.length === 0) {
 			oldCurrencies = newCurrencies;
 		}
-		console.log(oldInventories,oldProgression,oldCurrencies,newInventories,newProgression,newCurrencies)
 		oldProgression = oldProgression;
 		data.progression = oldProgression;
 		oldInventories = oldInventories;
 		data.inventories = oldInventories;
 		data.currencies = oldCurrencies;
 		oldCurrencies = oldCurrencies;
-		console.log(oldInventories,oldProgression,oldCurrencies,newInventories,newProgression,newCurrencies)
 	}
 	if (additions.length || removals.length || transfers.length || progression.length) {
 		trackIdle();
@@ -452,5 +450,3 @@ function processDifference(currentDateString, resolve) {
 	trackingTimer++;
 	getLocalMatches().then(getRemoteMatches).then(check3oC).then(applyMatchData).then(resolve);
 }
-
-var trackingTimer = 0;

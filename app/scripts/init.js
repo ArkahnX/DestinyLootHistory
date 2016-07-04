@@ -77,7 +77,7 @@ function initializeStoredVariables() {
 		}));
 		localStorage.error = _checkValue(localStorage.error, _checkBoolean, "false");
 		localStorage.errorMessage = _checkValue(localStorage.errorMessage, "");
-		localStorage.diffFlag = _checkValue(localStorage.diffFlag, _checkBoolean, "false");
+		localStorage.itemChangeDetected = _checkValue(localStorage.itemChangeDetected, _checkBoolean, "false");
 		localStorage.listening = _checkValue(localStorage.listening, _checkBoolean, "false");
 		localStorage.manual = _checkValue(localStorage.manual, _checkBoolean, "false");
 		localStorage.move3oC = _checkValue(localStorage.move3oC, _checkBoolean, "false");

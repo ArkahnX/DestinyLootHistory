@@ -210,10 +210,10 @@ function recursiveIdleTracking() {
 				logger.startLogging("Timers");
 				var endTime = window.performance.now();
 				var resultTime = Math.floor(endTime - startTime);
-				if (localStorage.diffFlag === "false") {
+				if (localStorage.itemChangeDetected === "false") {
 					idleTimer++;
 				}
-				if (localStorage.diffFlag === "true") {
+				if (localStorage.itemChangeDetected === "true") {
 					idleTimer = 0;
 				}
 				if (localStorage.error === "true") { // if we have an error
@@ -228,17 +228,17 @@ function recursiveIdleTracking() {
 					timeoutTracker = setTimeout(recursiveIdleTracking, (60 * 1000) - resultTime);
 					dirtyItemCheck();
 					runningCheck = false;
-				} else if (localStorage.diffFlag === "true" || (localStorage.listening === "true" && idleTimer < 15)) { // If we are tracking
-					logger.log(`${15 - idleTimer} checks remaining.`);
+				} else if (localStorage.itemChangeDetected === "true" || (localStorage.listening === "true" && idleTimer < 6)) { // If we are tracking
+					logger.log(`${6 - idleTimer} checks remaining.`);
 					localStorage.listening = "true";
-					localStorage.diffFlag = "false";
+					localStorage.itemChangeDetected = "false";
 					logger.log(`Scheduling check for ${moment().add(((60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((60 * 1000) - resultTime) / 1000} seconds`);
 					timeoutTracker = setTimeout(recursiveIdleTracking, (60 * 1000) - resultTime);
 				} else { // tracking timed out, check much later as they likely aren't actively playing
 					idleTimer = 0;
 					localStorage.listening = "false";
-					logger.log(`Scheduling check for ${moment().add(((5 * 60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((5 * 60 * 1000) - resultTime) / 1000} seconds`);
-					timeoutTracker = setTimeout(recursiveIdleTracking, (5 * 60 * 1000) - resultTime);
+					logger.log(`Scheduling check for ${moment().add(((10 * 60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((10 * 60 * 1000) - resultTime) / 1000} seconds`);
+					timeoutTracker = setTimeout(recursiveIdleTracking, (10 * 60 * 1000) - resultTime);
 					dirtyItemCheck(); // found in this file
 				}
 				logger.saveData(); // save logs
