@@ -9,7 +9,7 @@ var oldInventories = {};
 var oldProgression = {};
 var newProgression = {};
 var newInventories = {};
-var relevantStats = ["itemHash", "itemInstanceId", "stackSize", "damageTypeHash", "talentGridHash", "isGridComplete","state"];
+var relevantStats = ["itemHash", "itemInstanceId", "stackSize", "damageTypeHash", "talentGridHash", "isGridComplete", "state"];
 var characterIdList = ["vault"];
 var characterDescriptions = {
 	"vault": {
@@ -26,13 +26,10 @@ function initItems(callback) {
 	logger.time("load Bungie Data");
 	bungie.setActive(localStorage.activeType);
 	bungie.user().then(function() {
-		localStorage.itemError = "false";
-		localStorage.error = "false";
 		chrome.browserAction.setBadgeText({
 			text: ""
 		});
 		bungie.search().then(function(e) {
-			localStorage.itemError = "false";
 			var avatars = e.data.characters;
 			var newestCharacter = "vault";
 			var newestDate = 0;
@@ -53,6 +50,12 @@ function initItems(callback) {
 					characterIdList.push(avatars[c].characterBase.characterId);
 				}
 			}
+			oldCharacterDates = 0;
+			for (var character in characterDescriptions) {
+				if (character.dateLastPlayed) {
+					oldCharacterDates += new Date(character.dateLastPlayed).getTime();
+				}
+			}
 			localStorage.newestCharacter = newestCharacter;
 			localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
 			logger.timeEnd("load Bungie Data");
@@ -60,14 +63,12 @@ function initItems(callback) {
 				callback();
 			}
 		}).catch(function(err) {
-			localStorage.itemError = "true";
 			if (typeof callback === "function") {
 				callback();
 			}
 			// console.log(err, err.stack)
 		});
 	}).catch(function(err) {
-		localStorage.itemError = "true";
 		if (typeof callback === "function") {
 			callback();
 		}
@@ -414,15 +415,13 @@ function checkInventory() {
 function grabRemoteInventory(resolve, reject) {
 	logger.startLogging("items");
 	logger.log("grabRemoteInventory")
-	// logger.log("Arrived at grabRemoteInventory");
+		// logger.log("Arrived at grabRemoteInventory");
 	logger.time("Bungie Search");
 	var currentDateString = moment().utc().format();
 	bungie.setActive(localStorage.activeType);
 	// found in bungie.js
 	bungie.user().then(function() {
-		localStorage.itemError = "false";
 		bungie.search().then(function(guardian) {
-			localStorage.itemError = "false";
 			logger.timeEnd("Bungie Search");
 			let characters = guardian.data.characters;
 			var newestDate = 0;
@@ -448,6 +447,12 @@ function grabRemoteInventory(resolve, reject) {
 				}
 				if (characterIdList.indexOf(avatar.characterBase.characterId) === -1) {
 					characterIdList.push(avatar.characterBase.characterId);
+				}
+			}
+			oldCharacterDates = 0;
+			for (var character in characterDescriptions) {
+				if (character.dateLastPlayed) {
+					oldCharacterDates += new Date(character.dateLastPlayed).getTime();
 				}
 			}
 			localStorage.newestCharacter = newestCharacter;
@@ -481,12 +486,10 @@ function grabRemoteInventory(resolve, reject) {
 			});
 		}).catch(function() {
 			// logger.log("left at grabRemoteInventory");
-			localStorage.itemError = "true";
 			reject();
 		});
 	}).catch(function() {
 		// logger.log("left at grabRemoteInventory");
-		localStorage.itemError = "true";
 		reject();
 	});
 }

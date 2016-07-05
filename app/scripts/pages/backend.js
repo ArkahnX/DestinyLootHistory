@@ -92,11 +92,13 @@ function allowBungieTracking() {
 }
 
 function runCheck() {
+	logger.startLogging("timers");
+	logger.log("runCheck");
 	allowBungieTracking().then(function(allowTracking) {
 		if (allowTracking.id) {
 			localStorage.uniqueId = allowTracking.id;
 		}
-		if (allowTracking.allow_tracking !== 1) {
+		if (allowTracking.allow_tracking !== 1 && chrome.runtime.getManifest().key) {
 			logger.warn("No tracking Allowed");
 			// If we aren't allowed to track, throw an error, and check again in 60 seconds.
 			if (localStorage.error === "false") {

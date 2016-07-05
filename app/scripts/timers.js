@@ -1,7 +1,7 @@
 var dirtyTimeout = null;
-var oldFactionProgress = 0;
 var listenLoop = null;
 var stopLoop = null;
+var oldCharacterDates = 0;
 
 
 /**
@@ -19,13 +19,7 @@ function dirtyItemCheck() {
 					text: ""
 				});
 				clearTimeout(dirtyTimeout);
-				var oldCharacterDates = 0;
 				var newCharacterDates = 0;
-				for (var character in characterDescriptions) {
-					if (character.dateLastPlayed) {
-						oldCharacterDates += new Date(character.dateLastPlayed).getTime();
-					}
-				}
 				initItems(function() {
 					for (var character in characterDescriptions) {
 						if (character.dateLastPlayed) {
@@ -69,13 +63,16 @@ function checkForUpdates() {
 		header.classList.remove("idle");
 		characterDescriptions = JSON.parse(localStorage.characterDescriptions);
 	} else {
-		notification.hide();
-		if (!localStorage.listening || localStorage.listening === "false") {
+		if (localStorage.notificationClosed === "false") {
+			notification.show(notification.changelog);
+		} else {
+			notification.hide();
+		}
+		if (localStorage.listening === "false" || localStorage.error === "true") {
 			header.classList.add("idle");
 			header.classList.remove("active", "error");
 			element.setAttribute("value", "Begin Tracking");
-		}
-		if (localStorage.listening === "true") {
+		} else if (localStorage.listening === "true") {
 			header.classList.remove("idle", "error");
 			header.classList.add("active");
 			element.setAttribute("value", "Stop Tracking");
@@ -130,7 +127,7 @@ function beginBackendTracking(allowTracking) {
 	listenLoop = null;
 	clearInterval(stopLoop);
 	stopLoop = null;
-	if ((allowTracking.allow_tracking === 1 && localStorage.itemError === "false") || !chrome.runtime.getManifest().key) {
+	if ((allowTracking.allow_tracking === 1 && localStorage.error === "false") || (!chrome.runtime.getManifest().key && localStorage.error === "false")) {
 		localStorage.manual = "false";
 		localStorage.listening = "true";
 		recursiveIdleTracking(); // found in this script.
@@ -156,7 +153,7 @@ function apiCheck() {
 	if (localStorage.manual === "true" && runningCheck === false) {
 		allowBungieTracking().then(function(allowTracking) {
 			initItems(function() {
-				if (allowTracking.allow_tracking === 1 || !chrome.runtime.getManifest().key) {
+				if ((allowTracking.allow_tracking === 1 && localStorage.error === "false") || (!chrome.runtime.getManifest().key && localStorage.error === "false")) {
 					localStorage.manual = "false";
 					localStorage.listening = "true";
 					logger.log("Forcing check now");
@@ -200,7 +197,7 @@ function recursiveIdleTracking() {
 		text: ""
 	});
 	allowBungieTracking().then(function(allowTracking) {
-		if (allowTracking.allow_tracking || !chrome.runtime.getManifest().key) {
+		if ((allowTracking.allow_tracking === 1 && localStorage.error === "false") || (!chrome.runtime.getManifest().key && localStorage.error === "false")) {
 			checkInventory().then(function() { // found in items.js
 				logger.startLogging("timers");
 				logger.log("recursiveIdleTracking2");

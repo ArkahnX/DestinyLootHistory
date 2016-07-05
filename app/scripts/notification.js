@@ -1,35 +1,15 @@
 var notification = (function() {
-	let manifest = chrome.runtime.getManifest();
-	let changelog = `New in ${manifest.version}:<br>
-<ul>
-	<li>This extension may need to be limited as Bungie has reached out to me indicating that it is causing excess wear on their servers.</li>
-	<li>I am currently working with Bungie to determine the best course of action.</li>
-	<li>Tracking has been reduced, and may be stopped entirely if further action needs to be taken.</li>
-	<li>Sorry for the inconvinience, and thank you for your patience and support.</li>
-</ul>`;
-
 	let active = true;
-	localStorage.notificationClosed = localStorage.notificationClosed || "true";
 	let container = document.getElementById("notification");
 	let text = document.getElementById("notification-text");
-	if (localStorage.notificationClosed === "false") {
-		show(changelog);
-	} else {
-		hide();
-	}
-
-	container.addEventListener("click", function() {
-		active = false;
-		container.style.top = ((container.offsetHeight + 5) * -1) + "px";
-		container.classList.remove("error");
-		localStorage.notificationClosed = "true";
-	}, true);
 
 	function show(content) {
 		active = false;
 		if (!content) {
 			active = true;
 			container.classList.add("error");
+		} else {
+			container.classList.remove("error");
 		}
 		text.innerHTML = content || localStorage.errorMessage;
 		// container.classList.add("live");
@@ -44,8 +24,34 @@ var notification = (function() {
 		}
 	}
 
+	let manifest = chrome.runtime.getManifest();
+	const changelog = `New in ${manifest.version}:<br>
+<ul>
+	<li>If the extension encounters an issue (Red exclamation point on the icon) please reslove the issue, then click "Begin Tracking"</li>
+	<li>If you encounter issues, please use the "<a href="debug.html">Report Issue</a>" feature.</li>
+	<li>Tracking has been reduced, and may be stopped entirely if further action needs to be taken.</li>
+	<li>Sorry for the inconvinience, and thank you for your patience and support.</li>
+</ul>`;
+
+	localStorage.notificationClosed = localStorage.notificationClosed || "true";
+	if (localStorage.notificationClosed === "false") {
+		show(changelog);
+	} else {
+		hide();
+	}
+
+	container.addEventListener("click", function() {
+		active = false;
+		container.style.top = ((container.offsetHeight + 5) * -1) + "px";
+		if (container.classList.contains("error") === false) {
+			localStorage.notificationClosed = "true";
+		}
+		container.classList.remove("error");
+	}, true);
+
 	return {
-		hide: hide,
-		show: show
+		hide,
+		show,
+		changelog
 	};
 }());

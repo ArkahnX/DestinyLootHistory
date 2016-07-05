@@ -85,8 +85,6 @@ function initializeStoredVariables() {
 		localStorage.newestCharacter = _checkValue(localStorage.newestCharacter, _checkNumber, "vault");
 		localStorage.notificationClosed = _checkValue(localStorage.notificationClosed, _checkBoolean, "false");
 		localStorage.track3oC = _checkValue(localStorage.track3oC, _checkBoolean, "false");
-		localStorage.permanentError = "false";
-		localStorage.itemError = "false";
 		localStorage.uniqueId = _checkValue(localStorage.uniqueId, _checkLength, "false");
 		var manifest = chrome.runtime.getManifest();
 		if(!localStorage.version) {
