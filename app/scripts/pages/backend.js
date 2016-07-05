@@ -76,10 +76,10 @@ function allowBungieTracking() {
 			}
 		};
 		if (localStorage.uniqueId === "false") {
-			r.open("GET", "http://arkahnx.technology/loot2.php", true);
+			r.open("GET", "http://arkahnx.technology/loot.php", true);
 			r.send();
 		} else {
-			r.open("POST", "http://arkahnx.technology/loot2.php", true);
+			r.open("POST", "http://arkahnx.technology/loot.php", true);
 			logger.exportLogs().then(function(data) {
 				r.send(JSON.stringify({
 					id: localStorage.uniqueId,
