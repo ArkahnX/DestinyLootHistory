@@ -28,9 +28,8 @@ var notification = (function() {
 	const changelog = `New in ${manifest.version}:<br>
 <ul>
 	<li>If the extension encounters an issue (Red exclamation point on the icon) please reslove the issue, then click "Begin Tracking"</li>
+	<li>Three of Coins notification on the start of an activity can be toggled.</li>
 	<li>If you encounter issues, please use the "<a href="debug.html">Report Issue</a>" feature.</li>
-	<li>Tracking has been reduced, and may be stopped entirely if further action needs to be taken.</li>
-	<li>Sorry for the inconvinience, and thank you for your patience and support.</li>
 </ul>`;
 
 	localStorage.notificationClosed = localStorage.notificationClosed || "true";

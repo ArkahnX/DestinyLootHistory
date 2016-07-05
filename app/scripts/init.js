@@ -104,7 +104,6 @@ function initializeStoredVariables() {
 			} else {
 				newData.currencies = data.currencies;
 			}
-			console.log(!data.inventories);
 			if (!data.inventories) {
 				newData.inventories = {};
 			} else {
