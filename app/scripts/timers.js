@@ -21,7 +21,7 @@ function dirtyItemCheck() {
 				clearTimeout(dirtyTimeout);
 				var newCharacterDates = 0;
 				initItems(function() {
-					for (var character in characterDescriptions) {
+					for (var character of characterDescriptions) {
 						if (character.dateLastPlayed) {
 							newCharacterDates += new Date(character.dateLastPlayed).getTime();
 						}
@@ -33,14 +33,14 @@ function dirtyItemCheck() {
 						recursiveIdleTracking(); // found in this script.
 					}
 					if (localStorage.listening === "false") {
-						dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 60 * 2); // check 60 seconds later
+						dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 60); // check 60 seconds later
 					}
 				});
 			} else {
 				chrome.browserAction.setBadgeText({
 					text: "!"
 				});
-				dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 60 * 2);
+				dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 60);
 			}
 			logger.saveData();
 		} else {
