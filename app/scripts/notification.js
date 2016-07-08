@@ -29,6 +29,7 @@ var notification = (function() {
 <ul>
 	<li>If the extension encounters an issue (Red exclamation point on the icon) please reslove the issue, then click "Begin Tracking"</li>
 	<li>Three of Coins notification on the start of an activity can be toggled.</li>
+	<li>Record Book tracking is enabled! And ugly! I'll be working on a new UI for those...</li>
 	<li>If you encounter issues, please use the "<a href="debug.html">Report Issue</a>" feature.</li>
 </ul>`;
 

@@ -106,6 +106,18 @@ var bungie = (function Bungie() {
 						localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message);
 						logger.saveData();
 						opts.incomplete();
+					} else if (response.ErrorCode === 5) {
+						logger.startLogging("Bungie Logs");
+						logger.error(response.ErrorCode, response.ErrorStatus, response.Message, opts.route);
+						if (opts.payload && Object.keys(opts.payload).length > 0) {
+							logger.error(`Character: ${opts.payload.characterId}, Membership: ${opts.payload.membershipType}, itemHash: ${opts.payload.itemReferenceHash}, stackSize: ${opts.payload.stackSize}, transferToVault: ${opts.payload.transferToVault}`);
+						}
+						localStorage.error = "true";
+						tracker.sendEvent('System Disabled Maintenance', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
+						// _gaq.push(['_trackEvent', 'BungieError', `Unhandled Error Code ${response.ErrorCode}`, response.Message, `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
+						localStorage.errorMessage = 'Bungie servers are undergoing maintenance. Please use "Begin Tracking" to try to connect again. \n' + JSON.stringify(response.Message);
+						logger.saveData();
+						opts.incomplete();
 					} else if (response.ErrorCode !== 1) {
 						logger.startLogging("Bungie Logs");
 						logger.error(response.ErrorCode, response.ErrorStatus, response.Message, opts.route);
@@ -167,10 +179,8 @@ var bungie = (function Bungie() {
 				logger.error("Network Error: Please check your internet connection.");
 				localStorage.errorMessage = "Network Error: Please check your internet connection.";
 				localStorage.error = "true";
-				setTimeout(function() {
-					_request(opts, errors + 1);
-					logger.saveData();
-				}, 30000);
+				logger.saveData();
+				opts.incomplete();
 			};
 
 			_getCookie('bungled').then(function(token) {
@@ -378,6 +388,17 @@ var bungie = (function Bungie() {
 			_request({
 				route: '/Destiny/Stats/PostGameCarnageReport/' + activityId + '/?definitions=false',
 				shortRoute: '/Destiny/Stats/PostGameCarnageReport//?definitions=false',
+				method: 'GET',
+				incomplete: reject,
+				complete: resolve
+			});
+		});
+	};
+	bungie.advisorsForAccount = function() {
+		return new Promise(function(resolve, reject) {
+			_request({
+				route: '/Destiny/' + active.type + '/Account/' + membershipId + '/Advisors/?definitions=false',
+				shortRoute: '/Destiny/Account/Advisors/',
 				method: 'GET',
 				incomplete: reject,
 				complete: resolve

@@ -135,6 +135,9 @@ function handleOtherStats(dataset, resolve) {
 		for (let stat of objectives) {
 			var displayDescription = DestinyObjectiveDefinition[stat.objectiveHash].displayDescription;
 			var completionValue = DestinyObjectiveDefinition[stat.objectiveHash].completionValue;
+			if(dataset.itemTypeName === "Book" && DestinyRecordDefinition[stat.objectiveHash]) {
+				displayDescription = DestinyRecordDefinition[stat.objectiveHash].description;
+			}
 			var tableRowOne = document.createElement("tr");
 			tableRowOne.classList.add("itemStat", "bounty");
 			var tableRowTwo = document.createElement("tr");

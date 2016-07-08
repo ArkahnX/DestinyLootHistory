@@ -33,14 +33,14 @@ function dirtyItemCheck() {
 						recursiveIdleTracking(); // found in this script.
 					}
 					if (localStorage.listening === "false") {
-						dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 60); // check 60 seconds later
+						dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 60 * 2); // check 60 seconds later
 					}
 				});
 			} else {
 				chrome.browserAction.setBadgeText({
 					text: "!"
 				});
-				dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 60);
+				dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 60 * 2);
 			}
 			logger.saveData();
 		} else {
@@ -234,8 +234,8 @@ function recursiveIdleTracking() {
 				} else { // tracking timed out, check much later as they likely aren't actively playing
 					idleTimer = 0;
 					localStorage.listening = "false";
-					logger.log(`Scheduling check for ${moment().add(((10 * 60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((10 * 60 * 1000) - resultTime) / 1000} seconds`);
-					timeoutTracker = setTimeout(recursiveIdleTracking, (10 * 60 * 1000) - resultTime);
+					logger.log(`Scheduling check for ${moment().add(((20 * 60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((20 * 60 * 1000) - resultTime) / 1000} seconds`);
+					timeoutTracker = setTimeout(recursiveIdleTracking, (20 * 60 * 1000) - resultTime);
 					dirtyItemCheck(); // found in this file
 				}
 				logger.saveData(); // save logs

@@ -466,21 +466,55 @@ function grabRemoteInventory(resolve, reject) {
 				// loop through all characters and save their new Faction data to newProgression
 				sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
 					logger.timeEnd("Bungie Faction");
-					logger.time("Local Inventory");
-					// get old data saved from the last pass
-					chrome.storage.local.get(["itemChanges", "progression", "currencies", "inventories"], function(result) {
-						// check if data is valid. If not, use newly grabbed data instead.
-						data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
-						data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
-						oldProgression = handleInput(result.progression, newProgression);
-						for (var attr in result.progression) {
-							oldProgression[attr] = handleInput(result.progression[attr], newProgression[attr]);
+					logger.time("Bungie Advisors");
+					bungie.advisorsForAccount().then(function(advisorData) {
+						var recordBooks = advisorData.data.recordBooks;
+						for (var recordBook of recordBooks) {
+							for (var characterInventory of newInventories) {
+								for (var inventoryItem of characterInventory) {
+									var itemDefinition = getItemDefinition(inventoryItem.itemHash);
+									if (itemDefinition.recordBookHash === recordBook.bookHash) {
+										var completed = 0;
+										var completionValue = 0;
+										for (var record of recordBook.records) {
+											for (var objective of record.objectives) {
+												if (!inventoryItem.objectives) {
+													inventoryItem.objectives = [];
+												}
+												inventoryItem.objectives.push({
+													objectiveHash: objective.objectiveHash,
+													progress: objective.progress
+												});
+												completed += objective.progress;
+												completionValue += DestinyObjectiveDefinition[objective.objectiveHash].completionValue;		
+											}
+										}
+										if (completed === completionValue) {
+											inventoryItem.isGridComplete = true;
+										}
+										inventoryItem.stackSize = Math.round(((completed / completionValue) * 100)) + "%";
+										break;
+									}
+								}
+							}
 						}
-						oldInventories = handleInput(result.inventories, newInventories);
-						oldCurrencies = handleInput(result.currencies, newCurrencies);
-						logger.timeEnd("Local Inventory");
-						// itemDiff.js
-						processDifference(currentDateString, resolve);
+						logger.timeEnd("Bungie Advisors");
+						logger.time("Local Inventory");
+						// get old data saved from the last pass
+						chrome.storage.local.get(["itemChanges", "progression", "currencies", "inventories"], function(result) {
+							// check if data is valid. If not, use newly grabbed data instead.
+							data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
+							data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
+							oldProgression = handleInput(result.progression, newProgression);
+							for (var attr in result.progression) {
+								oldProgression[attr] = handleInput(result.progression[attr], newProgression[attr]);
+							}
+							oldInventories = handleInput(result.inventories, newInventories);
+							oldCurrencies = handleInput(result.currencies, newCurrencies);
+							logger.timeEnd("Local Inventory");
+							// itemDiff.js
+							processDifference(currentDateString, resolve);
+						});
 					});
 				});
 			});
