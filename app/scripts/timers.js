@@ -19,8 +19,8 @@ function dirtyItemCheck() {
 					text: ""
 				});
 				clearTimeout(dirtyTimeout);
-				var newCharacterDates = 0;
 				initItems(function() {
+					var newCharacterDates = 0;
 					for (var character of characterDescriptions) {
 						if (character.dateLastPlayed) {
 							newCharacterDates += new Date(character.dateLastPlayed).getTime();
@@ -223,6 +223,12 @@ function recursiveIdleTracking() {
 					let resultTime = Math.floor(endTime - startTime);
 					logger.log(`Scheduling check for ${moment().add(((60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((60 * 1000) - resultTime) / 1000} seconds`);
 					timeoutTracker = setTimeout(recursiveIdleTracking, (60 * 1000) - resultTime);
+					oldCharacterDates = 0;
+					for (var character of characterDescriptions) {
+						if (character.dateLastPlayed) {
+							oldCharacterDates += new Date(character.dateLastPlayed).getTime();
+						}
+					}
 					dirtyItemCheck();
 					runningCheck = false;
 				} else if (localStorage.itemChangeDetected === "true" || (localStorage.listening === "true" && idleTimer < 6)) { // If we are tracking
@@ -236,6 +242,12 @@ function recursiveIdleTracking() {
 					localStorage.listening = "false";
 					logger.log(`Scheduling check for ${moment().add(((20 * 60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((20 * 60 * 1000) - resultTime) / 1000} seconds`);
 					timeoutTracker = setTimeout(recursiveIdleTracking, (20 * 60 * 1000) - resultTime);
+					oldCharacterDates = 0;
+					for (var character of characterDescriptions) {
+						if (character.dateLastPlayed) {
+							oldCharacterDates += new Date(character.dateLastPlayed).getTime();
+						}
+					}
 					dirtyItemCheck(); // found in this file
 				}
 				logger.saveData(); // save logs

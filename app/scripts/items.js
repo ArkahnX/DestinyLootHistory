@@ -51,7 +51,7 @@ function initItems(callback) {
 				}
 			}
 			oldCharacterDates = 0;
-			for (var character in characterDescriptions) {
+			for (var character of characterDescriptions) {
 				if (character.dateLastPlayed) {
 					oldCharacterDates += new Date(character.dateLastPlayed).getTime();
 				}
@@ -341,7 +341,7 @@ function checkFactionDiff(sourceArray, newArray, characterId) {
 							localStorage.move3oCCooldown = "false";
 						}
 					}
-					logger.log(`Progress === 0 = ${newArray[e].currentProgress} && progressChange < 0 = ${newArray[e].currentProgress} && move3oCCooldown === "false" ${localStorage.move3oCCooldown}`);
+					// logger.log(`Progress === 0 = ${newArray[e].currentProgress} && progressChange < 0 = ${newArray[e].currentProgress} && move3oCCooldown === "false" ${localStorage.move3oCCooldown}`);
 					if (newArray[e].currentProgress === 0 && progressChange < 0 && localStorage.move3oCCooldown === "false") {
 						localStorage.move3oC = "true";
 						localStorage.move3oCCooldown = "true";
@@ -450,7 +450,7 @@ function grabRemoteInventory(resolve, reject) {
 				}
 			}
 			oldCharacterDates = 0;
-			for (var character in characterDescriptions) {
+			for (var character of characterDescriptions) {
 				if (character.dateLastPlayed) {
 					oldCharacterDates += new Date(character.dateLastPlayed).getTime();
 				}
