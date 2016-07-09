@@ -48,7 +48,8 @@ function getItemDefinition(hash) {
 	} else if (DestinyCompactItemDefinition[hash]) {
 		return DestinyCompactItemDefinition[hash];
 	}
-	_gaq.push(['_trackEvent', 'missingItemHash', hash]);
+	tracker.sendEvent('Item not in database', `${hash}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
+	// _gaq.push(['_trackEvent', 'missingItemHash', hash]);
 	logger.error(`Item Reference ${hash} is not in database. This has been reported.`);
 	return {
 		hasIcon: false,
