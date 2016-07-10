@@ -1,7 +1,10 @@
 {
 	"manifest_version": 2,
 	"name": "Destiny Loot History",
+	"short_name": "LootHistory",
 	"version": "0.19.3",
+	"version_name": "Beta 19 Patch 3",
+	"minimum_chrome_version": "51",
 	"description": "Track your Destiny item changes.",
 	"icons": {
 		"16": "icon16.png",
@@ -9,7 +12,6 @@
 		"48": "icon48.png",
 		"128": "icon128.png"
 	},
-	"short_name": "Loot",
 	"content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
 	"background": {
 		"scripts": [
@@ -43,7 +45,6 @@
 	"browser_action": {
 		"default_icon": "icon16.png"
 	},
-	"incognito": "split",
 	"offline_enabled": false,
 	"options_page": "options.html"
 }

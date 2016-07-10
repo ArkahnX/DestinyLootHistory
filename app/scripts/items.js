@@ -50,12 +50,6 @@ function initItems(callback) {
 					characterIdList.push(avatars[c].characterBase.characterId);
 				}
 			}
-			oldCharacterDates = 0;
-			for (var character of characterDescriptions) {
-				if (character.dateLastPlayed) {
-					oldCharacterDates += new Date(character.dateLastPlayed).getTime();
-				}
-			}
 			localStorage.newestCharacter = newestCharacter;
 			localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
 			logger.timeEnd("load Bungie Data");
@@ -447,12 +441,6 @@ function grabRemoteInventory(resolve, reject) {
 				}
 				if (characterIdList.indexOf(avatar.characterBase.characterId) === -1) {
 					characterIdList.push(avatar.characterBase.characterId);
-				}
-			}
-			oldCharacterDates = 0;
-			for (var character of characterDescriptions) {
-				if (character.dateLastPlayed) {
-					oldCharacterDates += new Date(character.dateLastPlayed).getTime();
 				}
 			}
 			localStorage.newestCharacter = newestCharacter;
