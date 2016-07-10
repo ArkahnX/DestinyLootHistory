@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "Destiny Loot History",
 	"short_name": "LootHistory",
-	"version": "0.19.3",
+	"version": "0.19.4",
 	"version_name": "Beta 19 Patch 3",
 	"minimum_chrome_version": "51",
 	"description": "Track your Destiny item changes.",
