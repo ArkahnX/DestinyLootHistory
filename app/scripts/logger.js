@@ -256,24 +256,30 @@ var logger = (function() {
 			chrome.storage.local.get("logger", function(data) {
 				var localLogList = data.logger.logList;
 				var endLogs = ["\n"];
+				var uniqueLogs = [];
 				for (var logData of localLogList) {
 					if (!tagsToShow || tagsToShow.indexOf(logData.tag) > -1) {
 						var tempLog = [];
 						for (var log of logData.logs) {
-							if (log.type === LOG && showLog) {
+							if (log.type === LOG && showLog && uniqueLogs.indexOf(log.data) === -1) {
 								tempLog.push(`${log.timestamp}: ${_pad(log.source,pageWidth)}: ${_pad(log.type,5)}: ${log.data}`);
+								uniqueLogs.push(log.data);
 							}
-							if (log.type === INFO && showInfo) {
+							if (log.type === INFO && showInfo && uniqueLogs.indexOf(log.data) === -1) {
 								tempLog.push(`${log.timestamp}: ${_pad(log.source,pageWidth)}: ${_pad(log.type,5)}: ${log.data}`);
+								uniqueLogs.push(log.data);
 							}
-							if (log.type === WARN && showWarn) {
+							if (log.type === WARN && showWarn && uniqueLogs.indexOf(log.data) === -1) {
 								tempLog.push(`${log.timestamp}: ${_pad(log.source,pageWidth)}: ${_pad(log.type,5)}: ${log.data}`);
+								uniqueLogs.push(log.data);
 							}
-							if (log.type === ERROR && showError) {
+							if (log.type === ERROR && showError && uniqueLogs.indexOf(log.data) === -1) {
 								tempLog.push(`${log.timestamp}: ${_pad(log.source,pageWidth)}: ${_pad(log.type,5)}: ${log.data}`);
+								uniqueLogs.push(log.data);
 							}
-							if (log.type === TIME && showTime) {
+							if (log.type === TIME && showTime && uniqueLogs.indexOf(log.data) === -1) {
 								tempLog.push(`${log.timestamp}: ${_pad(log.source,pageWidth)}: ${_pad(log.type,5)}: ${log.data}`);
+								uniqueLogs.push(log.data);
 							}
 						}
 						if (tempLog.length) {
@@ -282,6 +288,12 @@ var logger = (function() {
 							Array.prototype.push.apply(endLogs, tempLog);
 						}
 					}
+				}
+				endLogs.push(`-----------------------------------------------------------`);
+				endLogs.push(`Unique ID: ${localStorage.uniqueId}, Version: ${chrome.runtime.getManifest().version}, Chrome: ${/Chrome\/([0-9.]+)/.exec(navigator.userAgent)[1]}`);
+				endLogs.push("localStorage Values");
+				for (var property in localStorage) {
+					endLogs.push(`${property}: "${localStorage[property]}"`);
 				}
 				resolve(endLogs.join("\n"));
 			});

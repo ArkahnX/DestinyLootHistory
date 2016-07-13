@@ -200,9 +200,6 @@ var bungie = (function Bungie() {
 				}
 			});
 		} else {
-			if (newDate - lastRequestTime > 300) {
-				logger.warn(`Request exceeded threshhold during ${opts.route} from ${lastRoute}, lastTime ${lastRequestTime} currentTime ${newDate} sum ${newDate-lastRequestTime}, ${1000-(newDate-lastRequestTime)}`);
-			}
 			setTimeout(function() {
 				_request(opts);
 			}, 1000);
