@@ -416,6 +416,17 @@ var bungie = (function Bungie() {
 			});
 		});
 	};
+	bungie.getVendorForCharacter = function(characterId, vendorId) {
+		return new Promise(function(resolve, reject) {
+			_request({
+				route: `/Destiny/${active.type}/MyAccount/Character/${characterId}/Vendor/${vendorId}/Metadata/`,
+				shortRoute: '/Destiny//MyAccount/Character//Vendor//Metadata/',
+				method: 'GET',
+				incomplete: reject,
+				complete: resolve
+			});
+		});
+	};
 	bungie.transfer = function(characterId, itemId, itemReferenceHash, stackSize, transferToVault) {
 		return new Promise(function(resolve, reject) {
 			_request({

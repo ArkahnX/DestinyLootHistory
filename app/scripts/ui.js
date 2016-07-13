@@ -498,8 +498,10 @@ function itemClasses(itemData) {
 function primaryStat(itemData) {
 	if (itemData.primaryStat) {
 		return itemData.primaryStat.value;
-	} else {
+	} else if(itemData.stackSize) {
 		return itemData.stackSize;
+	} else {
+		return 1;
 	}
 }
 

@@ -1,0 +1,98 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Loot History</title>
+	<link rel="stylesheet" type="text/css" href="ui.css">
+	<style>
+		.item {
+			width:90px;
+			height:90px;
+			min-width: 15px;
+		}
+		.item-container {
+			width:96px;
+			height:96px;
+			margin:6px;
+		}
+		#container {
+			height: calc(100% - 32px);
+		}
+		.sub-section {
+			margin-bottom:30px;
+		}
+		.primary-stat {
+			padding: 0 6px;
+			font-size: 15px;
+		}
+		.quality {
+			font-size: 15px;
+		}
+		input {
+			float:left;
+		}
+	</style>
+</head>
+
+<body>
+	<header id="status" class="hidden">
+		<nav>
+			<input type="button" value="Begin Tracking" id="startTracking" disabled />
+		</nav>
+	</header>
+	<div class="title-bar">
+				<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
+			<div class="center" id="character-headers" style="text-align: center;">
+				<div class="title"><h1 class="section-title">ITEM HISTORY</h1></div>
+			</div>
+		</div>
+	<div id="container">
+		<div class="center" id="character-sections">
+			<div id="history" class="main-section" style="width: inherit;"></div>
+		</div>
+	</div>
+	<div id="tooltip" class="hidden">
+		<section id="item-head">
+			<h2 id="item-name"></h2>
+			<div>
+				<span id="item-type"></span>
+				<span id="item-rarity"></span>
+			</div>
+		</section>
+		<section id="class-requirement"></section>
+		<section id="item-body">
+			<div id="level-text">Requires Level <span id="item-required-equip-level"></span></div>
+			<h1 id="item-primary-stat"></h1><div id="item-stat-text"></div>
+			<div id="item-description"></div>
+		</section>
+		<section id="item-stats">
+			<table>
+				<tbody id="stat-table"></tbody>
+			</table>
+		</section>
+		<section id="item-nodes">
+				<table>
+					<tbody id="node-table">	
+					</tbody>
+				</table>
+			</section>
+	</div>
+	<div id="copyright">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
+	<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyCompactTalentDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyCompactDefinition.js"></script>
+	<script type="text/javascript" src="scripts/vendor/moment.js"></script>
+	<script type="text/javascript" src="scripts/vendor/moment-timezone.js"></script>
+	<script type="text/javascript" src="scripts/vendor/google-analytics-bundle.js"></script>
+	<script type="text/javascript" src="scripts/shared.js"></script>
+	<script type="text/javascript" src="scripts/logger.js"></script>
+	<script type="text/javascript" src="scripts/bungie.js"></script>
+	<script type="text/javascript" src="scripts/quality.js"></script>
+	<script type="text/javascript" src="scripts/ui.js"></script>
+	<script type="text/javascript" src="scripts/items.js"></script>
+	<script type="text/javascript" src="scripts/tooltip.js"></script>
+	<script type="text/javascript" src="scripts/pages/vendor.js"></script>
+</body>
+
+</html>
