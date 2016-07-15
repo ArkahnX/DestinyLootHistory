@@ -2,10 +2,10 @@ tracker.sendAppView('BackgroundScreen');
 function _backup() {
 	chrome.storage.local.get(null, function(data) {
 		var url = 'data:application/json;base64,' + btoa(JSON.stringify(data.itemChanges));
-		chrome.downloads.download({
-			url: url,
-			filename: `itemChanges-${moment().format("YYYY-MM-DD_hh-mm-A")}.json`
-		});
+		// chrome.downloads.download({
+		// 	url: url,
+		// 	filename: `itemChanges-${moment().format("YYYY-MM-DD_hh-mm-A")}.json`
+		// });
 	});
 }
 

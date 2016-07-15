@@ -55,16 +55,19 @@ function makeItem(itemHash, acquired, saleItem) {
 	stat.textContent = primaryStat(itemData);
 	var unlockFlag = false;
 	if (acquired) {
-		console.log(itemData,DestinyUnlockFlagDefinition[acquired.unlockFlagHash], saleItem);
+		console.log(itemData, DestinyUnlockFlagDefinition[acquired.unlockFlagHash], saleItem);
 		if (acquired.isSet === false) {
 			container.style.borderColor = "red";
 		}
-		unlockFlag = DestinyUnlockFlagDefinition[acquired.unlockFlagHash].displayName;
-		if(!DestinyUnlockFlagDefinition[acquired.unlockFlagHash].displayName) {
-			if(itemData.sourceHashes) {
-				unlockFlag = DestinyRewardSourceDefinition[itemData.sourceHashes[0]].description;
-			} else {
-				unlockFlag = "";
+		unlockFlag = DestinyVendorDefinition["3301500998"].failureStrings[saleItem.failureIndexes[0] || 0];
+		if (!unlockFlag) {
+			unlockFlag = DestinyUnlockFlagDefinition[acquired.unlockFlagHash].displayName;
+			if (!DestinyUnlockFlagDefinition[acquired.unlockFlagHash].displayName) {
+				if (itemData.sourceHashes) {
+					unlockFlag = DestinyRewardSourceDefinition[itemData.sourceHashes[0]].description;
+				} else {
+					unlockFlag = "";
+				}
 			}
 		}
 	}
@@ -75,6 +78,7 @@ function makeItem(itemHash, acquired, saleItem) {
 initItems(function() {
 	bungie.getVendorForCharacter(localStorage.newestCharacter, 3301500998).then(function(emblemData) {
 		bungie.getVendorForCharacter(localStorage.newestCharacter, 134701236).then(function(outfitterData) {
+			console.log(emblemData, outfitterData)
 			var emblems = {};
 			var mainContainer = document.getElementById("history");
 			var categories = emblemData.data.vendor.saleItemCategories;
