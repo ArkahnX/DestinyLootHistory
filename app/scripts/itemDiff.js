@@ -101,10 +101,10 @@ function processDifference(currentDateString, resolve) {
 		if (databaseDefinition.bucketTypeHash !== 2197472680 && databaseDefinition.bucketTypeHash !== 1801258597 && !localDefinition.objectives) {
 			for (let tempRemoval of tempRemovals) { // figure out transfers
 				/**
-				  * Item Transfers
-				  * If we have a removal and an addition with the same itemHash and instanceId its probably a transfer
-				  * We check the stackSize of the items to confirm how much of the item was transferred.
-				  */
+				 * Item Transfers
+				 * If we have a removal and an addition with the same itemHash and instanceId its probably a transfer
+				 * We check the stackSize of the items to confirm how much of the item was transferred.
+				 */
 				if (tempAddition.itemHash === tempRemoval.itemHash && tempAddition.itemInstanceId === tempRemoval.itemInstanceId) { // same items
 					foundAddition = true;
 					var stackSizeResult = tempAddition.stackSize - tempRemoval.stackSize; // 0 = full transfer, >0 some added, <0 means some removed
@@ -165,8 +165,8 @@ function processDifference(currentDateString, resolve) {
 			}
 		}
 		/**
-		  * If this was not a transfer, but it was removed, then its a bounty change of sorts.
-		  */
+		 * If this was not a transfer, but it was removed, then its a bounty change of sorts.
+		 */
 		if (!foundAddition) {
 			if ((databaseDefinition.bucketTypeHash === 2197472680 || databaseDefinition.bucketTypeHash === 1801258597 || localDefinition.objectives) && parseInt(localDefinition.stackSize, 10) > 0) {
 				logger.log("passed to progression");
@@ -215,8 +215,8 @@ function processDifference(currentDateString, resolve) {
 				// 	logger.error("Unable to locate progression item.", tempRemoval, progression, tempAdditions, additions);
 				// }
 				/**
-				  * Bounty was probably completed
-				  */
+				 * Bounty was probably completed
+				 */
 				if (found === false) {
 					removals.push({
 						characterId: tempRemoval.characterId,
@@ -258,8 +258,8 @@ function processDifference(currentDateString, resolve) {
 		timestamp: currentDateString
 	};
 	/**
-	  * Track currency Diffs
-	  */
+	 * Track currency Diffs
+	 */
 	if (oldCurrencies) {
 		for (var oldCurrency of oldCurrencies) {
 			for (var newCurrency of newCurrencies) {
@@ -358,7 +358,7 @@ function processDifference(currentDateString, resolve) {
 				data.progression[characterId] = newProgression[characterId];
 			}
 			oldInventories = newInventories;
-			if(oldInventories.length === 0) {
+			if (oldInventories.length === 0) {
 				logger.error(newInventories.length);
 			}
 			data.inventories = newInventories;
@@ -369,7 +369,7 @@ function processDifference(currentDateString, resolve) {
 			oldProgression = oldProgression;
 			data.progression = oldProgression;
 			oldInventories = newInventories;
-			if(oldInventories.length === 0) {
+			if (oldInventories.length === 0) {
 				logger.error(newInventories.length);
 			}
 			data.inventories = newInventories;
@@ -380,6 +380,17 @@ function processDifference(currentDateString, resolve) {
 			finalChanges.push(finalDiff);
 		} else {
 			logger.warn(`bungie systems ${JSON.stringify(bungie.getMemberships())}, bungie active ${JSON.stringify(bungie.getActive())}`);
+		}
+		for (var itemDiff of finalDiff.added) {
+			var localCharacterId = finalDiff.characterId;
+			var itemData = itemDiff;
+			if (itemData.item) {
+				itemData = itemData.item;
+			}
+			if (itemDiff.characterId) {
+				localCharacterId = itemDiff.characterId;
+			}
+			eligibleToLock(JSON.parse(itemData), localCharacterId);
 		}
 
 		transferQ.length = 0;
@@ -412,13 +423,13 @@ function processDifference(currentDateString, resolve) {
 		// logger.log(_inventories,_inventories2);
 		logger.log(`Vault ${_inventories.vault}/${_inventories2.vault}/${inventories.vault} Char1 ${_inventories[characterIdList[1]]}/${_inventories2[characterIdList[1]]}/${inventories[characterIdList[1]]} Char2 ${_inventories[characterIdList[2]]}/${_inventories2[characterIdList[2]]}/${inventories[characterIdList[2]]} Char3 ${_inventories[characterIdList[3]]}/${_inventories2[characterIdList[3]]}/${inventories[characterIdList[3]]} TRANSFER ${transferQ.length}`);
 		logger.log(`GLIMMER ${oldCurrencies[0].value}/${newCurrencies[0].value}` + ` LEGENDARY MARKS ${oldCurrencies[1].value}/${newCurrencies[1].value}` + ` SILVER ${oldCurrencies[2].value}/${newCurrencies[2].value}`);
-		if(Object.keys(oldInventories).length === 0) {
+		if (Object.keys(oldInventories).length === 0) {
 			oldInventories = newInventories;
 		}
-		if(Object.keys(oldProgression).length === 0) {
+		if (Object.keys(oldProgression).length === 0) {
 			oldProgression = newProgression;
 		}
-		if(oldCurrencies.length === 0) {
+		if (oldCurrencies.length === 0) {
 			oldCurrencies = newCurrencies;
 		}
 		oldProgression = oldProgression;

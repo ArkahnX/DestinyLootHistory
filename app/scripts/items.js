@@ -778,3 +778,12 @@ function check3oC() {
 		}
 	});
 }
+
+function eligibleToLock(item, characterId) {
+	if(hasQuality(item) && item.primaryStat.value > 334) {
+		var qualityLevel = parseItemQuality(item);
+		if(qualityLevel.min > 94) {
+			bungie.lock(characterId, item.itemInstanceId);
+		}
+	}
+}

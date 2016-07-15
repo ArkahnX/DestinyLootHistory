@@ -41,7 +41,7 @@ var bungie = (function Bungie() {
 		});
 	}
 
-	function _request(opts, errors) {
+	function _request(opts) {
 		var newDate = new Date().getTime();
 		if ((lastRoute === opts.shortRoute && newDate - lastRequestTime >= 800) || lastRoute !== opts.shortRoute) { // make sure not to poll more than once per second for the same type of request
 			logger.startLogging("Bungie Logs");
@@ -53,16 +53,17 @@ var bungie = (function Bungie() {
 			r.open(opts.method, "https://www.bungie.net/Platform" + opts.route, true);
 			r.setRequestHeader('X-API-Key', '4a6cc3aa21d94c949e3f44736d036a8f');
 			r.onload = function() {
-				// If this code encounters an error, it will retry every 60 seconds until it succeeds
 				if (this.status >= 200 && this.status < 400) {
 					var response = JSON.parse(this.response);
-					if (response.ErrorCode === 36 || response.ErrorCode === 51) {
+					if (opts.noerror) {
+						opts.complete(response.Response, response);
+					} else if (response.ErrorCode === 36 || response.ErrorCode === 51) {
 						logger.startLogging("Bungie Logs");
 						tracker.sendEvent('Too Frequent', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
 						// _gaq.push(['_trackEvent', 'BungieError', `Error Code ${response.ErrorCode}`, opts.shortRoute, `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
 						logger.warn(`We accidentally encountered Error ${response.ErrorCode} when attempting ${opts.route}`);
 						setTimeout(function() {
-							_request(opts, errors + 1);
+							_request(opts);
 						}, 1000);
 					} else if (response.ErrorCode === 1623 || response.ErrorCode === 1663) {
 						logger.startLogging("Bungie Logs");
@@ -437,6 +438,24 @@ var bungie = (function Bungie() {
 					itemReferenceHash: itemReferenceHash,
 					stackSize: stackSize,
 					transferToVault: transferToVault
+				},
+				incomplete: reject,
+				complete: resolve
+			});
+		});
+	};
+	bungie.lock = function(characterId, instanceId) {
+		return new Promise(function(resolve, reject) {
+			_request({
+				route: '/Destiny/SetLockState/',
+				shortRoute: '/Destiny/SetLockState/',
+				method: 'POST',
+				noerror:true,
+				payload: {
+					characterId: characterId,
+					membershipType: active.type,
+					itemId: instanceId,
+					state: true
 				},
 				incomplete: reject,
 				complete: resolve
