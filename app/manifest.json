@@ -26,6 +26,7 @@
 			"scripts/logger.js",
 			"scripts/bungie.js",
 			"scripts/matches.js",
+			"scripts/quality.js",
 			"scripts/items.js",
 			"scripts/itemDiff.js",
 			"scripts/timers.js",

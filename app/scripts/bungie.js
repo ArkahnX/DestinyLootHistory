@@ -425,6 +425,17 @@ var bungie = (function Bungie() {
 			});
 		});
 	};
+	bungie.getXur = function() {
+		return new Promise(function(resolve, reject) {
+			_request({
+				route: `/Destiny/Advisors/Xur/?definitions=false`,
+				shortRoute: '/Destiny/Advisors/Xur/',
+				method: 'GET',
+				incomplete: reject,
+				complete: resolve
+			});
+		});
+	};
 	bungie.transfer = function(characterId, itemId, itemReferenceHash, stackSize, transferToVault) {
 		return new Promise(function(resolve, reject) {
 			_request({
