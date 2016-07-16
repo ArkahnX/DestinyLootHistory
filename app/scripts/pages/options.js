@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	initUi();
 	var uniqueId = document.getElementById("uniqueId");
 	if(localStorage.uniqueId !== "false") {
-		uniqueId.textContent = "Unique ID: "+localStorage.uniqueId;
+		uniqueId.textContent = localStorage.uniqueId;
 	}
 	uniqueId.setAttribute("style","-webkit-user-select:auto;cursor:text;")
 	var startOnLaunchButton = document.getElementById("startOnLaunch");

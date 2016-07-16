@@ -642,6 +642,8 @@ input[type=text]:focus {
 }
 
 select {
+	padding: 8px 20px!important;
+
 	border: 1px solid transparent;
 }
 
@@ -759,7 +761,7 @@ h1 {
 }
 
 .green {
-	background: #00b300!important;
+	background: #00B300!important;
 }
 
 p {
@@ -770,65 +772,108 @@ p {
 }
 
 .small {
-	width:33px;
-	height:33px;
-	border:none;
+	width: 33px;
+	height: 33px;
+
+	border: none;
 }
 
 ul.drop-down {
-  text-align: left;
-  display: inline;
-  margin: 0;
-  padding: 7px 0 9px 0;
-  list-style: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-  margin-right:5px;
-  margin-left:1px;
+	display: inline;
+
+	margin: 0;
+	margin-right: 5px;
+	margin-left: 1px;
+	padding: 7px 0 9px 0;
+
+	list-style: none;
+
+	text-align: left;
+
+	box-shadow: 0 0 5px rgba(0, 0, 0, .15);
 }
 ul.drop-down li {
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
-  transition: all 0.2s;
+	position: relative;
+
+	display: inline-block;
+
+	cursor: pointer;
+	transition: all .2s;
 }
 ul.drop-down li:not(:last-child) {
-	margin-right:1px;
+	margin-right: 1px;
 }
 ul.drop-down li:last-child {
-	margin-right:-4px;
+	margin-right: -4px;
 }
 
 ul.drop-down li ul li {
-	margin-right:-4px!important;
+	margin-right: -4px!important;
 }
-ul.drop-down li a:hover,ul.drop-down li:hover {
-  background: #555;
-  color: #fff;
+ul.drop-down li a:hover,
+ul.drop-down li:hover {
+	color: #FFF;
+	background: #555;
 }
 ul.drop-down li ul {
-	z-index:3;
-  padding: 0;
-  position: absolute;
-  top: 32px;
-  left: 0;
-  width: 150px;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  display: none;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s;
+	position: absolute;
+	z-index: 3;
+	top: 32px;
+	left: 0;
+
+	display: none;
+	visibility: hidden;
+
+	width: 150px;
+	padding: 0;
+
+	transition: opacity .2s;
+
+	opacity: 0;
+	box-shadow: none;
 }
-ul.drop-down li ul li a { 
-  background: #555; 
-  display: block; 
-  color: #fff;
-  text-shadow: 0 -1px 0 #000;
+ul.drop-down li ul li a,
+ul.drop-down li ul li {
+	display: block;
+
+	color: #FFF;
+	background: #555;
+	text-shadow: 0 -1px 0 #000;
 }
-ul.drop-down li ul li a:hover { background: #666; }
+ul.drop-down li ul li a:hover {
+	background: #666;
+}
 ul.drop-down li:hover ul {
-  display: block;
-  opacity: 1;
-  visibility: visible;
+	display: block;
+	visibility: visible;
+
+	opacity: 1;
+}
+
+fieldset {
+	display: block;
+
+	margin: 0 0 2em 0;
+	padding: 0 1em 1em 1em;
+
+	text-align: left;
+
+	border: none;
+}
+
+legend {
+	font-size: 24px;
+
+	text-align: left;
+}
+fieldset label {
+	font-weight: bold;
+
+	display: inline-block;
+
+	width: 25%;
+	margin-right: .5em;
+	padding-top: .2em;
+
+	text-align: right;
 }

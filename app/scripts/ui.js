@@ -115,6 +115,14 @@ function initUi() {
 
 		}, false);
 	}
+	var secretLinks = document.querySelectorAll(".admin");
+	if (secretLinks.length) {
+		if (!chrome.runtime.getManifest().key) {
+			for (var link of secretLinks) {
+				link.classList.remove("hidden");
+			}
+		}
+	}
 }
 
 function makePages(customLength) {
@@ -498,7 +506,7 @@ function itemClasses(itemData) {
 function primaryStat(itemData) {
 	if (itemData.primaryStat) {
 		return itemData.primaryStat.value;
-	} else if(itemData.stackSize) {
+	} else if (itemData.stackSize) {
 		return itemData.stackSize;
 	} else {
 		return 1;
@@ -593,7 +601,7 @@ function passFactionData(DomNode, itemDiff, moveType, index) {
 }
 
 function characterName(characterId, light) {
-	if(!characterDescriptions[characterId]) {
+	if (!characterDescriptions[characterId]) {
 		return "";
 	}
 	logger.startLogging("UI");
