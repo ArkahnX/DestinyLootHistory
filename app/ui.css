@@ -65,8 +65,8 @@ select:not(#tags),
 	background-color: #128FFF;
 }
 
-.button {
-	text-shadow: 0 1px black;
+.button, select:not(#tags) {
+	text-shadow: 0 -1px black;
 }
 
 input,
