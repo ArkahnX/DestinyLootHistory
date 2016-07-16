@@ -774,3 +774,61 @@ p {
 	height:33px;
 	border:none;
 }
+
+ul.drop-down {
+  text-align: left;
+  display: inline;
+  margin: 0;
+  padding: 7px 0 9px 0;
+  list-style: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  margin-right:5px;
+  margin-left:1px;
+}
+ul.drop-down li {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+ul.drop-down li:not(:last-child) {
+	margin-right:1px;
+}
+ul.drop-down li:last-child {
+	margin-right:-4px;
+}
+
+ul.drop-down li ul li {
+	margin-right:-4px!important;
+}
+ul.drop-down li a:hover,ul.drop-down li:hover {
+  background: #555;
+  color: #fff;
+}
+ul.drop-down li ul {
+	z-index:3;
+  padding: 0;
+  position: absolute;
+  top: 32px;
+  left: 0;
+  width: 150px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+}
+ul.drop-down li ul li a { 
+  background: #555; 
+  display: block; 
+  color: #fff;
+  text-shadow: 0 -1px 0 #000;
+}
+ul.drop-down li ul li a:hover { background: #666; }
+ul.drop-down li:hover ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
