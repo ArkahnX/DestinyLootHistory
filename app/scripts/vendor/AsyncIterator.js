@@ -20,7 +20,8 @@ var asyncIterator = function(array, workFunction, size) {
 			position++;
 		}
 		if (!array) {
-			console.log(this);
+			logger.startLogging("ArrayIterator");
+			logger.log(this);
 		}
 		if (position < array.length) {
 			window.requestAnimationFrame(function() {

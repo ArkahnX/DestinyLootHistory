@@ -1,5 +1,5 @@
 function hasQuality(item) {
-	var itemDef = DestinyCompactItemDefinition[item.itemHash];
+	var itemDef = getItemDefinition(item.itemHash);
 	return (item.primaryStat && item.primaryStat.statHash === 3897883278 && item.primaryStat.value > 199 && (itemDef.tierTypeName === "Legendary" || itemDef.tierTypeName === "Exotic") && item.stats);
 }
 
@@ -14,7 +14,7 @@ function parseQuality(startingStat, startingDefense, endingDefense) {
 
 function parseItemQuality(item) {
 	var grid = getNodes(item);
-	var itemDef = DestinyCompactItemDefinition[item.itemHash];
+	var itemDef = getItemDefinition(item.itemHash);
 	var itemType = itemDef.itemTypeName.split(" ")[0];
 	if (itemDef.itemTypeName.split(" ")[1]) {
 		itemType = itemType + " " + itemDef.itemTypeName.split(" ")[1];
@@ -35,7 +35,7 @@ function parseItemQuality(item) {
 		max: split * 2
 	};
 
-	for(var stat of stats) {
+	for (var stat of stats) {
 		var scaled = 0;
 		var statValue = stat.value;
 		for (var node of grid) {
@@ -73,6 +73,7 @@ function getColor(value) {
 }
 
 function getBonus(light, type) {
+	logger.startLogging("quality");
 	switch (type.toLowerCase()) {
 		case 'helmet':
 			return light < 292 ? 15 :
@@ -114,19 +115,35 @@ function getBonus(light, type) {
 				light < 325 ? 40 :
 				light < 330 ? 41 : 42;
 	}
-	console.warn('item bonus not found', type);
+	logger.warn('item bonus not found', type);
 	return 0;
 }
 
-function getNodes(item) {
-	if (item.nodes) {
-		var grid = DestinyCompactTalentDefinition[item.talentGridHash];
+function getNodes(item, nodes, talentGridHash) {
+	let itemData = item;
+	if (!item) {
+		itemData = {};
+		itemData.nodes = nodes;
+		itemData.talentGridHash = talentGridHash;
+	}
+	if (itemData.nodes) {
+		var grid = DestinyCompactTalentDefinition[itemData.talentGridHash];
 		var parsedNodes = [];
-		for (var node of item.nodes) {
+		var columns = 1;
+		var rows = 1;
+		for (var node of itemData.nodes) {
 			for (var data of grid.nodes) {
-				if (data.nodeHash === node.nodeHash) {
+				if (data.nodeHash === node.nodeHash || node.nodeHash === 0 && !data.nodeHash) {
 					var step = data.steps[node.stepIndex];
+					if (data.column + 1 > columns) {
+						columns = data.column + 1;
+					}
+					if (data.row + 1 > rows) {
+						rows = data.row + 1;
+					}
 					var nodeData = {
+						column: data.column + 1 || 1,
+						row: data.row + 1 || 1,
 						icon: step.icon,
 						nodeStepDescription: step.nodeStepDescription,
 						nodeStepHash: step.nodeStepHash,
@@ -136,6 +153,13 @@ function getNodes(item) {
 					parsedNodes.push(nodeData);
 				}
 			}
+		}
+		if (nodes && talentGridHash) {
+			return {
+				nodes: parsedNodes,
+				rows,
+				columns
+			};
 		}
 		return parsedNodes;
 	}

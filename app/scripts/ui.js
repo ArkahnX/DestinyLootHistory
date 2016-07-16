@@ -4,9 +4,6 @@ function initUi() {
 		if (document.getElementById("version")) {
 			document.getElementById("version").textContent = (manifest.version);
 		}
-	} else {
-		window.console.time = function() {};
-		window.console.timeEnd = function() {};
 	}
 	var header = document.querySelector("#status");
 	if (header) {
@@ -14,11 +11,8 @@ function initUi() {
 		var element = document.querySelector("#startTracking");
 		if (element) {
 			element.removeAttribute("disabled");
-			element.addEventListener("click", function(event) {
-				if (!localStorage.listening || localStorage.listening === "false") {
-					var d = new Date();
-					d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
-					d = d.getFullYear() + "-" + ('0' + (d.getMonth() + 1)).slice(-2) + "-" + ('0' + d.getDate()).slice(-2) + "T" + ('0' + (d.getHours() - 0)).slice(-2) + ":" + ('0' + d.getMinutes()).slice(-2);
+			element.addEventListener("click", function() {
+				if (localStorage.listening === "false") {
 					localStorage.listening = "true";
 					localStorage.manual = "true";
 				} else {
@@ -26,30 +20,6 @@ function initUi() {
 				}
 			});
 		}
-	}
-	var historyLink = document.querySelector("#viewhistory");
-	if (historyLink) {
-		historyLink.addEventListener("click", function() {
-			window.location.href = chrome.extension.getURL('history.html');
-		});
-	}
-	var optionsLink = document.querySelector("#viewOptions");
-	if (optionsLink) {
-		optionsLink.addEventListener("click", function() {
-			window.location.href = chrome.extension.getURL('options.html');
-		});
-	}
-	var searchLink = document.querySelector("#viewSearch");
-	if (searchLink) {
-		searchLink.addEventListener("click", function() {
-			window.location.href = chrome.extension.getURL('search.html');
-		});
-	}
-	var homeLink = document.querySelector("#viewHome");
-	if (homeLink) {
-		homeLink.addEventListener("click", function() {
-			window.location.href = chrome.extension.getURL('index.html');
-		});
 	}
 	if (document.querySelector("#container")) {
 		document.querySelector("#container").addEventListener("mouseover", function(event) {
@@ -65,7 +35,7 @@ function initUi() {
 				if (transitionInterval) {
 					clearInterval(transitionInterval);
 				}
-				handleTooltipData(event.target.dataset);
+				handleTooltipData(event.target.dataset, event.target, event);
 			}
 			if (!target) {
 				if (transitionInterval) {
@@ -76,8 +46,125 @@ function initUi() {
 			}
 		}, false);
 	}
+	if (document.querySelector("#ToCReminder")) {
+		var threeOfCoinsDiv = document.querySelector("#ToCReminder");
+		if (localStorage.track3oC === "false") {
+			threeOfCoinsDiv.value = "Turn on 3oC reminder";
+			threeOfCoinsDiv.classList.add("grey");
+			threeOfCoinsDiv.classList.remove("green");
+		}
+		threeOfCoinsDiv.addEventListener("click", function(event) {
+			if (localStorage.track3oC === "false") {
+				localStorage.track3oC = "true";
+				threeOfCoinsDiv.value = "Turn off 3oC reminder";
+				threeOfCoinsDiv.classList.remove("grey");
+				threeOfCoinsDiv.classList.add("green");
+			} else {
+				localStorage.track3oC = "false";
+				threeOfCoinsDiv.value = "Turn on 3oC reminder";
+				threeOfCoinsDiv.classList.add("grey");
+				threeOfCoinsDiv.classList.remove("green");
+			}
+
+		}, false);
+	}
+	if (document.querySelector("#toggleSystem")) {
+		var systemToggleDiv = document.querySelector("#toggleSystem");
+		if (bungie.getMemberships().length > 1) {
+			systemToggleDiv.classList.remove("hidden");
+		}
+		if (bungie.getActive() === 2) {
+			systemToggleDiv.value = "Swap to XBOX";
+			systemToggleDiv.classList.remove("green");
+		}
+		systemToggleDiv.addEventListener("click", function(event) {
+			if (bungie.getActive() === 2) {
+				systemToggleDiv.value = "Swap to XBOX";
+				systemToggleDiv.classList.add("green");
+				localStorage.activeType = "psn";
+			} else {
+				systemToggleDiv.value = "Swap to PSN";
+				systemToggleDiv.classList.remove("green");
+				localStorage.activeType = "xbl";
+			}
+
+		}, false);
+	}
+	if (document.querySelector("#accurateTracking")) {
+		var accurateTrackingDiv = document.querySelector("#accurateTracking");
+		if (localStorage.accurateTracking === "true") {
+			accurateTrackingDiv.value = "disable accurate tracking";
+			accurateTrackingDiv.classList.remove("grey");
+			accurateTrackingDiv.classList.add("green");
+		}
+		accurateTrackingDiv.addEventListener("click", function(event) {
+			if (localStorage.accurateTracking === "false") {
+				var confirmation = window.confirm("This tracking will move items from your guardian to the vault and back.\n Make sure you have a stack of ideally 500 armor or weapon parts for minimal interruption. 200 is the minimal acceptance.\n\n This feature is known to cause issues with full vaults, or inventories with low consumables / materials.\n If you split your inventories between all three characters, this feature is completely safe to enable.\n\n Press OK to track items within 20 seconds of accuracy. Press cancel to retain within 60 seconds of accuracy.");
+				if (confirmation) {
+					localStorage.accurateTracking = "true";
+					accurateTrackingDiv.value = "disable accurate tracking";
+					accurateTrackingDiv.classList.remove("grey");
+					accurateTrackingDiv.classList.add("green");
+				}
+			} else {
+				localStorage.accurateTracking = "false";
+				accurateTrackingDiv.value = "enable accurate tracking";
+				accurateTrackingDiv.classList.add("grey");
+				accurateTrackingDiv.classList.remove("green");
+			}
+
+		}, false);
+	}
+	var secretLinks = document.querySelectorAll(".admin");
+	if (secretLinks.length) {
+		if (!chrome.runtime.getManifest().key) {
+			for (var link of secretLinks) {
+				link.classList.remove("hidden");
+			}
+		}
+	}
+	var autoLock = document.getElementById('autoLock');
+	var track3oC = document.getElementById('track3oC');
+	if (autoLock) {
+		autoLock.checked = localStorage.autoLock === "true";
+		autoLock.addEventListener("change",handleCheckboxChange,false);
+		track3oC.checked = localStorage.track3oC === "true";
+		track3oC.addEventListener("change",handleCheckboxChange,false);
+	}
 }
 
+function handleCheckboxChange(event) {
+	localStorage[event.target.id] = event.target.checked;
+}
+
+function makePages(customLength) {
+	if (document.querySelector("#paginate") && data.itemChanges && oldItemChangeQuantity !== (customLength || data.itemChanges.length)) {
+		var paginateContainer = document.querySelector("#paginate");
+		while (paginateContainer.lastChild) {
+			paginateContainer.removeChild(paginateContainer.lastChild);
+		}
+		var tempContainer = document.createDocumentFragment();
+		for (let i = 0; i < Math.ceil((customLength || data.itemChanges.length) / pageQuantity); i++) {
+			var option = document.createElement("option");
+			option.value = i;
+			if (i === pageNumber) {
+				option.selected = true;
+			}
+			option.textContent = `Page ${i+1}`;
+			tempContainer.appendChild(option);
+		}
+		paginateContainer.appendChild(tempContainer);
+		paginateContainer.addEventListener("change", function() {
+			pageNumber = parseInt(paginateContainer.value, 10);
+			checkForUpdates();
+		}, false);
+	}
+}
+
+var pageQuantity = 50;
+var pageNumber = 0;
+var oldItemChangeQuantity = 0;
+var oldPageNumber = -1;
 var transitionInterval = null;
 var previousElement = null;
 
@@ -145,35 +232,70 @@ function createDate(itemDiff, className) {
 }
 
 var lastIndex = -1;
-var resultQuantity = 100;
-var arrayStep = 0;
+var dateFrag = document.createDocumentFragment();
+var addedFrag = document.createDocumentFragment();
+var removedFrag = document.createDocumentFragment();
+var transferredFrag = document.createDocumentFragment();
+var progressionFrag = document.createDocumentFragment();
 
 function displayResults(customItems) {
+	logger.startLogging("UI");
+	makePages(customItems && customItems.length);
+	var date = document.getElementById("date");
+	var added = document.getElementById("added");
+	var removed = document.getElementById("removed");
+	var transferred = document.getElementById("transferred");
+	var progression = document.getElementById("progression");
+	var trackerIcon = document.getElementById("trackingItem");
+	if (localStorage.accurateTracking === "true") {
+		trackerIcon.style.display = "inline-block";
+		trackerIcon.style.backgroundImage = "url(" + "'http://www.bungie.net" + getItemDefinition(localStorage.transferMaterial).icon + "')";
+
+	} else {
+		trackerIcon.style.display = "none";
+	}
 	return new Promise(function(resolve, reject) {
-		console.timeEnd("grab matches");
+		logger.startLogging("UI");
+		logger.timeEnd("grab matches");
 		constructMatchInterface();
-		console.time("loadResults");
+		logger.time("loadResults");
+		if (oldItemChangeQuantity !== ((customItems && customItems.length) || (data.itemChanges && data.itemChanges.length)) || oldPageNumber !== pageNumber) {
+			while (date.lastChild) {
+				date.removeChild(date.lastChild);
+			}
+			while (added.lastChild) {
+				added.removeChild(added.lastChild);
+			}
+			while (removed.lastChild) {
+				removed.removeChild(removed.lastChild);
+			}
+			while (transferred.lastChild) {
+				transferred.removeChild(transferred.lastChild);
+			}
+			while (progression.lastChild) {
+				progression.removeChild(progression.lastChild);
+			}
+			date.innerHTML = "<h2 class='section-title'>Loading...</h2>";
+			added.innerHTML = "<h2 class='section-title'>Loading...</h2>";
+			removed.innerHTML = "<h2 class='section-title'>Loading...</h2>";
+			transferred.innerHTML = "<h2 class='section-title'>Loading...</h2>";
+			progression.innerHTML = "<h2 class='section-title'>Loading...</h2>";
+		}
 		var timestamps = document.querySelectorAll(".timestamp");
 		for (var item of timestamps) {
 			item.textContent = moment.utc(item.dataset.timestamp).tz(moment.tz.guess()).fromNow() + item.dataset.activity;
 			item.setAttribute("title", moment.utc(item.dataset.timestamp).tz(moment.tz.guess()).format("ddd[,] ll LTS"));
 		}
-		var date = document.getElementById("date");
-		var added = document.getElementById("added");
-		var removed = document.getElementById("removed");
-		var transferred = document.getElementById("transferred");
-		var progression = document.getElementById("progression");
-		var dateFrag = document.createDocumentFragment();
-		var addedFrag = document.createDocumentFragment();
-		var removedFrag = document.createDocumentFragment();
-		var transferredFrag = document.createDocumentFragment();
-		var progressionFrag = document.createDocumentFragment();
 		// The dataset
 		// Number of operations per call
 		var batchSize = 50;
 		// The actual processing method
 		function work(item, index) {
+			logger.startLogging("UI");
 			if (lastIndex < index) {
+				if (!item.added) {
+					logger.log(item)
+				}
 				var addedQty = item.added.length;
 				var removedQty = item.removed.length;
 				var progressionQty = 0;
@@ -194,21 +316,77 @@ function displayResults(customItems) {
 			}
 		}
 
-		// Start iterator, it will return a promise
-		var promise = asyncIterator(customItems || data.itemChanges, work, batchSize);
+		if (oldItemChangeQuantity !== ((customItems && customItems.length) || (data.itemChanges && data.itemChanges.length)) || oldPageNumber !== pageNumber) {
+			// Start iterator, it will return a promise
+			var promise = asyncIterator(customItems || data.itemChanges || [], work, batchSize);
 
-		// When promise is resolved, output results
-		promise.then(function(results) {
-			date.insertBefore(dateFrag, date.firstChild);
-			added.insertBefore(addedFrag, added.firstChild);
-			removed.insertBefore(removedFrag, removed.firstChild);
-			transferred.insertBefore(transferredFrag, transferred.firstChild);
-			progression.insertBefore(progressionFrag, progression.firstChild);
-			console.timeEnd("loadResults");
-			// console.log('Done processing', results);
-			resolve();
-		});
+			// When promise is resolved, output results
+			promise.then(function() {
+				postWork(resolve, customItems);
+			});
+		} else {
+			postWork(resolve, customItems);
+		}
 	});
+
+	function postWork(resolve, customItems) {
+		logger.startLogging("UI");
+		if (oldItemChangeQuantity !== ((customItems && customItems.length) || (data.itemChanges && data.itemChanges.length)) || oldPageNumber !== pageNumber) {
+			while (date.lastChild) {
+				date.removeChild(date.lastChild);
+			}
+			while (added.lastChild) {
+				added.removeChild(added.lastChild);
+			}
+			while (removed.lastChild) {
+				removed.removeChild(removed.lastChild);
+			}
+			while (transferred.lastChild) {
+				transferred.removeChild(transferred.lastChild);
+			}
+			while (progression.lastChild) {
+				progression.removeChild(progression.lastChild);
+			}
+			var maxLength = dateFrag.children.length;
+			if ((pageNumber + 1) * pageQuantity < maxLength) {
+				maxLength = (pageNumber + 1) * pageQuantity;
+			}
+			var minNumber = (pageNumber * pageQuantity) - 1;
+			if (minNumber < 0) {
+				minNumber = 0;
+			}
+			var tempDate = document.createDocumentFragment();
+			for (let i = minNumber; i < maxLength; i++) {
+				tempDate.appendChild(dateFrag.children[i].cloneNode(true));
+			}
+			date.appendChild(tempDate);
+			var tempAdded = document.createDocumentFragment();
+			for (let i = minNumber; i < maxLength; i++) {
+				tempAdded.appendChild(addedFrag.children[i].cloneNode(true));
+			}
+			added.appendChild(tempAdded);
+			var tempRemoved = document.createDocumentFragment();
+			for (let i = minNumber; i < maxLength; i++) {
+				tempRemoved.appendChild(removedFrag.children[i].cloneNode(true));
+			}
+			removed.appendChild(tempRemoved);
+			var tempTransferred = document.createDocumentFragment();
+			for (let i = minNumber; i < maxLength; i++) {
+				tempTransferred.appendChild(transferredFrag.children[i].cloneNode(true));
+			}
+			transferred.appendChild(tempTransferred);
+			var tempProgression = document.createDocumentFragment();
+			for (let i = minNumber; i < maxLength; i++) {
+				tempProgression.appendChild(progressionFrag.children[i].cloneNode(true));
+			}
+			progression.appendChild(tempProgression);
+		}
+		oldItemChangeQuantity = ((customItems && customItems.length) || (data.itemChanges && data.itemChanges.length));
+		oldPageNumber = pageNumber;
+		logger.timeEnd("loadResults");
+		// logger.log('Done processing', results);
+		resolve();
+	}
 }
 
 function delayNode(index, className, latestItemChange, date, added, removed, transferred) {
@@ -244,8 +422,10 @@ function makeItem(itemDiff, moveType, index) {
 	itemContainer.appendChild(stat);
 	docfrag.appendChild(itemContainer);
 	DOMTokenList.prototype.add.apply(container.classList, itemClasses(itemData));
-	if (DestinyCompactItemDefinition[itemData.itemHash].hasIcon || (DestinyCompactItemDefinition[itemData.itemHash].icon && DestinyCompactItemDefinition[itemData.itemHash].icon.length)) {
-		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[itemData.itemHash].icon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
+	if (itemData.itemHash === 3159615086 || itemData.itemHash === 2534352370 || itemData.itemHash === 2749350776) {
+		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + getItemDefinition(itemData.itemHash).icon + "')");
+	} else if (getItemDefinition(itemData.itemHash).hasIcon || (getItemDefinition(itemData.itemHash).icon && getItemDefinition(itemData.itemHash).icon.length)) {
+		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + getItemDefinition(itemData.itemHash).icon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
 	} else {
 		container.setAttribute("style", "background-image: url('http://bungie.net/img/misc/missing_icon.png')");
 	}
@@ -257,11 +437,17 @@ function makeItem(itemDiff, moveType, index) {
 
 function makeProgress(itemDiff, moveType, index) {
 	var progressData = itemDiff[moveType][index];
+	if (progressData.item) {
+		progressData = progressData.item;
+	}
 	progressData = JSON.parse(progressData);
 	if (progressData.itemHash) {
 		return makeItem(itemDiff, moveType, index);
 	}
 	var docfrag = document.createDocumentFragment();
+	if (progressData.progressionHash && progressData.progressionHash === 3298204156) {
+		return docfrag;
+	}
 	var itemContainer = document.createElement("div");
 	itemContainer.classList.add("item-container");
 	var container = document.createElement("div");
@@ -275,6 +461,8 @@ function makeProgress(itemDiff, moveType, index) {
 		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyFactionDefinition[progressData.factionHash].factionIcon + "')");
 	} else if (DestinyProgressionDefinition[progressData.progressionHash].icon) {
 		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyProgressionDefinition[progressData.progressionHash].icon + "')");
+	} else if (progressData.name === "pvp_iron_banner.loss_tokens") {
+		container.setAttribute("style", "background-image: url('http://bungie.net" + getItemDefinition(3397982326).icon + "')");
 	} else {
 		container.setAttribute("style", "background-image: url('http://bungie.net/img/misc/missing_icon.png')");
 	}
@@ -285,11 +473,20 @@ function makeProgress(itemDiff, moveType, index) {
 }
 
 function itemClasses(itemData) {
-	var classList = ["item"];
+	logger.startLogging("UI");
+	var classList = [];
 	if (itemData.isGridComplete) {
 		classList.push("complete");
 	}
-	var itemDefinition = DestinyCompactItemDefinition[itemData.itemHash];
+	var itemDefinition = getItemDefinition(itemData.itemHash);
+	if (!itemDefinition) {
+		logger.log(itemData.itemHash, itemData, DestinyCompactItemDefinition)
+	}
+	if (itemData.itemHash === 3159615086 || itemData.itemHash === 2534352370 || itemData.itemHash === 2749350776) {
+		classList.push("faction");
+	} else {
+		classList.push("item");
+	}
 	if (itemDefinition.tierTypeName === "Exotic") {
 		classList.push("exotic");
 	} else if (itemDefinition.tierTypeName === "Legendary") {
@@ -321,8 +518,10 @@ function itemClasses(itemData) {
 function primaryStat(itemData) {
 	if (itemData.primaryStat) {
 		return itemData.primaryStat.value;
-	} else {
+	} else if (itemData.stackSize) {
 		return itemData.stackSize;
+	} else {
+		return 1;
 	}
 }
 
@@ -346,12 +545,19 @@ function primaryStatName(itemData) {
 }
 
 function passData(DomNode, itemDiff, moveType, index) {
+	logger.startLogging("UI");
 	var itemData = itemDiff[moveType][index];
 	if (itemData.item) {
 		itemData = itemData.item;
 	}
 	itemData = JSON.parse(itemData);
-	var itemDefinition = DestinyCompactItemDefinition[itemData.itemHash];
+	if (itemData.itemHash === 3392485744) {
+		itemData.itemHash = 298210614;
+	}
+	var itemDefinition = getItemDefinition(itemData.itemHash);
+	if (!itemDefinition) {
+		logger.log(itemData.itemHash, itemData, DestinyCompactItemDefinition)
+	}
 	if (itemDefinition.tierTypeName) {
 		DomNode.dataset.tierTypeName = itemDefinition.tierTypeName;
 	} else {
@@ -370,6 +576,7 @@ function passData(DomNode, itemDiff, moveType, index) {
 		DomNode.dataset.statTree = JSON.stringify(itemData.stats);
 	}
 	if (itemData.nodes && itemData.nodes.length) {
+		DomNode.dataset.talentGridHash = itemData.talentGridHash;
 		DomNode.dataset.nodeTree = JSON.stringify(itemData.nodes);
 	}
 	if (itemData.objectives && itemData.objectives.length) {
@@ -379,6 +586,9 @@ function passData(DomNode, itemDiff, moveType, index) {
 
 function passFactionData(DomNode, itemDiff, moveType, index) {
 	var diffData = itemDiff[moveType][index];
+	if (diffData.item) {
+		diffData = diffData.item;
+	}
 	diffData = JSON.parse(diffData);
 	if (diffData.factionHash) {
 		let factionData = DestinyFactionDefinition[diffData.factionHash];
@@ -403,11 +613,18 @@ function passFactionData(DomNode, itemDiff, moveType, index) {
 }
 
 function characterName(characterId, light) {
+	if (!characterDescriptions[characterId]) {
+		return "";
+	}
+	logger.startLogging("UI");
 	if (light === null) {
 		return characterDescriptions[characterId].name;
 	}
 	if (characterId === "vault") {
 		return "Vault";
+	}
+	if (!characterDescriptions[characterId]) {
+		logger.log(light)
 	}
 	return characterDescriptions[characterId].race + " " + characterDescriptions[characterId].gender + " " + characterDescriptions[characterId].name + " (" + (light || characterDescriptions[characterId].light) + ")";
 }
@@ -415,11 +632,17 @@ function characterName(characterId, light) {
 function characterSource(itemDiff, moveType, index) {
 	var itemData = itemDiff[moveType][index];
 	var light = itemDiff.light;
+	// logger.log(itemDiff.characterId,itemData);
 	var toId = itemDiff.characterId;
 	var fromId = "";
 	var starter = "Added to ";
 	if (itemData.item) {
-		fromId = itemData.from;
+		if (itemData.from && itemData.to) {
+			fromId = itemData.from;
+			toId = itemData.to;
+		} else {
+			toId = itemData.characterId;
+		}
 	}
 	if (moveType === "removed") {
 		starter = "Removed from ";

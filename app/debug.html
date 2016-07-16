@@ -1,0 +1,34 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Loot History DEBUG</title>
+	<link rel="stylesheet" type="text/css" href="ui.css">
+</head>
+
+<body>
+	<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
+	<section class="center solidBackground">
+	<p>If you are having an issue with Destiny Loot History, please click "Show Debug Logs" and save the result to either a new Google Drive / Dropbox file, or a <a href="https://gist.github.com">secret gist</a> then share the link to "<a href="https://www.reddit.com/message/compose/">ArkahnX</a>" on reddit.</p>
+		<label for="showLog">Show Logs: <input type="checkbox" id="showLog" checked></label>
+		<label for="showInfo">Show Info: <input type="checkbox" id="showInfo" checked></label>
+		<label for="showWarn">Show Warnings: <input type="checkbox" id="showWarn" checked></label>
+		<label for="showError">Show Errors: <input type="checkbox" id="showError" checked></label>
+		<label for="showTime">Show Timing: <input type="checkbox" id="showTime" checked></label>
+		<select id="tags" multiple>
+			<option value="all" selected>all</option>
+		</select>
+		<input type="button" value="Show Debug Logs" id="exportLogs" title="Export log data to send to developer." />
+		<span id="size"></span>
+		<textarea id="logOutput" spellcheck="false" readonly></textarea>
+	</section>
+	<div id="copyright">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
+	<script type="text/javascript" src="scripts/vendor/moment.js"></script>
+	<script type="text/javascript" src="scripts/vendor/moment-timezone.js"></script>
+	<script type="text/javascript" src="scripts/vendor/google-analytics-bundle.js"></script>
+	<script type="text/javascript" src="scripts/shared.js"></script>
+	<script type="text/javascript" src="scripts/logger.js"></script>
+	<script type="text/javascript" src="scripts/pages/debug.js"></script>
+</body>
+
+</html>

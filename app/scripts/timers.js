@@ -1,60 +1,78 @@
 var dirtyTimeout = null;
-var oldFactionProgress = 0;
 var listenLoop = null;
 var stopLoop = null;
+var oldCharacterDates = 0;
 
+
+/**
+ * Do a rough faction check to see if the player has played recently. Can be replaced with lastPlayedDate.
+ */
 function dirtyItemCheck() {
+	logger.startLogging("timers");
+	logger.log("dirtyItemCheck");
+	logger.saveData();
+	// allowBungieTracking().then(function(allowTracking) {
+	logger.startLogging("timers");
+	// if (allowTracking.allow_tracking) {
 	if (localStorage.error === "false") {
 		chrome.browserAction.setBadgeText({
 			text: ""
 		});
-		var factionProgress = 0;
 		clearTimeout(dirtyTimeout);
-		sequence(characterIdList, function(item, resolve) {
-			if (item !== "vault") {
-				bungie.factions(item).then(resolve);
-			} else {
-				resolve();
-			}
-		}, function(result, item, index) {
-			if (result) {
-				var data = result.data;
-				for (var i = 0; i < data.progressions.length; i++) {
-					factionProgress += data.progressions[i].currentProgress;
+		initItems(function() {
+			var newCharacterDates = 0;
+			for (var character of characterDescriptions) {
+				if (character.dateLastPlayed) {
+					newCharacterDates += new Date(character.dateLastPlayed).getTime();
 				}
 			}
-		}).then(function() {
-			if (factionProgress !== oldFactionProgress) {
-				console.log("Beginning tracking again.");
-				recursiveIdleTracking();
-				oldFactionProgress = factionProgress;
+			logger.startLogging("Timers");
+			if (newCharacterDates !== oldCharacterDates) { // if new character dates is not equal to old character dates
+				logger.log("Beginning tracking");
+				localStorage.listening = "true";
+				recursiveIdleTracking(); // found in this script.
 			}
 			if (localStorage.listening === "false") {
-				dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 10);
+				dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 60); // check 60 seconds later
 			}
 		});
 	} else {
 		chrome.browserAction.setBadgeText({
 			text: "!"
 		});
-		dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 10);
+		dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 60);
 	}
+	logger.saveData();
+	// } else {
+	// beginBackendTracking();
+	// }
+	// });
 }
 
+var updateTimeout = null;
+
 function checkForUpdates() {
+	logger.startLogging("timers");
+	logger.log("checkForUpdates");
+	clearTimeout(updateTimeout);
 	var header = document.querySelector("#status");
 	var element = document.querySelector("#startTracking");
 	if (localStorage.error === "true") {
+		notification.show();
 		header.classList.add("active", "error");
 		header.classList.remove("idle");
 		characterDescriptions = JSON.parse(localStorage.characterDescriptions);
 	} else {
-		if (!localStorage.listening || localStorage.listening === "false") {
+		if (localStorage.notificationClosed === "false") {
+			notification.show(notification.changelog);
+		} else {
+			notification.hide();
+		}
+		if (localStorage.listening === "false" || localStorage.error === "true") {
 			header.classList.add("idle");
 			header.classList.remove("active", "error");
 			element.setAttribute("value", "Begin Tracking");
-		}
-		if (localStorage.listening === "true") {
+		} else if (localStorage.listening === "true") {
 			header.classList.remove("idle", "error");
 			header.classList.add("active");
 			element.setAttribute("value", "Stop Tracking");
@@ -63,25 +81,12 @@ function checkForUpdates() {
 	chrome.storage.local.get(null, function(localData) {
 		data = localData;
 		displayResults().then(function() {
-			setTimeout(checkForUpdates, 5000);
+			updateTimeout = setTimeout(checkForUpdates, 5000);
 		});
 	});
 }
 
-function startListening() {
-	if (listenLoop === null) {
-		localStorage.listening = "true";
-		trackIdle();
 
-		checkInventory();
-		listenLoop = setInterval(function() {
-			checkInventory();
-			if (localStorage.listening === "false") {
-				stopListening();
-			}
-		}, 20000);
-	}
-}
 
 function stopListening() {
 	if (listenLoop !== null) {
@@ -95,6 +100,8 @@ function stopListening() {
 }
 
 function trackIdle() {
+	logger.startLogging("timers");
+	logger.log("trackIdle");
 	if (stopLoop !== null) {
 		clearInterval(stopLoop);
 	}
@@ -103,39 +110,84 @@ function trackIdle() {
 	}, 1000 * 60 * 30);
 }
 
+var checkInterval = null;
+
+
+/**
+ * STEP 2
+ * Check to see if we should force run, or if we are allowed to run
+ */
 function beginBackendTracking() {
-	localStorage.listening = "true";
+	logger.startLogging("timers");
+	logger.log("beginBackendTracking");
+	// logger.log("Arrived at beginBackendTracking");
+	// If we have an error, throw an exclamation mark on the extension icon.
+	clearInterval(checkInterval);
 	clearInterval(listenLoop);
 	listenLoop = null;
 	clearInterval(stopLoop);
 	stopLoop = null;
-	recursiveIdleTracking();
-	setInterval(function() {
-		if (localStorage.manual === "true" && runningCheck === false) {
-			localStorage.manual = "false";
-			localStorage.listening = "true";
-			console.log("Forcing check now");
-			recursiveIdleTracking();
-		}
-	}, 1000);
-	setInterval(function() {
-		if (localStorage.error === "true") {
-			chrome.browserAction.setBadgeText({
-				text: "!"
+	if (localStorage.error === "false") {
+		localStorage.manual = "false";
+		localStorage.listening = "true";
+		recursiveIdleTracking(); // found in this script.
+	} else {
+		// if (localStorage.error === "false") {
+		// 	localStorage.error = "true";
+		// 	localStorage.errorMessage = allowTracking.tracking_message;
+		// }
+		localStorage.flag = "false";
+		localStorage.listening = "false";
+		localStorage.manual = "false";
+	}
+	clearTimeout(checkInterval);
+	// this timer checks if "start tracking" was pressed, but only if we aren't already tracking.
+	checkInterval = setTimeout(apiCheck, 1000);
+}
+var runningCheck = false;
+
+function apiCheck() {
+	// logger.log("Arrived at apiCheck");
+	// console.log(localStorage.manual, runningCheck)
+	logger.startLogging("Timers");
+	if (localStorage.manual === "true" && runningCheck === false) {
+		// allowBungieTracking().then(function(allowTracking) {
+			initItems(function() {
+				if (localStorage.error === "false") {
+					localStorage.manual = "false";
+					localStorage.listening = "true";
+					logger.log("Forcing check now");
+					recursiveIdleTracking(); // found in this script.
+				} else {
+					// if (localStorage.error === "false") {
+					// 	localStorage.error = "true";
+					// 	localStorage.errorMessage = allowTracking.tracking_message;
+					// }
+					localStorage.flag = "false";
+					localStorage.listening = "false";
+					localStorage.manual = "false";
+					checkInterval = setTimeout(apiCheck, 1000);
+				}
 			});
-		} else {
-			chrome.browserAction.setBadgeText({
-				text: ""
-			});
-		}
-	}, 1000);
+		// });
+	} else {
+		checkInterval = setTimeout(apiCheck, 1000);
+	}
 }
 
-var runningCheck = false;
 var idleTimer = 0;
 var timeoutTracker = null;
 
+
+/**
+ * STEP 3
+ * main inventory checker. 
+ */
 function recursiveIdleTracking() {
+	logger.startLogging("timers");
+	logger.log("recursiveIdleTracking")
+		// logger.log("Arrived at recursiveIdleTracking");
+	logger.saveData();
 	var startTime = window.performance.now();
 	runningCheck = true;
 	clearTimeout(timeoutTracker);
@@ -144,41 +196,69 @@ function recursiveIdleTracking() {
 	chrome.browserAction.setBadgeText({
 		text: ""
 	});
-	checkInventory().then(function() {
-		var endTime = window.performance.now();
-		var resultTime = Math.floor(endTime - startTime);
-		if (localStorage.flag === "false") {
-			idleTimer++;
-		}
-		if (localStorage.flag === "true") {
-			idleTimer = 0;
-		}
-		console.log(moment().utc().format());
-		if (localStorage.error === "true") {
-			chrome.browserAction.setBadgeText({
-				text: "!"
+	// allowBungieTracking().then(function(allowTracking) {
+		if (localStorage.error === "false") {
+			checkInventory().then(function() { // found in items.js
+				logger.startLogging("timers");
+				logger.log("recursiveIdleTracking2");
+				tracker.sendEvent('Passed BungieTracking and CheckInventory', `No Issues`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
+				// _gaq.push(['_trackEvent', 'Tracking', `Passed BungieTracking and CheckInventory.`, "", `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
+				// reset a bunch of variables
+				logger.startLogging("Timers");
+				var endTime = window.performance.now();
+				var resultTime = Math.floor(endTime - startTime);
+				if (localStorage.itemChangeDetected === "false") {
+					idleTimer++;
+				}
+				if (localStorage.itemChangeDetected === "true") {
+					idleTimer = 0;
+				}
+				if (localStorage.error === "true") { // if we have an error
+					chrome.browserAction.setBadgeText({
+						text: "!"
+					});
+					idleTimer = 0;
+					localStorage.listening = "true";
+					let endTime = window.performance.now();
+					let resultTime = Math.floor(endTime - startTime);
+					logger.log(`Scheduling check for ${moment().add(((60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((60 * 1000) - resultTime) / 1000} seconds`);
+					timeoutTracker = setTimeout(recursiveIdleTracking, (60 * 1000) - resultTime);
+					oldCharacterDates = 0;
+					for (var character of characterDescriptions) {
+						if (character.dateLastPlayed) {
+							oldCharacterDates += new Date(character.dateLastPlayed).getTime();
+						}
+					}
+					dirtyItemCheck();
+					runningCheck = false;
+				} else if (localStorage.itemChangeDetected === "true" || (localStorage.listening === "true" && idleTimer < 6)) { // If we are tracking
+					logger.log(`${6 - idleTimer} checks remaining.`);
+					localStorage.listening = "true";
+					localStorage.itemChangeDetected = "false";
+					logger.log(`Scheduling check for ${moment().add(((60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((60 * 1000) - resultTime) / 1000} seconds`);
+					timeoutTracker = setTimeout(recursiveIdleTracking, (60 * 1000) - resultTime);
+				} else { // tracking timed out, check much later as they likely aren't actively playing
+					idleTimer = 0;
+					localStorage.listening = "false";
+					logger.log(`Scheduling check for ${moment().add(((20 * 60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((20 * 60 * 1000) - resultTime) / 1000} seconds`);
+					timeoutTracker = setTimeout(recursiveIdleTracking, (20 * 60 * 1000) - resultTime);
+					oldCharacterDates = 0;
+					for (var character of characterDescriptions) {
+						if (character.dateLastPlayed) {
+							oldCharacterDates += new Date(character.dateLastPlayed).getTime();
+						}
+					}
+					dirtyItemCheck(); // found in this file
+				}
+				logger.saveData(); // save logs
+				runningCheck = false;
+			}).catch(function() {
+				runningCheck = false;
+				beginBackendTracking();
 			});
-			idleTimer = 0;
-			localStorage.listening = "true";
-			let endTime = window.performance.now();
-			let resultTime = Math.floor(endTime - startTime);
-			console.log("Scheduling check for ", ((5 * 1000) - resultTime) / 1000, "s from now.");
-			timeoutTracker = setTimeout(recursiveIdleTracking, (5 * 1000) - resultTime);
-			dirtyItemCheck();
-			runningCheck = false;
-		} else if (localStorage.flag === "true" || (localStorage.listening === "true" && idleTimer < 15)) {
-			console.log(15 - idleTimer, "checks remaining.");
-			localStorage.listening = "true";
-			localStorage.flag = "false";
-			console.log("Scheduling check for ", ((20 * 1000) - resultTime) / 1000, "s from now.");
-			timeoutTracker = setTimeout(recursiveIdleTracking, (20 * 1000) - resultTime);
 		} else {
-			idleTimer = 0;
-			localStorage.listening = "false";
-			console.log("Scheduling check for ", ((5 * 60 * 1000) - resultTime) / 1000, "s from now.");
-			timeoutTracker = setTimeout(recursiveIdleTracking, (5 * 60 * 1000) - resultTime);
-			dirtyItemCheck();
+			runningCheck = false;
+			beginBackendTracking();
 		}
-		runningCheck = false;
-	});
+	// });
 }

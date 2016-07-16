@@ -1,10 +1,10 @@
-function handleTooltipData(dataset) {
+function handleTooltipData(dataset, element, event) {
 	transitionInterval = setTimeout(function() {
-		setTooltipData(dataset);
+		setTooltipData(dataset, element, event);
 	}, 100);
 }
 
-function setTooltipData(dataset) {
+function setTooltipData(dataset, element, event) {
 	if (dataset.tierTypeName) {
 		var tooltip = document.getElementById("tooltip");
 		var itemName = document.getElementById("item-name");
@@ -32,12 +32,19 @@ function setTooltipData(dataset) {
 		handleStats(dataset.itemTypeName, dataset).then(function() {
 			tooltip.classList.remove("hidden", "arc", "void", "solar", "kinetic", "common", "legendary", "rare", "uncommon", "exotic");
 			tooltip.classList.add(dataset.tierTypeName.toLowerCase(), dataset.damageTypeName.toLowerCase());
+			// console.log(event, tooltip.clientHeight, element.parentNode.offsetTop);
+			// console.dir(element.parentNode.getBoundingClientRect())
+			// tooltip.
 		});
 	}
 }
 
 function handleStats(statType, dataset) {
 	return new Promise(function(resolve, reject) {
+		var statContainer = document.getElementById("stat-table");
+		statContainer.innerHTML = "";
+		var nodeContainer = document.getElementById("node-table");
+		nodeContainer.innerHTML = "";
 		if (statType === "Faction") {
 			return handleFactionStats(dataset, resolve, reject);
 		}
@@ -56,12 +63,18 @@ var statHashes = [4284893193, 2837207746, 2961396640, 4043523819, 3614673599, 12
 function handleOtherStats(dataset, resolve) {
 	var statContainer = document.getElementById("stat-table");
 	statContainer.innerHTML = "";
-	var itemDef = DestinyCompactItemDefinition[dataset.itemHash];
+	var nodeContainer = document.getElementById("node-table");
+	nodeContainer.innerHTML = "";
+	var itemDef = getItemDefinition(dataset.itemHash);
 	if (dataset.statTree) {
 		var stats = JSON.parse(dataset.statTree);
 		var sortedStats = [];
 		for (var statHash of statHashes) {
 			for (var statDef of itemDef.stats) {
+				let found = false;
+				if (statDef.statHash === statHash) {
+					found = true;
+				}
 				for (var stat of stats) {
 					if (stat.statHash === statHash && statDef.statHash === statHash) {
 						sortedStats.push({
@@ -70,7 +83,16 @@ function handleOtherStats(dataset, resolve) {
 							value: stat.value,
 							statName: DestinyStatDefinition[stat.statHash].statName
 						});
+						found = false;
 					}
+				}
+				if (found === true) {
+					sortedStats.push({
+						minimum: statDef.minimum,
+						maximum: statDef.maximum,
+						value: statDef.value,
+						statName: DestinyStatDefinition[statDef.statHash].statName
+					});
 				}
 			}
 		}
@@ -113,6 +135,9 @@ function handleOtherStats(dataset, resolve) {
 		for (let stat of objectives) {
 			var displayDescription = DestinyObjectiveDefinition[stat.objectiveHash].displayDescription;
 			var completionValue = DestinyObjectiveDefinition[stat.objectiveHash].completionValue;
+			if(dataset.itemTypeName === "Book" && DestinyRecordDefinition[stat.objectiveHash]) {
+				displayDescription = DestinyRecordDefinition[stat.objectiveHash].description;
+			}
 			var tableRowOne = document.createElement("tr");
 			tableRowOne.classList.add("itemStat", "bounty");
 			var tableRowTwo = document.createElement("tr");
@@ -131,13 +156,84 @@ function handleOtherStats(dataset, resolve) {
 			statContainer.appendChild(tableRowTwo);
 		}
 	}
+	if (dataset.nodeTree && dataset.talentGridHash) {
+		var nodeData = getNodes(false, JSON.parse(dataset.nodeTree), parseInt(dataset.talentGridHash, 10));
+		if (itemDef.bucketTypeHash === 4023194814) {
+			nodeData.columns = nodeData.columns + 1;
+		}
+		for (var i = 0; i < nodeData.rows; i++) {
+			let NodeList = document.createElement("tr");
+			NodeList.classList.add("node-list");
+			for (var e = 0; e < nodeData.columns; e++) {
+				let tableText = document.createElement("td");
+				tableText.id = `row${i+1}column${e+1}`;
+				tableText.classList.add("node");
+				NodeList.appendChild(tableText);
+			}
+			nodeContainer.appendChild(NodeList);
+		}
+		for (let node of nodeData.nodes) {
+			let tableText = document.getElementById(`row${node.row}column${node.column}`);
+			// tableText.classList.add("node");
+			if (node.icon) {
+				tableText.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + node.icon + "')");
+			}
+			tableText.title = node.nodeStepName;
+		}
+		if (itemDef.bucketTypeHash === 4023194814) {
+			if (nodeData.rows > 1 && nodeData.columns > 1) {
+				let materialIcon = document.getElementById(`row${1}column${nodeData.columns}`);
+				let guardianIcon = document.getElementById(`row${2}column${nodeData.columns}`);
+				let guardianText = document.getElementById(`row${1}column${4}`).title.split(" ")[0];
+				let materialText = document.getElementById(`row${1}column${3}`).title.split(" ")[0];
+				if (materialText === "Relic") {
+					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[3242866270].icon + "')");
+				} else if (materialText === "Spinmetal") {
+					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[2882093969].icon + "')");
+				} else if (materialText === "Helium") {
+					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[2254123540].icon + "')");
+				} else if (materialText === "Spirit") {
+					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[2254123540].icon + "')");
+				} else if (materialText === "Wormspore") {
+					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[3164836592].icon + "')");
+				}
+				if(guardianText === "Titan") {
+					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[1723894001].icon + "')");
+				} else if(guardianText === "Warlock") {
+					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[776529032].icon + "')");
+				} else if(guardianText === "Hunter") {
+					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[855333071].icon + "')");
+				} else if(guardianText === "Hunter") {
+					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[855333071].icon + "')");
+				} else if(guardianText === "Cleansing") {
+					guardianIcon.setAttribute("style", "background-image: url(" + "'img/hive.png')");
+				} else if(guardianText === "Reclamation") {
+					guardianIcon.setAttribute("style", "background-image: url(" + "'img/taken.png')");
+				} else if(guardianText === "Blue") {
+					guardianIcon.setAttribute("style", "background-image: url(" + "'img/vex.png')");
+				} else if(guardianText === "Network") {
+					guardianIcon.setAttribute("style", "background-image: url(" + "'img/cabal.png')");
+				} else if(guardianText === "Ether") {
+					guardianIcon.setAttribute("style", "background-image: url(" + "'img/fallen.png')");
+				}
+				materialIcon.title = materialText;
+				guardianIcon.title = guardianText;
+
+				// tableText.classList.add("node");
+				// if (node.icon) {
+				// tableText.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + node.icon + "')");
+				// }
+				// tableText.title = node.nodeStepName;
+			}
+		}
+	}
 	resolve();
 }
 
 function handleBountyStats(dataset, resolve, reject) {
 	var statContainer = document.getElementById("stat-table");
 	statContainer.innerHTML = "";
-	var itemDef = DestinyCompactItemDefinition[dataset.itemHash];
+	var itemDef = getItemDefinition(dataset.itemHash);
 	if (dataset.objectiveTree) {
 		var objectives = JSON.parse(dataset.objectiveTree);
 		for (var stat of objectives) {

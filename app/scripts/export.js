@@ -1,5 +1,6 @@
 function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, lightLevel) {
 	chrome.storage.local.get(null, function(data) {
+		logger.startLogging("export");
 		var exportDataButton = document.getElementById("exportData");
 		var regexMatch = new RegExp(gameMode, "i");
 		var matchDrops = {};
@@ -28,6 +29,9 @@ function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, light
 							var maxTime = minTime + ((match.activityTime + 240) * 1000);
 							if (timestamp >= minTime && maxTime >= timestamp) {
 								for (var removed of itemDiff.removed) {
+									if(removed.item) {
+										removed = removed.item;
+									}
 									removed = JSON.parse(removed);
 									if (removed.itemHash === 417308266) {
 										if (matchDrops[match.activityInstance].exotic === "unused") {
@@ -43,10 +47,13 @@ function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, light
 						if (itemDiff.match) {
 							var itemMatch = JSON.parse(itemDiff.match);
 							if (itemMatch.activityInstance === match.activityInstance) {
-								console.log(match.timestamp);
+								logger.log(match.timestamp);
 								if (itemDiff.added.length) {
 									if (itemDiff.progression) {
 										for (var progress of itemDiff.progression) {
+											if (progress.item) {
+												progress = progress.item;
+											}
 											progress = JSON.parse(progress);
 											if (gameMode === "IronBanner" && /faction_event_iron_banner/i.test(progress.name) && progress.level > matchDrops[match.activityInstance].level) {
 												matchDrops[match.activityInstance].level = factionLevel = progress.level;
@@ -54,8 +61,11 @@ function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, light
 										}
 									}
 									for (var item of itemDiff.added) {
+										if (item.item) {
+											item = item.item;
+										}
 										var added = JSON.parse(item);
-										var mainItemData = DestinyCompactItemDefinition[added.itemHash];
+										var mainItemData = getItemDefinition(added.itemHash);
 										var bucketData = DestinyInventoryBucketDefinition[mainItemData.bucketTypeHash];
 										var light = added.stackSize;
 										if (added.primaryStat) {
@@ -71,9 +81,9 @@ function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, light
 												}
 											} else if (/(camelot)/i.test(mainItemData.itemName)) {
 												matchDrops[match.activityInstance].rewards.push("PS " + mainItemData.tierTypeName + " " + bucketData.bucketName.split(" ")[0] + " (" + light + ")");
-											} else if(/(rare)/i.test(mainItemData.tierTypeName)) {
+											} else if (/(rare)/i.test(mainItemData.tierTypeName)) {
 												matchDrops[match.activityInstance].rewards.push(mainItemData.tierTypeName + " " + bucketData.bucketName.split(" ")[0] + " " + (mainItemData.itemTypeName.split(" ")[2] || "") + " (" + light + ")");
-											} else if(mainItemData.sourceHashes.indexOf(2770509343) > -1 || mainItemData.sourceHashes.indexOf(478645002) > -1) {
+											} else if (mainItemData.sourceHashes.indexOf(2770509343) > -1 || mainItemData.sourceHashes.indexOf(478645002) > -1) {
 												matchDrops[match.activityInstance].rewards.push(mainItemData.tierTypeName + " " + bucketData.bucketName.split(" ")[0] + " " + (mainItemData.itemTypeName.split(" ")[2] || "") + " (" + light + ")");
 											}
 										}
@@ -112,11 +122,11 @@ function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, light
 			}
 			sortedData.push(join(result) + "\n");
 			if (rewards[4]) {
-				console.log(rewards);
+				logger.info(rewards);
 			}
-			console.log(join(result));
+			logger.log(join(result));
 		}
-		console.log(sortedData.length);
+		logger.log(sortedData.length);
 		var textarea = document.getElementById("export");
 		textarea.value = sortedData.join("");
 		exportDataButton.classList.remove("loading");

@@ -2,7 +2,8 @@ var matchIdList = [];
 
 function getLocalMatches() {
 	return new Promise(function(resolve, reject) {
-		console.time("Local Matches");
+		logger.startLogging("matches");
+		logger.time("Local Matches");
 		chrome.storage.local.get(["matches"], function(result) {
 			data.matches = handleInput(result.matches, data.matches);
 			for (var activity of data.matches) {
@@ -10,7 +11,7 @@ function getLocalMatches() {
 					matchIdList.push(activity.characterId + "-" + activity.activityInstance);
 				}
 			}
-			console.timeEnd("Local Matches");
+			logger.timeEnd("Local Matches");
 			resolve(data);
 		});
 	});
@@ -18,15 +19,18 @@ function getLocalMatches() {
 
 function getRemoteMatches() {
 	return new Promise(function(resolve, reject) {
-		console.time("Remote Matches");
+		logger.startLogging("matches");
+		logger.time("Remote Matches");
 		if (data.itemChanges[0]) {
 			sequence(characterIdList, getBungieMatchData, function() {}).then(function() {
 				data.matches.sort(function(a, b) {
 					return new Date(a.timestamp) - new Date(b.timestamp);
 				});
-				console.timeEnd("Remote Matches");
+				logger.timeEnd("Remote Matches");
 				resolve();
 			});
+		} else {
+			resolve();
 		}
 	});
 }
@@ -43,7 +47,8 @@ function getBungieMatchData(characterId, resolve) {
 }
 
 function _remoteMatch(page, firstDateString, characterId, resolve) {
-	console.time("Look Up Match");
+	logger.startLogging("matches");
+	logger.time("Look Up Match");
 	bungie.activity(characterId, "None", 10, page).then(function(result) {
 		var foundOldDate = false;
 		if (result.data && result.data.activities.length) {
@@ -61,7 +66,7 @@ function _remoteMatch(page, firstDateString, characterId, resolve) {
 					break;
 				}
 			}
-			console.timeEnd("Look Up Match");
+			logger.timeEnd("Look Up Match");
 			if (!foundOldDate) {
 				_remoteMatch(page + 1, firstDateString, characterId, resolve);
 			} else {
@@ -84,7 +89,8 @@ function compactMatch(activity, characterId) {
 
 function applyMatchData() {
 	return new Promise(function(resolve, reject) {
-		console.time("Match Data");
+		logger.startLogging("matches");
+		logger.time("Match Data");
 		for (var itemDiff of data.itemChanges) {
 			var timestamp = new Date(itemDiff.timestamp).getTime();
 			for (var match of data.matches) {
@@ -99,7 +105,7 @@ function applyMatchData() {
 			itemChanges: data.itemChanges,
 			matches: data.matches,
 		}, function() {
-			console.timeEnd("Match Data");
+			logger.timeEnd("Match Data");
 			resolve();
 		});
 	});

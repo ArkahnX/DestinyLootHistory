@@ -2,13 +2,14 @@ var data = {
 	inventories: {},
 	progression: {},
 	itemChanges: [],
-	matches: []
+	matches: [],
+	currencies: []
 };
 var oldInventories = {};
 var oldProgression = {};
 var newProgression = {};
 var newInventories = {};
-var relevantStats = ["itemHash", "itemInstanceId", "itemInstanceId", "stackSize", "equipRequiredLevel", "damageTypeHash", "talentGridHash", "isGridComplete"];
+var relevantStats = ["itemHash", "itemInstanceId", "stackSize", "damageTypeHash", "talentGridHash", "isGridComplete", "state"];
 var characterIdList = ["vault"];
 var characterDescriptions = {
 	"vault": {
@@ -19,47 +20,63 @@ var characterDescriptions = {
 };
 
 function initItems(callback) {
-	console.time("load Bungie Data");
-	bungie.user().then(function(u) {
-		if (u.error) {
-			localStorage.listening = "false";
-			chrome.browserAction.setBadgeText({
-				text: "!"
-			});
-			setTimeout(function() {
-				initItems(callback);
-			}, 1000 * 5);
-		} else {
-			localStorage.error = "false";
-			chrome.browserAction.setBadgeText({
-				text: ""
-			});
-			bungie.search().then(function(e) {
-
-				var avatars = e.data.characters;
-				for (var c = 0; c < avatars.length; c++) {
-					characterDescriptions[avatars[c].characterBase.characterId] = {
-						name: DestinyClassDefinition[avatars[c].characterBase.classHash].className,
-						gender: DestinyGenderDefinition[avatars[c].characterBase.genderHash].genderName,
-						level: avatars[c].baseCharacterLevel,
-						light: avatars[c].characterBase.powerLevel,
-						race: DestinyRaceDefinition[avatars[c].characterBase.raceHash].raceName,
-						dateLastPlayed: avatars[c].characterBase.dateLastPlayed
-					};
+	logger.startLogging("items");
+	logger.log("initItems");
+	// logger.log("Arrived at initItems");
+	logger.time("load Bungie Data");
+	bungie.setActive(localStorage.activeType);
+	bungie.user().then(function() {
+		chrome.browserAction.setBadgeText({
+			text: ""
+		});
+		bungie.search().then(function(e) {
+			var avatars = e.data.characters;
+			var newestCharacter = "vault";
+			var newestDate = 0;
+			for (var c = 0; c < avatars.length; c++) {
+				characterDescriptions[avatars[c].characterBase.characterId] = {
+					name: DestinyClassDefinition[avatars[c].characterBase.classHash].className,
+					gender: DestinyGenderDefinition[avatars[c].characterBase.genderHash].genderName,
+					level: avatars[c].baseCharacterLevel,
+					light: avatars[c].characterBase.powerLevel,
+					race: DestinyRaceDefinition[avatars[c].characterBase.raceHash].raceName,
+					dateLastPlayed: avatars[c].characterBase.dateLastPlayed
+				};
+				if (new Date(avatars[c].characterBase.dateLastPlayed).getTime() > new Date(newestDate).getTime()) {
+					newestDate = avatars[c].characterBase.dateLastPlayed;
+					newestCharacter = avatars[c].characterBase.characterId;
+				}
+				if (characterIdList.indexOf(avatars[c].characterBase.characterId) === -1) {
 					characterIdList.push(avatars[c].characterBase.characterId);
 				}
-				localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
-				console.timeEnd("load Bungie Data");
+			}
+			localStorage.newestCharacter = newestCharacter;
+			localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
+			logger.timeEnd("load Bungie Data");
+			if (typeof callback === "function") {
 				callback();
-			});
+			}
+		}).catch(function(err) {
+			if (typeof callback === "function") {
+				callback();
+			}
+			// console.log(err, err.stack)
+		});
+	}).catch(function(err) {
+		if (typeof callback === "function") {
+			callback();
 		}
+		// console.log(err, err.stack)
 	});
 }
 
 var inventories = {};
+var oldCurrencies = [];
+var newCurrencies = [];
 
 function itemNetworkTask(characterId, callback) {
-	console.time("itemTask");
+	logger.startLogging("items");
+	logger.time("itemTask");
 	if (characterId === "vault") {
 		bungie.vault().then(callback);
 	} else {
@@ -68,7 +85,8 @@ function itemNetworkTask(characterId, callback) {
 }
 
 function factionNetworkTask(characterId, callback) {
-	console.time("factionTask");
+	logger.startLogging("items");
+	logger.time("factionTask");
 	if (characterId !== "vault") {
 		bungie.factions(characterId).then(callback);
 	} else {
@@ -77,13 +95,28 @@ function factionNetworkTask(characterId, callback) {
 }
 
 function itemResultTask(result, characterId) {
-	console.timeEnd("itemTask");
+	logger.startLogging("items");
+	logger.timeEnd("itemTask");
 	if (result) {
 		if (!data.inventories[characterId]) {
 			data.inventories[characterId] = [];
 			newInventories[characterId] = [];
 		}
-		newInventories[characterId] = result.data.buckets;
+		if (result.data.currencies) {
+			newCurrencies = result.data.currencies;
+		}
+		newInventories[characterId] = concatItems(result.data.buckets);
+		if (newInventories.length === 0) {
+			if (result.data) {
+				if (result.data.buckets) {
+					logger.error(result.data.buckets);
+				} else {
+					logger.error(result.data);
+				}
+			} else {
+				logger.error(result);
+			}
+		}
 	}
 	inventories[characterId] = 0;
 	if (result) {
@@ -106,7 +139,8 @@ function itemResultTask(result, characterId) {
 }
 
 function factionResultTask(result, characterId) {
-	console.timeEnd("factionTask");
+	logger.startLogging("items");
+	logger.timeEnd("factionTask");
 	if (result) {
 		if (!data.progression[characterId]) {
 			data.progression[characterId] = [];
@@ -148,6 +182,7 @@ function concatItems(itemBucketList) {
 }
 
 function buildCompactItem(itemData) {
+	logger.startLogging("items");
 	var newItemData = {};
 	var hash = itemData.itemHash;
 	for (var i = 0; i < relevantStats.length; i++) {
@@ -197,7 +232,7 @@ function buildCompactItem(itemData) {
 		newItemData.nodes = [];
 		for (var node of itemData.nodes) {
 			if (!node) {
-				console.log(itemData, itemData.nodes, itemData.nodes.length);
+				logger.info(itemData, itemData.nodes, itemData.nodes.length);
 			}
 			if (node && !node.hidden) {
 				newItemData.nodes.push({
@@ -213,6 +248,19 @@ function buildCompactItem(itemData) {
 }
 
 function handleInput(source, alt) {
+	if (typeof source === "object") {
+		for (var item of source) {
+			if (Array.isArray(item) && item.length === 0) {
+				return alt;
+			}
+		}
+	}
+	if (Array.isArray(source) && Array.isArray(alt) === false) {
+		return alt;
+	}
+	if (Array.isArray(source) && source.length === 0) {
+		return alt;
+	}
 	if (typeof source !== "undefined") {
 		if (typeof source === "string") {
 			return JSON.parse(source);
@@ -223,29 +271,34 @@ function handleInput(source, alt) {
 }
 
 function checkDiff(sourceArray, newArray) {
+	logger.startLogging("items");
 	var itemsRemovedFromSource = [];
 	for (var i = 0; i < sourceArray.length; i++) {
 		var found = false;
 		for (var e = 0; e < newArray.length; e++) {
 			if (sourceArray[i].bucketHash === 2197472680 && newArray[e].itemInstanceId === sourceArray[i].itemInstanceId) {
 				if (sourceArray[i].stackSize !== newArray[e].stackSize) {
-					// console.log(sourceArray[i], newArray[e]);
-					// console.log(newArray[e].itemInstanceId === sourceArray[i].itemInstanceId && newArray[e].itemHash === sourceArray[i].itemHash, newArray[e].stackSize !== sourceArray[i].stackSize)
+					// logger.log(sourceArray[i], newArray[e]);
+					// logger.log(newArray[e].itemInstanceId === sourceArray[i].itemInstanceId && newArray[e].itemHash === sourceArray[i].itemHash, newArray[e].stackSize !== sourceArray[i].stackSize)
 				}
 			}
 			if (newArray[e].itemInstanceId === sourceArray[i].itemInstanceId && newArray[e].itemHash === sourceArray[i].itemHash) {
 				found = true;
 				if (newArray[e].stackSize !== sourceArray[i].stackSize) {
 					var newItem = JSON.parse(JSON.stringify(sourceArray[i]));
-					if (typeof sourceArray[i].stackSize === "number") {
-						newItem.stackSize = sourceArray[i].stackSize - newArray[e].stackSize;
-						if (newItem.stackSize > 0) {
-							itemsRemovedFromSource.push(JSON.stringify(newItem));
-						}
+					if (newItem.primaryStat && newItem.primaryStat.value !== sourceArray[i].primaryStat.value) {
+						itemsRemovedFromSource.push(JSON.stringify(newItem));
 					} else {
-						newItem.stackSize = sourceArray[i].stackSize;
-						if (parseInt(newArray[e].stackSize, 10) !== parseInt(sourceArray[i].stackSize, 10)) {
-							itemsRemovedFromSource.push(JSON.stringify(newItem));
+						if (typeof sourceArray[i].stackSize === "number") {
+							newItem.stackSize = sourceArray[i].stackSize - newArray[e].stackSize;
+							if (newItem.stackSize > 0) {
+								itemsRemovedFromSource.push(JSON.stringify(newItem));
+							}
+						} else {
+							newItem.stackSize = sourceArray[i].stackSize;
+							if (parseInt(newArray[e].stackSize, 10) !== parseInt(sourceArray[i].stackSize, 10)) {
+								itemsRemovedFromSource.push(JSON.stringify(newItem));
+							}
 						}
 					}
 				}
@@ -258,29 +311,54 @@ function checkDiff(sourceArray, newArray) {
 	return itemsRemovedFromSource;
 }
 
-function checkFactionDiff(sourceArray, newArray) {
+function checkFactionDiff(sourceArray, newArray, characterId) {
 	var itemsRemovedFromSource = [];
 	for (var i = 0; i < sourceArray.length; i++) {
 		for (var e = 0; e < newArray.length; e++) {
 			var diff = false;
-			if (newArray[e].progressionHash !== 3298204156) { // strip character_display_xp
-				if (newArray[e].progressionHash == sourceArray[i].progressionHash && newArray[e].currentProgress !== sourceArray[i].currentProgress) {
-					var newItem = {
-						progressionHash: newArray[e].progressionHash,
-						level: newArray[e].level,
-						progressToNextLevel: newArray[e].progressToNextLevel,
-						progressChange: newArray[e].currentProgress - sourceArray[i].currentProgress,
-						currentProgress: newArray[e].currentProgress,
-						nextLevelAt: newArray[e].nextLevelAt,
-						name: DestinyProgressionDefinition[newArray[e].progressionHash].name
-					};
-					for (var faction of DestinyFactionDefinition) {
-						if (faction.progressionHash === newArray[e].progressionHash) {
-							newItem.factionHash = faction.factionHash;
+			if (newArray[e].progressionHash == sourceArray[i].progressionHash && newArray[e].progressionHash === 3298204156) {
+				if (localStorage.track3oC === "true") {
+					logger.startLogging("3oC");
+					if (!localStorage[`old3oCProgress${characterId}`]) {
+						localStorage[`old3oCProgress${characterId}`] = sourceArray[i].currentProgress;
+					}
+					var old3oCProgress = parseInt(localStorage[`old3oCProgress${characterId}`], 10);
+					var progressChange = newArray[e].currentProgress - old3oCProgress;
+					if (!localStorage.move3oCCooldown) {
+						localStorage.move3oCCooldown = "false";
+					}
+					if (!localStorage.move3oC) {
+						localStorage.move3oC = "false";
+					}
+					if (localStorage.move3oCCooldown === "true") {
+						if (newArray[e].currentProgress > 0 && progressChange > 0) {
+							localStorage.move3oCCooldown = "false";
 						}
 					}
-					itemsRemovedFromSource.push(JSON.stringify(newItem));
+					// logger.log(`Progress === 0 = ${newArray[e].currentProgress} && progressChange < 0 = ${newArray[e].currentProgress} && move3oCCooldown === "false" ${localStorage.move3oCCooldown}`);
+					if (newArray[e].currentProgress === 0 && progressChange < 0 && localStorage.move3oCCooldown === "false") {
+						localStorage.move3oC = "true";
+						localStorage.move3oCCooldown = "true";
+						// forceupdate = true;
+					}
+					localStorage[`old3oCProgress${characterId}`] = newArray[e].currentProgress;
 				}
+			} else if (newArray[e].progressionHash == sourceArray[i].progressionHash && newArray[e].currentProgress !== sourceArray[i].currentProgress) {
+				var newItem = {
+					progressionHash: newArray[e].progressionHash,
+					level: newArray[e].level,
+					progressToNextLevel: newArray[e].progressToNextLevel,
+					progressChange: newArray[e].currentProgress - sourceArray[i].currentProgress,
+					currentProgress: newArray[e].currentProgress,
+					nextLevelAt: newArray[e].nextLevelAt,
+					name: DestinyProgressionDefinition[newArray[e].progressionHash].name
+				};
+				for (var faction of DestinyFactionDefinition) {
+					if (faction.progressionHash === newArray[e].progressionHash) {
+						newItem.factionHash = faction.factionHash;
+					}
+				}
+				itemsRemovedFromSource.push(JSON.stringify(newItem));
 			}
 		}
 	}
@@ -306,87 +384,254 @@ function isSameItem(item1, item2) {
 	}
 	return false;
 }
-
+/**
+ * STEP 4
+ * grabs guardian inventories. Accurate tracking is off by default, so by default we finish this function and then grabRemoteInventory and head back to step 3 in timers.js
+ */
 function checkInventory() {
-	return new Promise(function(resolve) {
-		if (data.inventories.vault) {
-			findHighestMaterial().then(function() {
-				grabRemoteInventory(resolve);
-			});
-		} else {
-			grabRemoteInventory(resolve);
-		}
+	logger.log("checkInventory")
+	return new Promise(function(resolve, reject) {
+		// grabRemoteInventory(function() {
+		// 	if (localStorage.accurateTracking === "true") {
+		// 		findHighestMaterial().then(resolve, reject);
+		// 	} else {
+		// 		resolve();
+		// 	}
+		// });
+		grabRemoteInventory(resolve, reject);
 	});
 }
 
-function grabRemoteInventory(resolve) {
-	console.time("Bungie Search");
+/**
+ * Step 5
+ */
+
+function grabRemoteInventory(resolve, reject) {
+	logger.startLogging("items");
+	logger.log("grabRemoteInventory")
+		// logger.log("Arrived at grabRemoteInventory");
+	logger.time("Bungie Search");
 	var currentDateString = moment().utc().format();
-	bungie.search().then(function(guardian) {
-		console.timeEnd("Bungie Search");
-		let characters = guardian.data.characters;
-		for (let character of characters) {
-			characterDescriptions[character.characterBase.characterId].light = character.characterBase.powerLevel;
-		}
-		console.time("Bungie Items");
-		sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
-			console.timeEnd("Bungie Items");
-			console.time("Bungie Faction");
-			sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
-				console.timeEnd("Bungie Faction");
-				console.time("Local Inventory");
-				chrome.storage.local.get(["itemChanges", "progression", "factionChanges", "inventories"], function(result) {
-					data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
-					data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
-					// data.progression = handleInput(result.progression, data.progression);
-					// data.inventories = handleInput(result.inventories, data.inventories);
-					oldProgression = handleInput(result.progression, newProgression);
-					oldInventories = handleInput(result.inventories, newInventories);
-					console.timeEnd("Local Inventory");
-					processDifference(currentDateString, resolve);
+	bungie.setActive(localStorage.activeType);
+	// found in bungie.js
+	bungie.user().then(function() {
+		bungie.search().then(function(guardian) {
+			logger.timeEnd("Bungie Search");
+			let characters = guardian.data.characters;
+			var newestDate = 0;
+			// record some descriptors for each character
+			for (let avatar of characters) {
+				if (!characterDescriptions[avatar.characterBase.characterId]) {
+					characterDescriptions[avatar.characterBase.characterId] = {
+						name: DestinyClassDefinition[avatar.characterBase.classHash].className,
+						gender: DestinyGenderDefinition[avatar.characterBase.genderHash].genderName,
+						level: avatar.baseCharacterLevel,
+						light: avatar.characterBase.powerLevel,
+						race: DestinyRaceDefinition[avatar.characterBase.raceHash].raceName,
+						dateLastPlayed: avatar.characterBase.dateLastPlayed
+					};
+				} else { // we already have set these characters so just update their data.
+					characterDescriptions[avatar.characterBase.characterId].level = avatar.baseCharacterLevel;
+					characterDescriptions[avatar.characterBase.characterId].light = avatar.characterBase.powerLevel;
+					characterDescriptions[avatar.characterBase.characterId].dateLastPlayed = avatar.characterBase.dateLastPlayed;
+				}
+				if (new Date(avatar.characterBase.dateLastPlayed).getTime() > new Date(newestDate).getTime()) { // set newest character for 3oC reminder
+					newestDate = avatar.characterBase.dateLastPlayed;
+					newestCharacter = avatar.characterBase.characterId;
+				}
+				if (characterIdList.indexOf(avatar.characterBase.characterId) === -1) {
+					characterIdList.push(avatar.characterBase.characterId);
+				}
+			}
+			localStorage.newestCharacter = newestCharacter;
+			localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
+			logger.time("Bungie Items");
+			// Loop through all found characters and save their new Item data to newInventories
+			logger.info("Character List", characterIdList);
+			sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
+				logger.timeEnd("Bungie Items");
+				logger.time("Bungie Faction");
+				// loop through all characters and save their new Faction data to newProgression
+				sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
+					logger.timeEnd("Bungie Faction");
+					logger.time("Bungie Advisors");
+					bungie.advisorsForAccount().then(function(advisorData) {
+						var recordBooks = advisorData.data.recordBooks;
+						for (var recordBook of recordBooks) {
+							for (var characterInventory of newInventories) {
+								for (var inventoryItem of characterInventory) {
+									var itemDefinition = getItemDefinition(inventoryItem.itemHash);
+									if (itemDefinition.recordBookHash === recordBook.bookHash) {
+										var completed = 0;
+										var completionValue = 0;
+										for (var record of recordBook.records) {
+											for (var objective of record.objectives) {
+												if (!inventoryItem.objectives) {
+													inventoryItem.objectives = [];
+												}
+												inventoryItem.objectives.push({
+													objectiveHash: objective.objectiveHash,
+													progress: objective.progress
+												});
+												completed += objective.progress;
+												completionValue += DestinyObjectiveDefinition[objective.objectiveHash].completionValue;		
+											}
+										}
+										if (completed === completionValue) {
+											inventoryItem.isGridComplete = true;
+										}
+										inventoryItem.stackSize = Math.round(((completed / completionValue) * 100)) + "%";
+										break;
+									}
+								}
+							}
+						}
+						logger.timeEnd("Bungie Advisors");
+						logger.time("Local Inventory");
+						// get old data saved from the last pass
+						chrome.storage.local.get(["itemChanges", "progression", "currencies", "inventories"], function(result) {
+							// check if data is valid. If not, use newly grabbed data instead.
+							data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
+							data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
+							oldProgression = handleInput(result.progression, newProgression);
+							for (var attr in result.progression) {
+								oldProgression[attr] = handleInput(result.progression[attr], newProgression[attr]);
+							}
+							oldInventories = handleInput(result.inventories, newInventories);
+							oldCurrencies = handleInput(result.currencies, newCurrencies);
+							logger.timeEnd("Local Inventory");
+							// itemDiff.js
+							processDifference(currentDateString, resolve);
+						});
+					});
 				});
 			});
+		}).catch(function() {
+			// logger.log("left at grabRemoteInventory");
+			reject();
 		});
+	}).catch(function() {
+		// logger.log("left at grabRemoteInventory");
+		reject();
 	});
+}
+
+function hasInventorySpace(characterId, itemHash) {
+	if (!characterId || !itemHash) {
+		return false;
+	}
+	let itemBucketHash = getItemDefinition(itemHash).bucketTypeHash;
+	let bucketHash = itemBucketHash;
+	if (characterId === "vault") {
+		bucketHash = 138197802;
+	}
+	let vaultSize = DestinyInventoryBucketDefinition[bucketHash].itemCount;
+	var totalStackSize = 0;
+	for (let item of newInventories[characterId]) {
+		let itemDef = getItemDefinition(item.itemHash);
+		if (itemDef.bucketTypeHash === 4023194814 || itemDef.bucketTypeHash === 434908299 || itemDef.bucketTypeHash === 2973005342 || itemDef.bucketTypeHash === 1469714392 || itemDef.bucketTypeHash === 3865314626 || itemDef.bucketTypeHash === 284967655 || itemDef.bucketTypeHash === 4274335291 || itemDef.bucketTypeHash === 3796357825 || itemDef.bucketTypeHash === 2025709351 || itemDef.bucketTypeHash === 3054419239) {
+			if (itemDef.bucketTypeHash === itemBucketHash || characterId === "vault") {
+				let itemStackSize = parseInt(item.stackSize, 10);
+				if (item.objectives) {
+					itemStackSize = 1;
+				}
+				let stacks = Math.ceil(itemStackSize / itemDef.maxStackSize);
+				totalStackSize += stacks;
+			}
+		}
+	}
+	return totalStackSize < vaultSize;
+}
+
+function moveLargestItemTo(characterId) {
+	let largestItem = null;
+	for (let item of newInventories.vault) {
+		let itemDef = getItemDefinition(item.itemHash);
+		if (item.itemHash !== 342707700 && item.itemHash !== 342707701 && item.itemHash !== 342707703 && item.itemHash !== 142694124 && item.itemHash !== 3881084295 && item.itemHash !== 1565194903 && item.itemHash !== 3026483582 && item.itemHash !== 1027379218 && item.itemHash !== 1556533319 && (itemDef.bucketTypeHash === 1469714392 || itemDef.bucketTypeHash === 3865314626)) {
+			if (!localStorage.oldTransferMaterial || (localStorage.oldTransferMaterial && parseInt(localStorage.oldTransferMaterial) !== item.itemHash)) {
+				logger.log(item.itemHash, localStorage.oldTransferMaterial)
+				if (!largestItem) {
+					largestItem = item;
+				}
+				if (parseInt(item.stackSize) > parseInt(largestItem.stackSize)) {
+					largestItem = item;
+				}
+			}
+		}
+	}
+	if (largestItem) {
+		let localDescription = characterDescriptions[characterId];
+		if (hasInventorySpace(characterId, largestItem.itemHash)) {
+			logger.log(`Moved ${largestItem.stackSize} ${getItemDefinition(largestItem.itemHash).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (${findQuantityIn("vault", largestItem.itemHash)} in Vault)`);
+			logger.info(`Bungie Transfer to character: ${characterId}, material: ${largestItem.itemHash}, quantity: ${largestItem.stackSize}, vaultQuantity: ${findQuantityIn("vault", largestItem.itemHash)}`);
+			localStorage.oldTransferMaterial = "null";
+			localStorage.transferMaterial = largestItem.itemHash;
+			localStorage.transferMaterialStack = largestItem.stackSize;
+			localStorage.transferQuantity = 0;
+			return bungie.transfer(characterId, "0", largestItem.itemHash, largestItem.stackSize, false);
+		} else {
+			logger.info(`No Space to move to character`);
+			return new Promise(function(resolve) {
+				resolve();
+			});
+		}
+	}
+	return largestItem;
+}
+
+function findQuantityIn(characterId, item) {
+	if (characterId && item) {
+		if (localStorage.transferMaterial !== "null") {
+			for (let item of newInventories[characterId]) {
+				if (item.itemHash === parseInt(localStorage.transferMaterial)) {
+					return item.stackSize;
+				}
+			}
+		}
+	}
+	return 0;
 }
 
 var findHighestMaterial = (function() {
 	var newestCharacterDate = null;
-	var newestCharacter = null;
-	var transferMaterial = null;
 	var reset = true;
-	// localStorage.transferMaterial = null;
-	// localStorage.newestCharacter = null;
+	if (!localStorage.transferMaterial) {
+		localStorage.transferMaterial = "null";
+	}
+	if (!localStorage.newestCharacter) {
+		localStorage.newestCharacter = "null";
+	}
+	if (!localStorage.transferQuantity) {
+		localStorage.transferQuantity = 0;
+	}
 	return function() {
-		console.time("bigmat");
-		var itemQuantity = 0;
-		if (localStorage.transferMaterial !== "null") {
-			for (let item of newInventories[localStorage.newestCharacter]) {
-				if (item.itemHash === parseInt(localStorage.transferMaterial)) {
-					itemQuantity = item.stackSize;
-				}
-			}
-		}
-		var vaultQuantity = 0;
-		if (localStorage.transferMaterial !== "null") {
-			for (let item of newInventories["vault"]) {
-				if (item.itemHash === parseInt(localStorage.transferMaterial)) {
-					vaultQuantity = item.stackSize;
-				}
-			}
-		}
-		// console.log(localStorage.transferMaterial, itemQuantity)
-		// console.log(localStorage.transferMaterial !== "null" && localStorage.newestCharacter !== "null" && parseInt(localStorage.transferQuantity) > 0, reset, parseInt(localStorage.transferQuantity) > itemQuantity)
-		console.log(parseInt(localStorage.transferQuantity), itemQuantity)
+		logger.startLogging("items");
+		logger.time("bigmat");
+		var itemQuantity = findQuantityIn(localStorage.newestCharacter, parseInt(localStorage.transferMaterial));
+		var vaultQuantity = findQuantityIn("vault", parseInt(localStorage.transferMaterial));
 		if ((localStorage.transferMaterial !== "null" && localStorage.newestCharacter !== "null" && parseInt(localStorage.transferQuantity) > 0) && (reset || parseInt(localStorage.transferQuantity) > itemQuantity)) {
-			let localCharacter = localStorage.newestCharacter;
-			let localMaterial = parseInt(localStorage.transferMaterial);
-			let localTransferQuantity = parseInt(localStorage.transferQuantity);
-			if (localTransferQuantity > vaultQuantity) {
-				localTransferQuantity = vaultQuantity;
+			if (vaultQuantity !== 0) {
+				let localCharacter = localStorage.newestCharacter;
+				let localMaterial = parseInt(localStorage.transferMaterial);
+				let localTransferQuantity = parseInt(localStorage.transferQuantity);
+				if (localTransferQuantity > vaultQuantity) {
+					localTransferQuantity = vaultQuantity;
+				}
+				let localDescription = characterDescriptions[localCharacter];
+				if (hasInventorySpace(localCharacter, localMaterial)) {
+					logger.log(`Moved ${localTransferQuantity} ${getItemDefinition(localMaterial).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (${vaultQuantity} in Vault)`);
+					logger.info(`Bungie Transfer to character: ${localCharacter}, material: ${localMaterial}, quantity: ${localTransferQuantity}, vaultQuantity: ${findQuantityIn("vault", parseInt(localStorage.transferMaterial))}`);
+					bungie.transfer(localCharacter, "0", localMaterial, localTransferQuantity, false);
+				} else {
+					logger.info(`No Space to move to character`);
+					return new Promise(function(resolve) {
+						resolve();
+					});
+				}
+			} else {
+				let localDescription = characterDescriptions[localStorage.newestCharacter];
+				logger.info(`Skipped moving ${localStorage.transferQuantity} ${getItemDefinition(parseInt(localStorage.transferMaterial)).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (Reason: 0 in Vault)`);
 			}
-			console.log(`%c Moved ${localTransferQuantity} ${DestinyCompactItemDefinition[localMaterial].itemName} to Guardian`,"font-weight:bold");
-			bungie.transfer(localCharacter, "0", localMaterial, localTransferQuantity, false);
 			localStorage.oldTransferMaterial = localStorage.transferMaterial;
 			localStorage.transferMaterial = null;
 			localStorage.transferMaterialStack = 0;
@@ -395,26 +640,41 @@ var findHighestMaterial = (function() {
 			reset = false;
 		}
 
-		console.time("char");
+		logger.time("char");
 		for (let characterId of characterIdList) {
 			if (characterId !== "vault") {
 				var date = new Date(characterDescriptions[characterId].dateLastPlayed);
 				if ((!localStorage.newestCharacter || localStorage.newestCharacter === "null") || date > newestCharacterDate) {
-					if (localStorage.newestCharacter !== characterId || new Date().getTime() > date.getTime()+(1000*60*10)) {
-						// console.log(characterId, localStorage.newestCharacter)
+					if (localStorage.newestCharacter !== characterId || new Date().getTime() > date.getTime() + (1000 * 60 * 10)) {
 						if (parseInt(localStorage.transferQuantity) > 0 && localStorage.transferMaterial !== "null") {
-							let localCharacter = localStorage.newestCharacter;
-							let localMaterial = parseInt(localStorage.transferMaterial);
-							let localTransferQuantity = parseInt(localStorage.transferQuantity);
-							if (localTransferQuantity > vaultQuantity) {
-								localTransferQuantity = vaultQuantity;
+							if (vaultQuantity !== 0) {
+								let localCharacter = localStorage.newestCharacter;
+								let localMaterial = parseInt(localStorage.transferMaterial);
+								let localTransferQuantity = parseInt(localStorage.transferQuantity);
+								if (localTransferQuantity > vaultQuantity) {
+									localTransferQuantity = vaultQuantity;
+								}
+								let localDescription = characterDescriptions[localCharacter];
+								if (hasInventorySpace(localCharacter, localMaterial)) {
+									logger.log(`Moved ${localTransferQuantity} ${getItemDefinition(localMaterial).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (${vaultQuantity} in Vault)`);
+									logger.info(`Bungie Transfer to character: ${localCharacter}, material: ${localMaterial}, quantity: ${localTransferQuantity}, vaultQuantity: ${findQuantityIn("vault", parseInt(localStorage.transferMaterial))}`);
+									bungie.transfer(localCharacter, "0", localMaterial, localTransferQuantity, false);
+								} else {
+									logger.info(`No Space to move to character`);
+									return new Promise(function(resolve) {
+										resolve();
+									});
+								}
+							} else {
+								let localDescription = characterDescriptions[localStorage.newestCharacter];
+								logger.info(`Skipped moving ${localStorage.transferQuantity} ${getItemDefinition(parseInt(localStorage.transferMaterial)).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (Reason: 0 in Vault)`);
 							}
-							console.log(`%c Moved ${localTransferQuantity} ${DestinyCompactItemDefinition[localMaterial].itemName} to Guardian`,"font-weight:bold");
-							bungie.transfer(localCharacter, "0", localMaterial, localTransferQuantity, false);
 						}
 						localStorage.newestCharacter = characterId;
 						localStorage.transferQuantity = 0;
-						localStorage.oldTransferMaterial = localStorage.transferMaterial;
+						if (localStorage.transferMaterial) {
+							localStorage.oldTransferMaterial = localStorage.transferMaterial;
+						}
 						localStorage.transferMaterial = null;
 						localStorage.transferMaterialStack = 0;
 					}
@@ -422,29 +682,108 @@ var findHighestMaterial = (function() {
 				}
 			}
 		}
-		console.timeEnd("char");
-		// console.log(localStorage.transferMaterial, !localStorage.transferMaterial, localStorage.transferMaterial === "null")
+		logger.timeEnd("char");
 		if (!localStorage.transferMaterial || localStorage.transferMaterial === "null") {
-			console.time("mats");
+			logger.time("mats");
 			for (let item of newInventories[localStorage.newestCharacter]) {
-				let itemDefinition = DestinyCompactItemDefinition[item.itemHash];
+				let itemDefinition = getItemDefinition(item.itemHash);
 				if (itemDefinition.bucketTypeHash === 3865314626 || itemDefinition.bucketTypeHash === 1469714392) {
-					// console.log(!localStorage.transferMaterial, item.stackSize > transferMaterial.stackSize)
-					if ((!localStorage.transferMaterial || localStorage.transferMaterial === "null") || item.stackSize > parseInt(localStorage.transferMaterialStack)) {
+					if (item.itemHash !== 342707700 && item.itemHash !== 342707701 && item.itemHash !== 342707703 && item.itemHash !== 142694124 && item.itemHash !== 3881084295 && item.itemHash !== 1565194903 && item.itemHash !== 3026483582 && item.itemHash !== 1027379218 && item.itemHash !== 1556533319 && item.itemHash !== 937555249 && ((!localStorage.transferMaterial || localStorage.transferMaterial === "null") || item.stackSize > parseInt(localStorage.transferMaterialStack)) && item.stackSize > 199) {
 						localStorage.oldTransferMaterial = localStorage.transferMaterial;
 						localStorage.transferMaterial = item.itemHash;
 						localStorage.transferMaterialStack = item.stackSize;
 					}
 				}
 			}
-			console.timeEnd("mats");
+			logger.timeEnd("mats");
 		}
-		console.log(`%c Moved 1 ${DestinyCompactItemDefinition[localStorage.transferMaterial].itemName} to Vault`,"font-weight:bold");
-			// console.log(localStorage.transferMaterial)
+		if (localStorage.transferMaterial === "null") {
+			logger.error("no valid materials on guardian");
+			// moveLargestItemTo(localStorage.newestCharacter);
+		}
 		localStorage.transferQuantity = parseInt(localStorage.transferQuantity) + 1;
-		console.timeEnd("bigmat");
-		// console.log(localStorage.newestCharacter, "0", localStorage.transferMaterial, 1, true, localStorage);
-		// console.error("HERERERER")
-		return bungie.transfer(localStorage.newestCharacter, "0", localStorage.transferMaterial, 1, true);
+		logger.timeEnd("bigmat");
+		if (hasInventorySpace("vault", parseInt(localStorage.transferMaterial, 10))) {
+			if (hasInventorySpace(localStorage.newestCharacter, parseInt(localStorage.transferMaterial, 10))) {
+				logger.log(`Moved 1 ${getItemDefinition(localStorage.transferMaterial).itemName} to Vault (${vaultQuantity} in Vault)`);
+				logger.info(`Bungie Transfer to vault from: ${localStorage.newestCharacter}, material: ${localStorage.transferMaterial}, quantity: 1, guardianQuantity: ${findQuantityIn(localStorage.newestCharacter, parseInt(localStorage.transferMaterial))}`);
+				return bungie.transfer(localStorage.newestCharacter, "0", localStorage.transferMaterial, 1, true);
+			} else {
+				logger.info(`No Space to move to character`);
+				return new Promise(function(resolve) {
+					resolve();
+				});
+			}
+		} else {
+			logger.info(`No Space to move to vault`);
+			return new Promise(function(resolve) {
+				resolve();
+			});
+		}
 	};
 }());
+
+function findThreeOfCoins(characterId) {
+	if (newInventories && newInventories[characterId]) {
+		for (let item of newInventories[characterId]) {
+			if (item.itemHash === 417308266) {
+				return characterId;
+			}
+		}
+		// for (let character in newInventories) {
+		// 	for (let item of newInventories[character]) {
+		// 		if (item.itemHash === 417308266) {
+		// 			return character;
+		// 		}
+		// 	}
+		// }
+	}
+	return false;
+}
+
+function check3oC() {
+	return new Promise(function(resolve) {
+		logger.startLogging("3oC")
+		if (!localStorage.track3oC) {
+			localStorage.track3oC = "true";
+		}
+		if (localStorage.track3oC === "true") {
+			logger.log("We ARE tracking 3oC");
+			if (localStorage.move3oC && localStorage.move3oC === "true") { // we have just completed an activity, remind the User about Three of Coins
+				if (localStorage.newestCharacter) {
+					logger.log("three of coins reminder sent");
+					var threeOfCoinsCharacter = findThreeOfCoins(localStorage.newestCharacter);
+					if (threeOfCoinsCharacter && hasInventorySpace("vault", 417308266)) {
+						setTimeout(function() {
+							bungie.transfer(threeOfCoinsCharacter, "0", 417308266, 1, true).then(function() {
+								bungie.transfer(threeOfCoinsCharacter, "0", 417308266, 1, false);
+							});
+						}, 5000);
+					} else {
+						logger.log("three of coins reminder sent, but no space in vault.");
+					}
+					localStorage.move3oC = "false";
+					resolve();
+				} else {
+					logger.warn("Unable to determine 3oC target.");
+					resolve(); // we don't know who you are playing :(
+				}
+			} else {
+				logger.log(`We cannot move 3oC because move3oC = ${localStorage.move3oC}`);
+				resolve();
+			}
+		} else {
+			logger.log("We are NOT tracking 3oC");
+			resolve();
+		}
+	});
+}
+
+function eligibleToLock(item, characterId) {
+	if(localStorage.autoLock === "true" && hasQuality(item)) {
+		var qualityLevel = parseItemQuality(item);
+		if(qualityLevel.min >= (parseInt(localStorage.minQuality) || 95) || item.primaryStat.value >= (parseInt(localStorage.minLight) || 335)) {
+			bungie.lock(characterId, item.itemInstanceId);
+		}
+	}
+}

@@ -14,13 +14,20 @@ Object.prototype[Symbol.iterator] = function() {
 	};
 };
 
+// You'll usually only ever have to create one service instance.
+var service = analytics.getService('DestinyLootHistory');
+
+// You can create as many trackers as you want. Each tracker has its own state
+// independent of other tracker instances.
+var tracker = service.getTracker('UA-77020265-2');  // Supply your GA Tracking ID.
+
 function recursive(index, array, networkTask, resultTask, endRecursion) {
 	if (array[index]) {
 		new Promise(function(resolve) {
-			// console.time("sequence")
+			// logger.time("sequence")
 			networkTask(array[index], resolve, index);
 		}).then(function(result) {
-			// console.timeEnd("sequence")
+			// logger.timeEnd("sequence")
 			resultTask(result, array[index], index);
 			recursive(index + 1, array, networkTask, resultTask, endRecursion);
 		});
@@ -33,4 +40,24 @@ function sequence(array, networkTask, resultTask) {
 	return new Promise(function(resolve) {
 		recursive(0, array, networkTask, resultTask, resolve);
 	});
+}
+
+function getItemDefinition(hash) {
+	if (DestinyHistoricalItemDefinition[hash]) {
+		return DestinyHistoricalItemDefinition[hash];
+	} else if (DestinyCompactItemDefinition[hash]) {
+		return DestinyCompactItemDefinition[hash];
+	}
+	tracker.sendEvent('Item not in database', `${hash}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
+	// _gaq.push(['_trackEvent', 'missingItemHash', hash]);
+	logger.error(`Item Reference ${hash} is not in database. This has been reported.`);
+	return {
+		hasIcon: false,
+		icon: "",
+		sourceHashes: [],
+		tierTypeName: "",
+		itemTypeName: "",
+		itemName: "",
+		bucketTypeHash: 215593132
+	};
 }

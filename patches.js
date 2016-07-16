@@ -206,3 +206,115 @@ chrome.storage.local.get(null, function(data) {
 	}
 	chrome.storage.local.set(data, function() {});
 });
+
+chrome.storage.local.get(null, function(data) {
+	for(var itemDiff of data.itemChanges) {
+		for(var added in itemDiff.added) {
+			if(added === null) {
+
+			}
+		}
+	}
+	for (var i = data.itemChanges.length - 1; i > -1; i--) {
+		var itemDiff = data.itemChanges[i];
+		if (itemDiff.added.length > 20 || itemDiff.removed.length > 20 || (itemDiff.transferred && itemDiff.transferred.length > 20)) {
+			data.itemChanges.splice(i, 1);
+		}
+	}
+	chrome.storage.local.set(data, function() {});
+});
+
+
+
+
+
+
+//addition code
+var itemData = JSON.parse(addition);
+var itemDefinition = getItemDefinition(itemData.itemHash);
+if ((itemDefinition.bucketTypeHash === 2197472680 || itemDefinition.bucketTypeHash === 1801258597 || itemData.objectives) && parseInt(itemData.stackSize, 10) > 0) {
+	console.log("passed to progression");
+	progression.push({
+		characterId: diffObject.characterId,
+		item: addition
+	});
+} else {
+	additions.push({
+		characterId: diffObject.characterId,
+		item: addition
+	});
+}
+// removal code
+var localDefinition = JSON.parse(removal);
+var databaseDefinition = getItemDefinition(localDefinition.itemHash);
+if (databaseDefinition.bucketTypeHash === 2197472680 || databaseDefinition.bucketTypeHash === 1801258597 || localDefinition.objectives) {
+	var found = false;
+	for (var progress of progression) {
+		progress = JSON.parse(progress.item);
+		if (localDefinition.itemInstanceId === progress.itemInstanceId && localDefinition.stackSize !== progress.stackSize) {
+			// console.log(progress);
+			if (parseInt(progress.stackSize, 10) >= 100) {
+				forceupdate = true;
+			}
+			found = true;
+			break;
+		}
+	}
+	if (!found) {
+		for (var added of additions) {
+			added = JSON.parse(added.item);
+			if (localDefinition.itemInstanceId === added.itemInstanceId && localDefinition.stackSize !== added.stackSize) {
+				// console.log(added);
+				if (parseInt(added.stackSize, 10) >= 100) {
+					forceupdate = true;
+				}
+				found = true;
+				break;
+			}
+		}
+	}
+	// console.log(found);
+	if (found === false) {
+		removals.push({
+			characterId: diffObject.characterId,
+			item: removal
+		});
+	}
+} else {
+	removals.push({
+		characterId: diffObject.characterId,
+		item: removal
+	});
+}
+
+// diff code
+for (var i = additions.length - 1; i >= 0; i--) {
+	var addedItem = additions[i];
+	for (var e = removals.length - 1; e >= 0; e--) {
+		var removedItem = removals[e];
+		if (addedItem.characterId !== removedItem.characterId) {
+			if (isSameItem(addedItem.item, removedItem.item)) {
+				var movedItem = additions.splice(i, 1)[0];
+				removals.splice(e, 1);
+				if (JSON.parse(movedItem.item).itemHash !== parseInt(localStorage.transferMaterial) && JSON.parse(movedItem.item).itemHash !== parseInt(localStorage.oldTransferMaterial)) {
+					var TQTemp = {
+						from: removedItem.characterId,
+						to: addedItem.characterId,
+						item: movedItem.item
+					};
+					var isUnique = true;
+					for (var item of transferQ) {
+						if (JSON.stringify(item) === JSON.stringify(TQTemp)) {
+							isUnique = false;
+							break;
+						}
+					}
+					if (isUnique) {
+						transferQ.push(TQTemp);
+					}
+				}
+				break;
+			}
+		}
+	}
+}

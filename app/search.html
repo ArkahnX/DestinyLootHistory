@@ -7,12 +7,13 @@
 </head>
 
 <body>
-	<input type="button" value="Return to Item Tracking" id="viewHome" />
+	<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
 	<header id="status">
 		<nav>
 			<ul id="searchTerms"></ul>
 			<input type="button" value="Add Search Term" id="addSearchTerm" />
 			<input type="button" value="Search" id="searchButton" />
+			<!-- <select id="paginate"></select> -->
 		</nav>
 	</header>
 	<div class="title-bar">
@@ -52,13 +53,20 @@
 				<tbody id="stat-table"></tbody>
 			</table>
 		</section>
+		<section id="item-nodes">
+			<table>
+				<tbody id="node-table"></tbody>
+			</table>
+		</section>
 	</div>
+	<div id="copyright">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
 	<!-- <script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script> -->
 	<!-- <script type="text/javascript" src="DestinyDatabase/DestinyCompactTalentDefinition.js"></script> -->
 	<!-- <script type="text/javascript" src="DestinyDatabase/DestinyCompactDefinition.js"></script> -->
 	<script type="text/javascript" src="scripts/vendor/AsyncIterator.js"></script>
 	<script type="text/javascript" src="scripts/vendor/moment.js"></script>
 	<script type="text/javascript" src="scripts/vendor/moment-timezone.js"></script>
+	<script type="text/javascript" src="scripts/vendor/google-analytics-bundle.js"></script>
 	<script type="text/javascript" src="scripts/shared.js"></script>
 	<script type="text/javascript" src="scripts/bungie.js"></script>
 	<script type="text/javascript" src="scripts/quality.js"></script>
@@ -68,7 +76,7 @@
 	<script type="text/javascript" src="scripts/ui.js"></script>
 	<script type="text/javascript" src="scripts/matches.js"></script>
 	<script type="text/javascript" src="scripts/timers.js"></script>
-	<script type="text/javascript" src="scripts/search.js"></script>
+	<script type="text/javascript" src="scripts/pages/search.js"></script>
 </body>
 
 </html>
