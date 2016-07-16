@@ -11,42 +11,42 @@ function dirtyItemCheck() {
 	logger.startLogging("timers");
 	logger.log("dirtyItemCheck");
 	logger.saveData();
-	allowBungieTracking().then(function(allowTracking) {
-		logger.startLogging("timers");
-		if (allowTracking.allow_tracking) {
-			if (localStorage.error === "false") {
-				chrome.browserAction.setBadgeText({
-					text: ""
-				});
-				clearTimeout(dirtyTimeout);
-				initItems(function() {
-					var newCharacterDates = 0;
-					for (var character of characterDescriptions) {
-						if (character.dateLastPlayed) {
-							newCharacterDates += new Date(character.dateLastPlayed).getTime();
-						}
-					}
-					logger.startLogging("Timers");
-					if (newCharacterDates !== oldCharacterDates) { // if new character dates is not equal to old character dates
-						logger.log("Beginning tracking");
-						localStorage.listening = "true";
-						recursiveIdleTracking(); // found in this script.
-					}
-					if (localStorage.listening === "false") {
-						dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 60); // check 60 seconds later
-					}
-				});
-			} else {
-				chrome.browserAction.setBadgeText({
-					text: "!"
-				});
-				dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 60);
+	// allowBungieTracking().then(function(allowTracking) {
+	logger.startLogging("timers");
+	// if (allowTracking.allow_tracking) {
+	if (localStorage.error === "false") {
+		chrome.browserAction.setBadgeText({
+			text: ""
+		});
+		clearTimeout(dirtyTimeout);
+		initItems(function() {
+			var newCharacterDates = 0;
+			for (var character of characterDescriptions) {
+				if (character.dateLastPlayed) {
+					newCharacterDates += new Date(character.dateLastPlayed).getTime();
+				}
 			}
-			logger.saveData();
-		} else {
-			beginBackendTracking(allowTracking);
-		}
-	});
+			logger.startLogging("Timers");
+			if (newCharacterDates !== oldCharacterDates) { // if new character dates is not equal to old character dates
+				logger.log("Beginning tracking");
+				localStorage.listening = "true";
+				recursiveIdleTracking(); // found in this script.
+			}
+			if (localStorage.listening === "false") {
+				dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 60); // check 60 seconds later
+			}
+		});
+	} else {
+		chrome.browserAction.setBadgeText({
+			text: "!"
+		});
+		dirtyTimeout = setTimeout(dirtyItemCheck, 1000 * 60);
+	}
+	logger.saveData();
+	// } else {
+	// beginBackendTracking();
+	// }
+	// });
 }
 
 var updateTimeout = null;
@@ -117,7 +117,7 @@ var checkInterval = null;
  * STEP 2
  * Check to see if we should force run, or if we are allowed to run
  */
-function beginBackendTracking(allowTracking) {
+function beginBackendTracking() {
 	logger.startLogging("timers");
 	logger.log("beginBackendTracking");
 	// logger.log("Arrived at beginBackendTracking");
@@ -127,15 +127,15 @@ function beginBackendTracking(allowTracking) {
 	listenLoop = null;
 	clearInterval(stopLoop);
 	stopLoop = null;
-	if ((allowTracking.allow_tracking === 1 && localStorage.error === "false") || (!chrome.runtime.getManifest().key && localStorage.error === "false")) {
+	if (localStorage.error === "false") {
 		localStorage.manual = "false";
 		localStorage.listening = "true";
 		recursiveIdleTracking(); // found in this script.
 	} else {
-		if (localStorage.error === "false") {
-			localStorage.error = "true";
-			localStorage.errorMessage = allowTracking.tracking_message;
-		}
+		// if (localStorage.error === "false") {
+		// 	localStorage.error = "true";
+		// 	localStorage.errorMessage = allowTracking.tracking_message;
+		// }
 		localStorage.flag = "false";
 		localStorage.listening = "false";
 		localStorage.manual = "false";
@@ -151,25 +151,25 @@ function apiCheck() {
 	// console.log(localStorage.manual, runningCheck)
 	logger.startLogging("Timers");
 	if (localStorage.manual === "true" && runningCheck === false) {
-		allowBungieTracking().then(function(allowTracking) {
+		// allowBungieTracking().then(function(allowTracking) {
 			initItems(function() {
-				if ((allowTracking.allow_tracking === 1 && localStorage.error === "false") || (!chrome.runtime.getManifest().key && localStorage.error === "false")) {
+				if (localStorage.error === "false") {
 					localStorage.manual = "false";
 					localStorage.listening = "true";
 					logger.log("Forcing check now");
 					recursiveIdleTracking(); // found in this script.
 				} else {
-					if (localStorage.error === "false") {
-						localStorage.error = "true";
-						localStorage.errorMessage = allowTracking.tracking_message;
-					}
+					// if (localStorage.error === "false") {
+					// 	localStorage.error = "true";
+					// 	localStorage.errorMessage = allowTracking.tracking_message;
+					// }
 					localStorage.flag = "false";
 					localStorage.listening = "false";
 					localStorage.manual = "false";
 					checkInterval = setTimeout(apiCheck, 1000);
 				}
 			});
-		});
+		// });
 	} else {
 		checkInterval = setTimeout(apiCheck, 1000);
 	}
@@ -196,8 +196,8 @@ function recursiveIdleTracking() {
 	chrome.browserAction.setBadgeText({
 		text: ""
 	});
-	allowBungieTracking().then(function(allowTracking) {
-		if ((allowTracking.allow_tracking === 1 && localStorage.error === "false") || (!chrome.runtime.getManifest().key && localStorage.error === "false")) {
+	// allowBungieTracking().then(function(allowTracking) {
+		if (localStorage.error === "false") {
 			checkInventory().then(function() { // found in items.js
 				logger.startLogging("timers");
 				logger.log("recursiveIdleTracking2");
@@ -254,11 +254,11 @@ function recursiveIdleTracking() {
 				runningCheck = false;
 			}).catch(function() {
 				runningCheck = false;
-				beginBackendTracking(allowTracking);
+				beginBackendTracking();
 			});
 		} else {
 			runningCheck = false;
-			beginBackendTracking(allowTracking);
+			beginBackendTracking();
 		}
-	});
+	// });
 }

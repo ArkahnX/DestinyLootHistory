@@ -71,10 +71,10 @@ function initializeStoredVariables() {
 		localStorage.accurateTracking = _checkValue(localStorage.accurateTracking, _checkBoolean, "false");
 		localStorage.activeType = _checkValue(localStorage.activeType, _checkActiveType, "xbl");
 		localStorage.characterDescriptions = _checkValue(localStorage.characterDescriptions, _checkJSON, "{}");
-		localStorage.allowTracking = _checkValue(localStorage.allowTracking, _checkJSON, JSON.stringify({
-			"allow_tracking": 0,
-			"tracking_message": "Tracking is disabled by request from Bungie. A resolution is being implemented."
-		}));
+		// localStorage.allowTracking = _checkValue(localStorage.allowTracking, _checkJSON, JSON.stringify({
+		// 	"allow_tracking": 0,
+		// 	"tracking_message": "Tracking is disabled by request from Bungie. A resolution is being implemented."
+		// }));
 		localStorage.error = _checkValue(localStorage.error, _checkBoolean, "false");
 		localStorage.errorMessage = _checkValue(localStorage.errorMessage, "");
 		localStorage.itemChangeDetected = _checkValue(localStorage.itemChangeDetected, _checkBoolean, "false");
@@ -86,6 +86,9 @@ function initializeStoredVariables() {
 		localStorage.notificationClosed = _checkValue(localStorage.notificationClosed, _checkBoolean, "false");
 		localStorage.track3oC = _checkValue(localStorage.track3oC, _checkBoolean, "false");
 		localStorage.uniqueId = _checkValue(localStorage.uniqueId, _checkLength, "false");
+		localStorage.autoLock = _checkValue(localStorage.autoLock, _checkBoolean, "false");
+		localStorage.minQuality = _checkValue(localStorage.minQuality, _checkNumber, 95);
+		localStorage.minLight = _checkValue(localStorage.uniqueId, _checkNumber, 335);
 		var manifest = chrome.runtime.getManifest();
 		if(!localStorage.version) {
 			localStorage.version = manifest.version;

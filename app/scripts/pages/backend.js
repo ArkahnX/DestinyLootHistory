@@ -51,7 +51,7 @@ function allowBungieTracking() {
 					response = JSON.parse(this.response);
 				} catch (e) {
 					resolve({
-						allow_tracking: 0,
+						allow_tracking: 1,
 						tracking_message: "Tracking is disabled by request from Bungie. A resolution is being implemented."
 					});
 					badJson = true;
@@ -70,7 +70,7 @@ function allowBungieTracking() {
 				resolve(JSON.parse(localStorage.allowTracking));
 			} else {
 				resolve({
-					allow_tracking: 0,
+					allow_tracking: 1,
 					tracking_message: "Maintenance is in progress."
 				});
 			}
@@ -131,7 +131,7 @@ function init() {
 				// found in this script. Pings my website, which returns a JSON file which includes a boolean (1-0) for whether to proceed, and a message to display otherwise.
 				// found in items.js, further description inside function.
 				initItems(function() {
-					runCheck();
+					beginBackendTracking();
 				});
 			});
 		});

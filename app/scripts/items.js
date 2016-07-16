@@ -780,9 +780,9 @@ function check3oC() {
 }
 
 function eligibleToLock(item, characterId) {
-	if(hasQuality(item)) {
+	if(localStorage.autoLock === "true" && hasQuality(item)) {
 		var qualityLevel = parseItemQuality(item);
-		if(qualityLevel.min > 94 || item.primaryStat.value > 33) {
+		if(qualityLevel.min >= (parseInt(localStorage.minQuality) || 95) || item.primaryStat.value >= (parseInt(localStorage.minLight) || 335)) {
 			bungie.lock(characterId, item.itemInstanceId);
 		}
 	}
