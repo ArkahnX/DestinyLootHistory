@@ -123,6 +123,18 @@ function initUi() {
 			}
 		}
 	}
+	var autoLock = document.getElementById('autoLock');
+	var track3oC = document.getElementById('track3oC');
+	if (autoLock) {
+		autoLock.checked = localStorage.autoLock === "true";
+		autoLock.addEventListener("change",handleCheckboxChange,false);
+		track3oC.checked = localStorage.track3oC === "true";
+		track3oC.addEventListener("change",handleCheckboxChange,false);
+	}
+}
+
+function handleCheckboxChange(event) {
+	localStorage[event.target.id] = event.target.checked;
 }
 
 function makePages(customLength) {

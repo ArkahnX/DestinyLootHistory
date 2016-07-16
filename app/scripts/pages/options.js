@@ -76,13 +76,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	}
 	var minLight = document.getElementById('minLight');
 	var minQuality = document.getElementById('minQuality');
-	var autoLock = document.getElementById('autoLock');
-	var track3oC = document.getElementById('track3oC');
 	if (minLight) {
-		autoLock.checked = localStorage.autoLock === "true";
-		autoLock.addEventListener("change",handleCheckboxChange,false);
-		track3oC.checked = localStorage.track3oC === "true";
-		track3oC.addEventListener("change",handleCheckboxChange,false);
 		minLight.value = parseInt(localStorage.minLight) || minLight.value;
 		minQuality.value = parseInt(localStorage.minQuality) || minQuality.value;
 		minLight.addEventListener("change", handleQualityChange, false);
@@ -90,10 +84,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	}
 
 });
-
-function handleCheckboxChange(event) {
-	localStorage[event.target.id] = event.target.checked;
-}
 
 function handleQualityChange(event) {
 	var target = event.target;

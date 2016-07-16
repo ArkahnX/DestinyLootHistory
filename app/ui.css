@@ -46,7 +46,6 @@ select:not(#tags),
 .button {
 	font-family: Arial;
 	font-size: 13px;
-	font-weight: 700;
 	line-height: 1.5;
 
 	position: relative;
@@ -66,13 +65,16 @@ select:not(#tags),
 	background-color: #128FFF;
 }
 
+.button {
+	text-shadow: 0 1px black;
+}
+
 input,
 select:not(#tags),
 #tags option:not(:checked),
 .button {
 	font-family: Arial;
 	font-size: 13px;
-	font-weight: 700;
 	line-height: 1.5;
 
 	position: relative;
@@ -430,7 +432,7 @@ header {
 }
 
 .hidden {
-	display: none;
+	display: none!important;
 }
 
 .one-row {
@@ -506,9 +508,11 @@ header {
 }
 
 input[type='checkbox'] {
-	width: 20px;
-	height: 20px;
+	width: 19px;
+	height: 19px;
 	margin-left: 12px;
+
+	vertical-align: bottom;
 }
 
 label {
@@ -810,8 +814,9 @@ ul.drop-down li:last-child {
 ul.drop-down li ul li {
 	margin-right: -4px!important;
 }
-ul.drop-down li a:hover,
-ul.drop-down li:hover {
+ul.drop-down li .button:hover,
+ul.drop-down li:hover,
+ul.drop-down li:hover .button {
 	color: #FFF;
 	background: #555;
 }
@@ -824,7 +829,7 @@ ul.drop-down li ul {
 	display: none;
 	visibility: hidden;
 
-	width: 150px;
+	min-width: 150px;
 	padding: 0;
 
 	transition: opacity .2s;
@@ -832,15 +837,17 @@ ul.drop-down li ul {
 	opacity: 0;
 	box-shadow: none;
 }
-ul.drop-down li ul li a,
+ul.drop-down li ul li .button,
 ul.drop-down li ul li {
 	display: block;
+
+	white-space: nowrap;
 
 	color: #FFF;
 	background: #555;
 	text-shadow: 0 -1px 0 #000;
 }
-ul.drop-down li ul li a:hover {
+ul.drop-down li ul li .button:hover {
 	background: #666;
 }
 ul.drop-down li:hover ul {
@@ -879,11 +886,14 @@ fieldset label {
 }
 
 #uniqueId {
-	-webkit-user-select:auto;cursor:text;
-	font-size:16px;
+	font-size: 16px;
+
+	cursor: text;
+	-webkit-user-select: auto;
 }
 
-input[type=text],input[type=number] {
+input[type=text],
+input[type=number] {
 	overflow: hidden;
 
 	padding: 8px 15px;
@@ -896,6 +906,16 @@ input[type=text],input[type=number] {
 	background: white;
 }
 
-input[type=text]:focus,input[type=number]:focus {
+input[type=text]:focus,
+input[type=number]:focus {
 	outline: 2px solid #004A8C;
+}
+li label {
+	font-size: 13px;
+
+	margin: 0;
+}
+
+label + input[type=checkbox] {
+	vertical-align: sub;
 }
