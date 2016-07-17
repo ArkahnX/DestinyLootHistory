@@ -199,11 +199,11 @@ function recursiveIdleTracking() {
 	// allowBungieTracking().then(function(allowTracking) {
 		if (localStorage.error === "false") {
 			checkInventory().then(function() { // found in items.js
-				logger.startLogging("timers");
-				logger.log("recursiveIdleTracking2");
-				tracker.sendEvent('Passed BungieTracking and CheckInventory', `No Issues`, `version ${localStorage.version}, systems ${JSON.stringify(systemIds)}`);
-				// reset a bunch of variables
 				logger.startLogging("Timers");
+				logger.log("recursiveIdleTracking2");
+				logger.log(`Error: ${localStorage.error}, Listening: ${localStorage.listening}, Item Change: ${localStorage.itemChangeDetected}, Idle: ${idleTimer}`);
+				tracker.sendEvent('Passed BungieTracking and CheckInventory', `No Issues`, `version ${localStorage.version}, systems ${localStorage.systems}`);
+				// reset a bunch of variables
 				var endTime = window.performance.now();
 				var resultTime = Math.floor(endTime - startTime);
 				if (localStorage.itemChangeDetected === "false") {
