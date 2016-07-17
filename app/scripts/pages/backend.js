@@ -1,4 +1,5 @@
 tracker.sendAppView('BackgroundScreen');
+
 function _backup() {
 	chrome.storage.local.get(null, function(data) {
 		var url = 'data:application/json;base64,' + btoa(JSON.stringify(data.itemChanges));

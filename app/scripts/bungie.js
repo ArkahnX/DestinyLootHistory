@@ -73,6 +73,7 @@ var bungie = (function Bungie() {
 						localStorage.error = "true";
 						tracker.sendEvent('Invalid Item Selection', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 						localStorage.errorMessage = 'Invalid item selection, please use the <a href="debug.html">report issue feature</a>.<br>' + JSON.stringify(response.Message);
+						logger.endLogging();
 						logger.saveData();
 						opts.complete(response.Response, response);
 					} else if (response.ErrorCode === 1642) {
@@ -84,6 +85,7 @@ var bungie = (function Bungie() {
 						}
 						localStorage.error = "true";
 						localStorage.errorMessage = 'No space in vault, please free up some space! Or use the <a href="debug.html">report issue feature</a>.<br>' + JSON.stringify(response.Message);
+						logger.endLogging();
 						logger.saveData();
 						opts.complete(response.Response, response);
 					} else if (response.ErrorCode === 99) {
@@ -91,7 +93,8 @@ var bungie = (function Bungie() {
 						tracker.sendEvent('User Not Found', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 						logger.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message));
 						localStorage.error = "true";
-						localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message);
+						localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.<br>This is a generic error, please use the <a href="debug.html">report issue feature</a> so the developers can assist.';
+						logger.endLogging();
 						logger.saveData();
 						opts.incomplete();
 					} else if (response.ErrorCode === 7) {
@@ -100,6 +103,7 @@ var bungie = (function Bungie() {
 						logger.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message));
 						localStorage.error = "true";
 						localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.<br>This is a generic error, please use the <a href="debug.html">report issue feature</a> so the developers can assist.';
+						logger.endLogging();
 						logger.saveData();
 						opts.incomplete();
 					} else if (response.ErrorCode === 5) {
@@ -111,6 +115,7 @@ var bungie = (function Bungie() {
 						localStorage.error = "true";
 						tracker.sendEvent('System Disabled Maintenance', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 						localStorage.errorMessage = 'Bungie servers are undergoing maintenance. Please use "Begin Tracking" to try to connect again. \n' + JSON.stringify(response.Message);
+						logger.endLogging();
 						logger.saveData();
 						opts.incomplete();
 					} else if (response.ErrorCode !== 1) {
@@ -122,6 +127,7 @@ var bungie = (function Bungie() {
 						localStorage.error = "true";
 						tracker.sendEvent('Unhandled Error', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 						localStorage.errorMessage = 'Unhandled Bungie Error, please use the <a href="debug.html">report issue feature</a> so the developers can assist.\n' + JSON.stringify(response.Message);
+						logger.endLogging();
 						logger.saveData();
 						opts.incomplete();
 					} else {
@@ -130,7 +136,8 @@ var bungie = (function Bungie() {
 							tracker.sendEvent('User Not Found', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.route}, Response: ${JSON.stringify(response)}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 							logger.error('Response was empty\n' + JSON.stringify(response) + localStorage.systems);
 							localStorage.error = "true";
-							localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.<br>This is a generic error, please use the <a href="debug.html">report issue feature</a> so the developers can assist.';
+							localStorage.errorMessage = `Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.<br>This is a generic error, please use the <a href="debug.html">report issue feature</a> so the developers can assist.`;
+							logger.endLogging();
 							logger.saveData();
 							opts.incomplete();
 						} else {
@@ -156,19 +163,22 @@ var bungie = (function Bungie() {
 					tracker.sendEvent('Unhandled Response', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 					logger.error(`status ${this.status}, route ${opts.route}, response ${this.response}` + localStorage.systems);
 					logger.error("Response Error: Response did not contain expected values.");
-					localStorage.errorMessage = "Response Error: Response did not contain expected values.";
+					localStorage.errorMessage = `Response Error: Response did not contain expected values.<br>This is a generic error, please use the <a href="debug.html">report issue feature</a> so the developers can assist.`;
+					logger.endLogging();
+					logger.saveData();
 					opts.incomplete();
 				}
 			};
 
-			r.onerror = function(err) {
+			r.onerror = function() {
 				logger.startLogging("Bungie Logs");
-				tracker.sendEvent('No Network Connection', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}, Response: ${JSON.stringify(response)}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
-				logger.error(r);
-				logger.error(`route ${opts.route}`);
+				tracker.sendEvent('No Network Connection', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
+				logger.error(`Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}`);
+				logger.error(`Options ${JSON.stringify(opts)}`);
 				logger.error("Network Error: Please check your internet connection.");
-				localStorage.errorMessage = "Network Error: Please check your internet connection.";
+				localStorage.errorMessage = `Network Error: Please check your internet connection.<br>This is a generic error, please use the <a href="debug.html">report issue feature</a> so the developers can assist.`;
 				localStorage.error = "true";
+				logger.endLogging();
 				logger.saveData();
 				opts.incomplete();
 			};
@@ -183,7 +193,8 @@ var bungie = (function Bungie() {
 					localStorage.error = "true";
 					tracker.sendEvent('Cookie Not Found', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}, Response: ${JSON.stringify(response)}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 					logger.error('Error loading cookie.' + localStorage.systems);
-					localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.<br>This is a generic error, please use the <a href="debug.html">report issue feature</a> so the developers can assist.';
+					localStorage.errorMessage = `Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.<br>This is a generic error, please use the <a href="debug.html">report issue feature</a> so the developers can assist.`;
+					logger.endLogging();
 					logger.saveData();
 					opts.incomplete();
 				}

@@ -24,7 +24,7 @@ function containsNodes(item, nodeNameList) {
 			}
 		}
 	}
-	return Math.round((result/nodeNameList.length)*100) || 0;
+	return Math.round((result / nodeNameList.length) * 100) || 0;
 }
 
 

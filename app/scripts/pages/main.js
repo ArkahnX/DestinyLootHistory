@@ -9,5 +9,5 @@ initUi();
 checkForUpdates();
 
 chrome.storage.local.get(null, function(result) {
-	logger.log(result);
+	console.log(result);
 });

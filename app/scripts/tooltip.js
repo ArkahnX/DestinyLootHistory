@@ -135,7 +135,7 @@ function handleOtherStats(dataset, resolve) {
 		for (let stat of objectives) {
 			var displayDescription = DestinyObjectiveDefinition[stat.objectiveHash].displayDescription;
 			var completionValue = DestinyObjectiveDefinition[stat.objectiveHash].completionValue;
-			if(dataset.itemTypeName === "Book" && DestinyRecordDefinition[stat.objectiveHash]) {
+			if (dataset.itemTypeName === "Book" && DestinyRecordDefinition[stat.objectiveHash]) {
 				displayDescription = DestinyRecordDefinition[stat.objectiveHash].description;
 			}
 			var tableRowOne = document.createElement("tr");
@@ -197,23 +197,23 @@ function handleOtherStats(dataset, resolve) {
 				} else if (materialText === "Wormspore") {
 					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[3164836592].icon + "')");
 				}
-				if(guardianText === "Titan") {
+				if (guardianText === "Titan") {
 					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[1723894001].icon + "')");
-				} else if(guardianText === "Warlock") {
+				} else if (guardianText === "Warlock") {
 					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[776529032].icon + "')");
-				} else if(guardianText === "Hunter") {
+				} else if (guardianText === "Hunter") {
 					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[855333071].icon + "')");
-				} else if(guardianText === "Hunter") {
+				} else if (guardianText === "Hunter") {
 					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[855333071].icon + "')");
-				} else if(guardianText === "Cleansing") {
+				} else if (guardianText === "Cleansing") {
 					guardianIcon.setAttribute("style", "background-image: url(" + "'img/hive.png')");
-				} else if(guardianText === "Reclamation") {
+				} else if (guardianText === "Reclamation") {
 					guardianIcon.setAttribute("style", "background-image: url(" + "'img/taken.png')");
-				} else if(guardianText === "Blue") {
+				} else if (guardianText === "Blue") {
 					guardianIcon.setAttribute("style", "background-image: url(" + "'img/vex.png')");
-				} else if(guardianText === "Network") {
+				} else if (guardianText === "Network") {
 					guardianIcon.setAttribute("style", "background-image: url(" + "'img/cabal.png')");
-				} else if(guardianText === "Ether") {
+				} else if (guardianText === "Ether") {
 					guardianIcon.setAttribute("style", "background-image: url(" + "'img/fallen.png')");
 				}
 				materialIcon.title = materialText;
