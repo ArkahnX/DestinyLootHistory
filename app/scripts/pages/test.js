@@ -1,5 +1,5 @@
 tracker.sendAppView('TestScreen');
-console.disable();
+logger.disable();
 initUi();
 var data = {
 	inventories: {},
