@@ -26,7 +26,7 @@ function dirtyItemCheck() {
 					newCharacterDates += new Date(character.dateLastPlayed).getTime();
 				}
 			}
-			logger.startLogging("Timers");
+			logger.startLogging("timers");
 			if (newCharacterDates !== oldCharacterDates) { // if new character dates is not equal to old character dates
 				logger.log("Beginning tracking");
 				localStorage.listening = "true";
@@ -149,26 +149,26 @@ var runningCheck = false;
 function apiCheck() {
 	// logger.log("Arrived at apiCheck");
 	// console.log(localStorage.manual, runningCheck)
-	logger.startLogging("Timers");
 	if (localStorage.manual === "true" && runningCheck === false) {
 		// allowBungieTracking().then(function(allowTracking) {
-			initItems(function() {
-				if (localStorage.error === "false") {
-					localStorage.manual = "false";
-					localStorage.listening = "true";
-					logger.log("Forcing check now");
-					recursiveIdleTracking(); // found in this script.
-				} else {
-					// if (localStorage.error === "false") {
-					// 	localStorage.error = "true";
-					// 	localStorage.errorMessage = allowTracking.tracking_message;
-					// }
-					localStorage.flag = "false";
-					localStorage.listening = "false";
-					localStorage.manual = "false";
-					checkInterval = setTimeout(apiCheck, 1000);
-				}
-			});
+		initItems(function() {
+			logger.startLogging("timers");
+			if (localStorage.error === "false") {
+				localStorage.manual = "false";
+				localStorage.listening = "true";
+				logger.log("Forcing check now");
+				recursiveIdleTracking(); // found in this script.
+			} else {
+				// if (localStorage.error === "false") {
+				// 	localStorage.error = "true";
+				// 	localStorage.errorMessage = allowTracking.tracking_message;
+				// }
+				localStorage.flag = "false";
+				localStorage.listening = "false";
+				localStorage.manual = "false";
+				checkInterval = setTimeout(apiCheck, 1000);
+			}
+		});
 		// });
 	} else {
 		checkInterval = setTimeout(apiCheck, 1000);
@@ -197,67 +197,67 @@ function recursiveIdleTracking() {
 		text: ""
 	});
 	// allowBungieTracking().then(function(allowTracking) {
-		if (localStorage.error === "false") {
-			checkInventory().then(function() { // found in items.js
-				logger.startLogging("Timers");
-				logger.log("recursiveIdleTracking2");
-				logger.log(`Error: ${localStorage.error}, Listening: ${localStorage.listening}, Item Change: ${localStorage.itemChangeDetected}, Idle: ${idleTimer}`);
-				tracker.sendEvent('Passed BungieTracking and CheckInventory', `No Issues`, `version ${localStorage.version}, systems ${localStorage.systems}`);
-				// reset a bunch of variables
-				var endTime = window.performance.now();
-				var resultTime = Math.floor(endTime - startTime);
-				if (localStorage.itemChangeDetected === "false") {
-					idleTimer++;
-				}
-				if (localStorage.itemChangeDetected === "true") {
-					idleTimer = 0;
-				}
-				if (localStorage.error === "true") { // if we have an error
-					chrome.browserAction.setBadgeText({
-						text: "!"
-					});
-					idleTimer = 0;
-					localStorage.listening = "true";
-					let endTime = window.performance.now();
-					let resultTime = Math.floor(endTime - startTime);
-					logger.log(`Scheduling check for ${moment().add(((60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((60 * 1000) - resultTime) / 1000} seconds`);
-					timeoutTracker = setTimeout(recursiveIdleTracking, (60 * 1000) - resultTime);
-					oldCharacterDates = 0;
-					for (var character of characterDescriptions) {
-						if (character.dateLastPlayed) {
-							oldCharacterDates += new Date(character.dateLastPlayed).getTime();
-						}
+	if (localStorage.error === "false") {
+		checkInventory().then(function() { // found in items.js
+			logger.startLogging("timers");
+			logger.log("recursiveIdleTracking2");
+			logger.log(`Error: ${localStorage.error}, Listening: ${localStorage.listening}, Item Change: ${localStorage.itemChangeDetected}, Idle: ${idleTimer}`);
+			tracker.sendEvent('Passed BungieTracking and CheckInventory', `No Issues`, `version ${localStorage.version}, systems ${localStorage.systems}`);
+			// reset a bunch of variables
+			var endTime = window.performance.now();
+			var resultTime = Math.floor(endTime - startTime);
+			if (localStorage.itemChangeDetected === "false") {
+				idleTimer++;
+			}
+			if (localStorage.itemChangeDetected === "true") {
+				idleTimer = 0;
+			}
+			if (localStorage.error === "true") { // if we have an error
+				chrome.browserAction.setBadgeText({
+					text: "!"
+				});
+				idleTimer = 0;
+				localStorage.listening = "true";
+				let endTime = window.performance.now();
+				let resultTime = Math.floor(endTime - startTime);
+				logger.log(`Scheduling check for ${moment().add(((60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((60 * 1000) - resultTime) / 1000} seconds`);
+				timeoutTracker = setTimeout(recursiveIdleTracking, (60 * 1000) - resultTime);
+				oldCharacterDates = 0;
+				for (var character of characterDescriptions) {
+					if (character.dateLastPlayed) {
+						oldCharacterDates += new Date(character.dateLastPlayed).getTime();
 					}
-					dirtyItemCheck();
-					runningCheck = false;
-				} else if (localStorage.itemChangeDetected === "true" || (localStorage.listening === "true" && idleTimer < 6)) { // If we are tracking
-					logger.log(`${6 - idleTimer} checks remaining.`);
-					localStorage.listening = "true";
-					localStorage.itemChangeDetected = "false";
-					logger.log(`Scheduling check for ${moment().add(((60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((60 * 1000) - resultTime) / 1000} seconds`);
-					timeoutTracker = setTimeout(recursiveIdleTracking, (60 * 1000) - resultTime);
-				} else { // tracking timed out, check much later as they likely aren't actively playing
-					idleTimer = 0;
-					localStorage.listening = "false";
-					logger.log(`Scheduling check for ${moment().add(((20 * 60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((20 * 60 * 1000) - resultTime) / 1000} seconds`);
-					timeoutTracker = setTimeout(recursiveIdleTracking, (20 * 60 * 1000) - resultTime);
-					oldCharacterDates = 0;
-					for (var character of characterDescriptions) {
-						if (character.dateLastPlayed) {
-							oldCharacterDates += new Date(character.dateLastPlayed).getTime();
-						}
-					}
-					dirtyItemCheck(); // found in this file
 				}
-				logger.saveData(); // save logs
+				dirtyItemCheck();
 				runningCheck = false;
-			}).catch(function() {
-				runningCheck = false;
-				beginBackendTracking();
-			});
-		} else {
+			} else if (localStorage.itemChangeDetected === "true" || (localStorage.listening === "true" && idleTimer < 6)) { // If we are tracking
+				logger.log(`${6 - idleTimer} checks remaining.`);
+				localStorage.listening = "true";
+				localStorage.itemChangeDetected = "false";
+				logger.log(`Scheduling check for ${moment().add(((60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((60 * 1000) - resultTime) / 1000} seconds`);
+				timeoutTracker = setTimeout(recursiveIdleTracking, (60 * 1000) - resultTime);
+			} else { // tracking timed out, check much later as they likely aren't actively playing
+				idleTimer = 0;
+				localStorage.listening = "false";
+				logger.log(`Scheduling check for ${moment().add(((20 * 60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((20 * 60 * 1000) - resultTime) / 1000} seconds`);
+				timeoutTracker = setTimeout(recursiveIdleTracking, (20 * 60 * 1000) - resultTime);
+				oldCharacterDates = 0;
+				for (var character of characterDescriptions) {
+					if (character.dateLastPlayed) {
+						oldCharacterDates += new Date(character.dateLastPlayed).getTime();
+					}
+				}
+				dirtyItemCheck(); // found in this file
+			}
+			logger.saveData(); // save logs
+			runningCheck = false;
+		}).catch(function() {
 			runningCheck = false;
 			beginBackendTracking();
-		}
+		});
+	} else {
+		runningCheck = false;
+		beginBackendTracking();
+	}
 	// });
 }

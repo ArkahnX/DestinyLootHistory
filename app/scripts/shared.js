@@ -19,7 +19,7 @@ var service = analytics.getService('DestinyLootHistory');
 
 // You can create as many trackers as you want. Each tracker has its own state
 // independent of other tracker instances.
-var tracker = service.getTracker('UA-77020265-2');  // Supply your GA Tracking ID.
+var tracker = service.getTracker('UA-77020265-2'); // Supply your GA Tracking ID.
 
 function recursive(index, array, networkTask, resultTask, endRecursion) {
 	if (array[index]) {

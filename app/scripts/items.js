@@ -389,7 +389,8 @@ function isSameItem(item1, item2) {
  * grabs guardian inventories. Accurate tracking is off by default, so by default we finish this function and then grabRemoteInventory and head back to step 3 in timers.js
  */
 function checkInventory() {
-	logger.log("checkInventory")
+	logger.startLogging("items");
+	logger.log("checkInventory");
 	return new Promise(function(resolve, reject) {
 		// grabRemoteInventory(function() {
 		// 	if (localStorage.accurateTracking === "true") {
@@ -408,8 +409,8 @@ function checkInventory() {
 
 function grabRemoteInventory(resolve, reject) {
 	logger.startLogging("items");
-	logger.log("grabRemoteInventory")
-		// logger.log("Arrived at grabRemoteInventory");
+	logger.log("grabRemoteInventory");
+	// logger.log("Arrived at grabRemoteInventory");
 	logger.time("Bungie Search");
 	var currentDateString = moment().utc().format();
 	bungie.setActive(localStorage.activeType);
@@ -474,7 +475,7 @@ function grabRemoteInventory(resolve, reject) {
 													progress: objective.progress
 												});
 												completed += objective.progress;
-												completionValue += DestinyObjectiveDefinition[objective.objectiveHash].completionValue;		
+												completionValue += DestinyObjectiveDefinition[objective.objectiveHash].completionValue;
 											}
 										}
 										if (completed === completionValue) {
@@ -544,12 +545,13 @@ function hasInventorySpace(characterId, itemHash) {
 }
 
 function moveLargestItemTo(characterId) {
+	logger.startLogging("items");
 	let largestItem = null;
 	for (let item of newInventories.vault) {
 		let itemDef = getItemDefinition(item.itemHash);
 		if (item.itemHash !== 342707700 && item.itemHash !== 342707701 && item.itemHash !== 342707703 && item.itemHash !== 142694124 && item.itemHash !== 3881084295 && item.itemHash !== 1565194903 && item.itemHash !== 3026483582 && item.itemHash !== 1027379218 && item.itemHash !== 1556533319 && (itemDef.bucketTypeHash === 1469714392 || itemDef.bucketTypeHash === 3865314626)) {
 			if (!localStorage.oldTransferMaterial || (localStorage.oldTransferMaterial && parseInt(localStorage.oldTransferMaterial) !== item.itemHash)) {
-				logger.log(item.itemHash, localStorage.oldTransferMaterial)
+				logger.log(item.itemHash, localStorage.oldTransferMaterial);
 				if (!largestItem) {
 					largestItem = item;
 				}
@@ -780,9 +782,9 @@ function check3oC() {
 }
 
 function eligibleToLock(item, characterId) {
-	if(localStorage.autoLock === "true" && hasQuality(item)) {
+	if (localStorage.autoLock === "true" && hasQuality(item)) {
 		var qualityLevel = parseItemQuality(item);
-		if(qualityLevel.min >= (parseInt(localStorage.minQuality) || 95) || item.primaryStat.value >= (parseInt(localStorage.minLight) || 335)) {
+		if (qualityLevel.min >= (parseInt(localStorage.minQuality) || 95) || item.primaryStat.value >= (parseInt(localStorage.minLight) || 335)) {
 			bungie.lock(characterId, item.itemInstanceId);
 		}
 	}

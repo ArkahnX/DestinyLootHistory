@@ -4,7 +4,7 @@ characterDescriptions = JSON.parse(localStorage.characterDescriptions);
 initUi();
 
 chrome.storage.local.get(null, function(result) {
-	logger.log(result);
+	console.log(result);
 });
 
 var uniqueId = 0;
@@ -241,8 +241,8 @@ function handleSearch() {
 }
 
 function finishSearch(results) {
-	logger.startLogging("search");
-	logger.info(results);
+	// logger.startLogging("search");
+	console.info(results);
 	document.getElementById("date").innerHTML = "";
 	document.getElementById("progression").innerHTML = "";
 	document.getElementById("added").innerHTML = "";
