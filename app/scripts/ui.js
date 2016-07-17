@@ -239,7 +239,7 @@ var transferredFrag = document.createDocumentFragment();
 var progressionFrag = document.createDocumentFragment();
 
 function displayResults(customItems) {
-	logger.startLogging("UI");
+	// logger.startLogging("UI");
 	makePages(customItems && customItems.length);
 	var date = document.getElementById("date");
 	var added = document.getElementById("added");
@@ -247,18 +247,18 @@ function displayResults(customItems) {
 	var transferred = document.getElementById("transferred");
 	var progression = document.getElementById("progression");
 	var trackerIcon = document.getElementById("trackingItem");
-	if (localStorage.accurateTracking === "true") {
+	if (trackerIcon && localStorage.accurateTracking === "true") {
 		trackerIcon.style.display = "inline-block";
 		trackerIcon.style.backgroundImage = "url(" + "'http://www.bungie.net" + getItemDefinition(localStorage.transferMaterial).icon + "')";
 
-	} else {
+	} else if(trackerIcon) {
 		trackerIcon.style.display = "none";
 	}
 	return new Promise(function(resolve, reject) {
-		logger.startLogging("UI");
-		logger.timeEnd("grab matches");
+		// logger.startLogging("UI");
+		// logger.timeEnd("grab matches");
 		constructMatchInterface();
-		logger.time("loadResults");
+		// logger.time("loadResults");
 		if (oldItemChangeQuantity !== ((customItems && customItems.length) || (data.itemChanges && data.itemChanges.length)) || oldPageNumber !== pageNumber) {
 			while (date.lastChild) {
 				date.removeChild(date.lastChild);
@@ -291,10 +291,10 @@ function displayResults(customItems) {
 		var batchSize = 50;
 		// The actual processing method
 		function work(item, index) {
-			logger.startLogging("UI");
+			// logger.startLogging("UI");
 			if (lastIndex < index) {
 				if (!item.added) {
-					logger.log(item)
+					console.log(item)
 				}
 				var addedQty = item.added.length;
 				var removedQty = item.removed.length;
@@ -330,7 +330,7 @@ function displayResults(customItems) {
 	});
 
 	function postWork(resolve, customItems) {
-		logger.startLogging("UI");
+		// logger.startLogging("UI");
 		if (oldItemChangeQuantity !== ((customItems && customItems.length) || (data.itemChanges && data.itemChanges.length)) || oldPageNumber !== pageNumber) {
 			while (date.lastChild) {
 				date.removeChild(date.lastChild);
@@ -383,7 +383,7 @@ function displayResults(customItems) {
 		}
 		oldItemChangeQuantity = ((customItems && customItems.length) || (data.itemChanges && data.itemChanges.length));
 		oldPageNumber = pageNumber;
-		logger.timeEnd("loadResults");
+		// logger.timeEnd("loadResults");
 		// logger.log('Done processing', results);
 		resolve();
 	}
@@ -473,14 +473,14 @@ function makeProgress(itemDiff, moveType, index) {
 }
 
 function itemClasses(itemData) {
-	logger.startLogging("UI");
+	// logger.startLogging("UI");
 	var classList = [];
 	if (itemData.isGridComplete) {
 		classList.push("complete");
 	}
 	var itemDefinition = getItemDefinition(itemData.itemHash);
 	if (!itemDefinition) {
-		logger.log(itemData.itemHash, itemData, DestinyCompactItemDefinition)
+		console.log(itemData.itemHash, itemData, DestinyCompactItemDefinition)
 	}
 	if (itemData.itemHash === 3159615086 || itemData.itemHash === 2534352370 || itemData.itemHash === 2749350776) {
 		classList.push("faction");
@@ -545,7 +545,7 @@ function primaryStatName(itemData) {
 }
 
 function passData(DomNode, itemDiff, moveType, index) {
-	logger.startLogging("UI");
+	// logger.startLogging("UI");
 	var itemData = itemDiff[moveType][index];
 	if (itemData.item) {
 		itemData = itemData.item;
@@ -556,7 +556,7 @@ function passData(DomNode, itemDiff, moveType, index) {
 	}
 	var itemDefinition = getItemDefinition(itemData.itemHash);
 	if (!itemDefinition) {
-		logger.log(itemData.itemHash, itemData, DestinyCompactItemDefinition)
+		console.log(itemData.itemHash, itemData, DestinyCompactItemDefinition)
 	}
 	if (itemDefinition.tierTypeName) {
 		DomNode.dataset.tierTypeName = itemDefinition.tierTypeName;
@@ -616,7 +616,7 @@ function characterName(characterId, light) {
 	if (!characterDescriptions[characterId]) {
 		return "";
 	}
-	logger.startLogging("UI");
+	// logger.startLogging("UI");
 	if (light === null) {
 		return characterDescriptions[characterId].name;
 	}
@@ -624,7 +624,7 @@ function characterName(characterId, light) {
 		return "Vault";
 	}
 	if (!characterDescriptions[characterId]) {
-		logger.log(light)
+		// logger.log(light)
 	}
 	return characterDescriptions[characterId].race + " " + characterDescriptions[characterId].gender + " " + characterDescriptions[characterId].name + " (" + (light || characterDescriptions[characterId].light) + ")";
 }

@@ -89,6 +89,7 @@ function initializeStoredVariables() {
 		localStorage.autoLock = _checkValue(localStorage.autoLock, _checkBoolean, "false");
 		localStorage.minQuality = _checkValue(localStorage.minQuality, _checkNumber, 95);
 		localStorage.minLight = _checkValue(localStorage.uniqueId, _checkNumber, 335);
+		localStorage.perkSets = _checkValue(localStorage.allowTracking, _checkJSON, JSON.stringify([]);
 		var manifest = chrome.runtime.getManifest();
 		if(!localStorage.version) {
 			localStorage.version = manifest.version;
