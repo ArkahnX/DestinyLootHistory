@@ -201,8 +201,7 @@ function recursiveIdleTracking() {
 			checkInventory().then(function() { // found in items.js
 				logger.startLogging("timers");
 				logger.log("recursiveIdleTracking2");
-				tracker.sendEvent('Passed BungieTracking and CheckInventory', `No Issues`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
-				// _gaq.push(['_trackEvent', 'Tracking', `Passed BungieTracking and CheckInventory.`, "", `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
+				tracker.sendEvent('Passed BungieTracking and CheckInventory', `No Issues`, `version ${localStorage.version}, systems ${JSON.stringify(systemIds)}`);
 				// reset a bunch of variables
 				logger.startLogging("Timers");
 				var endTime = window.performance.now();

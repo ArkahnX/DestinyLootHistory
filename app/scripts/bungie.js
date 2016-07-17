@@ -59,8 +59,7 @@ var bungie = (function Bungie() {
 						opts.complete(response.Response, response);
 					} else if (response.ErrorCode === 36 || response.ErrorCode === 51) {
 						logger.startLogging("Bungie Logs");
-						tracker.sendEvent('Too Frequent', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
-						// _gaq.push(['_trackEvent', 'BungieError', `Error Code ${response.ErrorCode}`, opts.shortRoute, `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
+						tracker.sendEvent('Too Frequent', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${JSON.stringify(systemIds)}`);
 						logger.warn(`We accidentally encountered Error ${response.ErrorCode} when attempting ${opts.route}`);
 						setTimeout(function() {
 							_request(opts);
@@ -72,8 +71,7 @@ var bungie = (function Bungie() {
 							logger.error(`Character: ${opts.payload.characterId}, Membership: ${opts.payload.membershipType}, itemHash: ${opts.payload.itemReferenceHash}, stackSize: ${opts.payload.stackSize}, transferToVault: ${opts.payload.transferToVault}`);
 						}
 						localStorage.error = "true";
-						tracker.sendEvent('Invalid Item Selection', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
-						// _gaq.push(['_trackEvent', 'BungieError', `Invalid Item Selection`, JSON.stringify(response.Message), `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
+						tracker.sendEvent('Invalid Item Selection', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${JSON.stringify(systemIds)}`);
 						localStorage.errorMessage = 'Invalid item selection, please use the <a href="debug.html">report issue feature</a>.<br>' + JSON.stringify(response.Message);
 						logger.saveData();
 						opts.complete(response.Response, response);
@@ -81,8 +79,7 @@ var bungie = (function Bungie() {
 						logger.startLogging("Bungie Logs");
 						logger.error(response.ErrorStatus, response.Message, opts.route);
 						if (Object.keys(opts.payload).length > 0) {
-							tracker.sendEvent('No Vault Space', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
-							// _gaq.push(['_trackEvent', 'BungieError', `No Space in Vault`, "no space in vault", `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
+							tracker.sendEvent('No Vault Space', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${JSON.stringify(systemIds)}`);
 							logger.error(`Character: ${opts.payload.characterId}, Membership: ${opts.payload.membershipType}, itemHash: ${opts.payload.itemReferenceHash}, stackSize: ${opts.payload.stackSize}, transferToVault: ${opts.payload.transferToVault}`);
 						}
 						localStorage.error = "true";
@@ -91,8 +88,7 @@ var bungie = (function Bungie() {
 						opts.complete(response.Response, response);
 					} else if (response.ErrorCode === 99) {
 						logger.startLogging("Bungie Logs");
-						tracker.sendEvent('User Not Found', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
-						// _gaq.push(['_trackEvent', 'BungieError', `User not found`, response.Message, `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
+						tracker.sendEvent('User Not Found', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${JSON.stringify(systemIds)}`);
 						logger.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message));
 						localStorage.error = "true";
 						localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message);
@@ -100,8 +96,7 @@ var bungie = (function Bungie() {
 						opts.incomplete();
 					} else if (response.ErrorCode === 7) {
 						logger.startLogging("Bungie Logs");
-						tracker.sendEvent('Invalid URL', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.route}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
-						// _gaq.push(['_trackEvent', 'BungieError', `Invalid URL Parameters`, opts.route, `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
+						tracker.sendEvent('Invalid URL', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.route}`, `version ${localStorage.version}, systems ${JSON.stringify(systemIds)}`);
 						logger.error('Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message));
 						localStorage.error = "true";
 						localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.<br>This is a generic error, please use the <a href="debug.html">report issue feature</a> so the developers can assist.';
@@ -114,8 +109,7 @@ var bungie = (function Bungie() {
 							logger.error(`Character: ${opts.payload.characterId}, Membership: ${opts.payload.membershipType}, itemHash: ${opts.payload.itemReferenceHash}, stackSize: ${opts.payload.stackSize}, transferToVault: ${opts.payload.transferToVault}`);
 						}
 						localStorage.error = "true";
-						tracker.sendEvent('System Disabled Maintenance', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
-						// _gaq.push(['_trackEvent', 'BungieError', `Unhandled Error Code ${response.ErrorCode}`, response.Message, `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
+						tracker.sendEvent('System Disabled Maintenance', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${JSON.stringify(systemIds)}`);
 						localStorage.errorMessage = 'Bungie servers are undergoing maintenance. Please use "Begin Tracking" to try to connect again. \n' + JSON.stringify(response.Message);
 						logger.saveData();
 						opts.incomplete();
@@ -126,16 +120,14 @@ var bungie = (function Bungie() {
 							logger.error(`Character: ${opts.payload.characterId}, Membership: ${opts.payload.membershipType}, itemHash: ${opts.payload.itemReferenceHash}, stackSize: ${opts.payload.stackSize}, transferToVault: ${opts.payload.transferToVault}`);
 						}
 						localStorage.error = "true";
-						tracker.sendEvent('Unhandled Error', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
-						// _gaq.push(['_trackEvent', 'BungieError', `Unhandled Error Code ${response.ErrorCode}`, response.Message, `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
+						tracker.sendEvent('Unhandled Error', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${JSON.stringify(systemIds)}`);
 						localStorage.errorMessage = 'Unhandled Bungie Error, please use the <a href="debug.html">report issue feature</a> so the developers can assist.\n' + JSON.stringify(response.Message);
 						logger.saveData();
 						opts.incomplete();
 					} else {
 						if (response.Response === undefined || (Array.isArray(response.Response) && response.Response[0] === undefined)) {
 							logger.startLogging("Bungie Logs");
-							tracker.sendEvent('User Not Found', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.route}, Response: ${JSON.stringify(response)}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
-							// _gaq.push(['_trackEvent', 'BungieError', `User not found`, response.Message, `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
+							tracker.sendEvent('User Not Found', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.route}, Response: ${JSON.stringify(response)}`, `version ${localStorage.version}, systems ${JSON.stringify(systemIds)}`);
 							logger.error('Response was empty\n' + JSON.stringify(response) + JSON.stringify(systemIds));
 							localStorage.error = "true";
 							localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.<br>This is a generic error, please use the <a href="debug.html">report issue feature</a> so the developers can assist.';
@@ -157,13 +149,11 @@ var bungie = (function Bungie() {
 							logger.error(`not valid JSON ${this.response}`);
 						}
 						if (response) {
-							tracker.sendEvent('Unhandled Response', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.route}, Response: ${response}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
-							// _gaq.push(['_trackEvent', 'BungieError', `Unhandled Error Code ${response.ErrorCode}`, response.Message, `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
+							tracker.sendEvent('Unhandled Response', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.route}, Response: ${response}`, `version ${localStorage.version}, systems ${JSON.stringify(systemIds)}`);
 							logger.error(`code ${response.ErrorCode}, error ${response.ErrorStatus}, message ${response.Message}` + JSON.stringify(systemIds));
 						}
 					}
-					tracker.sendEvent('Unhandled Response', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
-					// _gaq.push(['_trackEvent', 'BungieError', `Unhandled Response ${this.status}`, opts.shortRoute, `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
+					tracker.sendEvent('Unhandled Response', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}`, `version ${localStorage.version}, systems ${JSON.stringify(systemIds)}`);
 					logger.error(`status ${this.status}, route ${opts.route}, response ${this.response}` + JSON.stringify(systemIds));
 					logger.error("Response Error: Response did not contain expected values.");
 					localStorage.errorMessage = "Response Error: Response did not contain expected values.";
@@ -173,8 +163,7 @@ var bungie = (function Bungie() {
 
 			r.onerror = function(err) {
 				logger.startLogging("Bungie Logs");
-				tracker.sendEvent('No Network Connection', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}, Response: ${JSON.stringify(response)}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
-				// _gaq.push(['_trackEvent', 'BungieError', `No Network connection`, "", `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
+				tracker.sendEvent('No Network Connection', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}, Response: ${JSON.stringify(response)}`, `version ${localStorage.version}, systems ${JSON.stringify(systemIds)}`);
 				logger.error(err);
 				logger.error(`route ${opts.route}`);
 				logger.error("Network Error: Please check your internet connection.");
@@ -192,8 +181,7 @@ var bungie = (function Bungie() {
 					r.send(JSON.stringify(opts.payload));
 				} else {
 					localStorage.error = "true";
-					tracker.sendEvent('Cookie Not Found', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}, Response: ${JSON.stringify(response)}`, `version ${localStorage.version}, id ${localStorage.uniqueId}`);
-					// _gaq.push(['_trackEvent', 'BungieError', `User cookie not found.`, opts.shortRoute, `version ${localStorage.version}, id ${localStorage.uniqueId}`]);
+					tracker.sendEvent('Cookie Not Found', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}, Response: ${JSON.stringify(response)}`, `version ${localStorage.version}, systems ${JSON.stringify(systemIds)}`);
 					logger.error('Error loading cookie.' + JSON.stringify(systemIds));
 					localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.<br>This is a generic error, please use the <a href="debug.html">report issue feature</a> so the developers can assist.';
 					logger.saveData();
