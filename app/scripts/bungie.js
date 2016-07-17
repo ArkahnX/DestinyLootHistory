@@ -173,8 +173,8 @@ var bungie = (function Bungie() {
 			r.onerror = function() {
 				logger.startLogging("Bungie Logs");
 				tracker.sendEvent('No Network Connection', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
-				logger.error(r);
-				logger.error(`route ${opts.route}`);
+				logger.error(`Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}`);
+				logger.error(`Options ${JSON.stringify(opts)}`);
 				logger.error("Network Error: Please check your internet connection.");
 				localStorage.errorMessage = `Network Error: Please check your internet connection.<br>This is a generic error, please use the <a href="debug.html">report issue feature</a> so the developers can assist.`;
 				localStorage.error = "true";
