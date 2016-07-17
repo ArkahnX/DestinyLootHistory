@@ -88,10 +88,15 @@ function initializeStoredVariables() {
 		localStorage.uniqueId = _checkValue(localStorage.uniqueId, _checkLength, "false");
 		localStorage.autoLock = _checkValue(localStorage.autoLock, _checkBoolean, "false");
 		localStorage.minQuality = _checkValue(localStorage.minQuality, _checkNumber, 95);
-		localStorage.minLight = _checkValue(localStorage.minlight, _checkNumber, 335);
-		localStorage.perkSets = _checkValue(localStorage.allowTracking, _checkJSON, JSON.stringify([]));
+		localStorage.minLight = _checkValue(localStorage.minLight, _checkNumber, 335);
+		if (localStorage.allowTracking) {
+			localStorage.removeItem("allowTracking");
+			localStorage.perkSets = JSON.stringify([]);
+		}
+		localStorage.perkSets = _checkValue(localStorage.perkSets, _checkJSON, JSON.stringify([]));
+		localStorage.systems = _checkValue(localStorage.systems, _checkJSON, JSON.stringify({}));
 		var manifest = chrome.runtime.getManifest();
-		if(!localStorage.version) {
+		if (!localStorage.version) {
 			localStorage.version = manifest.version;
 		}
 		var localVersion = localStorage.version.split(".");
@@ -100,7 +105,7 @@ function initializeStoredVariables() {
 			localStorage.notificationClosed = "false";
 		}
 		localStorage.version = manifest.version;
-		tracker.sendEvent('Backend Initialized', `No Issues`, `version ${localStorage.version}, systems ${JSON.stringify(systemIds)}`);
+		tracker.sendEvent('Backend Initialized', `No Issues`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 		chrome.storage.local.get(null, function(data) {
 			var newData = {};
 			if (!data.currencies) {

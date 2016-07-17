@@ -295,6 +295,7 @@ var logger = (function() {
 				for (var property in localStorage) {
 					endLogs.push(`${property}: "${localStorage[property]}"`);
 				}
+				endLogs.push(`Bungie Systems ${localStorage.systems}`);
 				resolve(endLogs.join("\n"));
 			});
 		});

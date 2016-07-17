@@ -64,7 +64,7 @@ function allowBungieTracking() {
 		};
 		r.onerror = function() {
 			logger.error("ArkahnX.Technology is unreachable at this time.");
-			tracker.sendEvent('Unable to reach ArkahnX.Technology', `Status: ${this.status}, Message: ${this.response}`, `version ${localStorage.version}, systems ${JSON.stringify(systemIds)}`);
+			tracker.sendEvent('Unable to reach ArkahnX.Technology', `Status: ${this.status}, Message: ${this.response}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 			if (localStorage.allowTracking) {
 				resolve(JSON.parse(localStorage.allowTracking));
 			} else {
