@@ -65,7 +65,8 @@ select:not(#tags),
 	background-color: #128FFF;
 }
 
-.button, select:not(#tags) {
+.button,
+select:not(#tags) {
 	text-shadow: 0 -1px black;
 }
 
@@ -918,4 +919,67 @@ li label {
 
 label + input[type=checkbox] {
 	vertical-align: sub;
+}
+
+#viewHome {
+	z-index: 9;
+}
+
+#perkWindow {
+	position: absolute;
+	z-index: 2;
+
+	width: 100%;
+	height: 100%;
+
+	background: rgba(0,0,0,.8);
+}
+
+#perkWindow ul fieldset {
+	display: block;
+
+	margin: 0 0 2em 0;
+	padding: 0 1em 1em 1em;
+
+	border: none;
+}
+
+#perkWindow ul legend {
+	font-size: 24px;
+
+	text-align: left;
+}
+
+#perkWindow ul fieldset input {
+	display: block;
+
+	min-width: 15em;
+}
+
+#perkWindow ul label {
+	font-weight: bold;
+
+	display: block;
+	float: left;
+
+	width: inherit;
+	margin: 1em 1em 0 0;
+
+	text-align: left;
+}
+
+#perkWindow ul select {
+	display: block!important;
+
+	padding: 9px 15px!important;
+}
+
+fieldset ul {
+	list-style-type: none;
+}
+
+#perkList {
+	overflow-y: scroll;
+
+	max-height: 800px;
 }

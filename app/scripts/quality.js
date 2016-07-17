@@ -12,6 +12,22 @@ function parseQuality(startingStat, startingDefense, endingDefense) {
 	};
 }
 
+function containsNodes(item, nodeNameList) {
+	var result = 0;
+	var itemDef = getItemDefinition(item.itemHash);
+	var grid = getNodes(item);
+	for (var node of grid) {
+		for (var nodeName of nodeNameList) {
+			if (node.nodeStepName.toLowerCase() === nodeName.toLowerCase()) {
+				result++;
+				break;
+			}
+		}
+	}
+	return Math.round((result/nodeNameList.length)*100) || 0;
+}
+
+
 function parseItemQuality(item) {
 	var grid = getNodes(item);
 	var itemDef = getItemDefinition(item.itemHash);
@@ -73,7 +89,7 @@ function getColor(value) {
 }
 
 function getBonus(light, type) {
-	logger.startLogging("quality");
+	// logger.startLogging("quality");
 	switch (type.toLowerCase()) {
 		case 'helmet':
 			return light < 292 ? 15 :
@@ -115,7 +131,7 @@ function getBonus(light, type) {
 				light < 325 ? 40 :
 				light < 330 ? 41 : 42;
 	}
-	logger.warn('item bonus not found', type);
+	// logger.warn('item bonus not found', type);
 	return 0;
 }
 

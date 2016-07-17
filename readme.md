@@ -15,7 +15,8 @@ Have you ever wondered how old some of the items you have are? the `Item History
 **Requires Google Chrome, and a linked Bungie.net account**
 Download the [chrome extension](https://chrome.google.com/webstore/detail/eokcomhmgedcgmnfnajmlfcdccnapapo), or fork / clone / download the repository and set up a [developer extension](http://lifehacker.com/install-chrome-extensions-from-outside-the-store-with-d-1596918011).
 
+## LICENSE
 
-Destiny loot History &copy; Christopher Hall 2016.
+Destiny Loot History is MIT Licensed. Refer to the LICENSE file.
 
 &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.
