@@ -48,7 +48,7 @@ function getItemDefinition(hash) {
 	} else if (DestinyCompactItemDefinition[hash]) {
 		return DestinyCompactItemDefinition[hash];
 	}
-	tracker.sendEvent('Item not in database', `${hash}`, `version ${localStorage.version}, systems ${JSON.stringify(systemIds)}`);
+	tracker.sendEvent('Item not in database', `${hash}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 	logger.error(`Item Reference ${hash} is not in database. This has been reported.`);
 	return {
 		hasIcon: false,
