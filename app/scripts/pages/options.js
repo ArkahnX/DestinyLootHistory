@@ -86,20 +86,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		minQuality.value = parseInt(localStorage.minQuality) || minQuality.value;
 		minLight.addEventListener("change", handleQualityChange, false);
 		minQuality.addEventListener("change", handleQualityChange, false);
-		gearPerks.addEventListener("click",function(){
+		gearPerks.addEventListener("click", function() {
 			loadPerksets();
 			perkWindow.classList.remove("hidden");
-		},false);
-		savePerks.addEventListener("click",function(){
+		}, false);
+		savePerks.addEventListener("click", function() {
 			perkWindow.classList.add("hidden");
-		},false);
-		additionalPerks.addEventListener("click",function(){
+		}, false);
+		additionalPerks.addEventListener("click", function() {
 			perkList.innerHTML = perkList.innerHTML + `<li><fieldset>
 		<label>Gear Type: <select><optgroup label="Primary Weapons"><option value="Pulse">Pulse Rifle</option><option value="Hand">Hand Cannon</option><option value="Auto">Auto Rifle</option><option value="Scout">Scout Rifle</option></optgroup><optgroup label="Special Weapons"><option value="Fusion">Fusion Rifle</option><option value="Sniper">Sniper Rifle</option><option value="Shotgun">Shotgun</option><option value="Sidearm">Sidearm</option></optgroup><optgroup label="Heavy Weapons"><option value="Machine">Machine Gun</option><option value="Rocket">Rocket Launcher</option></optgroup><optgroup label="Armor"><option value="Gauntlets">Gauntlets</option><option value="Leg">Leg Armor</option><option value="Artifact">Artifact</option><option value="Helmet">Helmet</option><option value="Chest">Chest Armor</option><option value="Ghost">Ghost Shell</option></optgroup></select></label>
 		<label>Perks: <input type="text"></label>
 		<label>Percent Match: <input type="number" min="1" max="100"></label>
 		</fieldset></li>`;
-		},false);
+		}, false);
 	}
 });
 
@@ -107,7 +107,7 @@ function loadPerksets() {
 	var perkList = document.getElementById('perkList');
 	var perkSets = JSON.parse(localStorage.perkSets);
 	var html = "";
-	for(var perkSet of perkSets) {
+	for (var perkSet of perkSets) {
 		html += `<li><fieldset>
 		<label>Gear Type: <select><optgroup label="Primary Weapons"><option value="Pulse"${(perkSet.type ==="Pulse") ? " selected" : ""}>Pulse Rifle</option><option value="Hand"${(perkSet.type ==="Hand") ? " selected" : ""}>Hand Cannon</option><option value="Auto"${(perkSet.type ==="Auto") ? " selected" : ""}>Auto Rifle</option><option value="Scout"${(perkSet.type ==="Scout") ? " selected" : ""}>Scout Rifle</option></optgroup><optgroup label="Special Weapons"><option value="Fusion"${(perkSet.type ==="Fusion") ? " selected" : ""}>Fusion Rifle</option><option value="Sniper"${(perkSet.type ==="Sniper") ? " selected" : ""}>Sniper Rifle</option><option value="Shotgun"${(perkSet.type ==="Shotgun") ? " selected" : ""}>Shotgun</option><option value="Sidearm"${(perkSet.type ==="Sidearm") ? " selected" : ""}>Sidearm</option></optgroup><optgroup label="Heavy Weapons"><option value="Machine"${(perkSet.type ==="Machine") ? " selected" : ""}>Machine Gun</option><option value="Rocket"${(perkSet.type ==="Rocket") ? " selected" : ""}>Rocket Launcher</option></optgroup><optgroup label="Armor"><option value="Gauntlets"${(perkSet.type ==="Gauntlets") ? " selected" : ""}>Gauntlets</option><option value="Leg"${(perkSet.type ==="Leg") ? " selected" : ""}>Leg Armor</option><option value="Artifact"${(perkSet.type ==="Artifact") ? " selected" : ""}>Artifact</option><option value="Helmet"${(perkSet.type ==="Helmet") ? " selected" : ""}>Helmet</option><option value="Chest"${(perkSet.type ==="Chest") ? " selected" : ""}>Chest Armor</option><option value="Ghost"${(perkSet.type ==="Ghost") ? " selected" : ""}>Ghost Shell</option></optgroup></select></label>
 		<label>Perks: <input type="text" value="${perkSet.perks.join(",")}"></label>

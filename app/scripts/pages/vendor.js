@@ -115,7 +115,7 @@ function makeItemsFromList(list) {
 	}
 }
 
-var vendorList = [174528503,354219928,452808717]; // foreach DestinyVendorDefinition
+var vendorList = [174528503, 354219928, 452808717]; // foreach DestinyVendorDefinition
 
 initItems(function() {
 	bungie.getVendorForCharacter(localStorage.newestCharacter, 3301500998).then(function(emblemData) {

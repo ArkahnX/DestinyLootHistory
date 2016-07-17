@@ -167,16 +167,18 @@ var logger = (function() {
 		} else if (typeof data === "object") {
 			var dataList = [];
 			for (var attr in data) {
-				if (Array.isArray(data[attr])) {
-					dataList.push(`${attr}: Array[${data[attr].length}]`);
-				} else if (typeof data[attr] === "object") {
-					dataList.push(`${attr}: Object[${Object.keys(data[attr]).length}]`);
-				} else if (typeof data[attr] === "function") {
-					dataList.push(`${attr}: ${data[attr].toString().split("{")[0].trim()}`);
-				} else if (typeof data[attr] === "string") {
-					dataList.push(type, `${attr}: "${data[attr]}"`);
-				} else {
-					dataList.push(`${attr}: ${data[attr]}`);
+				if (data[attr] !== undefined && data[attr] !== null) {
+					if (Array.isArray(data[attr])) {
+						dataList.push(`${attr}: Array[${data[attr].length}]`);
+					} else if (typeof data[attr] === "object") {
+						dataList.push(`${attr}: Object[${Object.keys(data[attr]).length}]`);
+					} else if (typeof data[attr] === "function") {
+						dataList.push(`${attr}: ${data[attr].toString().split("{")[0].trim()}`);
+					} else if (typeof data[attr] === "string") {
+						dataList.push(type, `${attr}: "${data[attr]}"`);
+					} else {
+						dataList.push(`${attr}: ${data[attr]}`);
+					}
 				}
 			}
 			currentLog.logs.push(_log(type, dataList.join(",\n")));

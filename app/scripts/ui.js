@@ -127,9 +127,9 @@ function initUi() {
 	var track3oC = document.getElementById('track3oC');
 	if (autoLock) {
 		autoLock.checked = localStorage.autoLock === "true";
-		autoLock.addEventListener("change",handleCheckboxChange,false);
+		autoLock.addEventListener("change", handleCheckboxChange, false);
 		track3oC.checked = localStorage.track3oC === "true";
-		track3oC.addEventListener("change",handleCheckboxChange,false);
+		track3oC.addEventListener("change", handleCheckboxChange, false);
 	}
 }
 
@@ -251,7 +251,7 @@ function displayResults(customItems) {
 		trackerIcon.style.display = "inline-block";
 		trackerIcon.style.backgroundImage = "url(" + "'http://www.bungie.net" + getItemDefinition(localStorage.transferMaterial).icon + "')";
 
-	} else if(trackerIcon) {
+	} else if (trackerIcon) {
 		trackerIcon.style.display = "none";
 	}
 	return new Promise(function(resolve, reject) {
