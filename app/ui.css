@@ -5,7 +5,6 @@
 
 	cursor: default;
 	-webkit-user-select: none;
-	        user-select: none;
 }
 a {
 	cursor: pointer;
@@ -985,28 +984,21 @@ fieldset ul {
 }
 
 .transition,
-div,
-ul li i:before,
-ul li i:after {
+#debugHome div,
+#debugHome ul li i:before,
+#debugHome ul li i:after {
 	transition: all .25s ease-in-out;
 }
 
 .flipIn,
-h1,
-ul li {
+#debugHome h1,
+#debugHome ul li {
 	animation: flipdown .5s ease both;
 }
 
 .no-select,
-h2 {
+#debugHome h2 {
 	-webkit-user-select: none;
-	   -moz-user-select: none;
-	    -ms-user-select: none;
-	        user-select: none;
-
-	-webkit-tap-highlight-color: transparent;
-	-webkit-touch-callout: none;
-	-khtml-user-select: none;
 }
 
 #debugHome h1,
