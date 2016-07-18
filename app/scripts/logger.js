@@ -1,3 +1,4 @@
+var _VERBOSE = false;
 var logger = (function() {
 	const TIME = "time";
 	const LOG = "log";
@@ -156,7 +157,7 @@ var logger = (function() {
 	}
 
 	function _multi(type, data) {
-		if (!chrome.runtime.getManifest().key) {
+		if (!chrome.runtime.getManifest().key || _VERBOSE === true) {
 			if (type !== "time" && type !== "timeEnd") {
 				console[type](moment().format(), _getSource(), data);
 			}
@@ -292,6 +293,7 @@ var logger = (function() {
 					}
 				}
 				endLogs.push(`-----------------------------------------------------------`);
+				endLogs.push(moment().format());
 				endLogs.push(`Unique ID: ${localStorage.uniqueId}, Version: ${chrome.runtime.getManifest().version}, Chrome: ${/Chrome\/([0-9.]+)/.exec(navigator.userAgent)[1]}`);
 				endLogs.push("localStorage Values");
 				for (var property in localStorage) {
