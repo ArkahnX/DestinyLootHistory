@@ -69,7 +69,7 @@ function _checkValue(value, expectedFunction, fallback) {
 function initializeStoredVariables() {
 	return new Promise(function(resolve) {
 		localStorage.accurateTracking = _checkValue(localStorage.accurateTracking, _checkBoolean, "false");
-		localStorage.activeType = _checkValue(localStorage.activeType, _checkActiveType, "xbl");
+		localStorage.activeType = _checkValue(localStorage.activeType, _checkActiveType, "psn");
 		localStorage.characterDescriptions = _checkValue(localStorage.characterDescriptions, _checkJSON, "{}");
 		// localStorage.allowTracking = _checkValue(localStorage.allowTracking, _checkJSON, JSON.stringify({
 		// 	"allow_tracking": 0,
