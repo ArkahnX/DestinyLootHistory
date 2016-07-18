@@ -984,6 +984,14 @@ fieldset ul {
 	max-height: 800px;
 }
 
+#debugHome {
+	overflow-y: scroll;
+
+	max-width: 100%;
+	max-height: 95%;
+	padding-top: 40px;
+}
+
 .transition,
 #debugHome div,
 #debugHome ul li i:before,
@@ -1073,7 +1081,7 @@ fieldset ul {
 	border-top: 1px dotted #DCE7EB;
 }
 #debugHome ol {
-	margin-left: 1.5em;
+	margin-left: 2em;
 
 	list-style-type: decimal;
 
