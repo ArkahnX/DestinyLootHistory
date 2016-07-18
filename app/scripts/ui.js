@@ -73,21 +73,24 @@ function initUi() {
 		if (bungie.getMemberships().length > 1) {
 			systemToggleDiv.classList.remove("hidden");
 		}
-		if (bungie.getActive() === 2) {
-			systemToggleDiv.value = "Swap to XBOX";
+		if (localStorage.activeType === "xbl") {
+			systemToggleDiv.value = "Swap to PSN";
 			systemToggleDiv.classList.remove("green");
 		}
-		systemToggleDiv.addEventListener("click", function(event) {
-			if (bungie.getActive() === 2) {
-				systemToggleDiv.value = "Swap to XBOX";
-				systemToggleDiv.classList.add("green");
-				localStorage.activeType = "psn";
-			} else {
+		if (localStorage.activeType === "psn") {
+			systemToggleDiv.value = "Swap to XBOX";
+			systemToggleDiv.classList.add("green");
+		}
+		systemToggleDiv.addEventListener("click", function() {
+			if (localStorage.activeType === "psn") {
 				systemToggleDiv.value = "Swap to PSN";
 				systemToggleDiv.classList.remove("green");
 				localStorage.activeType = "xbl";
+			} else {
+				systemToggleDiv.value = "Swap to Xbox";
+				systemToggleDiv.classList.add("green");
+				localStorage.activeType = "psn";
 			}
-
 		}, false);
 	}
 	if (document.querySelector("#accurateTracking")) {
@@ -479,9 +482,6 @@ function itemClasses(itemData) {
 		classList.push("complete");
 	}
 	var itemDefinition = getItemDefinition(itemData.itemHash);
-	if (!itemDefinition) {
-		console.log(itemData.itemHash, itemData, DestinyCompactItemDefinition)
-	}
 	if (itemData.itemHash === 3159615086 || itemData.itemHash === 2534352370 || itemData.itemHash === 2749350776) {
 		classList.push("faction");
 	} else {
@@ -555,9 +555,6 @@ function passData(DomNode, itemDiff, moveType, index) {
 		itemData.itemHash = 298210614;
 	}
 	var itemDefinition = getItemDefinition(itemData.itemHash);
-	if (!itemDefinition) {
-		console.log(itemData.itemHash, itemData, DestinyCompactItemDefinition)
-	}
 	if (itemDefinition.tierTypeName) {
 		DomNode.dataset.tierTypeName = itemDefinition.tierTypeName;
 	} else {
