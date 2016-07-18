@@ -249,14 +249,18 @@ var bungie = (function Bungie() {
 							characters: []
 						};
 					}
-					systemIds.xbl = {
-						id: res.gamerTag,
-						type: 1
-					};
-					systemIds.psn = {
-						id: res.psnId,
-						type: 2
-					};
+					if (res.gamerTag) {
+						systemIds.xbl = {
+							id: res.gamerTag,
+							type: 1
+						};
+					}
+					if (res.psnId) {
+						systemIds.psn = {
+							id: res.psnId,
+							type: 2
+						};
+					}
 
 					// active = systemIds.xbl;
 

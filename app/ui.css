@@ -521,13 +521,6 @@ label {
 	margin: 12px;
 }
 
-.loading {
-	animation: progress-bar-stripes 2s linear infinite;
-
-	background-color: #7AC0FF;
-	background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
-	background-size: 40px 40px;
-}
 
 #drop_zone {
 	font-size: 25px;
@@ -541,6 +534,14 @@ label {
 	border: 2px dashed #444;
 	border-radius: 10px;
 	background: rgba(238,238,238,.7);
+}
+
+.loading {
+	animation: progress-bar-stripes 2s linear infinite;
+
+	background-color: #7AC0FF!important;
+	background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent)!important;
+	background-size: 40px 40px!important;
 }
 
 .valueBar {
@@ -983,6 +984,14 @@ fieldset ul {
 	max-height: 800px;
 }
 
+#debugHome {
+	overflow-y: scroll;
+
+	max-width: 100%;
+	max-height: 95%;
+	padding-top: 40px;
+}
+
 .transition,
 #debugHome div,
 #debugHome ul li i:before,
@@ -1072,7 +1081,7 @@ fieldset ul {
 	border-top: 1px dotted #DCE7EB;
 }
 #debugHome ol {
-	margin-left: 1.5em;
+	margin-left: 2em;
 
 	list-style-type: decimal;
 
