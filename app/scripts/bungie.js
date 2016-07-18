@@ -1,6 +1,6 @@
 var bungie = (function Bungie() {
-	if (!localStorage.activeType) {
-		localStorage.activeType = "xbl";
+	if (localStorage.activeType !== "xbl" || localStorage.activeType !== "psn") {
+		localStorage.activeType = "psn";
 	}
 	var bungie = {};
 	// private vars
@@ -207,7 +207,7 @@ var bungie = (function Bungie() {
 	}
 
 	bungie.getMemberships = function() {
-		return Object.keys(systemIds);
+		return Object.keys(JSON.parse(localStorage.systems));
 	};
 	bungie.getSystems = function() {
 		return systemIds;
@@ -217,20 +217,13 @@ var bungie = (function Bungie() {
 		return active.type;
 	};
 
-	bungie.changeActiveMembership = function() {
-		if (active.type === 1 && systemIds.psn.id) {
-			active = systemIds.psn;
-		}
-		if (active.type === 2 && systemIds.xbl.id) {
-			active = systemIds.xbl;
-		}
-	};
-
 	bungie.setActive = function(type) {
 		if (type === "psn" && systemIds.psn && systemIds.psn.id) {
 			active = systemIds.psn;
+			localStorage.activeType = "psn";
 		} else if (type === "xbl" && systemIds.xbl && systemIds.xbl.id) {
 			active = systemIds.xbl;
+			localStorage.activeType = "xbl";
 		}
 	};
 
@@ -287,24 +280,36 @@ var bungie = (function Bungie() {
 			});
 		});
 	};
+
+	function _search(resolve, reject) {
+		_request({
+			route: '/Destiny/SearchDestinyPlayer/' + active.type + '/' + active.id + '/',
+			shortRoute: '/Destiny/SearchDestinyPlayer/',
+			method: 'GET',
+			incomplete: function() {
+				if (localStorage.activeType === "xbl") {
+					bungie.setActive("psn");
+					_search(resolve, reject);
+				} else {
+					reject();
+				}
+			},
+			complete: function(membership) {
+				membershipId = membership[0].membershipId;
+				_request({
+					route: '/Destiny/Tiger' + (parseInt(active.type, 10) === 1 ? 'Xbox' : 'PSN') + '/Account/' + membershipId + '/',
+					shortRoute: '/Destiny/Tiger/Account/',
+					method: 'GET',
+					incomplete: reject,
+					complete: resolve
+				});
+			}
+		});
+	}
+
 	bungie.search = function() {
 		return new Promise(function(resolve, reject) {
-			_request({
-				route: '/Destiny/SearchDestinyPlayer/' + active.type + '/' + active.id + '/',
-				shortRoute: '/Destiny/SearchDestinyPlayer/',
-				method: 'GET',
-				incomplete: reject,
-				complete: function(membership) {
-					membershipId = membership[0].membershipId;
-					_request({
-						route: '/Destiny/Tiger' + (parseInt(active.type, 10) === 1 ? 'Xbox' : 'PSN') + '/Account/' + membershipId + '/',
-						shortRoute: '/Destiny/Tiger/Account/',
-						method: 'GET',
-						incomplete: reject,
-						complete: resolve
-					});
-				}
-			});
+			_search(resolve, reject);
 		});
 	};
 	bungie.getCharacters = function() {
