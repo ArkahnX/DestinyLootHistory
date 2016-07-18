@@ -191,7 +191,7 @@ var bungie = (function Bungie() {
 					r.send(JSON.stringify(opts.payload));
 				} else {
 					localStorage.error = "true";
-					tracker.sendEvent('Cookie Not Found', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}, Response: ${JSON.stringify(response)}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
+					tracker.sendEvent('Cookie Not Found', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 					logger.error('Error loading cookie.' + localStorage.systems);
 					localStorage.errorMessage = `Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.<br>This is a generic error, please use the <a href="debug.html">report issue feature</a> so the developers can assist.`;
 					logger.endLogging();
