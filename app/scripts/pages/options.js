@@ -86,6 +86,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		minQuality.value = parseInt(localStorage.minQuality) || minQuality.value;
 		minLight.addEventListener("change", handleQualityChange, false);
 		minQuality.addEventListener("change", handleQualityChange, false);
+	}
+	if (gearPerks) {
 		gearPerks.addEventListener("click", function() {
 			loadPerksets();
 			perkWindow.classList.remove("hidden");
@@ -141,10 +143,12 @@ function handleQualityChange(event) {
 }
 
 function handleFileSelect(evt) {
+	var dropZone = document.getElementById('drop_zone');
 	dropZone.classList.add("loading");
+	dropZone.textContent = "Restoration In Progress";
 	evt.stopPropagation();
 	evt.preventDefault();
-
+	console.log(dropZone.classList,dropZone.textContent)
 	var files = evt.dataTransfer.files[0]; // FileList object.
 
 	if (files) {
@@ -156,6 +160,7 @@ function handleFileSelect(evt) {
 				"itemChanges": object
 			}, function() {
 				dropZone.classList.remove("loading");
+				dropZone.textContent = "Restoration Complete";
 			});
 		};
 		r.readAsText(files);

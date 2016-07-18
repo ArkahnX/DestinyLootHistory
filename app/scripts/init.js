@@ -84,7 +84,7 @@ function initializeStoredVariables() {
 		localStorage.move3oCCooldown = _checkValue(localStorage.move3oCCooldown, _checkBoolean, "false");
 		localStorage.newestCharacter = _checkValue(localStorage.newestCharacter, _checkNumber, "vault");
 		localStorage.notificationClosed = _checkValue(localStorage.notificationClosed, _checkBoolean, "false");
-		localStorage.track3oC = _checkValue(localStorage.track3oC, _checkBoolean, "false");
+		localStorage.track3oC = _checkValue(localStorage.track3oC, _checkBoolean, "true");
 		localStorage.uniqueId = _checkValue(localStorage.uniqueId, _checkLength, "false");
 		localStorage.autoLock = _checkValue(localStorage.autoLock, _checkBoolean, "false");
 		localStorage.minQuality = _checkValue(localStorage.minQuality, _checkNumber, 95);

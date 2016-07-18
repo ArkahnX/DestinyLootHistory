@@ -57,6 +57,17 @@ function checkForUpdates() {
 	clearTimeout(updateTimeout);
 	var header = document.querySelector("#status");
 	var element = document.querySelector("#startTracking");
+	if (document.querySelector("#toggleSystem")) {
+		var systemToggleDiv = document.querySelector("#toggleSystem");
+		if (localStorage.activeType === "xbl") {
+			systemToggleDiv.value = "Swap to PSN";
+			systemToggleDiv.classList.remove("green");
+		}
+		if (localStorage.activeType === "psn") {
+			systemToggleDiv.value = "Swap to XBOX";
+			systemToggleDiv.classList.add("green");
+		}
+	}
 	if (localStorage.error === "true") {
 		notification.show();
 		header.classList.add("active", "error");
