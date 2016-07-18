@@ -15,7 +15,13 @@ function initUi() {
 				if (localStorage.listening === "false") {
 					localStorage.listening = "true";
 					localStorage.manual = "true";
+					header.classList.remove("idle", "error");
+					header.classList.add("active");
+					element.setAttribute("value", "Stop Tracking");
 				} else {
+					header.classList.add("idle");
+					header.classList.remove("active", "error");
+					element.setAttribute("value", "Begin Tracking");
 					localStorage.listening = "false";
 				}
 			});
