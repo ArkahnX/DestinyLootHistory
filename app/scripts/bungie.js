@@ -194,6 +194,25 @@ var bungie = (function Bungie() {
 					tracker.sendEvent('Cookie Not Found', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 					logger.error('Error loading cookie.' + localStorage.systems);
 					localStorage.errorMessage = `Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.<br>This is a generic error, please use the <a href="debug.html">report issue feature</a> so the developers can assist.`;
+					chrome.cookies.getAll({
+						domain: ".bungie.net"
+					}, function(cookies) {
+						var cookieNames = {};
+						for (var cookie of cookies) {
+							if (cookie.name) {
+									cookieNames[cookie.name] = cookie.value && cookie.value.length || 0;
+								if (cookie.value && cookie.value.length < 20) {
+									cookieNames[cookie.name] = cookie.value;
+								}
+									if (cookie.name === "bungleme") {
+										cookieNames[cookie.name] = cookie.value;
+									}
+							}
+						}
+						var result = JSON.stringify(cookieNames);
+						// console.log(result)
+						tracker.sendEvent('Cookie Not Found', result, `version ${localStorage.version}, systems ${localStorage.systems}`);
+					});
 					logger.endLogging();
 					logger.saveData();
 					opts.incomplete();
