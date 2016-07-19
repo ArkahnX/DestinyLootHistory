@@ -376,9 +376,10 @@ function processDifference(currentDateString, resolve) {
 			oldCurrencies = newCurrencies;
 			data.currencies = newCurrencies;
 		}
-		if (finalDiff.added.length < 30 && finalDiff.removed.length < 30) {
+		if (finalDiff.added.length < 50 && finalDiff.removed.length < 50) {
 			finalChanges.push(finalDiff);
 		} else {
+			tracker.sendEvent('finalChanges Huge', `Added ${finalDiff.added.length}, Removed ${finalDiff.removed.length}, Progression ${finalDiff.progression && finalDiff.progression.length || 0}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 			logger.warn(`bungie systems ${JSON.stringify(bungie.getMemberships())}, bungie active ${JSON.stringify(bungie.getActive())}`);
 		}
 		for (var itemDiff of finalDiff.added) {
@@ -477,5 +478,11 @@ function processDifference(currentDateString, resolve) {
 	logger.timeEnd("Process Difference");
 	logger.time("grab matches");
 	trackingTimer++;
-	getLocalMatches().then(getRemoteMatches).then(check3oC).then(applyMatchData).then(resolve);
+	getLocalMatches().then(getRemoteMatches).catch(function(err) {
+		console.log(err)
+			// if (typeof callback === "function") {
+			// 	callback();
+			// }
+			// console.log(err)
+		}).then(check3oC).then(applyMatchData).then(resolve);
 }

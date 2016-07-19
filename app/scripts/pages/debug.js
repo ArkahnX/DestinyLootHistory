@@ -10,6 +10,14 @@ logger.init().then(function debugInit() {
 	var tagHolder = document.getElementById("tags");
 	var sizeHolders = document.querySelectorAll("size");
 	var exportButtons = document.querySelectorAll(".exportLogs");
+	var reloadButtons = document.querySelectorAll(".reload");
+	for (var reloadButton of reloadButtons) {
+		reloadButton.addEventListener("click", function reloadBackgroundPage() {
+			chrome.runtime.getBackgroundPage(function(bp) {
+				bp.location.reload();
+			});
+		});
+	}
 	var tags = logger.getAllTags();
 	for (var tag of tags) {
 		var optionElement = document.createElement("option");

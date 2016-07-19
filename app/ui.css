@@ -455,6 +455,38 @@ header {
 	min-height: 280px;
 }
 
+.six-rows {
+	min-height: 336px;
+}
+
+.seven-rows {
+	min-height: 392px;
+}
+
+.eight-rows {
+	min-height: 448px;
+}
+
+.nine-rows {
+	min-height: 504px;
+}
+
+.ten-rows {
+	min-height: 560px;
+}
+
+.eleven-rows {
+	min-height: 616px;
+}
+
+.twelve-rows {
+	min-height: 672px;
+}
+
+.thirteen-rows {
+	min-height: 728px;
+}
+
 #added,
 #removed,
 #transferred,
