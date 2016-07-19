@@ -153,15 +153,15 @@ var bungie = (function Bungie() {
 						try {
 							response = JSON.parse(response);
 						} catch (e) {
-							logger.error(`not valid JSON ${this.response}`);
+							logger.error(`not valid JSON ${this.response && this.response.length}`);
 						}
 						if (response) {
 							tracker.sendEvent('Unhandled Response', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.route}, Response: ${response}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 							logger.error(`code ${response.ErrorCode}, error ${response.ErrorStatus}, message ${response.Message}` + localStorage.systems);
 						}
 					}
-					tracker.sendEvent('Unhandled Response', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
-					logger.error(`status ${this.status}, route ${opts.route}, response ${this.response}` + localStorage.systems);
+					tracker.sendEvent('Unhandled Response', `Status: ${this.status}, Message: ${this.response && this.response.length}, Route: ${opts.route}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
+					logger.error(`status ${this.status}, route ${opts.route}, response ${this.response && this.response.length}` + localStorage.systems);
 					logger.error("Response Error: Response did not contain expected values.");
 					localStorage.errorMessage = `Response Error: Response did not contain expected values.<br>This is a generic error, please use the <a href="debug.html">report issue feature</a> so the developers can assist.`;
 					logger.endLogging();
