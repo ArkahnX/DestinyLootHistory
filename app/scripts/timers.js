@@ -72,6 +72,8 @@ function checkForUpdates() {
 		notification.show();
 		header.classList.add("active", "error");
 		header.classList.remove("idle");
+		element.setAttribute("value", "Begin Tracking");
+		localStorage.listening = "false";
 		characterDescriptions = JSON.parse(localStorage.characterDescriptions);
 	} else {
 		if (localStorage.notificationClosed === "false") {
@@ -83,6 +85,7 @@ function checkForUpdates() {
 			header.classList.add("idle");
 			header.classList.remove("active", "error");
 			element.setAttribute("value", "Begin Tracking");
+			localStorage.listening = "false";
 		} else if (localStorage.listening === "true") {
 			header.classList.remove("idle", "error");
 			header.classList.add("active");
@@ -188,6 +191,8 @@ function apiCheck() {
 
 var idleTimer = 0;
 var timeoutTracker = null;
+
+
 
 
 /**
