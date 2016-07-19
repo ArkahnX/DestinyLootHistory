@@ -299,8 +299,27 @@ var logger = (function() {
 				for (var property in localStorage) {
 					endLogs.push(`${property}: "${localStorage[property]}"`);
 				}
-				endLogs.push(`Bungie Systems ${localStorage.systems}`);
-				resolve(endLogs.join("\n"));
+				chrome.storage.local.get(null, function(result) {
+					for (var property in result) {
+						if (Array.isArray(result[property])) {
+							endLogs.push(`${property}: Array[${result[property].length}]`);
+						} else if (!Array.isArray(result[property]) && typeof result[property] === "object") {
+							for (var attr in result[property]) {
+								if (Array.isArray(result[property][attr])) {
+									endLogs.push(`${property}.${attr}: Array[${result[property][attr].length}]`);
+								} else if (!Array.isArray(result[property]) && typeof result[property] === "object") {
+									endLogs.push(`${property}.${attr}: Object[${Object.keys(result[property][attr]).length}]`);
+								} else {
+									endLogs.push(`${property}.${attr}: "${result[property][attr]}"`);
+								}
+							}
+						} else {
+							endLogs.push(`${property}: "${result[property]}"`);
+						}
+					}
+					endLogs.push(`Bungie Systems ${localStorage.systems}`);
+					resolve(endLogs.join("\n"));
+				});
 			});
 		});
 	}

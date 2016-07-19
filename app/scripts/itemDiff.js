@@ -439,6 +439,24 @@ function processDifference(currentDateString, resolve) {
 		data.currencies = oldCurrencies;
 		oldCurrencies = oldCurrencies;
 	}
+	var tempNewInventories = {};
+	for (var attr in newInventories) {
+		if (Array.isArray(newInventories[attr])) {
+			tempNewInventories[attr] = newInventories[attr].length;
+		} else {
+			tempNewInventories[attr] = newInventories[attr];
+		}
+	}
+	localStorage.newInventories = JSON.stringify(tempNewInventories);
+	var tempOldInventories = {};
+	for (var attr in oldInventories) {
+		if (Array.isArray(oldInventories[attr])) {
+			tempOldInventories[attr] = oldInventories[attr].length;
+		} else {
+			tempOldInventories[attr] = oldInventories[attr];
+		}
+	}
+	localStorage.oldInventories = JSON.stringify(tempOldInventories);
 	if (additions.length || removals.length || transfers.length || progression.length) {
 		trackIdle();
 		// logger.log(currentDateString, "\nAdditions:", additions, "\nRemovals:", removals, "\nTransfers:", transfers, "\nChanges:", changes, "\nFinal Changes:", finalChanges);
