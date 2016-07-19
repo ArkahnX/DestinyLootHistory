@@ -98,6 +98,7 @@ function initializeStoredVariables() {
 		var manifest = chrome.runtime.getManifest();
 		if (!localStorage.version) {
 			localStorage.version = manifest.version;
+			localStorage.notificationClosed = "false";
 		}
 		var localVersion = localStorage.version.split(".");
 		var manifestVersion = manifest.version.split(".");
@@ -105,6 +106,8 @@ function initializeStoredVariables() {
 			localStorage.notificationClosed = "false";
 		}
 		localStorage.version = manifest.version;
+		localStorage.newInventory = JSON.stringify({});
+		localStorage.oldInventory = JSON.stringify({});
 		tracker.sendEvent('Backend Initialized', `No Issues`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 		chrome.storage.local.get(null, function(data) {
 			var newData = {};
