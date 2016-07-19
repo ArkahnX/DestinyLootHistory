@@ -193,7 +193,31 @@ function rowHeight(list1Length, list2Length, list3Length, list4Length) {
 	if (list1Length < 21 && list2Length < 21 && list3Length < 21 && list4Length < 21) {
 		return "five-rows";
 	}
-	return "five-rows";
+	if (list1Length < 25 && list2Length < 25 && list3Length < 25 && list4Length < 25) {
+		return "six-rows";
+	}
+	if (list1Length < 29 && list2Length < 29 && list3Length < 29 && list4Length < 29) {
+		return "seven-rows";
+	}
+	if (list1Length < 33 && list2Length < 33 && list3Length < 33 && list4Length < 33) {
+		return "eight-rows";
+	}
+	if (list1Length < 37 && list2Length < 37 && list3Length < 37 && list4Length < 37) {
+		return "nine-rows";
+	}
+	if (list1Length < 41 && list2Length < 41 && list3Length < 41 && list4Length < 41) {
+		return "ten-rows";
+	}
+	if (list1Length < 45 && list2Length < 45 && list3Length < 45 && list4Length < 45) {
+		return "eleven-rows";
+	}
+	if (list1Length < 49 && list2Length < 49 && list3Length < 49 && list4Length < 49) {
+		return "twelve-rows";
+	}
+	if (list1Length < 53 && list2Length < 53 && list3Length < 53 && list4Length < 53) {
+		return "thirteen-rows";
+	}
+	return "thirteen-rows";
 }
 
 function createItems(itemDiff, className, moveType) {

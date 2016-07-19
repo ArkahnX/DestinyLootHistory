@@ -60,13 +60,13 @@ function initItems(callback) {
 			if (typeof callback === "function") {
 				callback();
 			}
-			// console.log(err, err.stack)
+			// console.log(err)
 		});
 	}).catch(function(err) {
 		if (typeof callback === "function") {
 			callback();
 		}
-		// console.log(err, err.stack)
+		// console.log(err)
 	});
 }
 
