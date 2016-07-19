@@ -478,11 +478,11 @@ function processDifference(currentDateString, resolve) {
 	logger.timeEnd("Process Difference");
 	logger.time("grab matches");
 	trackingTimer++;
-	getLocalMatches().then(getRemoteMatches).catch(function(err) {
+	getLocalMatches().then(getRemoteMatches)/*.catch(function(err) {
 		console.log(err)
 			// if (typeof callback === "function") {
 			// 	callback();
 			// }
 			// console.log(err)
-		}).then(check3oC).then(applyMatchData).then(resolve);
+		})*/.then(check3oC).then(applyMatchData).then(resolve);
 }
