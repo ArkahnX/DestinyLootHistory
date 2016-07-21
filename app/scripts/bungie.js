@@ -201,6 +201,9 @@ var bungie = (function Bungie() {
 					chrome.cookies.getAll({
 						domain: ".bungie.net"
 					}, function(cookies) {
+						if (chrome.runtime.lastError) {
+							logger.error(chrome.runtime.lastError);
+						}
 						if (cookies && cookies.length) {
 							var cookieNames = {};
 							for (var cookie of cookies) {
