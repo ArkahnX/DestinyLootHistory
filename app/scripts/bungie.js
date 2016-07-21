@@ -28,15 +28,19 @@ var bungie = (function Bungie() {
 				if (chrome.runtime.lastError) {
 					logger.error(chrome.runtime.lastError);
 				}
-				var bungled = null;
-				for (var cookieName in cookies) {
-					var cookie = cookies[cookieName];
-					if (cookie.name === name && cookie.value) {
-						bungled = cookie.value;
-						break;
+				if (cookies && cookies.length) {
+					var bungled = null;
+					for (var cookieName in cookies) {
+						var cookie = cookies[cookieName];
+						if (cookie.name === name && cookie.value) {
+							bungled = cookie.value;
+							break;
+						}
 					}
+					resolve(bungled);
+				} else {
+					resolve(false);
 				}
-				resolve(bungled);
 			});
 		});
 	}
@@ -185,7 +189,7 @@ var bungie = (function Bungie() {
 
 			_getCookie('bungled').then(function(token) {
 				logger.startLogging("bungie");
-				if (token !== null) {
+				if (token !== null && token !== false) {
 					r.withCredentials = true;
 					r.setRequestHeader('x-csrf', token);
 					r.send(JSON.stringify(opts.payload));
@@ -197,25 +201,31 @@ var bungie = (function Bungie() {
 					chrome.cookies.getAll({
 						domain: ".bungie.net"
 					}, function(cookies) {
-						var cookieNames = {};
-						for (var cookie of cookies) {
-							if (cookie.name) {
+						if (cookies && cookies.length) {
+							var cookieNames = {};
+							for (var cookie of cookies) {
+								if (cookie.name) {
 									cookieNames[cookie.name] = cookie.value && cookie.value.length || 0;
-								if (cookie.value && cookie.value.length < 20) {
-									cookieNames[cookie.name] = cookie.value;
-								}
+									if (cookie.value && cookie.value.length < 20) {
+										cookieNames[cookie.name] = cookie.value;
+									}
 									if (cookie.name === "bungleme") {
 										cookieNames[cookie.name] = cookie.value;
 									}
+								}
 							}
+							var result = JSON.stringify(cookieNames);
+							// console.log(result)
+							tracker.sendEvent('Cookie Not Found', result, `version ${localStorage.version}, systems ${localStorage.systems}`);
+							logger.error('Error loading cookie.' + result);
+						} else {
+							tracker.sendEvent('Cookie Not Found', "{}", `version ${localStorage.version}, systems ${localStorage.systems}`);
+							logger.error('Error loading cookie. {}');
 						}
-						var result = JSON.stringify(cookieNames);
-						// console.log(result)
-						tracker.sendEvent('Cookie Not Found', result, `version ${localStorage.version}, systems ${localStorage.systems}`);
+						logger.endLogging();
+						logger.saveData();
+						opts.incomplete();
 					});
-					logger.endLogging();
-					logger.saveData();
-					opts.incomplete();
 				}
 			});
 		} else {
