@@ -6,6 +6,17 @@
 	</head>
 	<body>
 		<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
+		<section class="center hidden" id="perkWindow">
+			<fieldset class="center solidBackground">
+				<section>
+					<ul id="perkList">
+						
+					</ul>
+				</section>
+				<input type="button" class="button" value="Add additional perkset" id="additionalPerks">
+				<input type="button" class="button" value="Save" id="savePerks">
+			</fieldset>
+		</section>
 		<section class="center solidBackground">
 			<!-- <label for="startOnLaunch" class="sub-section">Start Tracking on Launch<input type="checkbox" id="startOnLaunch" /></label> -->
 			<div id="drop_zone">Place itemChanges.json here to restore</div>
@@ -19,9 +30,11 @@
 				<legend>Auto Lock New High Quality Items</legend>
 				<label>Enable Automatic Locking of items:</label><input type="checkbox" id="autoLock">
 				<br />
-				<label>Minimum Quality Percentage:</label><input type="number" min="80" max="100" value="95" id="minQuality">
+				<label>Minimum Quality Percentage:</label><input type="number" min="80" max="100" value="90" id="minQuality">
 				<br />
 				<label>Minimum Light Level:</label><input type="number" min="300" max="335" value="335" id="minLight">
+				<!-- <br /> -->
+				<!-- <label>Gear Perks:</label><input type="button" class="button" value="Select Perks" id="gearPerks"> -->
 			</fieldset>
 			<fieldset>
 				<legend>Reminders</legend>

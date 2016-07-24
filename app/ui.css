@@ -88,7 +88,6 @@ select:not(#tags),
 	transition: background-color .5s,color .5s;
 	text-decoration: none;
 	text-transform: uppercase;
-	text-transform: uppercase;
 	/*color: #FFF;*/
 
 	border: none;
@@ -1211,4 +1210,32 @@ fieldset ul {
 		transform: rotateX(0deg);
 		transform-origin: top center;
 	}
+}
+
+optgroup {
+	font-size: 18px;
+}
+
+optgroup option {
+	font-size: 15px;
+
+	text-transform: capitalize;
+}
+
+.title-bar select {
+	vertical-align: top;
+}
+
+.main-select {
+	text-align: right;
+}
+
+#vendors .sub-section {
+	min-height: 30px;
+
+	background-color: rgba(255,255,255,.2);
+}
+
+.undiscovered {
+	opacity: .25;
 }

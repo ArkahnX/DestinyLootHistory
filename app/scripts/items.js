@@ -60,13 +60,13 @@ function initItems(callback) {
 			if (typeof callback === "function") {
 				callback();
 			}
-			// console.log(err, err.stack)
+			// console.log(err)
 		});
 	}).catch(function(err) {
 		if (typeof callback === "function") {
 			callback();
 		}
-		// console.log(err, err.stack)
+		// console.log(err)
 	});
 }
 
@@ -248,7 +248,7 @@ function buildCompactItem(itemData) {
 }
 
 function handleInput(source, alt) {
-	if (typeof source === "object") {
+	if (typeof source === "object" && source !== null) {
 		for (var item of source) {
 			if (Array.isArray(item) && item.length === 0) {
 				return alt;
@@ -757,8 +757,11 @@ function check3oC() {
 					var threeOfCoinsCharacter = findThreeOfCoins(localStorage.newestCharacter);
 					if (threeOfCoinsCharacter && hasInventorySpace("vault", 417308266)) {
 						setTimeout(function() {
-							bungie.transfer(threeOfCoinsCharacter, "0", 417308266, 1, true).then(function() {
-								bungie.transfer(threeOfCoinsCharacter, "0", 417308266, 1, false);
+							bungie.transfer(threeOfCoinsCharacter, "0", 417308266, 1, true).then(function(response) {
+								console.log(response);
+								bungie.transfer(threeOfCoinsCharacter, "0", 417308266, 1, false).then(function(response) {
+									console.log(response);
+								});
 							});
 						}, 5000);
 					} else {
@@ -782,10 +785,13 @@ function check3oC() {
 }
 
 function eligibleToLock(item, characterId) {
-	if (localStorage.autoLock === "true" && hasQuality(item)) {
+	if (localStorage.autoLock === "true" && ((item.primaryStat && (item.primaryStat.statHash === 3897883278 || item.primaryStat.statHash === 368428387) && (itemDef.tierTypeName === "Legendary" || itemDef.tierTypeName === "Exotic") && item.stats))) {
 		var qualityLevel = parseItemQuality(item);
-		if (qualityLevel.min >= (parseInt(localStorage.minQuality) || 95) || item.primaryStat.value >= (parseInt(localStorage.minLight) || 335)) {
-			bungie.lock(characterId, item.itemInstanceId);
+		console.log(qualityLevel.min, parseInt(localStorage.minQuality) || 90, item.primaryStat.value, parseInt(localStorage.minLight) || 335);
+		if (qualityLevel.min >= (parseInt(localStorage.minQuality) || 90) || item.primaryStat.value >= (parseInt(localStorage.minLight) || 335)) {
+			bungie.lock(characterId, item.itemInstanceId).then(function(response) {
+				console.log(response);
+			});
 		}
 	}
 }

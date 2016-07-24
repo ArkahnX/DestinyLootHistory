@@ -496,6 +496,8 @@ function makeProgress(itemDiff, moveType, index) {
 		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyProgressionDefinition[progressData.progressionHash].icon + "')");
 	} else if (progressData.name === "pvp_iron_banner.loss_tokens") {
 		container.setAttribute("style", "background-image: url('http://bungie.net" + getItemDefinition(3397982326).icon + "')");
+	} else if (progressData.name === "r1_s4_hiveship_orbs") {
+		container.setAttribute("style", "background-image: url('http://bungie.net" + getItemDefinition(1069694698).icon + "')");
 	} else {
 		container.setAttribute("style", "background-image: url('http://bungie.net/img/misc/missing_icon.png')");
 	}

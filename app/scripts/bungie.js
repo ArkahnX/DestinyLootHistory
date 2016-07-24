@@ -18,7 +18,7 @@ var bungie = (function Bungie() {
 	// private methods
 	function _getAllCookies(callback) {
 		chrome.cookies.getAll({
-			domain: ".bungie.net"
+			domain: "www.bungie.net"
 		}, callback);
 	}
 
@@ -60,7 +60,7 @@ var bungie = (function Bungie() {
 				if (this.status >= 200 && this.status < 400) {
 					var response = JSON.parse(this.response);
 					if (opts.noerror) {
-						opts.complete(response.Response, response);
+						opts.complete(response);
 					} else if (response.ErrorCode === 36 || response.ErrorCode === 51) {
 						logger.startLogging("Bungie Logs");
 						tracker.sendEvent('Too Frequent', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
@@ -464,6 +464,7 @@ var bungie = (function Bungie() {
 				route: `/Destiny/${active.type}/MyAccount/Character/${characterId}/Vendor/${vendorId}/Metadata/`,
 				shortRoute: '/Destiny//MyAccount/Character//Vendor//Metadata/',
 				method: 'GET',
+				noerror: true,
 				incomplete: reject,
 				complete: resolve
 			});

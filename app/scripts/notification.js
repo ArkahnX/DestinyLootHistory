@@ -27,10 +27,10 @@ var notification = (function() {
 	let manifest = chrome.runtime.getManifest();
 	const changelog = `New in ${manifest.version}:<br>
 <ul>
-	<li>If the extension encounters an issue (Red exclamation point on the icon) please reslove the issue, then click "Begin Tracking"</li>
-	<li>New: Automatically lock items that are high quality or high light. (<a href="options.html">Setup</a>)</li>
+	<li>Most issues can be resolved by following steps in the "<a href="debug.html">Report Issue</a>" page.</li>
+	<li>Automatically lock items that are high quality or high light. (<a href="options.html">Setup</a>)</li>
 	<li>Quick toggles for three of coins and auto locking in on the front page.</li>
-	<li>If you encounter issues, please use the "<a href="debug.html">Report Issue</a>" feature.</li>
+	<li>New: <a href="vendors.html">Vendors</a> page under "Features". Browse vendors and compare them. <br />Example: Compare the Guardian Outfitter against the Emblem Kiosk to see missing emblems.</li>
 </ul>`;
 
 	localStorage.notificationClosed = localStorage.notificationClosed || "true";

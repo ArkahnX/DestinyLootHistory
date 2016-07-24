@@ -1,5 +1,5 @@
 function _defaultCheck(source, alt) {
-	if (typeof source === "object") {
+	if (typeof source === "object" && source !== null) {
 		for (var item of source) {
 			if (Array.isArray(item) && item.length === 0) {
 				return alt;
@@ -68,7 +68,8 @@ function _checkValue(value, expectedFunction, fallback) {
 
 function initializeStoredVariables() {
 	return new Promise(function(resolve) {
-		localStorage.accurateTracking = _checkValue(localStorage.accurateTracking, _checkBoolean, "false");
+		// localStorage.accurateTracking = _checkValue(localStorage.accurateTracking, _checkBoolean, "false");
+		localStorage.accurateTracking = "false";
 		localStorage.activeType = _checkValue(localStorage.activeType, _checkActiveType, "psn");
 		localStorage.characterDescriptions = _checkValue(localStorage.characterDescriptions, _checkJSON, "{}");
 		// localStorage.allowTracking = _checkValue(localStorage.allowTracking, _checkJSON, JSON.stringify({
@@ -87,7 +88,7 @@ function initializeStoredVariables() {
 		localStorage.track3oC = _checkValue(localStorage.track3oC, _checkBoolean, "true");
 		localStorage.uniqueId = _checkValue(localStorage.uniqueId, _checkLength, "false");
 		localStorage.autoLock = _checkValue(localStorage.autoLock, _checkBoolean, "false");
-		localStorage.minQuality = _checkValue(localStorage.minQuality, _checkNumber, 95);
+		localStorage.minQuality = _checkValue(localStorage.minQuality, _checkNumber, 90);
 		localStorage.minLight = _checkValue(localStorage.minLight, _checkNumber, 335);
 		if (localStorage.allowTracking) {
 			localStorage.removeItem("allowTracking");
