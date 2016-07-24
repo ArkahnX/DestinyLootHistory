@@ -785,6 +785,7 @@ function check3oC() {
 }
 
 function eligibleToLock(item, characterId) {
+	var itemDef = getItemDefinition(item.itemHash);
 	if (localStorage.autoLock === "true" && ((item.primaryStat && (item.primaryStat.statHash === 3897883278 || item.primaryStat.statHash === 368428387) && (itemDef.tierTypeName === "Legendary" || itemDef.tierTypeName === "Exotic") && item.stats))) {
 		var qualityLevel = parseItemQuality(item);
 		console.log(qualityLevel.min, parseInt(localStorage.minQuality) || 90, item.primaryStat.value, parseInt(localStorage.minLight) || 335);
