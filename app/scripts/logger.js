@@ -165,7 +165,7 @@ var logger = (function() {
 
 		if (Array.isArray(data)) {
 			currentLog.logs.push(_log(type, `Array[${data.length}]`));
-		} else if (typeof data === "object") {
+		} else if (typeof data === "object" && data !== null) {
 			var dataList = [];
 			for (var attr in data) {
 				if (data[attr] !== undefined && data[attr] !== null) {
@@ -303,11 +303,11 @@ var logger = (function() {
 					for (var property in result) {
 						if (Array.isArray(result[property])) {
 							endLogs.push(`${property}: Array[${result[property].length}]`);
-						} else if (!Array.isArray(result[property]) && typeof result[property] === "object") {
+						} else if (!Array.isArray(result[property]) && typeof result[property] === "object" && result[property] !== null) {
 							for (var attr in result[property]) {
 								if (Array.isArray(result[property][attr])) {
 									endLogs.push(`${property}.${attr}: Array[${result[property][attr].length}]`);
-								} else if (!Array.isArray(result[property]) && typeof result[property] === "object") {
+								} else if (!Array.isArray(result[property]) && typeof result[property] === "object" && result[property] !== null) {
 									endLogs.push(`${property}.${attr}: Object[${Object.keys(result[property][attr]).length}]`);
 								} else {
 									endLogs.push(`${property}.${attr}: "${result[property][attr]}"`);

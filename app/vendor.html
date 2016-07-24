@@ -40,13 +40,18 @@
 		</header>
 		<div class="title-bar">
 			<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
-			<div class="center" id="character-headers" style="text-align: center;">
-				<div class="title"><h1 class="section-title">ITEM HISTORY</h1></div>
+			<div class="main-select">
+			<label for="character">Character: <select id="character"></select></label>
+			<label for="vendor">Vendor: <select id="vendor"></select></label>
+			<label for="compare">Compare: <select id="compare"></select></label>
 			</div>
 		</div>
 		<div id="container">
 			<div class="center" id="character-sections">
-				<div id="history" class="main-section" style="width: inherit;"><div class="sub-section"><h2>Reward Source data from items that have been previously acquired are innaccurate due to lack of information in the Bungie API.</h2></div></div>
+				<div class="center" id="vendors">
+					<div class="sub-section"><h2>Reward Source data from items that have been previously acquired are innaccurate due to lack of information in the Bungie API.</h2></div>
+				</div>
+				<div id="history" class="main-section" style="width: inherit;"></div>
 			</div>
 		</div>
 		<div id="tooltip" class="hidden">
