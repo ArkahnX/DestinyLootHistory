@@ -2,94 +2,41 @@ tracker.sendAppView('Vendor');
 logger.disable();
 initUi();
 
-function passData(DomNode, itemData, unlockFlag) {
-	var itemDef = getItemDefinition(itemData.itemHash);
-	logger.startLogging("UI");
-	if (itemData.tierTypeName) {
-		DomNode.dataset.tierTypeName = itemDef.tierTypeName;
-	} else {
-		DomNode.dataset.tierTypeName = "Common";
-	}
-	DomNode.dataset.itemHash = itemData.itemHash;
-	DomNode.dataset.itemName = itemDef.itemName;
-	DomNode.dataset.itemTypeName = itemDef.itemTypeName;
-	DomNode.dataset.equipRequiredLevel = itemData.equipRequiredLevel || 0;
-	DomNode.dataset.primaryStat = primaryStat(itemData);
-	DomNode.dataset.primaryStatName = primaryStatName(itemData);
-	DomNode.dataset.itemDescription = itemDef.itemDescription;
-	DomNode.dataset.damageTypeName = elementType(itemData);
-	DomNode.dataset.classRequirement = "";
-	if (unlockFlag) {
-		DomNode.dataset.classRequirement = unlockFlag;
-	}
-	if (itemData.stats && itemData.stats.length) {
-		DomNode.dataset.statTree = JSON.stringify(itemData.stats);
-	}
-	if (itemData.nodes && itemData.nodes.length) {
-		DomNode.dataset.talentGridHash = itemData.talentGridHash;
-		DomNode.dataset.nodeTree = JSON.stringify(itemData.nodes);
-	}
-	if (itemData.objectives && itemData.objectives.length) {
-		DomNode.dataset.objectiveTree = JSON.stringify(itemData.objectives);
-	}
-}
-
-function makeItem(itemHash, acquired, saleItem) {
-	var itemData = getItemDefinition(itemHash);
-	var docfrag = document.createDocumentFragment();
-	var itemContainer = document.createElement("div");
-	itemContainer.classList.add("item-container");
-	var container = document.createElement("div");
-	var stat = document.createElement("div");
-	itemContainer.appendChild(container);
-	if (hasQuality(saleItem.item)) {
-		var quality = document.createElement("div");
-		itemContainer.appendChild(quality);
-		quality.classList.add("quality");
-		stat.classList.add("with-quality");
-		var qualityData = parseItemQuality(saleItem.item);
-		quality.style.background = qualityData.color;
-		quality.textContent = qualityData.min + "%";
-	}
-	itemContainer.appendChild(stat);
-	docfrag.appendChild(itemContainer);
-	DOMTokenList.prototype.add.apply(container.classList, itemClasses(saleItem.item));
-	if (itemData.itemHash === 3159615086 || itemData.itemHash === 2534352370 || itemData.itemHash === 2749350776) {
-		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + getItemDefinition(itemData.itemHash).icon + "')");
-	} else if (getItemDefinition(itemData.itemHash).hasIcon || (getItemDefinition(itemData.itemHash).icon && getItemDefinition(itemData.itemHash).icon.length)) {
-		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + getItemDefinition(itemData.itemHash).icon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
-	} else {
-		container.setAttribute("style", "background-image: url('http://bungie.net/img/misc/missing_icon.png')");
-	}
-	stat.classList.add("primary-stat");
-	stat.textContent = primaryStat(saleItem.item);
+function makeSaleItem(itemHash, acquired, saleItem) {
+	var item = makeItem(saleItem.item, unlockFlag);
+	var itemDef = getItemDefinition(itemHash);
 	var unlockFlag = false;
 	if (acquired) {
 		// console.log(itemData, DestinyUnlockFlagDefinition[acquired.unlockFlagHash], saleItem);
 		if (acquired.isSet === false) {
-			itemContainer.classList.add("undiscovered")
+			item.children[0].classList.add("undiscovered")
 		}
 		unlockFlag = DestinyVendorDefinition[lastVendor].failureStrings[saleItem.failureIndexes[0] || -1];
 		if (!unlockFlag) {
 			unlockFlag = DestinyUnlockFlagDefinition[acquired.unlockFlagHash].displayName;
 			if (!DestinyUnlockFlagDefinition[acquired.unlockFlagHash].displayName) {
-				if (itemData.sourceHashes) {
-					unlockFlag = DestinyRewardSourceDefinition[itemData.sourceHashes[0]].description;
+				if (itemDef.sourceHashes) {
+					unlockFlag = DestinyRewardSourceDefinition[itemDef.sourceHashes[0]].description;
 				} else {
 					unlockFlag = "";
 				}
 			}
 		}
 	}
-	passData(container, saleItem.item, unlockFlag);
-	return docfrag;
+	return item;
 }
 
-function makeItemsFromList(list) {
-	var emblems = {};
+function makeItemsFromVendor(vendor) {
+	var list = vendor.saleItemCategories;
 	var mainContainer = document.getElementById("history");
 	// var categories = emblemData.data.vendor.saleItemCategories;
 	// var vendorCategory = outfitterData.data.vendor.saleItemCategories[0];
+	if (vendor.nextRefreshDate) {
+		var resetDate = document.createElement("div");
+		resetDate.classList.add("sub-section");
+		resetDate.innerHTML = "<h1>Vendor will reset " + moment(vendor.nextRefreshDate).fromNow() + "</h1>";
+		mainContainer.appendChild(resetDate);
+	}
 	for (var category of list) {
 		var titleContainer = document.createElement("div");
 		titleContainer.classList.add("sub-section");
@@ -99,7 +46,7 @@ function makeItemsFromList(list) {
 		subContainer.classList.add("sub-section");
 		var docfrag = document.createDocumentFragment();
 		for (var saleItem of category.saleItems) {
-			docfrag.appendChild(makeItem(saleItem.item.itemHash, saleItem.unlockStatuses[0], saleItem));
+			docfrag.appendChild(makeSaleItem(saleItem.item.itemHash, saleItem.unlockStatuses[0], saleItem));
 			// for (var vendorItem of vendorCategory.saleItems) {
 			// 	var itemDef = DestinyCompactItemDefinition[saleItem.item.itemHash];
 			// 	if (saleItem.unlockStatuses.length && !saleItem.unlockStatuses[0].isSet && vendorItem.item.itemHash === saleItem.item.itemHash) {
@@ -179,18 +126,10 @@ initItems(function() {
 	document.getElementById("compare").addEventListener("change", function(event) {
 		if (document.getElementById("vendor").value !== "None" && event.target.value !== "None") {
 			compareVendor(document.getElementById("vendor").value, event.target.value);
+		} else if (document.getElementById("vendor").value !== "None") {
+			getVendor(document.getElementById("vendor").value);
 		}
 	});
-	// bungie.getVendorForCharacter(localStorage.newestCharacter, 3301500998).then(function(emblemData) {
-	// 	bungie.getVendorForCharacter(localStorage.newestCharacter, 134701236).then(function(outfitterData) {
-	// 		bungie.getXur().then(function(xurData) {
-	// 			console.log(xurData.data.saleItemCategories[2].saleItems);
-	// 			makeItemsFromList(xurData.data.saleItemCategories);
-	// 			makeItemsFromList(emblemData.data.vendor.saleItemCategories);
-	// 			// console.log(emblems, categories, vendorCategory);
-	// 		});
-	// 	});
-	// });
 });
 
 function getVendor(hash) {
@@ -202,7 +141,7 @@ function getVendor(hash) {
 	bungie.getVendorForCharacter(selectedCharacter, lastVendor).then(function(response) {
 		console.log(response, response.Response && response.Response.data, DestinyVendorDefinition[lastVendor]);
 		if (response.Response) {
-			makeItemsFromList(response.Response.data.vendor.saleItemCategories);
+			makeItemsFromVendor(response.Response.data.vendor);
 		} else {
 			console.log(lastVendor);
 		}
@@ -224,12 +163,15 @@ function compareVendor(vendorHash, compareHash) {
 				var flattenedVendorItems = flattenItems(vendorSaleItems);
 				var flattenedCompareItems = flattenItems(compareSaleItems);
 				var saleItemCategories = [{
-					categoryTitle: vendorName,
+					categoryTitle: vendorName + " reset " + moment(responseMain.Response.data.vendor.nextRefreshDate).fromNow(),
 					saleItems: []
 				}, {
-					categoryTitle: compareName,
+					categoryTitle: compareName + " reset " + moment(responseCompare.Response.data.vendor.nextRefreshDate).fromNow(),
 					saleItems: []
 				}];
+				var vendor = {
+					saleItemCategories: saleItemCategories
+				};
 				for (var compareItem of flattenedCompareItems) {
 					for (var vendorItem of flattenedVendorItems) {
 						if (compareItem.item.itemHash === vendorItem.item.itemHash) {
@@ -239,7 +181,7 @@ function compareVendor(vendorHash, compareHash) {
 					}
 				}
 				// console.log(response, response.Response && response.Response.data, DestinyVendorDefinition[lastVendor]);
-				makeItemsFromList(saleItemCategories);
+				makeItemsFromVendor(vendor);
 			} else {
 				console.log(document.getElementById("character").value, document.getElementById("vendor").value, document.getElementById("compare").value);
 			}
