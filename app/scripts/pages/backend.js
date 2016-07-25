@@ -147,14 +147,15 @@ function init() {
 			}
 		}, 1000);
 	} else {
-		setTimeout(init, 50);
+		setTimeout(init, 1000);
 	}
 }
 /**
  * STEP 1
  * This is the starting point for my application.
+ * Wait two seconds for the chrome cookies database to load.
  */
-setTimeout(init, 50);
+setTimeout(init, 2000);
 // logging some backend data. Saved my butt during the issue that deleted my saved data.
 chrome.storage.local.get(null, function(result) {
 	logger.startLogging("Backend");

@@ -267,7 +267,8 @@ function processDifference(currentDateString, resolve) {
 					if (newCurrency.value > oldCurrency.value) {
 						let tempItem = JSON.stringify({
 							itemHash: newCurrency.itemHash,
-							stackSize: newCurrency.value - oldCurrency.value
+							stackSize: newCurrency.value - oldCurrency.value,
+							maxStackSize:newCurrency.value
 						});
 						addedCurrencyQ.push({
 							characterId: diffCharacterId,
@@ -276,7 +277,8 @@ function processDifference(currentDateString, resolve) {
 					} else if (newCurrency.value < oldCurrency.value) {
 						let tempItem = JSON.stringify({
 							itemHash: newCurrency.itemHash,
-							stackSize: oldCurrency.value - newCurrency.value
+							stackSize: oldCurrency.value - newCurrency.value,
+							maxStackSize:newCurrency.value
 						});
 						removedCurrencyQ.push({
 							characterId: diffCharacterId,

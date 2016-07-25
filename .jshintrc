@@ -25,6 +25,7 @@
 		"sequence":false,
 		"clearInterval":false,
 		"clearTimeout":false,
-		"document":false
+		"document":false,
+		"getItemDefinition":false
 	}
 }

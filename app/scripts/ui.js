@@ -567,9 +567,22 @@ function elementType(itemData) {
 }
 
 function primaryStatName(itemData) {
-	if (itemData.primaryStat) {
+	var itemDef = getItemDefinition(itemData.itemHash);
+	if (itemData.itemHash === 3159615086) {
+		var glimmer = getItemDefinition(3159615086);
+		if(itemData.maxStackSize) {
+			return `${itemData.maxStackSize}/${glimmer.maxStackSize}`;
+		}
+		return glimmer.maxStackSize;
+	} else if (itemData.itemHash === 2534352370) {
+		var marks = getItemDefinition(2534352370);
+		if(itemData.maxStackSize) {
+			return `${itemData.maxStackSize}/${marks.maxStackSize}`;
+		}
+		return marks.maxStackSize;
+	} else if (itemData.primaryStat) {
 		return DestinyStatDefinition[itemData.primaryStat.statHash].statName;
-	} else if (itemData.bucketHash === 2197472680) {
+	} else if (itemDef.bucketTypeHash === 2197472680 || itemDef.bucketTypeHash === 1801258597) {
 		return "Completed";
 	} else {
 		return "Quantity";
