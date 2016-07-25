@@ -244,7 +244,12 @@ function createProgress(itemDiff, className, moveType) {
 	if (itemDiff[moveType]) {
 		var docfrag = document.createDocumentFragment();
 		for (var i = 0; i < itemDiff[moveType].length; i++) {
-			docfrag.appendChild(makeProgress(itemDiff, moveType, i));
+			var itemData = itemDiff[moveType][i];
+			if (itemData.item) {
+				itemData = itemData.item;
+			}
+			itemData = JSON.parse(itemData);
+			docfrag.appendChild(makeProgress(itemData, characterSource(itemDiff, moveType, i)));
 		}
 		subContainer.appendChild(docfrag);
 	}
@@ -468,14 +473,9 @@ function makeItem(itemData, classRequirement) {
 	return docfrag;
 }
 
-function makeProgress(itemDiff, moveType, index) {
-	var progressData = itemDiff[moveType][index];
-	if (progressData.item) {
-		progressData = progressData.item;
-	}
-	progressData = JSON.parse(progressData);
+function makeProgress(progressData, classRequirement) {
 	if (progressData.itemHash) {
-		return makeItem(itemDiff, moveType, index);
+		return makeItem(progressData, classRequirement);
 	}
 	var docfrag = document.createDocumentFragment();
 	if (progressData.progressionHash && progressData.progressionHash === 3298204156) {
@@ -503,7 +503,7 @@ function makeProgress(itemDiff, moveType, index) {
 	}
 	stat.classList.add("primary-stat");
 	stat.textContent = progressData.progressChange;
-	passFactionData(container, itemDiff, moveType, index);
+	passFactionData(container, progressData, classRequirement);
 	return docfrag;
 }
 
@@ -608,12 +608,7 @@ function passData(DomNode, itemData, classRequirement) {
 	}
 }
 
-function passFactionData(DomNode, itemDiff, moveType, index) {
-	var diffData = itemDiff[moveType][index];
-	if (diffData.item) {
-		diffData = diffData.item;
-	}
-	diffData = JSON.parse(diffData);
+function passFactionData(DomNode, diffData, classRequirement) {
 	if (diffData.factionHash) {
 		let factionData = DestinyFactionDefinition[diffData.factionHash];
 		DomNode.dataset.itemName = factionData.factionName;
@@ -633,7 +628,10 @@ function passFactionData(DomNode, itemDiff, moveType, index) {
 	DomNode.dataset.progressChange = diffData.progressChange;
 	DomNode.dataset.nextLevelAt = diffData.nextLevelAt;
 	DomNode.dataset.level = diffData.level;
-	DomNode.dataset.classRequirement = characterSource(itemDiff, moveType, index);
+	DomNode.dataset.classRequirement = "";
+	if (classRequirement) {
+		DomNode.dataset.classRequirement = classRequirement;
+	}
 }
 
 function characterName(characterId, light) {
