@@ -27,11 +27,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	var exportLogsButton = document.getElementById("exportLogs");
 	var minDateInput = document.getElementById("MinDate");
 	if (minDateInput) {
-		minDateInput.value = moment("2016-06-28T17:00:00Z").format("YYYY-MM-DDTHH:mm:ss");
+		minDateInput.value = moment("2016-07-19T17:00:00Z").format("YYYY-MM-DDTHH:mm:ss");
 	}
 	var maxDateInput = document.getElementById("MaxDate");
-	if (minDateInput) {
-		minDateInput.value = moment("2016-07-05T09:00:00Z").format("YYYY-MM-DDTHH:mm:ss");
+	if (maxDateInput) {
+		maxDateInput.value = moment("2016-07-26T09:00:00Z").format("YYYY-MM-DDTHH:mm:ss");
 	}
 	var gameModeInput = document.getElementById("GameMode");
 	var ironBannerInput = document.getElementById("ironBanner");

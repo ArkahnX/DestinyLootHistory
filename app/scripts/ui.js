@@ -226,7 +226,12 @@ function createItems(itemDiff, className, moveType) {
 	var docfrag = document.createDocumentFragment();
 	if (itemDiff[moveType]) {
 		for (var i = 0; i < itemDiff[moveType].length; i++) {
-			docfrag.appendChild(makeItem(itemDiff, moveType, i));
+			var itemData = itemDiff[moveType][i];
+			if (itemData.item) {
+				itemData = itemData.item;
+			}
+			itemData = JSON.parse(itemData);
+			docfrag.appendChild(makeItem(itemData, characterSource(itemDiff, moveType, i)));
 		}
 	}
 	subContainer.appendChild(docfrag);
@@ -239,7 +244,12 @@ function createProgress(itemDiff, className, moveType) {
 	if (itemDiff[moveType]) {
 		var docfrag = document.createDocumentFragment();
 		for (var i = 0; i < itemDiff[moveType].length; i++) {
-			docfrag.appendChild(makeProgress(itemDiff, moveType, i));
+			var itemData = itemDiff[moveType][i];
+			if (itemData.item) {
+				itemData = itemData.item;
+			}
+			itemData = JSON.parse(itemData);
+			docfrag.appendChild(makeProgress(itemData, characterSource(itemDiff, moveType, i)));
 		}
 		subContainer.appendChild(docfrag);
 	}
@@ -431,12 +441,7 @@ function delayNode(index, className, latestItemChange, date, added, removed, tra
 	}, 50);
 }
 
-function makeItem(itemDiff, moveType, index) {
-	var itemData = itemDiff[moveType][index];
-	if (itemData.item) {
-		itemData = itemData.item;
-	}
-	itemData = JSON.parse(itemData);
+function makeItem(itemData, classRequirement) {
 	var docfrag = document.createDocumentFragment();
 	var itemContainer = document.createElement("div");
 	itemContainer.classList.add("item-container");
@@ -464,18 +469,13 @@ function makeItem(itemDiff, moveType, index) {
 	}
 	stat.classList.add("primary-stat");
 	stat.textContent = primaryStat(itemData);
-	passData(container, itemDiff, moveType, index);
+	passData(container, itemData, classRequirement);
 	return docfrag;
 }
 
-function makeProgress(itemDiff, moveType, index) {
-	var progressData = itemDiff[moveType][index];
-	if (progressData.item) {
-		progressData = progressData.item;
-	}
-	progressData = JSON.parse(progressData);
+function makeProgress(progressData, classRequirement) {
 	if (progressData.itemHash) {
-		return makeItem(itemDiff, moveType, index);
+		return makeItem(progressData, classRequirement);
 	}
 	var docfrag = document.createDocumentFragment();
 	if (progressData.progressionHash && progressData.progressionHash === 3298204156) {
@@ -503,7 +503,7 @@ function makeProgress(itemDiff, moveType, index) {
 	}
 	stat.classList.add("primary-stat");
 	stat.textContent = progressData.progressChange;
-	passFactionData(container, itemDiff, moveType, index);
+	passFactionData(container, progressData, classRequirement);
 	return docfrag;
 }
 
@@ -576,16 +576,8 @@ function primaryStatName(itemData) {
 	}
 }
 
-function passData(DomNode, itemDiff, moveType, index) {
+function passData(DomNode, itemData, classRequirement) {
 	// logger.startLogging("UI");
-	var itemData = itemDiff[moveType][index];
-	if (itemData.item) {
-		itemData = itemData.item;
-	}
-	itemData = JSON.parse(itemData);
-	if (itemData.itemHash === 3392485744) {
-		itemData.itemHash = 298210614;
-	}
 	var itemDefinition = getItemDefinition(itemData.itemHash);
 	if (itemDefinition.tierTypeName) {
 		DomNode.dataset.tierTypeName = itemDefinition.tierTypeName;
@@ -600,7 +592,10 @@ function passData(DomNode, itemDiff, moveType, index) {
 	DomNode.dataset.primaryStatName = primaryStatName(itemData);
 	DomNode.dataset.itemDescription = itemDefinition.itemDescription;
 	DomNode.dataset.damageTypeName = elementType(itemData);
-	DomNode.dataset.classRequirement = characterSource(itemDiff, moveType, index);
+	DomNode.dataset.classRequirement = "";
+	if (classRequirement) {
+		DomNode.dataset.classRequirement = classRequirement;
+	}
 	if (itemData.stats && itemData.stats.length) {
 		DomNode.dataset.statTree = JSON.stringify(itemData.stats);
 	}
@@ -613,12 +608,7 @@ function passData(DomNode, itemDiff, moveType, index) {
 	}
 }
 
-function passFactionData(DomNode, itemDiff, moveType, index) {
-	var diffData = itemDiff[moveType][index];
-	if (diffData.item) {
-		diffData = diffData.item;
-	}
-	diffData = JSON.parse(diffData);
+function passFactionData(DomNode, diffData, classRequirement) {
 	if (diffData.factionHash) {
 		let factionData = DestinyFactionDefinition[diffData.factionHash];
 		DomNode.dataset.itemName = factionData.factionName;
@@ -638,7 +628,10 @@ function passFactionData(DomNode, itemDiff, moveType, index) {
 	DomNode.dataset.progressChange = diffData.progressChange;
 	DomNode.dataset.nextLevelAt = diffData.nextLevelAt;
 	DomNode.dataset.level = diffData.level;
-	DomNode.dataset.classRequirement = characterSource(itemDiff, moveType, index);
+	DomNode.dataset.classRequirement = "";
+	if (classRequirement) {
+		DomNode.dataset.classRequirement = classRequirement;
+	}
 }
 
 function characterName(characterId, light) {
