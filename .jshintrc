@@ -26,6 +26,20 @@
 		"clearInterval":false,
 		"clearTimeout":false,
 		"document":false,
-		"getItemDefinition":false
+		"getItemDefinition":false,
+		"DestinyDamageTypeDefinition":false,
+		"DestinyClassDefinition":false,
+		"DestinyGenderDefinition":false,
+		"DestinyRaceDefinition":false,
+		"DestinyProgressionDefinition":false,
+		"DestinyActivityDefinition":false,
+		"DestinyProgressionDefinition":false,
+		"DestinyFactionDefinition":false,
+		"DestinyStatDefinition":false,
+		"DestinyHistoricalItemDefinition":false,
+		"DestinyCompactItemDefinition":false,
+		"DestinyVendorDefinition":false,
+		"DestinyRewardSourceDefinition":false,
+		"DestinyUnlockFlagDefinition":false
 	}
 }

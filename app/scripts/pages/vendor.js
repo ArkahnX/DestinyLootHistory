@@ -3,14 +3,10 @@ logger.disable();
 initUi();
 
 function makeSaleItem(itemHash, acquired, saleItem) {
-	var item = makeItem(saleItem.item, unlockFlag);
 	var itemDef = getItemDefinition(itemHash);
 	var unlockFlag = false;
 	if (acquired) {
 		// console.log(itemData, DestinyUnlockFlagDefinition[acquired.unlockFlagHash], saleItem);
-		if (acquired.isSet === false) {
-			item.children[0].classList.add("undiscovered")
-		}
 		unlockFlag = DestinyVendorDefinition[lastVendor].failureStrings[saleItem.failureIndexes[0] || -1];
 		if (!unlockFlag) {
 			unlockFlag = DestinyUnlockFlagDefinition[acquired.unlockFlagHash].displayName;
@@ -21,6 +17,12 @@ function makeSaleItem(itemHash, acquired, saleItem) {
 					unlockFlag = "";
 				}
 			}
+		}
+	}
+	var item = makeItem(saleItem.item, unlockFlag);
+	if(unlockFlag) {
+		if (acquired.isSet === false) {
+			item.children[0].classList.add("undiscovered");
 		}
 	}
 	return item;
