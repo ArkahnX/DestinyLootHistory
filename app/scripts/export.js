@@ -47,7 +47,6 @@ function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, light
 						if (itemDiff.match) {
 							var itemMatch = JSON.parse(itemDiff.match);
 							if (itemMatch.activityInstance === match.activityInstance) {
-								console.log(match.timestamp);
 								if (itemDiff.added.length) {
 									if (itemDiff.progression) {
 										for (var progress of itemDiff.progression) {

@@ -415,9 +415,6 @@ function displayResults(customItems) {
 				}
 				elements[page].innerHTML = "<h2 class='section-title'>Loading...</h2>";
 			}
-		}
-
-		if (oldItemChangeQuantity !== (currentItemSet && currentItemSet.length) || oldPageNumber !== pageNumber) {
 			// Start iterator, it will return a promise
 			var promise = asyncIterator(currentItemSet || [], work, pageQuantity);
 

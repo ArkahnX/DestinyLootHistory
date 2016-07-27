@@ -91,19 +91,33 @@ function applyMatchData() {
 	return new Promise(function(resolve, reject) {
 		logger.startLogging("matches");
 		logger.time("Match Data");
-		for (var itemDiff of data.itemChanges) {
+		var results = 0;
+		let i = data.itemChanges.length;
+		while (i--) {
+			var itemDiff = data.itemChanges[i];
+			if (itemDiff.match) {
+				results++;
+			}
+			if (results > 5) {
+				break;
+			}
 			var timestamp = new Date(itemDiff.timestamp).getTime();
-			for (var match of data.matches) {
+			let e = data.matches.length;
+			while (e--) {
+				var match = data.matches[e];
 				var minTime = new Date(match.timestamp).getTime();
 				var maxTime = minTime + ((match.activityTime + 120) * 1000);
 				if (timestamp >= minTime && maxTime >= timestamp) {
 					itemDiff.match = JSON.stringify(match);
+					break;
 				}
 			}
 		}
 		chrome.storage.local.set({
+			inventories: data.inventories,
 			itemChanges: data.itemChanges,
-			matches: data.matches,
+			progression: data.progression,
+			currencies: data.currencies
 		}, function() {
 			logger.timeEnd("Match Data");
 			resolve();

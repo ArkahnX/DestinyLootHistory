@@ -346,7 +346,7 @@ function processDifference(currentDateString, resolve) {
 		forceupdate = true;
 		trackingTimer = 0;
 	}
-	logger.log(`idleTimer ${idleTimer}, forceUpdate ${forceupdate}, removed ${finalDiff.removed.length}, added ${finalDiff.added.length}, transferred ${(finalDiff.transferred && finalDiff.transferred.length && forceupdate)}, transferQ ${(transferQ.length && forceupdate)}, progression ${(finalDiff.progression && finalDiff.progression.length && forceupdate)} tracking timer ${trackingTimer}`);
+	logger.log(`forceUpdate ${forceupdate}, removed ${finalDiff.removed.length}, added ${finalDiff.added.length}, transferred ${(finalDiff.transferred && finalDiff.transferred.length && forceupdate)}, transferQ ${(transferQ.length && forceupdate)}, progression ${(finalDiff.progression && finalDiff.progression.length && forceupdate)} tracking timer ${trackingTimer}`);
 	if (finalDiff.removed.length || finalDiff.added.length || (finalDiff.transferred && finalDiff.transferred.length && forceupdate) || (transferQ.length && forceupdate) || (finalDiff.progression && finalDiff.progression.length && forceupdate)) {
 		for (var addedQ of addedCurrencyQ) {
 			finalDiff.added.push(addedQ.item);
@@ -461,7 +461,7 @@ function processDifference(currentDateString, resolve) {
 	}
 	localStorage.oldInventories = JSON.stringify(tempOldInventories);
 	if (additions.length || removals.length || transfers.length || progression.length) {
-		trackIdle();
+		// trackIdle();
 		// logger.log(currentDateString, "\nAdditions:", additions, "\nRemovals:", removals, "\nTransfers:", transfers, "\nChanges:", changes, "\nFinal Changes:", finalChanges);
 	}
 	Array.prototype.push.apply(data.itemChanges, finalChanges);
@@ -471,12 +471,12 @@ function processDifference(currentDateString, resolve) {
 	// oldInventories = newInventories;
 	// data.inventories = newInventories;
 
-	chrome.storage.local.set({
-		inventories: data.inventories,
-		itemChanges: data.itemChanges,
-		progression: data.progression,
-		currencies: data.currencies
-	}, function() {});
+	// chrome.storage.local.set({
+	// 	inventories: data.inventories,
+	// 	itemChanges: data.itemChanges,
+	// 	progression: data.progression,
+	// 	currencies: data.currencies
+	// }, function() {});
 	logger.timeEnd("Process Difference");
 	logger.time("grab matches");
 	trackingTimer++;

@@ -42,6 +42,8 @@
 		"DestinyRewardSourceDefinition":false,
 		"DestinyUnlockFlagDefinition":false,
 		"notification":false,
+		"initItems":false,
+		"characterDescriptions":false,
 		"elements":false
 	}
 }

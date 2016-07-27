@@ -1,12 +1,19 @@
 tracker.sendAppView('MainScreen');
 if (localStorage.characterDescriptions) {
 	characterDescriptions = JSON.parse(localStorage.characterDescriptions);
+	jsonCharacterDescriptions = localStorage.characterDescriptions;
 }
 
 chrome.storage.local.get(null, function(result) {
 	console.log(result);
 });
 
+logger.disable();
+document.addEventListener("DOMContentLoaded", function() {
+	initUi();
+}, false);
+
+var jsonCharacterDescriptions = "";
 var notificationCooldown = 0;
 
 function frontEndUpdate() {
@@ -45,30 +52,31 @@ function frontEndUpdate() {
 			elements.startTracking.setAttribute("value", "Stop Tracking");
 		}
 	}
-	if (notificationCooldown % 60 === 0) {
-		console.log(notificationCooldown)
+	if (notificationCooldown === 0) {
 		var timestamps = document.querySelectorAll(".timestamp");
 		for (var item of timestamps) {
 			var localTime = moment.utc(item.dataset.timestamp).tz(timezone);
 			item.textContent = localTime.fromNow() + item.dataset.activity;
 			item.setAttribute("title", localTime.format("ddd[,] ll LTS"));
 		}
+		chrome.storage.local.get("itemChanges", function chromeStorageGet(localData) {
+			if (currentItemSet.length !== localData.itemChanges.length) {
+				currentItemSet = localData.itemChanges;
+				displayResults().then(function() {
+
+				});
+			}
+		});
 	}
 	notificationCooldown++;
-	if (notificationCooldown > 300) {
+	if (notificationCooldown > 500) {
 		notificationCooldown = 0;
 	}
-	characterDescriptions = JSON.parse(localStorage.characterDescriptions);
-	chrome.storage.local.get("itemChanges", function chromeStorageGet(localData) {
-		currentItemSet = localData.itemChanges;
-		displayResults().then(function() {
-			window.requestAnimationFrame(frontEndUpdate);
-		});
-	});
+	if (jsonCharacterDescriptions !== localStorage.characterDescriptions) {
+		characterDescriptions = JSON.parse(localStorage.characterDescriptions);
+		jsonCharacterDescriptions = localStorage.characterDescriptions;
+	}
+	window.requestAnimationFrame(frontEndUpdate);
 }
 
-logger.disable();
-document.addEventListener("DOMContentLoaded", function() {
-	initUi();
-}, false);
-window.requestAnimationFrame(frontEndUpdate);
+frontEndUpdate();
