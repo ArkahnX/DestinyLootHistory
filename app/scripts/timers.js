@@ -3,6 +3,38 @@ var listenLoop = null;
 var stopLoop = null;
 var oldCharacterDates = 0;
 
+var timers = {
+	extensionIcon: {
+		id: -1,
+		time: 2000,
+		fn: extensionIcon
+	}
+};
+
+function stopTimer(name) {
+	clearTimeout(timers[name].id);
+	timers[name].id = -1;
+}
+
+function startTimer(name) {
+	stopTimer(name);
+	timers[name].id = setTimeout(timers[name].fn, timers[name].time);
+}
+
+function extensionIcon() {
+	if (localStorage.error === "true") {
+		chrome.browserAction.setBadgeText({
+			text: "!"
+		});
+	} else {
+		chrome.browserAction.setBadgeText({
+			text: ""
+		});
+	}
+	startTimer("extensionIcon");
+}
+
+
 
 /**
  * Do a rough faction check to see if the player has played recently. Can be replaced with lastPlayedDate.
@@ -51,54 +83,7 @@ function dirtyItemCheck() {
 
 var updateTimeout = null;
 
-function checkForUpdates() {
-	logger.startLogging("timers");
-	logger.log("checkForUpdates");
-	clearTimeout(updateTimeout);
-	var header = document.querySelector("#status");
-	var element = document.querySelector("#startTracking");
-	if (document.querySelector("#toggleSystem")) {
-		var systemToggleDiv = document.querySelector("#toggleSystem");
-		if (localStorage.activeType === "xbl") {
-			systemToggleDiv.value = "Swap to PSN";
-			systemToggleDiv.classList.remove("green");
-		}
-		if (localStorage.activeType === "psn") {
-			systemToggleDiv.value = "Swap to XBOX";
-			systemToggleDiv.classList.add("green");
-		}
-	}
-	if (localStorage.error === "true") {
-		notification.show();
-		header.classList.add("active", "error");
-		header.classList.remove("idle");
-		element.setAttribute("value", "Begin Tracking");
-		localStorage.listening = "false";
-		characterDescriptions = JSON.parse(localStorage.characterDescriptions);
-	} else {
-		if (localStorage.notificationClosed === "false") {
-			notification.show(notification.changelog);
-		} else {
-			notification.hide();
-		}
-		if (localStorage.listening === "false" || localStorage.error === "true") {
-			header.classList.add("idle");
-			header.classList.remove("active", "error");
-			element.setAttribute("value", "Begin Tracking");
-			localStorage.listening = "false";
-		} else if (localStorage.listening === "true") {
-			header.classList.remove("idle", "error");
-			header.classList.add("active");
-			element.setAttribute("value", "Stop Tracking");
-		}
-	}
-	chrome.storage.local.get(null, function(localData) {
-		data = localData;
-		displayResults().then(function() {
-			updateTimeout = setTimeout(checkForUpdates, 10000);
-		});
-	});
-}
+
 
 
 
@@ -191,7 +176,6 @@ function apiCheck() {
 
 var idleTimer = 0;
 var timeoutTracker = null;
-
 
 
 

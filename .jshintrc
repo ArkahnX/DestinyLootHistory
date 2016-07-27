@@ -21,7 +21,7 @@
 		"setTimeout":false,
 		"logger":false,
 		"XMLHttpRequest":false,
-		"_gaq":true,
+		"tracker":true,
 		"sequence":false,
 		"clearInterval":false,
 		"clearTimeout":false,
@@ -40,6 +40,8 @@
 		"DestinyCompactItemDefinition":false,
 		"DestinyVendorDefinition":false,
 		"DestinyRewardSourceDefinition":false,
-		"DestinyUnlockFlagDefinition":false
+		"DestinyUnlockFlagDefinition":false,
+		"notification":false,
+		"elements":false
 	}
 }

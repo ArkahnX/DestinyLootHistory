@@ -135,17 +135,7 @@ function init() {
 				});
 			});
 		});
-		setInterval(function() {
-			if (localStorage.error === "true") {
-				chrome.browserAction.setBadgeText({
-					text: "!"
-				});
-			} else {
-				chrome.browserAction.setBadgeText({
-					text: ""
-				});
-			}
-		}, 1000);
+		startTimer("extensionIcon");
 	} else {
 		setTimeout(init, 1000);
 	}
@@ -155,7 +145,7 @@ function init() {
  * This is the starting point for my application.
  * Wait two seconds for the chrome cookies database to load.
  */
-setTimeout(init, 2000);
+setTimeout(init, 10000);
 // logging some backend data. Saved my butt during the issue that deleted my saved data.
 chrome.storage.local.get(null, function(result) {
 	logger.startLogging("Backend");
