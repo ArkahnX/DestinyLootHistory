@@ -15,12 +15,6 @@ function backupData() {
 
 document.addEventListener("DOMContentLoaded", function(event) {
 	initUi();
-	var uniqueId = document.getElementById("uniqueId");
-	if (uniqueId) {
-		if (localStorage.uniqueId !== "false") {
-			uniqueId.textContent = localStorage.uniqueId;
-		}
-	}
 	var startOnLaunchButton = document.getElementById("startOnLaunch");
 	var backupDataButton = document.getElementById("backupData");
 	var exportDataButton = document.getElementById("exportData");
@@ -67,6 +61,41 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			exportData(gameModeInput.value, moment(minDateInput.value).utc().format(), moment(maxDateInput.value).utc().format(), parseInt(resultsInput.value), ironBannerInput.checked, lightLevelInput.checked);
 		});
 	}
+	var uniqueHashes = [];
+	var itemSources = [];
+	chrome.storage.local.get("inventories", function(data) {
+		for (var characterInventory of data.inventories) {
+			for (var item of characterInventory) {
+				var itemDef = getItemDefinition(item.itemHash);
+				if (itemDef.bucketTypeHash === 1469714392 && uniqueHashes.indexOf(item.itemHash) === -1 && itemDef.maxStackSize > 1 && !itemDef.nonTransferrable) {
+					itemSources.push([itemDef.itemName, itemDef.itemDescription, itemDef.icon]);
+					uniqueHashes.push(item.itemHash);
+				}
+			}
+		}
+		new autoComplete({
+			selector: '#advanced-demo',
+			minChars: 0,
+			source: function(term, suggest) {
+				term = term.toLowerCase();
+				var suggestions = [];
+				for (i = 0; i < itemSources.length; i++) {
+					if (~(itemSources[i][0] + ' ' + itemSources[i][1]).toLowerCase().indexOf(term)) {
+						suggestions.push(itemSources[i]);
+					}
+				}
+				suggest(suggestions);
+			},
+			renderItem: function(item, search) {
+				var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
+				return '<div class="autocomplete-suggestion" data-langname="' + item[0] + '" data-lang="' + item[1] + '" data-val="' + search + '"><img src="http://www.bungie.net' + item[2] + '" width=16 height=16> ' + item[0].replace(re, "<b>$1</b>") + '</div>';
+			},
+			onSelect: function(e, term, item) {
+				console.log('Item "' + item.getAttribute('data-langname') + ' (' + item.getAttribute('data-lang') + ')" selected by ' + (e.type == 'keydown' ? 'pressing enter' : 'mouse click') + '.');
+				document.getElementById('advanced-demo').value = item.getAttribute('data-langname') + ' (' + item.getAttribute('data-lang') + ')';
+			}
+		});
+	});
 
 	// Setup the dnd listeners.
 	var dropZone = document.getElementById('drop_zone');
@@ -148,7 +177,7 @@ function handleFileSelect(evt) {
 	dropZone.textContent = "Restoration In Progress";
 	evt.stopPropagation();
 	evt.preventDefault();
-	console.log(dropZone.classList,dropZone.textContent)
+	console.log(dropZone.classList, dropZone.textContent)
 	var files = evt.dataTransfer.files[0]; // FileList object.
 
 	if (files) {

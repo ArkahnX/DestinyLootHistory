@@ -55,7 +55,7 @@ function initUi() {
 	var manifest = chrome.runtime.getManifest();
 	if (typeof manifest.key === "undefined") {
 		if (elements.version) {
-			elements.version.textContent = (manifest.version);
+			elements.version.textContent = (manifest.version_name);
 		}
 	}
 	if (elements.status) {
@@ -308,7 +308,7 @@ function createDate(itemDiff, className) {
 	var subContainer = document.createElement("div");
 	subContainer.classList.add("sub-section", className, "timestamp");
 	var localTime = moment.utc(timestamp).tz(timezone);
-	subContainer.textContent =localTime.fromNow() + activity;
+	subContainer.textContent = localTime.fromNow() + activity;
 	subContainer.setAttribute("title", localTime.format("ddd[,] ll LTS"));
 	subContainer.dataset.timestamp = timestamp;
 	subContainer.dataset.activity = activity;
@@ -389,11 +389,14 @@ function postDisplay() {
 	oldItemChangeQuantity = (currentItemSet && currentItemSet.length);
 	oldPageNumber = pageNumber;
 }
+var moment = moment || null
 
-var timezone = moment.tz.guess();
+if (moment) {
+	var timezone = moment.tz.guess();
+}
 
 function displayResults(customItems) {
-	if(customItems && customItems.length) {
+	if (customItems && customItems.length) {
 		currentItemSet = customItems;
 	}
 	// logger.startLogging("UI");
@@ -585,6 +588,9 @@ function passData(DomNode, itemData, classRequirement) {
 		DomNode.dataset.tierTypeName = "Common";
 	}
 	DomNode.dataset.itemHash = itemDefinition.itemHash;
+	if (itemData.itemInstanceId) {
+		DomNode.dataset.itemInstanceId = itemData.itemInstanceId;
+	}
 	DomNode.dataset.itemName = itemDefinition.itemName;
 	DomNode.dataset.itemTypeName = itemDefinition.itemTypeName;
 	DomNode.dataset.equipRequiredLevel = itemData.equipRequiredLevel || 0;

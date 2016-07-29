@@ -7,7 +7,8 @@ var logger = (function() {
 	const INFO = "info";
 	var logList = [];
 
-	var pageWidth = 0;
+	var varPad = 20;
+	var filePad = 18;
 
 	var currentLog = null;
 
@@ -78,6 +79,16 @@ var logger = (function() {
 		return tags;
 	}
 
+	function pad(pad, str, padLeft) {
+		if (typeof str === 'undefined')
+			return pad;
+		if (padLeft) {
+			return (pad + str).slice(-pad.length);
+		} else {
+			return (str + pad).substring(0, pad.length);
+		}
+	}
+
 	function _getSource() {
 		var err = _getErrorObject();
 		var caller_line;
@@ -97,10 +108,11 @@ var logger = (function() {
 		var fileName = index.split(" ");
 		fileName = fileName[fileName.length - 1].split(":");
 		fileName = fileName[0];
-		var clean = `${functionName} (${fileName}:${pageLine})`;
-		if (clean.length > pageWidth) {
-			pageWidth = clean.length;
-		}
+		var paddedFile = pad(Array(filePad).join(' '), `(${fileName}:${pageLine})`, true);
+		var clean = `${pad(Array(varPad).join(' '),functionName,true)} ${paddedFile}`;
+		// if (clean.length > pageWidth) {
+		// 	pageWidth = clean.length;
+		// }
 		return clean;
 	}
 
@@ -159,7 +171,7 @@ var logger = (function() {
 	function _multi(type, data) {
 		if (!chrome.runtime.getManifest().key || _VERBOSE === true) {
 			if (type !== "time" && type !== "timeEnd") {
-				console[type](moment().format(), _getSource(), data);
+				console[type](moment().format(), _getSource(), _pad(type, 5), data);
 			}
 		}
 
@@ -265,23 +277,23 @@ var logger = (function() {
 						var tempLog = [];
 						for (var log of logData.logs) {
 							if (log.type === LOG && showLog && uniqueLogs.indexOf(log.data) === -1) {
-								tempLog.push(`${log.timestamp}: ${_pad(log.source,pageWidth)}: ${_pad(log.type,5)}: ${log.data}`);
+								tempLog.push(`${log.timestamp}:${log.source}: ${log.type}: ${log.data}`);
 								uniqueLogs.push(log.data);
 							}
 							if (log.type === INFO && showInfo && uniqueLogs.indexOf(log.data) === -1) {
-								tempLog.push(`${log.timestamp}: ${_pad(log.source,pageWidth)}: ${_pad(log.type,5)}: ${log.data}`);
+								tempLog.push(`${log.timestamp}:${log.source}: ${log.type}: ${log.data}`);
 								uniqueLogs.push(log.data);
 							}
 							if (log.type === WARN && showWarn && uniqueLogs.indexOf(log.data) === -1) {
-								tempLog.push(`${log.timestamp}: ${_pad(log.source,pageWidth)}: ${_pad(log.type,5)}: ${log.data}`);
+								tempLog.push(`${log.timestamp}:${log.source}: ${log.type}: ${log.data}`);
 								uniqueLogs.push(log.data);
 							}
 							if (log.type === ERROR && showError && uniqueLogs.indexOf(log.data) === -1) {
-								tempLog.push(`${log.timestamp}: ${_pad(log.source,pageWidth)}: ${_pad(log.type,5)}: ${log.data}`);
+								tempLog.push(`${log.timestamp}:${log.source}: ${log.type}: ${log.data}`);
 								uniqueLogs.push(log.data);
 							}
 							if (log.type === TIME && showTime && uniqueLogs.indexOf(log.data) === -1) {
-								tempLog.push(`${log.timestamp}: ${_pad(log.source,pageWidth)}: ${_pad(log.type,5)}: ${log.data}`);
+								tempLog.push(`${log.timestamp}:${log.source}: ${log.type}: ${log.data}`);
 								uniqueLogs.push(log.data);
 							}
 						}

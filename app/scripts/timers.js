@@ -25,14 +25,18 @@ function extensionIcon() {
 			text: ""
 		});
 	}
+	if(localStorage.manual === "true") {
+		startTimer("activityTracker");
+	}
 	startTimer("extensionIcon");
 }
 
 function activityTracker() {
 	logger.startLogging("timers");
 	logger.log("activityTracker");
-	initItems(function() {
+	initItems(function afterInitItems() {
 		if (localStorage.error === "true") {
+			logger.log("Extension has an error.")
 			localStorage.flag = "false";
 			localStorage.listening = "false";
 			localStorage.manual = "false";
@@ -45,12 +49,14 @@ function activityTracker() {
 			}
 			logger.startLogging("timers");
 			if (newCharacterDates !== oldCharacterDates || localStorage.manual === "true") { // if new character dates is not equal to old character dates
+				logger.log("Player character has been played.")
 				logger.log(`Beginning tracking because character dates "${newCharacterDates} !== ${oldCharacterDates}" or manual "${localStorage.manual}"`);
 				localStorage.listening = "true";
 				localStorage.manual = "false";
 				oldCharacterDates = newCharacterDates;
 				startTimer("inventoryCheck", 50);
 			} else {
+				logger.log("Nothing of interest.");
 				startTimer("activityTracker");
 			}
 		}
@@ -65,7 +71,7 @@ function inventoryCheck() {
 	checkInventory().then(function afterInventoryCheck() { // found in items.js
 		logger.startLogging("timers");
 		logger.log("afterInventoryCheck");
-		logger.log(`Error: ${localStorage.error}, Listening: ${localStorage.listening}, Item Change: ${localStorage.itemChangeDetected}, Idle: ${idleTimer}`);
+		logger.log(`Error: ${localStorage.error}, Listening: ${localStorage.listening}, Item Change: ${localStorage.itemChangeDetected}`);
 		var endTime = window.performance.now();
 		var resultTime = Math.floor(endTime - startTime);
 		tracker.sendEvent('Passed BungieTracking and CheckInventory', `No Issues`, `version ${localStorage.version}, systems ${localStorage.systems}`, resultTime);
@@ -73,7 +79,8 @@ function inventoryCheck() {
 		logger.log(`Scheduling check for ${moment().add(((20 * 60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((20 * 60 * 1000) - resultTime) / 1000} seconds`);
 		startTimer("inventoryCheck", (20 * 60 * 1000) - resultTime);
 		startTimer("activityTracker");
-	}).catch(function() {
+	}).catch(function(e) {
+		logger.error(e);
 		startTimer("activityTracker");
 	});
 }

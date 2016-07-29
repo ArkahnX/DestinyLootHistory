@@ -60,13 +60,13 @@ function initItems(callback) {
 			if (typeof callback === "function") {
 				callback();
 			}
-			// console.log(err)
+			logger.error(err)
 		});
 	}).catch(function(err) {
 		if (typeof callback === "function") {
 			callback();
 		}
-		// console.log(err)
+		logger.error(err)
 	});
 }
 
@@ -415,8 +415,8 @@ function grabRemoteInventory(resolve, reject) {
 	var currentDateString = moment().utc().format();
 	bungie.setActive(localStorage.activeType);
 	// found in bungie.js
-	bungie.user().then(function() {
-		bungie.search().then(function(guardian) {
+	bungie.user().then(function afterBungieUser() {
+		bungie.search().then(function afterBungieSearch(guardian) {
 			logger.timeEnd("Bungie Search");
 			let characters = guardian.data.characters;
 			var newestDate = 0;
@@ -456,7 +456,7 @@ function grabRemoteInventory(resolve, reject) {
 				sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
 					logger.timeEnd("Bungie Faction");
 					logger.time("Bungie Advisors");
-					bungie.advisorsForAccount().then(function(advisorData) {
+					bungie.advisorsForAccount().then(function afterAdvisors(advisorData) {
 						var recordBooks = advisorData.data.recordBooks;
 						for (var recordBook of recordBooks) {
 							for (var characterInventory of newInventories) {
@@ -490,7 +490,7 @@ function grabRemoteInventory(resolve, reject) {
 						logger.timeEnd("Bungie Advisors");
 						logger.time("Local Inventory");
 						// get old data saved from the last pass
-						chrome.storage.local.get(["itemChanges", "progression", "currencies", "inventories"], function(result) {
+						chrome.storage.local.get(["itemChanges", "progression", "currencies", "inventories"], function afterStorageGet(result) {
 							// check if data is valid. If not, use newly grabbed data instead.
 							data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
 							data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
@@ -785,7 +785,37 @@ function check3oC() {
 }
 
 function eligibleToLock(item, characterId) {
+	if(localStorage.autoLock !== "true") {
+		return false;
+	}
 	var itemDef = getItemDefinition(item.itemHash);
+	if ((itemDef.tierTypeName === "Legendary" || itemDef.tierTypeName === "Exotic") && item.stats && item.primaryStat) {
+		if (item.primaryStat.statHash === 3897883278) {
+			var qualityLevel = parseItemQuality(item);
+			console.log(qualityLevel.min, parseInt(localStorage.minQuality) || 90, item.primaryStat.value, parseInt(localStorage.minLight) || 335);
+			if (qualityLevel.min >= (parseInt(localStorage.minQuality) || 90) || item.primaryStat.value >= (parseInt(localStorage.minLight) || 335)) {
+				bungie.lock(characterId, item.itemInstanceId).then(function(response) {
+					console.log(response);
+				});
+			}
+		} else if (item.primaryStat.statHash === 368428387) {
+			if (item.primaryStat.value >= (parseInt(localStorage.minLight) || 335)) {
+				bungie.lock(characterId, item.itemInstanceId).then(function(response) {
+					console.log(response);
+				});
+			}
+		}
+	}
+}
+
+function autoMoveToVault(item, characterId) {
+	if(localStorage.autoMoveToVault !== "true" || item.itemInstanceId) {
+		return false;
+	}
+	var itemDef = getItemDefinition(item.itemHash);
+	if(itemDef.nonTransferrable === true || itemDef.maxStackSize <= 1) {
+		return false;
+	}
 	if (localStorage.autoLock === "true" && (itemDef.tierTypeName === "Legendary" || itemDef.tierTypeName === "Exotic") && item.stats) {
 		if (item.primaryStat && item.primaryStat.statHash === 3897883278) {
 			var qualityLevel = parseItemQuality(item);

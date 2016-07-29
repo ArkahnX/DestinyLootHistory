@@ -51,12 +51,14 @@ function initItems(callback) {
 				callback();
 			}
 			checkInventory();
-		}).catch(function() {
+		}).catch(function(e) {
+			logger.error(e);
 			if (typeof callback === "function") {
 				callback();
 			}
 		});
-	}).catch(function() {
+	}).catch(function(e) {
+		logger.error(e);
 		if (typeof callback === "function") {
 			callback();
 		}

@@ -268,7 +268,7 @@ function processDifference(currentDateString, resolve) {
 						let tempItem = JSON.stringify({
 							itemHash: newCurrency.itemHash,
 							stackSize: newCurrency.value - oldCurrency.value,
-							maxStackSize:newCurrency.value
+							maxStackSize: newCurrency.value
 						});
 						addedCurrencyQ.push({
 							characterId: diffCharacterId,
@@ -278,7 +278,7 @@ function processDifference(currentDateString, resolve) {
 						let tempItem = JSON.stringify({
 							itemHash: newCurrency.itemHash,
 							stackSize: oldCurrency.value - newCurrency.value,
-							maxStackSize:newCurrency.value
+							maxStackSize: newCurrency.value
 						});
 						removedCurrencyQ.push({
 							characterId: diffCharacterId,
@@ -391,7 +391,7 @@ function processDifference(currentDateString, resolve) {
 				itemData = itemData.item;
 			}
 			if (itemDiff.characterId) {
-				localCharacterId = itemDiff.characterId;
+				localCharacterId = itemDiff.characterId || finalDiff.characterId;
 			}
 			eligibleToLock(JSON.parse(itemData), localCharacterId);
 		}
@@ -480,11 +480,11 @@ function processDifference(currentDateString, resolve) {
 	logger.timeEnd("Process Difference");
 	logger.time("grab matches");
 	trackingTimer++;
-	getLocalMatches().then(getRemoteMatches)/*.catch(function(err) {
-		console.log(err)
-			// if (typeof callback === "function") {
-			// 	callback();
-			// }
-			// console.log(err)
-		})*/.then(check3oC).then(applyMatchData).then(resolve);
+	getLocalMatches().then(getRemoteMatches).catch(function(err) {
+		// if (typeof callback === "function") {
+		// 	callback();
+		// }
+		console.error(err)
+		resolve();
+	}).then(check3oC).then(applyMatchData).then(resolve);
 }
