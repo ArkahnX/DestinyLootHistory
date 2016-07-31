@@ -785,7 +785,7 @@ function check3oC() {
 }
 
 function eligibleToLock(item, characterId) {
-	if(localStorage.autoLock !== "true") {
+	if (localStorage.autoLock !== "true") {
 		return false;
 	}
 	var itemDef = getItemDefinition(item.itemHash);
@@ -809,28 +809,46 @@ function eligibleToLock(item, characterId) {
 }
 
 function autoMoveToVault(item, characterId) {
-	if(localStorage.autoMoveToVault !== "true" || item.itemInstanceId) {
-		return false;
-	}
 	var itemDef = getItemDefinition(item.itemHash);
-	if(itemDef.nonTransferrable === true || itemDef.maxStackSize <= 1) {
+	var moveItemList;
+	try {
+		moveItemList = JSON.parse(localStorage.autoMoveItemsToVault);
+	} catch (e) {
+		console.error("Unable to parse list", localStorage.autoMoveItemsToVault);
 		return false;
 	}
-	if (localStorage.autoLock === "true" && (itemDef.tierTypeName === "Legendary" || itemDef.tierTypeName === "Exotic") && item.stats) {
-		if (item.primaryStat && item.primaryStat.statHash === 3897883278) {
-			var qualityLevel = parseItemQuality(item);
-			console.log(qualityLevel.min, parseInt(localStorage.minQuality) || 90, item.primaryStat.value, parseInt(localStorage.minLight) || 335);
-			if (qualityLevel.min >= (parseInt(localStorage.minQuality) || 90) || item.primaryStat.value >= (parseInt(localStorage.minLight) || 335)) {
-				bungie.lock(characterId, item.itemInstanceId).then(function(response) {
-					console.log(response);
-				});
-			}
-		} else if (item.primaryStat && item.primaryStat.statHash === 368428387) {
-			if (item.primaryStat.value >= (parseInt(localStorage.minLight) || 335)) {
-				bungie.lock(characterId, item.itemInstanceId).then(function(response) {
-					console.log(response);
-				});
-			}
+	if (!moveItemList) {
+		return false;
+	}
+	var quantity = 0;
+	var transferQuantity = 0;
+	var minStacks = 0;
+	var canTransfer = false;
+	for (var itemHashString of moveItemList) {
+		if (parseInt(itemHashString, 10) === item.itemHash) {
+			canTransfer = true;
+			break;
 		}
 	}
+	if (!canTransfer) {
+		return false;
+	}
+	for (let newItem of newInventories[characterId]) {
+		if (newItem.itemHash === item.itemHash) {
+			quantity = newItem.stackSize;
+			if (itemDef.bucketTypeHash === 1469714392) {
+				minStacks = parseInt(localStorage.minConsumableStacks, 10);
+			} else if (itemDef.bucketTypeHash === 3865314626) {
+				minStacks = parseInt(localStorage.minMaterialStacks, 10);
+			}
+			transferQuantity = quantity - (itemDef.maxStackSize * minStacks);
+			break;
+		}
+	}
+	if (transferQuantity < 1) {
+		return false;
+	}
+	bungie.transfer(characterId, "0", item.itemHash, transferQuantity, true).then(function(response) {
+		// console.log(response);
+	});
 }

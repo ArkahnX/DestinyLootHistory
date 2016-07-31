@@ -91,6 +91,9 @@ function initializeStoredVariables() {
 		localStorage.autoMoveToVault = _checkValue(localStorage.autoMoveToVault, _checkBoolean, "false");
 		localStorage.minQuality = _checkValue(localStorage.minQuality, _checkNumber, 90);
 		localStorage.minLight = _checkValue(localStorage.minLight, _checkNumber, 335);
+		localStorage.minMaterialStacks = _checkValue(localStorage.minMaterialStacks, _checkNumber, 1);
+		localStorage.minConsumableStacks = _checkValue(localStorage.minConsumableStacks, _checkNumber, 1);
+		localStorage.autoMoveItemsToVault = _checkValue(localStorage.autoMoveItemsToVault, _checkJSON, JSON.stringify([]));
 		if (localStorage.allowTracking) {
 			localStorage.removeItem("allowTracking");
 			localStorage.perkSets = JSON.stringify([]);

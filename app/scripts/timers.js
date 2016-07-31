@@ -25,7 +25,7 @@ function extensionIcon() {
 			text: ""
 		});
 	}
-	if(localStorage.manual === "true") {
+	if (localStorage.manual === "true") {
 		startTimer("activityTracker");
 	}
 	startTimer("extensionIcon");

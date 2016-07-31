@@ -394,6 +394,7 @@ function processDifference(currentDateString, resolve) {
 				localCharacterId = itemDiff.characterId || finalDiff.characterId;
 			}
 			eligibleToLock(JSON.parse(itemData), localCharacterId);
+			autoMoveToVault(JSON.parse(itemData), localCharacterId);
 		}
 
 		transferQ.length = 0;

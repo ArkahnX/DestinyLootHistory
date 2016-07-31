@@ -17,7 +17,7 @@
 				<input type="button" class="button" value="Save" id="savePerks">
 			</fieldset>
 		</section>
-		<section class="center solidBackground">
+		<section class="center solidBackground scrollable">
 			<!-- <label for="startOnLaunch" class="sub-section">Start Tracking on Launch<input type="checkbox" id="startOnLaunch" /></label> -->
 			<div id="drop_zone">Place itemChanges.json here to restore</div>
 			<fieldset>
@@ -37,8 +37,12 @@
 				<!-- <label>Gear Perks:</label><input type="button" class="button" value="Select Perks" id="gearPerks"> -->
 			</fieldset>
 			<fieldset>
-				<legend>Auto Lock New High Quality Items</legend>
-				<label>Enable Automatic Locking of items:</label><input id="advanced-demo" autofocus type="text" name="q" placeholder="Country or language code ..." style="width:100%;max-width:600px;outline:0">
+				<legend>Auto Move New Items To Vault</legend>
+				<span><input id="insigificant" type="text" name="q" placeholder="Stackable Item Name ..." style="width:100%;max-width:350px;"></span>
+				<br />
+				<label>Keep X Consumable Stacks on Guardian:</label><input type="number" min="0" max="5" value="1" id="minConsumableStacks">
+				<br />
+				<label>Keep X Material Stacks on Guardian:</label><input type="number" min="0" max="5" value="1" id="minMaterialStacks">
 			</fieldset>
 			<fieldset>
 				<legend>Reminders</legend>
@@ -49,6 +53,7 @@
 		<script type="text/javascript" src="scripts/vendor/google-analytics-bundle.js"></script>
 		<script type="text/javascript" src="scripts/vendor/insignia.min.js"></script>
 		<script type="text/javascript" src="scripts/vendor/auto-complete.min.js"></script>
+		<script type="text/javascript" src="scripts/vendor/fuse.min.js"></script>
 		<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>
 		<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js"></script>
 		<script type="text/javascript" src="scripts/shared.js"></script>
