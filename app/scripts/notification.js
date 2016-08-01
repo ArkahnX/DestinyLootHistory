@@ -28,9 +28,10 @@ var notification = (function() {
 	const changelog = `New in ${manifest.version}:<br>
 <ul>
 	<li>Most issues can be resolved by following steps in the "<a href="debug.html">Report Issue</a>" page.</li>
-	<li>Automatically lock items that are high quality or high light. (<a href="options.html">Setup</a>)</li>
 	<li>Quick toggles for three of coins and auto locking in on the front page.</li>
 	<li>New: <a href="vendors.html">Vendors</a> page under "Features". Browse vendors and compare them. <br />Example: Compare the Guardian Outfitter against the Emblem Kiosk to see missing emblems.</li>
+	<li>New: <a href="options.html">Options</a> to move excess consumables and materials to the vault. Name the items you want to move, set a maximum stack size, and the extension will take care of the rest.</li>
+	<li>New: <a href="https://www.reddit.com/r/DestinyLootHistory/">Destiny Loot History subreddit</a>, post suggestions, issues and more here. Also a great source to view patch notes.</li>
 </ul>`;
 
 	localStorage.notificationClosed = localStorage.notificationClosed || "true";
