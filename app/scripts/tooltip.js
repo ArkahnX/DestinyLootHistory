@@ -1,37 +1,30 @@
+var tooltipTimeout = null;
+
 function handleTooltipData(dataset, element, event) {
-	transitionInterval = setTimeout(function() {
+	clearTimeout(tooltipTimeout);
+	tooltipTimeout = setTimeout(function() {
 		setTooltipData(dataset, element, event);
 	}, 100);
 }
 
 function setTooltipData(dataset, element, event) {
 	if (dataset.tierTypeName) {
-		var tooltip = document.getElementById("tooltip");
-		var itemName = document.getElementById("item-name");
-		var itemType = document.getElementById("item-type");
-		var itemRarity = document.getElementById("item-rarity");
-		var itemLevelText = document.getElementById("level-text");
-		var itemRequiredEquipLevel = document.getElementById("item-required-equip-level");
-		var itemPrimaryStat = document.getElementById("item-primary-stat");
-		var itemPrimaryStatText = document.getElementById("item-stat-text");
-		var itemDescription = document.getElementById("item-description");
-		var classRequirement = document.getElementById("class-requirement");
-		itemName.textContent = dataset.itemName;
-		itemType.textContent = dataset.itemTypeName;
-		itemRarity.textContent = dataset.tierTypeName;
-		itemRequiredEquipLevel.textContent = dataset.equipRequiredLevel;
+		elements.itemName.textContent = dataset.itemName;
+		elements.itemType.textContent = dataset.itemTypeName;
+		elements.itemRarity.textContent = dataset.tierTypeName;
+		elements.itemRequiredEquipLevel.textContent = dataset.equipRequiredLevel;
 		if (dataset.equipRequiredLevel === "0") {
-			itemLevelText.classList.add("hidden");
+			elements.levelText.classList.add("hidden");
 		} else {
-			itemLevelText.classList.remove("hidden");
+			elements.levelText.classList.remove("hidden");
 		}
-		itemPrimaryStat.textContent = dataset.primaryStat;
-		itemPrimaryStatText.textContent = dataset.primaryStatName;
-		itemDescription.textContent = dataset.itemDescription;
-		classRequirement.textContent = dataset.classRequirement;
+		elements.itemPrimaryStat.textContent = dataset.primaryStat;
+		elements.itemStatText.textContent = dataset.primaryStatName;
+		elements.itemDescription.textContent = dataset.itemDescription;
+		elements.classRequirement.textContent = dataset.classRequirement;
 		handleStats(dataset.itemTypeName, dataset).then(function() {
-			tooltip.classList.remove("hidden", "arc", "void", "solar", "kinetic", "common", "legendary", "rare", "uncommon", "exotic");
-			tooltip.classList.add(dataset.tierTypeName.toLowerCase(), dataset.damageTypeName.toLowerCase());
+			elements.tooltip.classList.remove("hidden", "arc", "void", "solar", "kinetic", "common", "legendary", "rare", "uncommon", "exotic");
+			elements.tooltip.classList.add(dataset.tierTypeName.toLowerCase(), dataset.damageTypeName.toLowerCase());
 			// console.log(event, tooltip.clientHeight, element.parentNode.offsetTop);
 			// console.dir(element.parentNode.getBoundingClientRect())
 			// tooltip.
@@ -41,10 +34,10 @@ function setTooltipData(dataset, element, event) {
 
 function handleStats(statType, dataset) {
 	return new Promise(function(resolve, reject) {
-		var statContainer = document.getElementById("stat-table");
-		statContainer.innerHTML = "";
-		var nodeContainer = document.getElementById("node-table");
-		nodeContainer.innerHTML = "";
+		
+		elements.statTable.innerHTML = "";
+		
+		elements.nodeTable.innerHTML = "";
 		if (statType === "Faction") {
 			return handleFactionStats(dataset, resolve, reject);
 		}
@@ -61,10 +54,8 @@ function handleStats(statType, dataset) {
 var statHashes = [4284893193, 2837207746, 2961396640, 4043523819, 3614673599, 1240592695, 2523465841, 155624089, 2762071195, 4188031367, 3871231066, 943549884, 1345609583, 3555269338, 144602215, 1735777505, 4244567218, 209426660, 925767036];
 
 function handleOtherStats(dataset, resolve) {
-	var statContainer = document.getElementById("stat-table");
-	statContainer.innerHTML = "";
-	var nodeContainer = document.getElementById("node-table");
-	nodeContainer.innerHTML = "";
+	elements.statTable.innerHTML = "";
+	elements.nodeTable.innerHTML = "";
 	var itemDef = getItemDefinition(dataset.itemHash);
 	if (dataset.statTree) {
 		var stats = JSON.parse(dataset.statTree);
@@ -127,7 +118,7 @@ function handleOtherStats(dataset, resolve) {
 			}
 			tableRow.appendChild(tableText);
 			tableRow.appendChild(tableData);
-			statContainer.appendChild(tableRow);
+			elements.statTable.appendChild(tableRow);
 		}
 	}
 	if (dataset.objectiveTree) {
@@ -152,8 +143,8 @@ function handleOtherStats(dataset, resolve) {
 			tableData.appendChild(statBar(stat.progress, completionValue, 0, stat.progress));
 			tableRowOne.appendChild(tableText);
 			tableRowTwo.appendChild(tableData);
-			statContainer.appendChild(tableRowOne);
-			statContainer.appendChild(tableRowTwo);
+			elements.statTable.appendChild(tableRowOne);
+			elements.statTable.appendChild(tableRowTwo);
 		}
 	}
 	if (dataset.nodeTree && dataset.talentGridHash) {
@@ -170,7 +161,7 @@ function handleOtherStats(dataset, resolve) {
 				tableText.classList.add("node");
 				NodeList.appendChild(tableText);
 			}
-			nodeContainer.appendChild(NodeList);
+			elements.nodeTable.appendChild(NodeList);
 		}
 		for (let node of nodeData.nodes) {
 			let tableText = document.getElementById(`row${node.row}column${node.column}`);
@@ -231,8 +222,7 @@ function handleOtherStats(dataset, resolve) {
 }
 
 function handleBountyStats(dataset, resolve, reject) {
-	var statContainer = document.getElementById("stat-table");
-	statContainer.innerHTML = "";
+	elements.statTable.innerHTML = "";
 	var itemDef = getItemDefinition(dataset.itemHash);
 	if (dataset.objectiveTree) {
 		var objectives = JSON.parse(dataset.objectiveTree);
@@ -251,22 +241,20 @@ function handleBountyStats(dataset, resolve, reject) {
 			tableData.appendChild(statBar(stat.progress, completionValue, 0, stat.progress));
 			tableRowOne.appendChild(tableText);
 			tableRowTwo.appendChild(tableData);
-			statContainer.appendChild(tableRowOne);
-			statContainer.appendChild(tableRowTwo);
+			elements.statTable.appendChild(tableRowOne);
+			elements.statTable.appendChild(tableRowTwo);
 		}
 	}
 	resolve();
 }
 
 function handleEmptyStats(dataset, resolve, reject) {
-	var statContainer = document.getElementById("stat-table");
-	statContainer.innerHTML = "";
+	elements.statTable.innerHTML = "";
 	resolve();
 }
 
 function handleFactionStats(dataset, resolve, reject) {
-	var statContainer = document.getElementById("stat-table");
-	statContainer.innerHTML = "";
+	elements.statTable.innerHTML = "";
 	var tableRow = document.createElement("tr");
 	tableRow.classList.add("itemStat");
 	var tableText = document.createElement("td");
@@ -277,7 +265,7 @@ function handleFactionStats(dataset, resolve, reject) {
 	tableData.appendChild(statBar(dataset.progressToNextLevel, dataset.nextLevelAt, dataset.progressChange, dataset.progressToNextLevel));
 	tableRow.appendChild(tableText);
 	tableRow.appendChild(tableData);
-	statContainer.appendChild(tableRow);
+	elements.statTable.appendChild(tableRow);
 	resolve();
 }
 

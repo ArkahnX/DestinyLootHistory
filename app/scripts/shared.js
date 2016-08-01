@@ -50,6 +50,7 @@ function getItemDefinition(hash) {
 	}
 	tracker.sendEvent('Item not in database', `${hash}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 	logger.error(`Item Reference ${hash} is not in database. This has been reported.`);
+	console.error(`Item Reference ${hash} is not in database. This has been reported.`);
 	return {
 		hasIcon: false,
 		icon: "",

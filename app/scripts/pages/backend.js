@@ -120,45 +120,43 @@ function runCheck() {
 
 function init() {
 	if (bungie) {
-		var manifest = chrome.runtime.getManifest();
-		// If we have no key, this means this extension is not a webstore install, so we should back up live data, just in case.
-		if (!manifest.key) {
-			backupHistory();
-		}
-		initializeStoredVariables().then(function() {
-			// Found in logger.js used to store logs. These logs are accessed via debug.html and display the running state of my application. I request users having issues to send me their debug logs.
-			logger.init().then(function() {
-				// found in this script. Pings my website, which returns a JSON file which includes a boolean (1-0) for whether to proceed, and a message to display otherwise.
-				// found in items.js, further description inside function.
-				initItems(function() {
-					beginBackendTracking();
-				});
-			});
-		});
-		setInterval(function() {
-			if (localStorage.error === "true") {
-				chrome.browserAction.setBadgeText({
-					text: "!"
-				});
+		chrome.cookies.getAll({
+			domain: "www.bungie.net"
+		}, function initCookies(result) {
+			if (chrome.runtime.lastError) {
+				console.error(chrome.runtime.lastError)
+				setTimeout(init, 1000);
 			} else {
-				chrome.browserAction.setBadgeText({
-					text: ""
+				var manifest = chrome.runtime.getManifest();
+				// If we have no key, this means this extension is not a webstore install, so we should back up live data, just in case.
+				if (!manifest.key) {
+					backupHistory();
+				}
+				initializeStoredVariables().then(function() {
+					// Found in logger.js used to store logs. These logs are accessed via debug.html and display the running state of my application. I request users having issues to send me their debug logs.
+					logger.init().then(function() {
+						// found in timers.js
+						startTimer("activityTracker", 50);
+					});
 				});
+				startTimer("extensionIcon");
 			}
-		}, 1000);
+		});
 	} else {
-		setTimeout(init, 50);
+		setTimeout(init, 1000);
 	}
 }
 /**
  * STEP 1
  * This is the starting point for my application.
+ * Wait two seconds for the chrome cookies database to load.
  */
-setTimeout(init, 50);
+// setTimeout(init, 50);
 // logging some backend data. Saved my butt during the issue that deleted my saved data.
 chrome.storage.local.get(null, function(result) {
 	logger.startLogging("Backend");
 	logger.info(result);
+	init();
 });
 
 // When the user clicks the chrome extension icon (Exotic Helmet) use the appClicked function (Found above)

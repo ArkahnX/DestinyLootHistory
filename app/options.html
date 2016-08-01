@@ -17,14 +17,14 @@
 				<input type="button" class="button" value="Save" id="savePerks">
 			</fieldset>
 		</section>
-		<section class="center solidBackground">
+		<section class="center solidBackground scrollable">
 			<!-- <label for="startOnLaunch" class="sub-section">Start Tracking on Launch<input type="checkbox" id="startOnLaunch" /></label> -->
 			<div id="drop_zone">Place itemChanges.json here to restore</div>
 			<fieldset>
 				<legend>Options</legend>
 				<label>Create Backup:</label><input type="button" class="button" value="Create itemChanges.json backup" id="backupData" title="Download a copy of your data to move elsewhere." />
 				<br />
-				<label>Unique ID:</label><span id="uniqueId"></span>
+				<label>Version:</label><span id="version"></span>
 			</fieldset>
 			<fieldset>
 				<legend>Auto Lock New High Quality Items</legend>
@@ -37,12 +37,25 @@
 				<!-- <label>Gear Perks:</label><input type="button" class="button" value="Select Perks" id="gearPerks"> -->
 			</fieldset>
 			<fieldset>
+				<legend>Auto Move New Items To Vault</legend>
+				<span><input id="insigificant" type="text" name="q" placeholder="Stackable Item Name ..." style="width:100%;max-width:350px;"></span>
+				<br />
+				<label>Keep X Consumable Stacks on Guardian:</label><input type="number" min="0" max="5" value="1" id="minConsumableStacks">
+				<br />
+				<label>Keep X Material Stacks on Guardian:</label><input type="number" min="0" max="5" value="1" id="minMaterialStacks">
+			</fieldset>
+			<fieldset>
 				<legend>Reminders</legend>
 				<label>Three of Coins:</label><input type="checkbox" id="track3oC">
 			</fieldset>
 		</section>
 		<div id="copyright">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
 		<script type="text/javascript" src="scripts/vendor/google-analytics-bundle.js"></script>
+		<script type="text/javascript" src="scripts/vendor/insignia.min.js"></script>
+		<script type="text/javascript" src="scripts/vendor/auto-complete.min.js"></script>
+		<script type="text/javascript" src="scripts/vendor/fuse.min.js"></script>
+		<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>
+		<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js"></script>
 		<script type="text/javascript" src="scripts/shared.js"></script>
 		<script type="text/javascript" src="scripts/logger.js"></script>
 		<script type="text/javascript" src="scripts/pages/options.js"></script>

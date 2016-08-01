@@ -1,34 +1,85 @@
+var elements = {
+	date: document.getElementById("date"),
+	added: document.getElementById("added"),
+	removed: document.getElementById("removed"),
+	transferred: document.getElementById("transferred"),
+	progression: document.getElementById("progression"),
+	trackingItem: document.getElementById("trackingItem"),
+	status: document.getElementById("status"),
+	container: document.getElementById("container"),
+	startTracking: document.getElementById("startTracking"),
+	tooltip: document.getElementById("tooltip"),
+	itemName: document.getElementById("item-name"),
+	itemType: document.getElementById("item-type"),
+	itemRarity: document.getElementById("item-rarity"),
+	levelText: document.getElementById("level-text"),
+	itemRequiredEquipLevel: document.getElementById("item-required-equip-level"),
+	itemPrimaryStat: document.getElementById("item-primary-stat"),
+	itemStatText: document.getElementById("item-stat-text"),
+	itemDescription: document.getElementById("item-description"),
+	classRequirement: document.getElementById("class-requirement"),
+	statTable: document.getElementById("stat-table"),
+	nodeTable: document.getElementById("node-table"),
+	ToCReminder: document.getElementById("ToCReminder"),
+	toggleSystem: document.getElementById("toggleSystem"),
+	autoLock: document.getElementById("autoLock"),
+	track3oC: document.getElementById("track3oC"),
+	paginate: document.getElementById("paginate"),
+	version: document.getElementById("version")
+};
+
+var elementNames = {
+	itemName: "item-name",
+	itemType: "item-type",
+	itemRarity: "item-rarity",
+	levelText: "level-text",
+	itemRequiredEquipLevel: "item-required-equip-level",
+	itemPrimaryStat: "item-primary-stat",
+	itemStatText: "item-stat-text",
+	itemDescription: "item-description",
+	classRequirement: "class-requirement",
+	statTable: "stat-table",
+	nodeTable: "node-table"
+};
+
+var currentItemSet = [];
+
 function initUi() {
-	var manifest = chrome.runtime.getManifest();
-	if (typeof manifest.key === "undefined") {
-		if (document.getElementById("version")) {
-			document.getElementById("version").textContent = (manifest.version);
+	for (var elementName in elements) {
+		if (elementNames[elementName]) {
+			elements[elementName] = document.getElementById(elementNames[elementName]);
+		} else {
+			elements[elementName] = document.getElementById(elementName);
 		}
 	}
-	var header = document.querySelector("#status");
-	if (header) {
-		header.classList.add("idle");
-		var element = document.querySelector("#startTracking");
-		if (element) {
-			element.removeAttribute("disabled");
-			element.addEventListener("click", function() {
+	var manifest = chrome.runtime.getManifest();
+	if (typeof manifest.key === "undefined") {
+		if (elements.version) {
+			elements.version.textContent = (manifest.version_name);
+		}
+	}
+	if (elements.status) {
+		elements.status.classList.add("idle");
+		if (elements.startTracking) {
+			elements.startTracking.removeAttribute("disabled");
+			elements.startTracking.addEventListener("click", function() {
 				if (localStorage.listening === "false") {
 					localStorage.listening = "true";
 					localStorage.manual = "true";
-					header.classList.remove("idle", "error");
-					header.classList.add("active");
-					element.setAttribute("value", "Stop Tracking");
+					elements.status.classList.remove("idle", "error");
+					elements.status.classList.add("active");
+					elements.startTracking.setAttribute("value", "Stop Tracking");
 				} else {
-					header.classList.add("idle");
-					header.classList.remove("active", "error");
-					element.setAttribute("value", "Begin Tracking");
+					elements.status.classList.add("idle");
+					elements.status.classList.remove("active", "error");
+					elements.startTracking.setAttribute("value", "Begin Tracking");
 					localStorage.listening = "false";
 				}
 			});
 		}
 	}
-	if (document.querySelector("#container")) {
-		document.querySelector("#container").addEventListener("mouseover", function(event) {
+	if (elements.container) {
+		elements.container.addEventListener("mouseover", function(event) {
 			var target = null;
 			if (event.target.classList.contains("item") || event.target.classList.contains("faction")) {
 				target = event.target;
@@ -36,94 +87,88 @@ function initUi() {
 				target = event.target.parentNode;
 			}
 			if (target && target !== previousElement) {
-				tooltip.classList.add("hidden");
+				elements.tooltip.classList.add("hidden");
 				previousElement = target;
-				if (transitionInterval) {
-					clearInterval(transitionInterval);
-				}
 				handleTooltipData(event.target.dataset, event.target, event);
 			}
 			if (!target) {
-				if (transitionInterval) {
-					clearInterval(transitionInterval);
-				}
-				tooltip.classList.add("hidden");
+				clearTimeout(tooltipTimeout);
+				elements.tooltip.classList.add("hidden");
 				previousElement = null;
 			}
 		}, false);
 	}
-	if (document.querySelector("#ToCReminder")) {
-		var threeOfCoinsDiv = document.querySelector("#ToCReminder");
+	if (elements.ToCReminder) {
 		if (localStorage.track3oC === "false") {
-			threeOfCoinsDiv.value = "Turn on 3oC reminder";
-			threeOfCoinsDiv.classList.add("grey");
-			threeOfCoinsDiv.classList.remove("green");
+			elements.ToCReminder.value = "Turn on 3oC reminder";
+			elements.ToCReminder.classList.add("grey");
+			elements.ToCReminder.classList.remove("green");
 		}
-		threeOfCoinsDiv.addEventListener("click", function(event) {
+		elements.ToCReminder.addEventListener("click", function(event) {
 			if (localStorage.track3oC === "false") {
 				localStorage.track3oC = "true";
-				threeOfCoinsDiv.value = "Turn off 3oC reminder";
-				threeOfCoinsDiv.classList.remove("grey");
-				threeOfCoinsDiv.classList.add("green");
+				elements.ToCReminder.value = "Turn off 3oC reminder";
+				elements.ToCReminder.classList.remove("grey");
+				elements.ToCReminder.classList.add("green");
 			} else {
 				localStorage.track3oC = "false";
-				threeOfCoinsDiv.value = "Turn on 3oC reminder";
-				threeOfCoinsDiv.classList.add("grey");
-				threeOfCoinsDiv.classList.remove("green");
+				elements.ToCReminder.value = "Turn on 3oC reminder";
+				elements.ToCReminder.classList.add("grey");
+				elements.ToCReminder.classList.remove("green");
 			}
 
 		}, false);
 	}
-	if (document.querySelector("#toggleSystem")) {
-		var systemToggleDiv = document.querySelector("#toggleSystem");
+	if (elements.toggleSystem) {
 		if (bungie.getMemberships().length > 1) {
-			systemToggleDiv.classList.remove("hidden");
+			elements.toggleSystem.classList.remove("hidden");
 		}
 		if (localStorage.activeType === "xbl") {
-			systemToggleDiv.value = "Swap to PSN";
-			systemToggleDiv.classList.remove("green");
+			elements.toggleSystem.value = "Swap to PSN";
+			elements.toggleSystem.classList.remove("green");
 		}
 		if (localStorage.activeType === "psn") {
-			systemToggleDiv.value = "Swap to XBOX";
-			systemToggleDiv.classList.add("green");
+			elements.toggleSystem.value = "Swap to XBOX";
+			elements.toggleSystem.classList.add("green");
 		}
-		systemToggleDiv.addEventListener("click", function() {
+		elements.toggleSystem.addEventListener("click", function() {
 			if (localStorage.activeType === "psn") {
-				systemToggleDiv.value = "Swap to PSN";
-				systemToggleDiv.classList.remove("green");
+				elements.toggleSystem.value = "Swap to PSN";
+				elements.toggleSystem.classList.remove("green");
 				localStorage.activeType = "xbl";
 			} else {
-				systemToggleDiv.value = "Swap to Xbox";
-				systemToggleDiv.classList.add("green");
+				elements.toggleSystem.value = "Swap to Xbox";
+				elements.toggleSystem.classList.add("green");
 				localStorage.activeType = "psn";
 			}
 		}, false);
 	}
-	if (document.querySelector("#accurateTracking")) {
-		var accurateTrackingDiv = document.querySelector("#accurateTracking");
-		if (localStorage.accurateTracking === "true") {
-			accurateTrackingDiv.value = "disable accurate tracking";
-			accurateTrackingDiv.classList.remove("grey");
-			accurateTrackingDiv.classList.add("green");
-		}
-		accurateTrackingDiv.addEventListener("click", function(event) {
-			if (localStorage.accurateTracking === "false") {
-				var confirmation = window.confirm("This tracking will move items from your guardian to the vault and back.\n Make sure you have a stack of ideally 500 armor or weapon parts for minimal interruption. 200 is the minimal acceptance.\n\n This feature is known to cause issues with full vaults, or inventories with low consumables / materials.\n If you split your inventories between all three characters, this feature is completely safe to enable.\n\n Press OK to track items within 20 seconds of accuracy. Press cancel to retain within 60 seconds of accuracy.");
-				if (confirmation) {
-					localStorage.accurateTracking = "true";
-					accurateTrackingDiv.value = "disable accurate tracking";
-					accurateTrackingDiv.classList.remove("grey");
-					accurateTrackingDiv.classList.add("green");
-				}
-			} else {
-				localStorage.accurateTracking = "false";
-				accurateTrackingDiv.value = "enable accurate tracking";
-				accurateTrackingDiv.classList.add("grey");
-				accurateTrackingDiv.classList.remove("green");
-			}
+	// Disable all accurrate tracking
+	// if (document.querySelector("#accurateTracking")) {
+	// 	var accurateTrackingDiv = document.querySelector("#accurateTracking");
+	// 	if (localStorage.accurateTracking === "true") {
+	// 		accurateTrackingDiv.value = "disable accurate tracking";
+	// 		accurateTrackingDiv.classList.remove("grey");
+	// 		accurateTrackingDiv.classList.add("green");
+	// 	}
+	// 	accurateTrackingDiv.addEventListener("click", function(event) {
+	// 		if (localStorage.accurateTracking === "false") {
+	// 			var confirmation = window.confirm("This tracking will move items from your guardian to the vault and back.\n Make sure you have a stack of ideally 500 armor or weapon parts for minimal interruption. 200 is the minimal acceptance.\n\n This feature is known to cause issues with full vaults, or inventories with low consumables / materials.\n If you split your inventories between all three characters, this feature is completely safe to enable.\n\n Press OK to track items within 20 seconds of accuracy. Press cancel to retain within 60 seconds of accuracy.");
+	// 			if (confirmation) {
+	// 				localStorage.accurateTracking = "true";
+	// 				accurateTrackingDiv.value = "disable accurate tracking";
+	// 				accurateTrackingDiv.classList.remove("grey");
+	// 				accurateTrackingDiv.classList.add("green");
+	// 			}
+	// 		} else {
+	// 			localStorage.accurateTracking = "false";
+	// 			accurateTrackingDiv.value = "enable accurate tracking";
+	// 			accurateTrackingDiv.classList.add("grey");
+	// 			accurateTrackingDiv.classList.remove("green");
+	// 		}
 
-		}, false);
-	}
+	// 	}, false);
+	// }
 	var secretLinks = document.querySelectorAll(".admin");
 	if (secretLinks.length) {
 		if (!chrome.runtime.getManifest().key) {
@@ -132,13 +177,11 @@ function initUi() {
 			}
 		}
 	}
-	var autoLock = document.getElementById('autoLock');
-	var track3oC = document.getElementById('track3oC');
-	if (autoLock) {
-		autoLock.checked = localStorage.autoLock === "true";
-		autoLock.addEventListener("change", handleCheckboxChange, false);
-		track3oC.checked = localStorage.track3oC === "true";
-		track3oC.addEventListener("change", handleCheckboxChange, false);
+	if (elements.autoLock && elements.track3oC) {
+		elements.autoLock.checked = localStorage.autoLock === "true";
+		elements.autoLock.addEventListener("change", handleCheckboxChange, false);
+		elements.track3oC.checked = localStorage.track3oC === "true";
+		elements.track3oC.addEventListener("change", handleCheckboxChange, false);
 	}
 }
 
@@ -146,14 +189,13 @@ function handleCheckboxChange(event) {
 	localStorage[event.target.id] = event.target.checked;
 }
 
-function makePages(customLength) {
-	if (document.querySelector("#paginate") && data.itemChanges && oldItemChangeQuantity !== (customLength || data.itemChanges.length)) {
-		var paginateContainer = document.querySelector("#paginate");
-		while (paginateContainer.lastChild) {
-			paginateContainer.removeChild(paginateContainer.lastChild);
+function makePages() {
+	if (elements.paginate && oldItemChangeQuantity !== currentItemSet.length) {
+		while (elements.paginate.lastChild) {
+			elements.paginate.removeChild(elements.paginate.lastChild);
 		}
 		var tempContainer = document.createDocumentFragment();
-		for (let i = 0; i < Math.ceil((customLength || data.itemChanges.length) / pageQuantity); i++) {
+		for (let i = 0; i < Math.ceil(currentItemSet.length / pageQuantity); i++) {
 			var option = document.createElement("option");
 			option.value = i;
 			if (i === pageNumber) {
@@ -162,9 +204,9 @@ function makePages(customLength) {
 			option.textContent = `Page ${i+1}`;
 			tempContainer.appendChild(option);
 		}
-		paginateContainer.appendChild(tempContainer);
-		paginateContainer.addEventListener("change", function() {
-			pageNumber = parseInt(paginateContainer.value, 10);
+		elements.paginate.appendChild(tempContainer);
+		elements.paginate.addEventListener("change", function() {
+			pageNumber = parseInt(elements.paginate.value, 10);
 			checkForUpdates();
 		}, false);
 	}
@@ -174,7 +216,6 @@ var pageQuantity = 50;
 var pageNumber = 0;
 var oldItemChangeQuantity = 0;
 var oldPageNumber = -1;
-var transitionInterval = null;
 var previousElement = null;
 
 function rowHeight(list1Length, list2Length, list3Length, list4Length) {
@@ -266,8 +307,9 @@ function createDate(itemDiff, className) {
 	}
 	var subContainer = document.createElement("div");
 	subContainer.classList.add("sub-section", className, "timestamp");
-	subContainer.textContent = moment.utc(timestamp).tz(moment.tz.guess()).fromNow() + activity;
-	subContainer.setAttribute("title", moment.utc(timestamp).tz(moment.tz.guess()).format("ddd[,] ll LTS"));
+	var localTime = moment.utc(timestamp).tz(timezone);
+	subContainer.textContent = localTime.fromNow() + activity;
+	subContainer.setAttribute("title", localTime.format("ddd[,] ll LTS"));
 	subContainer.dataset.timestamp = timestamp;
 	subContainer.dataset.activity = activity;
 	subContainer.dataset.index = itemDiff.id;
@@ -275,170 +317,118 @@ function createDate(itemDiff, className) {
 }
 
 var lastIndex = -1;
-var dateFrag = document.createDocumentFragment();
-var addedFrag = document.createDocumentFragment();
-var removedFrag = document.createDocumentFragment();
-var transferredFrag = document.createDocumentFragment();
-var progressionFrag = document.createDocumentFragment();
+var pages = ["added", "removed", "progression", "transferred", "date"];
+var fragments = {};
+for (let page of pages) {
+	fragments[page] = document.createDocumentFragment();
+}
 
-function displayResults(customItems) {
+function work(item, index) {
 	// logger.startLogging("UI");
-	makePages(customItems && customItems.length);
-	var date = document.getElementById("date");
-	var added = document.getElementById("added");
-	var removed = document.getElementById("removed");
-	var transferred = document.getElementById("transferred");
-	var progression = document.getElementById("progression");
-	var trackerIcon = document.getElementById("trackingItem");
-	if (trackerIcon && localStorage.accurateTracking === "true") {
-		trackerIcon.style.display = "inline-block";
-		trackerIcon.style.backgroundImage = "url(" + "'http://www.bungie.net" + getItemDefinition(localStorage.transferMaterial).icon + "')";
-
-	} else if (trackerIcon) {
-		trackerIcon.style.display = "none";
-	}
-	return new Promise(function(resolve, reject) {
-		// logger.startLogging("UI");
-		// logger.timeEnd("grab matches");
-		constructMatchInterface();
-		// logger.time("loadResults");
-		if (oldItemChangeQuantity !== ((customItems && customItems.length) || (data.itemChanges && data.itemChanges.length)) || oldPageNumber !== pageNumber) {
-			while (date.lastChild) {
-				date.removeChild(date.lastChild);
-			}
-			while (added.lastChild) {
-				added.removeChild(added.lastChild);
-			}
-			while (removed.lastChild) {
-				removed.removeChild(removed.lastChild);
-			}
-			while (transferred.lastChild) {
-				transferred.removeChild(transferred.lastChild);
-			}
-			while (progression.lastChild) {
-				progression.removeChild(progression.lastChild);
-			}
-			date.innerHTML = "<h2 class='section-title'>Loading...</h2>";
-			added.innerHTML = "<h2 class='section-title'>Loading...</h2>";
-			removed.innerHTML = "<h2 class='section-title'>Loading...</h2>";
-			transferred.innerHTML = "<h2 class='section-title'>Loading...</h2>";
-			progression.innerHTML = "<h2 class='section-title'>Loading...</h2>";
+	if (lastIndex < index) {
+		if (!item.added) {
+			console.log(item);
 		}
-		var timestamps = document.querySelectorAll(".timestamp");
-		for (var item of timestamps) {
-			item.textContent = moment.utc(item.dataset.timestamp).tz(moment.tz.guess()).fromNow() + item.dataset.activity;
-			item.setAttribute("title", moment.utc(item.dataset.timestamp).tz(moment.tz.guess()).format("ddd[,] ll LTS"));
+		var addedQty = item.added.length;
+		var removedQty = item.removed.length;
+		var progressionQty = 0;
+		if (item.progression) {
+			progressionQty = item.progression.length;
 		}
-		// The dataset
-		// Number of operations per call
-		var batchSize = 50;
-		// The actual processing method
-		function work(item, index) {
-			// logger.startLogging("UI");
-			if (lastIndex < index) {
-				if (!item.added) {
-					console.log(item)
-				}
-				var addedQty = item.added.length;
-				var removedQty = item.removed.length;
-				var progressionQty = 0;
-				if (item.progression) {
-					progressionQty = item.progression.length;
-				}
-				var transferredQty = 0;
-				if (item.transferred) {
-					transferredQty = item.transferred.length;
-				}
-				var className = rowHeight(addedQty, removedQty, transferredQty, progressionQty);
-				lastIndex = index;
-				dateFrag.insertBefore(createDate(item, className), dateFrag.firstChild);
-				addedFrag.insertBefore(createItems(item, className, "added"), addedFrag.firstChild);
-				removedFrag.insertBefore(createItems(item, className, "removed"), removedFrag.firstChild);
-				transferredFrag.insertBefore(createItems(item, className, "transferred"), transferredFrag.firstChild);
-				progressionFrag.insertBefore(createProgress(item, className, "progression"), progressionFrag.firstChild);
+		var transferredQty = 0;
+		if (item.transferred) {
+			transferredQty = item.transferred.length;
+		}
+		var className = rowHeight(addedQty, removedQty, transferredQty, progressionQty);
+		lastIndex = index;
+		fragments.date.insertBefore(createDate(item, className), fragments.date.firstChild);
+		fragments.progression.insertBefore(createProgress(item, className, "progression"), fragments.progression.firstChild);
+		for (let page of pages) {
+			if (page !== "date" && page !== "progression") {
+				fragments[page].insertBefore(createItems(item, className, page), fragments[page].firstChild);
 			}
 		}
-
-		if (oldItemChangeQuantity !== ((customItems && customItems.length) || (data.itemChanges && data.itemChanges.length)) || oldPageNumber !== pageNumber) {
-			// Start iterator, it will return a promise
-			var promise = asyncIterator(customItems || data.itemChanges || [], work, batchSize);
-
-			// When promise is resolved, output results
-			promise.then(function() {
-				postWork(resolve, customItems);
-			});
-		} else {
-			postWork(resolve, customItems);
-		}
-	});
-
-	function postWork(resolve, customItems) {
-		// logger.startLogging("UI");
-		if (oldItemChangeQuantity !== ((customItems && customItems.length) || (data.itemChanges && data.itemChanges.length)) || oldPageNumber !== pageNumber) {
-			while (date.lastChild) {
-				date.removeChild(date.lastChild);
-			}
-			while (added.lastChild) {
-				added.removeChild(added.lastChild);
-			}
-			while (removed.lastChild) {
-				removed.removeChild(removed.lastChild);
-			}
-			while (transferred.lastChild) {
-				transferred.removeChild(transferred.lastChild);
-			}
-			while (progression.lastChild) {
-				progression.removeChild(progression.lastChild);
-			}
-			var maxLength = dateFrag.children.length;
-			if ((pageNumber + 1) * pageQuantity < maxLength) {
-				maxLength = (pageNumber + 1) * pageQuantity;
-			}
-			var minNumber = (pageNumber * pageQuantity) - 1;
-			if (minNumber < 0) {
-				minNumber = 0;
-			}
-			var tempDate = document.createDocumentFragment();
-			for (let i = minNumber; i < maxLength; i++) {
-				tempDate.appendChild(dateFrag.children[i].cloneNode(true));
-			}
-			date.appendChild(tempDate);
-			var tempAdded = document.createDocumentFragment();
-			for (let i = minNumber; i < maxLength; i++) {
-				tempAdded.appendChild(addedFrag.children[i].cloneNode(true));
-			}
-			added.appendChild(tempAdded);
-			var tempRemoved = document.createDocumentFragment();
-			for (let i = minNumber; i < maxLength; i++) {
-				tempRemoved.appendChild(removedFrag.children[i].cloneNode(true));
-			}
-			removed.appendChild(tempRemoved);
-			var tempTransferred = document.createDocumentFragment();
-			for (let i = minNumber; i < maxLength; i++) {
-				tempTransferred.appendChild(transferredFrag.children[i].cloneNode(true));
-			}
-			transferred.appendChild(tempTransferred);
-			var tempProgression = document.createDocumentFragment();
-			for (let i = minNumber; i < maxLength; i++) {
-				tempProgression.appendChild(progressionFrag.children[i].cloneNode(true));
-			}
-			progression.appendChild(tempProgression);
-		}
-		oldItemChangeQuantity = ((customItems && customItems.length) || (data.itemChanges && data.itemChanges.length));
-		oldPageNumber = pageNumber;
-		// logger.timeEnd("loadResults");
-		// logger.log('Done processing', results);
-		resolve();
 	}
 }
 
-function delayNode(index, className, latestItemChange, date, added, removed, transferred) {
-	setTimeout(function() {
-		date.insertBefore(createDate(latestItemChange.timestamp, className), date.firstChild);
-		added.insertBefore(createItems(latestItemChange.added, className, latestItemChange.characterId, "added"), added.firstChild);
-		removed.insertBefore(createItems(latestItemChange.removed, className, latestItemChange.characterId, "removed"), removed.firstChild);
-		transferred.insertBefore(createItems(latestItemChange.transferred, className, latestItemChange.characterId, "transferred"), transferred.firstChild);
-	}, 50);
+function postWork(resolve) {
+	if (oldItemChangeQuantity !== (currentItemSet && currentItemSet.length) || oldPageNumber !== pageNumber) {
+		for (var page of pages) {
+			while (elements[page].lastChild) {
+				elements[page].removeChild(elements[page].lastChild);
+			}
+		}
+		var maxLength = fragments.date.children.length;
+		if ((pageNumber + 1) * pageQuantity < maxLength) {
+			maxLength = (pageNumber + 1) * pageQuantity;
+		}
+		var minNumber = (pageNumber * pageQuantity) - 1;
+		if (minNumber < 0) {
+			minNumber = 0;
+		}
+		var tempFragments = {};
+		for (let page of pages) {
+			tempFragments[page] = document.createDocumentFragment();
+			for (let i = minNumber; i < maxLength; i++) {
+				tempFragments[page].appendChild(fragments[page].children[i].cloneNode(true));
+			}
+		}
+		window.requestAnimationFrame(function() {
+			for (let page of pages) {
+				elements[page].appendChild(tempFragments[page]);
+			}
+			window.requestAnimationFrame(postDisplay);
+		});
+	}
+	resolve();
+}
+
+function postDisplay() {
+	constructMatchInterface();
+	makePages();
+	oldItemChangeQuantity = (currentItemSet && currentItemSet.length);
+	oldPageNumber = pageNumber;
+}
+var moment = moment || null
+
+if (moment) {
+	var timezone = moment.tz.guess();
+}
+
+function displayResults(customItems) {
+	if (customItems && customItems.length) {
+		currentItemSet = customItems;
+	}
+	// logger.startLogging("UI");
+	if (elements.trackingItem && localStorage.accurateTracking === "true") {
+		elements.trackingItem.style.display = "inline-block";
+		elements.trackingItem.style.backgroundImage = "url(" + "'http://www.bungie.net" + getItemDefinition(localStorage.transferMaterial).icon + "')";
+
+	} else if (elements.trackingItem) {
+		elements.trackingItem.style.display = "none";
+	}
+	return new Promise(function displayResultsCore(resolve, reject) {
+		// logger.startLogging("UI");
+		// logger.timeEnd("grab matches");
+		// logger.time("loadResults");
+		if (oldItemChangeQuantity !== (currentItemSet && currentItemSet.length) || oldPageNumber !== pageNumber) {
+			for (var page of pages) {
+				while (elements[page].lastChild) {
+					elements[page].removeChild(elements[page].lastChild);
+				}
+				elements[page].innerHTML = "<h2 class='section-title'>Loading...</h2>";
+			}
+			// Start iterator, it will return a promise
+			var promise = asyncIterator(currentItemSet || [], work, pageQuantity);
+
+			// When promise is resolved, output results
+			promise.then(function() {
+				postWork(resolve);
+			});
+		} else {
+			postWork(resolve);
+		}
+	});
 }
 
 function makeItem(itemData, classRequirement) {
@@ -567,9 +557,22 @@ function elementType(itemData) {
 }
 
 function primaryStatName(itemData) {
-	if (itemData.primaryStat) {
+	var itemDef = getItemDefinition(itemData.itemHash);
+	if (itemData.itemHash === 3159615086) {
+		var glimmer = getItemDefinition(3159615086);
+		if (itemData.maxStackSize) {
+			return `${itemData.maxStackSize}/${glimmer.maxStackSize}`;
+		}
+		return glimmer.maxStackSize;
+	} else if (itemData.itemHash === 2534352370) {
+		var marks = getItemDefinition(2534352370);
+		if (itemData.maxStackSize) {
+			return `${itemData.maxStackSize}/${marks.maxStackSize}`;
+		}
+		return marks.maxStackSize;
+	} else if (itemData.primaryStat) {
 		return DestinyStatDefinition[itemData.primaryStat.statHash].statName;
-	} else if (itemData.bucketHash === 2197472680) {
+	} else if (itemDef.bucketTypeHash === 2197472680 || itemDef.bucketTypeHash === 1801258597) {
 		return "Completed";
 	} else {
 		return "Quantity";
@@ -585,6 +588,9 @@ function passData(DomNode, itemData, classRequirement) {
 		DomNode.dataset.tierTypeName = "Common";
 	}
 	DomNode.dataset.itemHash = itemDefinition.itemHash;
+	if (itemData.itemInstanceId) {
+		DomNode.dataset.itemInstanceId = itemData.itemInstanceId;
+	}
 	DomNode.dataset.itemName = itemDefinition.itemName;
 	DomNode.dataset.itemTypeName = itemDefinition.itemTypeName;
 	DomNode.dataset.equipRequiredLevel = itemData.equipRequiredLevel || 0;
