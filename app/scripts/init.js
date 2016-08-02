@@ -29,7 +29,7 @@ function _checkBoolean(source, alt) {
 }
 
 function _checkNumber(source, alt) {
-	if (parseInt(source, 10)) {
+	if (isNaN(parseInt(source, 10)) === false) {
 		return source;
 	}
 	return alt;

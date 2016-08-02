@@ -194,8 +194,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	if (minLight) {
 		minLight.value = parseInt(localStorage.minLight) || minLight.value;
 		minQuality.value = parseInt(localStorage.minQuality) || minQuality.value;
-		minConsumableStacks.value = parseInt(localStorage.minConsumableStacks) || minConsumableStacks.value;
-		minMaterialStacks.value = parseInt(localStorage.minMaterialStacks) || minMaterialStacks.value;
+		if (isNaN(parseInt(localStorage.minConsumableStacks))) {
+			minConsumableStacks.value = minConsumableStacks.value;
+		} else {
+			minConsumableStacks.value = parseInt(localStorage.minConsumableStacks);
+		}
+		if (isNaN(parseInt(localStorage.minMaterialStacks))) {
+			minMaterialStacks.value = minMaterialStacks.value;
+		} else {
+			minMaterialStacks.value = parseInt(localStorage.minMaterialStacks);
+		}
 		minLight.addEventListener("change", handleQualityChange, false);
 		minQuality.addEventListener("change", handleQualityChange, false);
 		minConsumableStacks.addEventListener("change", handleQualityChange, false);
