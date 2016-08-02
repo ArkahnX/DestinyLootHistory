@@ -58,6 +58,14 @@ function initUi() {
 			elements.version.textContent = (manifest.version_name);
 		}
 	}
+	var reloadButtons = document.querySelectorAll(".reload");
+	for (var reloadButton of reloadButtons) {
+		reloadButton.addEventListener("click", function reloadBackgroundPage() {
+			chrome.runtime.getBackgroundPage(function(bp) {
+				bp.location.reload();
+			});
+		});
+	}
 	if (elements.status) {
 		elements.status.classList.add("idle");
 		if (elements.startTracking) {

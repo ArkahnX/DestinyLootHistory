@@ -197,7 +197,7 @@ var bungie = (function Bungie() {
 					localStorage.error = "true";
 					tracker.sendEvent('Cookie Not Found', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 					logger.error('Error loading cookie.' + localStorage.systems);
-					localStorage.errorMessage = `Error loading user. Make sure your account is <a href="http://www.bungie.net">linked with bungie.net and you are logged in</a>.<br>This is a generic error, please use the <a href="debug.html">report issue feature</a> so the developers can assist.`;
+					localStorage.errorMessage = `Error loading user. Please sign out and sign back in to <a href="http://www.bungie.net">linked with bungie.net</a> then click <input type="button" value="reloading the extension" class="reload" />`;
 					chrome.cookies.getAll({
 						domain: ".bungie.net"
 					}, function(cookies) {
