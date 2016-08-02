@@ -792,16 +792,16 @@ function eligibleToLock(item, characterId) {
 	if ((itemDef.tierTypeName === "Legendary" || itemDef.tierTypeName === "Exotic") && item.stats && item.primaryStat) {
 		if (item.primaryStat.statHash === 3897883278) {
 			var qualityLevel = parseItemQuality(item);
-			console.log(qualityLevel.min, parseInt(localStorage.minQuality) || 90, item.primaryStat.value, parseInt(localStorage.minLight) || 335);
+			logger.log(qualityLevel.min, parseInt(localStorage.minQuality) || 90, item.primaryStat.value, parseInt(localStorage.minLight) || 335);
 			if (qualityLevel.min >= (parseInt(localStorage.minQuality) || 90) || item.primaryStat.value >= (parseInt(localStorage.minLight) || 335)) {
 				bungie.lock(characterId, item.itemInstanceId).then(function(response) {
-					console.log(response);
+					logger.log(response);
 				});
 			}
 		} else if (item.primaryStat.statHash === 368428387) {
 			if (item.primaryStat.value >= (parseInt(localStorage.minLight) || 335)) {
 				bungie.lock(characterId, item.itemInstanceId).then(function(response) {
-					console.log(response);
+					logger.log(response);
 				});
 			}
 		}
@@ -814,7 +814,7 @@ function autoMoveToVault(item, characterId) {
 	try {
 		moveItemList = JSON.parse(localStorage.autoMoveItemsToVault);
 	} catch (e) {
-		console.error("Unable to parse list", localStorage.autoMoveItemsToVault);
+		logger.error("Unable to parse list", localStorage.autoMoveItemsToVault);
 		return false;
 	}
 	if (!moveItemList) {
@@ -845,10 +845,11 @@ function autoMoveToVault(item, characterId) {
 			break;
 		}
 	}
+	logger.log(itemDef.itemName, transferQuantity, quantity, minStacks, itemDef.maxStackSize)
 	if (transferQuantity < 1) {
 		return false;
 	}
 	bungie.transfer(characterId, "0", item.itemHash, transferQuantity, true).then(function(response) {
-		// console.log(response);
+		logger.log(response);
 	});
 }
