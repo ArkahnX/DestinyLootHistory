@@ -5,6 +5,9 @@ function getLocalMatches() {
 		logger.startLogging("matches");
 		logger.time("Local Matches");
 		chrome.storage.local.get(["matches"], function(result) {
+			if (chrome.runtime.lastError) {
+				logger.error(chrome.runtime.lastError);
+			}
 			data.matches = handleInput(result.matches, data.matches);
 			for (var activity of data.matches) {
 				if (matchIdList.indexOf(activity.characterId + "-" + activity.activityInstance) === -1) {
@@ -32,6 +35,7 @@ function getRemoteMatches() {
 		} else {
 			resolve();
 		}
+		resolve();
 	});
 }
 
@@ -73,6 +77,11 @@ function _remoteMatch(page, firstDateString, characterId, resolve) {
 				resolve();
 			}
 		}
+	}).catch(function(err) {
+		if(err) {
+			logger.error(err);
+		}
+		resolve();
 	});
 }
 
@@ -119,6 +128,9 @@ function applyMatchData() {
 			progression: data.progression,
 			currencies: data.currencies
 		}, function() {
+			if (chrome.runtime.lastError) {
+				logger.error(chrome.runtime.lastError);
+			}
 			logger.timeEnd("Match Data");
 			resolve();
 		});

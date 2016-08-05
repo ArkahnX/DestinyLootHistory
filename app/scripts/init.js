@@ -115,6 +115,9 @@ function initializeStoredVariables() {
 		localStorage.oldInventory = JSON.stringify({});
 		tracker.sendEvent('Backend Initialized', `No Issues`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 		chrome.storage.local.get(null, function(data) {
+			if (chrome.runtime.lastError) {
+				logger.error(chrome.runtime.lastError);
+			}
 			var newData = {};
 			if (!data.currencies) {
 				newData.currencies = [];
@@ -150,6 +153,9 @@ function initializeStoredVariables() {
 				newData.matches = data.matches;
 			}
 			chrome.storage.local.set(newData, function() {
+				if (chrome.runtime.lastError) {
+					logger.error(chrome.runtime.lastError);
+				}
 				resolve();
 			});
 		});

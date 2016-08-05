@@ -3,6 +3,9 @@ tracker.sendAppView('OptionsScreen');
 function backupData() {
 	var backupDataButton = document.getElementById("backupData");
 	chrome.storage.local.get(null, function(data) {
+		if (chrome.runtime.lastError) {
+			logger.error(chrome.runtime.lastError);
+		}
 		var url = 'data:application/json;base64,' + btoa(JSON.stringify(data.itemChanges));
 		chrome.downloads.download({
 			url: url,
@@ -281,6 +284,9 @@ function handleFileSelect(evt) {
 			chrome.storage.local.set({
 				"itemChanges": object
 			}, function() {
+				if (chrome.runtime.lastError) {
+					logger.error(chrome.runtime.lastError);
+				}
 				dropZone.classList.remove("loading");
 				dropZone.textContent = "Restoration Complete";
 			});

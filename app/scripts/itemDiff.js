@@ -485,7 +485,11 @@ function processDifference(currentDateString, resolve) {
 		// if (typeof callback === "function") {
 		// 	callback();
 		// }
-		console.error(err)
-		resolve();
+		if (err) {
+			console.error(err);
+		}
+		if (resolve) {
+			resolve();
+		}
 	}).then(check3oC).then(applyMatchData).then(resolve);
 }

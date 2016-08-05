@@ -118,6 +118,9 @@ function checkInventory() {
 	// console.startLogging("items");
 	console.time("Bungie Inventory");
 	chrome.storage.local.get(null, function(remoteData) {
+		if (chrome.runtime.lastError) {
+			logger.error(chrome.runtime.lastError);
+		}
 		console.log(remoteData)
 		data = remoteData;
 		// sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
@@ -241,15 +244,30 @@ function passData(DomNode, itemData) {
 
 function itemNetworkTask(characterId, callback) {
 	if (characterId === "vault") {
-		bungie.vault().then(callback);
+		bungie.vault().catch(function(err) {
+			if(err) {
+				logger.error(err);
+			}
+			callback(false);
+		}).then(callback);
 	} else {
-		bungie.inventory(characterId).then(callback);
+		bungie.inventory(characterId).catch(function(err) {
+			if(err) {
+				logger.error(err);
+			}
+			callback(false);
+		}).then(callback);
 	}
 }
 
 function factionNetworkTask(characterId, callback) {
 	if (characterId !== "vault") {
-		bungie.factions(characterId).then(callback);
+		bungie.factions(characterId).catch(function(err) {
+			if(err) {
+				logger.error(err);
+			}
+			callback(false);
+		}).then(callback);
 	} else {
 		callback();
 	}
