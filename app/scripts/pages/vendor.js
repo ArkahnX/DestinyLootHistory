@@ -20,7 +20,7 @@ function makeSaleItem(itemHash, acquired, saleItem) {
 		}
 	}
 	var item = makeItem(saleItem.item, unlockFlag);
-	if(unlockFlag) {
+	if (unlockFlag) {
 		if (acquired.isSet === false) {
 			item.children[0].classList.add("undiscovered");
 		}
@@ -140,7 +140,11 @@ function getVendor(hash) {
 	lastVendor = parseInt(hash);
 	selectedCharacter = document.getElementById("character").value;
 	document.getElementById("compare").value = "None";
-	bungie.getVendorForCharacter(selectedCharacter, lastVendor).then(function(response) {
+	bungie.getVendorForCharacter(selectedCharacter, lastVendor).catch(function(err) {
+		if (err) {
+			logger.error(err);
+		}
+	}).then(function(response) {
 		console.log(response, response.Response && response.Response.data, DestinyVendorDefinition[lastVendor]);
 		if (response.Response) {
 			makeItemsFromVendor(response.Response.data.vendor);
@@ -155,8 +159,16 @@ function compareVendor(vendorHash, compareHash) {
 	mainContainer.innerHTML = "";
 	lastVendor = parseInt(vendorHash);
 	selectedCharacter = document.getElementById("character").value;
-	bungie.getVendorForCharacter(selectedCharacter, lastVendor).then(function(responseMain) {
-		bungie.getVendorForCharacter(selectedCharacter, compareHash).then(function(responseCompare) {
+	bungie.getVendorForCharacter(selectedCharacter, lastVendor).catch(function(err) {
+		if (err) {
+			logger.error(err);
+		}
+	}).then(function(responseMain) {
+		bungie.getVendorForCharacter(selectedCharacter, compareHash).catch(function(err) {
+			if (err) {
+				logger.error(err);
+			}
+		}).then(function(responseCompare) {
 			if (responseMain.Response && responseCompare.Response) {
 				var vendorSaleItems = responseMain.Response.data.vendor.saleItemCategories;
 				var vendorName = DestinyVendorDefinition[responseMain.Response.data.vendor.vendorHash].summary.vendorName;

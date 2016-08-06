@@ -1,6 +1,3 @@
-var dirtyTimeout = null;
-var listenLoop = null;
-var stopLoop = null;
 var oldCharacterDates = 0;
 var timers = {};
 
@@ -12,6 +9,7 @@ function stopTimer(name) {
 function startTimer(name, customTime) {
 	// logger.log(`Queing timer ${name} for ${customTime || timers[name].time}`)
 	stopTimer(name);
+	timers[name].lastPing = moment().format();
 	timers[name].id = setTimeout(timers[name].fn, customTime || timers[name].time);
 }
 
@@ -36,7 +34,7 @@ function activityTracker() {
 	logger.log("activityTracker");
 	initItems(function afterInitItems() {
 		if (localStorage.error === "true") {
-			logger.log("Extension has an error.")
+			logger.log("Extension has an error.");
 			localStorage.flag = "false";
 			localStorage.listening = "false";
 			localStorage.manual = "false";
@@ -49,7 +47,7 @@ function activityTracker() {
 			}
 			logger.startLogging("timers");
 			if (newCharacterDates !== oldCharacterDates || localStorage.manual === "true") { // if new character dates is not equal to old character dates
-				logger.log("Player character has been played.")
+				logger.log("Player character has been played.");
 				logger.log(`Beginning tracking because character dates "${newCharacterDates} !== ${oldCharacterDates}" or manual "${localStorage.manual}"`);
 				localStorage.listening = "true";
 				localStorage.manual = "false";
@@ -66,7 +64,7 @@ function activityTracker() {
 
 function inventoryCheck() {
 	logger.startLogging("timers");
-	logger.log("inventoryCheck")
+	logger.log("inventoryCheck");
 	var startTime = window.performance.now();
 	checkInventory().then(function afterInventoryCheck() { // found in items.js
 		logger.startLogging("timers");
@@ -80,7 +78,9 @@ function inventoryCheck() {
 		startTimer("inventoryCheck", (20 * 60 * 1000) - resultTime);
 		startTimer("activityTracker");
 	}).catch(function(e) {
-		logger.error(e);
+		if (e) {
+			logger.error(e);
+		}
 		startTimer("activityTracker");
 	});
 }
@@ -88,15 +88,18 @@ function inventoryCheck() {
 timers.extensionIcon = {
 	id: -1,
 	time: 2000,
-	fn: extensionIcon
+	fn: extensionIcon,
+	lastPing:moment().format()
 };
 timers.activityTracker = {
 	id: -1,
 	time: 10000,
-	fn: activityTracker
+	fn: activityTracker,
+	lastPing:moment().format()
 };
 timers.inventoryCheck = {
 	id: -1,
 	time: 20 * 60 * 1000,
-	fn: inventoryCheck
+	fn: inventoryCheck,
+	lastPing:moment().format()
 };

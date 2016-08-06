@@ -1,5 +1,8 @@
 function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, lightLevel) {
 	chrome.storage.local.get(null, function(data) {
+		if (chrome.runtime.lastError) {
+			logger.error(chrome.runtime.lastError);
+		}
 		// console.startLogging("export");
 		var exportDataButton = document.getElementById("exportData");
 		var regexMatch = new RegExp(gameMode, "i");

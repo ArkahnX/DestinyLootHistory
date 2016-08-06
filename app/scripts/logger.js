@@ -20,6 +20,9 @@ var logger = (function() {
 	function init() {
 		return new Promise(function(resolve) {
 			chrome.storage.local.get("logger", function(data) {
+				if (chrome.runtime.lastError) {
+					logger.error(chrome.runtime.lastError);
+				}
 				if (data.logger && data.logger.logList) {
 					logList = data.logger.logList;
 					currentLog = data.logger.currentLog;
@@ -52,8 +55,14 @@ var logger = (function() {
 	}
 
 	function endLogging() {
-		logList.push(currentLog);
-		currentLog = null;
+		if (currentLog) {
+			logList.push(currentLog);
+			var tag = currentLog.tag;
+			currentLog = null;
+			startLogging(tag);
+		} else {
+			startLogging();
+		}
 	}
 
 	function _getErrorObject() {
@@ -225,6 +234,10 @@ var logger = (function() {
 					currentLog: currentLog,
 					logList: logList
 				}
+			}, function() {
+				if (chrome.runtime.lastError) {
+					logger.error(chrome.runtime.lastError);
+				}
 			});
 		}
 	}
@@ -232,6 +245,9 @@ var logger = (function() {
 	function exportLogs() {
 		return new Promise(function(resolve) {
 			chrome.storage.local.get("logger", function(data) {
+				if (chrome.runtime.lastError) {
+					logger.error(chrome.runtime.lastError);
+				}
 				var localLogList = data.logger.logList;
 				var endLogs = ["\n"];
 				var startingPoint = localLogList.length - 500;
@@ -269,6 +285,9 @@ var logger = (function() {
 	function returnLogs(tagsToShow, showLog, showInfo, showWarn, showError, showTime) {
 		return new Promise(function(resolve) {
 			chrome.storage.local.get("logger", function(data) {
+				if (chrome.runtime.lastError) {
+					logger.error(chrome.runtime.lastError);
+				}
 				var localLogList = data.logger.logList;
 				var endLogs = ["\n"];
 				var uniqueLogs = [];
@@ -312,6 +331,9 @@ var logger = (function() {
 					endLogs.push(`${property}: "${localStorage[property]}"`);
 				}
 				chrome.storage.local.get(null, function(result) {
+					if (chrome.runtime.lastError) {
+						logger.error(chrome.runtime.lastError);
+					}
 					for (var property in result) {
 						if (Array.isArray(result[property])) {
 							endLogs.push(`${property}: Array[${result[property].length}]`);
@@ -342,6 +364,10 @@ var logger = (function() {
 			logger: {
 				currentLog: currentLog,
 				logList: []
+			}
+		}, function() {
+			if (chrome.runtime.lastError) {
+				logger.error(chrome.runtime.lastError);
 			}
 		});
 	}
