@@ -1361,3 +1361,7 @@ optgroup option {
 	max-height: 95%;
 	padding-top: 40px;
 }
+
+.complete + .primary-stat {
+	background: rgba(245,220,86,.9);
+}

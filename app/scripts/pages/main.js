@@ -5,6 +5,9 @@ if (localStorage.characterDescriptions) {
 }
 
 chrome.storage.local.get(null, function(result) {
+	if (chrome.runtime.lastError) {
+		logger.error(chrome.runtime.lastError);
+	}
 	console.log(result);
 });
 
@@ -60,6 +63,9 @@ function frontEndUpdate() {
 			item.setAttribute("title", localTime.format("ddd[,] ll LTS"));
 		}
 		chrome.storage.local.get("itemChanges", function chromeStorageGet(localData) {
+			if (chrome.runtime.lastError) {
+				logger.error(chrome.runtime.lastError);
+			}
 			if (currentItemSet.length !== localData.itemChanges.length) {
 				currentItemSet = localData.itemChanges;
 				displayResults().then(function() {

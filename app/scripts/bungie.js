@@ -124,6 +124,7 @@ var bungie = (function Bungie() {
 						opts.incomplete();
 					} else if (response.ErrorCode !== 1) {
 						logger.startLogging("Bungie Logs");
+
 						logger.error(response.ErrorCode, response.ErrorStatus, response.Message, opts.route, localStorage.systems);
 						if (opts.payload && Object.keys(opts.payload).length > 0) {
 							logger.error(`Character: ${opts.payload.characterId}, Membership: ${opts.payload.membershipType}, itemHash: ${opts.payload.itemReferenceHash}, stackSize: ${opts.payload.stackSize}, transferToVault: ${opts.payload.transferToVault}`);

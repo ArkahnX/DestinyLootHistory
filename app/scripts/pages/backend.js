@@ -2,6 +2,9 @@ tracker.sendAppView('BackgroundScreen');
 
 function _backup() {
 	chrome.storage.local.get(null, function(data) {
+		if (chrome.runtime.lastError) {
+			logger.error(chrome.runtime.lastError);
+		}
 		var url = 'data:application/json;base64,' + btoa(JSON.stringify(data.itemChanges));
 		// chrome.downloads.download({
 		// 	url: url,
@@ -154,6 +157,9 @@ function init() {
 // setTimeout(init, 50);
 // logging some backend data. Saved my butt during the issue that deleted my saved data.
 chrome.storage.local.get(null, function(result) {
+	if (chrome.runtime.lastError) {
+		logger.error(chrome.runtime.lastError);
+	}
 	logger.startLogging("Backend");
 	logger.info(result);
 	init();

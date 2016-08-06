@@ -60,13 +60,17 @@ function initItems(callback) {
 			if (typeof callback === "function") {
 				callback();
 			}
-			logger.error(err)
+			if (err) {
+				logger.error(err);
+			}
 		});
 	}).catch(function(err) {
 		if (typeof callback === "function") {
 			callback();
 		}
-		logger.error(err)
+		if (err) {
+			logger.error(err);
+		}
 	});
 }
 
@@ -78,9 +82,19 @@ function itemNetworkTask(characterId, callback) {
 	logger.startLogging("items");
 	logger.time("itemTask");
 	if (characterId === "vault") {
-		bungie.vault().then(callback);
+		bungie.vault().catch(function(err) {
+			if (err) {
+				logger.error(err);
+			}
+			callback(false);
+		}).then(callback);
 	} else {
-		bungie.inventory(characterId).then(callback);
+		bungie.inventory(characterId).catch(function(err) {
+			if (err) {
+				logger.error(err);
+			}
+			callback(false);
+		}).then(callback);
 	}
 }
 
@@ -88,7 +102,12 @@ function factionNetworkTask(characterId, callback) {
 	logger.startLogging("items");
 	logger.time("factionTask");
 	if (characterId !== "vault") {
-		bungie.factions(characterId).then(callback);
+		bungie.factions(characterId).catch(function(err) {
+			if (err) {
+				logger.error(err);
+			}
+			callback(false);
+		}).then(callback);
 	} else {
 		callback();
 	}
@@ -407,6 +426,61 @@ function checkInventory() {
  * Step 5
  */
 
+function afterAdvisors(advisorData, resolve, currentDateString) {
+	if (advisorData) {
+		var recordBooks = advisorData.data.recordBooks;
+		for (var recordBook of recordBooks) {
+			for (var characterInventory of newInventories) {
+				for (var inventoryItem of characterInventory) {
+					var itemDefinition = getItemDefinition(inventoryItem.itemHash);
+					if (itemDefinition.recordBookHash === recordBook.bookHash) {
+						var completed = 0;
+						var completionValue = 0;
+						for (var record of recordBook.records) {
+							for (var objective of record.objectives) {
+								if (!inventoryItem.objectives) {
+									inventoryItem.objectives = [];
+								}
+								inventoryItem.objectives.push({
+									objectiveHash: objective.objectiveHash,
+									progress: objective.progress
+								});
+								completed += objective.progress;
+								completionValue += DestinyObjectiveDefinition[objective.objectiveHash].completionValue;
+							}
+						}
+						if (completed === completionValue) {
+							inventoryItem.isGridComplete = true;
+						}
+						inventoryItem.stackSize = Math.round(((completed / completionValue) * 100)) + "%";
+						break;
+					}
+				}
+			}
+		}
+	}
+	logger.timeEnd("Bungie Advisors");
+	logger.time("Local Inventory");
+	// get old data saved from the last pass
+	chrome.storage.local.get(["itemChanges", "progression", "currencies", "inventories"], function afterStorageGet(result) {
+		if (chrome.runtime.lastError) {
+			logger.error(chrome.runtime.lastError);
+		}
+		// check if data is valid. If not, use newly grabbed data instead.
+		data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
+		data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
+		oldProgression = handleInput(result.progression, newProgression);
+		for (var attr in result.progression) {
+			oldProgression[attr] = handleInput(result.progression[attr], newProgression[attr]);
+		}
+		oldInventories = handleInput(result.inventories, newInventories);
+		oldCurrencies = handleInput(result.currencies, newCurrencies);
+		logger.timeEnd("Local Inventory");
+		// itemDiff.js
+		processDifference(currentDateString, resolve);
+	});
+}
+
 function grabRemoteInventory(resolve, reject) {
 	logger.startLogging("items");
 	logger.log("grabRemoteInventory");
@@ -456,54 +530,13 @@ function grabRemoteInventory(resolve, reject) {
 				sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
 					logger.timeEnd("Bungie Faction");
 					logger.time("Bungie Advisors");
-					bungie.advisorsForAccount().then(function afterAdvisors(advisorData) {
-						var recordBooks = advisorData.data.recordBooks;
-						for (var recordBook of recordBooks) {
-							for (var characterInventory of newInventories) {
-								for (var inventoryItem of characterInventory) {
-									var itemDefinition = getItemDefinition(inventoryItem.itemHash);
-									if (itemDefinition.recordBookHash === recordBook.bookHash) {
-										var completed = 0;
-										var completionValue = 0;
-										for (var record of recordBook.records) {
-											for (var objective of record.objectives) {
-												if (!inventoryItem.objectives) {
-													inventoryItem.objectives = [];
-												}
-												inventoryItem.objectives.push({
-													objectiveHash: objective.objectiveHash,
-													progress: objective.progress
-												});
-												completed += objective.progress;
-												completionValue += DestinyObjectiveDefinition[objective.objectiveHash].completionValue;
-											}
-										}
-										if (completed === completionValue) {
-											inventoryItem.isGridComplete = true;
-										}
-										inventoryItem.stackSize = Math.round(((completed / completionValue) * 100)) + "%";
-										break;
-									}
-								}
-							}
+					bungie.advisorsForAccount().catch(function(err) {
+						if (err) {
+							logger.error(err);
 						}
-						logger.timeEnd("Bungie Advisors");
-						logger.time("Local Inventory");
-						// get old data saved from the last pass
-						chrome.storage.local.get(["itemChanges", "progression", "currencies", "inventories"], function afterStorageGet(result) {
-							// check if data is valid. If not, use newly grabbed data instead.
-							data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
-							data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
-							oldProgression = handleInput(result.progression, newProgression);
-							for (var attr in result.progression) {
-								oldProgression[attr] = handleInput(result.progression[attr], newProgression[attr]);
-							}
-							oldInventories = handleInput(result.inventories, newInventories);
-							oldCurrencies = handleInput(result.currencies, newCurrencies);
-							logger.timeEnd("Local Inventory");
-							// itemDiff.js
-							processDifference(currentDateString, resolve);
-						});
+						afterAdvisors(false, resolve, currentDateString);
+					}).then(function(advisorData) {
+						afterAdvisors(advisorData, resolve, currentDateString);
 					});
 				});
 			});
@@ -745,7 +778,7 @@ function findThreeOfCoins(characterId) {
 
 function check3oC() {
 	return new Promise(function(resolve) {
-		logger.startLogging("3oC")
+		logger.startLogging("3oC");
 		if (!localStorage.track3oC) {
 			localStorage.track3oC = "true";
 		}
