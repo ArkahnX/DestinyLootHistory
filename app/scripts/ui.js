@@ -20,6 +20,7 @@ var elements = {
 	classRequirement: document.getElementById("class-requirement"),
 	statTable: document.getElementById("stat-table"),
 	nodeTable: document.getElementById("node-table"),
+	costTable: document.getElementById("cost-table"),
 	ToCReminder: document.getElementById("ToCReminder"),
 	toggleSystem: document.getElementById("toggleSystem"),
 	autoLock: document.getElementById("autoLock"),
@@ -39,7 +40,8 @@ var elementNames = {
 	itemDescription: "item-description",
 	classRequirement: "class-requirement",
 	statTable: "stat-table",
-	nodeTable: "node-table"
+	nodeTable: "node-table",
+	costTable: "cost-table"
 };
 
 var currentItemSet = [];
@@ -95,13 +97,13 @@ function initUi() {
 				target = event.target.parentNode;
 			}
 			if (target && target !== previousElement) {
-				elements.tooltip.classList.add("hidden");
+				// elements.tooltip.classList.add("hidden");
 				previousElement = target;
 				handleTooltipData(event.target.dataset, event.target, event);
 			}
 			if (!target) {
 				clearTimeout(tooltipTimeout);
-				elements.tooltip.classList.add("hidden");
+				// elements.tooltip.classList.add("hidden");
 				previousElement = null;
 			}
 		}, false);
@@ -439,7 +441,7 @@ function displayResults(customItems) {
 	});
 }
 
-function makeItem(itemData, classRequirement) {
+function makeItem(itemData, classRequirement, optionalCosts) {
 	var docfrag = document.createDocumentFragment();
 	var itemContainer = document.createElement("div");
 	itemContainer.classList.add("item-container");
@@ -467,7 +469,7 @@ function makeItem(itemData, classRequirement) {
 	}
 	stat.classList.add("primary-stat");
 	stat.textContent = primaryStat(itemData);
-	passData(container, itemData, classRequirement);
+	passData(container, itemData, classRequirement, optionalCosts);
 	return docfrag;
 }
 
@@ -587,9 +589,12 @@ function primaryStatName(itemData) {
 	}
 }
 
-function passData(DomNode, itemData, classRequirement) {
+function passData(DomNode, itemData, classRequirement, optionalCosts) {
 	// logger.startLogging("UI");
 	var itemDefinition = getItemDefinition(itemData.itemHash);
+	if(optionalCosts) {
+		DomNode.dataset.costs = JSON.stringify(optionalCosts);
+	}
 	if (itemDefinition.tierTypeName) {
 		DomNode.dataset.tierTypeName = itemDefinition.tierTypeName;
 	} else {
@@ -608,7 +613,11 @@ function passData(DomNode, itemData, classRequirement) {
 	DomNode.dataset.damageTypeName = elementType(itemData);
 	DomNode.dataset.classRequirement = "";
 	if (classRequirement) {
-		DomNode.dataset.classRequirement = classRequirement;
+		if (typeof classRequirement === "string") {
+			DomNode.dataset.classRequirement = classRequirement;
+		} else {
+			DomNode.dataset.classRequirement = JSON.stringify(classRequirement);
+		}
 	}
 	if (itemData.stats && itemData.stats.length) {
 		DomNode.dataset.statTree = JSON.stringify(itemData.stats);
@@ -644,7 +653,11 @@ function passFactionData(DomNode, diffData, classRequirement) {
 	DomNode.dataset.level = diffData.level;
 	DomNode.dataset.classRequirement = "";
 	if (classRequirement) {
-		DomNode.dataset.classRequirement = classRequirement;
+		if (typeof classRequirement === "string") {
+			DomNode.dataset.classRequirement = classRequirement;
+		} else {
+			DomNode.dataset.classRequirement = JSON.stringify(classRequirement);
+		}
 	}
 }
 
