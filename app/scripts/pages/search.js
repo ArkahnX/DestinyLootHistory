@@ -1,7 +1,8 @@
 tracker.sendAppView('SearchScreen');
+logger.disable();
 var manifest = chrome.runtime.getManifest();
 characterDescriptions = JSON.parse(localStorage.characterDescriptions);
-initUi();
+var searchTypes = ["itemName", "itemTypeName", "itemDescription", "tierTypeName", "damageTypeName", "primaryStat"];
 
 chrome.storage.local.get(null, function(result) {
 	console.log(result);
@@ -85,10 +86,59 @@ function addSearchTerm() {
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
-	document.getElementById("addSearchTerm").addEventListener("click", addSearchTerm);
-	document.getElementById("searchButton").addEventListener("click", handleSearch);
-	addSearchTerm();
+	// document.getElementById("addSearchTerm").addEventListener("click", addSearchTerm);
+	// document.getElementById("searchButton").addEventListener("click", handleSearch);
+	// addSearchTerm();
+	initUi();
+	chrome.storage.local.get("itemChanges", function chromeStorageGet(localData) {
+		if (chrome.runtime.lastError) {
+			logger.error(chrome.runtime.lastError);
+		}
+		currentItemSet = localData.itemChanges;
+		pageQuantity = currentItemSet.length;
+		console.log(window.performance.now(), "New Node")
+		displayResults(false, true).then(function() {
+			var dataNodes = document.querySelectorAll(".item-container div:first-child");
+			console.log(window.performance.now(), "New Node");
+			// for (var node of dataNodes) {
+			// 	var parentIndex = node.parentNode.parentNode.dataset.index;
+			// 	var parentNodes = document.querySelectorAll("[data-index='" + parentIndex + "']");
+			// 	for (var type of searchTypes) {
+			// 		console.log(window.performance.now(), type)
+			// 		var nodeValue = node.dataset[type] && node.dataset[type].replace(/(\r\n|\n|\r)/gm, " ") || "";
+			// 		for (var parentNode of parentNodes) {
+			// 			if (!parentNode.dataset[type]) {
+			// 				parentNode.dataset[type] = "";
+			// 			}
+			// 			if (parentNode.dataset[type].indexOf(nodeValue) === -1) {
+			// 				parentNode.dataset[type] += " | " + nodeValue.toLowerCase();
+			// 			}
+			// 		}
+			// 	}
+			// }
+			var searchElement = document.querySelector('#jetsSearch');
+			var searchTimeout = null;
+			searchElement.removeAttribute("disabled");
+			searchElement.addEventListener("keyup", function() {
+				clearTimeout(searchTimeout);
+				searchTimeout = setTimeout(searchResults, 300);
+			}, false);
+		});
+	});
 });
+
+function camelCaseToDash(myStr) {
+	return myStr.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+}
+
+function searchResults() {
+	var searchElement = document.querySelector('#jetsSearch');
+	var searchStyle = document.querySelector('#searchStyle');
+	var searchType = document.getElementById("searchType");
+	var searchValue = searchElement.value;
+	console.log(searchValue);
+	searchStyle.textContent = `.main-section > :not([data-${camelCaseToDash(searchType.value)}*="${searchValue.toLowerCase()}"]){ display:none; }`;
+}
 
 function removeSearchTerms(e) {
 	var ID = parseInt(e.target.parentNode.dataset.id, 10);
