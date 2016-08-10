@@ -370,7 +370,7 @@ header {
     -webkit-font-smoothing: antialiased;
     float: right;
     display: inline-block;
-    height: 100%;
+    height: calc(100% - 91px);
         overflow-y: scroll;
 }
 
@@ -388,9 +388,11 @@ header {
 	text-transform: uppercase;
 }
 #item-primary-stat {
+	transition: color 0.5s ease;
 	display: inline;
 }
 #item-stat-text {
+	transition: color 0.5s ease;
 	display: inline;
 }
 #item-type,
@@ -405,6 +407,7 @@ header {
 	float: right;
 }
 #item-head {
+	transition: background-color 0.5s ease, color 0.5s ease;
 	padding: 5px 18px;
 
 	color: #F5F5F5;

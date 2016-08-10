@@ -116,9 +116,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			// 		}
 			// 	}
 			// }
+			document.getElementById("status").classList.remove("active");
 			var searchElement = document.querySelector('#jetsSearch');
 			var searchTimeout = null;
 			searchElement.removeAttribute("disabled");
+			searchElement.setAttribute("placeholder","Enter a search term");
 			searchElement.addEventListener("keyup", function() {
 				clearTimeout(searchTimeout);
 				searchTimeout = setTimeout(searchResults, 300);

@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
-		<header id="status">
+		<header id="status" class="active">
 			<nav>
 				<ul id="searchTerms">
 					
@@ -22,7 +22,7 @@
 							<option value="damageTypeName">Damage Type</option>
 							<option value="primaryStat">Light Level / Quantity </option>
 						</select>
-						<input class="nameBox" type="text" id="jetsSearch" placeholder="Search Term" disabled>
+						<input class="nameBox" type="text" id="jetsSearch" placeholder="Loading, please wait." disabled>
 						<!-- <select class="termType"> -->
 						<!-- <option value="added" selected="true">Added</option> -->
 						<!-- <option value="removed">Removed</option> -->
@@ -36,22 +36,20 @@
 				<!-- <select id="paginate"></select> -->
 			</nav>
 		</header>
-		<div class="title-bar">
-			<div class="center">
-				<div class="title"><h1 class="section-title">DATE</h1></div>
-				<div class="title"><h1 class="section-title">PROGRESS</h1></div>
-				<div class="title"><h1 class="section-title">ADDED</h1></div>
-				<div class="title"><h1 class="section-title">REMOVED</h1></div>
-				<div class="title"><h1 class="section-title">TRANSFERRED</h1></div>
-			</div>
-		</div>
 		<div id="container">
+			<div class="title-bar center">
+					<div class="title"><h1 class="section-title">DATE</h1></div>
+					<div class="title"><h1 class="section-title">PROGRESS</h1></div>
+					<div class="title"><h1 class="section-title">ADDED</h1></div>
+					<div class="title"><h1 class="section-title">REMOVED</h1></div>
+					<div class="title"><h1 class="section-title">TRANSFERRED</h1></div>
+			</div>
 			<div class="center">
 				<div id="date" class="main-section"></div>
-				<div id="progression" class="main-section search"></div>
-				<div id="added" class="main-section search"></div>
-				<div id="removed" class="main-section search"></div>
-				<div id="transferred" class="main-section search"></div>
+				<div id="progression" class="main-section"></div>
+				<div id="added" class="main-section"></div>
+				<div id="removed" class="main-section"></div>
+				<div id="transferred" class="main-section"></div>
 			</div>
 		</div>
 		<div id="tooltip">
