@@ -35,7 +35,6 @@ function frontEndUpdate() {
 			notification.show();
 			elements.status.classList.add("active", "error");
 			elements.status.classList.remove("idle");
-			elements.startTracking.setAttribute("value", "Begin Tracking");
 			localStorage.listening = "false";
 		}
 	} else {
@@ -44,15 +43,13 @@ function frontEndUpdate() {
 		} else {
 			notification.hide();
 		}
-		if (localStorage.listening === "false" && elements.startTracking.value !== "Begin Tracking") {
+		if (localStorage.listening === "false") {
 			elements.status.classList.add("idle");
 			elements.status.classList.remove("active", "error");
-			elements.startTracking.setAttribute("value", "Begin Tracking");
 			localStorage.listening = "false";
-		} else if (localStorage.listening === "true" && elements.startTracking.value !== "Stop Tracking") {
+		} else if (localStorage.listening === "true") {
 			elements.status.classList.remove("idle", "error");
 			elements.status.classList.add("active");
-			elements.startTracking.setAttribute("value", "Stop Tracking");
 		}
 	}
 	if (notificationCooldown === 0) {

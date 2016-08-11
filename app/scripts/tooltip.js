@@ -8,7 +8,7 @@ function handleTooltipData(dataset, element, event) {
 }
 
 function setTooltipData(dataset, element, event) {
-	if (dataset.tierTypeName) {
+	if (dataset.itemName) {
 		elements.itemName.textContent = dataset.itemName;
 		elements.itemType.textContent = dataset.itemTypeName;
 		elements.itemRarity.textContent = dataset.tierTypeName;
@@ -21,6 +21,7 @@ function setTooltipData(dataset, element, event) {
 		elements.itemPrimaryStat.textContent = dataset.primaryStat;
 		elements.itemStatText.textContent = dataset.primaryStatName;
 		elements.itemDescription.textContent = dataset.itemDescription;
+		elements.classRequirement.innerHTML = "";
 		let json = dataset.classRequirement;
 		try {
 			json = JSON.parse(dataset.classRequirement);
@@ -73,7 +74,15 @@ function handleOtherStats(dataset, resolve) {
 	elements.statTable.innerHTML = "";
 	elements.nodeTable.innerHTML = "";
 	elements.costTable.innerHTML = "";
-	var itemDef = getItemDefinition(dataset.itemHash);
+	var itemDef = null;
+	console.log()
+	if (DestinyFactionDefinition[dataset.itemHash]) {
+		itemDef = DestinyFactionDefinition[dataset.itemHash];
+	} else if (DestinyProgressionDefinition[dataset.itemHash]) {
+		itemDef = DestinyProgressionDefinition[dataset.itemHash];
+	} else {
+		itemDef = getItemDefinition(dataset.itemHash);
+	}
 	if (dataset.statTree) {
 		var stats = JSON.parse(dataset.statTree);
 		var sortedStats = [];
@@ -138,9 +147,9 @@ function handleOtherStats(dataset, resolve) {
 			elements.statTable.appendChild(tableRow);
 		}
 	}
-	if(dataset.costs) {
+	if (dataset.costs) {
 		var costs = JSON.parse(dataset.costs);
-		for(var cost of costs) {
+		for (var cost of costs) {
 			var costDef = getItemDefinition(cost.itemHash);
 			let tableRow = document.createElement("tr");
 			tableRow.classList.add("itemStat", "cost");
@@ -156,7 +165,7 @@ function handleOtherStats(dataset, resolve) {
 			let cost2 = document.createElement("span");
 			cost1.textContent = cost.total;
 			cost2.textContent = ` / ${cost.value}`;
-			if(cost.total >= cost.value) {
+			if (cost.total >= cost.value) {
 				cost1.classList.add("purchaseable");
 				costName.classList.add("purchaseable");
 			} else {

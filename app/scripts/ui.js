@@ -7,7 +7,6 @@ var elements = {
 	trackingItem: document.getElementById("trackingItem"),
 	status: document.getElementById("status"),
 	container: document.getElementById("container"),
-	startTracking: document.getElementById("startTracking"),
 	tooltip: document.getElementById("tooltip"),
 	itemName: document.getElementById("item-name"),
 	itemType: document.getElementById("item-type"),
@@ -67,26 +66,6 @@ function initUi() {
 				bp.location.reload();
 			});
 		});
-	}
-	if (elements.status) {
-		elements.status.classList.add("idle");
-		if (elements.startTracking) {
-			elements.startTracking.removeAttribute("disabled");
-			elements.startTracking.addEventListener("click", function() {
-				if (localStorage.listening === "false") {
-					localStorage.listening = "true";
-					localStorage.manual = "true";
-					elements.status.classList.remove("idle", "error");
-					elements.status.classList.add("active");
-					elements.startTracking.setAttribute("value", "Stop Tracking");
-				} else {
-					elements.status.classList.add("idle");
-					elements.status.classList.remove("active", "error");
-					elements.startTracking.setAttribute("value", "Begin Tracking");
-					localStorage.listening = "false";
-				}
-			});
-		}
 	}
 	if (elements.container) {
 		elements.container.addEventListener("mouseover", function(event) {
@@ -407,11 +386,11 @@ function work(item, index) {
 								}
 							}
 							// var itemTypeValue = getInfo(itemData, getItemDefinition(itemData.itemHash), type);
-							if(typeof itemTypeValue !== "string") {
+							if (typeof itemTypeValue !== "string") {
 								// console.log(itemTypeValue, page, type, item, itemDefinition, itemData)
 							}
 							var nodeValue = itemTypeValue || "";
-							if(typeof nodeValue === "string") {
+							if (typeof nodeValue === "string") {
 								nodeValue = itemTypeValue.replace(/(\r\n|\n|\r)/gm, " ").toLowerCase();
 							}
 							if (!searchData[type]) {
@@ -723,10 +702,12 @@ function passData(DomNode, itemData, classRequirement, optionalCosts) {
 function passFactionData(DomNode, diffData, classRequirement) {
 	if (diffData.factionHash) {
 		let factionData = DestinyFactionDefinition[diffData.factionHash];
+		DomNode.dataset.itemHash = diffData.factionHash;
 		DomNode.dataset.itemName = factionData.factionName;
 		DomNode.dataset.itemDescription = factionData.factionDescription;
 	} else {
 		let factionData = DestinyProgressionDefinition[diffData.progressionHash];
+		DomNode.dataset.itemHash = diffData.progressionHash;
 		DomNode.dataset.itemName = factionData.name;
 		DomNode.dataset.itemDescription = "";
 	}
