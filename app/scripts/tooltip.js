@@ -83,6 +83,20 @@ function handleOtherStats(dataset, resolve) {
 	} else {
 		itemDef = getItemDefinition(dataset.itemHash);
 	}
+	if (dataset.level) {
+		elements.statTable.innerHTML = "";
+		var tableRow = document.createElement("tr");
+		tableRow.classList.add("itemStat");
+		var tableText = document.createElement("td");
+		tableText.classList.add("statName");
+		tableText.textContent = "Rank " + dataset.level;
+		var tableData = document.createElement("td");
+		tableData.classList.add("valueBar");
+		tableData.appendChild(statBar(dataset.progressToNextLevel, dataset.nextLevelAt, dataset.progressChange, dataset.progressToNextLevel));
+		tableRow.appendChild(tableText);
+		tableRow.appendChild(tableData);
+		elements.statTable.appendChild(tableRow);
+	}
 	if (dataset.statTree) {
 		var stats = JSON.parse(dataset.statTree);
 		var sortedStats = [];
