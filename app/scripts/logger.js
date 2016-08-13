@@ -360,6 +360,7 @@ var logger = (function() {
 
 	function clean() {
 		logList = [];
+		console.clear();
 		chrome.storage.local.set({
 			logger: {
 				currentLog: currentLog,

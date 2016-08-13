@@ -149,7 +149,7 @@ function getNodes(item, nodes, talentGridHash) {
 		var rows = 1;
 		for (var node of itemData.nodes) {
 			for (var data of grid.nodes) {
-				if (data.nodeHash === node.nodeHash || node.nodeHash === 0 && !data.nodeHash) {
+				if (data.nodeHash === node.nodeHash || node.nodeHash === 0 && !data.nodeHash && !node.hidden) {
 					var step = data.steps[node.stepIndex];
 					if (data.column + 1 > columns) {
 						columns = data.column + 1;

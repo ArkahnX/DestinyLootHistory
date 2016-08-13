@@ -1,3 +1,48 @@
+@font-face {
+	font-family: 'Roboto';
+	font-weight: 100;
+	font-style: normal;
+
+	src: url('/fonts/roboto-thin.eot');
+	src: url('/fonts/roboto-thin.eot?#iefix') format('embedded-opentype'), url('/fonts/roboto-thin.woff') format('woff'), url('/fonts/roboto-thin.ttf') format('truetype'), url('/fonts/roboto-thin.svg#roboto-thin') format('svg');
+}
+
+@font-face {
+	font-family: 'Roboto';
+	font-weight: 200;
+	font-style: normal;
+
+	src: url('/fonts/roboto-light.eot');
+	src: url('/fonts/roboto-light.eot?#iefix') format('embedded-opentype'), url('/fonts/roboto-light.woff') format('woff'), url('/fonts/roboto-light.ttf') format('truetype'), url('/fonts/roboto-light.svg#roboto-light') format('svg');
+}
+
+@font-face {
+	font-family: 'Roboto';
+	font-weight: 400;
+	font-style: normal;
+
+	src: url('/fonts/roboto-regular.eot');
+	src: url('/fonts/roboto-regular.eot?#iefix') format('embedded-opentype'), url('/fonts/roboto-regular.woff') format('woff'), url('/fonts/roboto-regular.ttf') format('truetype'), url('/fonts/roboto-regular.svg#roboto-regular') format('svg');
+}
+
+@font-face {
+	font-family: 'Roboto';
+	font-weight: 500;
+	font-style: normal;
+
+	src: url('/fonts/roboto-semibold.eot');
+	src: url('/fonts/roboto-semibold.eot?#iefix') format('embedded-opentype'), url('/fonts/roboto-semibold.woff') format('woff'), url('/fonts/roboto-semibold.ttf') format('truetype'), url('/fonts/roboto-semibold.svg#roboto-semibold') format('svg');
+}
+
+@font-face {
+	font-family: 'Roboto';
+	font-weight: 700;
+	font-style: normal;
+
+	src: url('/fonts/roboto-bold.eot');
+	src: url('/fonts/roboto-bold.eot?#iefix') format('embedded-opentype'), url('/fonts/roboto-bold.woff') format('woff'), url('/fonts/roboto-bold.ttf') format('truetype'), url('/fonts/roboto-bold.svg#roboto-bold') format('svg');
+}
+
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -22,9 +67,12 @@ body {
 }
 
 #container {
+	display: inline-block;
+	overflow-x: auto;
 	overflow-y: scroll;
 
-	height: calc(100% - 85px);
+	width: calc(100% - 400px);
+	height: calc(100% - 91px);
 }
 
 textarea {
@@ -292,9 +340,6 @@ header {
 .section-title {
 	font-size: 2em;
 
-	position: fixed;
-	z-index: auto;
-	z-index: 1;
 	top: auto;
 
 	width: 240px;
@@ -310,15 +355,32 @@ header {
 }
 
 #tooltip {
-	position: absolute;
-	z-index: 2;
-	top: 50px;
-	left: 0;
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	/* position: relative; */
 
-	width: 375px;
+	z-index: 2;
+
+	display: inline-block;
+	float: right;
+	overflow-y: scroll;
+	/* top: 50px; */
+	/* left: 0; */
+
+	width: 400px;
+	height: calc(100% - 91px);
 
 	color: #F5F5F5;
-	background: rgba(24,22,13,.95);
+	background: rgba(24,22,13,.65);
+	box-shadow: 0 9px 25px rgba(0,0,0,.25);
+	text-shadow: none;
+
+	-webkit-font-smoothing: antialiased;
+}
+
+#overflow {
+	overflow-y: scroll;
 }
 
 #item-name {
@@ -332,9 +394,15 @@ header {
 }
 #item-primary-stat {
 	display: inline;
+
+	transition: color .5s ease;
 }
 #item-stat-text {
 	display: inline;
+
+	transition: color .5s ease;
+
+	color: #F5F5F5;
 }
 #item-type,
 #item-rarity {
@@ -350,6 +418,8 @@ header {
 #item-head {
 	padding: 5px 18px;
 
+	transition: background-color .5s ease, color .5s ease;
+
 	color: #F5F5F5;
 	background: rgba(195,188,180,.9);
 }
@@ -363,9 +433,26 @@ header {
 #class-requirement {
 	font-size: 16px;
 
-	text-align: center;
+	text-align: left;
 
+	color: #FFF;
+	border-top: 1px solid #242A30;
 	background: rgb(43, 51, 62);
+}
+
+#class-requirement span {
+	display: block;
+
+	padding: 4px 10px;
+}
+
+#class-requirement .unmet {
+	background: #C14443;
+}
+
+#class-requirement .unmet:last-of-type {
+	border-bottom: 1px solid #A43A39;
+	background: #C14443;
 }
 
 .exotic #item-head {
@@ -405,6 +492,8 @@ header {
 	line-height: 20px;
 
 	margin: 7px 0 9px 0;
+
+	white-space: pre-wrap;
 
 	opacity: .8;
 }
@@ -508,10 +597,10 @@ header {
 
 .title-bar {
 	z-index: 2;
+	/*width: 100%;*/
 
-	width: 100%;
 	height: 32px;
-	padding-right: 17px;
+	/*padding-right: 17px;*/
 
 	background: rgba(238,238,238,.7);
 	box-shadow: 0 3px 3px 0 #2F3F3F;
@@ -527,10 +616,6 @@ header {
 
 .title .section-title {
 	width: 221px;
-}
-
-.tooltip .hidden {
-	display: none;
 }
 
 #date .sub-section {
@@ -637,7 +722,13 @@ label {
 }
 
 .itemStat {
+	animation: flipdown .5s ease both;
+
 	color: rgba(245,245,245,.6);
+}
+
+.node-list {
+	animation: flipdown .5s ease both;
 }
 
 
@@ -1364,4 +1455,100 @@ optgroup option {
 
 .complete + .primary-stat {
 	background: rgba(245,220,86,.9);
+}
+
+.purchaseable {
+	color: #55D34B;
+}
+
+.cost {
+	color: white;
+}
+
+.cost .node {
+	width: 24px;
+	height: 24px;
+}
+
+.non-purchaseable {
+	color: #C14443;
+}
+
+.leftStat {
+	width: 180px;
+
+	text-align: left;
+}
+
+.options fieldset {
+	display: block;
+
+	margin: 0 0 2em 0;
+	padding: 0 1em 1em 1em;
+
+	border: none;
+}
+
+.options legend {
+	font-size: 24px;
+
+	text-align: left;
+}
+
+.options fieldset input {
+	display: block;
+
+	min-width: 15em;
+}
+
+.options fieldset label {
+	font-weight: bold;
+
+	display: block;
+	float: left;
+
+	margin: 1em 1em 0 0;
+
+	text-align: left;
+}
+
+.options fieldset select {
+	display: block!important;
+
+	padding: 9px 15px!important;
+}
+
+.options #status {
+	display: inline-block;
+	overflow: hidden;
+
+	width: 50%;
+	margin-left: 20px;
+
+	text-align: left;
+	text-overflow: ellipsis;
+}
+
+.options #playerNames {
+	width: 530px;
+}
+
+.options #mainGuardian {
+	text-transform: initial!important;
+}
+
+.options #overlay {
+	font-size: xx-large;
+
+	position: absolute;
+	z-index: 9;
+	top: 0;
+
+	width: 1200px;
+	height: 95%;
+	padding-top: 4em;
+
+	color: white;
+	background: rgba(0,0,0,.8);
+	background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
 }

@@ -35,7 +35,7 @@ function getRemoteMatches() {
 		} else {
 			resolve();
 		}
-		resolve();
+		// resolve();
 	});
 }
 
@@ -78,7 +78,7 @@ function _remoteMatch(page, firstDateString, characterId, resolve) {
 			}
 		}
 	}).catch(function(err) {
-		if(err) {
+		if (err) {
 			logger.error(err);
 		}
 		resolve();
@@ -126,6 +126,7 @@ function applyMatchData() {
 			inventories: data.inventories,
 			itemChanges: data.itemChanges,
 			progression: data.progression,
+			matches: data.matches,
 			currencies: data.currencies
 		}, function() {
 			if (chrome.runtime.lastError) {

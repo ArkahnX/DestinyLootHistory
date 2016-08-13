@@ -11,7 +11,7 @@ var notification = (function() {
 		} else {
 			container.classList.remove("error");
 		}
-		text.innerHTML = content || localStorage.errorMessage + '<br />Please click "Begin Tracking" to try again.';
+		text.innerHTML = content || localStorage.errorMessage + '<br />Please click "Restart Tracking" to try again.';
 		// container.classList.add("live");
 		container.style.top = "0px";
 	}

@@ -14,7 +14,7 @@
 				height:96px;
 				margin:6px;
 			}
-			#container {
+			#container, #tooltip {
 				height: calc(100% - 32px);
 			}
 			.sub-section {
@@ -49,7 +49,7 @@
 				<div id="history" class="main-section" style="width: inherit;"></div>
 			</div>
 		</div>
-		<div id="tooltip" class="hidden">
+		<div id="tooltip">
 			<section id="item-head">
 				<h2 id="item-name"></h2>
 				<div>
@@ -79,12 +79,18 @@
 					</tbody>
 				</table>
 			</section>
+			<section id="item-cost">
+				<table>
+					<tbody id="cost-table">
+					</tbody>
+				</table>
+			</section>
 		</div>
 		<div id="copyright">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
-		<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js"></script>
-		<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>
-		<script type="text/javascript" src="DestinyDatabase/DestinyCompactTalentDefinition.js"></script>
-		<script type="text/javascript" src="DestinyDatabase/DestinyCompactDefinition.js"></script>
+		<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js" async></script>
+		<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js" async></script>
+		<script type="text/javascript" src="DestinyDatabase/DestinyCompactTalentDefinition.js" async></script>
+		<script type="text/javascript" src="DestinyDatabase/DestinyCompactDefinition.js" async></script>
 		<script type="text/javascript" src="scripts/vendor/moment.js"></script>
 		<script type="text/javascript" src="scripts/vendor/moment-timezone.js"></script>
 		<script type="text/javascript" src="scripts/vendor/google-analytics-bundle.js"></script>
