@@ -7,7 +7,6 @@ var elements = {
 	trackingItem: document.getElementById("trackingItem"),
 	status: document.getElementById("status"),
 	container: document.getElementById("container"),
-	startTracking: document.getElementById("startTracking"),
 	tooltip: document.getElementById("tooltip"),
 	itemName: document.getElementById("item-name"),
 	itemType: document.getElementById("item-type"),
@@ -20,6 +19,7 @@ var elements = {
 	classRequirement: document.getElementById("class-requirement"),
 	statTable: document.getElementById("stat-table"),
 	nodeTable: document.getElementById("node-table"),
+	costTable: document.getElementById("cost-table"),
 	ToCReminder: document.getElementById("ToCReminder"),
 	toggleSystem: document.getElementById("toggleSystem"),
 	autoLock: document.getElementById("autoLock"),
@@ -39,7 +39,8 @@ var elementNames = {
 	itemDescription: "item-description",
 	classRequirement: "class-requirement",
 	statTable: "stat-table",
-	nodeTable: "node-table"
+	nodeTable: "node-table",
+	costTable: "cost-table"
 };
 
 var currentItemSet = [];
@@ -66,26 +67,6 @@ function initUi() {
 			});
 		});
 	}
-	if (elements.status) {
-		elements.status.classList.add("idle");
-		if (elements.startTracking) {
-			elements.startTracking.removeAttribute("disabled");
-			elements.startTracking.addEventListener("click", function() {
-				if (localStorage.listening === "false") {
-					localStorage.listening = "true";
-					localStorage.manual = "true";
-					elements.status.classList.remove("idle", "error");
-					elements.status.classList.add("active");
-					elements.startTracking.setAttribute("value", "Stop Tracking");
-				} else {
-					elements.status.classList.add("idle");
-					elements.status.classList.remove("active", "error");
-					elements.startTracking.setAttribute("value", "Begin Tracking");
-					localStorage.listening = "false";
-				}
-			});
-		}
-	}
 	if (elements.container) {
 		elements.container.addEventListener("mouseover", function(event) {
 			var target = null;
@@ -95,13 +76,13 @@ function initUi() {
 				target = event.target.parentNode;
 			}
 			if (target && target !== previousElement) {
-				elements.tooltip.classList.add("hidden");
+				// elements.tooltip.classList.add("hidden");
 				previousElement = target;
 				handleTooltipData(event.target.dataset, event.target, event);
 			}
 			if (!target) {
 				clearTimeout(tooltipTimeout);
-				elements.tooltip.classList.add("hidden");
+				// elements.tooltip.classList.add("hidden");
 				previousElement = null;
 			}
 		}, false);
@@ -269,9 +250,10 @@ function rowHeight(list1Length, list2Length, list3Length, list4Length) {
 	return "thirteen-rows";
 }
 
-function createItems(itemDiff, className, moveType) {
+function createItems(itemDiff, className, moveType, searchData) {
 	var subContainer = document.createElement("div");
 	subContainer.classList.add("sub-section", className);
+	subContainer.dataset.index = itemDiff.id;
 	var docfrag = document.createDocumentFragment();
 	if (itemDiff[moveType]) {
 		for (var i = 0; i < itemDiff[moveType].length; i++) {
@@ -284,12 +266,16 @@ function createItems(itemDiff, className, moveType) {
 		}
 	}
 	subContainer.appendChild(docfrag);
+	for (var typeInfo in searchData) {
+		subContainer.dataset[typeInfo] = searchData[typeInfo];
+	}
 	return subContainer;
 }
 
-function createProgress(itemDiff, className, moveType) {
+function createProgress(itemDiff, className, moveType, searchData) {
 	var subContainer = document.createElement("div");
 	subContainer.classList.add("sub-section", className);
+	subContainer.dataset.index = itemDiff.id;
 	if (itemDiff[moveType]) {
 		var docfrag = document.createDocumentFragment();
 		for (var i = 0; i < itemDiff[moveType].length; i++) {
@@ -302,10 +288,13 @@ function createProgress(itemDiff, className, moveType) {
 		}
 		subContainer.appendChild(docfrag);
 	}
+	for (var typeInfo in searchData) {
+		subContainer.dataset[typeInfo] = searchData[typeInfo];
+	}
 	return subContainer;
 }
 
-function createDate(itemDiff, className) {
+function createDate(itemDiff, className, searchData) {
 	var timestamp = itemDiff.timestamp;
 	var activity = "";
 	if (itemDiff.match) {
@@ -315,12 +304,16 @@ function createDate(itemDiff, className) {
 	}
 	var subContainer = document.createElement("div");
 	subContainer.classList.add("sub-section", className, "timestamp");
+
 	var localTime = moment.utc(timestamp).tz(timezone);
 	subContainer.textContent = localTime.fromNow() + activity;
 	subContainer.setAttribute("title", localTime.format("ddd[,] ll LTS"));
 	subContainer.dataset.timestamp = timestamp;
 	subContainer.dataset.activity = activity;
 	subContainer.dataset.index = itemDiff.id;
+	for (var typeInfo in searchData) {
+		subContainer.dataset[typeInfo] = searchData[typeInfo];
+	}
 	return subContainer;
 }
 
@@ -331,11 +324,85 @@ for (let page of pages) {
 	fragments[page] = document.createDocumentFragment();
 }
 
+function getInfo(item, itemDef, attribute) {
+	if (!item[attribute]) {
+		return itemDef[attribute];
+	}
+	return item[attribute];
+}
+
+var searchTypes = searchTypes || false;
+
 function work(item, index) {
 	// logger.startLogging("UI");
 	if (lastIndex < index) {
 		if (!item.added) {
 			console.log(item);
+		}
+		var searchData = {};
+		if (searchTypes) {
+			for (let page of pages) {
+				if (item[page]) {
+					for (var type of searchTypes) {
+						for (let itemData of item[page]) {
+							if (itemData.item) {
+								itemData = itemData.item;
+							}
+							itemData = JSON.parse(itemData);
+							var itemTypeValue = "";
+							let itemDefinition = null;
+							if (itemData.itemHash) {
+								itemDefinition = getItemDefinition(itemData.itemHash);
+								if (type === "tierTypeName") {
+									if (itemDefinition.tierTypeName) {
+										itemTypeValue = itemDefinition.tierTypeName;
+									} else {
+										itemTypeValue = "Common";
+									}
+								} else if (type === "itemName") {
+									itemTypeValue = itemDefinition.itemName;
+								} else if (type === "itemTypeName") {
+									itemTypeValue = itemDefinition.itemTypeName;
+								} else if (type === "primaryStat") {
+									itemTypeValue = primaryStat(itemData);
+								} else if (type === "itemDescription") {
+									itemTypeValue = itemDefinition.itemDescription || "";
+								} else if (type === "damageTypeName") {
+									itemTypeValue = elementType(itemData);
+								}
+							} else {
+								if (itemData.factionHash) {
+									itemDefinition = DestinyFactionDefinition[itemData.factionHash];
+									if (type === "itemName") {
+										itemTypeValue = itemDefinition.factionName;
+									} else if (type === "itemDescription") {
+										itemTypeValue = itemDefinition.factionDescription;
+									}
+								} else {
+									itemDefinition = DestinyProgressionDefinition[itemData.progressionHash];
+									if (type === "itemName") {
+										itemTypeValue = itemDefinition.name;
+									}
+								}
+							}
+							// var itemTypeValue = getInfo(itemData, getItemDefinition(itemData.itemHash), type);
+							if (typeof itemTypeValue !== "string") {
+								// console.log(itemTypeValue, page, type, item, itemDefinition, itemData)
+							}
+							var nodeValue = itemTypeValue || "";
+							if (typeof nodeValue === "string") {
+								nodeValue = itemTypeValue.replace(/(\r\n|\n|\r)/gm, " ").toLowerCase();
+							}
+							if (!searchData[type]) {
+								searchData[type] = "";
+							}
+							if (searchData[type].indexOf(nodeValue) === -1) {
+								searchData[type] += " | " + nodeValue;
+							}
+						}
+					}
+				}
+			}
 		}
 		var addedQty = item.added.length;
 		var removedQty = item.removed.length;
@@ -349,11 +416,11 @@ function work(item, index) {
 		}
 		var className = rowHeight(addedQty, removedQty, transferredQty, progressionQty);
 		lastIndex = index;
-		fragments.date.insertBefore(createDate(item, className), fragments.date.firstChild);
-		fragments.progression.insertBefore(createProgress(item, className, "progression"), fragments.progression.firstChild);
+		fragments.date.insertBefore(createDate(item, className, searchData), fragments.date.firstChild);
+		fragments.progression.insertBefore(createProgress(item, className, "progression", searchData), fragments.progression.firstChild);
 		for (let page of pages) {
 			if (page !== "date" && page !== "progression") {
-				fragments[page].insertBefore(createItems(item, className, page), fragments[page].firstChild);
+				fragments[page].insertBefore(createItems(item, className, page, searchData), fragments[page].firstChild);
 			}
 		}
 	}
@@ -385,10 +452,10 @@ function postWork(resolve) {
 			for (let page of pages) {
 				elements[page].appendChild(tempFragments[page]);
 			}
+			resolve();
 			window.requestAnimationFrame(postDisplay);
 		});
 	}
-	resolve();
 }
 
 function postDisplay() {
@@ -403,10 +470,13 @@ if (moment) {
 	var timezone = moment.tz.guess();
 }
 
-function displayResults(customItems) {
+var UIhideItemResults = false;
+
+function displayResults(customItems, hideItemResults) {
 	if (customItems && customItems.length) {
 		currentItemSet = customItems;
 	}
+	UIhideItemResults = hideItemResults;
 	// logger.startLogging("UI");
 	if (elements.trackingItem && localStorage.accurateTracking === "true") {
 		elements.trackingItem.style.display = "inline-block";
@@ -439,7 +509,7 @@ function displayResults(customItems) {
 	});
 }
 
-function makeItem(itemData, classRequirement) {
+function makeItem(itemData, classRequirement, optionalCosts) {
 	var docfrag = document.createDocumentFragment();
 	var itemContainer = document.createElement("div");
 	itemContainer.classList.add("item-container");
@@ -467,7 +537,7 @@ function makeItem(itemData, classRequirement) {
 	}
 	stat.classList.add("primary-stat");
 	stat.textContent = primaryStat(itemData);
-	passData(container, itemData, classRequirement);
+	passData(container, itemData, classRequirement, optionalCosts);
 	return docfrag;
 }
 
@@ -587,17 +657,20 @@ function primaryStatName(itemData) {
 	}
 }
 
-function passData(DomNode, itemData, classRequirement) {
+function passData(DomNode, itemData, classRequirement, optionalCosts) {
 	// logger.startLogging("UI");
 	var itemDefinition = getItemDefinition(itemData.itemHash);
-	if (itemDefinition.tierTypeName) {
-		DomNode.dataset.tierTypeName = itemDefinition.tierTypeName;
-	} else {
-		DomNode.dataset.tierTypeName = "Common";
+	if (optionalCosts) {
+		DomNode.dataset.costs = JSON.stringify(optionalCosts);
 	}
 	DomNode.dataset.itemHash = itemDefinition.itemHash;
 	if (itemData.itemInstanceId) {
 		DomNode.dataset.itemInstanceId = itemData.itemInstanceId;
+	}
+	if (itemDefinition.tierTypeName) {
+		DomNode.dataset.tierTypeName = itemDefinition.tierTypeName;
+	} else {
+		DomNode.dataset.tierTypeName = "Common";
 	}
 	DomNode.dataset.itemName = itemDefinition.itemName;
 	DomNode.dataset.itemTypeName = itemDefinition.itemTypeName;
@@ -608,7 +681,11 @@ function passData(DomNode, itemData, classRequirement) {
 	DomNode.dataset.damageTypeName = elementType(itemData);
 	DomNode.dataset.classRequirement = "";
 	if (classRequirement) {
-		DomNode.dataset.classRequirement = classRequirement;
+		if (typeof classRequirement === "string") {
+			DomNode.dataset.classRequirement = classRequirement;
+		} else {
+			DomNode.dataset.classRequirement = JSON.stringify(classRequirement);
+		}
 	}
 	if (itemData.stats && itemData.stats.length) {
 		DomNode.dataset.statTree = JSON.stringify(itemData.stats);
@@ -625,10 +702,12 @@ function passData(DomNode, itemData, classRequirement) {
 function passFactionData(DomNode, diffData, classRequirement) {
 	if (diffData.factionHash) {
 		let factionData = DestinyFactionDefinition[diffData.factionHash];
+		DomNode.dataset.itemHash = diffData.factionHash;
 		DomNode.dataset.itemName = factionData.factionName;
 		DomNode.dataset.itemDescription = factionData.factionDescription;
 	} else {
 		let factionData = DestinyProgressionDefinition[diffData.progressionHash];
+		DomNode.dataset.itemHash = diffData.progressionHash;
 		DomNode.dataset.itemName = factionData.name;
 		DomNode.dataset.itemDescription = "";
 	}
@@ -644,7 +723,11 @@ function passFactionData(DomNode, diffData, classRequirement) {
 	DomNode.dataset.level = diffData.level;
 	DomNode.dataset.classRequirement = "";
 	if (classRequirement) {
-		DomNode.dataset.classRequirement = classRequirement;
+		if (typeof classRequirement === "string") {
+			DomNode.dataset.classRequirement = classRequirement;
+		} else {
+			DomNode.dataset.classRequirement = JSON.stringify(classRequirement);
+		}
 	}
 }
 

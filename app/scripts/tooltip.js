@@ -8,7 +8,7 @@ function handleTooltipData(dataset, element, event) {
 }
 
 function setTooltipData(dataset, element, event) {
-	if (dataset.tierTypeName) {
+	if (dataset.itemName) {
 		elements.itemName.textContent = dataset.itemName;
 		elements.itemType.textContent = dataset.itemTypeName;
 		elements.itemRarity.textContent = dataset.tierTypeName;
@@ -21,9 +21,24 @@ function setTooltipData(dataset, element, event) {
 		elements.itemPrimaryStat.textContent = dataset.primaryStat;
 		elements.itemStatText.textContent = dataset.primaryStatName;
 		elements.itemDescription.textContent = dataset.itemDescription;
-		elements.classRequirement.textContent = dataset.classRequirement;
+		elements.classRequirement.innerHTML = "";
+		let json = dataset.classRequirement;
+		try {
+			json = JSON.parse(dataset.classRequirement);
+			var result = [];
+			for (var unlockStatus of json) {
+				if (unlockStatus.isSet === true) {
+					result.push(`<span><i class="fa fa-check-square-o"></i> ${unlockStatus.description}</span>`);
+				} else {
+					result.push(`<span class="unmet"><i class="fa fa-square-o"></i> ${unlockStatus.description}</span>`);
+				}
+			}
+			elements.classRequirement.innerHTML = result.join("\n");
+		} catch (e) {
+			elements.classRequirement.innerHTML = "<span>" + json + "</span>";
+		}
 		handleStats(dataset.itemTypeName, dataset).then(function() {
-			elements.tooltip.classList.remove("hidden", "arc", "void", "solar", "kinetic", "common", "legendary", "rare", "uncommon", "exotic");
+			elements.tooltip.classList.remove("arc", "void", "solar", "kinetic", "common", "legendary", "rare", "uncommon", "exotic");
 			elements.tooltip.classList.add(dataset.tierTypeName.toLowerCase(), dataset.damageTypeName.toLowerCase());
 			// console.log(event, tooltip.clientHeight, element.parentNode.offsetTop);
 			// console.dir(element.parentNode.getBoundingClientRect())
@@ -34,19 +49,21 @@ function setTooltipData(dataset, element, event) {
 
 function handleStats(statType, dataset) {
 	return new Promise(function(resolve, reject) {
-		
+
 		elements.statTable.innerHTML = "";
-		
+
 		elements.nodeTable.innerHTML = "";
-		if (statType === "Faction") {
-			return handleFactionStats(dataset, resolve, reject);
-		}
-		if (/(bounty|quest)/i.test(statType)) {
-			return handleBountyStats(dataset, resolve, reject);
-		}
-		if (statType === "Material" || statType === "Consumable") {
-			return handleEmptyStats(dataset, resolve, reject);
-		}
+		elements.costTable.innerHTML = "";
+		// console.log(statType)
+		// if (statType === "Faction") {
+		// 	return handleFactionStats(dataset, resolve, reject);
+		// }
+		// if (/(bounty|quest)/i.test(statType)) {
+		// 	return handleBountyStats(dataset, resolve, reject);
+		// }
+		// if (statType === "Material" || statType === "Consumable") {
+		// 	return handleEmptyStats(dataset, resolve, reject);
+		// }
 		return handleOtherStats(dataset, resolve, reject);
 	});
 }
@@ -56,7 +73,30 @@ var statHashes = [4284893193, 2837207746, 2961396640, 4043523819, 3614673599, 12
 function handleOtherStats(dataset, resolve) {
 	elements.statTable.innerHTML = "";
 	elements.nodeTable.innerHTML = "";
-	var itemDef = getItemDefinition(dataset.itemHash);
+	elements.costTable.innerHTML = "";
+	var itemDef = null;
+	console.log()
+	if (DestinyFactionDefinition[dataset.itemHash]) {
+		itemDef = DestinyFactionDefinition[dataset.itemHash];
+	} else if (DestinyProgressionDefinition[dataset.itemHash]) {
+		itemDef = DestinyProgressionDefinition[dataset.itemHash];
+	} else {
+		itemDef = getItemDefinition(dataset.itemHash);
+	}
+	if (dataset.level) {
+		elements.statTable.innerHTML = "";
+		var tableRow = document.createElement("tr");
+		tableRow.classList.add("itemStat");
+		var tableText = document.createElement("td");
+		tableText.classList.add("statName");
+		tableText.textContent = "Rank " + dataset.level;
+		var tableData = document.createElement("td");
+		tableData.classList.add("valueBar");
+		tableData.appendChild(statBar(dataset.progressToNextLevel, dataset.nextLevelAt, dataset.progressChange, dataset.progressToNextLevel));
+		tableRow.appendChild(tableText);
+		tableRow.appendChild(tableData);
+		elements.statTable.appendChild(tableRow);
+	}
 	if (dataset.statTree) {
 		var stats = JSON.parse(dataset.statTree);
 		var sortedStats = [];
@@ -119,6 +159,39 @@ function handleOtherStats(dataset, resolve) {
 			tableRow.appendChild(tableText);
 			tableRow.appendChild(tableData);
 			elements.statTable.appendChild(tableRow);
+		}
+	}
+	if (dataset.costs) {
+		var costs = JSON.parse(dataset.costs);
+		for (var cost of costs) {
+			var costDef = getItemDefinition(cost.itemHash);
+			let tableRow = document.createElement("tr");
+			tableRow.classList.add("itemStat", "cost");
+			let costIcon = document.createElement("td");
+			costIcon.classList.add("statName", "node");
+			costIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + costDef.icon + "')");
+			let costName = document.createElement("td");
+			costName.classList.add("statName", "leftStat");
+			costName.textContent = costDef.itemName;
+			let costTotal = document.createElement("td");
+			costTotal.classList.add("statName");
+			let cost1 = document.createElement("span");
+			let cost2 = document.createElement("span");
+			cost1.textContent = cost.total;
+			cost2.textContent = ` / ${cost.value}`;
+			if (cost.total >= cost.value) {
+				cost1.classList.add("purchaseable");
+				costName.classList.add("purchaseable");
+			} else {
+				cost1.classList.add("non-purchaseable");
+				costName.classList.add("non-purchaseable");
+			}
+			tableRow.appendChild(costIcon);
+			tableRow.appendChild(costName);
+			costTotal.appendChild(cost1);
+			costTotal.appendChild(cost2);
+			tableRow.appendChild(costTotal);
+			elements.costTable.appendChild(tableRow);
 		}
 	}
 	if (dataset.objectiveTree) {

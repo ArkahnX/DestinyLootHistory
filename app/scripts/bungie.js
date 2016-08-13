@@ -118,7 +118,7 @@ var bungie = (function Bungie() {
 						}
 						localStorage.error = "true";
 						tracker.sendEvent('System Disabled Maintenance', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
-						localStorage.errorMessage = 'Bungie servers are undergoing maintenance. Please use "Begin Tracking" to try to connect again. \n' + JSON.stringify(response.Message);
+						localStorage.errorMessage = 'Bungie servers are undergoing maintenance. Please use "Restart Tracking" to try to connect again. \n' + JSON.stringify(response.Message);
 						logger.endLogging();
 						logger.saveData();
 						opts.incomplete();
@@ -198,7 +198,7 @@ var bungie = (function Bungie() {
 					localStorage.error = "true";
 					tracker.sendEvent('Cookie Not Found', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 					logger.error('Error loading cookie.' + localStorage.systems);
-					localStorage.errorMessage = `Error loading user. Please sign out and sign back in to <a href="http://www.bungie.net">linked with bungie.net</a> then click Begin Tracking`;
+					localStorage.errorMessage = `Error loading user. Please sign out and sign back in to <a href="http://www.bungie.net">linked with bungie.net</a> then click Restart Tracking`;
 					chrome.cookies.getAll({
 						domain: ".bungie.net"
 					}, function(cookies) {
