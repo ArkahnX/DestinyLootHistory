@@ -392,9 +392,9 @@ function dateTime() {
 		var vendorDate = moment(date.dataset.date);
 		var now = moment();
 		var days = vendorDate.diff(now, "days");
-		var hours = pad(Array(3).join(" "), vendorDate.diff(now, "hours") % 24, true);
-		var minutes = pad(Array(3).join(" "), vendorDate.diff(now, "minutes") % 60, true);
-		var seconds = pad(Array(3).join(" "), vendorDate.diff(now, "seconds") % 60, true);
+		var hours = pad(Array(3).join("0"), vendorDate.diff(moment(), "hours") % 24, true);
+		var minutes = pad(Array(3).join("0"), vendorDate.diff(moment(), "minutes") % 60, true);
+		var seconds = pad(Array(3).join("0"), vendorDate.diff(moment(), "seconds") % 60, true);
 		date.innerHTML = "<h1>STOCK REFRESH " + `${days} ${(days > 1)? "Days" : "Day"} ${hours}:${minutes}:${seconds}` + "</h1>";
 	}
 	window.requestAnimationFrame(dateTime);
