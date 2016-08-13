@@ -401,6 +401,8 @@ header {
 	display: inline;
 
 	transition: color .5s ease;
+
+	color: #F5F5F5;
 }
 #item-type,
 #item-rarity {

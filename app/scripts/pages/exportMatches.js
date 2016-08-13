@@ -33,6 +33,16 @@ var presetEvents = {
 		minDate: moment("2015-12-08T18:00:00Z").format(),
 		maxDate: moment("2015-12-29T09:00:00Z").format()
 	},
+	IronBannerAugust2016: {
+		gameMode: "Team",
+		minDate: moment("2016-08-16T18:00:00Z").format(),
+		maxDate: moment("2016-08-23T09:00:00Z").format()
+	},
+	IronBannerJuly2016: {
+		gameMode: "IronBanner",
+		minDate: moment("2016-07-19T18:00:00Z").format(),
+		maxDate: moment("2016-07-26T09:00:00Z").format()
+	},
 	IronBannerJune2016: {
 		gameMode: "Team",
 		minDate: moment("2016-06-28T18:00:00Z").format(),
@@ -86,13 +96,16 @@ var presetEvents = {
 };
 
 function returnDefaultOptions() {
+	var systems = JSON.parse(localStorage.systems);
+	var system = systems[localStorage.activeType];
+	var currentIronBanner = presetEvents.IronBannerAugust2016;
 	return {
-		minDate: moment("2016-06-28T18:00:00Z").format(),
-		maxDate: moment("2016-07-05T09:00:00Z").format(),
-		system: 0,
-		gameMode: "Team",
-		playerNames: [],
-		mainGuardian: ""
+		minDate: currentIronBanner.minDate,
+		maxDate: currentIronBanner.maxDate,
+		system: system.type,
+		gameMode: currentIronBanner.gameMode,
+		playerNames: [system.id],
+		mainGuardian: system.id
 	};
 }
 

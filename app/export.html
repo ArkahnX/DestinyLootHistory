@@ -8,67 +8,17 @@
 		<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
 		<section class="center solidBackground scrollable options">
 			<div id="overlay" class="hidden">Do not close or refresh this window, progress will be lost.</div>
-			<label for="ironBanner">Iron Banner: <input type="checkbox" id="ironBanner" checked disabled></label>
-			<label for="lightLevel">Light Level: <input type="checkbox" id="lightLevel" checked disabled></label>
-			<label for="Results">Results: <select id="Results" disabled>
-				<option value="1">One Item</option>
-				<option value="2">Two Items</option>
-				<option value="3">Three Items</option>
-				<option value="4" selected>Four Items</option>
-				<option value="5">Five Items</option>
-				<option value="6">Six Items</option>
-				<option value="7">Seven Items</option>
-			</select></label>
-			<select id="GameMode" disabled>
-				<optgroup label="All Activities">
-					<option value="None">All Activities</option>
-					<option value="AllPvE">All PVE Activities</option>
-					<option value="AllPvP">All PVP Activities</option>
-					<option value="AllStrikes">All Strike Activities</option>
-					<option value="AllArena">All Arena Activities</option>
-				</optgroup>
-				<optgroup label="PVP Activities">
-					<option value="Rift">Rift</option>
-					<option value="Control">Control</option>
-					<option value="Team">Clash</option>
-					<option value="ThreeVsThree">Skirmish</option>
-					<option value="Lockdown">Salvage</option>
-					<option value="FreeForAll">Rumble</option>
-					<option value="TrialsOfOsiris">Trials of Osiris</option>
-					<option value="IronBanner" selected>Iron Banner</option>
-					<option value="Elimination">Elimination</option>
-					<option value="Mayhem">Mayhem</option>
-					<option value="ZoneControl">Zone Control</option>
-					<option value="Racing">Sparrow Racing</option>
-				</optgroup>
-				<optgroup label="PVE Activities">
-					<option value="Story">Story Activities</option>
-					<option value="Strike">Strike Playlists</option>
-					<option value="Raid">Raids</option>
-					<option value="Patrol">Patrols</option>
-					<option value="Heroic">Heroic Strikes</option>
-					<option value="Nightfall">Nightfall Strikes</option>
-					<option value="Arena">Prison of Elders</option>
-					<option value="ArenaChallenge">Heroic Prison of Elders</option>
-				</optgroup>
-			</select>
-			<br />
-			<label for="MinDate">Start Date: <input type="datetime-local" id="MinDate" disabled></label>
-			<label for="MaxDate">End Date: <input type="datetime-local" id="MaxDate" disabled></label>
-			<input type="button" value="Export Iron Banner Items" id="exportData" title="Export item data for use with Iron Banner Tracker." />
-			<textarea id="export" spellcheck="false" readonly></textarea>
 			<fieldset>
-				<legend>Guardian Options (Case Sensitive)</legend>
-				<label for="system">Console: <select id="system">
-					<optgroup label="Console Family">
-						<option value="1">Xbox Live</option>
-						<option value="2">Playstation Network</option>
-					</optgroup>
-				</select></label>
-				<label for="playerNames">Guardian Names (comma separated): <input type="text" id="playerNames" spellcheck="false"></label>
-				<label for="mainGuardian">Show Results For: <select id="mainGuardian">
-					<option value="" selected>All Named Guardians</option>
-				</select></label>
+				<legend>Tips for using this app:</legend>
+				<ul>
+					<li>Guardian names need to be spelt with the correct case.</li>
+					<li>The further back you look, the longer it will take. It takes one second per guardian per 25 activities.</li>
+					<li>After finding all of the matches, it takes an additional 1 second per activity to download.</li>
+					<li>The larger the search criteria (a week is ideal) the longer it will take to return results.</li>
+					<li>This app saves your activity data after each search.</li>
+					<li>This makes running the same search using different target guardians fast.</li>
+					<li>It also can take up a lot of space. Each Activity takes up roughly 64Kb of space.</li>
+				</ul>
 			</fieldset>
 			<fieldset>
 				<legend>Activity Options</legend>
@@ -131,18 +81,47 @@
 					</optgroup>
 				</select></label>
 			</fieldset>
+			<fieldset>
+				<legend>Guardian Options (Case Sensitive)</legend>
+				<label for="system">Console: <select id="system">
+					<optgroup label="Console Family">
+						<option value="1">Xbox Live</option>
+						<option value="2">Playstation Network</option>
+					</optgroup>
+				</select></label>
+				<label for="playerNames">Guardian Names (comma separated): <input type="text" id="playerNames" spellcheck="false"></label>
+				<label for="mainGuardian">Show Results For: <select id="mainGuardian">
+					<option value="" selected>All Named Guardians</option>
+				</select></label>
+			</fieldset>
+			<fieldset>
+				<legend>Item Options</legend>
+				<label for="ironBanner">Iron Banner: <input type="checkbox" id="ironBanner" checked></label>
+				<label for="lightLevel">Light Level: <input type="checkbox" id="lightLevel" checked></label>
+				<label for="Results" class="hidden">Results: <select id="Results">
+					<option value="1">One Item</option>
+					<option value="2">Two Items</option>
+					<option value="3">Three Items</option>
+					<option value="4" selected>Four Items</option>
+					<!-- <option value="5">Five Items</option> -->
+					<!-- <option value="6">Six Items</option> -->
+					<!-- <option value="7">Seven Items</option> -->
+				</select></label>
+				<!-- <br /> -->
+			</fieldset>
 			<a href="https://docs.google.com/spreadsheets/d/1aQUtGLoBQ4vagrImekx8xBaGPCzGqizMBX2qYSpsFuA/edit?usp=sharing" target="_blank" id="individualSheet" class="hidden">Use this spreadsheet</a>
 			<a href="https://docs.google.com/spreadsheets/d/17l2o9YnFh42stiOYK8XC-GNdomx4wwMV7PlTU86USsE/edit?usp=sharing" target="_blank" id="multipleSheet" class="hidden">Use this spreadsheet</a>
+			<input type="button" value="Export Iron Banner Items" id="exportData" title="Export item data for use with Iron Banner Tracker." />
 			<input type="button" value="Gather match data" id="gatherData" title="Gather Bungie match data." />
 			<span id="status">Status: Waiting for input</span>
-			<textarea id="export" spellcheck="false" readonly>Some tips for using this app:
-			* Guardian names need to be spelt with the correct case.
-			* The further back you look, the longer it will take. It takes one second per guardian per 25 activities.
-			* After finding all of the matches, it takes an additional 1 second per activity to download.
-			* The larger the search criteria (a week is ideal) the longer it will take to return results.
-			* This app saves your activity data after each search.
-			* This makes running the same search using different target guardians fast.
-			* It also can take up a lot of space. Each Activity takes up roughly 64Kb of space.</textarea>
+			<fieldset>
+				<legend>Item Results</legend>
+				<textarea id="export" spellcheck="false" readonly></textarea>
+			</fieldset>
+			<fieldset>
+				<legend>Activity Results</legend>
+				<textarea id="export" spellcheck="false" readonly></textarea>
+			</fieldset>
 		</section>
 		<div id="copyright">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
 		<script type="text/javascript" src="scripts/vendor/moment.js"></script>
