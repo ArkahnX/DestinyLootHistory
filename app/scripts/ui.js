@@ -196,7 +196,7 @@ function makePages() {
 		elements.paginate.appendChild(tempContainer);
 		elements.paginate.addEventListener("change", function() {
 			pageNumber = parseInt(elements.paginate.value, 10);
-			checkForUpdates();
+			notificationCooldown = 0;
 		}, false);
 	}
 }

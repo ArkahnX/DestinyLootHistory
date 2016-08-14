@@ -63,7 +63,7 @@ function frontEndUpdate() {
 			if (chrome.runtime.lastError) {
 				logger.error(chrome.runtime.lastError);
 			}
-			if (currentItemSet.length !== localData.itemChanges.length) {
+			if (currentItemSet.length !== localData.itemChanges.length || pageNumber !== oldPageNumber) {
 				currentItemSet = localData.itemChanges;
 				displayResults().then(function() {
 

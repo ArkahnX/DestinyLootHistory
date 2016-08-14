@@ -124,7 +124,7 @@ function applyMatchData() {
 		}
 		chrome.storage.local.set({
 			inventories: data.inventories,
-			itemChanges: data.itemChanges,
+			itemChanges: CLEANUP(data.itemChanges),
 			progression: data.progression,
 			matches: data.matches,
 			currencies: data.currencies
@@ -155,4 +155,103 @@ function constructMatchInterface() {
 			}
 		}
 	}
+}
+
+function CLEANUP(itemSet) {
+	let i = itemSet.length;
+	while (i--) {
+		let itemDiff = itemSet[i];
+		let previousItemSet = itemSet[i - 1];
+		if (previousItemSet) {
+			if (!itemDiff.added.length && !itemDiff.removed.length && (!itemDiff.progression || !itemDiff.progression.length) && (!itemDiff.transferred || !itemDiff.transferred.length)) {
+				itemSet.splice(i, 1);
+			} else if ((itemDiff.added.length && previousItemSet.removed.length) || (previousItemSet.added.length && itemDiff.removed.length)) {
+				var changes = compareItemDiffs(itemDiff, previousItemSet);
+				itemSet[i] = changes.current;
+				itemSet[i - 1] = changes.other;
+			}
+		}
+	}
+	return itemSet;
+}
+
+function compareItemDiffs(currentItemDiff, otherItemDiff) {
+	let a1 = currentItemDiff.added.length;
+	while (a1--) {
+		let r1 = otherItemDiff.removed.length;
+		while (r1--) {
+			let addedData = currentItemDiff.added[a1];
+			let removedData = otherItemDiff.removed[r1];
+			let removedCharacter = removedData.characterId || otherItemDiff.characterId;
+			let addedCharacter = addedData.characterId || currentItemDiff.characterId;
+			let addedItem = addedData;
+			let removedItem = removedData;
+			if (addedData.item) {
+				addedItem = addedData.item;
+			}
+			if (removedData.item) {
+				removedItem = removedData.item;
+			}
+			addedItem = JSON.parse(addedItem);
+			removedItem = JSON.parse(removedItem);
+			if (addedItem.itemHash === removedItem.itemHash && addedItem.itemInstanceId === removedItem.itemInstanceId) {
+				// if()
+				if (addedItem.stackSize === removedItem.stackSize) {
+					if (!otherItemDiff.transferred) {
+						otherItemDiff.transferred = [];
+					}
+					let newData = {
+						from: removedCharacter,
+						to: addedCharacter,
+						item: JSON.stringify(addedItem)
+					};
+					otherItemDiff.transferred.push(newData);
+					currentItemDiff.added.splice(a1, 1);
+					otherItemDiff.removed.splice(r1, 1);
+					break;
+				}
+			}
+		}
+	}
+	let a = currentItemDiff.removed.length;
+	while (a--) {
+		let r = otherItemDiff.added.length;
+		while (r--) {
+			let currentData = currentItemDiff.removed[a];
+			let otherData = otherItemDiff.added[r];
+			let otherCharacter = otherData.characterId || otherItemDiff.characterId;
+			let currentCharacter = currentData.characterId || currentItemDiff.characterId;
+			let currentItem = currentData;
+			let otherItem = otherData;
+			if (currentData.item) {
+				currentItem = currentData.item;
+			}
+			if (otherData.item) {
+				otherItem = otherData.item;
+			}
+			currentItem = JSON.parse(currentItem);
+			otherItem = JSON.parse(otherItem);
+			if (currentItem.itemHash === otherItem.itemHash && currentItem.itemInstanceId === otherItem.itemInstanceId && currentCharacter !== otherCharacter) {
+				// if()
+				if (currentItem.stackSize === otherItem.stackSize) {
+					if (!otherItemDiff.transferred) {
+						otherItemDiff.transferred = [];
+					}
+					let newData = {
+						from: currentCharacter,
+						to: otherCharacter,
+						item: JSON.stringify(currentItem)
+					};
+					otherItemDiff.transferred.push(newData);
+					currentItemDiff.removed.splice(a, 1);
+					otherItemDiff.added.splice(r, 1);
+					break;
+				}
+			}
+		}
+	}
+	return {
+		current: currentItemDiff,
+		other: otherItemDiff
+	};
 }
