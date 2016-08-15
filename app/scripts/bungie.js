@@ -61,6 +61,15 @@ var bungie = (function Bungie() {
 					var response = JSON.parse(this.response);
 					if (opts.noerror) {
 						opts.complete(response);
+					} else if(response.ErrorStatus === "DestinyLegacyPlatformInaccessible") {
+						logger.startLogging("Bungie Logs");
+						logger.error(response.ErrorStatus, response.Message, opts.route);
+						localStorage.errorMessage = 'The Bungie API no longer supports Legacy Consoles. Please sign in to Destiny on a supported console.';
+						localStorage.error = "true";
+						tracker.sendEvent('Invalid Console', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
+						logger.endLogging();
+						logger.saveData();
+						opts.incomplete();
 					} else if (response.ErrorCode === 36 || response.ErrorCode === 51) {
 						logger.startLogging("Bungie Logs");
 						tracker.sendEvent('Too Frequent', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
@@ -155,12 +164,15 @@ var bungie = (function Bungie() {
 					localStorage.error = "true";
 					if (this.response.length) {
 						let response;
+						let validJSON = false;
 						try {
 							response = JSON.parse(response);
+							validJSON = true;
 						} catch (e) {
 							logger.error(`not valid JSON ${this.response && this.response.length}`);
+							validJSON = false;
 						}
-						if (response) {
+						if (response && validJSON) {
 							tracker.sendEvent('Unhandled Response', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.route}, Response: ${response}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 							logger.error(`code ${response.ErrorCode}, error ${response.ErrorStatus}, message ${response.Message}` + localStorage.systems);
 						}
@@ -177,7 +189,13 @@ var bungie = (function Bungie() {
 
 			r.onerror = function() {
 				logger.startLogging("Bungie Logs");
-				tracker.sendEvent('No Network Connection', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
+				try {
+					tracker.sendEvent('No Network Connection', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
+				} catch (e) {
+					if (e) {
+						logger.error(e);
+					}
+				}
 				logger.error(`Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}`);
 				logger.error(`Options ${JSON.stringify(opts)}`);
 				logger.error("Network Error: Please check your internet connection.");
