@@ -509,13 +509,53 @@ function displayResults(customItems, hideItemResults) {
 	});
 }
 
+function itemType(itemHash) {
+	let itemDef = getItemDefinition(itemHash);
+	if(itemDef.itemTypeName.indexOf("Engram") > -1) {
+		return "engram";
+	}
+	if([14239492,20886954,434908299,1585787867,4023194814,3551918588,3448274439].indexOf(itemDef.bucketTypeHash) > -1) {
+		return "armor";
+	}
+	if([284967655,2025709351].indexOf(itemDef.bucketTypeHash) > -1) {
+		return "vehicle";
+	}
+	if([953998645,1498876634,2465295065].indexOf(itemDef.bucketTypeHash) > -1) {
+		return "weapon";
+	}
+	if([4274335291,3796357825,3054419239,2973005342].indexOf(itemDef.bucketTypeHash) > -1) {
+		return "social";
+	}
+	return "other";
+}
+
+function itemRarity(itemHash) {
+	let itemDefinition = getItemDefinition(itemHash);
+	if (itemDefinition.tierTypeName === "Exotic") {
+		return "exotic";
+	} else if (itemDefinition.tierTypeName === "Legendary") {
+		return "legendary";
+	} else if (itemDefinition.tierTypeName === "Rare") {
+		return "rare";
+	} else if (itemDefinition.tierTypeName === "Uncommon") {
+		return "uncommon";
+	} else {
+		return "common";
+	}
+}
+
 function makeItem(itemData, classRequirement, optionalCosts) {
 	var docfrag = document.createDocumentFragment();
 	var itemContainer = document.createElement("div");
 	itemContainer.classList.add("item-container");
+	if(itemData.removed) {
+		itemContainer.classList.add("undiscovered");
+	}
 	var container = document.createElement("div");
 	var stat = document.createElement("div");
 	itemContainer.appendChild(container);
+	itemContainer.dataset.itemType = itemType(itemData.itemHash);
+	itemContainer.dataset.itemRarity = itemRarity(itemData.itemHash);
 	if (hasQuality(itemData)) {
 		var quality = document.createElement("div");
 		itemContainer.appendChild(quality);

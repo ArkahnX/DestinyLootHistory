@@ -3,6 +3,11 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Loot History</title>
 		<link rel="stylesheet" type="text/css" href="ui.css">
+		<style id="searchStyle">
+			.sub-section > [data-item-type="engram"]{ display:none; }
+			.sub-section > [data-item-type="armor"][data-item-rarity="rare"]{ display:none; }
+			.sub-section > [data-item-type="weapon"][data-item-rarity="rare"]{ display:none; }
+		</style>
 		<style>
 			.item {
 				width:90px;
@@ -41,7 +46,7 @@
 		<div class="title-bar">
 			<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
 			<div class="center" id="character-headers" style="text-align: center;">
-				<div class="title"><h1 class="section-title">ITEM HISTORY</h1></div>
+				<input type="text" id="query" style="width:100%">
 			</div>
 		</div>
 		<div id="container">

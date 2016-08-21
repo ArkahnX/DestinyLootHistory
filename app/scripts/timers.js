@@ -38,6 +38,7 @@ function activityTracker() {
 			localStorage.flag = "false";
 			localStorage.listening = "false";
 			localStorage.manual = "false";
+			startTimer("activityTracker");
 		} else {
 			var newCharacterDates = 0;
 			for (var character of characterDescriptions) {

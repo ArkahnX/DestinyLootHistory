@@ -171,6 +171,9 @@ function factionResultTask(result, characterId) {
 
 function _concat(list, sortedItems) {
 	for (var item of list) {
+		if(item.itemInstanceId === "6917529075395792273") {
+			console.log(item, buildCompactItem(item))
+		}
 		if (!sortedItems[item.itemInstanceId + "-" + item.itemHash]) {
 			sortedItems[item.itemInstanceId + "-" + item.itemHash] = buildCompactItem(item);
 		} else {

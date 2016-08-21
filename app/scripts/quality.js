@@ -182,17 +182,17 @@ function getNodes(item, nodes, talentGridHash) {
 }
 
 var maxStatRolls = {
-	Helmet: 48,
-	Gauntlets: 43,
+	"Helmet": 46,
+	"Gauntlets": 41,
 	"Chest Armor": 61,
 	"Leg Armor": 56,
 	"Hunter Cloak": 25,
 	"Titan Mark": 25,
 	"Warlock Bond": 25,
 	"Ghost Shell": 25,
-	"Hunter Artifact": 25,
-	"Titan Artifact": 25,
-	"Warlock Artifact": 25
+	"Hunter Artifact": 38,
+	"Titan Artifact": 38,
+	"Warlock Artifact": 38
 };
 
 var statValues = {
