@@ -139,6 +139,8 @@ function initializeStoredVariables() {
 				activeType: "psn",
 				autoLock: false,
 				track3oC: true,
+				relativeDates: true,
+				pgcrImage: false,
 				keepSingleStackItems: [],
 				autoMoveItemsToVault: [],
 				minQuality: 90,

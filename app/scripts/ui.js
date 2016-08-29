@@ -308,15 +308,35 @@ function createDate(itemDiff, className, searchData) {
 	var activity = "";
 	if (itemDiff.match) {
 		var match = JSON.parse(itemDiff.match);
-		var activityTypeData = DestinyActivityDefinition[match.activityHash];
-		activity = " " + activityTypeData.activityName;
+		activity = match.activityHash;
 	}
 	var subContainer = document.createElement("div");
 	subContainer.classList.add("sub-section", className, "timestamp");
 
 	var localTime = moment.utc(timestamp).tz(timezone);
-	subContainer.textContent = localTime.fromNow() + activity;
-	subContainer.setAttribute("title", localTime.format("ddd[,] ll LTS"));
+	var activityString = "";
+	if (activity) {
+		var activityDef = DestinyActivityDefinition[activity];
+		var activityTypeDef = DestinyActivityTypeDefinition[activityDef.activityTypeHash];
+		if (activityDef && activityTypeDef) {
+			var activityName = activityDef.activityName;
+			var activityTypeName = activityTypeDef.activityTypeName;
+			activityString = activityTypeName + " - " + activityName;
+		}
+		if (globalOptions.pgcrImage) {
+			subContainer.style.backgroundImage = `url(http://www.bungie.net${activityDef.pgcrImage})`;
+			subContainer.classList.add("bg");
+		} else {
+			subContainer.style.backgroundImage = "";
+			subContainer.classList.remove("bg");
+		}
+	}
+	if (globalOptions.relativeDates) {
+		subContainer.innerHTML = localTime.fromNow() + "<br>" + activityString;
+	} else {
+		subContainer.innerHTML = localTime.format("ddd[,] ll LTS") + "<br>" + activityString;
+	}
+	subContainer.setAttribute("title", localTime.format("ddd[,] ll LTS") + "\n" + activityString);
 	subContainer.dataset.timestamp = timestamp;
 	subContainer.dataset.activity = activity;
 	subContainer.dataset.index = itemDiff.id;
@@ -460,8 +480,7 @@ function postWork(resolve) {
 						for (let n = currentItemSet.length - 1; n > 0; n--) {
 							if (currentItemSet[n].id === parseInt(node.dataset.index) && currentItemSet[n].match) {
 								var match = JSON.parse(currentItemSet[n].match);
-								var activityTypeData = DestinyActivityDefinition[match.activityHash];
-								node.dataset.activity = " " + activityTypeData.activityName;
+								node.dataset.activity = match.activityHash;
 							}
 							if (currentItemSet[n].id < parseInt(node.dataset.index)) {
 								break;

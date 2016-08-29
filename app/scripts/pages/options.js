@@ -123,18 +123,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	}
 	var minLight = document.getElementById('minLight');
 	var minQuality = document.getElementById('minQuality');
-	var minConsumableStacks = document.getElementById('minConsumableStacks');
-	var minMaterialStacks = document.getElementById('minMaterialStacks');
 	var gearPerks = document.getElementById('gearPerks');
 	var perkWindow = document.getElementById('perkWindow');
 	var additionalPerks = document.getElementById('additionalPerks');
 	var savePerks = document.getElementById('savePerks');
 	var perkList = document.getElementById('perkList');
+	var pgcrImage = document.getElementById('pgcrImage');
+	var relativeDates = document.getElementById('relativeDates');
 	getAllOptions().then(function(options) {
 		minLight.value = options.minLight;
 		minQuality.value = options.minQuality;
 		minLight.addEventListener("change", handleQualityChange, false);
 		minQuality.addEventListener("change", handleQualityChange, false);
+		relativeDates.checked = options.relativeDates;
+		relativeDates.addEventListener("change", handleCheckboxChange, false);
+		pgcrImage.checked = options.pgcrImage;
+		pgcrImage.addEventListener("change", handleCheckboxChange, false);
 	});
 
 	if (gearPerks) {

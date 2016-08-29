@@ -619,8 +619,15 @@ header {
 }
 
 #date .sub-section {
-	font-size: 1.6em;
+	font-size: 1.2em;
 	font-weight: bold;
+
+	background-size: cover;
+}
+
+.bg {
+	color: #F4F6F5;
+	-webkit-text-stroke: 1px black;
 }
 
 input[type='checkbox'] {
@@ -1336,13 +1343,14 @@ optgroup option {
 
 	margin: 4px;
 	padding: 3px;
-	    padding-bottom: 0px;
+	padding-bottom: 0;
 
 	border: 1px solid #666;
 }
 .nsg-tag span {
-	    vertical-align: top;
-	    margin-left: 4px;
+	margin-left: 4px;
+
+	vertical-align: top;
 }
 
 .nsg-invalid {
@@ -1365,10 +1373,10 @@ optgroup option {
 .nsg-input {
 	display: inline-block;
 
+	width: 100%;
+	max-width: 350px;
 	margin: 5px 0;
 	padding: 3px 3px 3px 8px;
-	    max-width: 350px;
-	    width:100%;
 }
 .nsg-input[placeholder] {
 	/*min-width: 100%;*/
