@@ -88,49 +88,56 @@ function initUi() {
 		}, false);
 	}
 	if (elements.ToCReminder) {
-		if (localStorage.track3oC === "false") {
-			elements.ToCReminder.value = "Turn on 3oC reminder";
-			elements.ToCReminder.classList.add("grey");
-			elements.ToCReminder.classList.remove("green");
-		}
-		elements.ToCReminder.addEventListener("click", function(event) {
-			if (localStorage.track3oC === "false") {
-				localStorage.track3oC = "true";
-				elements.ToCReminder.value = "Turn off 3oC reminder";
-				elements.ToCReminder.classList.remove("grey");
-				elements.ToCReminder.classList.add("green");
-			} else {
-				localStorage.track3oC = "false";
+		getOption("track3oC").then(function(track3oC) {
+			if (track3oC === false) {
 				elements.ToCReminder.value = "Turn on 3oC reminder";
 				elements.ToCReminder.classList.add("grey");
 				elements.ToCReminder.classList.remove("green");
 			}
-
-		}, false);
+			elements.ToCReminder.addEventListener("click", function(event) {
+				getOption("track3oC").then(function(track3oC) {
+					if (track3oC === false) {
+						setOption("track3oC", true);
+						elements.ToCReminder.value = "Turn off 3oC reminder";
+						elements.ToCReminder.classList.remove("grey");
+						elements.ToCReminder.classList.add("green");
+					} else {
+						setOption("track3oC", false);
+						elements.ToCReminder.value = "Turn on 3oC reminder";
+						elements.ToCReminder.classList.add("grey");
+						elements.ToCReminder.classList.remove("green");
+					}
+				});
+			}, false);
+		});
 	}
 	if (elements.toggleSystem) {
-		if (bungie.getMemberships().length > 1) {
-			elements.toggleSystem.classList.remove("hidden");
-		}
-		if (localStorage.activeType === "xbl") {
-			elements.toggleSystem.value = "Swap to PSN";
-			elements.toggleSystem.classList.remove("green");
-		}
-		if (localStorage.activeType === "psn") {
-			elements.toggleSystem.value = "Swap to XBOX";
-			elements.toggleSystem.classList.add("green");
-		}
-		elements.toggleSystem.addEventListener("click", function() {
-			if (localStorage.activeType === "psn") {
+		getOption("activeType").then(function(activeType) {
+			if (bungie.getMemberships().length > 1) {
+				elements.toggleSystem.classList.remove("hidden");
+			}
+			if (activeType === "xbl") {
 				elements.toggleSystem.value = "Swap to PSN";
 				elements.toggleSystem.classList.remove("green");
-				localStorage.activeType = "xbl";
-			} else {
-				elements.toggleSystem.value = "Swap to Xbox";
-				elements.toggleSystem.classList.add("green");
-				localStorage.activeType = "psn";
 			}
-		}, false);
+			if (activeType === "psn") {
+				elements.toggleSystem.value = "Swap to XBOX";
+				elements.toggleSystem.classList.add("green");
+			}
+			elements.toggleSystem.addEventListener("click", function() {
+				getOption("activeType").then(function(activeType) {
+					if (activeType === "psn") {
+						elements.toggleSystem.value = "Swap to PSN";
+						elements.toggleSystem.classList.remove("green");
+						setOption("activeType", "xbl");
+					} else {
+						elements.toggleSystem.value = "Swap to Xbox";
+						elements.toggleSystem.classList.add("green");
+						setOption("activeType", "psn");
+					}
+				});
+			}, false);
+		});
 	}
 	// Disable all accurrate tracking
 	// if (document.querySelector("#accurateTracking")) {
@@ -167,15 +174,17 @@ function initUi() {
 		}
 	}
 	if (elements.autoLock && elements.track3oC) {
-		elements.autoLock.checked = localStorage.autoLock === "true";
-		elements.autoLock.addEventListener("change", handleCheckboxChange, false);
-		elements.track3oC.checked = localStorage.track3oC === "true";
-		elements.track3oC.addEventListener("change", handleCheckboxChange, false);
+		getAllOptions().then(function(options) {
+			elements.autoLock.checked = options.autoLock === true;
+			elements.autoLock.addEventListener("change", handleCheckboxChange, false);
+			elements.track3oC.checked = options.track3oC === true;
+			elements.track3oC.addEventListener("change", handleCheckboxChange, false);
+		});
 	}
 }
 
 function handleCheckboxChange(event) {
-	localStorage[event.target.id] = event.target.checked;
+	setOption(event.target.id, event.target.checked);
 }
 
 function makePages() {
@@ -445,7 +454,25 @@ function postWork(resolve) {
 		for (let page of pages) {
 			tempFragments[page] = document.createDocumentFragment();
 			for (let i = minNumber; i < maxLength; i++) {
-				tempFragments[page].appendChild(fragments[page].children[i].cloneNode(true));
+				if (page === "date") {
+					let node = fragments[page].children[i].cloneNode(true);
+					if (!node.dataset.activity) {
+						for (let n = currentItemSet.length - 1; n > 0; n--) {
+							if (currentItemSet[n].id === parseInt(node.dataset.index) && currentItemSet[n].match) {
+								var match = JSON.parse(currentItemSet[n].match);
+								var activityTypeData = DestinyActivityDefinition[match.activityHash];
+								node.dataset.activity = " " + activityTypeData.activityName;
+							}
+							if (currentItemSet[n].id < parseInt(node.dataset.index)) {
+								break;
+							}
+						}
+					}
+					fragments[page].children[i] = node;
+					tempFragments[page].appendChild(node);
+				} else {
+					tempFragments[page].appendChild(fragments[page].children[i].cloneNode(true));
+				}
 			}
 		}
 		window.requestAnimationFrame(function() {
@@ -511,19 +538,19 @@ function displayResults(customItems, hideItemResults) {
 
 function itemType(itemHash) {
 	let itemDef = getItemDefinition(itemHash);
-	if(itemDef.itemTypeName.indexOf("Engram") > -1) {
+	if (itemDef.itemTypeName.indexOf("Engram") > -1) {
 		return "engram";
 	}
-	if([14239492,20886954,434908299,1585787867,4023194814,3551918588,3448274439].indexOf(itemDef.bucketTypeHash) > -1) {
+	if ([14239492, 20886954, 434908299, 1585787867, 4023194814, 3551918588, 3448274439].indexOf(itemDef.bucketTypeHash) > -1) {
 		return "armor";
 	}
-	if([284967655,2025709351].indexOf(itemDef.bucketTypeHash) > -1) {
+	if ([284967655, 2025709351].indexOf(itemDef.bucketTypeHash) > -1) {
 		return "vehicle";
 	}
-	if([953998645,1498876634,2465295065].indexOf(itemDef.bucketTypeHash) > -1) {
+	if ([953998645, 1498876634, 2465295065].indexOf(itemDef.bucketTypeHash) > -1) {
 		return "weapon";
 	}
-	if([4274335291,3796357825,3054419239,2973005342].indexOf(itemDef.bucketTypeHash) > -1) {
+	if ([4274335291, 3796357825, 3054419239, 2973005342].indexOf(itemDef.bucketTypeHash) > -1) {
 		return "social";
 	}
 	return "other";
@@ -548,7 +575,7 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 	var docfrag = document.createDocumentFragment();
 	var itemContainer = document.createElement("div");
 	itemContainer.classList.add("item-container");
-	if(itemData.removed) {
+	if (itemData.removed) {
 		itemContainer.classList.add("undiscovered");
 	}
 	var container = document.createElement("div");

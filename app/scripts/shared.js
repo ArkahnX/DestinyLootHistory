@@ -14,6 +14,38 @@ Object.prototype[Symbol.iterator] = function() {
 	};
 };
 
+function getOption(name) {
+	return new Promise(function(resolve) {
+		chrome.storage.sync.get(name, function(options) {
+			if (chrome.runtime.lastError) {
+				logger.error(chrome.runtime.lastError);
+			}
+			resolve(options[name]);
+		});
+	});
+}
+
+function getAllOptions() {
+	return new Promise(function(resolve) {
+		chrome.storage.sync.get(null, function(options) {
+			if (chrome.runtime.lastError) {
+				logger.error(chrome.runtime.lastError);
+			}
+			resolve(options);
+		});
+	});
+}
+
+function setOption(name, value) {
+	var obj = {};
+	obj[name] = value;
+	chrome.storage.sync.set(obj, function() {
+		if (chrome.runtime.lastError) {
+			logger.error(chrome.runtime.lastError);
+		}
+	});
+}
+
 // You'll usually only ever have to create one service instance.
 var service = analytics.getService('DestinyLootHistory');
 

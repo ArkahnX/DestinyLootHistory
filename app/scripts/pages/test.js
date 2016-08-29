@@ -23,7 +23,7 @@ function initItems(callback) {
 	// console.startLogging("items");
 	console.time("load Bungie Data");
 	initUi();
-	bungie.setActive(localStorage.activeType);
+	getOption("activeType").then(bungie.setActive);
 	bungie.user().then(function(u) {
 		if (u.error) {
 			return setTimeout(function() {

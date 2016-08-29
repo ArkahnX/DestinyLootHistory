@@ -21,14 +21,16 @@ var notificationCooldown = 0;
 
 function frontEndUpdate() {
 	if (elements.toggleSystem) {
-		if (localStorage.activeType === "xbl" && elements.toggleSystem.value !== "Swap to PSN") {
-			elements.toggleSystem.value = "Swap to PSN";
-			elements.toggleSystem.classList.remove("green");
-		}
-		if (localStorage.activeType === "psn" && elements.toggleSystem.value !== "Swap to XBOX") {
-			elements.toggleSystem.value = "Swap to XBOX";
-			elements.toggleSystem.classList.add("green");
-		}
+		getOption("activeType").then(function(activeType) {
+			if (activeType === "xbl" && elements.toggleSystem.value !== "Swap to PSN") {
+				elements.toggleSystem.value = "Swap to PSN";
+				elements.toggleSystem.classList.remove("green");
+			}
+			if (activeType === "psn" && elements.toggleSystem.value !== "Swap to XBOX") {
+				elements.toggleSystem.value = "Swap to XBOX";
+				elements.toggleSystem.classList.add("green");
+			}
+		});
 	}
 	if (localStorage.error === "true") {
 		if (notificationCooldown === 0) {

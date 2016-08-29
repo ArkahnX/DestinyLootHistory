@@ -1331,19 +1331,20 @@ optgroup option {
 	opacity: .25;
 }
 
-.nsg-editor {
-	padding: 10px;
-
-	cursor: text;
-}
 .nsg-tag {
 	display: inline-block;
 
 	margin: 4px;
 	padding: 3px;
+	    padding-bottom: 0px;
 
 	border: 1px solid #666;
 }
+.nsg-tag span {
+	    vertical-align: top;
+	    margin-left: 4px;
+}
+
 .nsg-invalid {
 	border-color: #C00;
 }
@@ -1357,7 +1358,7 @@ optgroup option {
 }
 .nsg-tag-remove::after {
 	position: relative;
-	top: -2px;
+	top: -5px;
 
 	content: 'x';
 }
@@ -1366,6 +1367,8 @@ optgroup option {
 
 	margin: 5px 0;
 	padding: 3px 3px 3px 8px;
+	    max-width: 350px;
+	    width:100%;
 }
 .nsg-input[placeholder] {
 	/*min-width: 100%;*/

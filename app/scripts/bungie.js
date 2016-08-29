@@ -1,7 +1,4 @@
 var bungie = (function Bungie() {
-	if (localStorage.activeType !== "xbl" || localStorage.activeType !== "psn") {
-		localStorage.activeType = "psn";
-	}
 	var bungie = {};
 	// private vars
 	var systemDetails = {};
@@ -61,7 +58,7 @@ var bungie = (function Bungie() {
 					var response = JSON.parse(this.response);
 					if (opts.noerror) {
 						opts.complete(response);
-					} else if(response.ErrorStatus === "DestinyLegacyPlatformInaccessible") {
+					} else if (response.ErrorStatus === "DestinyLegacyPlatformInaccessible") {
 						logger.startLogging("Bungie Logs");
 						logger.error(response.ErrorStatus, response.Message, opts.route);
 						localStorage.errorMessage = 'The Bungie API no longer supports Legacy Consoles. Please sign in to Destiny on a supported console.';
@@ -271,10 +268,10 @@ var bungie = (function Bungie() {
 	bungie.setActive = function(type) {
 		if (type === "psn" && systemIds.psn && systemIds.psn.id) {
 			active = systemIds.psn;
-			localStorage.activeType = "psn";
+			setOption("activeType", "psn");
 		} else if (type === "xbl" && systemIds.xbl && systemIds.xbl.id) {
 			active = systemIds.xbl;
-			localStorage.activeType = "xbl";
+			setOption("activeType", "xbl");
 		}
 	};
 
@@ -318,19 +315,21 @@ var bungie = (function Bungie() {
 					// if (res.psnId) {
 					// 	active = systemIds.psn;
 					// }
-					if (localStorage.activeType === "psn" && res.psnId) {
-						active = systemIds.psn;
-					} else if (localStorage.activeType === "xbl" && res.gamerTag) {
-						active = systemIds.xbl;
-					} else if (localStorage.activeType === "psn" && res.gamerTag) {
-						active = systemIds.xbl;
-						localStorage.activeType = "xbl";
-					} else if (localStorage.activeType === "xbl" && res.psnId) {
-						active = systemIds.psn;
-						localStorage.activeType = "psn";
-					}
-					localStorage.systems = JSON.stringify(systemIds);
-					resolve(res);
+					getOption("activeType").then(function(activeType) {
+						if (activeType === "psn" && res.psnId) {
+							active = systemIds.psn;
+						} else if (activeType === "xbl" && res.gamerTag) {
+							active = systemIds.xbl;
+						} else if (activeType === "psn" && res.gamerTag) {
+							active = systemIds.xbl;
+							setOption("activeType", "xbl");
+						} else if (activeType === "xbl" && res.psnId) {
+							active = systemIds.psn;
+							setOption("activeType", "psn");
+						}
+						localStorage.systems = JSON.stringify(systemIds);
+						resolve(res);
+					});
 				}
 			});
 		});
@@ -342,18 +341,20 @@ var bungie = (function Bungie() {
 			shortRoute: '/Destiny/SearchDestinyPlayer/',
 			method: 'GET',
 			incomplete: function() {
-				if (localStorage.activeType === "xbl") {
-					bungie.setActive("psn");
-					_search(resolve, reject);
-				} else {
-					reject();
-				}
+				getOption("activeType").then(function(activeType) {
+					if (activeType === "xbl") {
+						bungie.setActive("psn");
+						_search(resolve, reject);
+					} else {
+						reject();
+					}
+				});
 			},
 			complete: function(membership) {
 				membershipId = membership[0].membershipId;
 				_request({
-					route: '/Destiny/Tiger' + (parseInt(active.type, 10) === 1 ? 'Xbox' : 'PSN') + '/Account/' + membershipId + '/',
-					shortRoute: '/Destiny/Tiger/Account/',
+					route: '/Destiny/' + active.type + '/Account/' + membershipId + '/',
+					shortRoute: '/Destiny/Account/',
 					method: 'GET',
 					incomplete: reject,
 					complete: resolve
