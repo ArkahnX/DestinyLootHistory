@@ -9,6 +9,7 @@ function handleTooltipData(dataset, element, event) {
 
 function setTooltipData(dataset, element, event) {
 	if (dataset.itemName) {
+		elements.itemImage.src = "http://www.bungie.net" + dataset.itemImage;
 		elements.itemName.textContent = dataset.itemName;
 		elements.itemType.textContent = dataset.itemTypeName;
 		elements.itemRarity.textContent = dataset.tierTypeName;
@@ -38,8 +39,14 @@ function setTooltipData(dataset, element, event) {
 			elements.classRequirement.innerHTML = "<span>" + json + "</span>";
 		}
 		handleStats(dataset.itemTypeName, dataset).then(function() {
-			elements.tooltip.classList.remove("arc", "void", "solar", "kinetic", "common", "legendary", "rare", "uncommon", "exotic");
+			elements.tooltip.className = "";
 			elements.tooltip.classList.add(dataset.tierTypeName.toLowerCase(), dataset.damageTypeName.toLowerCase());
+			if (dataset.sourceName) {
+				var temp = JSON.parse(dataset.sourceName);
+				for (var name of temp) {
+					elements.tooltip.classList.add(name);
+				}
+			}
 			// console.log(event, tooltip.clientHeight, element.parentNode.offsetTop);
 			// console.dir(element.parentNode.getBoundingClientRect())
 			// tooltip.
@@ -161,6 +168,28 @@ function handleOtherStats(dataset, resolve) {
 			elements.statTable.appendChild(tableRow);
 		}
 	}
+	if (dataset.qualityMin) {
+		var tableRow = document.createElement("tr");
+		tableRow.classList.add("itemStat");
+		var tableText = document.createElement("td");
+		tableText.classList.add("statName");
+		var minQuality = parseInt(dataset.qualityMin);
+		var maxQuality = parseInt(dataset.qualityMax);
+		if (parseInt(dataset.primaryStat) === 335) {
+			maxQuality = minQuality;
+		}
+		tableText.textContent = "Quality (" + minQuality + "/" + maxQuality + ")";
+		var tableData = document.createElement("td");
+		tableData.classList.add("valueBar");
+		var max = 100;
+		if (maxQuality > 100) {
+			max = maxQuality;
+		}
+		tableData.appendChild(statBar(maxQuality, max, maxQuality - minQuality, minQuality));
+		tableRow.appendChild(tableText);
+		tableRow.appendChild(tableData);
+		elements.statTable.appendChild(tableRow);
+	}
 	if (dataset.costs) {
 		var costs = JSON.parse(dataset.costs);
 		for (var cost of costs) {
@@ -242,7 +271,7 @@ function handleOtherStats(dataset, resolve) {
 			if (node.icon) {
 				tableText.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + node.icon + "')");
 			}
-			tableText.title = node.nodeStepName;
+			tableText.title = node.nodeStepName + "\n"+ node.nodeStepDescription;
 		}
 		if (itemDef.bucketTypeHash === 4023194814) {
 			if (nodeData.rows > 1 && nodeData.columns > 1) {
@@ -255,7 +284,7 @@ function handleOtherStats(dataset, resolve) {
 				} else if (materialText === "Spinmetal") {
 					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[2882093969].icon + "')");
 				} else if (materialText === "Helium") {
-					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[2254123540].icon + "')");
+					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[1797491610].icon + "')");
 				} else if (materialText === "Spirit") {
 					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[2254123540].icon + "')");
 				} else if (materialText === "Wormspore") {
@@ -265,8 +294,6 @@ function handleOtherStats(dataset, resolve) {
 					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[1723894001].icon + "')");
 				} else if (guardianText === "Warlock") {
 					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[776529032].icon + "')");
-				} else if (guardianText === "Hunter") {
-					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[855333071].icon + "')");
 				} else if (guardianText === "Hunter") {
 					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[855333071].icon + "')");
 				} else if (guardianText === "Cleansing") {

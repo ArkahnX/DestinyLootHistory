@@ -33,21 +33,29 @@ function initItems(callback) {
 			var avatars = e.data.characters;
 			var newestCharacter = "vault";
 			var newestDate = 0;
-			for (var c = 0; c < avatars.length; c++) {
-				characterDescriptions[avatars[c].characterBase.characterId] = {
-					name: DestinyClassDefinition[avatars[c].characterBase.classHash].className,
-					gender: DestinyGenderDefinition[avatars[c].characterBase.genderHash].genderName,
-					level: avatars[c].baseCharacterLevel,
-					light: avatars[c].characterBase.powerLevel,
-					race: DestinyRaceDefinition[avatars[c].characterBase.raceHash].raceName,
-					dateLastPlayed: avatars[c].characterBase.dateLastPlayed
-				};
-				if (new Date(avatars[c].characterBase.dateLastPlayed).getTime() > new Date(newestDate).getTime()) {
-					newestDate = avatars[c].characterBase.dateLastPlayed;
-					newestCharacter = avatars[c].characterBase.characterId;
+			for (let avatar of avatars) {
+				if (!characterDescriptions[avatar.characterBase.characterId]) {
+					characterDescriptions[avatar.characterBase.characterId] = {
+						name: DestinyClassDefinition[avatar.characterBase.classHash].className,
+						gender: DestinyGenderDefinition[avatar.characterBase.genderHash].genderName,
+						level: avatar.baseCharacterLevel,
+						light: avatar.characterBase.powerLevel,
+						race: DestinyRaceDefinition[avatar.characterBase.raceHash].raceName,
+						dateLastPlayed: avatar.characterBase.dateLastPlayed,
+						currentActivityHash:avatar.characterBase.currentActivityHash
+					};
+				} else { // we already have set these characters so just update their data.
+					characterDescriptions[avatar.characterBase.characterId].level = avatar.baseCharacterLevel;
+					characterDescriptions[avatar.characterBase.characterId].light = avatar.characterBase.powerLevel;
+					characterDescriptions[avatar.characterBase.characterId].dateLastPlayed = avatar.characterBase.dateLastPlayed;
+					characterDescriptions[avatar.characterBase.characterId].currentActivityHash = avatar.characterBase.currentActivityHash;
 				}
-				if (characterIdList.indexOf(avatars[c].characterBase.characterId) === -1) {
-					characterIdList.push(avatars[c].characterBase.characterId);
+				if (new Date(avatar.characterBase.dateLastPlayed).getTime() > new Date(newestDate).getTime()) { // set newest character for 3oC reminder
+					newestDate = avatar.characterBase.dateLastPlayed;
+					newestCharacter = avatar.characterBase.characterId;
+				}
+				if (characterIdList.indexOf(avatar.characterBase.characterId) === -1) {
+					characterIdList.push(avatar.characterBase.characterId);
 				}
 			}
 			localStorage.newestCharacter = newestCharacter;
@@ -511,12 +519,14 @@ function grabRemoteInventory(resolve, reject) {
 						level: avatar.baseCharacterLevel,
 						light: avatar.characterBase.powerLevel,
 						race: DestinyRaceDefinition[avatar.characterBase.raceHash].raceName,
-						dateLastPlayed: avatar.characterBase.dateLastPlayed
+						dateLastPlayed: avatar.characterBase.dateLastPlayed,
+						currentActivityHash:avatar.characterBase.currentActivityHash
 					};
 				} else { // we already have set these characters so just update their data.
 					characterDescriptions[avatar.characterBase.characterId].level = avatar.baseCharacterLevel;
 					characterDescriptions[avatar.characterBase.characterId].light = avatar.characterBase.powerLevel;
 					characterDescriptions[avatar.characterBase.characterId].dateLastPlayed = avatar.characterBase.dateLastPlayed;
+					characterDescriptions[avatar.characterBase.characterId].currentActivityHash = avatar.characterBase.currentActivityHash;
 				}
 				if (new Date(avatar.characterBase.dateLastPlayed).getTime() > new Date(newestDate).getTime()) { // set newest character for 3oC reminder
 					newestDate = avatar.characterBase.dateLastPlayed;

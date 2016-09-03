@@ -14,11 +14,14 @@ function parseQuality(startingStat, startingDefense, endingDefense) {
 
 function containsNodes(item, nodeNameList) {
 	var result = 0;
+	if (!Array.isArray(nodeNameList)) {
+		nodeNameList = [nodeNameList];
+	}
 	var itemDef = getItemDefinition(item.itemHash);
 	var grid = getNodes(item);
-	for (var node of grid) {
-		for (var nodeName of nodeNameList) {
-			if (node.nodeStepName.toLowerCase() === nodeName.toLowerCase()) {
+	for (var nodeName of nodeNameList) {
+		for (var node of grid) {
+			if (node.nodeStepName.toLowerCase().indexOf(nodeName.toLowerCase()) > -1) {
 				result++;
 				break;
 			}
@@ -179,6 +182,7 @@ function getNodes(item, nodes, talentGridHash) {
 		}
 		return parsedNodes;
 	}
+	return [];
 }
 
 var maxStatRolls = {

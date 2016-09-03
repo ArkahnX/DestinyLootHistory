@@ -199,6 +199,8 @@ function makeHistoryItem(itemData) {
 		var qualityData = parseItemQuality(itemData);
 		quality.style.background = qualityData.color;
 		quality.textContent = qualityData.min + "%";
+		container.dataset.qualityMin = qualityData.min;
+		container.dataset.qualityMax = qualityData.max;
 	}
 	itemContainer.appendChild(stat);
 	docfrag.appendChild(itemContainer);
@@ -222,6 +224,7 @@ function passData(DomNode, itemData) {
 		DomNode.dataset.tierTypeName = "Common";
 	}
 	DomNode.dataset.itemHash = itemDefinition.itemHash;
+	DomNode.dataset.itemImage = itemDefinition.icon;
 	DomNode.dataset.itemName = itemDefinition.itemName;
 	DomNode.dataset.itemTypeName = itemDefinition.itemTypeName;
 	DomNode.dataset.equipRequiredLevel = itemData.equipRequiredLevel || 0;

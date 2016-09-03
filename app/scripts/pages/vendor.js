@@ -170,16 +170,6 @@ function makeSaleItem(itemHash, unlockStatuses, saleItem, currencies) {
 	return item;
 }
 
-function pad(pad, str, padLeft) {
-	if (typeof str === 'undefined')
-		return pad;
-	if (padLeft) {
-		return (pad + str).slice(-pad.length);
-	} else {
-		return (str + pad).substring(0, pad.length);
-	}
-}
-
 function makeItemsFromVendor(vendor) {
 	var list = vendor.saleItemCategories;
 	var mainContainer = document.getElementById("history");
@@ -187,13 +177,10 @@ function makeItemsFromVendor(vendor) {
 	// var vendorCategory = outfitterData.data.vendor.saleItemCategories[0];
 	if (vendor.nextRefreshDate) {
 		var resetDate = document.createElement("div");
-		resetDate.classList.add("sub-section", "resetDate");
-		var days = moment(vendor.nextRefreshDate).diff(moment(), "days");
-		var hours = pad(Array(3).join("0"), moment(vendor.nextRefreshDate).diff(moment(), "hours") % 24, true);
-		var minutes = pad(Array(3).join("0"), moment(vendor.nextRefreshDate).diff(moment(), "minutes") % 60, true);
-		var seconds = pad(Array(3).join("0"), moment(vendor.nextRefreshDate).diff(moment(), "seconds") % 60, true);
-		resetDate.innerHTML = "<h1>STOCK REFRESH " + `${days} ${(days > 1)? "Days" : "Day"} ${hours}:${minutes}:${seconds}` + "</h1>";
-		resetDate.dataset.date = vendor.nextRefreshDate;
+		var resetDate2 = document.createElement("h1");
+		resetDate2.innerHTML = date.vendorRefreshDate(vendor);
+		resetDate.classList.add("sub-section");
+		resetDate.appendChild(resetDate2);
 		mainContainer.appendChild(resetDate);
 	}
 	for (var category of list) {
@@ -386,17 +373,4 @@ function flattenItems(itemCategories) {
 
 initUi();
 
-function dateTime() {
-	var dates = document.querySelectorAll(".resetDate");
-	for(var date of dates) {
-		var vendorDate = moment(date.dataset.date);
-		var now = moment();
-		var days = vendorDate.diff(now, "days");
-		var hours = pad(Array(3).join("0"), vendorDate.diff(now, "hours") % 24, true);
-		var minutes = pad(Array(3).join("0"), vendorDate.diff(now, "minutes") % 60, true);
-		var seconds = pad(Array(3).join("0"), vendorDate.diff(now, "seconds") % 60, true);
-		date.innerHTML = "<h1>STOCK REFRESH " + `${days} ${(days > 1)? "Days" : "Day"} ${hours}:${minutes}:${seconds}` + "</h1>";
-	}
-	window.requestAnimationFrame(dateTime);
-}
-window.requestAnimationFrame(dateTime);
+window.requestAnimationFrame(date.keepDatesUpdated);

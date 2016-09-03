@@ -80,7 +80,7 @@ function getItemDefinition(hash) {
 	} else if (DestinyCompactItemDefinition[hash]) {
 		return DestinyCompactItemDefinition[hash];
 	}
-	tracker.sendEvent('Item not in database', `${hash}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
+	// tracker.sendEvent('Item not in database', `${hash}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 	logger.error(`Item Reference ${hash} is not in database. This has been reported.`);
 	console.error(`Item Reference ${hash} is not in database. This has been reported.`);
 	return {
@@ -92,4 +92,14 @@ function getItemDefinition(hash) {
 		itemName: "",
 		bucketTypeHash: 215593132
 	};
+}
+
+function pad(pad, str, padLeft) {
+	if (typeof str === 'undefined')
+		return pad;
+	if (padLeft) {
+		return (pad + str).slice(-pad.length);
+	} else {
+		return (str + pad).substring(0, pad.length);
+	}
 }

@@ -8,6 +8,7 @@ var elements = {
 	status: document.getElementById("status"),
 	container: document.getElementById("container"),
 	tooltip: document.getElementById("tooltip"),
+	itemImage: document.getElementById("item-image"),
 	itemName: document.getElementById("item-name"),
 	itemType: document.getElementById("item-type"),
 	itemRarity: document.getElementById("item-rarity"),
@@ -29,6 +30,7 @@ var elements = {
 };
 
 var elementNames = {
+	itemImage: "item-image",
 	itemName: "item-name",
 	itemType: "item-type",
 	itemRarity: "item-rarity",
@@ -557,7 +559,7 @@ function displayResults(customItems, hideItemResults) {
 
 function itemType(itemHash) {
 	let itemDef = getItemDefinition(itemHash);
-	if (itemDef.itemTypeName.indexOf("Engram") > -1) {
+	if (itemDef.itemTypeName && itemDef.itemTypeName.indexOf("Engram") > -1) {
 		return "engram";
 	}
 	if ([14239492, 20886954, 434908299, 1585787867, 4023194814, 3551918588, 3448274439].indexOf(itemDef.bucketTypeHash) > -1) {
@@ -610,6 +612,8 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 		var qualityData = parseItemQuality(itemData);
 		quality.style.background = qualityData.color;
 		quality.textContent = qualityData.min + "%";
+		container.dataset.qualityMin = qualityData.min;
+		container.dataset.qualityMax = qualityData.max;
 	}
 	itemContainer.appendChild(stat);
 	docfrag.appendChild(itemContainer);
@@ -758,7 +762,17 @@ function passData(DomNode, itemData, classRequirement, optionalCosts) {
 	} else {
 		DomNode.dataset.tierTypeName = "Common";
 	}
+	if (itemDefinition.sourceHashes) {
+		var temp = [];
+		for (var hash of itemDefinition.sourceHashes) {
+			if (DestinyRewardSourceDefinition[hash]) {
+				temp.push(DestinyRewardSourceDefinition[hash].sourceName.replace(/\s+/g, ''));
+			}
+		}
+		DomNode.dataset.sourceName = JSON.stringify(temp);
+	}
 	DomNode.dataset.itemName = itemDefinition.itemName;
+	DomNode.dataset.itemImage = itemDefinition.icon;
 	DomNode.dataset.itemTypeName = itemDefinition.itemTypeName;
 	DomNode.dataset.equipRequiredLevel = itemData.equipRequiredLevel || 0;
 	DomNode.dataset.primaryStat = primaryStat(itemData);
