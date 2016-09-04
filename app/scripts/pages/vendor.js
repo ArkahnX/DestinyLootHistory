@@ -207,6 +207,31 @@ function makeItemsFromVendor(vendor) {
 		subContainer.appendChild(docfrag);
 		mainContainer.appendChild(subContainer);
 	}
+	var vendorPackage = vendor.package && vendor.package.derivedItemCategories || [];
+	for (let category of vendorPackage) {
+		let titleContainer = document.createElement("div");
+		titleContainer.classList.add("sub-section");
+		titleContainer.innerHTML = "<h1>" + category.categoryDescription + "</h1>";
+		mainContainer.appendChild(titleContainer);
+		let subContainer = document.createElement("div");
+		subContainer.classList.add("sub-section");
+		let docfrag = document.createDocumentFragment();
+		for (let item of category.items) {
+			docfrag.appendChild(makeItem(getItemDefinition(item.itemHash)));
+			// for (var vendorItem of vendorCategory.saleItems) {
+			// 	var itemDef = DestinyCompactItemDefinition[saleItem.item.itemHash];
+			// 	if (saleItem.unlockStatuses.length && !saleItem.unlockStatuses[0].isSet && vendorItem.item.itemHash === saleItem.item.itemHash) {
+			// 		emblems[saleItem.item.itemHash] = {
+			// 			name: itemDef.itemName,
+			// 			acquired: saleItem.unlockStatuses[0].isSet,
+			// 			selling: true
+			// 		};
+			// 	}
+			// }
+		}
+		subContainer.appendChild(docfrag);
+		mainContainer.appendChild(subContainer);
+	}
 }
 
 var deadVendors = [415161769, 863056813, 3019290222, 2698860028, 1660667815, 1588933401, 2586808090, 1653856985, 529545063, 1353750121, 4275962006, 163657562, 3898086963, 3165969428, 892630493, 2016602161];
@@ -253,6 +278,18 @@ chrome.storage.local.get("inventories", function(data) {
 				var textB = b.vendorName.toUpperCase();
 				return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
 			});
+		}
+		for (let itemDefinition of DestinyCompactItemDefinition) {
+			if (itemDefinition.itemTypeName === "Package" && itemDefinition.derivedItemCategories && itemDefinition.derivedItemVendorHash) {
+				for (let vendorType of vendors) {
+					for (let vendor of vendorType) {
+						if (vendor.vendorHash === itemDefinition.derivedItemVendorHash) {
+							console.log(vendor, itemDefinition)
+							vendor.package = itemDefinition;
+						}
+					}
+				}
+			}
 		}
 		var vendorHTML = "";
 		for (let vendorCategory in vendors) {

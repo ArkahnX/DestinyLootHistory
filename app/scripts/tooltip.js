@@ -10,10 +10,27 @@ function handleTooltipData(dataset, element, event) {
 function setTooltipData(dataset, element, event) {
 	if (dataset.itemName) {
 		elements.itemImage.src = "http://www.bungie.net" + dataset.itemImage;
+		if (dataset.itemTypeName === "Faction") {
+			elements.squareProgress.dataset.max = dataset.nextLevelAt;
+			elements.squareProgress.dataset.value = dataset.progressToNextLevel;
+		} else {
+			elements.squareProgress.dataset.max = 1;
+			elements.squareProgress.dataset.value = 0;
+		}
 		elements.itemName.textContent = dataset.itemName;
 		elements.itemType.textContent = dataset.itemTypeName;
 		elements.itemRarity.textContent = dataset.tierTypeName;
 		elements.itemRequiredEquipLevel.textContent = dataset.equipRequiredLevel;
+		var t = elements.squareProgress.dataset.value / elements.squareProgress.dataset.max;
+		if (t > 0 && t !== Infinity) {
+			var n = new SquareProgress(elements.squareProgress, t);
+			n.backgroundColor = "rgba(0,0,0,0)";
+			n.borderColor = "rgba(0,0,0,0)";
+			n.draw();
+			elements.squareProgress.classList.remove("hidden");
+		} else {
+			elements.squareProgress.classList.add("hidden");
+		}
 		if (dataset.equipRequiredLevel === "0") {
 			elements.levelText.classList.add("hidden");
 		} else {
@@ -99,7 +116,7 @@ function handleOtherStats(dataset, resolve) {
 		tableText.textContent = "Rank " + dataset.level;
 		var tableData = document.createElement("td");
 		tableData.classList.add("valueBar");
-		tableData.appendChild(statBar(dataset.progressToNextLevel, dataset.nextLevelAt, dataset.progressChange, dataset.progressToNextLevel));
+		tableData.appendChild(progressBar(dataset.progressToNextLevel, dataset.nextLevelAt, dataset.progressChange));
 		tableRow.appendChild(tableText);
 		tableRow.appendChild(tableData);
 		elements.statTable.appendChild(tableRow);
@@ -271,7 +288,7 @@ function handleOtherStats(dataset, resolve) {
 			if (node.icon) {
 				tableText.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + node.icon + "')");
 			}
-			tableText.title = node.nodeStepName + "\n"+ node.nodeStepDescription;
+			tableText.title = node.nodeStepName + "\n" + node.nodeStepDescription;
 		}
 		if (itemDef.bucketTypeHash === 4023194814) {
 			if (nodeData.rows > 1 && nodeData.columns > 1) {
@@ -362,7 +379,7 @@ function handleFactionStats(dataset, resolve, reject) {
 	tableText.textContent = "Rank " + dataset.level;
 	var tableData = document.createElement("td");
 	tableData.classList.add("valueBar");
-	tableData.appendChild(statBar(dataset.progressToNextLevel, dataset.nextLevelAt, dataset.progressChange, dataset.progressToNextLevel));
+	tableData.appendChild(progressBar(dataset.progressToNextLevel, dataset.nextLevelAt, dataset.progressChange));
 	tableRow.appendChild(tableText);
 	tableRow.appendChild(tableData);
 	elements.statTable.appendChild(tableRow);
@@ -395,4 +412,37 @@ function statBar(currentValue, maxValue, baseModifier, displayValue) {
 	valueModifiedByNodeBar.appendChild(text);
 	valueBar.appendChild(valueModifiedByNodeBar);
 	return valueBar;
+}
+
+function progressBar(currentValue, maxValue, baseModifier) {
+	currentValue = parseInt(currentValue);
+	maxValue = parseInt(maxValue);
+	baseModifier = parseInt(baseModifier);
+	var container = document.createElement("span");
+	var valueBar = document.createElement("span");
+	var valueModifiedByNodeBar = document.createElement("span");
+	var valueModifiedBar = document.createElement("span");
+	var text = document.createElement("span");
+	text.classList.add("progress-text");
+	text.textContent = `${currentValue} / ${maxValue}`;
+	valueBar.classList.add("value");
+	valueModifiedByNodeBar.classList.add("valueModifiedByNode");
+	if (baseModifier > 0) {
+		valueModifiedByNodeBar.classList.add("positive");
+	}
+	valueModifiedBar.classList.add("valueModified");
+	valueBar.style.width = Math.round(((currentValue) / maxValue) * 100) + "%";
+	valueBar.dataset.currentValue = currentValue;
+	valueBar.dataset.maxValue = maxValue;
+	valueBar.dataset.baseModifier = baseModifier;
+	if (baseModifier >= currentValue) {
+		baseModifier = currentValue;
+	}
+	valueModifiedBar.style.width = "100%";
+	valueModifiedByNodeBar.appendChild(valueModifiedBar);
+	// valueModifiedByNodeBar.appendChild(text);
+	valueBar.appendChild(valueModifiedByNodeBar);
+	container.appendChild(text);
+	container.appendChild(valueBar);
+	return container;
 }

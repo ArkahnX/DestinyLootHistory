@@ -9,6 +9,7 @@ var elements = {
 	container: document.getElementById("container"),
 	tooltip: document.getElementById("tooltip"),
 	itemImage: document.getElementById("item-image"),
+	squareProgress: document.getElementById("squareProgress"),
 	itemName: document.getElementById("item-name"),
 	itemType: document.getElementById("item-type"),
 	itemRarity: document.getElementById("item-rarity"),
@@ -511,6 +512,16 @@ function postDisplay() {
 	makePages();
 	oldItemChangeQuantity = (currentItemSet && currentItemSet.length);
 	oldPageNumber = pageNumber;
+	var progressBars = document.querySelectorAll(".squareProgress");
+	for (var progressBar of progressBars) {
+		var t = progressBar.dataset.value / progressBar.dataset.max;
+		if (t > 0 && t !== Infinity) {
+			var n = new SquareProgress(progressBar, t);
+			n.backgroundColor = "rgba(0,0,0,0)";
+			n.borderColor = "rgba(0,0,0,0)";
+			n.draw();
+		}
+	}
 }
 var moment = moment || null
 
@@ -650,6 +661,13 @@ function makeProgress(progressData, classRequirement) {
 	// NO BACKGROUND IMAGE ON FACTION ICONS BECAUSE THEY ARE TRANSPARENT
 	if (DestinyFactionDefinition[progressData.factionHash]) {
 		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyFactionDefinition[progressData.factionHash].factionIcon + "')");
+		var canvas = document.createElement("canvas");
+		canvas.classList.add("squareProgress", "repProgress");
+		canvas.width = 37;
+		canvas.height = 37;
+		canvas.dataset.max = progressData.nextLevelAt;
+		canvas.dataset.value = progressData.progressToNextLevel;
+		container.appendChild(canvas);
 	} else if (DestinyProgressionDefinition[progressData.progressionHash].icon) {
 		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyProgressionDefinition[progressData.progressionHash].icon + "')");
 	} else if (progressData.name === "pvp_iron_banner.loss_tokens") {
@@ -805,14 +823,26 @@ function passFactionData(DomNode, diffData, classRequirement) {
 		DomNode.dataset.itemHash = diffData.factionHash;
 		DomNode.dataset.itemName = factionData.factionName;
 		DomNode.dataset.itemDescription = factionData.factionDescription;
+		DomNode.dataset.itemTypeName = "Faction";
 	} else {
 		let factionData = DestinyProgressionDefinition[diffData.progressionHash];
 		DomNode.dataset.itemHash = diffData.progressionHash;
 		DomNode.dataset.itemName = factionData.name;
 		DomNode.dataset.itemDescription = "";
+		DomNode.dataset.itemTypeName = "Progression";
+	}
+	if (DestinyFactionDefinition[diffData.factionHash]) {
+		DomNode.dataset.itemImage = DestinyFactionDefinition[diffData.factionHash].factionIcon;
+	} else if (DestinyProgressionDefinition[diffData.progressionHash].icon) {
+		DomNode.dataset.itemImage = DestinyProgressionDefinition[diffData.progressionHash].icon;
+	} else if (diffData.name === "pvp_iron_banner.loss_tokens") {
+		DomNode.dataset.itemImage = getItemDefinition(3397982326).icon;
+	} else if (diffData.name === "r1_s4_hiveship_orbs") {
+		DomNode.dataset.itemImage = getItemDefinition(1069694698).icon;
+	} else {
+		DomNode.dataset.itemImage = "/img/misc/missing_icon.png";
 	}
 	DomNode.dataset.tierTypeName = "Common";
-	DomNode.dataset.itemTypeName = "Faction";
 	DomNode.dataset.equipRequiredLevel = 0;
 	DomNode.dataset.primaryStat = diffData.progressToNextLevel;
 	DomNode.dataset.primaryStatName = diffData.nextLevelAt;

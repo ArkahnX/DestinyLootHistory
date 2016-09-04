@@ -416,6 +416,8 @@ header {
 	float: right;
 }
 #item-head {
+	position: relative;
+
 	padding: 5px 18px;
 
 	transition: background-color .5s ease, color .5s ease;
@@ -455,7 +457,9 @@ header {
 	background: #C14443;
 }
 
-.TheTakenKing #item-head, .ChallengeoftheElders #item-head, .King\'sFall #item-head {
+.TheTakenKing #item-head,
+.ChallengeoftheElders #item-head,
+.King\'sFall #item-head {
 	background-image: linear-gradient(45deg,transparent 244px,rgba(0,0,0,.11) 30px);
 }
 
@@ -529,54 +533,67 @@ header {
 
 .one-row {
 	min-height: 56px;
+	max-height: 56px;
 }
 
 .two-rows {
 	min-height: 112px;
+	max-height: 112px;
 }
 
 .three-rows {
 	min-height: 168px;
+	max-height: 168px;
 }
 
 .four-rows {
 	min-height: 224px;
+	max-height: 224px;
 }
 
 .five-rows {
 	min-height: 280px;
+	max-height: 280px;
 }
 
 .six-rows {
 	min-height: 336px;
+	max-height: 336px;
 }
 
 .seven-rows {
 	min-height: 392px;
+	max-height: 392px;
 }
 
 .eight-rows {
 	min-height: 448px;
+	max-height: 448px;
 }
 
 .nine-rows {
 	min-height: 504px;
+	max-height: 504px;
 }
 
 .ten-rows {
 	min-height: 560px;
+	max-height: 560px;
 }
 
 .eleven-rows {
 	min-height: 616px;
+	max-height: 616px;
 }
 
 .twelve-rows {
 	min-height: 672px;
+	max-height: 672px;
 }
 
 .thirteen-rows {
 	min-height: 728px;
+	max-height: 728px;
 }
 
 #added,
@@ -1592,4 +1609,32 @@ optgroup option {
 
 #debugHome + #tooltip {
 	height: calc(100% - 32px);
+}
+
+.progress-text {
+	position: relative;
+	z-index: 1;
+
+	float: right;
+
+	margin-right: 3px;
+}
+
+.repProgress {
+	position: absolute;
+	top: 6px;
+	left: 7px;
+
+	width: 37px;
+	height: 37px;
+
+	transform: rotateZ(45deg);
+}
+
+.bigProgress {
+	position: absolute;
+	top: 18px;
+	right: 155px;
+
+	transform: rotateZ(45deg);
 }
