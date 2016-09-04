@@ -312,12 +312,24 @@ header {
 	background: #85C5EC;
 }
 
+.complete.arc + .primary-stat {
+color: #85C5EC;
+}
+
 .solar + .primary-stat {
 	background: #F2721B;
 }
 
+.complete.solar + .primary-stat {
+color: #F2721B;
+}
+
 .void + .primary-stat {
 	background: #B184C5;
+}
+
+.complete.void + .primary-stat {
+color: #B184C5;
 }
 
 .main-section {
@@ -467,7 +479,7 @@ header {
 	background-color: #CEAE33;
 }
 .legendary #item-head {
-	background-color: #4A315D;
+	background-color: #522f65;
 }
 .rare #item-head {
 	background-color: #5076A3;
@@ -758,6 +770,10 @@ label {
 
 .node-list {
 	animation: flipdown .5s ease both;
+	color: #F5F5F5;
+	font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 
@@ -1637,4 +1653,14 @@ optgroup option {
 	right: 155px;
 
 	transform: rotateZ(45deg);
+}
+
+.vendor-title h1 {
+	font-size:3.5em;
+}
+.vendor-title h2 {
+	font-size:2.5em;
+}
+.vendor-title h3 {
+	font-size:1.5em;
 }

@@ -1,4 +1,5 @@
 var tooltipTimeout = null;
+var newInventories = newInventories || {};
 
 function handleTooltipData(dataset, element, event) {
 	clearTimeout(tooltipTimeout);
@@ -98,8 +99,8 @@ function handleOtherStats(dataset, resolve) {
 	elements.statTable.innerHTML = "";
 	elements.nodeTable.innerHTML = "";
 	elements.costTable.innerHTML = "";
+	elements.compareTable.innerHTML = "";
 	var itemDef = null;
-	console.log()
 	if (DestinyFactionDefinition[dataset.itemHash]) {
 		itemDef = DestinyFactionDefinition[dataset.itemHash];
 	} else if (DestinyProgressionDefinition[dataset.itemHash]) {
@@ -195,7 +196,8 @@ function handleOtherStats(dataset, resolve) {
 		if (parseInt(dataset.primaryStat) === 335) {
 			maxQuality = minQuality;
 		}
-		tableText.textContent = "Quality (" + minQuality + "/" + maxQuality + ")";
+		tableText.style.color = dataset.qualityColor;
+		tableText.textContent = "Quality (" + minQuality + " - " + maxQuality + ")";
 		var tableData = document.createElement("td");
 		tableData.classList.add("valueBar");
 		var max = 100;
@@ -238,6 +240,44 @@ function handleOtherStats(dataset, resolve) {
 			costTotal.appendChild(cost2);
 			tableRow.appendChild(costTotal);
 			elements.costTable.appendChild(tableRow);
+		}
+	}
+	if (elements.itemCompare && itemDef.itemCategoryHashes && (itemDef.itemCategoryHashes.indexOf(20) > -1 || itemDef.itemCategoryHashes.indexOf(1) > -1)) {
+		var comparisonItems = [];
+		var sourceInventories = newInventories;
+		if (Object.keys(data.inventories).length) {
+			sourceInventories = data.inventories;
+		}
+		for (var characterId in sourceInventories) {
+			for (var item of sourceInventories[characterId]) {
+				if (item.itemHash === parseInt(dataset.itemHash) && item.itemInstanceId !== dataset.itemInstanceId) {
+					comparisonItems.push(item);
+				}
+			}
+		}
+		if (comparisonItems.length > 0) {
+			let titleRow = document.createElement("tr");
+			titleRow.classList.add("node-list");
+			let titleText = document.createElement("td");
+			titleText.textContent = "Comparison";
+			titleRow.appendChild(titleText);
+			elements.compareTable.appendChild(titleRow);
+			let compareRow = document.createElement("tr");
+			compareRow.classList.add("node-list");
+			for (var item of comparisonItems) {
+				let tableText = document.createElement("td");
+				tableText.classList.add("node");
+				tableText.appendChild(makeItem(item));
+				compareRow.appendChild(tableText);
+				if (compareRow.children.length === 3) {
+					elements.compareTable.appendChild(compareRow);
+					compareRow = document.createElement("tr");
+					compareRow.classList.add("node-list");
+				}
+			}
+			if (compareRow.children.length > 0) {
+				elements.compareTable.appendChild(compareRow);
+			}
 		}
 	}
 	if (dataset.objectiveTree) {
@@ -288,7 +328,7 @@ function handleOtherStats(dataset, resolve) {
 			if (node.icon) {
 				tableText.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + node.icon + "')");
 			}
-			tableText.title = node.nodeStepName + "\n" + node.nodeStepDescription;
+			tableText.title = node.nodeStepName + " \n" + node.nodeStepDescription;
 		}
 		if (itemDef.bucketTypeHash === 4023194814) {
 			if (nodeData.rows > 1 && nodeData.columns > 1) {
@@ -307,6 +347,7 @@ function handleOtherStats(dataset, resolve) {
 				} else if (materialText === "Wormspore") {
 					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[3164836592].icon + "')");
 				}
+				console.log(guardianText,guardianText === "Reclamation")
 				if (guardianText === "Titan") {
 					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[1723894001].icon + "')");
 				} else if (guardianText === "Warlock") {
@@ -324,8 +365,8 @@ function handleOtherStats(dataset, resolve) {
 				} else if (guardianText === "Ether") {
 					guardianIcon.setAttribute("style", "background-image: url(" + "'img/fallen.png')");
 				}
-				materialIcon.title = materialText;
-				guardianIcon.title = guardianText;
+				// materialIcon.title = materialText;
+				// guardianIcon.title = guardianText;
 
 				// tableText.classList.add("node");
 				// if (node.icon) {

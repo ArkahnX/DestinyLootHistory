@@ -25,6 +25,19 @@ var cannotEquipReason = [
 	"ItemFailedLevelCheck",
 	"ItemNotOnCharacter"
 ];
+const manualVendorHashMap = {
+	"1998812735": 283961095,
+	"1575820975": 814931142,
+	"3003633346": 814931142,
+	"1990950": 814931142,
+	"3746647075": 814931155,
+	"3658200622": 814931155,
+	"4269570979": 1220331761,
+	"1303406887": 1220331761,
+	"1821699360": 2756606348,
+	"1808244981": 3287962537,
+	"3611686524": 4050234120
+};
 
 function makeSaleItem(itemHash, unlockStatuses, saleItem, currencies) {
 	var itemDef = getItemDefinition(itemHash);
@@ -173,15 +186,31 @@ function makeSaleItem(itemHash, unlockStatuses, saleItem, currencies) {
 function makeItemsFromVendor(vendor) {
 	var list = vendor.saleItemCategories;
 	var mainContainer = document.getElementById("history");
+	var localVendor = {};
+	for (let vendorType of vendors) {
+		for (let vendorDescription of vendorType) {
+			if (vendorDescription.vendorHash === vendor.vendorHash) {
+				localVendor = vendorDescription;
+			}
+		}
+	}
 	// var categories = emblemData.data.vendor.saleItemCategories;
 	// var vendorCategory = outfitterData.data.vendor.saleItemCategories[0];
-	if (vendor.nextRefreshDate) {
-		var resetDate = document.createElement("div");
-		var resetDate2 = document.createElement("h1");
-		resetDate2.innerHTML = date.vendorRefreshDate(vendor);
-		resetDate.classList.add("sub-section");
-		resetDate.appendChild(resetDate2);
-		mainContainer.appendChild(resetDate);
+	if (localVendor.vendorName) {
+		var vendorContainer = document.createElement("div");
+		var vendorName = document.createElement("h1");
+		var vendorDescription = document.createElement("h3");
+		vendorName.textContent = localVendor.vendorName;
+		vendorDescription.textContent = localVendor.vendorDescription;
+		vendorContainer.classList.add("sub-section","vendor-title");
+		vendorContainer.appendChild(vendorName);
+		vendorContainer.appendChild(vendorDescription);
+		if (vendor.nextRefreshDate) {
+			var resetDate = document.createElement("h2");
+			resetDate.innerHTML = date.vendorRefreshDate(vendor);
+			vendorContainer.appendChild(resetDate);
+		}
+		mainContainer.appendChild(vendorContainer);
 	}
 	for (var category of list) {
 		var titleContainer = document.createElement("div");
@@ -207,7 +236,7 @@ function makeItemsFromVendor(vendor) {
 		subContainer.appendChild(docfrag);
 		mainContainer.appendChild(subContainer);
 	}
-	var vendorPackage = vendor.package && vendor.package.derivedItemCategories || [];
+	var vendorPackage = localVendor.package && localVendor.package.derivedItemCategories || [];
 	for (let category of vendorPackage) {
 		let titleContainer = document.createElement("div");
 		titleContainer.classList.add("sub-section");
@@ -237,6 +266,9 @@ function makeItemsFromVendor(vendor) {
 var deadVendors = [415161769, 863056813, 3019290222, 2698860028, 1660667815, 1588933401, 2586808090, 1653856985, 529545063, 1353750121, 4275962006, 163657562, 3898086963, 3165969428, 892630493, 2016602161];
 var selectedCharacter = localStorage.newestCharacter;
 var lastVendor = "";
+var vendors = {
+	other: []
+};
 
 chrome.storage.local.get("inventories", function(data) {
 	if (chrome.runtime.lastError) {
@@ -244,9 +276,6 @@ chrome.storage.local.get("inventories", function(data) {
 	}
 	newInventories = data.inventories;
 	initItems(function() {
-		var vendors = {
-			other: []
-		};
 		var characterHTML = "";
 		for (let characterId in characterDescriptions) {
 			if (characterId !== "vault") {
@@ -279,18 +308,32 @@ chrome.storage.local.get("inventories", function(data) {
 				return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
 			});
 		}
-		for (let itemDefinition of DestinyCompactItemDefinition) {
-			if (itemDefinition.itemTypeName === "Package" && itemDefinition.derivedItemCategories && itemDefinition.derivedItemVendorHash) {
-				for (let vendorType of vendors) {
-					for (let vendor of vendorType) {
-						if (vendor.vendorHash === itemDefinition.derivedItemVendorHash) {
-							console.log(vendor, itemDefinition)
-							vendor.package = itemDefinition;
+		for (let vendorHash in manualVendorHashMap) {
+			for (let itemDefinition of DestinyCompactItemDefinition) {
+				if (itemDefinition.itemTypeName === "Package" && itemDefinition.derivedItemCategories && itemDefinition.derivedItemVendorHash && manualVendorHashMap[vendorHash] === itemDefinition.itemHash) {
+					for (let vendorType of vendors) {
+						for (let vendor of vendorType) {
+							if (vendor.vendorHash === parseInt(vendorHash)) {
+								vendor.package = itemDefinition;
+							}
 						}
 					}
 				}
 			}
 		}
+		// for (let itemDefinition of DestinyCompactItemDefinition) {
+		// 	if (itemDefinition.itemTypeName === "Package" && itemDefinition.derivedItemCategories && itemDefinition.derivedItemVendorHash) {
+		// 		var vendorHash = 
+		// 		for (let vendorType of vendors) {
+		// 			for (let vendor of vendorType) {
+		// 				if (vendor.vendorHash === itemDefinition.derivedItemVendorHash) {
+		// 					console.log(vendor, itemDefinition)
+		// 					vendor.package = itemDefinition;
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+		// }
 		var vendorHTML = "";
 		for (let vendorCategory in vendors) {
 			vendorHTML += `<optgroup label="${DestinyVendorCategoryDefinition[vendorCategory] && DestinyVendorCategoryDefinition[vendorCategory].categoryName || vendorCategory}">`;

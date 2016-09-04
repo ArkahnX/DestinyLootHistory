@@ -18,6 +18,8 @@ var elements = {
 	itemPrimaryStat: document.getElementById("item-primary-stat"),
 	itemStatText: document.getElementById("item-stat-text"),
 	itemDescription: document.getElementById("item-description"),
+	itemCompare: document.getElementById("item-compare"),
+	compareTable: document.getElementById("compare-table"),
 	classRequirement: document.getElementById("class-requirement"),
 	statTable: document.getElementById("stat-table"),
 	nodeTable: document.getElementById("node-table"),
@@ -40,10 +42,12 @@ var elementNames = {
 	itemPrimaryStat: "item-primary-stat",
 	itemStatText: "item-stat-text",
 	itemDescription: "item-description",
+	itemCompare: "item-compare",
 	classRequirement: "class-requirement",
 	statTable: "stat-table",
 	nodeTable: "node-table",
-	costTable: "cost-table"
+	costTable: "cost-table",
+	compareTable: "compare-table"
 };
 
 var currentItemSet = [];
@@ -625,6 +629,7 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 		quality.textContent = qualityData.min + "%";
 		container.dataset.qualityMin = qualityData.min;
 		container.dataset.qualityMax = qualityData.max;
+		container.dataset.qualityColor = qualityData.color;
 	}
 	itemContainer.appendChild(stat);
 	docfrag.appendChild(itemContainer);
