@@ -184,18 +184,24 @@ function initUi() {
 			}
 		}
 	}
-	if (elements.autoLock && elements.track3oC) {
-		getAllOptions().then(function(options) {
+	getAllOptions().then(function(options) {
+		if (elements.autoLock) {
 			elements.autoLock.checked = options.autoLock === true;
 			elements.autoLock.addEventListener("change", handleCheckboxChange, false);
+		}
+		if (elements.track3oC) {
 			elements.track3oC.checked = options.track3oC === true;
 			elements.track3oC.addEventListener("change", handleCheckboxChange, false);
+		}
+		if (elements.showQuality) {
 			elements.showQuality.checked = options.showQuality === true;
 			elements.showQuality.addEventListener("change", handleCheckboxChange, false);
+		}
+		if (elements.useGuardianLight) {
 			elements.useGuardianLight.checked = options.useGuardianLight === true;
 			elements.useGuardianLight.addEventListener("change", handleCheckboxChange, false);
-		});
-	}
+		}
+	});
 }
 
 function handleCheckboxChange(event) {

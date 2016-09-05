@@ -27,11 +27,11 @@ var notification = (function() {
 	let manifest = chrome.runtime.getManifest();
 	const changelog = `New in ${manifest.version}:<br>
 <ul>
-	<li>Most issues can be resolved by following steps in the "<a href="debug.html">Report Issue</a>" page.</li>
-	<li>Quick toggles for three of coins and auto locking in on the front page.</li>
-	<li>New: <a href="vendors.html">Vendors</a> page under "Features". Browse vendors and compare them. <br />Example: Compare the Guardian Outfitter against the Emblem Kiosk to see missing emblems.</li>
-	<li>New: <a href="options.html">Options</a> to move excess consumables and materials to the vault. Name the items you want to move, set a maximum stack size, and the extension will take care of the rest.</li>
-	<li>New: <a href="https://www.reddit.com/r/DestinyLootHistory/">Destiny Loot History subreddit</a>, post suggestions, issues and more here. Also a great source to view patch notes.</li>
+	<li>Got problems or suggestions? <a href="https://www.reddit.com/message/compose/?to=ArkahnX">Message ArkahnX</a> on Reddit!</li>
+	<li><a href="http://imgur.com/a/QGLZf">Gallery of new features.</a></li>
+	<li>New "<a href="collection.html">Collections</a>" page, discover what you might be missing from your collection, and where to obtain it.</li>
+	<li>New comparison feature, the tooltip on the right now displays duplicates of the gear you are inspecting.</li>
+	<li>And more! Check out the gallery for the full details.</li>
 </ul>`;
 
 	localStorage.notificationClosed = localStorage.notificationClosed || "true";

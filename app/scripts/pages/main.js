@@ -3,6 +3,11 @@ if (localStorage.characterDescriptions) {
 	characterDescriptions = JSON.parse(localStorage.characterDescriptions);
 	jsonCharacterDescriptions = localStorage.characterDescriptions;
 }
+var debugMessage = `Destiny Loot History V${chrome.runtime.getManifest().version}
+GitHub: https://github.com/ArkahnX/DestinyLootHistory
+Gallery: http://imgur.com/a/QGLZf
+Reddit: https://www.reddit.com/message/compose/?to=ArkahnX`;
+console.log(debugMessage);
 
 chrome.storage.local.get(null, function(result) {
 	if (chrome.runtime.lastError) {
