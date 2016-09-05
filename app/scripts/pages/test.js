@@ -7,6 +7,10 @@ var data = {
 	itemChanges: [],
 	factionChanges: []
 };
+var globalOptions = {};
+getAllOptions().then(function(options) {
+	globalOptions = options;
+});
 var relevantStats = ["itemHash", "itemInstanceId", "isEquipped", "itemInstanceId", "stackSize", "itemLevel", "qualityLevel", "stats", "primaryStat", "equipRequiredLevel", "damageTypeHash", "progression", "talentGridHash", "nodes", "isGridComplete", "objectives"];
 var characterIdList = ["vault"];
 var characterDescriptions = {
@@ -190,7 +194,7 @@ function makeHistoryItem(itemData) {
 	var container = document.createElement("div");
 	var stat = document.createElement("div");
 	itemContainer.appendChild(container);
-	if (hasQuality(itemData)) {
+	if (hasQuality(itemData) && globalOptions.showQuality) {
 		var quality = document.createElement("div");
 		itemContainer.appendChild(quality);
 		quality.classList.add("quality");

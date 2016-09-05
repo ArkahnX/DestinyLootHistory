@@ -130,10 +130,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	var perkList = document.getElementById('perkList');
 	var pgcrImage = document.getElementById('pgcrImage');
 	var relativeDates = document.getElementById('relativeDates');
+	var useGuardianLight = document.getElementById('useGuardianLight');
+	useGuardianLight.addEventListener("change", function() {
+		if (useGuardianLight.checked) {
+			minLight.disabled = true;
+		} else {
+			minLight.disabled = false;
+		}
+	});
 	getAllOptions().then(function(options) {
 		minLight.value = options.minLight;
 		minQuality.value = options.minQuality;
 		minLight.addEventListener("change", handleQualityChange, false);
+		if (options.useGuardianLight) {
+			minLight.disabled = true;
+		}
 		minQuality.addEventListener("change", handleQualityChange, false);
 		relativeDates.checked = options.relativeDates;
 		relativeDates.addEventListener("change", handleCheckboxChange, false);

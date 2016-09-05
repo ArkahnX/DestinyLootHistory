@@ -29,6 +29,8 @@ var elements = {
 	autoLock: document.getElementById("autoLock"),
 	track3oC: document.getElementById("track3oC"),
 	paginate: document.getElementById("paginate"),
+	showQuality: document.getElementById("showQuality"),
+	useGuardianLight: document.getElementById("useGuardianLight"),
 	version: document.getElementById("version")
 };
 
@@ -81,18 +83,20 @@ function initUi() {
 				target = event.target;
 			} else if (event.target.parentNode.classList.contains("item") || event.target.parentNode.classList.contains("faction")) {
 				target = event.target.parentNode;
+			} else if (event.target.parentNode.classList.contains("item-container")) {
+				target = event.target.parentNode.children[0];
 			}
 			if (target && target !== previousElement) {
 				// elements.tooltip.classList.add("hidden");
 				previousElement = target;
-				handleTooltipData(event.target.dataset, event.target, event);
+				handleTooltipData(target.dataset, target, event);
 			}
 			if (!target) {
 				clearTimeout(tooltipTimeout);
 				// elements.tooltip.classList.add("hidden");
 				previousElement = null;
 			}
-		}, false);
+		}, true);
 	}
 	if (elements.ToCReminder) {
 		getOption("track3oC").then(function(track3oC) {
@@ -186,6 +190,10 @@ function initUi() {
 			elements.autoLock.addEventListener("change", handleCheckboxChange, false);
 			elements.track3oC.checked = options.track3oC === true;
 			elements.track3oC.addEventListener("change", handleCheckboxChange, false);
+			elements.showQuality.checked = options.showQuality === true;
+			elements.showQuality.addEventListener("change", handleCheckboxChange, false);
+			elements.useGuardianLight.checked = options.useGuardianLight === true;
+			elements.useGuardianLight.addEventListener("change", handleCheckboxChange, false);
 		});
 	}
 }
@@ -619,7 +627,7 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 	itemContainer.appendChild(container);
 	itemContainer.dataset.itemType = itemType(itemData.itemHash);
 	itemContainer.dataset.itemRarity = itemRarity(itemData.itemHash);
-	if (hasQuality(itemData)) {
+	if (hasQuality(itemData) && globalOptions.showQuality) {
 		var quality = document.createElement("div");
 		itemContainer.appendChild(quality);
 		quality.classList.add("quality");

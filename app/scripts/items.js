@@ -33,6 +33,7 @@ function initItems(callback) {
 			var avatars = e.data.characters;
 			var newestCharacter = "vault";
 			var newestDate = 0;
+			var maxLight = globalOptions.minLight;
 			for (let avatar of avatars) {
 				if (!characterDescriptions[avatar.characterBase.characterId]) {
 					characterDescriptions[avatar.characterBase.characterId] = {
@@ -42,13 +43,16 @@ function initItems(callback) {
 						light: avatar.characterBase.powerLevel,
 						race: DestinyRaceDefinition[avatar.characterBase.raceHash].raceName,
 						dateLastPlayed: avatar.characterBase.dateLastPlayed,
-						currentActivityHash:avatar.characterBase.currentActivityHash
+						currentActivityHash: avatar.characterBase.currentActivityHash
 					};
 				} else { // we already have set these characters so just update their data.
 					characterDescriptions[avatar.characterBase.characterId].level = avatar.baseCharacterLevel;
 					characterDescriptions[avatar.characterBase.characterId].light = avatar.characterBase.powerLevel;
 					characterDescriptions[avatar.characterBase.characterId].dateLastPlayed = avatar.characterBase.dateLastPlayed;
 					characterDescriptions[avatar.characterBase.characterId].currentActivityHash = avatar.characterBase.currentActivityHash;
+				}
+				if (avatar.characterBase.powerLevel > maxLight) {
+					maxLight = avatar.characterBase.powerLevel;
 				}
 				if (new Date(avatar.characterBase.dateLastPlayed).getTime() > new Date(newestDate).getTime()) { // set newest character for 3oC reminder
 					newestDate = avatar.characterBase.dateLastPlayed;
@@ -60,6 +64,9 @@ function initItems(callback) {
 			}
 			localStorage.newestCharacter = newestCharacter;
 			localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
+			if (globalOptions.useGuardianLight && maxLight !== globalOptions.minLight) {
+				setOption("minLight", maxLight);
+			}
 			logger.timeEnd("load Bungie Data");
 			if (typeof callback === "function") {
 				callback();
@@ -510,6 +517,7 @@ function grabRemoteInventory(resolve, reject) {
 			logger.timeEnd("Bungie Search");
 			let characters = guardian.data.characters;
 			var newestDate = 0;
+			var maxLight = globalOptions.minLight;
 			// record some descriptors for each character
 			for (let avatar of characters) {
 				if (!characterDescriptions[avatar.characterBase.characterId]) {
@@ -520,13 +528,16 @@ function grabRemoteInventory(resolve, reject) {
 						light: avatar.characterBase.powerLevel,
 						race: DestinyRaceDefinition[avatar.characterBase.raceHash].raceName,
 						dateLastPlayed: avatar.characterBase.dateLastPlayed,
-						currentActivityHash:avatar.characterBase.currentActivityHash
+						currentActivityHash: avatar.characterBase.currentActivityHash
 					};
 				} else { // we already have set these characters so just update their data.
 					characterDescriptions[avatar.characterBase.characterId].level = avatar.baseCharacterLevel;
 					characterDescriptions[avatar.characterBase.characterId].light = avatar.characterBase.powerLevel;
 					characterDescriptions[avatar.characterBase.characterId].dateLastPlayed = avatar.characterBase.dateLastPlayed;
 					characterDescriptions[avatar.characterBase.characterId].currentActivityHash = avatar.characterBase.currentActivityHash;
+				}
+				if (avatar.characterBase.powerLevel > maxLight) {
+					maxLight = avatar.characterBase.powerLevel;
 				}
 				if (new Date(avatar.characterBase.dateLastPlayed).getTime() > new Date(newestDate).getTime()) { // set newest character for 3oC reminder
 					newestDate = avatar.characterBase.dateLastPlayed;
@@ -538,6 +549,9 @@ function grabRemoteInventory(resolve, reject) {
 			}
 			localStorage.newestCharacter = newestCharacter;
 			localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
+			if (globalOptions.useGuardianLight && maxLight !== globalOptions.minLight) {
+				setOption("minLight", maxLight);
+			}
 			logger.time("Bungie Items");
 			// Loop through all found characters and save their new Item data to newInventories
 			logger.info("Character List", characterIdList);
@@ -841,7 +855,7 @@ function eligibleToLock(item, characterId) {
 		}
 		var itemDef = getItemDefinition(item.itemHash);
 		if ((itemDef.tierTypeName === "Legendary" || itemDef.tierTypeName === "Exotic") && item.stats && item.primaryStat) {
-			if (item.primaryStat.statHash === 3897883278) {
+			if (item.primaryStat.statHash === 3897883278 && globalOptions.showQuality) {
 				var qualityLevel = parseItemQuality(item);
 				logger.log(qualityLevel.min, parseInt(options.minQuality) || 90, item.primaryStat.value, parseInt(options.minLight) || 335);
 				if (qualityLevel.min >= (parseInt(options.minQuality) || 90) || item.primaryStat.value >= (parseInt(options.minLight) || 335)) {
@@ -849,7 +863,7 @@ function eligibleToLock(item, characterId) {
 						logger.log(response);
 					});
 				}
-			} else if (item.primaryStat.statHash === 368428387) {
+			} else if (item.primaryStat.statHash === 368428387 || (item.primaryStat.statHash === 3897883278 && globalOptions.showQuality === false)) {
 				if (item.primaryStat.value >= (parseInt(options.minLight) || 335)) {
 					bungie.lock(characterId, item.itemInstanceId).then(function(response) {
 						logger.log(response);

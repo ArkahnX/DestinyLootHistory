@@ -1,6 +1,10 @@
 tracker.sendAppView('Collection');
 logger.disable();
 getOption("activeType").then(bungie.setActive);
+var globalOptions = {};
+getAllOptions().then(function(options) {
+	globalOptions = options;
+});
 
 function findGhosts(inventories) {
 	var mainContainer = document.getElementById("ghostContainer");
@@ -148,12 +152,22 @@ function findGhosts(inventories) {
 	for (var uniqueGhost of sortedGhosts.uniqueGhosts.hashes) {
 		for (var ghost of ghosts) {
 			if (ghost.itemHash === uniqueGhost.itemHash) {
-				if (!hasQuality(uniqueGhost.topGhost)) {
-					uniqueGhost.topGhost = ghost;
-				}
-				uniqueGhost.matches.push(ghost);
-				if (parseItemQuality(ghost).min > parseItemQuality(uniqueGhost.topGhost).min) {
-					uniqueGhost.topGhost = ghost;
+				if (globalOptions.showQuality) {
+					if (!hasQuality(uniqueGhost.topGhost)) {
+						uniqueGhost.topGhost = ghost;
+					}
+					uniqueGhost.matches.push(ghost);
+					if (parseItemQuality(ghost).min > parseItemQuality(uniqueGhost.topGhost).min) {
+						uniqueGhost.topGhost = ghost;
+					}
+				} else {
+					if (!uniqueGhost.topGhost.primaryStat) {
+						uniqueGhost.topGhost = ghost;
+					}
+					uniqueGhost.matches.push(ghost);
+					if (uniqueGhost.topGhost.primaryStat.value < ghost.primaryStat.value) {
+						uniqueGhost.topGhost = ghost;
+					}
 				}
 			}
 		}
@@ -340,7 +354,11 @@ function findShips() {
 function findT12() {
 	var mainContainer = document.getElementById("t12Container");
 	mainContainer.innerHTML = "Loading...";
-	displayT12VendorItems(mainContainer);
+	if (globalOptions.showQuality) {
+		displayT12VendorItems(mainContainer);
+	} else {
+		mainContainer.innerHTML = "Please enable the 'Show Quality' option on the <a href='options.html'>options page</a> to use this feature.";
+	}
 }
 
 var selectedCharacter = localStorage.newestCharacter;
@@ -400,19 +418,23 @@ document.addEventListener("DOMContentLoaded", function() {
 			target = event.target;
 		} else if (event.target.parentNode.classList.contains("item") || event.target.parentNode.classList.contains("faction")) {
 			target = event.target.parentNode;
+		} else if(event.target.parentNode.classList.contains("item-container")) {
+			target = event.target.parentNode.children[0];
 		}
 		if (target && target !== previousElement) {
+		console.log(target)
 			// elements.tooltip.classList.add("hidden");
 			previousElement = target;
-			handleTooltipData(event.target.dataset, event.target, event);
+			handleTooltipData(target.dataset, target, event);
 		}
 		if (!target) {
 			clearTimeout(tooltipTimeout);
 			// elements.tooltip.classList.add("hidden");
 			previousElement = null;
 		}
-	}, false);
+	}, true);
 	initItems(postInitItems);
+	document.getElementById("debugHome").classList.remove("hidden");
 });
 
 window.requestAnimationFrame(date.keepDatesUpdated);

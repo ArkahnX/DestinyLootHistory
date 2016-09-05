@@ -1,6 +1,9 @@
 tracker.sendAppView('Vendor');
 logger.disable();
-
+var globalOptions = {};
+getAllOptions().then(function(options) {
+	globalOptions = options;
+});
 var saleItemStatuses = [
 	"Success",
 	"Not Enough Space",

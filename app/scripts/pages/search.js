@@ -10,8 +10,8 @@ chrome.storage.local.get(null, function(result) {
 });
 
 getAllOptions().then(function(options) {
-		globalOptions = options;
-	});
+	globalOptions = options;
+});
 
 var uniqueId = 0;
 var searchTerms = [];

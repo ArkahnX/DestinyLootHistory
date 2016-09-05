@@ -102,6 +102,7 @@ function initializeStoredVariables() {
 		localStorage.move3oCCooldown = _checkValue(localStorage.move3oCCooldown, _checkBoolean, "false");
 		localStorage.newestCharacter = _checkValue(localStorage.newestCharacter, _checkNumber, "vault");
 		localStorage.notificationClosed = _checkValue(localStorage.notificationClosed, _checkBoolean, "false");
+		localStorage.disableQuality = _checkValue(localStorage.disableQuality, _checkBoolean, "false");
 		// localStorage.track3oC = _checkValue(localStorage.track3oC, _checkBoolean, "true");
 		localStorage.uniqueId = _checkValue(localStorage.uniqueId, _checkLength, "false");
 		// localStorage.autoLock = _checkValue(localStorage.autoLock, _checkBoolean, "false");
@@ -141,6 +142,8 @@ function initializeStoredVariables() {
 				track3oC: true,
 				relativeDates: true,
 				pgcrImage: false,
+				showQuality: true,
+				useGuardianLight:true,
 				keepSingleStackItems: [],
 				autoMoveItemsToVault: [],
 				minQuality: 90,
@@ -148,6 +151,15 @@ function initializeStoredVariables() {
 			};
 			for (var option in options) {
 				newOptions[option] = options[option];
+			}
+			var dateObj = new Date();
+			var month = dateObj.getUTCMonth() + 1;
+			var day = dateObj.getUTCDate();
+
+			if (localStorage.disableQuality === "false" && month >= 9 && day >= 20) {
+				localStorage.disableQuality = "true";
+				newOptions.showQuality = false;
+				newOptions.minQuality = 100;
 			}
 			if (localStorage.activeType) {
 				if (localStorage.activeType === "xbl") {
