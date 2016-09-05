@@ -14,6 +14,38 @@ Object.prototype[Symbol.iterator] = function() {
 	};
 };
 
+function getOption(name) {
+	return new Promise(function(resolve) {
+		chrome.storage.sync.get(name, function(options) {
+			if (chrome.runtime.lastError) {
+				logger.error(chrome.runtime.lastError);
+			}
+			resolve(options[name]);
+		});
+	});
+}
+
+function getAllOptions() {
+	return new Promise(function(resolve) {
+		chrome.storage.sync.get(null, function(options) {
+			if (chrome.runtime.lastError) {
+				logger.error(chrome.runtime.lastError);
+			}
+			resolve(options);
+		});
+	});
+}
+
+function setOption(name, value) {
+	var obj = {};
+	obj[name] = value;
+	chrome.storage.sync.set(obj, function() {
+		if (chrome.runtime.lastError) {
+			logger.error(chrome.runtime.lastError);
+		}
+	});
+}
+
 // You'll usually only ever have to create one service instance.
 var service = analytics.getService('DestinyLootHistory');
 
@@ -48,7 +80,7 @@ function getItemDefinition(hash) {
 	} else if (DestinyCompactItemDefinition[hash]) {
 		return DestinyCompactItemDefinition[hash];
 	}
-	tracker.sendEvent('Item not in database', `${hash}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
+	// tracker.sendEvent('Item not in database', `${hash}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 	logger.error(`Item Reference ${hash} is not in database. This has been reported.`);
 	console.error(`Item Reference ${hash} is not in database. This has been reported.`);
 	return {
@@ -60,4 +92,14 @@ function getItemDefinition(hash) {
 		itemName: "",
 		bucketTypeHash: 215593132
 	};
+}
+
+function pad(pad, str, padLeft) {
+	if (typeof str === 'undefined')
+		return pad;
+	if (padLeft) {
+		return (pad + str).slice(-pad.length);
+	} else {
+		return (str + pad).substring(0, pad.length);
+	}
 }

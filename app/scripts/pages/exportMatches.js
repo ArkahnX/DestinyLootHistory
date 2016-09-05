@@ -96,17 +96,21 @@ var presetEvents = {
 };
 
 function returnDefaultOptions() {
-	var systems = JSON.parse(localStorage.systems);
-	var system = systems[localStorage.activeType];
-	var currentIronBanner = presetEvents.IronBannerAugust2016;
-	return {
-		minDate: currentIronBanner.minDate,
-		maxDate: currentIronBanner.maxDate,
-		system: system.type,
-		gameMode: currentIronBanner.gameMode,
-		playerNames: [system.id],
-		mainGuardian: system.id
-	};
+	return new Promise(function(resolve) {
+		var systems = JSON.parse(localStorage.systems);
+		getOption("activeType").then(function(activeType) {
+			var system = systems[activeType];
+			var currentIronBanner = presetEvents.IronBannerAugust2016;
+			resolve({
+				minDate: currentIronBanner.minDate,
+				maxDate: currentIronBanner.maxDate,
+				system: system.type,
+				gameMode: currentIronBanner.gameMode,
+				playerNames: [system.id],
+				mainGuardian: system.id
+			});
+		});
+	});
 }
 
 function getOptions() {
@@ -164,10 +168,11 @@ document.addEventListener("DOMContentLoaded", function() {
 		if (!options) {
 			options = {};
 		}
-		var defaultOptions = returnDefaultOptions();
-		console.log(defaultOptions);
-		setOptions(defaultOptions);
-		fillOptionElements(defaultOptions);
+		returnDefaultOptions().then(function(defaultOptions) {
+			console.log(defaultOptions);
+			setOptions(defaultOptions);
+			fillOptionElements(defaultOptions);
+		});
 	});
 	elements.presetSelect.addEventListener("change", function() {
 		var selectedValue = elements.presetSelect.value;

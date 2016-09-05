@@ -24,7 +24,7 @@ function initItems(callback) {
 	logger.log("initItems");
 	// logger.log("Arrived at initItems");
 	logger.time("load Bungie Data");
-	bungie.setActive(localStorage.activeType);
+	getOption("activeType").then(bungie.setActive);
 	bungie.user().then(function() {
 		chrome.browserAction.setBadgeText({
 			text: ""
@@ -33,25 +33,40 @@ function initItems(callback) {
 			var avatars = e.data.characters;
 			var newestCharacter = "vault";
 			var newestDate = 0;
-			for (var c = 0; c < avatars.length; c++) {
-				characterDescriptions[avatars[c].characterBase.characterId] = {
-					name: DestinyClassDefinition[avatars[c].characterBase.classHash].className,
-					gender: DestinyGenderDefinition[avatars[c].characterBase.genderHash].genderName,
-					level: avatars[c].baseCharacterLevel,
-					light: avatars[c].characterBase.powerLevel,
-					race: DestinyRaceDefinition[avatars[c].characterBase.raceHash].raceName,
-					dateLastPlayed: avatars[c].characterBase.dateLastPlayed
-				};
-				if (new Date(avatars[c].characterBase.dateLastPlayed).getTime() > new Date(newestDate).getTime()) {
-					newestDate = avatars[c].characterBase.dateLastPlayed;
-					newestCharacter = avatars[c].characterBase.characterId;
+			var maxLight = globalOptions.minLight;
+			for (let avatar of avatars) {
+				if (!characterDescriptions[avatar.characterBase.characterId]) {
+					characterDescriptions[avatar.characterBase.characterId] = {
+						name: DestinyClassDefinition[avatar.characterBase.classHash].className,
+						gender: DestinyGenderDefinition[avatar.characterBase.genderHash].genderName,
+						level: avatar.baseCharacterLevel,
+						light: avatar.characterBase.powerLevel,
+						race: DestinyRaceDefinition[avatar.characterBase.raceHash].raceName,
+						dateLastPlayed: avatar.characterBase.dateLastPlayed,
+						currentActivityHash: avatar.characterBase.currentActivityHash
+					};
+				} else { // we already have set these characters so just update their data.
+					characterDescriptions[avatar.characterBase.characterId].level = avatar.baseCharacterLevel;
+					characterDescriptions[avatar.characterBase.characterId].light = avatar.characterBase.powerLevel;
+					characterDescriptions[avatar.characterBase.characterId].dateLastPlayed = avatar.characterBase.dateLastPlayed;
+					characterDescriptions[avatar.characterBase.characterId].currentActivityHash = avatar.characterBase.currentActivityHash;
 				}
-				if (characterIdList.indexOf(avatars[c].characterBase.characterId) === -1) {
-					characterIdList.push(avatars[c].characterBase.characterId);
+				if (avatar.characterBase.powerLevel > maxLight) {
+					maxLight = avatar.characterBase.powerLevel;
+				}
+				if (new Date(avatar.characterBase.dateLastPlayed).getTime() > new Date(newestDate).getTime()) { // set newest character for 3oC reminder
+					newestDate = avatar.characterBase.dateLastPlayed;
+					newestCharacter = avatar.characterBase.characterId;
+				}
+				if (characterIdList.indexOf(avatar.characterBase.characterId) === -1) {
+					characterIdList.push(avatar.characterBase.characterId);
 				}
 			}
 			localStorage.newestCharacter = newestCharacter;
 			localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
+			if (globalOptions.useGuardianLight && maxLight !== globalOptions.minLight) {
+				setOption("minLight", maxLight);
+			}
 			logger.timeEnd("load Bungie Data");
 			if (typeof callback === "function") {
 				callback();
@@ -330,38 +345,46 @@ function checkDiff(sourceArray, newArray) {
 	return itemsRemovedFromSource;
 }
 
+function checkThreeOfCoinsXp(track3oC, characterId, currentProgress, characterDisplayXp) {
+	if (track3oC === true) {
+		logger.startLogging("3oC");
+		if (!localStorage[`old3oCProgress${characterId}`]) {
+			localStorage[`old3oCProgress${characterId}`] = currentProgress.currentProgress;
+		}
+		var old3oCProgress = parseInt(localStorage[`old3oCProgress${characterId}`], 10);
+		var progressChange = characterDisplayXp.currentProgress - old3oCProgress;
+		if (!localStorage.move3oCCooldown) {
+			localStorage.move3oCCooldown = "false";
+		}
+		if (!localStorage.move3oC) {
+			localStorage.move3oC = "false";
+		}
+		if (localStorage.move3oCCooldown === "true") {
+			if (characterDisplayXp.currentProgress > 0 && progressChange > 0) {
+				localStorage.move3oCCooldown = "false";
+			}
+		}
+		// logger.log(`Progress === 0 = ${characterDisplayXp.currentProgress} && progressChange < 0 = ${characterDisplayXp.currentProgress} && move3oCCooldown === "false" ${localStorage.move3oCCooldown}`);
+		if (characterDisplayXp.currentProgress === 0 && progressChange < 0 && localStorage.move3oCCooldown === "false") {
+			localStorage.move3oC = "true";
+			localStorage.move3oCCooldown = "true";
+			// forceupdate = true;
+		}
+		localStorage[`old3oCProgress${characterId}`] = characterDisplayXp.currentProgress;
+	}
+}
+
 function checkFactionDiff(sourceArray, newArray, characterId) {
 	var itemsRemovedFromSource = [];
 	for (var i = 0; i < sourceArray.length; i++) {
 		for (var e = 0; e < newArray.length; e++) {
 			var diff = false;
 			if (newArray[e].progressionHash == sourceArray[i].progressionHash && newArray[e].progressionHash === 3298204156) {
-				if (localStorage.track3oC === "true") {
-					logger.startLogging("3oC");
-					if (!localStorage[`old3oCProgress${characterId}`]) {
-						localStorage[`old3oCProgress${characterId}`] = sourceArray[i].currentProgress;
-					}
-					var old3oCProgress = parseInt(localStorage[`old3oCProgress${characterId}`], 10);
-					var progressChange = newArray[e].currentProgress - old3oCProgress;
-					if (!localStorage.move3oCCooldown) {
-						localStorage.move3oCCooldown = "false";
-					}
-					if (!localStorage.move3oC) {
-						localStorage.move3oC = "false";
-					}
-					if (localStorage.move3oCCooldown === "true") {
-						if (newArray[e].currentProgress > 0 && progressChange > 0) {
-							localStorage.move3oCCooldown = "false";
-						}
-					}
-					// logger.log(`Progress === 0 = ${newArray[e].currentProgress} && progressChange < 0 = ${newArray[e].currentProgress} && move3oCCooldown === "false" ${localStorage.move3oCCooldown}`);
-					if (newArray[e].currentProgress === 0 && progressChange < 0 && localStorage.move3oCCooldown === "false") {
-						localStorage.move3oC = "true";
-						localStorage.move3oCCooldown = "true";
-						// forceupdate = true;
-					}
-					localStorage[`old3oCProgress${characterId}`] = newArray[e].currentProgress;
-				}
+				var characterDisplayXp = newArray[e];
+				var currentProgress = sourceArray[i];
+				getOption("track3oC").then(function(track3oC) {
+					checkThreeOfCoinsXp(track3oC, characterId, currentProgress, characterDisplayXp);
+				});
 			} else if (newArray[e].progressionHash == sourceArray[i].progressionHash && newArray[e].currentProgress !== sourceArray[i].currentProgress) {
 				var newItem = {
 					progressionHash: newArray[e].progressionHash,
@@ -487,13 +510,14 @@ function grabRemoteInventory(resolve, reject) {
 	// logger.log("Arrived at grabRemoteInventory");
 	logger.time("Bungie Search");
 	var currentDateString = moment().utc().format();
-	bungie.setActive(localStorage.activeType);
+	getOption("activeType").then(bungie.setActive);
 	// found in bungie.js
 	bungie.user().then(function afterBungieUser() {
 		bungie.search().then(function afterBungieSearch(guardian) {
 			logger.timeEnd("Bungie Search");
 			let characters = guardian.data.characters;
 			var newestDate = 0;
+			var maxLight = globalOptions.minLight;
 			// record some descriptors for each character
 			for (let avatar of characters) {
 				if (!characterDescriptions[avatar.characterBase.characterId]) {
@@ -503,12 +527,17 @@ function grabRemoteInventory(resolve, reject) {
 						level: avatar.baseCharacterLevel,
 						light: avatar.characterBase.powerLevel,
 						race: DestinyRaceDefinition[avatar.characterBase.raceHash].raceName,
-						dateLastPlayed: avatar.characterBase.dateLastPlayed
+						dateLastPlayed: avatar.characterBase.dateLastPlayed,
+						currentActivityHash: avatar.characterBase.currentActivityHash
 					};
 				} else { // we already have set these characters so just update their data.
 					characterDescriptions[avatar.characterBase.characterId].level = avatar.baseCharacterLevel;
 					characterDescriptions[avatar.characterBase.characterId].light = avatar.characterBase.powerLevel;
 					characterDescriptions[avatar.characterBase.characterId].dateLastPlayed = avatar.characterBase.dateLastPlayed;
+					characterDescriptions[avatar.characterBase.characterId].currentActivityHash = avatar.characterBase.currentActivityHash;
+				}
+				if (avatar.characterBase.powerLevel > maxLight) {
+					maxLight = avatar.characterBase.powerLevel;
 				}
 				if (new Date(avatar.characterBase.dateLastPlayed).getTime() > new Date(newestDate).getTime()) { // set newest character for 3oC reminder
 					newestDate = avatar.characterBase.dateLastPlayed;
@@ -520,6 +549,9 @@ function grabRemoteInventory(resolve, reject) {
 			}
 			localStorage.newestCharacter = newestCharacter;
 			localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
+			if (globalOptions.useGuardianLight && maxLight !== globalOptions.minLight) {
+				setOption("minLight", maxLight);
+			}
 			logger.time("Bungie Items");
 			// Loop through all found characters and save their new Item data to newInventories
 			logger.info("Character List", characterIdList);
@@ -779,10 +811,12 @@ function findThreeOfCoins(characterId) {
 function check3oC() {
 	return new Promise(function(resolve) {
 		logger.startLogging("3oC");
-		if (!localStorage.track3oC) {
-			localStorage.track3oC = "true";
-		}
-		if (localStorage.track3oC === "true") {
+		getOption("track3oC").then(function(track3oC) {
+			if (track3oC !== true) {
+				logger.log("We are NOT tracking 3oC");
+				resolve();
+				return false;
+			}
 			logger.log("We ARE tracking 3oC");
 			if (localStorage.move3oC && localStorage.move3oC === "true") { // we have just completed an activity, remind the User about Three of Coins
 				if (localStorage.newestCharacter) {
@@ -810,79 +844,69 @@ function check3oC() {
 				logger.log(`We cannot move 3oC because move3oC = ${localStorage.move3oC}`);
 				resolve();
 			}
-		} else {
-			logger.log("We are NOT tracking 3oC");
-			resolve();
-		}
+		});
 	});
 }
 
 function eligibleToLock(item, characterId) {
-	if (localStorage.autoLock !== "true") {
-		return false;
-	}
-	var itemDef = getItemDefinition(item.itemHash);
-	if ((itemDef.tierTypeName === "Legendary" || itemDef.tierTypeName === "Exotic") && item.stats && item.primaryStat) {
-		if (item.primaryStat.statHash === 3897883278) {
-			var qualityLevel = parseItemQuality(item);
-			logger.log(qualityLevel.min, parseInt(localStorage.minQuality) || 90, item.primaryStat.value, parseInt(localStorage.minLight) || 335);
-			if (qualityLevel.min >= (parseInt(localStorage.minQuality) || 90) || item.primaryStat.value >= (parseInt(localStorage.minLight) || 335)) {
-				bungie.lock(characterId, item.itemInstanceId).then(function(response) {
-					logger.log(response);
-				});
-			}
-		} else if (item.primaryStat.statHash === 368428387) {
-			if (item.primaryStat.value >= (parseInt(localStorage.minLight) || 335)) {
-				bungie.lock(characterId, item.itemInstanceId).then(function(response) {
-					logger.log(response);
-				});
+	getAllOptions().then(function(options) {
+		if (options.autoLock !== true) {
+			return false;
+		}
+		var itemDef = getItemDefinition(item.itemHash);
+		if ((itemDef.tierTypeName === "Legendary" || itemDef.tierTypeName === "Exotic") && item.stats && item.primaryStat) {
+			if (item.primaryStat.statHash === 3897883278 && globalOptions.showQuality) {
+				var qualityLevel = parseItemQuality(item);
+				logger.log(qualityLevel.min, parseInt(options.minQuality) || 90, item.primaryStat.value, parseInt(options.minLight) || 335);
+				if (qualityLevel.min >= (parseInt(options.minQuality) || 90) || item.primaryStat.value >= (parseInt(options.minLight) || 335)) {
+					bungie.lock(characterId, item.itemInstanceId).then(function(response) {
+						logger.log(response);
+					});
+				}
+			} else if (item.primaryStat.statHash === 368428387 || (item.primaryStat.statHash === 3897883278 && globalOptions.showQuality === false)) {
+				if (item.primaryStat.value >= (parseInt(options.minLight) || 335)) {
+					bungie.lock(characterId, item.itemInstanceId).then(function(response) {
+						logger.log(response);
+					});
+				}
 			}
 		}
-	}
+	});
 }
 
 function autoMoveToVault(item, characterId) {
-	var itemDef = getItemDefinition(item.itemHash);
-	var moveItemList;
-	try {
-		moveItemList = JSON.parse(localStorage.autoMoveItemsToVault);
-	} catch (e) {
-		logger.error("Unable to parse list", localStorage.autoMoveItemsToVault);
-		return false;
-	}
-	if (!moveItemList) {
-		return false;
-	}
-	var quantity = 0;
-	var transferQuantity = 0;
-	var minStacks = 0;
-	var canTransfer = false;
-	for (var itemHashString of moveItemList) {
-		if (parseInt(itemHashString, 10) === item.itemHash) {
-			canTransfer = true;
-			break;
-		}
-	}
-	if (!canTransfer) {
-		return false;
-	}
-	for (let newItem of newInventories[characterId]) {
-		if (newItem.itemHash === item.itemHash) {
-			quantity = newItem.stackSize;
-			if (itemDef.bucketTypeHash === 1469714392) {
-				minStacks = parseInt(localStorage.minConsumableStacks, 10);
-			} else if (itemDef.bucketTypeHash === 3865314626) {
-				minStacks = parseInt(localStorage.minMaterialStacks, 10);
+	getAllOptions().then(function(options) {
+		var itemDef = getItemDefinition(item.itemHash);
+		var singleStackItem = options.keepSingleStackItems.indexOf("" + itemDef.itemHash) > -1;
+		var zeroStackItem = options.autoMoveItemsToVault.indexOf("" + itemDef.itemHash) > -1;
+		var quantity = 0;
+		var transferQuantity = 0;
+		if (singleStackItem) {
+			var minStacks = 1;
+			for (let newItem of newInventories[characterId]) {
+				if (newItem.itemHash === item.itemHash) {
+					quantity = newItem.stackSize;
+					transferQuantity = quantity - (itemDef.maxStackSize * minStacks);
+					break;
+				}
 			}
-			transferQuantity = quantity - (itemDef.maxStackSize * minStacks);
-			break;
 		}
-	}
-	logger.log(itemDef.itemName, transferQuantity, quantity, minStacks, itemDef.maxStackSize)
-	if (transferQuantity < 1) {
-		return false;
-	}
-	bungie.transfer(characterId, "0", item.itemHash, transferQuantity, true).then(function(response) {
-		logger.log(response);
+		if (zeroStackItem) {
+			var minStacks = 0;
+			for (let newItem of newInventories[characterId]) {
+				if (newItem.itemHash === item.itemHash) {
+					quantity = newItem.stackSize;
+					transferQuantity = quantity - (itemDef.maxStackSize * minStacks);
+					break;
+				}
+			}
+		}
+		if (transferQuantity < 1) {
+			return false;
+		}
+		logger.log(`name:${itemDef.itemName}, transferQuantity:${transferQuantity}, quantity:${quantity}, minStacks:${minStacks}, stackSize:${itemDef.maxStackSize}, singleStack:${singleStackItem}, zeroStack:${zeroStackItem}`);
+		bungie.transfer(characterId, "0", item.itemHash, transferQuantity, true).then(function(response) {
+			logger.log(response);
+		});
 	});
 }

@@ -1,6 +1,9 @@
 tracker.sendAppView('Vendor');
 logger.disable();
-
+var globalOptions = {};
+getAllOptions().then(function(options) {
+	globalOptions = options;
+});
 var saleItemStatuses = [
 	"Success",
 	"Not Enough Space",
@@ -25,6 +28,19 @@ var cannotEquipReason = [
 	"ItemFailedLevelCheck",
 	"ItemNotOnCharacter"
 ];
+const manualVendorHashMap = {
+	"1998812735": 283961095,
+	"1575820975": 814931142,
+	"3003633346": 814931142,
+	"1990950": 814931142,
+	"3746647075": 814931155,
+	"3658200622": 814931155,
+	"4269570979": 1220331761,
+	"1303406887": 1220331761,
+	"1821699360": 2756606348,
+	"1808244981": 3287962537,
+	"3611686524": 4050234120
+};
 
 function makeSaleItem(itemHash, unlockStatuses, saleItem, currencies) {
 	var itemDef = getItemDefinition(itemHash);
@@ -170,31 +186,34 @@ function makeSaleItem(itemHash, unlockStatuses, saleItem, currencies) {
 	return item;
 }
 
-function pad(pad, str, padLeft) {
-	if (typeof str === 'undefined')
-		return pad;
-	if (padLeft) {
-		return (pad + str).slice(-pad.length);
-	} else {
-		return (str + pad).substring(0, pad.length);
-	}
-}
-
 function makeItemsFromVendor(vendor) {
 	var list = vendor.saleItemCategories;
 	var mainContainer = document.getElementById("history");
+	var localVendor = {};
+	for (let vendorType of vendors) {
+		for (let vendorDescription of vendorType) {
+			if (vendorDescription.vendorHash === vendor.vendorHash) {
+				localVendor = vendorDescription;
+			}
+		}
+	}
 	// var categories = emblemData.data.vendor.saleItemCategories;
 	// var vendorCategory = outfitterData.data.vendor.saleItemCategories[0];
-	if (vendor.nextRefreshDate) {
-		var resetDate = document.createElement("div");
-		resetDate.classList.add("sub-section", "resetDate");
-		var days = moment(vendor.nextRefreshDate).diff(moment(), "days");
-		var hours = pad(Array(3).join("0"), moment(vendor.nextRefreshDate).diff(moment(), "hours") % 24, true);
-		var minutes = pad(Array(3).join("0"), moment(vendor.nextRefreshDate).diff(moment(), "minutes") % 60, true);
-		var seconds = pad(Array(3).join("0"), moment(vendor.nextRefreshDate).diff(moment(), "seconds") % 60, true);
-		resetDate.innerHTML = "<h1>STOCK REFRESH " + `${days} ${(days > 1)? "Days" : "Day"} ${hours}:${minutes}:${seconds}` + "</h1>";
-		resetDate.dataset.date = vendor.nextRefreshDate;
-		mainContainer.appendChild(resetDate);
+	if (localVendor.vendorName) {
+		var vendorContainer = document.createElement("div");
+		var vendorName = document.createElement("h1");
+		var vendorDescription = document.createElement("h3");
+		vendorName.textContent = localVendor.vendorName;
+		vendorDescription.textContent = localVendor.vendorDescription;
+		vendorContainer.classList.add("sub-section","vendor-title");
+		vendorContainer.appendChild(vendorName);
+		vendorContainer.appendChild(vendorDescription);
+		if (vendor.nextRefreshDate) {
+			var resetDate = document.createElement("h2");
+			resetDate.innerHTML = date.vendorRefreshDate(vendor);
+			vendorContainer.appendChild(resetDate);
+		}
+		mainContainer.appendChild(vendorContainer);
 	}
 	for (var category of list) {
 		var titleContainer = document.createElement("div");
@@ -220,11 +239,39 @@ function makeItemsFromVendor(vendor) {
 		subContainer.appendChild(docfrag);
 		mainContainer.appendChild(subContainer);
 	}
+	var vendorPackage = localVendor.package && localVendor.package.derivedItemCategories || [];
+	for (let category of vendorPackage) {
+		let titleContainer = document.createElement("div");
+		titleContainer.classList.add("sub-section");
+		titleContainer.innerHTML = "<h1>" + category.categoryDescription + "</h1>";
+		mainContainer.appendChild(titleContainer);
+		let subContainer = document.createElement("div");
+		subContainer.classList.add("sub-section");
+		let docfrag = document.createDocumentFragment();
+		for (let item of category.items) {
+			docfrag.appendChild(makeItem(getItemDefinition(item.itemHash)));
+			// for (var vendorItem of vendorCategory.saleItems) {
+			// 	var itemDef = DestinyCompactItemDefinition[saleItem.item.itemHash];
+			// 	if (saleItem.unlockStatuses.length && !saleItem.unlockStatuses[0].isSet && vendorItem.item.itemHash === saleItem.item.itemHash) {
+			// 		emblems[saleItem.item.itemHash] = {
+			// 			name: itemDef.itemName,
+			// 			acquired: saleItem.unlockStatuses[0].isSet,
+			// 			selling: true
+			// 		};
+			// 	}
+			// }
+		}
+		subContainer.appendChild(docfrag);
+		mainContainer.appendChild(subContainer);
+	}
 }
 
 var deadVendors = [415161769, 863056813, 3019290222, 2698860028, 1660667815, 1588933401, 2586808090, 1653856985, 529545063, 1353750121, 4275962006, 163657562, 3898086963, 3165969428, 892630493, 2016602161];
 var selectedCharacter = localStorage.newestCharacter;
 var lastVendor = "";
+var vendors = {
+	other: []
+};
 
 chrome.storage.local.get("inventories", function(data) {
 	if (chrome.runtime.lastError) {
@@ -232,9 +279,6 @@ chrome.storage.local.get("inventories", function(data) {
 	}
 	newInventories = data.inventories;
 	initItems(function() {
-		var vendors = {
-			other: []
-		};
 		var characterHTML = "";
 		for (let characterId in characterDescriptions) {
 			if (characterId !== "vault") {
@@ -267,6 +311,32 @@ chrome.storage.local.get("inventories", function(data) {
 				return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
 			});
 		}
+		for (let vendorHash in manualVendorHashMap) {
+			for (let itemDefinition of DestinyCompactItemDefinition) {
+				if (itemDefinition.itemTypeName === "Package" && itemDefinition.derivedItemCategories && itemDefinition.derivedItemVendorHash && manualVendorHashMap[vendorHash] === itemDefinition.itemHash) {
+					for (let vendorType of vendors) {
+						for (let vendor of vendorType) {
+							if (vendor.vendorHash === parseInt(vendorHash)) {
+								vendor.package = itemDefinition;
+							}
+						}
+					}
+				}
+			}
+		}
+		// for (let itemDefinition of DestinyCompactItemDefinition) {
+		// 	if (itemDefinition.itemTypeName === "Package" && itemDefinition.derivedItemCategories && itemDefinition.derivedItemVendorHash) {
+		// 		var vendorHash = 
+		// 		for (let vendorType of vendors) {
+		// 			for (let vendor of vendorType) {
+		// 				if (vendor.vendorHash === itemDefinition.derivedItemVendorHash) {
+		// 					console.log(vendor, itemDefinition)
+		// 					vendor.package = itemDefinition;
+		// 				}
+		// 			}
+		// 		}
+		// 	}
+		// }
 		var vendorHTML = "";
 		for (let vendorCategory in vendors) {
 			vendorHTML += `<optgroup label="${DestinyVendorCategoryDefinition[vendorCategory] && DestinyVendorCategoryDefinition[vendorCategory].categoryName || vendorCategory}">`;
@@ -386,17 +456,4 @@ function flattenItems(itemCategories) {
 
 initUi();
 
-function dateTime() {
-	var dates = document.querySelectorAll(".resetDate");
-	for(var date of dates) {
-		var vendorDate = moment(date.dataset.date);
-		var now = moment();
-		var days = vendorDate.diff(now, "days");
-		var hours = pad(Array(3).join(" "), vendorDate.diff(now, "hours") % 24, true);
-		var minutes = pad(Array(3).join(" "), vendorDate.diff(now, "minutes") % 60, true);
-		var seconds = pad(Array(3).join(" "), vendorDate.diff(now, "seconds") % 60, true);
-		date.innerHTML = "<h1>STOCK REFRESH " + `${days} ${(days > 1)? "Days" : "Day"} ${hours}:${minutes}:${seconds}` + "</h1>";
-	}
-	window.requestAnimationFrame(dateTime);
-}
-window.requestAnimationFrame(dateTime);
+window.requestAnimationFrame(date.keepDatesUpdated);

@@ -3,6 +3,11 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Loot History</title>
 		<link rel="stylesheet" type="text/css" href="ui.css">
+		<style id="searchStyle">
+			.sub-section > [data-item-type="engram"]{ display:none; }
+			.sub-section > [data-item-type="armor"][data-item-rarity="rare"]{ display:none; }
+			.sub-section > [data-item-type="weapon"][data-item-rarity="rare"]{ display:none; }
+		</style>
 		<style>
 			.item {
 				width:90px;
@@ -41,7 +46,7 @@
 		<div class="title-bar">
 			<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
 			<div class="center" id="character-headers" style="text-align: center;">
-				<div class="title"><h1 class="section-title">ITEM HISTORY</h1></div>
+				<input type="text" id="query" style="width:100%" class="hidden">
 			</div>
 		</div>
 		<div id="container">
@@ -51,6 +56,8 @@
 		</div>
 		<div id="tooltip">
 			<section id="item-head">
+				<canvas id="squareProgress" width="71" height="71" class="bigProgress"></canvas>
+				<img id="item-image" />
 				<h2 id="item-name"></h2>
 				<div>
 					<span id="item-type"></span>
@@ -82,6 +89,12 @@
 			<section id="item-cost">
 				<table>
 					<tbody id="cost-table">
+					</tbody>
+				</table>
+			</section>
+			<section id="item-compare">
+				<table>
+					<tbody id="compare-table">
 					</tbody>
 				</table>
 			</section>

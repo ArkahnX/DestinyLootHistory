@@ -8,6 +8,8 @@ var elements = {
 	status: document.getElementById("status"),
 	container: document.getElementById("container"),
 	tooltip: document.getElementById("tooltip"),
+	itemImage: document.getElementById("item-image"),
+	squareProgress: document.getElementById("squareProgress"),
 	itemName: document.getElementById("item-name"),
 	itemType: document.getElementById("item-type"),
 	itemRarity: document.getElementById("item-rarity"),
@@ -16,6 +18,8 @@ var elements = {
 	itemPrimaryStat: document.getElementById("item-primary-stat"),
 	itemStatText: document.getElementById("item-stat-text"),
 	itemDescription: document.getElementById("item-description"),
+	itemCompare: document.getElementById("item-compare"),
+	compareTable: document.getElementById("compare-table"),
 	classRequirement: document.getElementById("class-requirement"),
 	statTable: document.getElementById("stat-table"),
 	nodeTable: document.getElementById("node-table"),
@@ -25,10 +29,13 @@ var elements = {
 	autoLock: document.getElementById("autoLock"),
 	track3oC: document.getElementById("track3oC"),
 	paginate: document.getElementById("paginate"),
+	showQuality: document.getElementById("showQuality"),
+	useGuardianLight: document.getElementById("useGuardianLight"),
 	version: document.getElementById("version")
 };
 
 var elementNames = {
+	itemImage: "item-image",
 	itemName: "item-name",
 	itemType: "item-type",
 	itemRarity: "item-rarity",
@@ -37,10 +44,12 @@ var elementNames = {
 	itemPrimaryStat: "item-primary-stat",
 	itemStatText: "item-stat-text",
 	itemDescription: "item-description",
+	itemCompare: "item-compare",
 	classRequirement: "class-requirement",
 	statTable: "stat-table",
 	nodeTable: "node-table",
-	costTable: "cost-table"
+	costTable: "cost-table",
+	compareTable: "compare-table"
 };
 
 var currentItemSet = [];
@@ -74,63 +83,72 @@ function initUi() {
 				target = event.target;
 			} else if (event.target.parentNode.classList.contains("item") || event.target.parentNode.classList.contains("faction")) {
 				target = event.target.parentNode;
+			} else if (event.target.parentNode.classList.contains("item-container")) {
+				target = event.target.parentNode.children[0];
 			}
 			if (target && target !== previousElement) {
 				// elements.tooltip.classList.add("hidden");
 				previousElement = target;
-				handleTooltipData(event.target.dataset, event.target, event);
+				handleTooltipData(target.dataset, target, event);
 			}
 			if (!target) {
 				clearTimeout(tooltipTimeout);
 				// elements.tooltip.classList.add("hidden");
 				previousElement = null;
 			}
-		}, false);
+		}, true);
 	}
 	if (elements.ToCReminder) {
-		if (localStorage.track3oC === "false") {
-			elements.ToCReminder.value = "Turn on 3oC reminder";
-			elements.ToCReminder.classList.add("grey");
-			elements.ToCReminder.classList.remove("green");
-		}
-		elements.ToCReminder.addEventListener("click", function(event) {
-			if (localStorage.track3oC === "false") {
-				localStorage.track3oC = "true";
-				elements.ToCReminder.value = "Turn off 3oC reminder";
-				elements.ToCReminder.classList.remove("grey");
-				elements.ToCReminder.classList.add("green");
-			} else {
-				localStorage.track3oC = "false";
+		getOption("track3oC").then(function(track3oC) {
+			if (track3oC === false) {
 				elements.ToCReminder.value = "Turn on 3oC reminder";
 				elements.ToCReminder.classList.add("grey");
 				elements.ToCReminder.classList.remove("green");
 			}
-
-		}, false);
+			elements.ToCReminder.addEventListener("click", function(event) {
+				getOption("track3oC").then(function(track3oC) {
+					if (track3oC === false) {
+						setOption("track3oC", true);
+						elements.ToCReminder.value = "Turn off 3oC reminder";
+						elements.ToCReminder.classList.remove("grey");
+						elements.ToCReminder.classList.add("green");
+					} else {
+						setOption("track3oC", false);
+						elements.ToCReminder.value = "Turn on 3oC reminder";
+						elements.ToCReminder.classList.add("grey");
+						elements.ToCReminder.classList.remove("green");
+					}
+				});
+			}, false);
+		});
 	}
 	if (elements.toggleSystem) {
-		if (bungie.getMemberships().length > 1) {
-			elements.toggleSystem.classList.remove("hidden");
-		}
-		if (localStorage.activeType === "xbl") {
-			elements.toggleSystem.value = "Swap to PSN";
-			elements.toggleSystem.classList.remove("green");
-		}
-		if (localStorage.activeType === "psn") {
-			elements.toggleSystem.value = "Swap to XBOX";
-			elements.toggleSystem.classList.add("green");
-		}
-		elements.toggleSystem.addEventListener("click", function() {
-			if (localStorage.activeType === "psn") {
+		getOption("activeType").then(function(activeType) {
+			if (bungie.getMemberships().length > 1) {
+				elements.toggleSystem.classList.remove("hidden");
+			}
+			if (activeType === "xbl") {
 				elements.toggleSystem.value = "Swap to PSN";
 				elements.toggleSystem.classList.remove("green");
-				localStorage.activeType = "xbl";
-			} else {
-				elements.toggleSystem.value = "Swap to Xbox";
-				elements.toggleSystem.classList.add("green");
-				localStorage.activeType = "psn";
 			}
-		}, false);
+			if (activeType === "psn") {
+				elements.toggleSystem.value = "Swap to XBOX";
+				elements.toggleSystem.classList.add("green");
+			}
+			elements.toggleSystem.addEventListener("click", function() {
+				getOption("activeType").then(function(activeType) {
+					if (activeType === "psn") {
+						elements.toggleSystem.value = "Swap to PSN";
+						elements.toggleSystem.classList.remove("green");
+						setOption("activeType", "xbl");
+					} else {
+						elements.toggleSystem.value = "Swap to Xbox";
+						elements.toggleSystem.classList.add("green");
+						setOption("activeType", "psn");
+					}
+				});
+			}, false);
+		});
 	}
 	// Disable all accurrate tracking
 	// if (document.querySelector("#accurateTracking")) {
@@ -166,16 +184,28 @@ function initUi() {
 			}
 		}
 	}
-	if (elements.autoLock && elements.track3oC) {
-		elements.autoLock.checked = localStorage.autoLock === "true";
-		elements.autoLock.addEventListener("change", handleCheckboxChange, false);
-		elements.track3oC.checked = localStorage.track3oC === "true";
-		elements.track3oC.addEventListener("change", handleCheckboxChange, false);
-	}
+	getAllOptions().then(function(options) {
+		if (elements.autoLock) {
+			elements.autoLock.checked = options.autoLock === true;
+			elements.autoLock.addEventListener("change", handleCheckboxChange, false);
+		}
+		if (elements.track3oC) {
+			elements.track3oC.checked = options.track3oC === true;
+			elements.track3oC.addEventListener("change", handleCheckboxChange, false);
+		}
+		if (elements.showQuality) {
+			elements.showQuality.checked = options.showQuality === true;
+			elements.showQuality.addEventListener("change", handleCheckboxChange, false);
+		}
+		if (elements.useGuardianLight) {
+			elements.useGuardianLight.checked = options.useGuardianLight === true;
+			elements.useGuardianLight.addEventListener("change", handleCheckboxChange, false);
+		}
+	});
 }
 
 function handleCheckboxChange(event) {
-	localStorage[event.target.id] = event.target.checked;
+	setOption(event.target.id, event.target.checked);
 }
 
 function makePages() {
@@ -299,15 +329,35 @@ function createDate(itemDiff, className, searchData) {
 	var activity = "";
 	if (itemDiff.match) {
 		var match = JSON.parse(itemDiff.match);
-		var activityTypeData = DestinyActivityDefinition[match.activityHash];
-		activity = " " + activityTypeData.activityName;
+		activity = match.activityHash;
 	}
 	var subContainer = document.createElement("div");
 	subContainer.classList.add("sub-section", className, "timestamp");
 
 	var localTime = moment.utc(timestamp).tz(timezone);
-	subContainer.textContent = localTime.fromNow() + activity;
-	subContainer.setAttribute("title", localTime.format("ddd[,] ll LTS"));
+	var activityString = "";
+	if (activity) {
+		var activityDef = DestinyActivityDefinition[activity];
+		var activityTypeDef = DestinyActivityTypeDefinition[activityDef.activityTypeHash];
+		if (activityDef && activityTypeDef) {
+			var activityName = activityDef.activityName;
+			var activityTypeName = activityTypeDef.activityTypeName;
+			activityString = activityTypeName + " - " + activityName;
+		}
+		if (globalOptions.pgcrImage) {
+			subContainer.style.backgroundImage = `url(http://www.bungie.net${activityDef.pgcrImage})`;
+			subContainer.classList.add("bg");
+		} else {
+			subContainer.style.backgroundImage = "";
+			subContainer.classList.remove("bg");
+		}
+	}
+	if (globalOptions.relativeDates) {
+		subContainer.innerHTML = localTime.fromNow() + "<br>" + activityString;
+	} else {
+		subContainer.innerHTML = localTime.format("ddd[,] ll LTS") + "<br>" + activityString;
+	}
+	subContainer.setAttribute("title", localTime.format("ddd[,] ll LTS") + "\n" + activityString);
 	subContainer.dataset.timestamp = timestamp;
 	subContainer.dataset.activity = activity;
 	subContainer.dataset.index = itemDiff.id;
@@ -445,7 +495,24 @@ function postWork(resolve) {
 		for (let page of pages) {
 			tempFragments[page] = document.createDocumentFragment();
 			for (let i = minNumber; i < maxLength; i++) {
-				tempFragments[page].appendChild(fragments[page].children[i].cloneNode(true));
+				if (page === "date") {
+					let node = fragments[page].children[i].cloneNode(true);
+					if (!node.dataset.activity) {
+						for (let n = currentItemSet.length - 1; n > 0; n--) {
+							if (currentItemSet[n].id === parseInt(node.dataset.index) && currentItemSet[n].match) {
+								var match = JSON.parse(currentItemSet[n].match);
+								node.dataset.activity = match.activityHash;
+							}
+							if (currentItemSet[n].id < parseInt(node.dataset.index)) {
+								break;
+							}
+						}
+					}
+					fragments[page].children[i] = node;
+					tempFragments[page].appendChild(node);
+				} else {
+					tempFragments[page].appendChild(fragments[page].children[i].cloneNode(true));
+				}
 			}
 		}
 		window.requestAnimationFrame(function() {
@@ -463,6 +530,16 @@ function postDisplay() {
 	makePages();
 	oldItemChangeQuantity = (currentItemSet && currentItemSet.length);
 	oldPageNumber = pageNumber;
+	var progressBars = document.querySelectorAll(".squareProgress");
+	for (var progressBar of progressBars) {
+		var t = progressBar.dataset.value / progressBar.dataset.max;
+		if (t > 0 && t !== Infinity) {
+			var n = new SquareProgress(progressBar, t);
+			n.backgroundColor = "rgba(0,0,0,0)";
+			n.borderColor = "rgba(0,0,0,0)";
+			n.draw();
+		}
+	}
 }
 var moment = moment || null
 
@@ -509,14 +586,54 @@ function displayResults(customItems, hideItemResults) {
 	});
 }
 
+function itemType(itemHash) {
+	let itemDef = getItemDefinition(itemHash);
+	if (itemDef.itemTypeName && itemDef.itemTypeName.indexOf("Engram") > -1) {
+		return "engram";
+	}
+	if ([14239492, 20886954, 434908299, 1585787867, 4023194814, 3551918588, 3448274439].indexOf(itemDef.bucketTypeHash) > -1) {
+		return "armor";
+	}
+	if ([284967655, 2025709351].indexOf(itemDef.bucketTypeHash) > -1) {
+		return "vehicle";
+	}
+	if ([953998645, 1498876634, 2465295065].indexOf(itemDef.bucketTypeHash) > -1) {
+		return "weapon";
+	}
+	if ([4274335291, 3796357825, 3054419239, 2973005342].indexOf(itemDef.bucketTypeHash) > -1) {
+		return "social";
+	}
+	return "other";
+}
+
+function itemRarity(itemHash) {
+	let itemDefinition = getItemDefinition(itemHash);
+	if (itemDefinition.tierTypeName === "Exotic") {
+		return "exotic";
+	} else if (itemDefinition.tierTypeName === "Legendary") {
+		return "legendary";
+	} else if (itemDefinition.tierTypeName === "Rare") {
+		return "rare";
+	} else if (itemDefinition.tierTypeName === "Uncommon") {
+		return "uncommon";
+	} else {
+		return "common";
+	}
+}
+
 function makeItem(itemData, classRequirement, optionalCosts) {
 	var docfrag = document.createDocumentFragment();
 	var itemContainer = document.createElement("div");
 	itemContainer.classList.add("item-container");
+	if (itemData.removed) {
+		itemContainer.classList.add("undiscovered");
+	}
 	var container = document.createElement("div");
 	var stat = document.createElement("div");
 	itemContainer.appendChild(container);
-	if (hasQuality(itemData)) {
+	itemContainer.dataset.itemType = itemType(itemData.itemHash);
+	itemContainer.dataset.itemRarity = itemRarity(itemData.itemHash);
+	if (hasQuality(itemData) && globalOptions.showQuality) {
 		var quality = document.createElement("div");
 		itemContainer.appendChild(quality);
 		quality.classList.add("quality");
@@ -524,6 +641,9 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 		var qualityData = parseItemQuality(itemData);
 		quality.style.background = qualityData.color;
 		quality.textContent = qualityData.min + "%";
+		container.dataset.qualityMin = qualityData.min;
+		container.dataset.qualityMax = qualityData.max;
+		container.dataset.qualityColor = qualityData.color;
 	}
 	itemContainer.appendChild(stat);
 	docfrag.appendChild(itemContainer);
@@ -560,6 +680,13 @@ function makeProgress(progressData, classRequirement) {
 	// NO BACKGROUND IMAGE ON FACTION ICONS BECAUSE THEY ARE TRANSPARENT
 	if (DestinyFactionDefinition[progressData.factionHash]) {
 		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyFactionDefinition[progressData.factionHash].factionIcon + "')");
+		var canvas = document.createElement("canvas");
+		canvas.classList.add("squareProgress", "repProgress");
+		canvas.width = 37;
+		canvas.height = 37;
+		canvas.dataset.max = progressData.nextLevelAt;
+		canvas.dataset.value = progressData.progressToNextLevel;
+		container.appendChild(canvas);
 	} else if (DestinyProgressionDefinition[progressData.progressionHash].icon) {
 		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyProgressionDefinition[progressData.progressionHash].icon + "')");
 	} else if (progressData.name === "pvp_iron_banner.loss_tokens") {
@@ -672,7 +799,17 @@ function passData(DomNode, itemData, classRequirement, optionalCosts) {
 	} else {
 		DomNode.dataset.tierTypeName = "Common";
 	}
+	if (itemDefinition.sourceHashes) {
+		var temp = [];
+		for (var hash of itemDefinition.sourceHashes) {
+			if (DestinyRewardSourceDefinition[hash]) {
+				temp.push(DestinyRewardSourceDefinition[hash].sourceName.replace(/\s+/g, ''));
+			}
+		}
+		DomNode.dataset.sourceName = JSON.stringify(temp);
+	}
 	DomNode.dataset.itemName = itemDefinition.itemName;
+	DomNode.dataset.itemImage = itemDefinition.icon;
 	DomNode.dataset.itemTypeName = itemDefinition.itemTypeName;
 	DomNode.dataset.equipRequiredLevel = itemData.equipRequiredLevel || 0;
 	DomNode.dataset.primaryStat = primaryStat(itemData);
@@ -705,14 +842,26 @@ function passFactionData(DomNode, diffData, classRequirement) {
 		DomNode.dataset.itemHash = diffData.factionHash;
 		DomNode.dataset.itemName = factionData.factionName;
 		DomNode.dataset.itemDescription = factionData.factionDescription;
+		DomNode.dataset.itemTypeName = "Faction";
 	} else {
 		let factionData = DestinyProgressionDefinition[diffData.progressionHash];
 		DomNode.dataset.itemHash = diffData.progressionHash;
 		DomNode.dataset.itemName = factionData.name;
 		DomNode.dataset.itemDescription = "";
+		DomNode.dataset.itemTypeName = "Progression";
+	}
+	if (DestinyFactionDefinition[diffData.factionHash]) {
+		DomNode.dataset.itemImage = DestinyFactionDefinition[diffData.factionHash].factionIcon;
+	} else if (DestinyProgressionDefinition[diffData.progressionHash].icon) {
+		DomNode.dataset.itemImage = DestinyProgressionDefinition[diffData.progressionHash].icon;
+	} else if (diffData.name === "pvp_iron_banner.loss_tokens") {
+		DomNode.dataset.itemImage = getItemDefinition(3397982326).icon;
+	} else if (diffData.name === "r1_s4_hiveship_orbs") {
+		DomNode.dataset.itemImage = getItemDefinition(1069694698).icon;
+	} else {
+		DomNode.dataset.itemImage = "/img/misc/missing_icon.png";
 	}
 	DomNode.dataset.tierTypeName = "Common";
-	DomNode.dataset.itemTypeName = "Faction";
 	DomNode.dataset.equipRequiredLevel = 0;
 	DomNode.dataset.primaryStat = diffData.progressToNextLevel;
 	DomNode.dataset.primaryStatName = diffData.nextLevelAt;
