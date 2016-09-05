@@ -15,8 +15,53 @@ function backupData() {
 		backupDataButton.removeAttribute("disabled");
 	});
 }
-var insigniaInput = null;
-var autoCompleteInput = null;
+var insigniaInputs = {};
+var itemSources = [];
+var hashIndex = [];
+var badHashes = [
+	// festival of the lost
+	1593524656, 1593524657, 1593524664, 1593524665, 1593524666, 1593524667, 1593524668,
+	// crimson days
+	1848923894,
+	// unused consumables
+	199830403, 1053112404, 2111706071, 3348846756,
+	//unused items
+	4030362776, 3887668221, 2448634621, 1682402747, 126428429, 437131613, 516735544, 516735545, 584130857, 1448697668, 1515795123, 1847675504, 1968488792, 2609687617, 3779317040, 3779317041, 382889452,
+];
+
+function goodItem(itemDef) {
+	if (itemDef.bucketTypeHash !== 1469714392 && itemDef.bucketTypeHash !== 3865314626) {
+		return false;
+	}
+	if (badHashes.indexOf(itemDef.itemHash) > -1) {
+		return false;
+	}
+	if (!itemDef.itemType) {
+		if (!itemDef.itemCategoryHashes) {
+			return false;
+		} else if (itemDef.itemCategoryHashes.indexOf(40) === -1) {
+			return false;
+		}
+	}
+	if (itemDef.maxStackSize === 1 || itemDef.nonTransferrable) {
+		return false;
+	}
+	if (hashIndex.indexOf(itemDef.itemHash) > -1) {
+		return false;
+	}
+	return true;
+}
+for (var itemDef of DestinyCompactItemDefinition) {
+	if (goodItem(itemDef)) {
+		itemSources.push({
+			itemName: itemDef.itemName,
+			itemHash: itemDef.itemHash,
+			icon: itemDef.icon,
+			itemDescription: itemDef.itemDescription
+		});
+		hashIndex.push(itemDef.itemHash);
+	}
+}
 
 document.addEventListener("DOMContentLoaded", function(event) {
 	initUi();
@@ -66,118 +111,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			exportData(gameModeInput.value, moment(minDateInput.value).utc().format(), moment(maxDateInput.value).utc().format(), parseInt(resultsInput.value), ironBannerInput.checked, lightLevelInput.checked);
 		});
 	}
-	var itemSources = [];
-	var hashIndex = [];
-	var badHashes = [
-		// festival of the lost
-		1593524656, 1593524657, 1593524664, 1593524665, 1593524666, 1593524667, 1593524668,
-		// crimson days
-		1848923894,
-		// unused consumables
-		199830403, 1053112404, 2111706071, 3348846756,
-		//unused items
-		4030362776, 3887668221, 2448634621, 1682402747, 126428429, 437131613, 516735544, 516735545, 584130857, 1448697668, 1515795123, 1847675504, 1968488792, 2609687617, 3779317040, 3779317041, 382889452,
-	];
 
-	function goodItem(itemDef) {
-		if (itemDef.bucketTypeHash !== 1469714392 && itemDef.bucketTypeHash !== 3865314626) {
-			return false;
-		}
-		if (badHashes.indexOf(itemDef.itemHash) > -1) {
-			return false;
-		}
-		if (!itemDef.itemType) {
-			if (!itemDef.itemCategoryHashes) {
-				return false;
-			} else if (itemDef.itemCategoryHashes.indexOf(40) === -1) {
-				return false;
-			}
-		}
-		if (itemDef.maxStackSize === 1 || itemDef.nonTransferrable) {
-			return false;
-		}
-		if (hashIndex.indexOf(itemDef.itemHash) > -1) {
-			return false;
-		}
-		return true;
-	}
-	for (var itemDef of DestinyCompactItemDefinition) {
-		if (goodItem(itemDef)) {
-			itemSources.push({
-				itemName: itemDef.itemName,
-				itemHash: itemDef.itemHash,
-				icon: itemDef.icon,
-				itemDescription: itemDef.itemDescription
-			});
-			hashIndex.push(itemDef.itemHash);
-		}
-	}
-	autoCompleteInput = new autoComplete({
-		selector: '#insigificant',
-		minChars: 0,
-		delay: 500,
-		source: function(term, suggest) {
-			var suggestions = [];
-			var suggestionList = null;
-			if (term.length === 0) {
-				suggestionList = itemSources;
-			} else {
-				var f = new Fuse(itemSources, {
-					keys: ['itemName', 'itemDescription'],
-					threshold: 0.1,
-					distance: 1000
-				});
-				suggestionList = f.search(term.toLowerCase());
-			}
-			for (var suggestion of suggestionList) {
-				if (insigniaInput.findItem("" + suggestion.itemHash) === null) {
-					suggestions.push(suggestion);
-				}
-			}
-			suggest(suggestions);
-		},
-		renderItem: function(item, search, index) {
-			var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
-			if (search.split(' ')[0] === "") {
-				return `<div class="autocomplete-suggestion${index === 0 ? " selected" : ""}" data-hash="${item.itemHash}" data-name="${item.itemName}" title="${item.itemDescription}"><img src="http://www.bungie.net${item.icon}" width="25" height="25"><span>${item.itemName}</span></div>`;
-			} else {
-				return `<div class="autocomplete-suggestion${index === 0 ? " selected" : ""}" data-hash="${item.itemHash}" data-name="${item.itemName}" title="${item.itemDescription}"><img src="http://www.bungie.net${item.icon}" width="25" height="25"><span>${item.itemName.replace(re, "<b>$1</b>")}</span></div>`;
-			}
-		},
-		onSelect: function(e, term, item) {
-			var hash = parseInt(item.getAttribute('data-hash'), 10);
-			var data = itemSources[hashIndex.indexOf(hash)];
-			console.log(`Item "${data.itemName} (${data.itemDescription})" selected by ${(e.type == 'keydown' ? 'pressing enter' : 'mouse click')}.`);
-			if (insigniaInput.findItem(item.getAttribute('data-hash')) === null) {
-				insigniaInput.addItem(item.getAttribute('data-hash'));
-			}
-			localStorage.autoMoveItemsToVault = JSON.stringify(insigniaInput.value());
-		}
-	});
-	insigniaInput = insignia(document.getElementById("insigificant"), {
-		free: false,
-		deletion: true,
-		getText: function(item) {
-			var hash = parseInt(item, 10);
-			var data = itemSources[hashIndex.indexOf(hash)];
-			return data.itemName;
-		}
-	});
-	insigniaInput.on('remove', function() {
-		localStorage.autoMoveItemsToVault = JSON.stringify(insigniaInput.value());
-	});
-	// document.getElementById("insigificant").addEventListener('keypress', function(e) {
-	// 	if (e.keyCode === 13) {
-	// 		insigniaInput.refresh();
-	// 		e.preventDefault(); // prevent form submission
-	// 	}
-	// });
-	if (localStorage.autoMoveItemsToVault) {
-		var vaultItems = JSON.parse(localStorage.autoMoveItemsToVault);
-		for (let item of vaultItems) {
-			insigniaInput.addItem(item);
-		}
-	}
+	setupItemFields("keepSingleStackItems");
+	setupItemFields("autoMoveItemsToVault");
 
 	// Setup the dnd listeners.
 	var dropZone = document.getElementById('drop_zone');
@@ -187,31 +123,35 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	}
 	var minLight = document.getElementById('minLight');
 	var minQuality = document.getElementById('minQuality');
-	var minConsumableStacks = document.getElementById('minConsumableStacks');
-	var minMaterialStacks = document.getElementById('minMaterialStacks');
 	var gearPerks = document.getElementById('gearPerks');
 	var perkWindow = document.getElementById('perkWindow');
 	var additionalPerks = document.getElementById('additionalPerks');
 	var savePerks = document.getElementById('savePerks');
 	var perkList = document.getElementById('perkList');
-	if (minLight) {
-		minLight.value = parseInt(localStorage.minLight) || minLight.value;
-		minQuality.value = parseInt(localStorage.minQuality) || minQuality.value;
-		if (isNaN(parseInt(localStorage.minConsumableStacks))) {
-			minConsumableStacks.value = minConsumableStacks.value;
+	var pgcrImage = document.getElementById('pgcrImage');
+	var relativeDates = document.getElementById('relativeDates');
+	var useGuardianLight = document.getElementById('useGuardianLight');
+	useGuardianLight.addEventListener("change", function() {
+		if (useGuardianLight.checked) {
+			minLight.disabled = true;
 		} else {
-			minConsumableStacks.value = parseInt(localStorage.minConsumableStacks);
+			minLight.disabled = false;
 		}
-		if (isNaN(parseInt(localStorage.minMaterialStacks))) {
-			minMaterialStacks.value = minMaterialStacks.value;
-		} else {
-			minMaterialStacks.value = parseInt(localStorage.minMaterialStacks);
-		}
+	});
+	getAllOptions().then(function(options) {
+		minLight.value = options.minLight;
+		minQuality.value = options.minQuality;
 		minLight.addEventListener("change", handleQualityChange, false);
+		if (options.useGuardianLight) {
+			minLight.disabled = true;
+		}
 		minQuality.addEventListener("change", handleQualityChange, false);
-		minConsumableStacks.addEventListener("change", handleQualityChange, false);
-		minMaterialStacks.addEventListener("change", handleQualityChange, false);
-	}
+		relativeDates.checked = options.relativeDates;
+		relativeDates.addEventListener("change", handleCheckboxChange, false);
+		pgcrImage.checked = options.pgcrImage;
+		pgcrImage.addEventListener("change", handleCheckboxChange, false);
+	});
+
 	if (gearPerks) {
 		gearPerks.addEventListener("click", function() {
 			loadPerksets();
@@ -263,7 +203,7 @@ function handleQualityChange(event) {
 	if (value > maximum) {
 		value = maximum;
 	}
-	localStorage[target.id] = value;
+	setOption(target.id, value);
 	target.value = value;
 }
 
@@ -299,4 +239,108 @@ function handleDragOver(evt) {
 	evt.stopPropagation();
 	evt.preventDefault();
 	evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+}
+
+function setupItemFields(ID) {
+	var insigniaInput = insignia(document.getElementById(ID), {
+		free: false,
+		deletion: true,
+		render: function render(container, item) {
+			var hash = parseInt(item.data, 10);
+			var data = itemSources[hashIndex.indexOf(hash)];
+			container.innerHTML = `<img src="http://www.bungie.net${data.icon}" width="16" height="16"><span>${data.itemName}</span>`;
+			container.title = data.itemDescription;
+		},
+		getText: function(item) {
+			var hash = parseInt(item, 10);
+			var data = itemSources[hashIndex.indexOf(hash)];
+			return data.itemName;
+		}
+	});
+	insigniaInputs[ID] = insigniaInput;
+	insigniaInput.on('remove', function() {
+		var newArray = [];
+		var oldArray = insigniaInput.value();
+		for (var item of oldArray) {
+			newArray.push(item);
+		}
+		setOption(ID, newArray);
+	});
+	new autoComplete({
+		selector: '#' + ID,
+		minChars: 0,
+		delay: 500,
+		source: function(term, suggest) {
+			var suggestions = [];
+			var suggestionList = null;
+			if (term.length === 0) {
+				suggestionList = itemSources;
+			} else {
+				var f = new Fuse(itemSources, {
+					keys: ['itemName', 'itemDescription'],
+					threshold: 0.1,
+					distance: 1000
+				});
+				suggestionList = f.search(term.toLowerCase());
+			}
+			for (var suggestion of suggestionList) {
+				if (insigniaInput.findItem("" + suggestion.itemHash) === null) {
+					suggestions.push(suggestion);
+				}
+			}
+			suggest(suggestions);
+		},
+		renderItem: function(item, search, index) {
+			var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
+			if (search.split(' ')[0] === "") {
+				return `<div class="autocomplete-suggestion${index === 0 ? " selected" : ""}" data-hash="${item.itemHash}" data-name="${item.itemName}" title="${item.itemDescription}"><img src="http://www.bungie.net${item.icon}" width="25" height="25"><span>${item.itemName}</span></div>`;
+			} else {
+				return `<div class="autocomplete-suggestion${index === 0 ? " selected" : ""}" data-hash="${item.itemHash}" data-name="${item.itemName}" title="${item.itemDescription}"><img src="http://www.bungie.net${item.icon}" width="25" height="25"><span>${item.itemName.replace(re, "<b>$1</b>")}</span></div>`;
+			}
+		},
+		onSelect: function(e, term, item) {
+			var hash = parseInt(item.getAttribute('data-hash'), 10);
+			var data = itemSources[hashIndex.indexOf(hash)];
+			console.log(`Item "${data.itemName} (${data.itemDescription})" selected by ${(e.type == 'keydown' ? 'pressing enter' : 'mouse click')}.`);
+			if (insigniaInput.findItem(item.getAttribute('data-hash')) === null) {
+				insigniaInput.addItem(item.getAttribute('data-hash'));
+			}
+			var newArray = [];
+			var oldArray = insigniaInput.value();
+			for (let item of oldArray) {
+				newArray.push(item);
+			}
+			setOption(ID, newArray);
+			var otherInput = insigniaInput;
+			var otherId = ID;
+			if (ID === "keepSingleStackItems") {
+				otherId = "autoMoveItemsToVault";
+				otherInput = insigniaInputs.autoMoveItemsToVault;
+			} else {
+				otherId = "keepSingleStackItems";
+				otherInput = insigniaInputs.keepSingleStackItems;
+			}
+			if (otherInput.findItem(item.getAttribute('data-hash')) !== null) {
+				otherInput.removeItem(item.getAttribute('data-hash'));
+			}
+			var newArray2 = [];
+			var oldArray2 = otherInput.value();
+			for (let item of oldArray2) {
+				newArray2.push(item);
+			}
+			setOption(otherId, newArray2);
+		}
+	});
+
+	// document.getElementById("insigificant").addEventListener('keypress', function(e) {
+	// 	if (e.keyCode === 13) {
+	// 		insigniaInput.refresh();
+	// 		e.preventDefault(); // prevent form submission
+	// 	}
+	// });
+	getOption(ID).then(function(value) {
+		for (let item of value) {
+			insigniaInput.addItem(item);
+		}
+	});
 }

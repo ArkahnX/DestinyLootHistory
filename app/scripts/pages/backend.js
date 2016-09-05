@@ -1,5 +1,5 @@
 tracker.sendAppView('BackgroundScreen');
-
+var globalOptions = {};
 function _backup() {
 	chrome.storage.local.get(null, function(data) {
 		if (chrome.runtime.lastError) {
@@ -12,6 +12,9 @@ function _backup() {
 		// });
 	});
 }
+getAllOptions().then(function(options) {
+	globalOptions = options;
+});
 
 /**
  * Dev function to backup itemChanges.json on background load as well as every 30 minutes.

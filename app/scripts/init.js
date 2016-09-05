@@ -66,11 +66,28 @@ function _checkValue(value, expectedFunction, fallback) {
 	return expectedFunction(value, fallback);
 }
 
+function _stringToBoolean(string, defaultValue) {
+	if (string === "true") {
+		return true;
+	}
+	if (string === "false") {
+		return false;
+	}
+	return defaultValue;
+}
+
+function _stringToInt(string, defaultValue) {
+	if (parseInt(string, 10)) {
+		return parseInt(string, 10);
+	}
+	return defaultValue;
+}
+
 function initializeStoredVariables() {
 	return new Promise(function(resolve) {
 		// localStorage.accurateTracking = _checkValue(localStorage.accurateTracking, _checkBoolean, "false");
 		localStorage.accurateTracking = "false";
-		localStorage.activeType = _checkValue(localStorage.activeType, _checkActiveType, "psn");
+		// localStorage.activeType = _checkValue(localStorage.activeType, _checkActiveType, "psn");
 		localStorage.characterDescriptions = _checkValue(localStorage.characterDescriptions, _checkJSON, "{}");
 		// localStorage.allowTracking = _checkValue(localStorage.allowTracking, _checkJSON, JSON.stringify({
 		// 	"allow_tracking": 0,
@@ -85,15 +102,16 @@ function initializeStoredVariables() {
 		localStorage.move3oCCooldown = _checkValue(localStorage.move3oCCooldown, _checkBoolean, "false");
 		localStorage.newestCharacter = _checkValue(localStorage.newestCharacter, _checkNumber, "vault");
 		localStorage.notificationClosed = _checkValue(localStorage.notificationClosed, _checkBoolean, "false");
-		localStorage.track3oC = _checkValue(localStorage.track3oC, _checkBoolean, "true");
+		localStorage.disableQuality = _checkValue(localStorage.disableQuality, _checkBoolean, "false");
+		// localStorage.track3oC = _checkValue(localStorage.track3oC, _checkBoolean, "true");
 		localStorage.uniqueId = _checkValue(localStorage.uniqueId, _checkLength, "false");
-		localStorage.autoLock = _checkValue(localStorage.autoLock, _checkBoolean, "false");
-		localStorage.autoMoveToVault = _checkValue(localStorage.autoMoveToVault, _checkBoolean, "false");
-		localStorage.minQuality = _checkValue(localStorage.minQuality, _checkNumber, 90);
-		localStorage.minLight = _checkValue(localStorage.minLight, _checkNumber, 335);
-		localStorage.minMaterialStacks = _checkValue(localStorage.minMaterialStacks, _checkNumber, 1);
-		localStorage.minConsumableStacks = _checkValue(localStorage.minConsumableStacks, _checkNumber, 1);
-		localStorage.autoMoveItemsToVault = _checkValue(localStorage.autoMoveItemsToVault, _checkJSON, JSON.stringify([]));
+		// localStorage.autoLock = _checkValue(localStorage.autoLock, _checkBoolean, "false");
+		// localStorage.autoMoveToVault = _checkValue(localStorage.autoMoveToVault, _checkBoolean, "false");
+		// localStorage.minQuality = _checkValue(localStorage.minQuality, _checkNumber, 90);
+		// localStorage.minLight = _checkValue(localStorage.minLight, _checkNumber, 335);
+		// localStorage.minMaterialStacks = _checkValue(localStorage.minMaterialStacks, _checkNumber, 1);
+		// localStorage.minConsumableStacks = _checkValue(localStorage.minConsumableStacks, _checkNumber, 1);
+		// localStorage.autoMoveItemsToVault = _checkValue(localStorage.autoMoveItemsToVault, _checkJSON, JSON.stringify([]));
 		if (localStorage.allowTracking) {
 			localStorage.removeItem("allowTracking");
 			localStorage.perkSets = JSON.stringify([]);
@@ -114,6 +132,110 @@ function initializeStoredVariables() {
 		localStorage.newInventory = JSON.stringify({});
 		localStorage.oldInventory = JSON.stringify({});
 		tracker.sendEvent('Backend Initialized', `No Issues`, `version ${localStorage.version}, systems ${localStorage.systems}`);
+		chrome.storage.sync.get(null, function(options) {
+			if (chrome.runtime.lastError) {
+				logger.error(chrome.runtime.lastError);
+			}
+			var newOptions = {
+				activeType: "psn",
+				autoLock: false,
+				track3oC: true,
+				relativeDates: true,
+				pgcrImage: false,
+				showQuality: true,
+				useGuardianLight:true,
+				keepSingleStackItems: [],
+				autoMoveItemsToVault: [],
+				minQuality: 90,
+				minLight: 335
+			};
+			for (var option in options) {
+				newOptions[option] = options[option];
+			}
+			var dateObj = new Date();
+			var month = dateObj.getUTCMonth() + 1;
+			var day = dateObj.getUTCDate();
+
+			if (localStorage.disableQuality === "false" && month >= 9 && day >= 20) {
+				localStorage.disableQuality = "true";
+				newOptions.showQuality = false;
+				newOptions.minQuality = 100;
+			}
+			if (localStorage.activeType) {
+				if (localStorage.activeType === "xbl") {
+					newOptions.activeType = "xbl";
+				}
+				if (localStorage.activeType === "psn") {
+					newOptions.activeType = "psn";
+				}
+				localStorage.removeItem("activeType");
+			}
+			if (localStorage.autoLock) {
+				newOptions.autoLock = _stringToBoolean(localStorage.autoLock, newOptions.autoLock);
+				localStorage.removeItem("autoLock");
+			}
+			if (localStorage.track3oC) {
+				newOptions.track3oC = _stringToBoolean(localStorage.track3oC, newOptions.track3oC);
+				localStorage.removeItem("track3oC");
+			}
+			if (localStorage.minConsumableStacks && localStorage.autoMoveItemsToVault) {
+				var json;
+				try {
+					json = JSON.parse(localStorage.autoMoveItemsToVault);
+
+				} catch (e) {
+
+				}
+				if (json) {
+					for (var item of json) {
+						var itemDef = getItemDefinition(item);
+						if (localStorage.minConsumableStacks === "1" && itemDef.bucketTypeHash === 1469714392 && newOptions.keepSingleStackItems.indexOf(item) === -1) {
+							newOptions.keepSingleStackItems.push(item);
+						} else if (localStorage.minConsumableStacks === "0" && itemDef.bucketTypeHash === 1469714392 && newOptions.autoMoveItemsToVault.indexOf(item) === -1) {
+							newOptions.autoMoveItemsToVault.push(item);
+						}
+					}
+				}
+				localStorage.removeItem("minConsumableStacks");
+			}
+			if (localStorage.minMaterialStacks && localStorage.autoMoveItemsToVault) {
+				var json;
+				try {
+					json = JSON.parse(localStorage.autoMoveItemsToVault);
+
+				} catch (e) {
+
+				}
+				if (json) {
+					for (var item of json) {
+						var itemDef = getItemDefinition(item);
+						if (localStorage.minMaterialStacks === "1" && itemDef.bucketTypeHash === 3865314626 && newOptions.keepSingleStackItems.indexOf(item) === -1) {
+							newOptions.keepSingleStackItems.push(item);
+						} else if (localStorage.minMaterialStacks === "0" && itemDef.bucketTypeHash === 3865314626 && newOptions.autoMoveItemsToVault.indexOf(item) === -1) {
+							newOptions.autoMoveItemsToVault.push(item);
+						}
+					}
+				}
+				localStorage.removeItem("minMaterialStacks");
+			}
+			if (localStorage.minQuality) {
+				newOptions.minQuality = _stringToInt(localStorage.minQuality, newOptions.minQuality);
+				localStorage.removeItem("minQuality");
+			}
+			if (localStorage.minLight) {
+				newOptions.minLight = _stringToInt(localStorage.minLight, newOptions.minLight);
+				localStorage.removeItem("minLight");
+			}
+			if (localStorage.autoMoveItemsToVault) {
+				localStorage.removeItem("autoMoveItemsToVault");
+			}
+			chrome.storage.sync.set(newOptions, function() {
+				if (chrome.runtime.lastError) {
+					logger.error(chrome.runtime.lastError);
+				}
+				resolve();
+			});
+		});
 		chrome.storage.local.get(null, function(data) {
 			if (chrome.runtime.lastError) {
 				logger.error(chrome.runtime.lastError);

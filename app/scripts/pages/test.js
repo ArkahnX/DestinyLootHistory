@@ -1,5 +1,5 @@
 tracker.sendAppView('TestScreen');
-console.disable();
+// console.disable();
 initUi();
 var data = {
 	inventories: {},
@@ -7,6 +7,10 @@ var data = {
 	itemChanges: [],
 	factionChanges: []
 };
+var globalOptions = {};
+getAllOptions().then(function(options) {
+	globalOptions = options;
+});
 var relevantStats = ["itemHash", "itemInstanceId", "isEquipped", "itemInstanceId", "stackSize", "itemLevel", "qualityLevel", "stats", "primaryStat", "equipRequiredLevel", "damageTypeHash", "progression", "talentGridHash", "nodes", "isGridComplete", "objectives"];
 var characterIdList = ["vault"];
 var characterDescriptions = {
@@ -23,7 +27,7 @@ function initItems(callback) {
 	// console.startLogging("items");
 	console.time("load Bungie Data");
 	initUi();
-	bungie.setActive(localStorage.activeType);
+	getOption("activeType").then(bungie.setActive);
 	bungie.user().then(function(u) {
 		if (u.error) {
 			return setTimeout(function() {
@@ -126,7 +130,6 @@ function checkInventory() {
 		// sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
 		// sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
 		var mat = findHighestMaterial();
-		console.log(mat);
 		var characterHistory = document.getElementById("history");
 		var inventoryData = [];
 		for (var characterId in data.inventories) {
@@ -155,7 +158,7 @@ function checkInventory() {
 			}
 		}
 		inventoryData.sort(function(a, b) {
-			if (a.itemInstanceId === "0") {
+			if (typeof a.stackSize === "number") {
 				return b.stackSize - a.stackSize;
 			} else {
 				return a.itemInstanceId - b.itemInstanceId;
@@ -191,7 +194,7 @@ function makeHistoryItem(itemData) {
 	var container = document.createElement("div");
 	var stat = document.createElement("div");
 	itemContainer.appendChild(container);
-	if (hasQuality(itemData)) {
+	if (hasQuality(itemData) && globalOptions.showQuality) {
 		var quality = document.createElement("div");
 		itemContainer.appendChild(quality);
 		quality.classList.add("quality");
@@ -199,6 +202,9 @@ function makeHistoryItem(itemData) {
 		var qualityData = parseItemQuality(itemData);
 		quality.style.background = qualityData.color;
 		quality.textContent = qualityData.min + "%";
+		container.dataset.qualityMin = qualityData.min;
+		container.dataset.qualityMax = qualityData.max;
+		container.dataset.qualityColor = qualityData.color;
 	}
 	itemContainer.appendChild(stat);
 	docfrag.appendChild(itemContainer);
@@ -216,13 +222,26 @@ function makeHistoryItem(itemData) {
 
 function passData(DomNode, itemData) {
 	var itemDefinition = getItemDefinition(itemData.itemHash);
+	DomNode.dataset.itemHash = itemDefinition.itemHash;
+	if (itemData.itemInstanceId) {
+		DomNode.dataset.itemInstanceId = itemData.itemInstanceId;
+	}
 	if (itemDefinition.tierTypeName) {
 		DomNode.dataset.tierTypeName = itemDefinition.tierTypeName;
 	} else {
 		DomNode.dataset.tierTypeName = "Common";
 	}
-	DomNode.dataset.itemHash = itemDefinition.itemHash;
+	if (itemDefinition.sourceHashes) {
+		var temp = [];
+		for (var hash of itemDefinition.sourceHashes) {
+			if (DestinyRewardSourceDefinition[hash]) {
+				temp.push(DestinyRewardSourceDefinition[hash].sourceName.replace(/\s+/g, ''));
+			}
+		}
+		DomNode.dataset.sourceName = JSON.stringify(temp);
+	}
 	DomNode.dataset.itemName = itemDefinition.itemName;
+	DomNode.dataset.itemImage = itemDefinition.icon;
 	DomNode.dataset.itemTypeName = itemDefinition.itemTypeName;
 	DomNode.dataset.equipRequiredLevel = itemData.equipRequiredLevel || 0;
 	DomNode.dataset.primaryStat = primaryStat(itemData);

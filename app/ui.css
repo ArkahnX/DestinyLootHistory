@@ -257,10 +257,10 @@ header {
 	border-color: #F5DC56;
 }
 
-.primary-stat {
+.item-container .primary-stat {
 	font-size: 10px;
 	font-weight: bold;
-	/*line-height: 13px;*/
+	line-height: normal;
 
 	position: absolute;
 	right: 0;
@@ -277,14 +277,14 @@ header {
 	background: rgba(255, 255, 255, .9);
 }
 
-.with-quality {
+.item-container .with-quality {
 	background: transparent;
 }
 
-.quality {
+.item-container .quality {
 	font-size: 10px;
 	font-weight: bold;
-	/*line-height: 13px;*/
+	line-height: normal;
 
 	position: absolute;
 	bottom: 0;
@@ -312,12 +312,24 @@ header {
 	background: #85C5EC;
 }
 
+.complete.arc + .primary-stat {
+	color: #85C5EC;
+}
+
 .solar + .primary-stat {
 	background: #F2721B;
 }
 
+.complete.solar + .primary-stat {
+	color: #F2721B;
+}
+
 .void + .primary-stat {
 	background: #B184C5;
+}
+
+.complete.void + .primary-stat {
+	color: #B184C5;
 }
 
 .main-section {
@@ -331,7 +343,7 @@ header {
 }
 
 .sub-section {
-	min-height: 124px;
+	min-height: 56px;
 	margin: 6px 0;
 
 	text-align: center;
@@ -416,6 +428,8 @@ header {
 	float: right;
 }
 #item-head {
+	position: relative;
+
 	padding: 5px 18px;
 
 	transition: background-color .5s ease, color .5s ease;
@@ -455,21 +469,27 @@ header {
 	background: #C14443;
 }
 
+.TheTakenKing #item-head,
+.ChallengeoftheElders #item-head,
+.King\'sFall #item-head {
+	background-image: linear-gradient(45deg,transparent 244px,rgba(0,0,0,.11) 30px);
+}
+
 .exotic #item-head {
-	background: rgba(206,174,50,.9);
+	background-color: #CEAE33;
 }
 .legendary #item-head {
-	background: rgba(78,50,99,.9);
+	background-color: #522F65;
 }
 .rare #item-head {
-	background: rgba(85,127,158,.9);
+	background-color: #5076A3;
 }
 .uncommon #item-head {
-	background: rgba(47,107,60,.9);
+	background-color: #366F42;
 }
 .common #item-head {
 	color: rgb(30,36,43);
-	background: rgba(245,245,245,.9);
+	background-color: #C3BCB4;
 }
 
 .arc #item-primary-stat,
@@ -525,54 +545,67 @@ header {
 
 .one-row {
 	min-height: 56px;
+	max-height: 56px;
 }
 
 .two-rows {
 	min-height: 112px;
+	max-height: 112px;
 }
 
 .three-rows {
 	min-height: 168px;
+	max-height: 168px;
 }
 
 .four-rows {
 	min-height: 224px;
+	max-height: 224px;
 }
 
 .five-rows {
 	min-height: 280px;
+	max-height: 280px;
 }
 
 .six-rows {
 	min-height: 336px;
+	max-height: 336px;
 }
 
 .seven-rows {
 	min-height: 392px;
+	max-height: 392px;
 }
 
 .eight-rows {
 	min-height: 448px;
+	max-height: 448px;
 }
 
 .nine-rows {
 	min-height: 504px;
+	max-height: 504px;
 }
 
 .ten-rows {
 	min-height: 560px;
+	max-height: 560px;
 }
 
 .eleven-rows {
 	min-height: 616px;
+	max-height: 616px;
 }
 
 .twelve-rows {
 	min-height: 672px;
+	max-height: 672px;
 }
 
 .thirteen-rows {
 	min-height: 728px;
+	max-height: 728px;
 }
 
 #added,
@@ -619,8 +652,16 @@ header {
 }
 
 #date .sub-section {
-	font-size: 1.6em;
+	font-size: 1.2em;
 	font-weight: bold;
+
+	background-size: cover;
+}
+
+.bg {
+	color: #F4F6F5;
+
+	-webkit-text-stroke: 1px black;
 }
 
 input[type='checkbox'] {
@@ -728,7 +769,13 @@ label {
 }
 
 .node-list {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+
 	animation: flipdown .5s ease both;
+
+	color: #F5F5F5;
 }
 
 
@@ -824,7 +871,7 @@ h1 {
 }
 
 #notification-content {
-	max-width: 1000px;
+	max-width: 1200px;
 	margin: 0 auto;
 }
 
@@ -1114,6 +1161,16 @@ fieldset ul {
 	padding-top: 40px;
 }
 
+#debugHome.collection {
+	display: inline-block;
+
+	width: calc(100% - 400px);
+	height: calc(100% - 32px);
+	max-height: calc(100% - 32px);
+	padding: 0;
+	padding-bottom: 50px;
+}
+
 .transition,
 #debugHome div,
 #debugHome ul li i:before,
@@ -1160,7 +1217,7 @@ fieldset ul {
 	letter-spacing: 1px;
 }
 
-#debugHome div {
+#debugHome li > div {
 	/*color: rgba(48, 69, 92, 0.8);*/
 	font-size: 17px;
 	line-height: 26px;
@@ -1170,7 +1227,6 @@ fieldset ul {
 
 	overflow: hidden;
 
-	max-height: 800px;
 	margin-top: 14px;
 
 	transform: translate(0, 0);
@@ -1222,6 +1278,21 @@ fieldset ul {
 #debugHome ul > li:nth-of-type(3) {
 	animation-delay: .75s;
 }
+#debugHome ul > li:nth-of-type(4) {
+	animation-delay: 1s;
+}
+#debugHome ul > li:nth-of-type(5) {
+	animation-delay: 1.25s;
+}
+#debugHome ul > li:nth-of-type(6) {
+	animation-delay: 1.5s;
+}
+#debugHome ul > li:nth-of-type(7) {
+	animation-delay: 1.75s;
+}
+#debugHome ul > li:nth-of-type(8) {
+	animation-delay: 2s;
+}
 #debugHome ul > li:last-of-type {
 	padding-bottom: 0;
 }
@@ -1245,10 +1316,13 @@ fieldset ul {
 	background-color: #000;
 }
 #debugHome ul li i:before {
-	transform: translate(-2px, 0) rotate(45deg);
+	transform: translate(-2px, -1px) rotate(45deg);
+}
+#debugHome.collection ul li i:after {
+	transform: translate(2px, 0) rotate(-45deg);
 }
 #debugHome ul li i:after {
-	transform: translate(2px, 0) rotate(-45deg);
+	transform: translate(2px, -1px) rotate(-45deg);
 }
 #debugHome ul li input[type=checkbox] {
 	position: absolute;
@@ -1271,8 +1345,11 @@ fieldset ul {
 
 	opacity: 0;
 }
+#debugHome.collection ul li input[type=checkbox]:checked ~ i:before {
+	transform: translate(2px, -2px) rotate(45deg);
+}
 #debugHome ul li input[type=checkbox]:checked ~ i:before {
-	transform: translate(2px, 0) rotate(45deg);
+	transform: translate(2px, 0px) rotate(45deg);
 }
 #debugHome ul li input[type=checkbox]:checked ~ i:after {
 	transform: translate(-2px, 0) rotate(-45deg);
@@ -1331,19 +1408,21 @@ optgroup option {
 	opacity: .25;
 }
 
-.nsg-editor {
-	padding: 10px;
-
-	cursor: text;
-}
 .nsg-tag {
 	display: inline-block;
 
 	margin: 4px;
 	padding: 3px;
+	padding-bottom: 0;
 
 	border: 1px solid #666;
 }
+.nsg-tag span {
+	margin-left: 4px;
+
+	vertical-align: top;
+}
+
 .nsg-invalid {
 	border-color: #C00;
 }
@@ -1357,13 +1436,15 @@ optgroup option {
 }
 .nsg-tag-remove::after {
 	position: relative;
-	top: -2px;
+	top: -5px;
 
 	content: 'x';
 }
 .nsg-input {
 	display: inline-block;
 
+	width: 100%;
+	max-width: 350px;
 	margin: 5px 0;
 	padding: 3px 3px 3px 8px;
 }
@@ -1551,4 +1632,72 @@ optgroup option {
 	color: white;
 	background: rgba(0,0,0,.8);
 	background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+}
+
+.collection h2 {
+	text-align: center;
+}
+
+#item-image {
+	display: block;
+
+	width: 96px;
+	height: 96px;
+	margin: 0 auto;
+}
+
+#debugHome + #tooltip {
+	height: calc(100% - 32px);
+}
+
+.progress-text {
+	position: relative;
+	z-index: 1;
+
+	float: right;
+
+	margin-right: 3px;
+}
+
+.repProgress {
+	position: absolute;
+	top: 6px;
+	left: 7px;
+
+	width: 37px;
+	height: 37px;
+
+	transform: rotateZ(45deg);
+}
+
+.bigProgress {
+	position: absolute;
+	top: 18px;
+	right: 155px;
+
+	transform: rotateZ(45deg);
+}
+
+.vendor-title h1 {
+	font-size: 3.5em;
+}
+.vendor-title h2 {
+	font-size: 2.5em;
+}
+.vendor-title h3 {
+	font-size: 1.5em;
+}
+
+.changelog {
+	text-align: left;
+}
+
+#debugHome .changelog ul {
+	margin-left: 2em;
+
+	list-style-type: disc;
+}
+
+#debugHome .changelog ul ul {
+	list-style-type: circle;
 }

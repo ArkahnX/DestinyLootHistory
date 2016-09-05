@@ -14,11 +14,14 @@ function parseQuality(startingStat, startingDefense, endingDefense) {
 
 function containsNodes(item, nodeNameList) {
 	var result = 0;
+	if (!Array.isArray(nodeNameList)) {
+		nodeNameList = [nodeNameList];
+	}
 	var itemDef = getItemDefinition(item.itemHash);
 	var grid = getNodes(item);
-	for (var node of grid) {
-		for (var nodeName of nodeNameList) {
-			if (node.nodeStepName.toLowerCase() === nodeName.toLowerCase()) {
+	for (var nodeName of nodeNameList) {
+		for (var node of grid) {
+			if (node.nodeStepName.toLowerCase().indexOf(nodeName.toLowerCase()) > -1) {
 				result++;
 				break;
 			}
@@ -179,20 +182,21 @@ function getNodes(item, nodes, talentGridHash) {
 		}
 		return parsedNodes;
 	}
+	return [];
 }
 
 var maxStatRolls = {
-	Helmet: 48,
-	Gauntlets: 43,
+	"Helmet": 46,
+	"Gauntlets": 41,
 	"Chest Armor": 61,
 	"Leg Armor": 56,
 	"Hunter Cloak": 25,
 	"Titan Mark": 25,
 	"Warlock Bond": 25,
 	"Ghost Shell": 25,
-	"Hunter Artifact": 25,
-	"Titan Artifact": 25,
-	"Warlock Artifact": 25
+	"Hunter Artifact": 38,
+	"Titan Artifact": 38,
+	"Warlock Artifact": 38
 };
 
 var statValues = {

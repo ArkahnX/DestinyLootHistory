@@ -32,33 +32,37 @@ function extensionIcon() {
 function activityTracker() {
 	logger.startLogging("timers");
 	logger.log("activityTracker");
-	initItems(function afterInitItems() {
-		if (localStorage.error === "true") {
-			logger.log("Extension has an error.");
-			localStorage.flag = "false";
-			localStorage.listening = "false";
-			localStorage.manual = "false";
-		} else {
-			var newCharacterDates = 0;
-			for (var character of characterDescriptions) {
-				if (character.dateLastPlayed) {
-					newCharacterDates += new Date(character.dateLastPlayed).getTime();
+	getAllOptions().then(function(options) {
+		globalOptions = options;
+		initItems(function afterInitItems() {
+			if (localStorage.error === "true") {
+				logger.log("Extension has an error.");
+				localStorage.flag = "false";
+				localStorage.listening = "false";
+				localStorage.manual = "false";
+				startTimer("activityTracker");
+			} else {
+				var newCharacterDates = 0;
+				for (var character of characterDescriptions) {
+					if (character.dateLastPlayed) {
+						newCharacterDates += new Date(character.dateLastPlayed).getTime();
+					}
+				}
+				logger.startLogging("timers");
+				if (newCharacterDates !== oldCharacterDates || localStorage.manual === "true") { // if new character dates is not equal to old character dates
+					logger.log("Player character has been played.");
+					logger.log(`Beginning tracking because character dates "${newCharacterDates} !== ${oldCharacterDates}" or manual "${localStorage.manual}"`);
+					localStorage.listening = "true";
+					localStorage.manual = "false";
+					oldCharacterDates = newCharacterDates;
+					startTimer("inventoryCheck", 50);
+				} else {
+					logger.log("Nothing of interest.");
+					startTimer("activityTracker");
 				}
 			}
-			logger.startLogging("timers");
-			if (newCharacterDates !== oldCharacterDates || localStorage.manual === "true") { // if new character dates is not equal to old character dates
-				logger.log("Player character has been played.");
-				logger.log(`Beginning tracking because character dates "${newCharacterDates} !== ${oldCharacterDates}" or manual "${localStorage.manual}"`);
-				localStorage.listening = "true";
-				localStorage.manual = "false";
-				oldCharacterDates = newCharacterDates;
-				startTimer("inventoryCheck", 50);
-			} else {
-				logger.log("Nothing of interest.");
-				startTimer("activityTracker");
-			}
-		}
-		logger.saveData();
+			logger.saveData();
+		});
 	});
 }
 
@@ -89,17 +93,17 @@ timers.extensionIcon = {
 	id: -1,
 	time: 2000,
 	fn: extensionIcon,
-	lastPing:moment().format()
+	lastPing: moment().format()
 };
 timers.activityTracker = {
 	id: -1,
 	time: 10000,
 	fn: activityTracker,
-	lastPing:moment().format()
+	lastPing: moment().format()
 };
 timers.inventoryCheck = {
 	id: -1,
 	time: 20 * 60 * 1000,
 	fn: inventoryCheck,
-	lastPing:moment().format()
+	lastPing: moment().format()
 };

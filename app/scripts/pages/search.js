@@ -4,8 +4,13 @@ var manifest = chrome.runtime.getManifest();
 characterDescriptions = JSON.parse(localStorage.characterDescriptions);
 var searchTypes = ["itemName", "itemTypeName", "itemDescription", "tierTypeName", "damageTypeName", "primaryStat"];
 
+var globalOptions = {};
 chrome.storage.local.get(null, function(result) {
 	console.log(result);
+});
+
+getAllOptions().then(function(options) {
+	globalOptions = options;
 });
 
 var uniqueId = 0;

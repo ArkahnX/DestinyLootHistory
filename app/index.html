@@ -25,6 +25,7 @@
 						<ul>
 							<li><a class="button" href="/history.html">History</a></li>
 							<li><a class="button" href="/vendor.html">Vendors</a></li>
+							<li><a class="button" href="/collection.html">Collection</a></li>
 							<li><a class="button hidden admin" href="/export.html">Export</a></li>
 							<li><a class="button hidden admin" href="/search.html">Search</a></li>
 							<li><a class="button hidden admin" href="/test.html">Inventory</a></li>
@@ -64,6 +65,8 @@
 		</div>
 		<div id="tooltip">
 			<section id="item-head">
+				<canvas id="squareProgress" width="71" height="71" class="bigProgress"></canvas>
+				<img id="item-image" />
 				<h2 id="item-name"></h2>
 				<div>
 					<span id="item-type"></span>
@@ -98,6 +101,12 @@
 					</tbody>
 				</table>
 			</section>
+			<section id="item-compare">
+				<table>
+					<tbody id="compare-table">
+					</tbody>
+				</table>
+			</section>
 		</div>
 		<div id="copyright">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
 		<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js"></script>
@@ -108,6 +117,7 @@
 		<script type="text/javascript" src="scripts/vendor/moment.js"></script>
 		<script type="text/javascript" src="scripts/vendor/moment-timezone.js"></script>
 		<script type="text/javascript" src="scripts/vendor/google-analytics-bundle.js"></script>
+		<script type="text/javascript" src="scripts/vendor/SquareProgress.js"></script>
 		<script type="text/javascript" src="scripts/shared.js"></script>
 		<script type="text/javascript" src="scripts/bungie.js"></script>
 		<script type="text/javascript" src="scripts/quality.js"></script>

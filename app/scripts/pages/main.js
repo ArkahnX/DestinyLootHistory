@@ -3,6 +3,11 @@ if (localStorage.characterDescriptions) {
 	characterDescriptions = JSON.parse(localStorage.characterDescriptions);
 	jsonCharacterDescriptions = localStorage.characterDescriptions;
 }
+var debugMessage = `Destiny Loot History V${chrome.runtime.getManifest().version}
+GitHub: https://github.com/ArkahnX/DestinyLootHistory
+Gallery: http://imgur.com/a/QGLZf
+Reddit: https://www.reddit.com/message/compose/?to=ArkahnX`;
+console.log(debugMessage);
 
 chrome.storage.local.get(null, function(result) {
 	if (chrome.runtime.lastError) {
@@ -18,17 +23,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
 var jsonCharacterDescriptions = "";
 var notificationCooldown = 0;
+var globalOptions = {};
 
 function frontEndUpdate() {
+	getAllOptions().then(function(options) {
+		globalOptions = options;
+	});
 	if (elements.toggleSystem) {
-		if (localStorage.activeType === "xbl" && elements.toggleSystem.value !== "Swap to PSN") {
-			elements.toggleSystem.value = "Swap to PSN";
-			elements.toggleSystem.classList.remove("green");
-		}
-		if (localStorage.activeType === "psn" && elements.toggleSystem.value !== "Swap to XBOX") {
-			elements.toggleSystem.value = "Swap to XBOX";
-			elements.toggleSystem.classList.add("green");
-		}
+		getOption("activeType").then(function(activeType) {
+			if (activeType === "xbl" && elements.toggleSystem.value !== "Swap to PSN") {
+				elements.toggleSystem.value = "Swap to PSN";
+				elements.toggleSystem.classList.remove("green");
+			}
+			if (activeType === "psn" && elements.toggleSystem.value !== "Swap to XBOX") {
+				elements.toggleSystem.value = "Swap to XBOX";
+				elements.toggleSystem.classList.add("green");
+			}
+		});
 	}
 	if (localStorage.error === "true") {
 		if (notificationCooldown === 0) {
@@ -56,8 +67,29 @@ function frontEndUpdate() {
 		var timestamps = document.querySelectorAll(".timestamp");
 		for (var item of timestamps) {
 			var localTime = moment.utc(item.dataset.timestamp).tz(timezone);
-			item.textContent = localTime.fromNow() + item.dataset.activity;
-			item.setAttribute("title", localTime.format("ddd[,] ll LTS"));
+			var activityString = "";
+			if (item.dataset.activity) {
+				var activityDef = DestinyActivityDefinition[item.dataset.activity];
+				var activityTypeDef = DestinyActivityTypeDefinition[activityDef.activityTypeHash];
+				if (activityDef && activityTypeDef) {
+					var activityName = activityDef.activityName;
+					var activityTypeName = activityTypeDef.activityTypeName;
+					activityString = activityTypeName + " - " + activityName;
+				}
+				if (globalOptions.pgcrImage) {
+					item.style.backgroundImage = `url(http://www.bungie.net${activityDef.pgcrImage})`;
+					item.classList.add("bg");
+				} else {
+					item.style.backgroundImage = "";
+					item.classList.remove("bg");
+				}
+			}
+			if (globalOptions.relativeDates) {
+				item.innerHTML = localTime.fromNow() + "<br>" + activityString;
+			} else {
+				item.innerHTML = localTime.format("ddd[,] ll LTS") + "<br>" + activityString;
+			}
+			item.setAttribute("title", localTime.format("ddd[,] ll LTS") + "\n" + activityString);
 		}
 		chrome.storage.local.get("itemChanges", function chromeStorageGet(localData) {
 			if (chrome.runtime.lastError) {
@@ -81,5 +113,7 @@ function frontEndUpdate() {
 	}
 	window.requestAnimationFrame(frontEndUpdate);
 }
-
-frontEndUpdate();
+getAllOptions().then(function(options) {
+	globalOptions = options;
+	frontEndUpdate();
+});
