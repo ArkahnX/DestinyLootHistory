@@ -399,6 +399,7 @@ function postInitItems() {
 			}
 		}, false);
 	});
+	document.getElementById("debugHome").classList.remove("hidden");
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -418,12 +419,12 @@ document.addEventListener("DOMContentLoaded", function() {
 			target = event.target;
 		} else if (event.target.parentNode.classList.contains("item") || event.target.parentNode.classList.contains("faction")) {
 			target = event.target.parentNode;
-		} else if(event.target.parentNode.classList.contains("item-container")) {
+		} else if (event.target.parentNode.classList.contains("item-container")) {
 			target = event.target.parentNode.children[0];
 		}
 		if (target && target !== previousElement) {
-		console.log(target)
-			// elements.tooltip.classList.add("hidden");
+			console.log(target)
+				// elements.tooltip.classList.add("hidden");
 			previousElement = target;
 			handleTooltipData(target.dataset, target, event);
 		}
@@ -434,7 +435,6 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	}, true);
 	initItems(postInitItems);
-	document.getElementById("debugHome").classList.remove("hidden");
 });
 
 window.requestAnimationFrame(date.keepDatesUpdated);

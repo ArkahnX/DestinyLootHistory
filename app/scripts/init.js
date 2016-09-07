@@ -103,6 +103,7 @@ function initializeStoredVariables() {
 		localStorage.newestCharacter = _checkValue(localStorage.newestCharacter, _checkNumber, "vault");
 		localStorage.notificationClosed = _checkValue(localStorage.notificationClosed, _checkBoolean, "false");
 		localStorage.disableQuality = _checkValue(localStorage.disableQuality, _checkBoolean, "false");
+		localStorage.autoLockHighLight = _checkValue(localStorage.autoLockHighLight, _checkBoolean, "false");
 		// localStorage.track3oC = _checkValue(localStorage.track3oC, _checkBoolean, "true");
 		localStorage.uniqueId = _checkValue(localStorage.uniqueId, _checkLength, "false");
 		// localStorage.autoLock = _checkValue(localStorage.autoLock, _checkBoolean, "false");
@@ -143,6 +144,7 @@ function initializeStoredVariables() {
 				relativeDates: true,
 				pgcrImage: false,
 				showQuality: true,
+				lockHighLight: false,
 				useGuardianLight:true,
 				keepSingleStackItems: [],
 				autoMoveItemsToVault: [],
@@ -160,6 +162,10 @@ function initializeStoredVariables() {
 				localStorage.disableQuality = "true";
 				newOptions.showQuality = false;
 				newOptions.minQuality = 100;
+			}
+			if(localStorage.autoLockHighLight === "false") {
+				localStorage.autoLockHighLight = "true";
+				newOptions.lockHighLight = newOptions.autoLock;
 			}
 			if (localStorage.activeType) {
 				if (localStorage.activeType === "xbl") {

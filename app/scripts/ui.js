@@ -31,6 +31,7 @@ var elements = {
 	paginate: document.getElementById("paginate"),
 	showQuality: document.getElementById("showQuality"),
 	useGuardianLight: document.getElementById("useGuardianLight"),
+	lockHighLight: document.getElementById("lockHighLight"),
 	version: document.getElementById("version")
 };
 
@@ -200,6 +201,10 @@ function initUi() {
 		if (elements.useGuardianLight) {
 			elements.useGuardianLight.checked = options.useGuardianLight === true;
 			elements.useGuardianLight.addEventListener("change", handleCheckboxChange, false);
+		}
+		if (elements.lockHighLight) {
+			elements.lockHighLight.checked = options.lockHighLight === true;
+			elements.lockHighLight.addEventListener("change", handleCheckboxChange, false);
 		}
 	});
 }
@@ -477,6 +482,11 @@ function work(item, index) {
 }
 
 function postWork(resolve) {
+	if (!currentItemSet || !currentItemSet.length && localStorage.error === "false") {
+		document.getElementById("noItemOverlay").classList.remove("hidden");
+	} else {
+		document.getElementById("noItemOverlay").classList.add("hidden");
+	}
 	if (oldItemChangeQuantity !== (currentItemSet && currentItemSet.length) || oldPageNumber !== pageNumber) {
 		for (var page of pages) {
 			while (elements[page].lastChild) {
