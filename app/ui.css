@@ -1048,7 +1048,7 @@ fieldset label {
 
 	display: inline-block;
 
-	width: 40%;
+	width: 50%;
 	margin-right: .5em;
 	padding-top: .2em;
 
@@ -1700,4 +1700,19 @@ optgroup option {
 
 #debugHome .changelog ul ul {
 	list-style-type: circle;
+}
+
+#noItemOverlay {
+	font-size: 1.5em;
+
+	position: absolute;
+	z-index: 1;
+	top: 10em;
+	left: 16em;
+
+	padding: 3em;
+
+	text-align: center;
+
+	background: #bfc5c6;
 }
