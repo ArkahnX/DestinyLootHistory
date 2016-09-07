@@ -848,27 +848,61 @@ function check3oC() {
 	});
 }
 
+function lockByLightLevel(options, item, characterId) {
+	if (item.primaryStat.value >= options.minLight) {
+		bungie.lock(characterId, item.itemInstanceId).then(function(response) {
+			logger.log(response);
+		});
+		return true;
+	}
+	logger.info("Failed Light Check.");
+	return false;
+}
+
+function lockByQualityLevel(options, item, characterId) {
+	var qualityLevel = parseItemQuality(item);
+	if (qualityLevel.min >= (options.minQuality || 90)) {
+		bungie.lock(characterId, item.itemInstanceId).then(function(response) {
+			logger.log(response);
+		});
+		return true;
+	}
+	logger.info("Failed Quality Check.");
+	return false;
+}
+
 function eligibleToLock(item, characterId) {
+	let itemDef = getItemDefinition(item.itemHash);
 	getAllOptions().then(function(options) {
-		if (options.autoLock !== true) {
+		if ((options.autoLock === false || options.showQuality === false) && options.lockHighLight === false) {
+			logger.info(`Failing autoLock on options. showQuality: ${options.showQuality} autoLock: ${options.autoLock} lockHighLight: ${options.lockHighLight}`);
 			return false;
 		}
-		var itemDef = getItemDefinition(item.itemHash);
-		if ((itemDef.tierTypeName === "Legendary" || itemDef.tierTypeName === "Exotic") && item.stats && item.primaryStat) {
-			if (item.primaryStat.statHash === 3897883278 && globalOptions.showQuality) {
-				var qualityLevel = parseItemQuality(item);
-				logger.log(qualityLevel.min, parseInt(options.minQuality) || 90, item.primaryStat.value, parseInt(options.minLight) || 335);
-				if (qualityLevel.min >= (parseInt(options.minQuality) || 90) || item.primaryStat.value >= (parseInt(options.minLight) || 335)) {
-					bungie.lock(characterId, item.itemInstanceId).then(function(response) {
-						logger.log(response);
-					});
+		if (!item.stats || !item.primaryStat || (itemDef.tierTypeName !== "Legendary" && itemDef.tierTypeName !== "Exotic") || (item.primaryStat.statHash !== 368428387 && item.primaryStat.statHash !== 3897883278)) {
+			logger.info("Failing autoLock on item type for " + itemDef.itemName);
+			return false;
+		}
+		if ((options.autoLock === false || options.showQuality === false) && options.lockHighLight === true) {
+			// light level only
+			logger.info("Checking Light Only for " + itemDef.itemName);
+			return lockByLightLevel(options, item, characterId);
+		}
+		if (options.autoLock === true && options.showQuality === true && options.lockHighLight === false) {
+			// quality level only
+			logger.info("Checking Quality Only for " + itemDef.itemName);
+			if (item.primaryStat.statHash === 3897883278) {
+				return lockByQualityLevel(options, item, characterId);
+			}
+		}
+		if (options.autoLock === true && options.showQuality === true && options.lockHighLight === true) {
+			// light level and quality level
+			logger.info("Checking Quality and Light for " + itemDef.itemName);
+			if (item.primaryStat.statHash === 3897883278) {
+				if (!lockByQualityLevel(options, item, characterId)) {
+					return lockByLightLevel(options, item, characterId);
 				}
-			} else if (item.primaryStat.statHash === 368428387 || (item.primaryStat.statHash === 3897883278 && globalOptions.showQuality === false)) {
-				if (item.primaryStat.value >= (parseInt(options.minLight) || 335)) {
-					bungie.lock(characterId, item.itemInstanceId).then(function(response) {
-						logger.log(response);
-					});
-				}
+			} else {
+				return lockByLightLevel(options, item, characterId);
 			}
 		}
 	});

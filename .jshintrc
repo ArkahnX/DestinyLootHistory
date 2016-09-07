@@ -44,6 +44,10 @@
 		"notification":false,
 		"initItems":false,
 		"characterDescriptions":false,
+		"parseItemQuality":false,
+		"getAllOptions":false,
+		"getOption":false,
+		"setOption":false,
 		"elements":false
 	}
 }

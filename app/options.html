@@ -37,16 +37,20 @@
 			</fieldset>
 			<fieldset>
 				<legend>Auto Lock New High Quality Items</legend>
-				<label>Enable Automatic Locking of items:</label><input type="checkbox" id="autoLock">
-				<br />
-				<label>Use Guardian Maximum Light Level:</label><input type="checkbox" id="useGuardianLight">
+				<label>Enable Automatic Locking of Items (High Quality):</label><input type="checkbox" id="autoLock">
 				<br />
 				<p>On September 20th, this feature will change to a value of 100 due to Rise of Iron stat value changes. It can be manually changed afterwards, but accuracy is not guaranteed. Once a new formula is determined, this message will go away.</p>
 				<label>Minimum Quality Percentage:</label><input type="number" min="80" max="100" value="90" id="minQuality">
-				<br />
-				<label>Minimum Light Level:</label><input type="number" min="300" max="400" value="335" id="minLight">
 				<!-- <br /> -->
 				<!-- <label>Gear Perks:</label><input type="button" class="button" value="Select Perks" id="gearPerks"> -->
+			</fieldset>
+			<fieldset>
+				<legend>Auto Lock New High Light Items</legend>
+				<label>Enable Automatic Locking of Items (High Light):</label><input type="checkbox" id="lockHighLight">
+				<br />
+				<label>Use Guardian Maximum Light Level:</label><input type="checkbox" id="useGuardianLight">
+				<br />
+				<label>Minimum Light Level:</label><input type="number" min="300" max="400" value="335" id="minLight">
 			</fieldset>
 			<fieldset>
 				<legend>Auto Move All But One Stack To Vault</legend>
