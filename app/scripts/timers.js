@@ -10,7 +10,9 @@ function startTimer(name, customTime) {
 	// logger.log(`Queing timer ${name} for ${customTime || timers[name].time}`)
 	stopTimer(name);
 	timers[name].lastPing = moment().format();
-	timers[name].id = setTimeout(timers[name].fn, customTime || timers[name].time);
+	if (parseInt(moment().utc().format("H")) < 15) {
+		timers[name].id = setTimeout(timers[name].fn, customTime || timers[name].time);
+	}
 }
 
 function extensionIcon() {
