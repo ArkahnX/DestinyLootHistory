@@ -347,7 +347,6 @@ function handleOtherStats(dataset, resolve) {
 				} else if (materialText === "Wormspore") {
 					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[3164836592].icon + "')");
 				}
-				console.log(guardianText,guardianText === "Reclamation")
 				if (guardianText === "Titan") {
 					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[1723894001].icon + "')");
 				} else if (guardianText === "Warlock") {
