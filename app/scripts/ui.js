@@ -343,7 +343,7 @@ function createDate(itemDiff, className, searchData) {
 	var activityString = "";
 	if (activity) {
 		var activityDef = DestinyActivityDefinition[activity];
-		var activityTypeDef = DestinyActivityTypeDefinition[activityDef.activityTypeHash];
+		var activityTypeDef = DestinyActivityTypeDefinition[match.activityTypeHashOverride];
 		if (activityDef && activityTypeDef) {
 			var activityName = activityDef.activityName;
 			var activityTypeName = activityTypeDef.activityTypeName;
@@ -482,10 +482,12 @@ function work(item, index) {
 }
 
 function postWork(resolve) {
-	if (!currentItemSet || !currentItemSet.length && localStorage.error === "false") {
-		document.getElementById("noItemOverlay").classList.remove("hidden");
-	} else {
-		document.getElementById("noItemOverlay").classList.add("hidden");
+	if (document.getElementById("noItemOverlay")) {
+		if (!currentItemSet || !currentItemSet.length && localStorage.error === "false") {
+			document.getElementById("noItemOverlay").classList.remove("hidden");
+		} else {
+			document.getElementById("noItemOverlay").classList.add("hidden");
+		}
 	}
 	if (oldItemChangeQuantity !== (currentItemSet && currentItemSet.length) || oldPageNumber !== pageNumber) {
 		for (var page of pages) {

@@ -167,7 +167,7 @@ function checkInventory() {
 		var containingDiv = null;
 		for (var item of inventoryData) {
 			var itemDefinition = getItemDefinition(item.itemHash);
-			var bucketName = DestinyInventoryBucketDefinition[itemDefinition.bucketTypeHash].bucketName;
+			var bucketName = DestinyInventoryBucketDefinition[itemDefinition.bucketTypeHash] && DestinyInventoryBucketDefinition[itemDefinition.bucketTypeHash].bucketName || itemDefinition.bucketTypeHash;
 			if (document.getElementById(bucketName) === null) {
 				var div = document.createElement("div");
 				div.classList.add("sub-section");

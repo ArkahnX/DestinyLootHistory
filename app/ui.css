@@ -72,7 +72,8 @@ body {
 	overflow-y: scroll;
 
 	width: calc(100% - 400px);
-	height: calc(100% - 91px);
+	height: calc(100% - 53px);
+	padding-bottom:20px;
 }
 
 textarea {
@@ -381,7 +382,7 @@ header {
 	/* left: 0; */
 
 	width: 400px;
-	height: calc(100% - 91px);
+	height: calc(100% - 53px);
 
 	color: #F5F5F5;
 	background: rgba(24,22,13,.65);
@@ -389,6 +390,7 @@ header {
 	text-shadow: none;
 
 	-webkit-font-smoothing: antialiased;
+	padding-bottom:20px;
 }
 
 #overflow {
@@ -1316,7 +1318,7 @@ fieldset ul {
 	background-color: #000;
 }
 #debugHome ul li i:before {
-	transform: translate(-2px, -1px) rotate(45deg);
+	transform: translate(-2px, 1px) rotate(45deg);
 }
 #debugHome.collection ul li i:after {
 	transform: translate(2px, 0) rotate(-45deg);
@@ -1346,7 +1348,7 @@ fieldset ul {
 	opacity: 0;
 }
 #debugHome.collection ul li input[type=checkbox]:checked ~ i:before {
-	transform: translate(2px, -2px) rotate(45deg);
+	transform: translate(2px, 1px) rotate(45deg);
 }
 #debugHome ul li input[type=checkbox]:checked ~ i:before {
 	transform: translate(2px, 0px) rotate(45deg);

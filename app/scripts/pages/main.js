@@ -70,7 +70,7 @@ function frontEndUpdate() {
 			var activityString = "";
 			if (item.dataset.activity) {
 				var activityDef = DestinyActivityDefinition[item.dataset.activity];
-				var activityTypeDef = DestinyActivityTypeDefinition[activityDef.activityTypeHash];
+				var activityTypeDef = DestinyActivityTypeDefinition[item.dataset.activityType];
 				if (activityDef && activityTypeDef) {
 					var activityName = activityDef.activityName;
 					var activityTypeName = activityTypeDef.activityTypeName;
