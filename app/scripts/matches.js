@@ -149,8 +149,8 @@ function constructMatchInterface() {
 						var match = JSON.parse(itemDiff.match);
 						var activityData = DestinyActivityDefinition[match.activityHash];
 						var activityTypeData = DestinyActivityTypeDefinition[match.activityHash];
-						node.dataset.activity = " " + activityData.activityName;
-						node.dataset.activityType = " " + activityTypeData.activityTypeName;
+						// node.dataset.activity = activityData.activityName;
+						// node.dataset.activityType = activityTypeData.activityTypeName;
 					}
 					break;
 				}

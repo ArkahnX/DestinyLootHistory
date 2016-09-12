@@ -332,9 +332,11 @@ function createProgress(itemDiff, className, moveType, searchData) {
 function createDate(itemDiff, className, searchData) {
 	var timestamp = itemDiff.timestamp;
 	var activity = "";
+	var activityType = "";
 	if (itemDiff.match) {
 		var match = JSON.parse(itemDiff.match);
 		activity = match.activityHash;
+		activityType = match.activityTypeHashOverride || DestinyActivityDefinition[match.activityHash].activityTypeHash;
 	}
 	var subContainer = document.createElement("div");
 	subContainer.classList.add("sub-section", className, "timestamp");
@@ -343,7 +345,7 @@ function createDate(itemDiff, className, searchData) {
 	var activityString = "";
 	if (activity) {
 		var activityDef = DestinyActivityDefinition[activity];
-		var activityTypeDef = DestinyActivityTypeDefinition[match.activityTypeHashOverride];
+		var activityTypeDef = DestinyActivityTypeDefinition[activityType];
 		if (activityDef && activityTypeDef) {
 			var activityName = activityDef.activityName;
 			var activityTypeName = activityTypeDef.activityTypeName;
@@ -365,6 +367,7 @@ function createDate(itemDiff, className, searchData) {
 	subContainer.setAttribute("title", localTime.format("ddd[,] ll LTS") + "\n" + activityString);
 	subContainer.dataset.timestamp = timestamp;
 	subContainer.dataset.activity = activity;
+	subContainer.dataset.activityType = activityType;
 	subContainer.dataset.index = itemDiff.id;
 	for (var typeInfo in searchData) {
 		subContainer.dataset[typeInfo] = searchData[typeInfo];
@@ -514,6 +517,7 @@ function postWork(resolve) {
 							if (currentItemSet[n].id === parseInt(node.dataset.index) && currentItemSet[n].match) {
 								var match = JSON.parse(currentItemSet[n].match);
 								node.dataset.activity = match.activityHash;
+								node.dataset.activityType = match.activityTypeHashOverride || DestinyActivityDefinition[match.activityHash].activityTypeHash;
 							}
 							if (currentItemSet[n].id < parseInt(node.dataset.index)) {
 								break;

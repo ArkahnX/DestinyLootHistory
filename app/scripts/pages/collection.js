@@ -560,9 +560,11 @@ function displayMissingVendorItems(mainContainer, lastVendor, saleVendor) {
 				var missingHashes = [];
 				for (let category of kioskResponse.Response.data.vendor.saleItemCategories) {
 					for (let emblem of category.saleItems) {
-						if (emblem.failureIndexes[0] || (emblem.requiredUnlockFlags && emblem.requiredUnlockFlags[0].isSet === false) || emblem.itemStatus.toString(2)[3] === "1") {
+						if (emblem.failureIndexes[0] || (emblem.requiredUnlockFlags && emblem.requiredUnlockFlags[0].isSet === false) || emblem.itemStatus & 8) {
 							missingHashes.push(emblem.item.itemHash);
 							missingFragment.appendChild(makeItem(emblem.item, DestinyVendorDefinition[lastVendor].failureStrings[emblem.failureIndexes[0]]));
+						} else {
+							console.log(getItemDefinition(emblem.item.itemHash).itemName,emblem);
 						}
 					}
 				}
