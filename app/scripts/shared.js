@@ -74,7 +74,7 @@ function sequence(array, networkTask, resultTask) {
 	});
 }
 
-function getItemDefinition(hash) {
+function getItemDefinition(hash, item) {
 	if (DestinyHistoricalItemDefinition[hash]) {
 		return DestinyHistoricalItemDefinition[hash];
 	} else if (DestinyCompactItemDefinition[hash]) {
@@ -83,6 +83,9 @@ function getItemDefinition(hash) {
 	// tracker.sendEvent('Item not in database', `${hash}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 	logger.error(`Item Reference ${hash} is not in database. This has been reported.`);
 	console.error(`Item Reference ${hash} is not in database. This has been reported.`);
+	if(item) {
+		console.log(item)
+	}
 	return {
 		hasIcon: false,
 		icon: "",

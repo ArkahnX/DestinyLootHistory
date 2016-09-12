@@ -6,6 +6,325 @@ getAllOptions().then(function(options) {
 	globalOptions = options;
 });
 
+function findIronBanner(inventories) {
+	var mainContainer = document.getElementById("ironbannerContainer");
+	// mainContainer.innerHTML = "Loading...";
+	var armor = [];
+	var weapons = [];
+	for (var characterId in inventories) {
+		var _characterName = characterName(characterId);
+		for (var item of inventories[characterId]) {
+			var itemDef = getItemDefinition(item.itemHash, item);
+			if (itemDef.itemCategoryHashes && itemDef.itemCategoryHashes.indexOf(20) > -1 && itemDef.tierType === 5 && itemDef.sourceHashes && (itemDef.sourceHashes.indexOf(2770509343) > -1 || itemDef.sourceHashes.indexOf(478645002) > -1)) {
+				item.characterId = _characterName;
+				armor.push(item);
+			}
+			if (itemDef.itemCategoryHashes && itemDef.itemCategoryHashes.indexOf(1) > -1 && itemDef.tierType === 5 && itemDef.sourceHashes && itemDef.sourceHashes.indexOf(2770509343) > -1) {
+				item.characterId = _characterName;
+				weapons.push(item);
+			}
+		}
+	}
+	console.log(armor)
+	var sortedGear = {
+		IronCompanion: {
+			hashes: [],
+			name: "Iron Companion",
+			matches: []
+		},
+		IronRegalia: {
+			hashes: [],
+			name: "Iron Regalia",
+			matches: []
+		},
+		IronBreed: {
+			hashes: [],
+			name: "Iron Breed",
+			matches: []
+		},
+		PreTTK: {
+			hashes: [],
+			name: "Pre Taken King Weapons",
+			matches: []
+		},
+		TTK: {
+			hashes: [],
+			name: "Taken King Weapons",
+			matches: []
+		}
+	};
+	if (globalOptions.activeType === "psn") {
+		sortedGear.IronCamelot = {
+			hashes: [],
+			name: "Iron Camelot",
+			matches: []
+		};
+	}
+	for (let itemDef of DestinyCompactItemDefinition) {
+		if (itemDef.itemCategoryHashes && itemDef.itemCategoryHashes.indexOf(1) > -1 && itemDef.tierType === 5 && itemDef.sourceHashes && itemDef.sourceHashes.indexOf(2770509343) > -1 && itemDef.sourceHashes.indexOf(460228854) > -1) {
+			sortedGear.TTK.hashes.push({
+				itemHash: itemDef.itemHash,
+				matches: [],
+				topGear: itemDef
+			});
+		} else if (itemDef.itemCategoryHashes && itemDef.itemCategoryHashes.indexOf(1) > -1 && itemDef.tierType === 5 && itemDef.sourceHashes && itemDef.sourceHashes.indexOf(2770509343) > -1 && itemDef.sourceHashes.indexOf(460228854) === -1) {
+			sortedGear.PreTTK.hashes.push({
+				itemHash: itemDef.itemHash,
+				matches: [],
+				topGear: itemDef
+			});
+		}
+	}
+	for (var PreTTK of sortedGear.PreTTK.hashes) {
+		for (var weapon of weapons) {
+			if (weapon.itemHash === PreTTK.itemHash) {
+				if (!PreTTK.topGear.primaryStat) {
+					PreTTK.topGear = weapon;
+				}
+				// PreTTK.matches.push(weapon);
+				if (PreTTK.topGear.primaryStat.value < weapon.primaryStat.value) {
+					PreTTK.topGear = weapon;
+				}
+			}
+		}
+		sortedGear.PreTTK.matches.push(PreTTK.topGear);
+	}
+	for (var TTK of sortedGear.TTK.hashes) {
+		for (var weapon of weapons) {
+			if (weapon.itemHash === TTK.itemHash) {
+				if (!TTK.topGear.primaryStat) {
+					TTK.topGear = weapon;
+				}
+				// TTK.matches.push(weapon);
+				if (TTK.topGear.primaryStat.value < weapon.primaryStat.value) {
+					TTK.topGear = weapon;
+				}
+			}
+		}
+		sortedGear.TTK.matches.push(TTK.topGear);
+	}
+	for (let _gear of sortedGear) {
+		if (_gear.matches.length === 0) {
+			for (let itemDef of DestinyCompactItemDefinition) {
+				if (itemDef.itemCategoryHashes && itemDef.itemCategoryHashes.indexOf(20) > -1 && itemDef.tierType === 5) {
+					if (itemDef.itemName && itemDef.itemName.indexOf(_gear.name) > -1) {
+						_gear.hashes.push({
+							itemHash: itemDef.itemHash,
+							matches: [],
+							topGear: itemDef
+						});
+					}
+				}
+			}
+			for (var gear of _gear.hashes) {
+				for (var _armor of armor) {
+					if (_armor.itemHash === gear.itemHash) {
+						console.log(_armor, gear)
+						if (globalOptions.showQuality) {
+							if (!hasQuality(gear.topGear)) {
+								gear.topGear = _armor;
+							}
+							// gear.matches.push(_armor);
+							if (parseItemQuality(_armor).min > parseItemQuality(gear.topGear).min) {
+								gear.topGear = _armor;
+							}
+						} else {
+							if (!gear.topGear.primaryStat) {
+								gear.topGear = _armor;
+							}
+							// gear.matches.push(_armor);
+							if (gear.topGear.primaryStat.value < _armor.primaryStat.value) {
+								gear.topGear = _armor;
+							}
+						}
+					}
+				}
+				_gear.matches.push(gear.topGear);
+			}
+		}
+	}
+	mainContainer.innerHTML = "";
+	for (let gearSet in sortedGear) {
+		var ghostSet = sortedGear[gearSet];
+		var titleContainer = document.createElement("div");
+		titleContainer.classList.add("sub-section");
+		titleContainer.innerHTML = "<p>" + ghostSet.name + "</p>";
+		var docfrag = document.createDocumentFragment();
+		for (let ghost of ghostSet.matches) {
+			var ghostElem = makeItem(ghost, ghost.characterId);
+			if (!ghost.itemInstanceId) {
+				ghostElem.children[0].classList.add("undiscovered");
+			}
+			docfrag.appendChild(ghostElem);
+			// for (var vendorItem of vendorCategory.saleItems) {
+			// 	var itemDef = DestinyCompactItemDefinition[saleItem.item.itemHash];
+			// 	if (saleItem.unlockStatuses.length && !saleItem.unlockStatuses[0].isSet && vendorItem.item.itemHash === saleItem.item.itemHash) {
+			// 		emblems[saleItem.item.itemHash] = {
+			// 			name: itemDef.itemName,
+			// 			acquired: saleItem.unlockStatuses[0].isSet,
+			// 			selling: true
+			// 		};
+			// 	}
+			// }
+		}
+		titleContainer.appendChild(docfrag);
+		// mainContainer.innerHTML = "";
+		mainContainer.appendChild(titleContainer);
+	}
+	console.log(sortedGear);
+}
+
+function findTrials(inventories) {
+	var mainContainer = document.getElementById("trialsContainer");
+	// mainContainer.innerHTML = "Loading...";
+	var armor = [];
+	var weapons = [];
+	for (var characterId in inventories) {
+		var _characterName = characterName(characterId);
+		for (var item of inventories[characterId]) {
+			var itemDef = getItemDefinition(item.itemHash, item);
+			if (itemDef.itemCategoryHashes && itemDef.itemCategoryHashes.indexOf(20) > -1 && itemDef.tierType === 5) {
+				item.characterId = _characterName;
+				armor.push(item);
+			}
+			if (itemDef.itemCategoryHashes && itemDef.itemCategoryHashes.indexOf(1) > -1 && itemDef.tierType === 5) {
+				item.characterId = _characterName;
+				weapons.push(item);
+			}
+		}
+	}
+	console.log(armor)
+	var sortedGear = {
+		WingedSun: {
+			hashes: [],
+			name: "Winged Sun",
+			matches: []
+		},
+		PreTTK: {
+			hashes: [],
+			name: "Pre Taken King Weapons",
+			matches: []
+		},
+		TTK: {
+			hashes: [],
+			name: "Taken King Weapons",
+			matches: []
+		}
+	};
+	for (let itemDef of DestinyCompactItemDefinition) {
+		if (itemDef.itemCategoryHashes && itemDef.itemCategoryHashes.indexOf(1) > -1 && itemDef.tierType === 5 && itemDef.sourceHashes && itemDef.sourceHashes.indexOf(2770509343) > -1 && itemDef.sourceHashes.indexOf(460228854) > -1) {
+			sortedGear.TTK.hashes.push({
+				itemHash: itemDef.itemHash,
+				matches: [],
+				topGear: itemDef
+			});
+		} else if (itemDef.itemCategoryHashes && itemDef.itemCategoryHashes.indexOf(1) > -1 && itemDef.tierType === 5 && itemDef.sourceHashes && itemDef.sourceHashes.indexOf(2770509343) > -1 && itemDef.sourceHashes.indexOf(460228854) === -1) {
+			sortedGear.PreTTK.hashes.push({
+				itemHash: itemDef.itemHash,
+				matches: [],
+				topGear: itemDef
+			});
+		}
+	}
+	for (var PreTTK of sortedGear.PreTTK.hashes) {
+		for (var weapon of weapons) {
+			if (weapon.itemHash === PreTTK.itemHash) {
+				if (!PreTTK.topGear.primaryStat) {
+					PreTTK.topGear = weapon;
+				}
+				// PreTTK.matches.push(weapon);
+				if (PreTTK.topGear.primaryStat.value < weapon.primaryStat.value) {
+					PreTTK.topGear = weapon;
+				}
+			}
+		}
+		sortedGear.PreTTK.matches.push(PreTTK.topGear);
+	}
+	for (var TTK of sortedGear.TTK.hashes) {
+		for (var weapon of weapons) {
+			if (weapon.itemHash === TTK.itemHash) {
+				if (!TTK.topGear.primaryStat) {
+					TTK.topGear = weapon;
+				}
+				// TTK.matches.push(weapon);
+				if (TTK.topGear.primaryStat.value < weapon.primaryStat.value) {
+					TTK.topGear = weapon;
+				}
+			}
+		}
+		sortedGear.TTK.matches.push(TTK.topGear);
+	}
+	for (let _gear of sortedGear) {
+		if (_gear.matches.length === 0) {
+			for (let itemDef of DestinyCompactItemDefinition) {
+				if (itemDef.itemCategoryHashes && itemDef.itemCategoryHashes.indexOf(20) > -1 && itemDef.tierType === 5) {
+					if (itemDef.itemName && itemDef.itemName.indexOf(_gear.name) > -1) {
+						_gear.hashes.push({
+							itemHash: itemDef.itemHash,
+							matches: [],
+							topGear: itemDef
+						});
+					}
+				}
+			}
+			for (var gear of _gear.hashes) {
+				for (var _armor of armor) {
+					if (_armor.itemHash === gear.itemHash) {
+						console.log(_armor, gear)
+						if (globalOptions.showQuality) {
+							if (!hasQuality(gear.topGear)) {
+								gear.topGear = _armor;
+							}
+							// gear.matches.push(_armor);
+							if (parseItemQuality(_armor).min > parseItemQuality(gear.topGear).min) {
+								gear.topGear = _armor;
+							}
+						} else {
+							if (!gear.topGear.primaryStat) {
+								gear.topGear = _armor;
+							}
+							// gear.matches.push(_armor);
+							if (gear.topGear.primaryStat.value < _armor.primaryStat.value) {
+								gear.topGear = _armor;
+							}
+						}
+					}
+				}
+				_gear.matches.push(gear.topGear);
+			}
+		}
+	}
+	mainContainer.innerHTML = "";
+	for (let gearSet in sortedGear) {
+		var ghostSet = sortedGear[gearSet];
+		var titleContainer = document.createElement("div");
+		titleContainer.classList.add("sub-section");
+		titleContainer.innerHTML = "<p>" + ghostSet.name + "</p>";
+		var docfrag = document.createDocumentFragment();
+		for (let ghost of ghostSet.matches) {
+			var ghostElem = makeItem(ghost, ghost.characterId);
+			if (!ghost.itemInstanceId) {
+				ghostElem.children[0].classList.add("undiscovered");
+			}
+			docfrag.appendChild(ghostElem);
+			// for (var vendorItem of vendorCategory.saleItems) {
+			// 	var itemDef = DestinyCompactItemDefinition[saleItem.item.itemHash];
+			// 	if (saleItem.unlockStatuses.length && !saleItem.unlockStatuses[0].isSet && vendorItem.item.itemHash === saleItem.item.itemHash) {
+			// 		emblems[saleItem.item.itemHash] = {
+			// 			name: itemDef.itemName,
+			// 			acquired: saleItem.unlockStatuses[0].isSet,
+			// 			selling: true
+			// 		};
+			// 	}
+			// }
+		}
+		titleContainer.appendChild(docfrag);
+		// mainContainer.innerHTML = "";
+		mainContainer.appendChild(titleContainer);
+	}
+	console.log(sortedGear);
+}
+
 function findGhosts(inventories) {
 	var mainContainer = document.getElementById("ghostContainer");
 	// mainContainer.innerHTML = "Loading...";
@@ -241,9 +560,11 @@ function displayMissingVendorItems(mainContainer, lastVendor, saleVendor) {
 				var missingHashes = [];
 				for (let category of kioskResponse.Response.data.vendor.saleItemCategories) {
 					for (let emblem of category.saleItems) {
-						if (emblem.failureIndexes[0] || (emblem.requiredUnlockFlags && emblem.requiredUnlockFlags[0].isSet === false) || emblem.itemStatus.toString(2)[3] === "1") {
+						if (emblem.failureIndexes[0] || (emblem.requiredUnlockFlags && emblem.requiredUnlockFlags[0].isSet === false) || emblem.itemStatus & 8) {
 							missingHashes.push(emblem.item.itemHash);
 							missingFragment.appendChild(makeItem(emblem.item, DestinyVendorDefinition[lastVendor].failureStrings[emblem.failureIndexes[0]]));
+						} else {
+							console.log(getItemDefinition(emblem.item.itemHash).itemName,emblem);
 						}
 					}
 				}
@@ -381,6 +702,24 @@ function postInitItems() {
 						findGhosts(data.inventories);
 					});
 				}
+				if (event.target.dataset.feature === "ironbanner") {
+					chrome.storage.local.get("inventories", function(data) {
+						console.log(data.inventories);
+						findIronBanner(data.inventories);
+					});
+				}
+				if (event.target.dataset.feature === "trials") {
+					chrome.storage.local.get("inventories", function(data) {
+						console.log(data.inventories);
+						findTrials(data.inventories);
+					});
+				}
+				if (event.target.dataset.feature === "raid") {
+					chrome.storage.local.get("inventories", function(data) {
+						console.log(data.inventories);
+						findRaid(data.inventories);
+					});
+				}
 				if (event.target.dataset.feature === "emblems") {
 					findEmblems();
 				}
@@ -423,7 +762,6 @@ document.addEventListener("DOMContentLoaded", function() {
 			target = event.target.parentNode.children[0];
 		}
 		if (target && target !== previousElement) {
-			console.log(target)
 				// elements.tooltip.classList.add("hidden");
 			previousElement = target;
 			handleTooltipData(target.dataset, target, event);

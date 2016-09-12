@@ -72,7 +72,8 @@ body {
 	overflow-y: scroll;
 
 	width: calc(100% - 400px);
-	height: calc(100% - 91px);
+	height: calc(100% - 53px);
+	padding-bottom:20px;
 }
 
 textarea {
@@ -381,7 +382,7 @@ header {
 	/* left: 0; */
 
 	width: 400px;
-	height: calc(100% - 91px);
+	height: calc(100% - 53px);
 
 	color: #F5F5F5;
 	background: rgba(24,22,13,.65);
@@ -389,6 +390,7 @@ header {
 	text-shadow: none;
 
 	-webkit-font-smoothing: antialiased;
+	padding-bottom:20px;
 }
 
 #overflow {

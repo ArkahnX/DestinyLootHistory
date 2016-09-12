@@ -158,16 +158,17 @@ function checkInventory() {
 			}
 		}
 		inventoryData.sort(function(a, b) {
-			if (typeof a.stackSize === "number") {
-				return b.stackSize - a.stackSize;
+			if (!isNaN(parseInt(a.stackSize))) {
+				return parseInt(b.stackSize) - parseInt(a.stackSize);
 			} else {
 				return a.itemInstanceId - b.itemInstanceId;
 			}
 		});
+		console.log(inventoryData)
 		var containingDiv = null;
 		for (var item of inventoryData) {
 			var itemDefinition = getItemDefinition(item.itemHash);
-			var bucketName = DestinyInventoryBucketDefinition[itemDefinition.bucketTypeHash].bucketName;
+			var bucketName = DestinyInventoryBucketDefinition[itemDefinition.bucketTypeHash] && DestinyInventoryBucketDefinition[itemDefinition.bucketTypeHash].bucketName || itemDefinition.bucketTypeHash;
 			if (document.getElementById(bucketName) === null) {
 				var div = document.createElement("div");
 				div.classList.add("sub-section");
