@@ -70,7 +70,7 @@ function frontEndUpdate() {
 			var activityString = "";
 			if (item.dataset.activity) {
 				var activityDef = DestinyActivityDefinition[item.dataset.activity];
-				var activityTypeDef = DestinyActivityTypeDefinition[activityDef.activityTypeHash];
+				var activityTypeDef = DestinyActivityTypeDefinition[item.dataset.activityType];
 				if (activityDef && activityTypeDef) {
 					var activityName = activityDef.activityName;
 					var activityTypeName = activityTypeDef.activityTypeName;
@@ -91,12 +91,13 @@ function frontEndUpdate() {
 			}
 			item.setAttribute("title", localTime.format("ddd[,] ll LTS") + "\n" + activityString);
 		}
-		chrome.storage.local.get("itemChanges", function chromeStorageGet(localData) {
+		chrome.storage.local.get(["itemChanges","inventories"], function chromeStorageGet(localData) {
 			if (chrome.runtime.lastError) {
 				logger.error(chrome.runtime.lastError);
 			}
 			if (currentItemSet.length !== localData.itemChanges.length || pageNumber !== oldPageNumber) {
 				currentItemSet = localData.itemChanges;
+				newInventories = localData.inventories;
 				displayResults().then(function() {
 
 				});

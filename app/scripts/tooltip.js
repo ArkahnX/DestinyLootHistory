@@ -283,27 +283,29 @@ function handleOtherStats(dataset, resolve) {
 	if (dataset.objectiveTree) {
 		var objectives = JSON.parse(dataset.objectiveTree);
 		for (let stat of objectives) {
-			var displayDescription = DestinyObjectiveDefinition[stat.objectiveHash].displayDescription;
-			var completionValue = DestinyObjectiveDefinition[stat.objectiveHash].completionValue;
-			if (dataset.itemTypeName === "Book" && DestinyRecordDefinition[stat.objectiveHash]) {
-				displayDescription = DestinyRecordDefinition[stat.objectiveHash].description;
+			if (DestinyObjectiveDefinition[stat.objectiveHash]) {
+				var displayDescription = DestinyObjectiveDefinition[stat.objectiveHash].displayDescription;
+				var completionValue = DestinyObjectiveDefinition[stat.objectiveHash].completionValue;
+				if (dataset.itemTypeName === "Book" && DestinyRecordDefinition[stat.objectiveHash]) {
+					displayDescription = DestinyRecordDefinition[stat.objectiveHash].description;
+				}
+				var tableRowOne = document.createElement("tr");
+				tableRowOne.classList.add("itemStat", "bounty");
+				var tableRowTwo = document.createElement("tr");
+				tableRowTwo.classList.add("itemStat", "bounty");
+				let tableText = document.createElement("td");
+				tableText.classList.add("statName");
+				tableText.setAttribute("colspan", "2");
+				tableText.textContent = displayDescription;
+				let tableData = document.createElement("td");
+				tableData.classList.add("valueBar");
+				tableData.setAttribute("colspan", "2");
+				tableData.appendChild(statBar(stat.progress, completionValue, 0, stat.progress));
+				tableRowOne.appendChild(tableText);
+				tableRowTwo.appendChild(tableData);
+				elements.statTable.appendChild(tableRowOne);
+				elements.statTable.appendChild(tableRowTwo);
 			}
-			var tableRowOne = document.createElement("tr");
-			tableRowOne.classList.add("itemStat", "bounty");
-			var tableRowTwo = document.createElement("tr");
-			tableRowTwo.classList.add("itemStat", "bounty");
-			let tableText = document.createElement("td");
-			tableText.classList.add("statName");
-			tableText.setAttribute("colspan", "2");
-			tableText.textContent = displayDescription;
-			let tableData = document.createElement("td");
-			tableData.classList.add("valueBar");
-			tableData.setAttribute("colspan", "2");
-			tableData.appendChild(statBar(stat.progress, completionValue, 0, stat.progress));
-			tableRowOne.appendChild(tableText);
-			tableRowTwo.appendChild(tableData);
-			elements.statTable.appendChild(tableRowOne);
-			elements.statTable.appendChild(tableRowTwo);
 		}
 	}
 	if (dataset.nodeTree && dataset.talentGridHash) {
@@ -347,7 +349,6 @@ function handleOtherStats(dataset, resolve) {
 				} else if (materialText === "Wormspore") {
 					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[3164836592].icon + "')");
 				}
-				console.log(guardianText,guardianText === "Reclamation")
 				if (guardianText === "Titan") {
 					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[1723894001].icon + "')");
 				} else if (guardianText === "Warlock") {

@@ -147,8 +147,10 @@ function constructMatchInterface() {
 				if (itemDiff.id === index) {
 					if (itemDiff.match) {
 						var match = JSON.parse(itemDiff.match);
-						var activityTypeData = DestinyActivityDefinition[match.activityHash];
-						node.dataset.activity = " " + activityTypeData.activityName;
+						var activityData = DestinyActivityDefinition[match.activityHash];
+						var activityTypeData = DestinyActivityTypeDefinition[match.activityHash];
+						// node.dataset.activity = activityData.activityName;
+						// node.dataset.activityType = activityTypeData.activityTypeName;
 					}
 					break;
 				}

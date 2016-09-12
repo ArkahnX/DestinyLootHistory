@@ -1,5 +1,6 @@
 tracker.sendAppView('BackgroundScreen');
 var globalOptions = {};
+
 function _backup() {
 	chrome.storage.local.get(null, function(data) {
 		if (chrome.runtime.lastError) {
