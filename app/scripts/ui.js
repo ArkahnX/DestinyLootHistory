@@ -709,6 +709,8 @@ function makeProgress(progressData, classRequirement) {
 		container.setAttribute("style", "background-image: url('http://bungie.net" + getItemDefinition(3397982326).icon + "')");
 	} else if (progressData.name === "r1_s4_hiveship_orbs") {
 		container.setAttribute("style", "background-image: url('http://bungie.net" + getItemDefinition(1069694698).icon + "')");
+	} else if (progressData.name === "terminals") {
+		container.setAttribute("style", "background-image: url('http://bungie.net" + getItemDefinition(2751204699).icon + "')");
 	} else {
 		container.setAttribute("style", "background-image: url('http://bungie.net/img/misc/missing_icon.png')");
 	}
@@ -874,6 +876,8 @@ function passFactionData(DomNode, diffData, classRequirement) {
 		DomNode.dataset.itemImage = getItemDefinition(3397982326).icon;
 	} else if (diffData.name === "r1_s4_hiveship_orbs") {
 		DomNode.dataset.itemImage = getItemDefinition(1069694698).icon;
+	} else if (progressData.name === "terminals") {
+		DomNode.dataset.itemImage = getItemDefinition(2751204699).icon;
 	} else {
 		DomNode.dataset.itemImage = "/img/misc/missing_icon.png";
 	}
