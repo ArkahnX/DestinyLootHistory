@@ -4,7 +4,8 @@ function getLocalMatches() {
 	return new Promise(function(resolve, reject) {
 		logger.startLogging("matches");
 		logger.time("Local Matches");
-		chrome.storage.local.get(["matches"], function(result) {
+		database.getAllEntries("matches").then(function(result) {
+			// chrome.storage.local.get(["matches"], function(result) {
 			if (chrome.runtime.lastError) {
 				logger.error(chrome.runtime.lastError);
 			}
@@ -99,7 +100,7 @@ function compactMatch(activity, characterId) {
 function applyMatchData() {
 	return new Promise(function(resolve, reject) {
 		logger.startLogging("matches");
-		logger.time("Match Data");
+		console.time("Match Data");
 		var results = 0;
 		let i = data.itemChanges.length;
 		while (i--) {
@@ -116,25 +117,39 @@ function applyMatchData() {
 				var match = data.matches[e];
 				var minTime = new Date(match.timestamp).getTime();
 				var maxTime = minTime + ((match.activityTime + 120) * 1000);
+				if (timestamp < minTime) {
+					break;
+				}
 				if (timestamp >= minTime && maxTime >= timestamp) {
 					itemDiff.match = JSON.stringify(match);
 					break;
 				}
 			}
 		}
-		chrome.storage.local.set({
+		var newData = {
 			inventories: data.inventories,
 			itemChanges: CLEANUP(data.itemChanges),
 			progression: data.progression,
 			matches: data.matches,
 			currencies: data.currencies
-		}, function() {
-			if (chrome.runtime.lastError) {
-				logger.error(chrome.runtime.lastError);
-			}
-			logger.timeEnd("Match Data");
+		};
+		database.addFromObject(newData).then(function() {
+			console.timeEnd("Match Data");
 			resolve();
 		});
+		// chrome.storage.local.set({
+		// 	inventories: data.inventories,
+		// 	itemChanges: CLEANUP(data.itemChanges),
+		// 	progression: data.progression,
+		// 	matches: data.matches,
+		// 	currencies: data.currencies
+		// }, function() {
+		// 	if (chrome.runtime.lastError) {
+		// 		logger.error(chrome.runtime.lastError);
+		// 	}
+		// 	console.timeEnd("Match Data");
+		// 	resolve();
+		// });
 	});
 }
 
@@ -160,6 +175,7 @@ function constructMatchInterface() {
 }
 
 function CLEANUP(itemSet) {
+	console.time("cleanup")
 	let i = itemSet.length;
 	while (i--) {
 		let itemDiff = itemSet[i];
@@ -174,6 +190,7 @@ function CLEANUP(itemSet) {
 			}
 		}
 	}
+	console.timeEnd("cleanup")
 	return itemSet;
 }
 

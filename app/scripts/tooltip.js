@@ -10,7 +10,7 @@ function handleTooltipData(dataset, element, event) {
 
 function setTooltipData(dataset, element, event) {
 	if (dataset.itemName) {
-		elements.itemImage.src = "http://www.bungie.net" + dataset.itemImage;
+		elements.itemImage.src = "https://www.bungie.net" + dataset.itemImage;
 		if (dataset.itemTypeName === "Faction") {
 			elements.squareProgress.dataset.max = dataset.nextLevelAt;
 			elements.squareProgress.dataset.value = dataset.progressToNextLevel;
@@ -217,7 +217,7 @@ function handleOtherStats(dataset, resolve) {
 			tableRow.classList.add("itemStat", "cost");
 			let costIcon = document.createElement("td");
 			costIcon.classList.add("statName", "node");
-			costIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + costDef.icon + "')");
+			costIcon.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + costDef.icon + "')");
 			let costName = document.createElement("td");
 			costName.classList.add("statName", "leftStat");
 			costName.textContent = costDef.itemName;
@@ -248,8 +248,8 @@ function handleOtherStats(dataset, resolve) {
 		if (Object.keys(data.inventories).length) {
 			sourceInventories = data.inventories;
 		}
-		for (var characterId in sourceInventories) {
-			for (var item of sourceInventories[characterId]) {
+		for (var characterInventory of sourceInventories) {
+			for (var item of characterInventory.inventory) {
 				if (item.itemHash === parseInt(dataset.itemHash) && item.itemInstanceId !== dataset.itemInstanceId) {
 					comparisonItems.push(item);
 				}
@@ -328,7 +328,7 @@ function handleOtherStats(dataset, resolve) {
 			let tableText = document.getElementById(`row${node.row}column${node.column}`);
 			// tableText.classList.add("node");
 			if (node.icon) {
-				tableText.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + node.icon + "')");
+				tableText.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + node.icon + "')");
 			}
 			tableText.title = node.nodeStepName + " \n" + node.nodeStepDescription;
 		}
@@ -339,22 +339,22 @@ function handleOtherStats(dataset, resolve) {
 				let guardianText = document.getElementById(`row${1}column${4}`).title.split(" ")[0];
 				let materialText = document.getElementById(`row${1}column${3}`).title.split(" ")[0];
 				if (materialText === "Relic") {
-					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[3242866270].icon + "')");
+					materialIcon.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + DestinyCompactItemDefinition[3242866270].icon + "')");
 				} else if (materialText === "Spinmetal") {
-					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[2882093969].icon + "')");
+					materialIcon.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + DestinyCompactItemDefinition[2882093969].icon + "')");
 				} else if (materialText === "Helium") {
-					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[1797491610].icon + "')");
+					materialIcon.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + DestinyCompactItemDefinition[1797491610].icon + "')");
 				} else if (materialText === "Spirit") {
-					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[2254123540].icon + "')");
+					materialIcon.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + DestinyCompactItemDefinition[2254123540].icon + "')");
 				} else if (materialText === "Wormspore") {
-					materialIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[3164836592].icon + "')");
+					materialIcon.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + DestinyCompactItemDefinition[3164836592].icon + "')");
 				}
 				if (guardianText === "Titan") {
-					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[1723894001].icon + "')");
+					guardianIcon.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + DestinyCompactItemDefinition[1723894001].icon + "')");
 				} else if (guardianText === "Warlock") {
-					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[776529032].icon + "')");
+					guardianIcon.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + DestinyCompactItemDefinition[776529032].icon + "')");
 				} else if (guardianText === "Hunter") {
-					guardianIcon.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyCompactItemDefinition[855333071].icon + "')");
+					guardianIcon.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + DestinyCompactItemDefinition[855333071].icon + "')");
 				} else if (guardianText === "Cleansing") {
 					guardianIcon.setAttribute("style", "background-image: url(" + "'img/hive.png')");
 				} else if (guardianText === "Reclamation") {
@@ -371,7 +371,7 @@ function handleOtherStats(dataset, resolve) {
 
 				// tableText.classList.add("node");
 				// if (node.icon) {
-				// tableText.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + node.icon + "')");
+				// tableText.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + node.icon + "')");
 				// }
 				// tableText.title = node.nodeStepName;
 			}

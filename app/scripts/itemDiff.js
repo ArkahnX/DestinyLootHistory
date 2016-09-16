@@ -27,14 +27,15 @@ function processDifference(currentDateString, resolve) {
 	var progression = [];
 	var finalChanges = [];
 	if (oldInventories) {
-		for (let characterId in oldInventories) {
+		for (let oldInventory of oldInventories) {
 			// build diffs for each character, comparing old inventory vs new inventory
+			var newInventory = findInArray(newInventories, "characterId", oldInventory.characterId);
 			var diff = {
 				timestamp: currentDateString,
 				secondsSinceLastDiff: (new Date(currentDateString) - previousItemDate) / 1000,
-				characterId: characterId,
-				added: checkDiff(newInventories[characterId], oldInventories[characterId]),
-				removed: checkDiff(oldInventories[characterId], newInventories[characterId])
+				characterId: oldInventory.characterId,
+				added: checkDiff(newInventory.inventory, oldInventory.inventory),
+				removed: checkDiff(oldInventory.inventory, newInventory.inventory)
 			};
 			if (diff.added.length || diff.removed.length) {
 				diffs.push(diff);
@@ -109,26 +110,22 @@ function processDifference(currentDateString, resolve) {
 					foundAddition = true;
 					var stackSizeResult = tempAddition.stackSize - tempRemoval.stackSize; // 0 = full transfer, >0 some added, <0 means some removed
 					if (stackSizeResult === 0) { // transfer
-						if (tempAddition.itemHash !== parseInt(localStorage.transferMaterial) && tempAddition.itemHash !== parseInt(localStorage.oldTransferMaterial)) {
-							let TQTemp = {
-								from: tempRemoval.characterId,
-								to: tempAddition.characterId,
-								item: tempAddition.item
-							};
-							transferQ.push(TQTemp);
-						}
+						let TQTemp = {
+							from: tempRemoval.characterId,
+							to: tempAddition.characterId,
+							item: tempAddition.item
+						};
+						transferQ.push(TQTemp);
 						tempRemoval.stackSize = 0;
 					} else if (stackSizeResult > 0) { // partial transfer with additions
-						if (tempAddition.itemHash !== parseInt(localStorage.transferMaterial) && tempAddition.itemHash !== parseInt(localStorage.oldTransferMaterial)) {
-							let parsedItem = JSON.parse(tempAddition.item);
-							parsedItem.stackSize = tempRemoval.stackSize;
-							let TQTemp = {
-								from: tempRemoval.characterId,
-								to: tempAddition.characterId,
-								item: JSON.stringify(parsedItem)
-							};
-							transferQ.push(TQTemp);
-						}
+						let parsedItem1 = JSON.parse(tempAddition.item);
+						parsedItem1.stackSize = tempRemoval.stackSize;
+						let TQTemp = {
+							from: tempRemoval.characterId,
+							to: tempAddition.characterId,
+							item: JSON.stringify(parsedItem1)
+						};
+						transferQ.push(TQTemp);
 						tempRemoval.stackSize = 0;
 						let parsedItem = JSON.parse(tempAddition.item);
 						parsedItem.stackSize = stackSizeResult;
@@ -138,16 +135,14 @@ function processDifference(currentDateString, resolve) {
 						});
 					} else if (stackSizeResult < 0) { // partial transfer with removals
 						logger.log(`Stacksize ${stackSizeResult}, addition stack ${tempAddition.stackSize}, removal stack ${tempRemoval.stackSize}`);
-						if (tempAddition.itemHash !== parseInt(localStorage.transferMaterial) && tempAddition.itemHash !== parseInt(localStorage.oldTransferMaterial)) {
-							let parsedItem = JSON.parse(tempAddition.item);
-							parsedItem.stackSize = Math.abs(tempAddition.stackSize);
-							let TQTemp = {
-								from: tempRemoval.characterId,
-								to: tempAddition.characterId,
-								item: JSON.stringify(parsedItem)
-							};
-							transferQ.push(TQTemp);
-						}
+						let parsedItem1 = JSON.parse(tempAddition.item);
+						parsedItem1.stackSize = Math.abs(tempAddition.stackSize);
+						let TQTemp = {
+							from: tempRemoval.characterId,
+							to: tempAddition.characterId,
+							item: JSON.stringify(parsedItem1)
+						};
+						transferQ.push(TQTemp);
 						tempRemoval.stackSize = tempRemoval.stackSize - tempAddition.stackSize;
 						logger.log(`${tempRemoval.itemHash} partial transfer with removals ${tempRemoval.stackSize} stack remaining`);
 						let parsedItem = JSON.parse(tempRemoval.item);
@@ -233,12 +228,13 @@ function processDifference(currentDateString, resolve) {
 	}
 
 	if (oldProgression) {
-		for (let characterId in oldProgression) {
-			var progressDiff = checkFactionDiff(oldProgression[characterId].progressions, newProgression[characterId].progressions, characterId);
+		for (let oldCharacterProgression of oldProgression) {
+			var newCharacterProgression = findInArray(newProgression, "characterId", oldCharacterProgression.characterId);
+			var progressDiff = checkFactionDiff(oldCharacterProgression.progression.progressions, newCharacterProgression.progression.progressions, oldCharacterProgression.characterId);
 			for (let progress of progressDiff) {
 				if (progress) {
 					progression.push({
-						characterId: characterId,
+						characterId: oldCharacterProgression.characterId,
 						item: progress
 					});
 
@@ -292,21 +288,11 @@ function processDifference(currentDateString, resolve) {
 	logger.startLogging("itemDiff");
 	var progressionCharacters = [];
 	for (let addition of additions) {
-		if (!localStorage.oldTransferMaterial) {
-			if (localStorage.transferMaterial) {
-				localStorage.oldTransferMaterial = localStorage.transferMaterial;
-			} else {
-				localStorage.oldTransferMaterial = 0;
-			}
-		}
 		var parsedItemHash = JSON.parse(addition.item).itemHash;
-		// logger.log(`${addition.characterId} === vault, ${parsedItemHash} !== ${parseInt(localStorage.transferMaterial)}, ${parsedItemHash} !== ${parseInt(localStorage.oldTransferMaterial)}`);
 		if (addition.characterId === diffCharacterId) {
 			finalDiff.added.push(addition.item);
 		} else {
-			if (addition.characterId === "vault" && parsedItemHash !== parseInt(localStorage.transferMaterial) && parsedItemHash !== parseInt(localStorage.oldTransferMaterial)) {
-				finalDiff.added.push(addition);
-			} else if (addition.characterId !== "vault") {
+			if (addition.characterId !== "vault") {
 				finalDiff.added.push(addition);
 			}
 		}
@@ -356,23 +342,25 @@ function processDifference(currentDateString, resolve) {
 		}
 		if (finalDiff.progression && finalDiff.progression.length) {
 			for (let characterId of progressionCharacters) {
-				oldProgression[characterId] = newProgression[characterId];
-				data.progression[characterId] = newProgression[characterId];
+				var oldProgress = findInArray(oldProgression, "characterId", characterId);
+				var oldProgress2 = findInArray(data.progression, "characterId", characterId);
+				var newProgress = findInArray(newProgression, "characterId", characterId);
+				oldProgress.progression = newProgress.progression;
+				oldProgress2.progression = newProgress.progression;
 			}
 			oldInventories = newInventories;
-			if (oldInventories.length === 0) {
-				logger.error(newInventories.length);
+			if (Object.keys(oldInventories).length === 0) {
+				logger.error(newInventories);
 			}
 			data.inventories = newInventories;
 			oldCurrencies = newCurrencies;
 			data.currencies = newCurrencies;
-
 		} else {
 			oldProgression = oldProgression;
 			data.progression = oldProgression;
 			oldInventories = newInventories;
-			if (oldInventories.length === 0) {
-				logger.error(newInventories.length);
+			if (Object.keys(oldInventories).length === 0) {
+				logger.error(newInventories);
 			}
 			data.inventories = newInventories;
 			oldCurrencies = newCurrencies;
@@ -402,31 +390,31 @@ function processDifference(currentDateString, resolve) {
 		addedCurrencyQ.length = 0;
 		removedCurrencyQ.length = 0;
 	} else {
-		var _inventories = {};
-		for (let bucket in data.inventories) {
-			_inventories[bucket] = 0;
-			for (let item of data.inventories[bucket]) {
-				if (typeof item.stackSize !== "number") {
-					_inventories[bucket] += 1;
-				} else {
-					_inventories[bucket] += item.stackSize || 1;
-				}
-			}
-		}
-		var _inventories2 = {};
-		for (let bucket in newInventories) {
-			_inventories2[bucket] = 0;
-			for (let item of newInventories[bucket]) {
-				if (typeof item.stackSize !== "number") {
-					_inventories2[bucket] += 1;
-				} else {
-					_inventories2[bucket] += item.stackSize || 1;
-				}
-			}
-		}
-		// logger.log(_inventories,_inventories2);
-		logger.log(`Vault ${_inventories.vault}/${_inventories2.vault}/${inventories.vault} Char1 ${_inventories[characterIdList[1]]}/${_inventories2[characterIdList[1]]}/${inventories[characterIdList[1]]} Char2 ${_inventories[characterIdList[2]]}/${_inventories2[characterIdList[2]]}/${inventories[characterIdList[2]]} Char3 ${_inventories[characterIdList[3]]}/${_inventories2[characterIdList[3]]}/${inventories[characterIdList[3]]} TRANSFER ${transferQ.length}`);
-		logger.log(`GLIMMER ${oldCurrencies[0].value}/${newCurrencies[0].value}` + ` LEGENDARY MARKS ${oldCurrencies[1].value}/${newCurrencies[1].value}` + ` SILVER ${oldCurrencies[2].value}/${newCurrencies[2].value}`);
+		// var _inventories = {};
+		// for (let bucket of data.inventories) {
+		// 	_inventories[bucket.characterId] = 0;
+		// 	for (let item of bucket.inventories) {
+		// 		if (typeof item.stackSize !== "number") {
+		// 			_inventories[bucket.characterId] += 1;
+		// 		} else {
+		// 			_inventories[bucket.characterId] += item.stackSize || 1;
+		// 		}
+		// 	}
+		// }
+		// var _inventories2 = {};
+		// for (let bucket of newInventories) {
+		// 	_inventories2[bucket.characterId] = 0;
+		// 	for (let item of bucket.inventories) {
+		// 		if (typeof item.stackSize !== "number") {
+		// 			_inventories2[bucket.characterId] += 1;
+		// 		} else {
+		// 			_inventories2[bucket.characterId] += item.stackSize || 1;
+		// 		}
+		// 	}
+		// }
+		// // logger.log(_inventories,_inventories2);
+		// logger.log(`Vault ${_inventories.vault}/${_inventories2.vault}/${inventories.vault} Char1 ${_inventories[characterIdList[1]]}/${_inventories2[characterIdList[1]]}/${inventories[characterIdList[1]]} Char2 ${_inventories[characterIdList[2]]}/${_inventories2[characterIdList[2]]}/${inventories[characterIdList[2]]} Char3 ${_inventories[characterIdList[3]]}/${_inventories2[characterIdList[3]]}/${inventories[characterIdList[3]]} TRANSFER ${transferQ.length}`);
+		// logger.log(`GLIMMER ${oldCurrencies[0].value}/${newCurrencies[0].value}` + ` LEGENDARY MARKS ${oldCurrencies[1].value}/${newCurrencies[1].value}` + ` SILVER ${oldCurrencies[2].value}/${newCurrencies[2].value}`);
 		if (Object.keys(oldInventories).length === 0) {
 			oldInventories = newInventories;
 		}
@@ -443,48 +431,15 @@ function processDifference(currentDateString, resolve) {
 		data.currencies = oldCurrencies;
 		oldCurrencies = oldCurrencies;
 	}
-	var tempNewInventories = {};
-	for (var attr in newInventories) {
-		if (Array.isArray(newInventories[attr])) {
-			tempNewInventories[attr] = newInventories[attr].length;
-		} else {
-			tempNewInventories[attr] = newInventories[attr];
-		}
-	}
-	localStorage.newInventories = JSON.stringify(tempNewInventories);
-	var tempOldInventories = {};
-	for (var attr in oldInventories) {
-		if (Array.isArray(oldInventories[attr])) {
-			tempOldInventories[attr] = oldInventories[attr].length;
-		} else {
-			tempOldInventories[attr] = oldInventories[attr];
-		}
-	}
-	localStorage.oldInventories = JSON.stringify(tempOldInventories);
 	if (additions.length || removals.length || transfers.length || progression.length) {
 		// trackIdle();
 		// logger.log(currentDateString, "\nAdditions:", additions, "\nRemovals:", removals, "\nTransfers:", transfers, "\nChanges:", changes, "\nFinal Changes:", finalChanges);
 	}
 	Array.prototype.push.apply(data.itemChanges, finalChanges);
-	// Array.prototype.push.apply(data.factionChanges, changes);
-	// Array.prototype.push.apply(additions, checkDiff(newInventories[characterId], oldInventories[characterId]));
-	// Array.prototype.push.apply(removals, checkDiff(oldInventories[characterId], newInventories[characterId]));
-	// oldInventories = newInventories;
-	// data.inventories = newInventories;
-
-	// chrome.storage.local.set({
-	// 	inventories: data.inventories,
-	// 	itemChanges: data.itemChanges,
-	// 	progression: data.progression,
-	// 	currencies: data.currencies
-	// }, function() {});
 	logger.timeEnd("Process Difference");
 	logger.time("grab matches");
 	trackingTimer++;
 	getLocalMatches().then(getRemoteMatches).catch(function(err) {
-		// if (typeof callback === "function") {
-		// 	callback();
-		// }
 		if (err) {
 			console.error(err);
 		}

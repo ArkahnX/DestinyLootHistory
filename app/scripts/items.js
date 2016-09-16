@@ -1,14 +1,14 @@
 var data = {
-	inventories: {},
-	progression: {},
+	inventories: [],
+	progression: [],
 	itemChanges: [],
 	matches: [],
 	currencies: []
 };
-var oldInventories = {};
-var oldProgression = {};
-var newProgression = {};
-var newInventories = {};
+var oldInventories = [];
+var oldProgression = [];
+var newProgression = [];
+var newInventories = [];
 var relevantStats = ["itemHash", "itemInstanceId", "stackSize", "damageTypeHash", "talentGridHash", "isGridComplete", "state"];
 var characterIdList = ["vault"];
 var characterDescriptions = {
@@ -132,14 +132,27 @@ function itemResultTask(result, characterId) {
 	logger.startLogging("items");
 	logger.timeEnd("itemTask");
 	if (result) {
-		if (!data.inventories[characterId]) {
-			data.inventories[characterId] = [];
-			newInventories[characterId] = [];
+		var dataInventory = findInArray(data.inventories, "characterId", characterId);
+		var newInventory = findInArray(newInventories, "characterId", characterId);
+		if (!dataInventory.inventory) {
+			dataInventory = {
+				characterId: characterId,
+				inventory: []
+			};
+			data.inventories.push(dataInventory);
+		}
+		if (!newInventory.inventory) {
+			newInventory = {
+				characterId: characterId,
+				inventory: []
+			};
+			newInventories.push(newInventory);
 		}
 		if (result.data.currencies) {
 			newCurrencies = result.data.currencies;
 		}
-		newInventories[characterId] = concatItems(result.data.buckets);
+		newInventory.inventory = concatItems(result.data.buckets);
+
 		if (newInventories.length === 0) {
 			if (result.data) {
 				if (result.data.buckets) {
@@ -176,11 +189,23 @@ function factionResultTask(result, characterId) {
 	logger.startLogging("items");
 	logger.timeEnd("factionTask");
 	if (result) {
-		if (!data.progression[characterId]) {
-			data.progression[characterId] = [];
-			newProgression[characterId] = [];
+		var dataProgress = findInArray(data.progression, "characterId", characterId);
+		var newProgress = findInArray(newProgression, "characterId", characterId);
+		if (!dataProgress.progression) {
+			dataProgress = {
+				characterId: characterId,
+				progression: []
+			};
+			data.progression.push(dataProgress);
 		}
-		newProgression[characterId] = result.data;
+		if (!newProgress.progression) {
+			newProgress = {
+				characterId: characterId,
+				progression: []
+			};
+			newProgression.push(newProgress);
+		}
+		newProgress.progression = result.data;
 	}
 }
 
@@ -348,29 +373,23 @@ function checkDiff(sourceArray, newArray) {
 function checkThreeOfCoinsXp(track3oC, characterId, currentProgress, characterDisplayXp) {
 	if (track3oC === true) {
 		logger.startLogging("3oC");
-		if (!localStorage[`old3oCProgress${characterId}`]) {
-			localStorage[`old3oCProgress${characterId}`] = currentProgress.currentProgress;
+		var threeOfCoinsProgress = JSON.parse(localStorage.threeOfCoinsProgress);
+		if (!threeOfCoinsProgress[characterId]) {
+			threeOfCoinsProgress[characterId] = currentProgress.currentProgress;
 		}
-		var old3oCProgress = parseInt(localStorage[`old3oCProgress${characterId}`], 10);
+		var old3oCProgress = parseInt(threeOfCoinsProgress[characterId], 10);
 		var progressChange = characterDisplayXp.currentProgress - old3oCProgress;
-		if (!localStorage.move3oCCooldown) {
-			localStorage.move3oCCooldown = "false";
-		}
-		if (!localStorage.move3oC) {
-			localStorage.move3oC = "false";
-		}
 		if (localStorage.move3oCCooldown === "true") {
 			if (characterDisplayXp.currentProgress > 0 && progressChange > 0) {
 				localStorage.move3oCCooldown = "false";
 			}
 		}
-		// logger.log(`Progress === 0 = ${characterDisplayXp.currentProgress} && progressChange < 0 = ${characterDisplayXp.currentProgress} && move3oCCooldown === "false" ${localStorage.move3oCCooldown}`);
 		if (characterDisplayXp.currentProgress === 0 && progressChange < 0 && localStorage.move3oCCooldown === "false") {
 			localStorage.move3oC = "true";
 			localStorage.move3oCCooldown = "true";
-			// forceupdate = true;
 		}
-		localStorage[`old3oCProgress${characterId}`] = characterDisplayXp.currentProgress;
+		threeOfCoinsProgress[characterId] = characterDisplayXp.currentProgress;
+		localStorage.threeOfCoinsProgress = JSON.stringify(threeOfCoinsProgress);
 	}
 }
 
@@ -434,13 +453,6 @@ function checkInventory() {
 	logger.startLogging("items");
 	logger.log("checkInventory");
 	return new Promise(function(resolve, reject) {
-		// grabRemoteInventory(function() {
-		// 	if (localStorage.accurateTracking === "true") {
-		// 		findHighestMaterial().then(resolve, reject);
-		// 	} else {
-		// 		resolve();
-		// 	}
-		// });
 		grabRemoteInventory(resolve, reject);
 	});
 }
@@ -454,7 +466,7 @@ function afterAdvisors(advisorData, resolve, currentDateString) {
 		var recordBooks = advisorData.data.recordBooks;
 		for (var recordBook of recordBooks) {
 			for (var characterInventory of newInventories) {
-				for (var inventoryItem of characterInventory) {
+				for (var inventoryItem of characterInventory.inventory) {
 					var itemDefinition = getItemDefinition(inventoryItem.itemHash);
 					if (itemDefinition.recordBookHash === recordBook.bookHash) {
 						var completed = 0;
@@ -485,7 +497,8 @@ function afterAdvisors(advisorData, resolve, currentDateString) {
 	logger.timeEnd("Bungie Advisors");
 	logger.time("Local Inventory");
 	// get old data saved from the last pass
-	chrome.storage.local.get(["itemChanges", "progression", "currencies", "inventories"], function afterStorageGet(result) {
+	database.getMultipleStores(["itemChanges", "progression", "currencies", "inventories"]).then(function afterStorageGet(result) {
+	// chrome.storage.local.get(["itemChanges", "progression", "currencies", "inventories"], function afterStorageGet(result) {
 		if (chrome.runtime.lastError) {
 			logger.error(chrome.runtime.lastError);
 		}
@@ -593,7 +606,8 @@ function hasInventorySpace(characterId, itemHash) {
 	}
 	let vaultSize = DestinyInventoryBucketDefinition[bucketHash].itemCount;
 	var totalStackSize = 0;
-	for (let item of newInventories[characterId]) {
+	var characterInventory = findInArray(newInventories, "characterId", characterId);
+	for (let item of characterInventory.inventory) {
 		let itemDef = getItemDefinition(item.itemHash);
 		if (itemDef.bucketTypeHash === 4023194814 || itemDef.bucketTypeHash === 434908299 || itemDef.bucketTypeHash === 2973005342 || itemDef.bucketTypeHash === 1469714392 || itemDef.bucketTypeHash === 3865314626 || itemDef.bucketTypeHash === 284967655 || itemDef.bucketTypeHash === 4274335291 || itemDef.bucketTypeHash === 3796357825 || itemDef.bucketTypeHash === 2025709351 || itemDef.bucketTypeHash === 3054419239) {
 			if (itemDef.bucketTypeHash === itemBucketHash || characterId === "vault") {
@@ -609,201 +623,14 @@ function hasInventorySpace(characterId, itemHash) {
 	return totalStackSize < vaultSize;
 }
 
-function moveLargestItemTo(characterId) {
-	logger.startLogging("items");
-	let largestItem = null;
-	for (let item of newInventories.vault) {
-		let itemDef = getItemDefinition(item.itemHash);
-		if (item.itemHash !== 342707700 && item.itemHash !== 342707701 && item.itemHash !== 342707703 && item.itemHash !== 142694124 && item.itemHash !== 3881084295 && item.itemHash !== 1565194903 && item.itemHash !== 3026483582 && item.itemHash !== 1027379218 && item.itemHash !== 1556533319 && (itemDef.bucketTypeHash === 1469714392 || itemDef.bucketTypeHash === 3865314626)) {
-			if (!localStorage.oldTransferMaterial || (localStorage.oldTransferMaterial && parseInt(localStorage.oldTransferMaterial) !== item.itemHash)) {
-				logger.log(item.itemHash, localStorage.oldTransferMaterial);
-				if (!largestItem) {
-					largestItem = item;
-				}
-				if (parseInt(item.stackSize) > parseInt(largestItem.stackSize)) {
-					largestItem = item;
-				}
-			}
-		}
-	}
-	if (largestItem) {
-		let localDescription = characterDescriptions[characterId];
-		if (hasInventorySpace(characterId, largestItem.itemHash)) {
-			logger.log(`Moved ${largestItem.stackSize} ${getItemDefinition(largestItem.itemHash).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (${findQuantityIn("vault", largestItem.itemHash)} in Vault)`);
-			logger.info(`Bungie Transfer to character: ${characterId}, material: ${largestItem.itemHash}, quantity: ${largestItem.stackSize}, vaultQuantity: ${findQuantityIn("vault", largestItem.itemHash)}`);
-			localStorage.oldTransferMaterial = "null";
-			localStorage.transferMaterial = largestItem.itemHash;
-			localStorage.transferMaterialStack = largestItem.stackSize;
-			localStorage.transferQuantity = 0;
-			return bungie.transfer(characterId, "0", largestItem.itemHash, largestItem.stackSize, false);
-		} else {
-			logger.info(`No Space to move to character`);
-			return new Promise(function(resolve) {
-				resolve();
-			});
-		}
-	}
-	return largestItem;
-}
-
-function findQuantityIn(characterId, item) {
-	if (characterId && item) {
-		if (localStorage.transferMaterial !== "null") {
-			for (let item of newInventories[characterId]) {
-				if (item.itemHash === parseInt(localStorage.transferMaterial)) {
-					return item.stackSize;
-				}
-			}
-		}
-	}
-	return 0;
-}
-
-var findHighestMaterial = (function() {
-	var newestCharacterDate = null;
-	var reset = true;
-	if (!localStorage.transferMaterial) {
-		localStorage.transferMaterial = "null";
-	}
-	if (!localStorage.newestCharacter) {
-		localStorage.newestCharacter = "null";
-	}
-	if (!localStorage.transferQuantity) {
-		localStorage.transferQuantity = 0;
-	}
-	return function() {
-		logger.startLogging("items");
-		logger.time("bigmat");
-		var itemQuantity = findQuantityIn(localStorage.newestCharacter, parseInt(localStorage.transferMaterial));
-		var vaultQuantity = findQuantityIn("vault", parseInt(localStorage.transferMaterial));
-		if ((localStorage.transferMaterial !== "null" && localStorage.newestCharacter !== "null" && parseInt(localStorage.transferQuantity) > 0) && (reset || parseInt(localStorage.transferQuantity) > itemQuantity)) {
-			if (vaultQuantity !== 0) {
-				let localCharacter = localStorage.newestCharacter;
-				let localMaterial = parseInt(localStorage.transferMaterial);
-				let localTransferQuantity = parseInt(localStorage.transferQuantity);
-				if (localTransferQuantity > vaultQuantity) {
-					localTransferQuantity = vaultQuantity;
-				}
-				let localDescription = characterDescriptions[localCharacter];
-				if (hasInventorySpace(localCharacter, localMaterial)) {
-					logger.log(`Moved ${localTransferQuantity} ${getItemDefinition(localMaterial).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (${vaultQuantity} in Vault)`);
-					logger.info(`Bungie Transfer to character: ${localCharacter}, material: ${localMaterial}, quantity: ${localTransferQuantity}, vaultQuantity: ${findQuantityIn("vault", parseInt(localStorage.transferMaterial))}`);
-					bungie.transfer(localCharacter, "0", localMaterial, localTransferQuantity, false);
-				} else {
-					logger.info(`No Space to move to character`);
-					return new Promise(function(resolve) {
-						resolve();
-					});
-				}
-			} else {
-				let localDescription = characterDescriptions[localStorage.newestCharacter];
-				logger.info(`Skipped moving ${localStorage.transferQuantity} ${getItemDefinition(parseInt(localStorage.transferMaterial)).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (Reason: 0 in Vault)`);
-			}
-			localStorage.oldTransferMaterial = localStorage.transferMaterial;
-			localStorage.transferMaterial = null;
-			localStorage.transferMaterialStack = 0;
-			localStorage.newestCharacter = null;
-			localStorage.transferQuantity = 0;
-			reset = false;
-		}
-
-		logger.time("char");
-		for (let characterId of characterIdList) {
-			if (characterId !== "vault") {
-				var date = new Date(characterDescriptions[characterId].dateLastPlayed);
-				if ((!localStorage.newestCharacter || localStorage.newestCharacter === "null") || date > newestCharacterDate) {
-					if (localStorage.newestCharacter !== characterId || new Date().getTime() > date.getTime() + (1000 * 60 * 10)) {
-						if (parseInt(localStorage.transferQuantity) > 0 && localStorage.transferMaterial !== "null") {
-							if (vaultQuantity !== 0) {
-								let localCharacter = localStorage.newestCharacter;
-								let localMaterial = parseInt(localStorage.transferMaterial);
-								let localTransferQuantity = parseInt(localStorage.transferQuantity);
-								if (localTransferQuantity > vaultQuantity) {
-									localTransferQuantity = vaultQuantity;
-								}
-								let localDescription = characterDescriptions[localCharacter];
-								if (hasInventorySpace(localCharacter, localMaterial)) {
-									logger.log(`Moved ${localTransferQuantity} ${getItemDefinition(localMaterial).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (${vaultQuantity} in Vault)`);
-									logger.info(`Bungie Transfer to character: ${localCharacter}, material: ${localMaterial}, quantity: ${localTransferQuantity}, vaultQuantity: ${findQuantityIn("vault", parseInt(localStorage.transferMaterial))}`);
-									bungie.transfer(localCharacter, "0", localMaterial, localTransferQuantity, false);
-								} else {
-									logger.info(`No Space to move to character`);
-									return new Promise(function(resolve) {
-										resolve();
-									});
-								}
-							} else {
-								let localDescription = characterDescriptions[localStorage.newestCharacter];
-								logger.info(`Skipped moving ${localStorage.transferQuantity} ${getItemDefinition(parseInt(localStorage.transferMaterial)).itemName} to ${localDescription.race} ${localDescription.gender} ${localDescription.name} (Reason: 0 in Vault)`);
-							}
-						}
-						localStorage.newestCharacter = characterId;
-						localStorage.transferQuantity = 0;
-						if (localStorage.transferMaterial) {
-							localStorage.oldTransferMaterial = localStorage.transferMaterial;
-						}
-						localStorage.transferMaterial = null;
-						localStorage.transferMaterialStack = 0;
-					}
-					newestCharacterDate = date;
-				}
-			}
-		}
-		logger.timeEnd("char");
-		if (!localStorage.transferMaterial || localStorage.transferMaterial === "null") {
-			logger.time("mats");
-			for (let item of newInventories[localStorage.newestCharacter]) {
-				let itemDefinition = getItemDefinition(item.itemHash);
-				if (itemDefinition.bucketTypeHash === 3865314626 || itemDefinition.bucketTypeHash === 1469714392) {
-					if (item.itemHash !== 342707700 && item.itemHash !== 342707701 && item.itemHash !== 342707703 && item.itemHash !== 142694124 && item.itemHash !== 3881084295 && item.itemHash !== 1565194903 && item.itemHash !== 3026483582 && item.itemHash !== 1027379218 && item.itemHash !== 1556533319 && item.itemHash !== 937555249 && ((!localStorage.transferMaterial || localStorage.transferMaterial === "null") || item.stackSize > parseInt(localStorage.transferMaterialStack)) && item.stackSize > 199) {
-						localStorage.oldTransferMaterial = localStorage.transferMaterial;
-						localStorage.transferMaterial = item.itemHash;
-						localStorage.transferMaterialStack = item.stackSize;
-					}
-				}
-			}
-			logger.timeEnd("mats");
-		}
-		if (localStorage.transferMaterial === "null") {
-			logger.error("no valid materials on guardian");
-			// moveLargestItemTo(localStorage.newestCharacter);
-		}
-		localStorage.transferQuantity = parseInt(localStorage.transferQuantity) + 1;
-		logger.timeEnd("bigmat");
-		if (hasInventorySpace("vault", parseInt(localStorage.transferMaterial, 10))) {
-			if (hasInventorySpace(localStorage.newestCharacter, parseInt(localStorage.transferMaterial, 10))) {
-				logger.log(`Moved 1 ${getItemDefinition(localStorage.transferMaterial).itemName} to Vault (${vaultQuantity} in Vault)`);
-				logger.info(`Bungie Transfer to vault from: ${localStorage.newestCharacter}, material: ${localStorage.transferMaterial}, quantity: 1, guardianQuantity: ${findQuantityIn(localStorage.newestCharacter, parseInt(localStorage.transferMaterial))}`);
-				return bungie.transfer(localStorage.newestCharacter, "0", localStorage.transferMaterial, 1, true);
-			} else {
-				logger.info(`No Space to move to character`);
-				return new Promise(function(resolve) {
-					resolve();
-				});
-			}
-		} else {
-			logger.info(`No Space to move to vault`);
-			return new Promise(function(resolve) {
-				resolve();
-			});
-		}
-	};
-}());
-
 function findThreeOfCoins(characterId) {
-	if (newInventories && newInventories[characterId]) {
-		for (let item of newInventories[characterId]) {
+	var characterInventory = findInArray(newInventories, "characterId", characterId);
+	if (characterInventory.inventory) {
+		for (let item of characterInventory.inventory) {
 			if (item.itemHash === 417308266) {
 				return characterId;
 			}
 		}
-		// for (let character in newInventories) {
-		// 	for (let item of newInventories[character]) {
-		// 		if (item.itemHash === 417308266) {
-		// 			return character;
-		// 		}
-		// 	}
-		// }
 	}
 	return false;
 }
@@ -915,9 +742,10 @@ function autoMoveToVault(item, characterId) {
 		var zeroStackItem = options.autoMoveItemsToVault.indexOf("" + itemDef.itemHash) > -1;
 		var quantity = 0;
 		var transferQuantity = 0;
+		var characterInventory = findInArray(newInventories, "characterId", characterId);
 		if (singleStackItem) {
 			var minStacks = 1;
-			for (let newItem of newInventories[characterId]) {
+			for (let newItem of characterInventory.inventory) {
 				if (newItem.itemHash === item.itemHash) {
 					quantity = newItem.stackSize;
 					transferQuantity = quantity - (itemDef.maxStackSize * minStacks);
@@ -927,7 +755,7 @@ function autoMoveToVault(item, characterId) {
 		}
 		if (zeroStackItem) {
 			var minStacks = 0;
-			for (let newItem of newInventories[characterId]) {
+			for (let newItem of characterInventory.inventory) {
 				if (newItem.itemHash === item.itemHash) {
 					quantity = newItem.stackSize;
 					transferQuantity = quantity - (itemDef.maxStackSize * minStacks);

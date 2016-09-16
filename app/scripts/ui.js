@@ -151,32 +151,6 @@ function initUi() {
 			}, false);
 		});
 	}
-	// Disable all accurrate tracking
-	// if (document.querySelector("#accurateTracking")) {
-	// 	var accurateTrackingDiv = document.querySelector("#accurateTracking");
-	// 	if (localStorage.accurateTracking === "true") {
-	// 		accurateTrackingDiv.value = "disable accurate tracking";
-	// 		accurateTrackingDiv.classList.remove("grey");
-	// 		accurateTrackingDiv.classList.add("green");
-	// 	}
-	// 	accurateTrackingDiv.addEventListener("click", function(event) {
-	// 		if (localStorage.accurateTracking === "false") {
-	// 			var confirmation = window.confirm("This tracking will move items from your guardian to the vault and back.\n Make sure you have a stack of ideally 500 armor or weapon parts for minimal interruption. 200 is the minimal acceptance.\n\n This feature is known to cause issues with full vaults, or inventories with low consumables / materials.\n If you split your inventories between all three characters, this feature is completely safe to enable.\n\n Press OK to track items within 20 seconds of accuracy. Press cancel to retain within 60 seconds of accuracy.");
-	// 			if (confirmation) {
-	// 				localStorage.accurateTracking = "true";
-	// 				accurateTrackingDiv.value = "disable accurate tracking";
-	// 				accurateTrackingDiv.classList.remove("grey");
-	// 				accurateTrackingDiv.classList.add("green");
-	// 			}
-	// 		} else {
-	// 			localStorage.accurateTracking = "false";
-	// 			accurateTrackingDiv.value = "enable accurate tracking";
-	// 			accurateTrackingDiv.classList.add("grey");
-	// 			accurateTrackingDiv.classList.remove("green");
-	// 		}
-
-	// 	}, false);
-	// }
 	var secretLinks = document.querySelectorAll(".admin");
 	if (secretLinks.length) {
 		if (!chrome.runtime.getManifest().key) {
@@ -352,7 +326,7 @@ function createDate(itemDiff, className, searchData) {
 			activityString = activityTypeName + " - " + activityName;
 		}
 		if (globalOptions.pgcrImage) {
-			subContainer.style.backgroundImage = `url(http://www.bungie.net${activityDef.pgcrImage})`;
+			subContainer.style.backgroundImage = `url(https://www.bungie.net${activityDef.pgcrImage})`;
 			subContainer.classList.add("bg");
 		} else {
 			subContainer.style.backgroundImage = "";
@@ -410,7 +384,7 @@ function work(item, index) {
 							var itemTypeValue = "";
 							let itemDefinition = null;
 							if (itemData.itemHash) {
-								itemDefinition = getItemDefinition(itemData.itemHash);
+								itemDefinition = getItemDefinition(itemData.itemHash, itemData);
 								if (type === "tierTypeName") {
 									if (itemDefinition.tierTypeName) {
 										itemTypeValue = itemDefinition.tierTypeName;
@@ -571,13 +545,6 @@ function displayResults(customItems, hideItemResults) {
 	}
 	UIhideItemResults = hideItemResults;
 	// logger.startLogging("UI");
-	if (elements.trackingItem && localStorage.accurateTracking === "true") {
-		elements.trackingItem.style.display = "inline-block";
-		elements.trackingItem.style.backgroundImage = "url(" + "'http://www.bungie.net" + getItemDefinition(localStorage.transferMaterial).icon + "')";
-
-	} else if (elements.trackingItem) {
-		elements.trackingItem.style.display = "none";
-	}
 	return new Promise(function displayResultsCore(resolve, reject) {
 		// logger.startLogging("UI");
 		// logger.timeEnd("grab matches");
@@ -665,11 +632,13 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 	docfrag.appendChild(itemContainer);
 	DOMTokenList.prototype.add.apply(container.classList, itemClasses(itemData));
 	if (itemData.itemHash === 3159615086 || itemData.itemHash === 2534352370 || itemData.itemHash === 2749350776) {
-		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + getItemDefinition(itemData.itemHash).icon + "')");
+		container.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + getItemDefinition(itemData.itemHash).icon + "')");
 	} else if (getItemDefinition(itemData.itemHash).hasIcon || (getItemDefinition(itemData.itemHash).icon && getItemDefinition(itemData.itemHash).icon.length)) {
-		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + getItemDefinition(itemData.itemHash).icon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
+		container.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + getItemDefinition(itemData.itemHash).icon + "'),url('img/misc/missing_icon.png')");
+	} else if(getItemDefinition(itemData.itemHash).itemName === "Classified"){
+		container.setAttribute("style", "background-image: url('img/classified.jpg')");
 	} else {
-		container.setAttribute("style", "background-image: url('http://bungie.net/img/misc/missing_icon.png')");
+		container.setAttribute("style", "background-image: url('img/missing_icon.png')");
 	}
 	stat.classList.add("primary-stat");
 	stat.textContent = primaryStat(itemData);
@@ -695,7 +664,7 @@ function makeProgress(progressData, classRequirement) {
 	container.classList.add("kinetic", "common", "faction");
 	// NO BACKGROUND IMAGE ON FACTION ICONS BECAUSE THEY ARE TRANSPARENT
 	if (DestinyFactionDefinition[progressData.factionHash]) {
-		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyFactionDefinition[progressData.factionHash].factionIcon + "')");
+		container.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + DestinyFactionDefinition[progressData.factionHash].factionIcon + "')");
 		var canvas = document.createElement("canvas");
 		canvas.classList.add("squareProgress", "repProgress");
 		canvas.width = 37;
@@ -704,15 +673,15 @@ function makeProgress(progressData, classRequirement) {
 		canvas.dataset.value = progressData.progressToNextLevel;
 		container.appendChild(canvas);
 	} else if (DestinyProgressionDefinition[progressData.progressionHash].icon) {
-		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + DestinyProgressionDefinition[progressData.progressionHash].icon + "')");
+		container.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + DestinyProgressionDefinition[progressData.progressionHash].icon + "')");
 	} else if (progressData.name === "pvp_iron_banner.loss_tokens") {
-		container.setAttribute("style", "background-image: url('http://bungie.net" + getItemDefinition(3397982326).icon + "')");
+		container.setAttribute("style", "background-image: url('https://www.bungie.net" + getItemDefinition(3397982326).icon + "')");
 	} else if (progressData.name === "r1_s4_hiveship_orbs") {
-		container.setAttribute("style", "background-image: url('http://bungie.net" + getItemDefinition(1069694698).icon + "')");
+		container.setAttribute("style", "background-image: url('https://www.bungie.net" + getItemDefinition(1069694698).icon + "')");
 	} else if (progressData.name === "terminals") {
-		container.setAttribute("style", "background-image: url('http://bungie.net" + getItemDefinition(2751204699).icon + "')");
+		container.setAttribute("style", "background-image: url('https://www.bungie.net" + getItemDefinition(2751204699).icon + "')");
 	} else {
-		container.setAttribute("style", "background-image: url('http://bungie.net/img/misc/missing_icon.png')");
+		container.setAttribute("style", "background-image: url('img/misc/missing_icon.png')");
 	}
 	stat.classList.add("primary-stat");
 	stat.textContent = progressData.progressChange;
@@ -726,7 +695,7 @@ function itemClasses(itemData) {
 	if (itemData.isGridComplete) {
 		classList.push("complete");
 	}
-	var itemDefinition = getItemDefinition(itemData.itemHash);
+	var itemDefinition = getItemDefinition(itemData.itemHash, itemData);
 	if (itemData.itemHash === 3159615086 || itemData.itemHash === 2534352370 || itemData.itemHash === 2749350776) {
 		classList.push("faction");
 	} else {
@@ -780,7 +749,7 @@ function elementType(itemData) {
 }
 
 function primaryStatName(itemData) {
-	var itemDef = getItemDefinition(itemData.itemHash);
+	var itemDef = getItemDefinition(itemData.itemHash, itemData);
 	if (itemData.itemHash === 3159615086) {
 		var glimmer = getItemDefinition(3159615086);
 		if (itemData.maxStackSize) {
@@ -804,7 +773,7 @@ function primaryStatName(itemData) {
 
 function passData(DomNode, itemData, classRequirement, optionalCosts) {
 	// logger.startLogging("UI");
-	var itemDefinition = getItemDefinition(itemData.itemHash);
+	var itemDefinition = getItemDefinition(itemData.itemHash, itemData);
 	if (optionalCosts) {
 		DomNode.dataset.costs = JSON.stringify(optionalCosts);
 	}
@@ -876,7 +845,7 @@ function passFactionData(DomNode, diffData, classRequirement) {
 		DomNode.dataset.itemImage = getItemDefinition(3397982326).icon;
 	} else if (diffData.name === "r1_s4_hiveship_orbs") {
 		DomNode.dataset.itemImage = getItemDefinition(1069694698).icon;
-	} else if (progressData.name === "terminals") {
+	} else if (diffData.name === "terminals") {
 		DomNode.dataset.itemImage = getItemDefinition(2751204699).icon;
 	} else {
 		DomNode.dataset.itemImage = "/img/misc/missing_icon.png";

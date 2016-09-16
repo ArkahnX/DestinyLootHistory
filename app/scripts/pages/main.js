@@ -9,13 +9,6 @@ Gallery: http://imgur.com/a/QGLZf
 Reddit: https://www.reddit.com/message/compose/?to=ArkahnX`;
 console.log(debugMessage);
 
-chrome.storage.local.get(null, function(result) {
-	if (chrome.runtime.lastError) {
-		logger.error(chrome.runtime.lastError);
-	}
-	console.log(result);
-});
-
 logger.disable();
 document.addEventListener("DOMContentLoaded", function() {
 	initUi();
@@ -77,7 +70,7 @@ function frontEndUpdate() {
 					activityString = activityTypeName + " - " + activityName;
 				}
 				if (globalOptions.pgcrImage) {
-					item.style.backgroundImage = `url(http://www.bungie.net${activityDef.pgcrImage})`;
+					item.style.backgroundImage = `url(https://www.bungie.net${activityDef.pgcrImage})`;
 					item.classList.add("bg");
 				} else {
 					item.style.backgroundImage = "";
@@ -91,7 +84,9 @@ function frontEndUpdate() {
 			}
 			item.setAttribute("title", localTime.format("ddd[,] ll LTS") + "\n" + activityString);
 		}
-		chrome.storage.local.get(["itemChanges","inventories"], function chromeStorageGet(localData) {
+
+		database.getMultipleStores(["itemChanges", "inventories"]).then(function chromeStorageGet(localData) {
+			// chrome.storage.local.get(["itemChanges", "inventories"], function chromeStorageGet(localData) {
 			if (chrome.runtime.lastError) {
 				logger.error(chrome.runtime.lastError);
 			}
@@ -116,5 +111,14 @@ function frontEndUpdate() {
 }
 getAllOptions().then(function(options) {
 	globalOptions = options;
-	frontEndUpdate();
+	database.open().then(function() {
+		database.getMultipleStores(database.allStores).then(function(result) {
+			// chrome.storage.local.get(null, function(result) {
+			if (chrome.runtime.lastError) {
+				logger.error(chrome.runtime.lastError);
+			}
+			console.log(result);
+		});
+		frontEndUpdate();
+	});
 });

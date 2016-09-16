@@ -21,6 +21,7 @@
 			"DestinyDatabase/DestinyCompactTalentDefinition.js",
 			"DestinyDatabase/DestinyCompactDefinition.js",
 			"scripts/vendor/google-analytics-bundle.js",
+			"scripts/tools/db.js",
 			"scripts/shared.js",
 			"scripts/init.js",
 			"scripts/logger.js",

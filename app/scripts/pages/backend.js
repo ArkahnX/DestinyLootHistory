@@ -2,7 +2,8 @@ tracker.sendAppView('BackgroundScreen');
 var globalOptions = {};
 
 function _backup() {
-	chrome.storage.local.get(null, function(data) {
+	database.getAllEntries("itemChanges").then(function(data) {
+		// chrome.storage.local.get(null, function(data) {
 		if (chrome.runtime.lastError) {
 			logger.error(chrome.runtime.lastError);
 		}
@@ -48,83 +49,6 @@ function appClicked() {
 	});
 }
 
-function allowBungieTracking() {
-	return new Promise(function(resolve, reject) {
-		var r = new XMLHttpRequest();
-		r.onload = function() {
-			if (this.status >= 200 && this.status < 400) {
-				var response;
-				var badJson = false;
-				try {
-					response = JSON.parse(this.response);
-				} catch (e) {
-					resolve({
-						allow_tracking: 1,
-						tracking_message: "Tracking is disabled by request from Bungie. A resolution is being implemented."
-					});
-					badJson = true;
-				}
-				if (!badJson) {
-					localStorage.allowTracking = this.response;
-					resolve(JSON.parse(this.response));
-				}
-			}
-		};
-		r.onerror = function() {
-			logger.error("ArkahnX.Technology is unreachable at this time.");
-			tracker.sendEvent('Unable to reach ArkahnX.Technology', `Status: ${this.status}, Message: ${this.response}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
-			if (localStorage.allowTracking) {
-				resolve(JSON.parse(localStorage.allowTracking));
-			} else {
-				resolve({
-					allow_tracking: 1,
-					tracking_message: "Maintenance is in progress."
-				});
-			}
-		};
-		if (localStorage.uniqueId === "false") {
-			r.open("GET", "http://arkahnx.technology/loot.php", true);
-			r.send();
-		} else {
-			r.open("POST", "http://arkahnx.technology/loot.php", true);
-			logger.exportLogs().then(function(data) {
-				r.send(JSON.stringify({
-					id: localStorage.uniqueId,
-					version: localStorage.version,
-					timestamp: moment().utc().format()
-				}));
-			});
-		}
-	});
-}
-
-function runCheck() {
-	logger.startLogging("timers");
-	logger.log("runCheck");
-	allowBungieTracking().then(function(allowTracking) {
-		if (allowTracking.id) {
-			localStorage.uniqueId = allowTracking.id;
-		}
-		if (allowTracking.allow_tracking !== 1 && chrome.runtime.getManifest().key) {
-			logger.warn("No tracking Allowed");
-			// If we aren't allowed to track, throw an error, and check again in 60 seconds.
-			if (localStorage.error === "false") {
-				localStorage.error = "true";
-				localStorage.errorMessage = allowTracking.tracking_message;
-			}
-			localStorage.flag = "false";
-			localStorage.listening = "false";
-			localStorage.manual = "false";
-			clearTimeout(checkInterval);
-			setTimeout(function() {
-				runCheck();
-			}, 60000);
-		}
-		// found in timers.js, keeps track of 
-		beginBackendTracking(allowTracking);
-	});
-}
-
 function init() {
 	if (bungie) {
 		chrome.cookies.getAll({
@@ -160,13 +84,16 @@ function init() {
  */
 // setTimeout(init, 50);
 // logging some backend data. Saved my butt during the issue that deleted my saved data.
-chrome.storage.local.get(null, function(result) {
-	if (chrome.runtime.lastError) {
-		logger.error(chrome.runtime.lastError);
-	}
-	logger.startLogging("Backend");
-	logger.info(result);
-	init();
+database.open().then(function() {
+	database.getMultipleStores(database.allStores).then(function(result) {
+		// chrome.storage.local.get(null, function(result) {
+		if (chrome.runtime.lastError) {
+			logger.error(chrome.runtime.lastError);
+		}
+		logger.startLogging("Backend");
+		logger.info(result);
+		init();
+	});
 });
 
 // When the user clicks the chrome extension icon (Exotic Helmet) use the appClicked function (Found above)

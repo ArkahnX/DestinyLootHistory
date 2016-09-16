@@ -83,42 +83,23 @@ function _stringToInt(string, defaultValue) {
 	return defaultValue;
 }
 
+var goodStorageValues = ["characterDescriptions", "error", "errorMessage", "itemChangeDetected", "listening", "move3oC", "move3oCCooldown", "newestCharacter", "notificationClosed", "disableQuality", "autoLockHighLight", "systems", "version", "threeOfCoinsProgress"];
+
 function initializeStoredVariables() {
 	return new Promise(function(resolve) {
-		// localStorage.accurateTracking = _checkValue(localStorage.accurateTracking, _checkBoolean, "false");
-		localStorage.accurateTracking = "false";
-		// localStorage.activeType = _checkValue(localStorage.activeType, _checkActiveType, "psn");
 		localStorage.characterDescriptions = _checkValue(localStorage.characterDescriptions, _checkJSON, "{}");
-		// localStorage.allowTracking = _checkValue(localStorage.allowTracking, _checkJSON, JSON.stringify({
-		// 	"allow_tracking": 0,
-		// 	"tracking_message": "Tracking is disabled by request from Bungie. A resolution is being implemented."
-		// }));
 		localStorage.error = _checkValue(localStorage.error, _checkBoolean, "false");
 		localStorage.errorMessage = _checkValue(localStorage.errorMessage, "");
 		localStorage.itemChangeDetected = _checkValue(localStorage.itemChangeDetected, _checkBoolean, "false");
 		localStorage.listening = _checkValue(localStorage.listening, _checkBoolean, "false");
-		localStorage.manual = _checkValue(localStorage.manual, _checkBoolean, "false");
 		localStorage.move3oC = _checkValue(localStorage.move3oC, _checkBoolean, "false");
 		localStorage.move3oCCooldown = _checkValue(localStorage.move3oCCooldown, _checkBoolean, "false");
 		localStorage.newestCharacter = _checkValue(localStorage.newestCharacter, _checkNumber, "vault");
 		localStorage.notificationClosed = _checkValue(localStorage.notificationClosed, _checkBoolean, "false");
 		localStorage.disableQuality = _checkValue(localStorage.disableQuality, _checkBoolean, "false");
 		localStorage.autoLockHighLight = _checkValue(localStorage.autoLockHighLight, _checkBoolean, "false");
-		// localStorage.track3oC = _checkValue(localStorage.track3oC, _checkBoolean, "true");
-		localStorage.uniqueId = _checkValue(localStorage.uniqueId, _checkLength, "false");
-		// localStorage.autoLock = _checkValue(localStorage.autoLock, _checkBoolean, "false");
-		// localStorage.autoMoveToVault = _checkValue(localStorage.autoMoveToVault, _checkBoolean, "false");
-		// localStorage.minQuality = _checkValue(localStorage.minQuality, _checkNumber, 90);
-		// localStorage.minLight = _checkValue(localStorage.minLight, _checkNumber, 335);
-		// localStorage.minMaterialStacks = _checkValue(localStorage.minMaterialStacks, _checkNumber, 1);
-		// localStorage.minConsumableStacks = _checkValue(localStorage.minConsumableStacks, _checkNumber, 1);
-		// localStorage.autoMoveItemsToVault = _checkValue(localStorage.autoMoveItemsToVault, _checkJSON, JSON.stringify([]));
-		if (localStorage.allowTracking) {
-			localStorage.removeItem("allowTracking");
-			localStorage.perkSets = JSON.stringify([]);
-		}
-		localStorage.perkSets = _checkValue(localStorage.perkSets, _checkJSON, JSON.stringify([]));
 		localStorage.systems = _checkValue(localStorage.systems, _checkJSON, JSON.stringify({}));
+		localStorage.threeOfCoinsProgress = _checkValue(localStorage.threeOfCoinsProgress, _checkJSON, JSON.stringify({}));
 		var manifest = chrome.runtime.getManifest();
 		if (!localStorage.version) {
 			localStorage.version = manifest.version;
@@ -130,8 +111,6 @@ function initializeStoredVariables() {
 			localStorage.notificationClosed = "false";
 		}
 		localStorage.version = manifest.version;
-		localStorage.newInventory = JSON.stringify({});
-		localStorage.oldInventory = JSON.stringify({});
 		tracker.sendEvent('Backend Initialized', `No Issues`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 		chrome.storage.sync.get(null, function(options) {
 			if (chrome.runtime.lastError) {
@@ -145,7 +124,8 @@ function initializeStoredVariables() {
 				pgcrImage: false,
 				showQuality: true,
 				lockHighLight: false,
-				useGuardianLight:true,
+				useGuardianLight: true,
+				debugLogging: false,
 				keepSingleStackItems: [],
 				autoMoveItemsToVault: [],
 				minQuality: 90,
@@ -163,7 +143,7 @@ function initializeStoredVariables() {
 				newOptions.showQuality = false;
 				newOptions.minQuality = 100;
 			}
-			if(localStorage.autoLockHighLight === "false") {
+			if (localStorage.autoLockHighLight === "false") {
 				localStorage.autoLockHighLight = "true";
 				newOptions.lockHighLight = newOptions.autoLock;
 			}
@@ -205,7 +185,7 @@ function initializeStoredVariables() {
 				localStorage.removeItem("minConsumableStacks");
 			}
 			if (localStorage.minMaterialStacks && localStorage.autoMoveItemsToVault) {
-				var json;
+				let json;
 				try {
 					json = JSON.parse(localStorage.autoMoveItemsToVault);
 
@@ -213,8 +193,8 @@ function initializeStoredVariables() {
 
 				}
 				if (json) {
-					for (var item of json) {
-						var itemDef = getItemDefinition(item);
+					for (let item of json) {
+						let itemDef = getItemDefinition(item);
 						if (localStorage.minMaterialStacks === "1" && itemDef.bucketTypeHash === 3865314626 && newOptions.keepSingleStackItems.indexOf(item) === -1) {
 							newOptions.keepSingleStackItems.push(item);
 						} else if (localStorage.minMaterialStacks === "0" && itemDef.bucketTypeHash === 3865314626 && newOptions.autoMoveItemsToVault.indexOf(item) === -1) {
@@ -235,6 +215,11 @@ function initializeStoredVariables() {
 			if (localStorage.autoMoveItemsToVault) {
 				localStorage.removeItem("autoMoveItemsToVault");
 			}
+			for (let item in localStorage) {
+				if (goodStorageValues.indexOf(item) === -1) {
+					localStorage.removeItem(item);
+				}
+			}
 			chrome.storage.sync.set(newOptions, function() {
 				if (chrome.runtime.lastError) {
 					logger.error(chrome.runtime.lastError);
@@ -247,24 +232,42 @@ function initializeStoredVariables() {
 				logger.error(chrome.runtime.lastError);
 			}
 			var newData = {};
-			if (!data.currencies) {
-				newData.currencies = [];
-			} else {
+			if (data.currencies) {
 				newData.currencies = data.currencies;
 			}
-			if (!data.inventories) {
-				newData.inventories = {};
-			} else {
-				newData.inventories = data.inventories;
+			if (data.inventories) {
+				let newInventories = [];
+				for (let characterId in data.inventories) {
+					if (Array.isArray(data.inventories[characterId])) {
+						newInventories.push({
+							characterId: characterId,
+							inventory: data.inventories[characterId]
+						});
+					}
+				}
+				if (newInventories.length) {
+					newData.inventories = newInventories;
+				} else {
+					newData.inventories = data.inventories;
+				}
 			}
-			if (!data.progression) {
-				newData.progression = {};
-			} else {
-				newData.progression = data.progression;
+			if (data.progression) {
+				let newProgression = [];
+				for (let characterId in data.progression) {
+					if (data.progression[characterId].baseCharacterLevel) {
+						newProgression.push({
+							characterId: characterId,
+							progression: data.progression[characterId]
+						});
+					}
+				}
+				if (newProgression.length) {
+					newData.progression = newProgression;
+				} else {
+					newData.progression = data.progression;
+				}
 			}
-			if (!data.itemChanges) {
-				newData.itemChanges = [];
-			} else {
+			if (data.itemChanges) {
 				newData.itemChanges = data.itemChanges;
 			}
 			if (!data.logger) {
@@ -275,16 +278,17 @@ function initializeStoredVariables() {
 			} else {
 				newData.logger = data.logger;
 			}
-			if (!data.matches) {
-				newData.matches = [];
-			} else {
+			if (data.matches) {
 				newData.matches = data.matches;
 			}
+			console.log(newData);
 			chrome.storage.local.set(newData, function() {
 				if (chrome.runtime.lastError) {
 					logger.error(chrome.runtime.lastError);
 				}
-				resolve();
+				database.open().then(function() {
+					database.update(newData).then(resolve);
+				});
 			});
 		});
 	});
