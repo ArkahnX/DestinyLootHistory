@@ -163,9 +163,9 @@ function makeHistoryItem(itemData) {
 	docfrag.appendChild(itemContainer);
 	DOMTokenList.prototype.add.apply(container.classList, itemClasses(itemData));
 	if (getItemDefinition(itemData.itemHash).hasIcon || (getItemDefinition(itemData.itemHash).icon && getItemDefinition(itemData.itemHash).icon.length)) {
-		container.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + getItemDefinition(itemData.itemHash).icon + "'),url('img/misc/missing_icon.png')");
+		container.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + getItemDefinition(itemData.itemHash).icon + "'),url('img/missing_icon.png')");
 	} else {
-		container.setAttribute("style", "background-image: url('img/misc/missing_icon.png')");
+		container.setAttribute("style", "background-image: url('img/missing_icon.png')");
 	}
 	stat.classList.add("primary-stat");
 	stat.textContent = primaryStat(itemData);

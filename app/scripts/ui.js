@@ -365,77 +365,82 @@ function getInfo(item, itemDef, attribute) {
 
 var searchTypes = searchTypes || false;
 
+function makeSearchData(itemDiff) {
+	var searchData = {};
+	if (searchTypes) {
+		for (let page of pages) {
+			if (itemDiff[page]) {
+				for (var type of searchTypes) {
+					for (let itemData of itemDiff[page]) {
+						if (itemData.item) {
+							itemData = itemData.item;
+						}
+						itemData = JSON.parse(itemData);
+						var itemTypeValue = "";
+						let itemDefinition = null;
+						if (itemData.itemHash) {
+							itemDefinition = getItemDefinition(itemData.itemHash, itemData);
+							if (type === "tierTypeName") {
+								if (itemDefinition.tierTypeName) {
+									itemTypeValue = itemDefinition.tierTypeName;
+								} else {
+									itemTypeValue = "Common";
+								}
+							} else if (type === "itemName") {
+								itemTypeValue = itemDefinition.itemName;
+							} else if (type === "itemTypeName") {
+								itemTypeValue = itemDefinition.itemTypeName;
+							} else if (type === "primaryStat") {
+								itemTypeValue = primaryStat(itemData);
+							} else if (type === "itemDescription") {
+								itemTypeValue = itemDefinition.itemDescription || "";
+							} else if (type === "damageTypeName") {
+								itemTypeValue = elementType(itemData);
+							}
+						} else {
+							if (itemData.factionHash) {
+								itemDefinition = DestinyFactionDefinition[itemData.factionHash];
+								if (type === "itemName") {
+									itemTypeValue = itemDefinition.factionName;
+								} else if (type === "itemDescription") {
+									itemTypeValue = itemDefinition.factionDescription;
+								}
+							} else {
+								itemDefinition = DestinyProgressionDefinition[itemData.progressionHash];
+								if (type === "itemName") {
+									itemTypeValue = itemDefinition.name;
+								}
+							}
+						}
+						// var itemTypeValue = getInfo(itemData, getItemDefinition(itemData.itemHash), type);
+						if (typeof itemTypeValue !== "string") {
+							// console.log(itemTypeValue, page, type, item, itemDefinition, itemData)
+						}
+						var nodeValue = itemTypeValue || "";
+						if (typeof nodeValue === "string") {
+							nodeValue = itemTypeValue.replace(/(\r\n|\n|\r)/gm, " ").toLowerCase();
+						}
+						if (!searchData[type]) {
+							searchData[type] = "";
+						}
+						if (searchData[type].indexOf(nodeValue) === -1) {
+							searchData[type] += " | " + nodeValue;
+						}
+					}
+				}
+			}
+		}
+	}
+	return searchData;
+}
+
 function work(item, index) {
 	// logger.startLogging("UI");
 	if (lastIndex < index) {
 		if (!item.added) {
 			console.log(item);
 		}
-		var searchData = {};
-		if (searchTypes) {
-			for (let page of pages) {
-				if (item[page]) {
-					for (var type of searchTypes) {
-						for (let itemData of item[page]) {
-							if (itemData.item) {
-								itemData = itemData.item;
-							}
-							itemData = JSON.parse(itemData);
-							var itemTypeValue = "";
-							let itemDefinition = null;
-							if (itemData.itemHash) {
-								itemDefinition = getItemDefinition(itemData.itemHash, itemData);
-								if (type === "tierTypeName") {
-									if (itemDefinition.tierTypeName) {
-										itemTypeValue = itemDefinition.tierTypeName;
-									} else {
-										itemTypeValue = "Common";
-									}
-								} else if (type === "itemName") {
-									itemTypeValue = itemDefinition.itemName;
-								} else if (type === "itemTypeName") {
-									itemTypeValue = itemDefinition.itemTypeName;
-								} else if (type === "primaryStat") {
-									itemTypeValue = primaryStat(itemData);
-								} else if (type === "itemDescription") {
-									itemTypeValue = itemDefinition.itemDescription || "";
-								} else if (type === "damageTypeName") {
-									itemTypeValue = elementType(itemData);
-								}
-							} else {
-								if (itemData.factionHash) {
-									itemDefinition = DestinyFactionDefinition[itemData.factionHash];
-									if (type === "itemName") {
-										itemTypeValue = itemDefinition.factionName;
-									} else if (type === "itemDescription") {
-										itemTypeValue = itemDefinition.factionDescription;
-									}
-								} else {
-									itemDefinition = DestinyProgressionDefinition[itemData.progressionHash];
-									if (type === "itemName") {
-										itemTypeValue = itemDefinition.name;
-									}
-								}
-							}
-							// var itemTypeValue = getInfo(itemData, getItemDefinition(itemData.itemHash), type);
-							if (typeof itemTypeValue !== "string") {
-								// console.log(itemTypeValue, page, type, item, itemDefinition, itemData)
-							}
-							var nodeValue = itemTypeValue || "";
-							if (typeof nodeValue === "string") {
-								nodeValue = itemTypeValue.replace(/(\r\n|\n|\r)/gm, " ").toLowerCase();
-							}
-							if (!searchData[type]) {
-								searchData[type] = "";
-							}
-							if (searchData[type].indexOf(nodeValue) === -1) {
-								searchData[type] += " | " + nodeValue;
-							}
-						}
-					}
-				}
-			}
-		}
+		var searchData = makeSearchData(item);
 		var addedQty = item.added.length;
 		var removedQty = item.removed.length;
 		var progressionQty = 0;
@@ -604,22 +609,38 @@ function itemRarity(itemHash) {
 	}
 }
 
+var itemCache = [];
+
 function makeItem(itemData, classRequirement, optionalCosts) {
 	var docfrag = document.createDocumentFragment();
-	var itemContainer = document.createElement("div");
-	itemContainer.classList.add("item-container");
+	var itemContainer, container, stat, quality;
+	if (itemCache.length) {
+		itemContainer = itemCache.pop();
+		container = itemContainer.children[0];
+		quality = itemContainer.children[1];
+		stat = itemContainer.children[2];
+	} else {
+		itemContainer = document.createElement("div");
+		container = document.createElement("div");
+		stat = document.createElement("div");
+		quality = document.createElement("div");
+		itemContainer.classList.add("item-container");
+		itemContainer.appendChild(container);
+		itemContainer.appendChild(quality);
+		itemContainer.appendChild(stat);
+		stat.classList.add("primary-stat");
+	}
+	docfrag.appendChild(itemContainer);
 	if (itemData.removed) {
 		itemContainer.classList.add("undiscovered");
+	} else {
+		itemContainer.classList.remove("undiscovered");
 	}
-	var container = document.createElement("div");
-	var stat = document.createElement("div");
-	itemContainer.appendChild(container);
 	itemContainer.dataset.itemType = itemType(itemData.itemHash);
 	itemContainer.dataset.itemRarity = itemRarity(itemData.itemHash);
 	if (hasQuality(itemData) && globalOptions.showQuality) {
-		var quality = document.createElement("div");
-		itemContainer.appendChild(quality);
 		quality.classList.add("quality");
+		quality.classList.remove("hidden");
 		stat.classList.add("with-quality");
 		var qualityData = parseItemQuality(itemData);
 		quality.style.background = qualityData.color;
@@ -627,23 +648,74 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 		container.dataset.qualityMin = qualityData.min;
 		container.dataset.qualityMax = qualityData.max;
 		container.dataset.qualityColor = qualityData.color;
+	} else {
+		quality.classList.add("hidden");
+		stat.classList.remove("with-quality");
 	}
-	itemContainer.appendChild(stat);
-	docfrag.appendChild(itemContainer);
-	DOMTokenList.prototype.add.apply(container.classList, itemClasses(itemData));
+	container.className = itemClasses(itemData).join(" ");
 	if (itemData.itemHash === 3159615086 || itemData.itemHash === 2534352370 || itemData.itemHash === 2749350776) {
 		container.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + getItemDefinition(itemData.itemHash).icon + "')");
 	} else if (getItemDefinition(itemData.itemHash).hasIcon || (getItemDefinition(itemData.itemHash).icon && getItemDefinition(itemData.itemHash).icon.length)) {
-		container.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + getItemDefinition(itemData.itemHash).icon + "'),url('img/misc/missing_icon.png')");
-	} else if(getItemDefinition(itemData.itemHash).itemName === "Classified"){
+		container.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + getItemDefinition(itemData.itemHash).icon + "'),url('img/missing_icon.png')");
+	} else if (getItemDefinition(itemData.itemHash).itemName === "Classified") {
 		container.setAttribute("style", "background-image: url('img/classified.jpg')");
 	} else {
 		container.setAttribute("style", "background-image: url('img/missing_icon.png')");
 	}
-	stat.classList.add("primary-stat");
 	stat.textContent = primaryStat(itemData);
 	passData(container, itemData, classRequirement, optionalCosts);
 	return docfrag;
+}
+
+var progressCache = [];
+
+function sendToCache(DomNode) {
+	if (DomNode.children[0].classList.contains("currency")) {
+		itemCache.push(DomNode);
+	} else if (DomNode.children[0].classList.contains("faction")) {
+		progressCache.push(DomNode);
+	} else {
+		itemCache.push(DomNode);
+	}
+}
+
+function cleanupMainPage() {
+	var childrenList = [];
+	if (elements.progression.children.length) {
+		for (let subSection of elements.progression.children) {
+			for (let child of subSection.children) {
+				sendToCache(child);
+				childrenList.push(child);
+			}
+		}
+	}
+	if (elements.added.children.length) {
+		for (let subSection of elements.added.children) {
+			for (let child of subSection.children) {
+				sendToCache(child);
+				childrenList.push(child);
+			}
+		}
+	}
+	if (elements.removed.children.length) {
+		for (let subSection of elements.removed.children) {
+			for (let child of subSection.children) {
+				sendToCache(child);
+				childrenList.push(child);
+			}
+		}
+	}
+	if (elements.transferred.children.length) {
+		for (let subSection of elements.transferred.children) {
+			for (let child of subSection.children) {
+				sendToCache(child);
+				childrenList.push(child);
+			}
+		}
+	}
+	for(var DomNode of childrenList) {
+		DomNode.parentNode.removeChild(DomNode);
+	}
 }
 
 function makeProgress(progressData, classRequirement) {
@@ -654,36 +726,50 @@ function makeProgress(progressData, classRequirement) {
 	if (progressData.progressionHash && progressData.progressionHash === 3298204156) {
 		return docfrag;
 	}
-	var itemContainer = document.createElement("div");
-	itemContainer.classList.add("item-container");
-	var container = document.createElement("div");
-	var stat = document.createElement("div");
-	itemContainer.appendChild(container);
-	itemContainer.appendChild(stat);
+	var itemContainer, container, stat, canvas;
+	if (progressCache.length) {
+		itemContainer = progressCache.pop();
+		container = itemContainer.children[0];
+		canvas = container.children[0];
+		stat = itemContainer.children[1];
+	} else {
+		itemContainer = document.createElement("div");
+		container = document.createElement("div");
+		stat = document.createElement("div");
+		canvas = document.createElement("canvas");
+		itemContainer.classList.add("item-container");
+		container.appendChild(canvas);
+		itemContainer.appendChild(container);
+		itemContainer.appendChild(stat);
+		stat.classList.add("primary-stat");
+		container.classList.add("kinetic", "common", "faction");
+	}
 	docfrag.appendChild(itemContainer);
-	container.classList.add("kinetic", "common", "faction");
 	// NO BACKGROUND IMAGE ON FACTION ICONS BECAUSE THEY ARE TRANSPARENT
 	if (DestinyFactionDefinition[progressData.factionHash]) {
 		container.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + DestinyFactionDefinition[progressData.factionHash].factionIcon + "')");
-		var canvas = document.createElement("canvas");
 		canvas.classList.add("squareProgress", "repProgress");
+		canvas.classList.remove("hidden");
 		canvas.width = 37;
 		canvas.height = 37;
 		canvas.dataset.max = progressData.nextLevelAt;
 		canvas.dataset.value = progressData.progressToNextLevel;
-		container.appendChild(canvas);
 	} else if (DestinyProgressionDefinition[progressData.progressionHash].icon) {
+		canvas.classList.add("hidden");
 		container.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + DestinyProgressionDefinition[progressData.progressionHash].icon + "')");
 	} else if (progressData.name === "pvp_iron_banner.loss_tokens") {
+		canvas.classList.add("hidden");
 		container.setAttribute("style", "background-image: url('https://www.bungie.net" + getItemDefinition(3397982326).icon + "')");
 	} else if (progressData.name === "r1_s4_hiveship_orbs") {
+		canvas.classList.add("hidden");
 		container.setAttribute("style", "background-image: url('https://www.bungie.net" + getItemDefinition(1069694698).icon + "')");
 	} else if (progressData.name === "terminals") {
+		canvas.classList.add("hidden");
 		container.setAttribute("style", "background-image: url('https://www.bungie.net" + getItemDefinition(2751204699).icon + "')");
 	} else {
-		container.setAttribute("style", "background-image: url('img/misc/missing_icon.png')");
+		canvas.classList.add("hidden");
+		container.setAttribute("style", "background-image: url('img/missing_icon.png')");
 	}
-	stat.classList.add("primary-stat");
 	stat.textContent = progressData.progressChange;
 	passFactionData(container, progressData, classRequirement);
 	return docfrag;
@@ -698,6 +784,7 @@ function itemClasses(itemData) {
 	var itemDefinition = getItemDefinition(itemData.itemHash, itemData);
 	if (itemData.itemHash === 3159615086 || itemData.itemHash === 2534352370 || itemData.itemHash === 2749350776) {
 		classList.push("faction");
+		classList.push("currency");
 	} else {
 		classList.push("item");
 	}
@@ -848,7 +935,7 @@ function passFactionData(DomNode, diffData, classRequirement) {
 	} else if (diffData.name === "terminals") {
 		DomNode.dataset.itemImage = getItemDefinition(2751204699).icon;
 	} else {
-		DomNode.dataset.itemImage = "/img/misc/missing_icon.png";
+		DomNode.dataset.itemImage = "/img/missing_icon.png";
 	}
 	DomNode.dataset.tierTypeName = "Common";
 	DomNode.dataset.equipRequiredLevel = 0;
