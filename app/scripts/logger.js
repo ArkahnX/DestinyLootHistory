@@ -1,4 +1,3 @@
-var _VERBOSE = false;
 var logger = (function() {
 	const TIME = "time";
 	const LOG = "log";
@@ -16,6 +15,7 @@ var logger = (function() {
 
 	var disabled = false;
 
+	var devEnvironment = chrome.runtime.getManifest();
 
 	function init() {
 		return new Promise(function(resolve) {
@@ -27,6 +27,11 @@ var logger = (function() {
 					logList = data.logger.logList;
 					currentLog = data.logger.currentLog;
 				}
+				getOption("debugLogging").then(function(option) {
+					if (!option) {
+						disabled = true;
+					}
+				});
 				resolve();
 			});
 		});
@@ -55,13 +60,15 @@ var logger = (function() {
 	}
 
 	function endLogging() {
-		if (currentLog) {
-			logList.push(currentLog);
-			var tag = currentLog.tag;
-			currentLog = null;
-			startLogging(tag);
-		} else {
-			startLogging();
+		if (!disabled) {
+			if (currentLog) {
+				logList.push(currentLog);
+				var tag = currentLog.tag;
+				currentLog = null;
+				startLogging(tag);
+			} else {
+				startLogging();
+			}
 		}
 	}
 
@@ -158,11 +165,19 @@ var logger = (function() {
 			for (var data of arguments) {
 				_multi(ERROR, data);
 			}
+		} else if (devEnvironment) {
+			for (var data of arguments) {
+				_multi(ERROR, data);
+			}
 		}
 	}
 
 	function log(data) {
 		if (!disabled) {
+			for (var data of arguments) {
+				_multi(LOG, data);
+			}
+		} else if (devEnvironment) {
 			for (var data of arguments) {
 				_multi(LOG, data);
 			}
@@ -174,47 +189,56 @@ var logger = (function() {
 			for (var data of arguments) {
 				_multi(INFO, data);
 			}
+		} else if (devEnvironment) {
+			for (var data of arguments) {
+				_multi(INFO, data);
+			}
 		}
 	}
 
 	function _multi(type, data) {
-		if (!chrome.runtime.getManifest().key || _VERBOSE === true) {
+		if (devEnvironment) {
 			if (type !== "time" && type !== "timeEnd") {
 				console[type](moment().format(), _getSource(), _pad(type, 5), data);
 			}
 		}
-
-		if (Array.isArray(data)) {
-			currentLog.logs.push(_log(type, `Array[${data.length}]`));
-		} else if (typeof data === "object" && data !== null) {
-			var dataList = [];
-			for (var attr in data) {
-				if (data[attr] !== undefined && data[attr] !== null) {
-					if (Array.isArray(data[attr])) {
-						dataList.push(`${attr}: Array[${data[attr].length}]`);
-					} else if (typeof data[attr] === "object") {
-						dataList.push(`${attr}: Object[${Object.keys(data[attr]).length}]`);
-					} else if (typeof data[attr] === "function") {
-						dataList.push(`${attr}: ${data[attr].toString().split("{")[0].trim()}`);
-					} else if (typeof data[attr] === "string") {
-						dataList.push(type, `${attr}: "${data[attr]}"`);
-					} else {
-						dataList.push(`${attr}: ${data[attr]}`);
+		if (!disabled) {
+			if (Array.isArray(data)) {
+				currentLog.logs.push(_log(type, `Array[${data.length}]`));
+			} else if (typeof data === "object" && data !== null) {
+				var dataList = [];
+				for (var attr in data) {
+					if (data[attr] !== undefined && data[attr] !== null) {
+						if (Array.isArray(data[attr])) {
+							dataList.push(`${attr}: Array[${data[attr].length}]`);
+						} else if (typeof data[attr] === "object") {
+							dataList.push(`${attr}: Object[${Object.keys(data[attr]).length}]`);
+						} else if (typeof data[attr] === "function") {
+							dataList.push(`${attr}: ${data[attr].toString().split("{")[0].trim()}`);
+						} else if (typeof data[attr] === "string") {
+							dataList.push(type, `${attr}: "${data[attr]}"`);
+						} else {
+							dataList.push(`${attr}: ${data[attr]}`);
+						}
 					}
 				}
+				currentLog.logs.push(_log(type, dataList.join(",\n")));
+			} else if (typeof data === "function") {
+				currentLog.logs.push(_log(type, data.toString().split("{")[0].trim()));
+			} else if (typeof data === "string") {
+				currentLog.logs.push(_log(type, `"${data}"`));
+			} else {
+				currentLog.logs.push(_log(type, data));
 			}
-			currentLog.logs.push(_log(type, dataList.join(",\n")));
-		} else if (typeof data === "function") {
-			currentLog.logs.push(_log(type, data.toString().split("{")[0].trim()));
-		} else if (typeof data === "string") {
-			currentLog.logs.push(_log(type, `"${data}"`));
-		} else {
-			currentLog.logs.push(_log(type, data));
 		}
 	}
 
 	function warn(data) {
 		if (!disabled) {
+			for (var data of arguments) {
+				_multi(WARN, data);
+			}
+		} else if (devEnvironment) {
 			for (var data of arguments) {
 				_multi(WARN, data);
 			}
@@ -226,19 +250,21 @@ var logger = (function() {
 	}
 
 	function saveData() {
-		if (logList.length > 6000) {
-			clean();
-		} else {
-			chrome.storage.local.set({
-				logger: {
-					currentLog: currentLog,
-					logList: logList
-				}
-			}, function() {
-				if (chrome.runtime.lastError) {
-					logger.error(chrome.runtime.lastError);
-				}
-			});
+		if (!disabled) {
+			if (logList.length > 6000) {
+				clean();
+			} else {
+				chrome.storage.local.set({
+					logger: {
+						currentLog: currentLog,
+						logList: logList
+					}
+				}, function() {
+					if (chrome.runtime.lastError) {
+						logger.error(chrome.runtime.lastError);
+					}
+				});
+			}
 		}
 	}
 
@@ -325,7 +351,7 @@ var logger = (function() {
 				}
 				endLogs.push(`-----------------------------------------------------------`);
 				endLogs.push(moment().format());
-				endLogs.push(`Unique ID: ${localStorage.uniqueId}, Version: ${chrome.runtime.getManifest().version}, Chrome: ${/Chrome\/([0-9.]+)/.exec(navigator.userAgent)[1]}`);
+				endLogs.push(`Version: ${chrome.runtime.getManifest().version}, Chrome: ${/Chrome\/([0-9.]+)/.exec(navigator.userAgent)[1]}`);
 				endLogs.push("localStorage Values");
 				for (var property in localStorage) {
 					endLogs.push(`${property}: "${localStorage[property]}"`);
@@ -359,18 +385,20 @@ var logger = (function() {
 	}
 
 	function clean() {
-		logList = [];
-		console.clear();
-		chrome.storage.local.set({
-			logger: {
-				currentLog: currentLog,
-				logList: []
-			}
-		}, function() {
-			if (chrome.runtime.lastError) {
-				logger.error(chrome.runtime.lastError);
-			}
-		});
+		if (!disabled) {
+			logList = [];
+			console.clear();
+			chrome.storage.local.set({
+				logger: {
+					currentLog: currentLog,
+					logList: []
+				}
+			}, function() {
+				if (chrome.runtime.lastError) {
+					logger.error(chrome.runtime.lastError);
+				}
+			});
+		}
 	}
 
 	function getLogs() {

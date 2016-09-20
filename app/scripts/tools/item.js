@@ -7,7 +7,8 @@ const Item = (function() {
 					let currencyTotal = vendor.currencies[cost.itemHash];
 					if (typeof currencyTotal !== "number") {
 						currencyTotal = 0;
-						for (let item of inventories[characterId]) {
+						var inventory = findInArray(inventories, "characterId", characterId);
+						for (let item of inventory.inventory || []) {
 							if (item.itemHash === cost.itemHash) {
 								currencyTotal = item.stackSize;
 								break;

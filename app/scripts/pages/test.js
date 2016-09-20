@@ -54,7 +54,7 @@ function initItems(callback) {
 			if (typeof callback === "function") {
 				callback();
 			}
-			checkInventory();
+			database.open().then(checkInventory);
 		}).catch(function(e) {
 			logger.error(e);
 			if (typeof callback === "function") {
@@ -69,59 +69,10 @@ function initItems(callback) {
 	});
 }
 
-
-var findHighestMaterial = (function() {
-	// console.startLogging("items");
-	var stage = false;
-	var oldestCharacterDate = null;
-	var oldestCharacter = null;
-	var bigItem = null;
-	return function() {
-		console.time("bigmat");
-		if (stage === false) {
-			console.time("char");
-			for (let characterId of characterIdList) {
-				if (characterId !== "vault") {
-					var date = new Date(characterDescriptions[characterId].dateLastPlayed);
-					if (!oldestCharacter || date < oldestCharacterDate) {
-						oldestCharacterDate = date;
-						oldestCharacter = characterId;
-					}
-				}
-			}
-			console.timeEnd("char");
-			console.time("mats");
-			for (let item of data.inventories[oldestCharacter]) {
-				let itemDefinition = getItemDefinition(item.itemHash);
-				if (itemDefinition.bucketTypeHash === 3865314626) {
-					if (!bigItem || item.stackSize > bigItem.stackSize) {
-						bigItem = item;
-					}
-				}
-			}
-			console.timeEnd("mats");
-		}
-		if (stage === true) {
-			stage = false;
-		} else {
-			stage = true;
-		}
-		console.timeEnd("bigmat");
-		return {
-			characterId: oldestCharacter,
-			itemId: "0",
-			itemReferenceHash: bigItem.itemHash,
-			// membershipType: bungie.membershipType(),
-			stackSize: 1,
-			transferToVault: stage
-		};
-	};
-}());
-
 function checkInventory() {
 	// console.startLogging("items");
 	console.time("Bungie Inventory");
-	chrome.storage.local.get(null, function(remoteData) {
+	database.getAllEntries("inventories").then(function(remoteData) {
 		if (chrome.runtime.lastError) {
 			logger.error(chrome.runtime.lastError);
 		}
@@ -129,15 +80,14 @@ function checkInventory() {
 		data = remoteData;
 		// sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
 		// sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
-		var mat = findHighestMaterial();
 		var characterHistory = document.getElementById("history");
 		var inventoryData = [];
-		for (var characterId in data.inventories) {
+		for (var inventory of data.inventories) {
 			if (inventoryData.length === 0) {
-				Array.prototype.push.apply(inventoryData, data.inventories[characterId]);
+				Array.prototype.push.apply(inventoryData, inventory.inventory);
 			} else {
 				var arrayToMerge = [];
-				for (var item of data.inventories[characterId]) {
+				for (var item of inventory.inventory) {
 					if (item.itemInstanceId !== "0") {
 						arrayToMerge.push(item);
 					} else {
@@ -159,6 +109,8 @@ function checkInventory() {
 		}
 		inventoryData.sort(function(a, b) {
 			if (!isNaN(parseInt(a.stackSize))) {
+				return parseInt(b.stackSize) - parseInt(a.stackSize);
+			} else if (a.primaryStat && b.primaryStat && !isNaN(parseInt(a.primaryStat.value))) {
 				return parseInt(b.stackSize) - parseInt(a.stackSize);
 			} else {
 				return a.itemInstanceId - b.itemInstanceId;
@@ -182,97 +134,23 @@ function checkInventory() {
 				characterHistory.appendChild(nodeList);
 			}
 			containingDiv = document.getElementById(bucketName);
-			containingDiv.appendChild(makeHistoryItem(item, "vault"));
+			containingDiv.appendChild(makeItem(item, "vault"));
 		}
 		console.timeEnd("Bungie Inventory");
 	});
 }
 
-function makeHistoryItem(itemData) {
-	var docfrag = document.createDocumentFragment();
-	var itemContainer = document.createElement("div");
-	itemContainer.classList.add("item-container");
-	var container = document.createElement("div");
-	var stat = document.createElement("div");
-	itemContainer.appendChild(container);
-	if (hasQuality(itemData) && globalOptions.showQuality) {
-		var quality = document.createElement("div");
-		itemContainer.appendChild(quality);
-		quality.classList.add("quality");
-		stat.classList.add("with-quality");
-		var qualityData = parseItemQuality(itemData);
-		quality.style.background = qualityData.color;
-		quality.textContent = qualityData.min + "%";
-		container.dataset.qualityMin = qualityData.min;
-		container.dataset.qualityMax = qualityData.max;
-		container.dataset.qualityColor = qualityData.color;
-	}
-	itemContainer.appendChild(stat);
-	docfrag.appendChild(itemContainer);
-	DOMTokenList.prototype.add.apply(container.classList, itemClasses(itemData));
-	if (getItemDefinition(itemData.itemHash).hasIcon || (getItemDefinition(itemData.itemHash).icon && getItemDefinition(itemData.itemHash).icon.length)) {
-		container.setAttribute("style", "background-image: url(" + "'http://www.bungie.net" + getItemDefinition(itemData.itemHash).icon + "'),url('http://bungie.net/img/misc/missing_icon.png')");
-	} else {
-		container.setAttribute("style", "background-image: url('http://bungie.net/img/misc/missing_icon.png')");
-	}
-	stat.classList.add("primary-stat");
-	stat.textContent = primaryStat(itemData);
-	passData(container, itemData);
-	return docfrag;
-}
-
-function passData(DomNode, itemData) {
-	var itemDefinition = getItemDefinition(itemData.itemHash);
-	DomNode.dataset.itemHash = itemDefinition.itemHash;
-	if (itemData.itemInstanceId) {
-		DomNode.dataset.itemInstanceId = itemData.itemInstanceId;
-	}
-	if (itemDefinition.tierTypeName) {
-		DomNode.dataset.tierTypeName = itemDefinition.tierTypeName;
-	} else {
-		DomNode.dataset.tierTypeName = "Common";
-	}
-	if (itemDefinition.sourceHashes) {
-		var temp = [];
-		for (var hash of itemDefinition.sourceHashes) {
-			if (DestinyRewardSourceDefinition[hash]) {
-				temp.push(DestinyRewardSourceDefinition[hash].sourceName.replace(/\s+/g, ''));
-			}
-		}
-		DomNode.dataset.sourceName = JSON.stringify(temp);
-	}
-	DomNode.dataset.itemName = itemDefinition.itemName;
-	DomNode.dataset.itemImage = itemDefinition.icon;
-	DomNode.dataset.itemTypeName = itemDefinition.itemTypeName;
-	DomNode.dataset.equipRequiredLevel = itemData.equipRequiredLevel || 0;
-	DomNode.dataset.primaryStat = primaryStat(itemData);
-	DomNode.dataset.primaryStatName = primaryStatName(itemData);
-	DomNode.dataset.itemDescription = itemDefinition.itemDescription;
-	DomNode.dataset.damageTypeName = elementType(itemData);
-	DomNode.dataset.classRequirement = "";
-	if (itemData.stats && itemData.stats.length) {
-		DomNode.dataset.statTree = JSON.stringify(itemData.stats);
-	}
-	if (itemData.nodes && itemData.nodes.length) {
-		DomNode.dataset.talentGridHash = itemData.talentGridHash;
-		DomNode.dataset.nodeTree = JSON.stringify(itemData.nodes);
-	}
-	if (itemData.objectives && itemData.objectives.length) {
-		DomNode.dataset.objectiveTree = JSON.stringify(itemData.objectives);
-	}
-}
-
 function itemNetworkTask(characterId, callback) {
 	if (characterId === "vault") {
 		bungie.vault().catch(function(err) {
-			if(err) {
+			if (err) {
 				logger.error(err);
 			}
 			callback(false);
 		}).then(callback);
 	} else {
 		bungie.inventory(characterId).catch(function(err) {
-			if(err) {
+			if (err) {
 				logger.error(err);
 			}
 			callback(false);
@@ -283,7 +161,7 @@ function itemNetworkTask(characterId, callback) {
 function factionNetworkTask(characterId, callback) {
 	if (characterId !== "vault") {
 		bungie.factions(characterId).catch(function(err) {
-			if(err) {
+			if (err) {
 				logger.error(err);
 			}
 			callback(false);
@@ -295,19 +173,29 @@ function factionNetworkTask(characterId, callback) {
 
 function itemResultTask(result, characterId) {
 	if (result) {
-		if (!data.inventories[characterId]) {
-			data.inventories[characterId] = [];
+		var inventory = findInArray(data.inventories, "characterId", characterId);
+		if (!inventory.inventory) {
+			inventory = {
+				characterId: characterId,
+				inventory: []
+			};
+			data.inventories.push(inventory);
 		}
-		data.inventories[characterId] = concatItems(result.data.buckets);
+		inventory.inventory = concatItems(result.data.buckets);
 	}
 }
 
 function factionResultTask(result, characterId) {
 	if (result) {
-		if (!data.progression[characterId]) {
-			data.progression[characterId] = [];
+		var progression = findInArray(data.progression, "characterId", characterId);
+		if (!progression.progression) {
+			progression = {
+				characterId: characterId,
+				progression: []
+			};
+			data.progression.push(progression);
 		}
-		data.progression[characterId] = result.data;
+		progression.progression = result.data;
 	}
 }
 

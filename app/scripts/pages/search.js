@@ -5,9 +5,6 @@ characterDescriptions = JSON.parse(localStorage.characterDescriptions);
 var searchTypes = ["itemName", "itemTypeName", "itemDescription", "tierTypeName", "damageTypeName", "primaryStat"];
 
 var globalOptions = {};
-chrome.storage.local.get(null, function(result) {
-	console.log(result);
-});
 
 getAllOptions().then(function(options) {
 	globalOptions = options;
@@ -91,45 +88,53 @@ function addSearchTerm() {
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
-	// document.getElementById("addSearchTerm").addEventListener("click", addSearchTerm);
-	// document.getElementById("searchButton").addEventListener("click", handleSearch);
-	// addSearchTerm();
-	initUi();
-	chrome.storage.local.get("itemChanges", function chromeStorageGet(localData) {
-		if (chrome.runtime.lastError) {
-			logger.error(chrome.runtime.lastError);
-		}
-		currentItemSet = localData.itemChanges;
-		pageQuantity = currentItemSet.length;
-		console.log(window.performance.now(), "New Node")
-		displayResults(false, true).then(function() {
-			var dataNodes = document.querySelectorAll(".item-container div:first-child");
-			console.log(window.performance.now(), "New Node");
-			// for (var node of dataNodes) {
-			// 	var parentIndex = node.parentNode.parentNode.dataset.index;
-			// 	var parentNodes = document.querySelectorAll("[data-index='" + parentIndex + "']");
-			// 	for (var type of searchTypes) {
-			// 		console.log(window.performance.now(), type)
-			// 		var nodeValue = node.dataset[type] && node.dataset[type].replace(/(\r\n|\n|\r)/gm, " ") || "";
-			// 		for (var parentNode of parentNodes) {
-			// 			if (!parentNode.dataset[type]) {
-			// 				parentNode.dataset[type] = "";
-			// 			}
-			// 			if (parentNode.dataset[type].indexOf(nodeValue) === -1) {
-			// 				parentNode.dataset[type] += " | " + nodeValue.toLowerCase();
-			// 			}
-			// 		}
-			// 	}
-			// }
-			document.getElementById("status").classList.remove("active");
-			var searchElement = document.querySelector('#jetsSearch');
-			var searchTimeout = null;
-			searchElement.removeAttribute("disabled");
-			searchElement.setAttribute("placeholder","Enter a search term");
-			searchElement.addEventListener("keyup", function() {
-				clearTimeout(searchTimeout);
-				searchTimeout = setTimeout(searchResults, 300);
-			}, false);
+	database.open().then(function() {
+		database.getMultipleStores(database.allStores).then(function(result) {
+			// chrome.storage.local.get(null, function(result) {
+			console.log(result);
+		});
+
+		// document.getElementById("addSearchTerm").addEventListener("click", addSearchTerm);
+		// document.getElementById("searchButton").addEventListener("click", handleSearch);
+		// addSearchTerm();
+		initUi();
+		database.getAllEntries("itemChanges").then(function chromeStorageGet(localData) {
+			// chrome.storage.local.get("itemChanges", function chromeStorageGet(localData) {
+			if (chrome.runtime.lastError) {
+				logger.error(chrome.runtime.lastError);
+			}
+			currentItemSet = localData.itemChanges;
+			pageQuantity = currentItemSet.length;
+			console.log(window.performance.now(), "New Node")
+			displayResults(false, true).then(function() {
+				var dataNodes = document.querySelectorAll(".item-container div:first-child");
+				console.log(window.performance.now(), "New Node");
+				// for (var node of dataNodes) {
+				// 	var parentIndex = node.parentNode.parentNode.dataset.index;
+				// 	var parentNodes = document.querySelectorAll("[data-index='" + parentIndex + "']");
+				// 	for (var type of searchTypes) {
+				// 		console.log(window.performance.now(), type)
+				// 		var nodeValue = node.dataset[type] && node.dataset[type].replace(/(\r\n|\n|\r)/gm, " ") || "";
+				// 		for (var parentNode of parentNodes) {
+				// 			if (!parentNode.dataset[type]) {
+				// 				parentNode.dataset[type] = "";
+				// 			}
+				// 			if (parentNode.dataset[type].indexOf(nodeValue) === -1) {
+				// 				parentNode.dataset[type] += " | " + nodeValue.toLowerCase();
+				// 			}
+				// 		}
+				// 	}
+				// }
+				document.getElementById("status").classList.remove("active");
+				var searchElement = document.querySelector('#jetsSearch');
+				var searchTimeout = null;
+				searchElement.removeAttribute("disabled");
+				searchElement.setAttribute("placeholder", "Enter a search term");
+				searchElement.addEventListener("keyup", function() {
+					clearTimeout(searchTimeout);
+					searchTimeout = setTimeout(searchResults, 300);
+				}, false);
+			});
 		});
 	});
 });
@@ -232,7 +237,8 @@ function handleSearch() {
 		loadScript("DestinyDatabase/DestinyCompactItemDefinition.js", "DestinyCompactItemDefinition").then(function() {
 			loadScript("DestinyDatabase/DestinyCompactDefinition.js", "DestinyCompactDefinition").then(function() {
 				loadScript("DestinyDatabase/DestinyCompactTalentDefinition.js", "DestinyCompactTalentDefinition").then(function() {
-					chrome.storage.local.get(null, function(data) {
+					database.getAllEntries(database.allStores).then(function(data) {
+						// chrome.storage.local.get(null, function(data) {
 						// var searchData = data.itemChanges;
 						// if (terms > 0 && searchResults.length === 0) {
 						// return finishSearch(searchResults);

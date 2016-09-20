@@ -31,8 +31,8 @@ function checkInventory() {
 	var characterHistory = document.getElementById("history");
 	characterHistory.innerHTML = "";
 	var inventoryData = [];
-	for (var characterId in data.inventories) {
-		Array.prototype.push.apply(inventoryData, data.inventories[characterId]);
+	for (var characterInventory of data.inventories) {
+		Array.prototype.push.apply(inventoryData, characterInventory.inventory);
 	}
 	for (var itemDiff of data.itemChanges) {
 		for (var removedItem of itemDiff.removed) {
@@ -103,13 +103,17 @@ function checkInventory() {
 	checkBox.value = document.querySelector('#searchStyle').textContent;
 	checkBox.addEventListener("keyup", checkBoxChange, false);
 }
-chrome.storage.local.get(null, function(result) {
-	if (chrome.runtime.lastError) {
-		logger.error(chrome.runtime.lastError);
-	}
-	data.itemChanges = result.itemChanges;
-	data.inventories = result.inventories;
-	initItems(checkInventory);
+database.open().then(function() {
+	database.getMultipleStores(database.allStores).then(function(result) {
+		console.log(result)
+		// chrome.storage.local.get(null, function(result) {
+		if (chrome.runtime.lastError) {
+			logger.error(chrome.runtime.lastError);
+		}
+		data.itemChanges = result.itemChanges;
+		data.inventories = result.inventories;
+		initItems(checkInventory);
+	});
 });
 
 var queryDelay = 0;
