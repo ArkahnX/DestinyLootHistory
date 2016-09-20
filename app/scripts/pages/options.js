@@ -1,8 +1,9 @@
 tracker.sendAppView('OptionsScreen');
-
+database.open();
 function backupData() {
 	var backupDataButton = document.getElementById("backupData");
-	chrome.storage.local.get(null, function(data) {
+	database.getMultipleStores(database.allStores).then(function(data) {
+		// chrome.storage.local.get(null, function(data) {
 		if (chrome.runtime.lastError) {
 			logger.error(chrome.runtime.lastError);
 		}
@@ -151,43 +152,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		pgcrImage.checked = options.pgcrImage;
 		pgcrImage.addEventListener("change", handleCheckboxChange, false);
 	});
-
-	if (gearPerks) {
-		gearPerks.addEventListener("click", function() {
-			loadPerksets();
-			perkWindow.classList.remove("hidden");
-		}, false);
-		savePerks.addEventListener("click", function() {
-			perkWindow.classList.add("hidden");
-		}, false);
-		additionalPerks.addEventListener("click", function() {
-			perkList.innerHTML = perkList.innerHTML + `<li><fieldset>
-		<label>Gear Type: <select><optgroup label="Primary Weapons"><option value="Pulse">Pulse Rifle</option><option value="Hand">Hand Cannon</option><option value="Auto">Auto Rifle</option><option value="Scout">Scout Rifle</option></optgroup><optgroup label="Special Weapons"><option value="Fusion">Fusion Rifle</option><option value="Sniper">Sniper Rifle</option><option value="Shotgun">Shotgun</option><option value="Sidearm">Sidearm</option></optgroup><optgroup label="Heavy Weapons"><option value="Machine">Machine Gun</option><option value="Rocket">Rocket Launcher</option></optgroup><optgroup label="Armor"><option value="Gauntlets">Gauntlets</option><option value="Leg">Leg Armor</option><option value="Artifact">Artifact</option><option value="Helmet">Helmet</option><option value="Chest">Chest Armor</option><option value="Ghost">Ghost Shell</option></optgroup></select></label>
-		<label>Perks: <input type="text"></label>
-		<label>Percent Match: <input type="number" min="1" max="100"></label>
-		</fieldset></li>`;
-		}, false);
-	}
 });
-
-function loadPerksets() {
-	var perkList = document.getElementById('perkList');
-	var perkSets = JSON.parse(localStorage.perkSets);
-	var html = "";
-	for (var perkSet of perkSets) {
-		html += `<li><fieldset>
-		<label>Gear Type: <select><optgroup label="Primary Weapons"><option value="Pulse"${(perkSet.type ==="Pulse") ? " selected" : ""}>Pulse Rifle</option><option value="Hand"${(perkSet.type ==="Hand") ? " selected" : ""}>Hand Cannon</option><option value="Auto"${(perkSet.type ==="Auto") ? " selected" : ""}>Auto Rifle</option><option value="Scout"${(perkSet.type ==="Scout") ? " selected" : ""}>Scout Rifle</option></optgroup><optgroup label="Special Weapons"><option value="Fusion"${(perkSet.type ==="Fusion") ? " selected" : ""}>Fusion Rifle</option><option value="Sniper"${(perkSet.type ==="Sniper") ? " selected" : ""}>Sniper Rifle</option><option value="Shotgun"${(perkSet.type ==="Shotgun") ? " selected" : ""}>Shotgun</option><option value="Sidearm"${(perkSet.type ==="Sidearm") ? " selected" : ""}>Sidearm</option></optgroup><optgroup label="Heavy Weapons"><option value="Machine"${(perkSet.type ==="Machine") ? " selected" : ""}>Machine Gun</option><option value="Rocket"${(perkSet.type ==="Rocket") ? " selected" : ""}>Rocket Launcher</option></optgroup><optgroup label="Armor"><option value="Gauntlets"${(perkSet.type ==="Gauntlets") ? " selected" : ""}>Gauntlets</option><option value="Leg"${(perkSet.type ==="Leg") ? " selected" : ""}>Leg Armor</option><option value="Artifact"${(perkSet.type ==="Artifact") ? " selected" : ""}>Artifact</option><option value="Helmet"${(perkSet.type ==="Helmet") ? " selected" : ""}>Helmet</option><option value="Chest"${(perkSet.type ==="Chest") ? " selected" : ""}>Chest Armor</option><option value="Ghost"${(perkSet.type ==="Ghost") ? " selected" : ""}>Ghost Shell</option></optgroup></select></label>
-		<label>Perks: <input type="text" value="${perkSet.perks.join(",")}"></label>
-		<label>Percent Match: <input type="number" min="1" max="100" value="${parseInt(perkSet.value)}"></label>
-		</fieldset></li>`;
-	}
-	html += `<li><fieldset>
-		<label>Gear Type: <select><optgroup label="Primary Weapons"><option value="Pulse">Pulse Rifle</option><option value="Hand">Hand Cannon</option><option value="Auto">Auto Rifle</option><option value="Scout">Scout Rifle</option></optgroup><optgroup label="Special Weapons"><option value="Fusion">Fusion Rifle</option><option value="Sniper">Sniper Rifle</option><option value="Shotgun">Shotgun</option><option value="Sidearm">Sidearm</option></optgroup><optgroup label="Heavy Weapons"><option value="Machine">Machine Gun</option><option value="Rocket">Rocket Launcher</option></optgroup><optgroup label="Armor"><option value="Gauntlets">Gauntlets</option><option value="Leg">Leg Armor</option><option value="Artifact">Artifact</option><option value="Helmet">Helmet</option><option value="Chest">Chest Armor</option><option value="Ghost">Ghost Shell</option></optgroup></select></label>
-		<label>Perks: <input type="text"></label>
-		<label>Percent Match: <input type="number" min="1" max="100"></label>
-		</fieldset></li>`;
-	perkList.innerHTML = html;
-}
 
 function handleQualityChange(event) {
 	var target = event.target;
@@ -221,9 +186,10 @@ function handleFileSelect(evt) {
 		r.onload = function(e) {
 			var contents = e.target.result;
 			var object = JSON.parse(contents);
-			chrome.storage.local.set({
-				"itemChanges": object
-			}, function() {
+			database.addFromArray("itemChanges", object).then(function() {
+				// chrome.storage.local.set({
+				// 	"itemChanges": object
+				// }, function() {
 				if (chrome.runtime.lastError) {
 					logger.error(chrome.runtime.lastError);
 				}
@@ -248,7 +214,7 @@ function setupItemFields(ID) {
 		render: function render(container, item) {
 			var hash = parseInt(item.data, 10);
 			var data = itemSources[hashIndex.indexOf(hash)];
-			container.innerHTML = `<img src="http://www.bungie.net${data.icon}" width="16" height="16"><span>${data.itemName}</span>`;
+			container.innerHTML = `<img src="https://www.bungie.net${data.icon}" width="16" height="16"><span>${data.itemName}</span>`;
 			container.title = data.itemDescription;
 		},
 		getText: function(item) {
@@ -293,9 +259,9 @@ function setupItemFields(ID) {
 		renderItem: function(item, search, index) {
 			var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
 			if (search.split(' ')[0] === "") {
-				return `<div class="autocomplete-suggestion${index === 0 ? " selected" : ""}" data-hash="${item.itemHash}" data-name="${item.itemName}" title="${item.itemDescription}"><img src="http://www.bungie.net${item.icon}" width="25" height="25"><span>${item.itemName}</span></div>`;
+				return `<div class="autocomplete-suggestion${index === 0 ? " selected" : ""}" data-hash="${item.itemHash}" data-name="${item.itemName}" title="${item.itemDescription}"><img src="https://www.bungie.net${item.icon}" width="25" height="25"><span>${item.itemName}</span></div>`;
 			} else {
-				return `<div class="autocomplete-suggestion${index === 0 ? " selected" : ""}" data-hash="${item.itemHash}" data-name="${item.itemName}" title="${item.itemDescription}"><img src="http://www.bungie.net${item.icon}" width="25" height="25"><span>${item.itemName.replace(re, "<b>$1</b>")}</span></div>`;
+				return `<div class="autocomplete-suggestion${index === 0 ? " selected" : ""}" data-hash="${item.itemHash}" data-name="${item.itemName}" title="${item.itemDescription}"><img src="https://www.bungie.net${item.icon}" width="25" height="25"><span>${item.itemName.replace(re, "<b>$1</b>")}</span></div>`;
 			}
 		},
 		onSelect: function(e, term, item) {

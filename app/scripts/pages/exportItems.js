@@ -1,7 +1,8 @@
 tracker.sendAppView('ExportScreen');
 
 function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, lightLevel) {
-	chrome.storage.local.get(null, function(data) {
+	database.getMultipleStores(database.allStores).then(function(data) {
+	// chrome.storage.local.get(null, function(data) {
 		if (chrome.runtime.lastError) {
 			logger.error(chrome.runtime.lastError);
 		}

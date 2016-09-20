@@ -39,11 +39,13 @@ const manualVendorHashMap = {
 	"1303406887": 1220331761,
 	"1821699360": 2756606348,
 	"1808244981": 3287962537,
-	"3611686524": 4050234120
+	"3611686524": 4050234120,
+	"1410745145":1986053430,
+	"174528503":2057772486
 };
 
 function makeSaleItem(itemHash, unlockStatuses, saleItem, currencies) {
-	var itemDef = getItemDefinition(itemHash);
+	var itemDef = getItemDefinition(itemHash, saleItem.item);
 	var unlockFlag = "";
 	var acquired = unlockStatuses.length;
 	for (var unlockStatus of unlockStatuses) {
@@ -165,7 +167,9 @@ function makeSaleItem(itemHash, unlockStatuses, saleItem, currencies) {
 			var currencyTotal = currencies[cost.itemHash];
 			if (typeof currencyTotal !== "number") {
 				currencyTotal = 0;
-				for (var item of newInventories[selectedCharacter]) {
+				var inventory = findInArray(newInventories, "characterId", selectedCharacter);
+				for (let item of inventory.inventory || []) {
+					// for (var item of newInventories[selectedCharacter]) {
 					if (item.itemHash === cost.itemHash) {
 						currencyTotal = item.stackSize;
 						break;
@@ -205,7 +209,7 @@ function makeItemsFromVendor(vendor) {
 		var vendorDescription = document.createElement("h3");
 		vendorName.textContent = localVendor.vendorName;
 		vendorDescription.textContent = localVendor.vendorDescription;
-		vendorContainer.classList.add("sub-section","vendor-title");
+		vendorContainer.classList.add("sub-section", "vendor-title");
 		vendorContainer.appendChild(vendorName);
 		vendorContainer.appendChild(vendorDescription);
 		if (vendor.nextRefreshDate) {
@@ -249,7 +253,7 @@ function makeItemsFromVendor(vendor) {
 		subContainer.classList.add("sub-section");
 		let docfrag = document.createDocumentFragment();
 		for (let item of category.items) {
-			docfrag.appendChild(makeItem(getItemDefinition(item.itemHash)));
+			docfrag.appendChild(makeItem(getItemDefinition(item.itemHash, item)));
 			// for (var vendorItem of vendorCategory.saleItems) {
 			// 	var itemDef = DestinyCompactItemDefinition[saleItem.item.itemHash];
 			// 	if (saleItem.unlockStatuses.length && !saleItem.unlockStatuses[0].isSet && vendorItem.item.itemHash === saleItem.item.itemHash) {
@@ -272,97 +276,100 @@ var lastVendor = "";
 var vendors = {
 	other: []
 };
-
-chrome.storage.local.get("inventories", function(data) {
-	if (chrome.runtime.lastError) {
-		logger.error(chrome.runtime.lastError);
-	}
-	newInventories = data.inventories;
-	initItems(function() {
-		var characterHTML = "";
-		for (let characterId in characterDescriptions) {
-			if (characterId !== "vault") {
-				characterHTML += `<option value="${characterId}"${(characterId === selectedCharacter) ? " selected" : ""}>${characterName(characterId)}</option>`;
-			}
+database.open().then(function() {
+	database.getAllEntries("inventories").then(function(data) {
+		// chrome.storage.local.get("inventories", function(data) {
+		if (chrome.runtime.lastError) {
+			logger.error(chrome.runtime.lastError);
 		}
-		document.getElementById("character").innerHTML = characterHTML;
-		for (let vendor of DestinyVendorDefinition) {
-			if (vendor.summary.vendorCategoryHashes.length || vendor.summary.vendorSubcategoryHash) {
-				for (let categoryHash of vendor.summary.vendorCategoryHashes) {
-					if (!vendors[categoryHash]) {
-						vendors[categoryHash] = [];
-					}
-					vendors[categoryHash].push(vendor.summary);
+		newInventories = data.inventories;
+		initItems(function() {
+			var characterHTML = "";
+			for (let characterId in characterDescriptions) {
+				if (characterId !== "vault") {
+					characterHTML += `<option value="${characterId}"${(characterId === selectedCharacter) ? " selected" : ""}>${characterName(characterId)}</option>`;
 				}
-				if (vendor.summary.vendorSubcategoryHash) {
-					if (!vendors[vendor.summary.vendorSubcategoryHash]) {
-						vendors[vendor.summary.vendorSubcategoryHash] = [];
-					}
-					vendors[vendor.summary.vendorSubcategoryHash].push(vendor.summary);
-				}
-			} else {
-				vendors.other.push(vendor.summary);
 			}
-		}
-		for (let vendorCategory in vendors) {
-			vendors[vendorCategory].sort(function(a, b) {
-				var textA = a.vendorName.toUpperCase();
-				var textB = b.vendorName.toUpperCase();
-				return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-			});
-		}
-		for (let vendorHash in manualVendorHashMap) {
+			document.getElementById("character").innerHTML = characterHTML;
+			for (let vendor of DestinyVendorDefinition) {
+				if (vendor.summary.vendorCategoryHashes.length || vendor.summary.vendorSubcategoryHash) {
+					for (let categoryHash of vendor.summary.vendorCategoryHashes) {
+						if (!vendors[categoryHash]) {
+							vendors[categoryHash] = [];
+						}
+						vendors[categoryHash].push(vendor.summary);
+					}
+					if (vendor.summary.vendorSubcategoryHash) {
+						if (!vendors[vendor.summary.vendorSubcategoryHash]) {
+							vendors[vendor.summary.vendorSubcategoryHash] = [];
+						}
+						vendors[vendor.summary.vendorSubcategoryHash].push(vendor.summary);
+					}
+				} else {
+					vendors.other.push(vendor.summary);
+				}
+			}
+			for (let vendorCategory in vendors) {
+				vendors[vendorCategory].sort(function(a, b) {
+					var textA = a.vendorName.toUpperCase();
+					var textB = b.vendorName.toUpperCase();
+					return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+				});
+			}
 			for (let itemDefinition of DestinyCompactItemDefinition) {
+					// console.log(itemDefinition);
+					for (let vendorHash in manualVendorHashMap) {
 				if (itemDefinition.itemTypeName === "Package" && itemDefinition.derivedItemCategories && itemDefinition.derivedItemVendorHash && manualVendorHashMap[vendorHash] === itemDefinition.itemHash) {
-					for (let vendorType of vendors) {
-						for (let vendor of vendorType) {
-							if (vendor.vendorHash === parseInt(vendorHash)) {
-								vendor.package = itemDefinition;
+						for (let vendorType of vendors) {
+							for (let vendor of vendorType) {
+								if (vendor.vendorHash === parseInt(vendorHash)) {
+									vendor.package = itemDefinition;
+								}
 							}
 						}
 					}
 				}
 			}
-		}
-		// for (let itemDefinition of DestinyCompactItemDefinition) {
-		// 	if (itemDefinition.itemTypeName === "Package" && itemDefinition.derivedItemCategories && itemDefinition.derivedItemVendorHash) {
-		// 		var vendorHash = 
-		// 		for (let vendorType of vendors) {
-		// 			for (let vendor of vendorType) {
-		// 				if (vendor.vendorHash === itemDefinition.derivedItemVendorHash) {
-		// 					console.log(vendor, itemDefinition)
-		// 					vendor.package = itemDefinition;
-		// 				}
-		// 			}
-		// 		}
-		// 	}
-		// }
-		var vendorHTML = "";
-		for (let vendorCategory in vendors) {
-			vendorHTML += `<optgroup label="${DestinyVendorCategoryDefinition[vendorCategory] && DestinyVendorCategoryDefinition[vendorCategory].categoryName || vendorCategory}">`;
-			for (let vendor of vendors[vendorCategory]) {
-				vendorHTML += `<option value="${vendor.vendorHash}"${(vendor.vendorHash === lastVendor) ? " selected" : ""}>${vendor.vendorName || vendor.vendorHash}</option>`;
+			// for (let itemDefinition of DestinyCompactItemDefinition) {
+			// 	if (itemDefinition.itemTypeName === "Package" && itemDefinition.derivedItemCategories && itemDefinition.derivedItemVendorHash) {
+			// 		var vendorHash = 
+			// 		for (let vendorType of vendors) {
+			// 			for (let vendor of vendorType) {
+			// 				if (vendor.vendorHash === itemDefinition.derivedItemVendorHash) {
+			// 					console.log(vendor, itemDefinition)
+			// 					vendor.package = itemDefinition;
+			// 				}
+			// 			}
+			// 		}
+			// 	}
+			// }
+			var vendorHTML = "";
+			for (let vendorCategory in vendors) {
+				vendorHTML += `<optgroup label="${DestinyVendorCategoryDefinition[vendorCategory] && DestinyVendorCategoryDefinition[vendorCategory].categoryName || vendorCategory}">`;
+				for (let vendor of vendors[vendorCategory]) {
+					vendorHTML += `<option value="${vendor.vendorHash}"${(vendor.vendorHash === lastVendor) ? " selected" : ""}>${vendor.vendorName || vendor.vendorHash}</option>`;
+				}
+				vendorHTML += `</optgroup>`;
 			}
-			vendorHTML += `</optgroup>`;
-		}
-		document.getElementById("vendor").innerHTML = `<option value="None" selected>None</option>` + vendorHTML;
-		document.getElementById("compare").innerHTML = `<option value="None" selected>None</option>` + vendorHTML;
-		document.getElementById("character").addEventListener("change", function() {
-			if (document.getElementById("vendor").value !== "None") {
-				getVendor(lastVendor);
-			}
-		});
-		document.getElementById("vendor").addEventListener("change", function(event) {
-			if (event.target.value !== "None") {
-				getVendor(event.target.value);
-			}
-		});
-		document.getElementById("compare").addEventListener("change", function(event) {
-			if (document.getElementById("vendor").value !== "None" && event.target.value !== "None") {
-				compareVendor(document.getElementById("vendor").value, event.target.value);
-			} else if (document.getElementById("vendor").value !== "None") {
-				getVendor(document.getElementById("vendor").value);
-			}
+			document.getElementById("vendor").innerHTML = `<option value="None" selected>None</option>` + vendorHTML;
+			document.getElementById("compare").innerHTML = `<option value="None" selected>None</option>` + vendorHTML;
+			document.getElementById("character").addEventListener("change", function() {
+				if (document.getElementById("vendor").value !== "None") {
+					getVendor(lastVendor);
+				}
+			});
+			document.getElementById("vendor").addEventListener("change", function(event) {
+				if (event.target.value !== "None") {
+					getVendor(event.target.value);
+				}
+			});
+			document.getElementById("compare").addEventListener("change", function(event) {
+				if (document.getElementById("vendor").value !== "None" && event.target.value !== "None") {
+					compareVendor(document.getElementById("vendor").value, event.target.value);
+				} else if (document.getElementById("vendor").value !== "None") {
+					getVendor(document.getElementById("vendor").value);
+				}
+			});
 		});
 	});
 });
@@ -380,8 +387,10 @@ function getVendor(hash) {
 	}).then(function(response) {
 		console.log(response, response.Response && response.Response.data, DestinyVendorDefinition[lastVendor]);
 		if (response.Response) {
+			document.getElementById("history").innerHTML = "";
 			makeItemsFromVendor(response.Response.data.vendor);
 		} else {
+			document.getElementById("history").innerHTML = `<h2>${response.Message}</h2>`;
 			console.log(lastVendor);
 		}
 	});

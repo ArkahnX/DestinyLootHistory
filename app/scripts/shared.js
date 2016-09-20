@@ -46,6 +46,15 @@ function setOption(name, value) {
 	});
 }
 
+function findInArray(array, property, value) {
+	for (var item of array) {
+		if (item[property] === value) {
+			return item;
+		}
+	}
+	return {};
+}
+
 // You'll usually only ever have to create one service instance.
 var service = analytics.getService('DestinyLootHistory');
 
@@ -74,6 +83,8 @@ function sequence(array, networkTask, resultTask) {
 	});
 }
 
+var missingItemHashes = [];
+
 function getItemDefinition(hash, item) {
 	if (DestinyHistoricalItemDefinition[hash]) {
 		return DestinyHistoricalItemDefinition[hash];
@@ -81,12 +92,16 @@ function getItemDefinition(hash, item) {
 		return DestinyCompactItemDefinition[hash];
 	}
 	// tracker.sendEvent('Item not in database', `${hash}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
-	logger.error(`Item Reference ${hash} is not in database. This has been reported.`);
-	console.error(`Item Reference ${hash} is not in database. This has been reported.`);
-	if(item) {
-		console.log(item)
+	if (missingItemHashes.indexOf(hash) === -1) {
+		logger.error(`Item Reference ${hash} is not in database. This has been reported.`);
+		console.error(`Item Reference ${hash} is not in database. This has been reported.`);
+		if (item) {
+			console.log(item)
+		}
+		missingItemHashes.push(hash);
 	}
 	return {
+		itemHash: hash,
 		hasIcon: false,
 		icon: "",
 		sourceHashes: [],

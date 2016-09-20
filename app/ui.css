@@ -471,9 +471,9 @@ header {
 	background: #C14443;
 }
 
-.TheTakenKing #item-head,
+.RiseofIron #item-head,
 .ChallengeoftheElders #item-head,
-.King\'sFall #item-head {
+.WrathoftheMachine #item-head {
 	background-image: linear-gradient(45deg,transparent 244px,rgba(0,0,0,.11) 30px);
 }
 

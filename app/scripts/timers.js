@@ -23,9 +23,6 @@ function extensionIcon() {
 			text: ""
 		});
 	}
-	if (localStorage.manual === "true") {
-		startTimer("activityTracker");
-	}
 	startTimer("extensionIcon");
 }
 
@@ -37,9 +34,7 @@ function activityTracker() {
 		initItems(function afterInitItems() {
 			if (localStorage.error === "true") {
 				logger.log("Extension has an error.");
-				localStorage.flag = "false";
 				localStorage.listening = "false";
-				localStorage.manual = "false";
 				startTimer("activityTracker");
 			} else {
 				var newCharacterDates = 0;
@@ -49,11 +44,10 @@ function activityTracker() {
 					}
 				}
 				logger.startLogging("timers");
-				if (newCharacterDates !== oldCharacterDates || localStorage.manual === "true") { // if new character dates is not equal to old character dates
+				if (newCharacterDates !== oldCharacterDates) { // if new character dates is not equal to old character dates
 					logger.log("Player character has been played.");
-					logger.log(`Beginning tracking because character dates "${newCharacterDates} !== ${oldCharacterDates}" or manual "${localStorage.manual}"`);
+					logger.log(`Beginning tracking because character dates "${newCharacterDates} !== ${oldCharacterDates}"`);
 					localStorage.listening = "true";
-					localStorage.manual = "false";
 					oldCharacterDates = newCharacterDates;
 					startTimer("inventoryCheck", 50);
 				} else {
