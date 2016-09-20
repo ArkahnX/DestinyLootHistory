@@ -135,6 +135,7 @@ function applyMatchData() {
 		};
 		database.addFromObject(newData).then(function() {
 			console.timeEnd("Match Data");
+			localStorage.updateUI = "true";
 			resolve();
 		});
 		// chrome.storage.local.set({

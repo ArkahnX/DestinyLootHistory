@@ -102,11 +102,15 @@ var dataTypes = ["date", "progression", "added", "removed", "transferred"];
 
 function newDisplayResults() {
 	return new Promise(function(resolve) {
-		var endPoint = currentItemSet.length - ((pageNumber + 1) * 50) - 1;
+		var endPoint = currentItemSet.length - ((pageNumber + 1) * 50);
 		var startPoint = endPoint + 50;
 		var index = 0;
-		cleanupMainPage();
-		for (var i = startPoint; i > endPoint; i--) {
+		if(oldPageNumber !== pageNumber) {
+			cleanupMainPage();
+		}
+		// cleanupMainPage();
+		// for (var i = startPoint; i > endPoint; i--) {
+		for (var i = endPoint; i < startPoint; i++) { // starting from bottom element
 			var itemDiff = currentItemSet[i];
 			var addedQty = itemDiff.added.length;
 			var removedQty = itemDiff.removed.length;
@@ -120,16 +124,33 @@ function newDisplayResults() {
 			}
 			var className = rowHeight(addedQty, removedQty, transferredQty, progressionQty);
 			for (var attr of dataTypes) {
-				var subSection = elements[attr].children[index];
-				if (!subSection) {
-					subSection = makeEmptySubSection(itemDiff, className);
-					elements[attr].appendChild(subSection);
-				}
-				if (attr === "added" || attr === "removed" || attr === "transferred" || attr === "progression") {
-					fillSubSection(subSection, itemDiff, className, attr);
-				}
-				if (attr === "date") {
+				var childrenList = [];
+				var subSection = elements[attr].children[elements[attr].children.length - index - 1];
+				if (subSection && attr !== "date") {
+					while (subSection && parseInt(subSection.dataset.index) !== itemDiff.id) {
+						for (let child of subSection.children) {
+							sendToCache(child);
+							childrenList.push(child);
+						}
+						for (var DomNode of childrenList) {
+							if (DomNode.parentNode) {
+								DomNode.parentNode.removeChild(DomNode);
+							}
+						}
+						subSection.parentNode.removeChild(subSection);
+						subSection = elements[attr].children[elements[attr].children.length - index - 1];
+					}
+				} else if (subSection && attr === "date") {
 					fillDateSection(subSection, itemDiff, className);
+				} else if (!subSection) {
+					subSection = makeEmptySubSection(itemDiff, className);
+					elements[attr].insertBefore(subSection, elements[attr].firstChild);
+					if (attr === "added" || attr === "removed" || attr === "transferred" || attr === "progression") {
+						fillSubSection(subSection, itemDiff, className, attr);
+					}
+					if (attr === "date") {
+						fillDateSection(subSection, itemDiff, className);
+					}
 				}
 			}
 			index++;
@@ -176,7 +197,7 @@ function frontEndUpdate() {
 			elements.status.classList.add("active");
 		}
 	}
-	if (notificationCooldown === 0) {
+	if (notificationCooldown % 500 === 0) {
 		var timestamps = document.querySelectorAll(".timestamp");
 		for (var item of timestamps) {
 			var localTime = moment.utc(item.dataset.timestamp).tz(timezone);
@@ -204,36 +225,37 @@ function frontEndUpdate() {
 			}
 			item.setAttribute("title", localTime.format("ddd[,] ll LTS") + "\n" + activityString);
 		}
-
-		database.getMultipleStores(["itemChanges", "inventories"]).then(function chromeStorageGet(localData) {
-			// chrome.storage.local.get(["itemChanges", "inventories"], function chromeStorageGet(localData) {
-			if (chrome.runtime.lastError) {
-				logger.error(chrome.runtime.lastError);
-			}
-			if (currentItemSet.length !== localData.itemChanges.length || currentItemSet[currentItemSet.length - 1].id !== localData.itemChanges[localData.itemChanges.length - 1].id || pageNumber !== oldPageNumber) {
-				currentItemSet = localData.itemChanges;
-				newInventories = localData.inventories;
-				newDisplayResults().then(function() {
-					postDisplay();
-				});
-			}
-		});
 	}
 	notificationCooldown++;
-	if (notificationCooldown > 500) {
+	if (notificationCooldown > 7200) {
 		notificationCooldown = 0;
 		if (jsonCharacterDescriptions !== localStorage.characterDescriptions) {
 			characterDescriptions = JSON.parse(localStorage.characterDescriptions);
 			jsonCharacterDescriptions = localStorage.characterDescriptions;
 		}
 	}
-	window.requestAnimationFrame(frontEndUpdate);
+	if (localStorage.updateUI === "true" || notificationCooldown === 0 || pageNumber !== oldPageNumber) {
+		localStorage.updateUI = "false";
+		database.getMultipleStores(["itemChanges", "inventories"]).then(function chromeStorageGet(localData) {
+			currentItemSet = localData.itemChanges;
+			newInventories = localData.inventories;
+			console.time("UpdateUI");
+			newDisplayResults().then(function() {
+				postDisplay();
+				console.timeEnd("UpdateUI");
+				window.requestAnimationFrame(frontEndUpdate);
+			});
+		});
+	} else {
+		window.requestAnimationFrame(frontEndUpdate);
+	}
 }
 getAllOptions().then(function(options) {
 	globalOptions = options;
 	database.open().then(function() {
-		frontEndUpdate();
 		database.getMultipleStores(database.allStores).then(function(result) {
+			localStorage.updateUI = "true";
+			frontEndUpdate();
 			// chrome.storage.local.get(null, function(result) {
 			if (chrome.runtime.lastError) {
 				logger.error(chrome.runtime.lastError);

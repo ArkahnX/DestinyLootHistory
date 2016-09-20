@@ -9,7 +9,7 @@ var oldInventories = [];
 var oldProgression = [];
 var newProgression = [];
 var newInventories = [];
-var relevantStats = ["itemHash", "itemInstanceId", "stackSize", "damageTypeHash", "talentGridHash", "isGridComplete", "state"];
+var relevantStats = ["itemHash", "itemInstanceId", "stackSize", "damageTypeHash", "talentGridHash", "isGridComplete", "state", "equipRequiredLevel"];
 var characterIdList = ["vault"];
 var characterDescriptions = {
 	"vault": {

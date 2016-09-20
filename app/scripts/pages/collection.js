@@ -42,6 +42,11 @@ function findIronBanner(inventories) {
 			name: "Iron Breed",
 			matches: []
 		},
+		IronSaga: {
+			hashes: [],
+			name: "Iron Saga",
+			matches: []
+		},
 		PreTTK: {
 			hashes: [],
 			name: "Pre Taken King Weapons",
@@ -50,6 +55,11 @@ function findIronBanner(inventories) {
 		TTK: {
 			hashes: [],
 			name: "Taken King Weapons",
+			matches: []
+		},
+		ROI: {
+			hashes: [],
+			name: "Rise of Iron Weapons",
 			matches: []
 		}
 	};
@@ -69,6 +79,12 @@ function findIronBanner(inventories) {
 			});
 		} else if (itemDef.itemCategoryHashes && itemDef.itemCategoryHashes.indexOf(1) > -1 && itemDef.tierType === 5 && itemDef.sourceHashes && itemDef.sourceHashes.indexOf(2770509343) > -1 && itemDef.sourceHashes.indexOf(460228854) === -1) {
 			sortedGear.PreTTK.hashes.push({
+				itemHash: itemDef.itemHash,
+				matches: [],
+				topGear: itemDef
+			});
+		} else if (itemDef.itemCategoryHashes && itemDef.itemCategoryHashes.indexOf(1) > -1 && itemDef.tierType === 5 && itemDef.sourceHashes && itemDef.sourceHashes.indexOf(478645002) > -1 && itemDef.sourceHashes.indexOf(24296771) > -1) {
+			sortedGear.ROI.hashes.push({
 				itemHash: itemDef.itemHash,
 				matches: [],
 				topGear: itemDef
@@ -549,6 +565,7 @@ function displayMissingVendorItems(mainContainer, lastVendor, saleVendor) {
 		}).then(function(vendorResponse) {
 			console.log(kioskResponse, kioskResponse.Response && kioskResponse.Response.data, DestinyVendorDefinition[lastVendor]);
 			if (kioskResponse.Response && vendorResponse.Response) {
+				mainContainer.innerHTML = "";
 				var missingContainer = document.createElement("div");
 				missingContainer.classList.add("sub-section");
 				missingContainer.innerHTML = "<p>Missing from Collection</p>";
@@ -583,6 +600,7 @@ function displayMissingVendorItems(mainContainer, lastVendor, saleVendor) {
 				mainContainer.appendChild(missingContainer);
 			} else {
 				console.log(lastVendor, saleVendor);
+				mainContainer.innerHTML = `<h2>${kioskResponse.Message}</h2>`;
 			}
 		});
 	});

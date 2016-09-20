@@ -33,8 +33,7 @@ var notification = (function() {
 	<li>Got problems or suggestions? <a href="https://www.reddit.com/message/compose/?to=ArkahnX" target="_blank">Message ArkahnX</a> on Reddit!</li>
 	<li><a href="http://imgur.com/a/QGLZf" target="_blank">Gallery of new features.</a></li>
 	<li>New "<a href="collection.html" target="_blank">Collections</a>" page, discover what you might be missing from your collection, and where to obtain it.</li>
-	<li>New comparison feature, the tooltip on the right now displays duplicates of the gear you are inspecting.</li>
-	<li>And more! Check out the gallery for the full details.</li>
+	<li>Support for Rise of Iron, and decreased CPU usage!</li>
 </ul>`;
 
 	localStorage.notificationClosed = localStorage.notificationClosed || "true";

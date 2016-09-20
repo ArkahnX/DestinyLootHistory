@@ -619,6 +619,9 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 		container = itemContainer.children[0];
 		quality = itemContainer.children[1];
 		stat = itemContainer.children[2];
+		for (var attr in container.dataset) {
+			delete container.dataset[attr];
+		}
 	} else {
 		itemContainer = document.createElement("div");
 		container = document.createElement("div");
@@ -639,8 +642,7 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 	itemContainer.dataset.itemType = itemType(itemData.itemHash);
 	itemContainer.dataset.itemRarity = itemRarity(itemData.itemHash);
 	if (hasQuality(itemData) && globalOptions.showQuality) {
-		quality.classList.add("quality");
-		quality.classList.remove("hidden");
+		quality.className = "quality";
 		stat.classList.add("with-quality");
 		var qualityData = parseItemQuality(itemData);
 		quality.style.background = qualityData.color;
@@ -649,7 +651,7 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 		container.dataset.qualityMax = qualityData.max;
 		container.dataset.qualityColor = qualityData.color;
 	} else {
-		quality.classList.add("hidden");
+		quality.className = "hidden "+ itemClasses(itemData).join(" ");
 		stat.classList.remove("with-quality");
 	}
 	container.className = itemClasses(itemData).join(" ");
@@ -713,7 +715,7 @@ function cleanupMainPage() {
 			}
 		}
 	}
-	for(var DomNode of childrenList) {
+	for (var DomNode of childrenList) {
 		DomNode.parentNode.removeChild(DomNode);
 	}
 }
@@ -732,6 +734,9 @@ function makeProgress(progressData, classRequirement) {
 		container = itemContainer.children[0];
 		canvas = container.children[0];
 		stat = itemContainer.children[1];
+		for (var attr in container.dataset) {
+			delete container.dataset[attr];
+		}
 	} else {
 		itemContainer = document.createElement("div");
 		container = document.createElement("div");
@@ -860,19 +865,33 @@ function primaryStatName(itemData) {
 
 function passData(DomNode, itemData, classRequirement, optionalCosts) {
 	// logger.startLogging("UI");
-	var itemDefinition = getItemDefinition(itemData.itemHash, itemData);
 	if (optionalCosts) {
 		DomNode.dataset.costs = JSON.stringify(optionalCosts);
 	}
-	DomNode.dataset.itemHash = itemDefinition.itemHash;
-	if (itemData.itemInstanceId) {
-		DomNode.dataset.itemInstanceId = itemData.itemInstanceId;
+	if (classRequirement) {
+		if (typeof classRequirement === "string") {
+			DomNode.dataset.classRequirement = classRequirement;
+		} else {
+			DomNode.dataset.classRequirement = JSON.stringify(classRequirement);
+		}
 	}
-	if (itemDefinition.tierTypeName) {
-		DomNode.dataset.tierTypeName = itemDefinition.tierTypeName;
-	} else {
-		DomNode.dataset.tierTypeName = "Common";
+	for(var attr in itemData) {
+		if(typeof itemData[attr] === "object") {
+			DomNode.dataset[attr] = JSON.stringify(itemData[attr]);
+		} else {
+			DomNode.dataset[attr] = itemData[attr];
+		}
 	}
+	var itemDefinition = getItemDefinition(itemData.itemHash, itemData);
+	// DomNode.dataset.itemHash = itemDefinition.itemHash;
+	// if (itemData.itemInstanceId) {
+	// 	DomNode.dataset.itemInstanceId = itemData.itemInstanceId;
+	// }
+	// if (itemDefinition.tierTypeName) {
+	// 	DomNode.dataset.tierTypeName = itemDefinition.tierTypeName;
+	// } else {
+	// 	DomNode.dataset.tierTypeName = "Common";
+	// }
 	if (itemDefinition.sourceHashes) {
 		var temp = [];
 		for (var hash of itemDefinition.sourceHashes) {
@@ -882,32 +901,25 @@ function passData(DomNode, itemData, classRequirement, optionalCosts) {
 		}
 		DomNode.dataset.sourceName = JSON.stringify(temp);
 	}
-	DomNode.dataset.itemName = itemDefinition.itemName;
-	DomNode.dataset.itemImage = itemDefinition.icon;
-	DomNode.dataset.itemTypeName = itemDefinition.itemTypeName;
-	DomNode.dataset.equipRequiredLevel = itemData.equipRequiredLevel || 0;
-	DomNode.dataset.primaryStat = primaryStat(itemData);
-	DomNode.dataset.primaryStatName = primaryStatName(itemData);
-	DomNode.dataset.itemDescription = itemDefinition.itemDescription;
-	DomNode.dataset.damageTypeName = elementType(itemData);
-	DomNode.dataset.classRequirement = "";
-	if (classRequirement) {
-		if (typeof classRequirement === "string") {
-			DomNode.dataset.classRequirement = classRequirement;
-		} else {
-			DomNode.dataset.classRequirement = JSON.stringify(classRequirement);
-		}
-	}
-	if (itemData.stats && itemData.stats.length) {
-		DomNode.dataset.statTree = JSON.stringify(itemData.stats);
-	}
-	if (itemData.nodes && itemData.nodes.length) {
-		DomNode.dataset.talentGridHash = itemData.talentGridHash;
-		DomNode.dataset.nodeTree = JSON.stringify(itemData.nodes);
-	}
-	if (itemData.objectives && itemData.objectives.length) {
-		DomNode.dataset.objectiveTree = JSON.stringify(itemData.objectives);
-	}
+	// DomNode.dataset.itemName = itemDefinition.itemName;
+	// DomNode.dataset.itemImage = itemDefinition.icon;
+	// DomNode.dataset.itemTypeName = itemDefinition.itemTypeName;
+	// DomNode.dataset.equipRequiredLevel = itemData.equipRequiredLevel || 0;
+	// DomNode.dataset.primaryStat = primaryStat(itemData);
+	// DomNode.dataset.primaryStatName = primaryStatName(itemData);
+	// DomNode.dataset.itemDescription = itemDefinition.itemDescription;
+	// DomNode.dataset.damageTypeName = elementType(itemData);
+	// DomNode.dataset.classRequirement = "";
+	// if (itemData.stats && itemData.stats.length) {
+	// 	DomNode.dataset.statTree = JSON.stringify(itemData.stats);
+	// }
+	// if (itemData.nodes && itemData.nodes.length) {
+	// 	DomNode.dataset.talentGridHash = itemData.talentGridHash;
+	// 	DomNode.dataset.nodeTree = JSON.stringify(itemData.nodes);
+	// }
+	// if (itemData.objectives && itemData.objectives.length) {
+	// 	DomNode.dataset.objectiveTree = JSON.stringify(itemData.objectives);
+	// }
 }
 
 function passFactionData(DomNode, diffData, classRequirement) {
@@ -922,6 +934,30 @@ function passFactionData(DomNode, diffData, classRequirement) {
 		DomNode.dataset.itemHash = diffData.progressionHash;
 		DomNode.dataset.itemName = factionData.name;
 		DomNode.dataset.itemDescription = "";
+		DomNode.dataset.itemTypeName = "Progression";
+	}
+	if(DomNode.dataset.itemName === "terminals") {
+		var data = DestinyGrimoireCardDefinition[103094];
+		DomNode.dataset.itemDescription = data.cardDescription;
+		DomNode.dataset.itemName = data.cardName;
+		DomNode.dataset.itemTypeName = "Progression";
+	}
+	if(DomNode.dataset.itemName === "r1_s4_hiveship_orbs") {
+		var data = DestinyRecordDefinition[1872531700];
+		DomNode.dataset.itemDescription = data.description;
+		DomNode.dataset.itemName = data.displayName;
+		DomNode.dataset.itemTypeName = "Progression";
+	}
+	if(DomNode.dataset.itemName === "pvp_iron_banner.loss_tokens") {
+		var data = getItemDefinition(3397982326);
+		DomNode.dataset.itemDescription = data.itemDescription;
+		DomNode.dataset.itemName = data.itemName;
+		DomNode.dataset.itemTypeName = "Progression";
+	}
+	if(DomNode.dataset.itemName === "sivaclusters") {
+		var data = DestinyGrimoireCardDefinition[103094];
+		DomNode.dataset.itemDescription = data.cardDescription;
+		DomNode.dataset.itemName = data.cardName;
 		DomNode.dataset.itemTypeName = "Progression";
 	}
 	if (DestinyFactionDefinition[diffData.factionHash]) {

@@ -98,6 +98,7 @@ function initializeStoredVariables() {
 		localStorage.notificationClosed = _checkValue(localStorage.notificationClosed, _checkBoolean, "false");
 		localStorage.disableQuality = _checkValue(localStorage.disableQuality, _checkBoolean, "false");
 		localStorage.autoLockHighLight = _checkValue(localStorage.autoLockHighLight, _checkBoolean, "false");
+		localStorage.updateUI = _checkValue(localStorage.updateUI, _checkBoolean, "true");
 		localStorage.systems = _checkValue(localStorage.systems, _checkJSON, JSON.stringify({}));
 		localStorage.threeOfCoinsProgress = _checkValue(localStorage.threeOfCoinsProgress, _checkJSON, JSON.stringify({}));
 		var manifest = chrome.runtime.getManifest();

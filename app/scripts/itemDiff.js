@@ -384,7 +384,6 @@ function processDifference(currentDateString, resolve) {
 			eligibleToLock(JSON.parse(itemData), localCharacterId);
 			autoMoveToVault(JSON.parse(itemData), localCharacterId);
 		}
-
 		transferQ.length = 0;
 		trackingTimer = 0;
 		addedCurrencyQ.length = 0;

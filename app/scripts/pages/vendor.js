@@ -387,8 +387,10 @@ function getVendor(hash) {
 	}).then(function(response) {
 		console.log(response, response.Response && response.Response.data, DestinyVendorDefinition[lastVendor]);
 		if (response.Response) {
+			document.getElementById("history").innerHTML = "";
 			makeItemsFromVendor(response.Response.data.vendor);
 		} else {
+			document.getElementById("history").innerHTML = `<h2>${response.Message}</h2>`;
 			console.log(lastVendor);
 		}
 	});

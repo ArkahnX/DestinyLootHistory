@@ -140,16 +140,21 @@ function getBonus(light, type) {
 
 function getNodes(item, nodes, talentGridHash) {
 	let itemData = item;
+	var parsedNodes = [];
+	var rows = 1;
+	var columns = 1;
 	if (!item) {
 		itemData = {};
 		itemData.nodes = nodes;
 		itemData.talentGridHash = talentGridHash;
+		return {
+			nodes: parsedNodes,
+			rows,
+			columns
+		};
 	}
 	if (itemData.nodes) {
 		var grid = DestinyCompactTalentDefinition[itemData.talentGridHash];
-		var parsedNodes = [];
-		var columns = 1;
-		var rows = 1;
 		for (var node of itemData.nodes) {
 			for (var data of grid.nodes) {
 				if (data.nodeHash === node.nodeHash || node.nodeHash === 0 && !data.nodeHash && !node.hidden) {
@@ -182,7 +187,11 @@ function getNodes(item, nodes, talentGridHash) {
 		}
 		return parsedNodes;
 	}
-	return [];
+	return {
+		nodes: parsedNodes,
+		rows,
+		columns
+	};
 }
 
 var maxStatRolls = {

@@ -134,84 +134,10 @@ function checkInventory() {
 				characterHistory.appendChild(nodeList);
 			}
 			containingDiv = document.getElementById(bucketName);
-			containingDiv.appendChild(makeHistoryItem(item, "vault"));
+			containingDiv.appendChild(makeItem(item, "vault"));
 		}
 		console.timeEnd("Bungie Inventory");
 	});
-}
-
-function makeHistoryItem(itemData) {
-	var docfrag = document.createDocumentFragment();
-	var itemContainer = document.createElement("div");
-	itemContainer.classList.add("item-container");
-	var container = document.createElement("div");
-	var stat = document.createElement("div");
-	itemContainer.appendChild(container);
-	if (hasQuality(itemData) && globalOptions.showQuality) {
-		var quality = document.createElement("div");
-		itemContainer.appendChild(quality);
-		quality.classList.add("quality");
-		stat.classList.add("with-quality");
-		var qualityData = parseItemQuality(itemData);
-		quality.style.background = qualityData.color;
-		quality.textContent = qualityData.min + "%";
-		container.dataset.qualityMin = qualityData.min;
-		container.dataset.qualityMax = qualityData.max;
-		container.dataset.qualityColor = qualityData.color;
-	}
-	itemContainer.appendChild(stat);
-	docfrag.appendChild(itemContainer);
-	DOMTokenList.prototype.add.apply(container.classList, itemClasses(itemData));
-	if (getItemDefinition(itemData.itemHash).hasIcon || (getItemDefinition(itemData.itemHash).icon && getItemDefinition(itemData.itemHash).icon.length)) {
-		container.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + getItemDefinition(itemData.itemHash).icon + "'),url('img/missing_icon.png')");
-	} else {
-		container.setAttribute("style", "background-image: url('img/missing_icon.png')");
-	}
-	stat.classList.add("primary-stat");
-	stat.textContent = primaryStat(itemData);
-	passData(container, itemData);
-	return docfrag;
-}
-
-function passData(DomNode, itemData) {
-	var itemDefinition = getItemDefinition(itemData.itemHash);
-	DomNode.dataset.itemHash = itemDefinition.itemHash;
-	if (itemData.itemInstanceId) {
-		DomNode.dataset.itemInstanceId = itemData.itemInstanceId;
-	}
-	if (itemDefinition.tierTypeName) {
-		DomNode.dataset.tierTypeName = itemDefinition.tierTypeName;
-	} else {
-		DomNode.dataset.tierTypeName = "Common";
-	}
-	if (itemDefinition.sourceHashes) {
-		var temp = [];
-		for (var hash of itemDefinition.sourceHashes) {
-			if (DestinyRewardSourceDefinition[hash]) {
-				temp.push(DestinyRewardSourceDefinition[hash].sourceName.replace(/\s+/g, ''));
-			}
-		}
-		DomNode.dataset.sourceName = JSON.stringify(temp);
-	}
-	DomNode.dataset.itemName = itemDefinition.itemName;
-	DomNode.dataset.itemImage = itemDefinition.icon;
-	DomNode.dataset.itemTypeName = itemDefinition.itemTypeName;
-	DomNode.dataset.equipRequiredLevel = itemData.equipRequiredLevel || 0;
-	DomNode.dataset.primaryStat = primaryStat(itemData);
-	DomNode.dataset.primaryStatName = primaryStatName(itemData);
-	DomNode.dataset.itemDescription = itemDefinition.itemDescription;
-	DomNode.dataset.damageTypeName = elementType(itemData);
-	DomNode.dataset.classRequirement = "";
-	if (itemData.stats && itemData.stats.length) {
-		DomNode.dataset.statTree = JSON.stringify(itemData.stats);
-	}
-	if (itemData.nodes && itemData.nodes.length) {
-		DomNode.dataset.talentGridHash = itemData.talentGridHash;
-		DomNode.dataset.nodeTree = JSON.stringify(itemData.nodes);
-	}
-	if (itemData.objectives && itemData.objectives.length) {
-		DomNode.dataset.objectiveTree = JSON.stringify(itemData.objectives);
-	}
 }
 
 function itemNetworkTask(characterId, callback) {
