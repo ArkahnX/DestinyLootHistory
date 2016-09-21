@@ -29,19 +29,21 @@ var cannotEquipReason = [
 	"ItemNotOnCharacter"
 ];
 const manualVendorHashMap = {
-	"1998812735": 283961095,
-	"1575820975": 814931142,
-	"3003633346": 814931142,
-	"1990950": 814931142,
-	"3746647075": 814931155,
-	"3658200622": 814931155,
-	"4269570979": 1220331761,
-	"1303406887": 1220331761,
-	"1821699360": 2756606348,
-	"1808244981": 3287962537,
-	"3611686524": 4050234120,
-	"1410745145":1986053430,
-	"174528503":2057772486
+	"3746647075": [24705361, 1895808083, 253884812], // crucible handler
+	"3658200622": [24705361, 1895808083, 253884812], // crucible quartermaster
+	"4269570979": [1220331761], // cryptarch
+	"1303406887": [1220331761], // cryptarch
+	"2190824863": [1220331761], // cryptarch
+	"3611686524": [2525408946, 3415213788, 520485989], // dead orbit
+	"1808244981": [197052627, 3550485241, 596540126], // new monarchy
+	"174528503": [2057772486], // eris morn
+	"1410745145": [1986053430], // queens wrath
+	"1998812735": [283961095], // house of judgement
+	"1821699360": [2347072494, 3999459672, 239142937], // future war cult
+	"2668878854": [3563588106, 3389480343, 2218157060], // vanguard quartermaster
+	"1575820975": [3563588106, 3389480343, 2218157060], // warlock
+	"3003633346": [3563588106, 3389480343, 2218157060], // hunter
+	"1990950": [3563588106, 3389480343, 2218157060], // titan
 };
 
 function makeSaleItem(itemHash, unlockStatuses, saleItem, currencies) {
@@ -243,30 +245,109 @@ function makeItemsFromVendor(vendor) {
 		subContainer.appendChild(docfrag);
 		mainContainer.appendChild(subContainer);
 	}
-	var vendorPackage = localVendor.package && localVendor.package.derivedItemCategories || [];
-	for (let category of vendorPackage) {
-		let titleContainer = document.createElement("div");
-		titleContainer.classList.add("sub-section");
-		titleContainer.innerHTML = "<h1>" + category.categoryDescription + "</h1>";
-		mainContainer.appendChild(titleContainer);
-		let subContainer = document.createElement("div");
-		subContainer.classList.add("sub-section");
-		let docfrag = document.createDocumentFragment();
-		for (let item of category.items) {
-			docfrag.appendChild(makeItem(getItemDefinition(item.itemHash, item)));
-			// for (var vendorItem of vendorCategory.saleItems) {
-			// 	var itemDef = DestinyCompactItemDefinition[saleItem.item.itemHash];
-			// 	if (saleItem.unlockStatuses.length && !saleItem.unlockStatuses[0].isSet && vendorItem.item.itemHash === saleItem.item.itemHash) {
-			// 		emblems[saleItem.item.itemHash] = {
-			// 			name: itemDef.itemName,
-			// 			acquired: saleItem.unlockStatuses[0].isSet,
-			// 			selling: true
-			// 		};
-			// 	}
-			// }
+	for (var packageHash of manualVendorHashMap[localVendor.vendorHash]) {
+		for (var singlePackage of localVendor.packages) {
+			if (packageHash === singlePackage.itemHash) {
+				var vendorPackage = singlePackage && singlePackage.derivedItemCategories || [];
+				console.log(singlePackage, vendorPackage, vendorPackage.length - 2);
+				// for (let category of vendorPackage) {
+				for (var e = 0; e < vendorPackage.length - 1; e++) {
+					var category = vendorPackage[e];
+					let titleContainer = document.createElement("div");
+					titleContainer.classList.add("sub-section");
+					titleContainer.innerHTML = "<h2>" + singlePackage.itemName + " - " + category.categoryDescription + "</h2>";
+					mainContainer.appendChild(titleContainer);
+					let subContainer = document.createElement("div");
+					subContainer.classList.add("sub-section");
+					let docfrag = document.createDocumentFragment();
+					for (let item of category.items) {
+						docfrag.appendChild(makeItem(getItemDefinition(item.itemHash, item)));
+					}
+					subContainer.appendChild(docfrag);
+					mainContainer.appendChild(subContainer);
+				}
+			}
 		}
-		subContainer.appendChild(docfrag);
-		mainContainer.appendChild(subContainer);
+	}
+	if (localVendor.packages.length) {
+		var category = localVendor.packages[0].derivedItemCategories[localVendor.packages[0].derivedItemCategories.length - 1];
+		let textContainer = document.createElement("div");
+		textContainer.classList.add("sub-section");
+		textContainer.innerHTML = "<h2>" + singlePackage.itemName + " - " + category.categoryDescription + "</h2>";
+		mainContainer.appendChild(textContainer);
+		let subSection = document.createElement("div");
+		subSection.classList.add("sub-section");
+		let itemFrag = document.createDocumentFragment();
+		for (let item of category.items) {
+			itemFrag.appendChild(makeItem(getItemDefinition(item.itemHash, item)));
+		}
+		subSection.appendChild(itemFrag);
+		mainContainer.appendChild(subSection);
+	}
+}
+
+function listContainsItem(list, itemHash) {
+	for (var item of packageCategory.items) {
+		if (item.itemHash === itemHash) {
+			return true;
+		}
+	}
+	return false;
+}
+
+function compressPackage(package) {
+	var derivedItemCategories = [];
+	derivedItemCategories[0] = {
+		categoryDescription: package.derivedItemCategories[0].categoryDescription,
+		items: []
+	};
+	let guaranteedText = derivedItemCategories[0].categoryDescription.split(" ");
+	for (let packageCategory of package.derivedItemCategories) {
+		if (packageCategory.categoryDescription.indexOf(guaranteedText) === -1) {
+			derivedItemCategories[1] = {
+				categoryDescription: packageCategory.categoryDescription,
+				items: []
+			};
+			break;
+		}
+	}
+	let possibleText = derivedItemCategories[1].categoryDescription.split(" ");
+	for (let packageCategory of package.derivedItemCategories) {
+		if (packageCategory.categoryDescription.indexOf(guaranteedText) > -1) {
+			for(let item of packageCategory.items) {
+				if(listContainsItem(derivedItemCategories[0].items, item.itemHash) === false) {
+					derivedItemCategories[0].items.push(item);
+				}
+			}
+		}
+		if (packageCategory.categoryDescription.indexOf(possibleText) > -1) {
+			for(let item of packageCategory.items) {
+				if(listContainsItem(derivedItemCategories[1].items, item.itemHash) === false) {
+					derivedItemCategories[1].items.push(item);
+				}
+			}
+		}
+	}
+	// console.log(derivedItemCategories);
+	return derivedItemCategories;
+}
+
+function addPackagesToVendors() {
+	for (let vendorType of vendors) {
+		for (let vendor of vendorType) {
+			vendor.packages = [];
+			for (let vendorHash in manualVendorHashMap) {
+				if (vendor.vendorHash === parseInt(vendorHash)) {
+					for (let itemDefinition of DestinyCompactItemDefinition) {
+						// console.log(itemDefinition);
+						if (itemDefinition.itemTypeName === "Package" && itemDefinition.derivedItemCategories && itemDefinition.derivedItemVendorHash && manualVendorHashMap[vendorHash].indexOf(itemDefinition.itemHash) > -1) {
+							itemDefinition.derivedItemCategories = compressPackage(itemDefinition);
+							vendor.packages.push(itemDefinition);
+						}
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -316,33 +397,7 @@ database.open().then(function() {
 					return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
 				});
 			}
-			for (let itemDefinition of DestinyCompactItemDefinition) {
-					// console.log(itemDefinition);
-					for (let vendorHash in manualVendorHashMap) {
-				if (itemDefinition.itemTypeName === "Package" && itemDefinition.derivedItemCategories && itemDefinition.derivedItemVendorHash && manualVendorHashMap[vendorHash] === itemDefinition.itemHash) {
-						for (let vendorType of vendors) {
-							for (let vendor of vendorType) {
-								if (vendor.vendorHash === parseInt(vendorHash)) {
-									vendor.package = itemDefinition;
-								}
-							}
-						}
-					}
-				}
-			}
-			// for (let itemDefinition of DestinyCompactItemDefinition) {
-			// 	if (itemDefinition.itemTypeName === "Package" && itemDefinition.derivedItemCategories && itemDefinition.derivedItemVendorHash) {
-			// 		var vendorHash = 
-			// 		for (let vendorType of vendors) {
-			// 			for (let vendor of vendorType) {
-			// 				if (vendor.vendorHash === itemDefinition.derivedItemVendorHash) {
-			// 					console.log(vendor, itemDefinition)
-			// 					vendor.package = itemDefinition;
-			// 				}
-			// 			}
-			// 		}
-			// 	}
-			// }
+			addPackagesToVendors();
 			var vendorHTML = "";
 			for (let vendorCategory in vendors) {
 				vendorHTML += `<optgroup label="${DestinyVendorCategoryDefinition[vendorCategory] && DestinyVendorCategoryDefinition[vendorCategory].categoryName || vendorCategory}">`;

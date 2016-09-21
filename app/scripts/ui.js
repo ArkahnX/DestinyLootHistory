@@ -771,6 +771,9 @@ function makeProgress(progressData, classRequirement) {
 	} else if (progressData.name === "terminals") {
 		canvas.classList.add("hidden");
 		container.setAttribute("style", "background-image: url('https://www.bungie.net" + getItemDefinition(2751204699).icon + "')");
+	} else if (progressData.name === "d15.fall.record_books.rise_of_iron") {
+		canvas.classList.add("hidden");
+		container.setAttribute("style", "background-image: url('https://www.bungie.net" + DestinyRewardSourceDefinition[24296771].icon + "')");
 	} else {
 		canvas.classList.add("hidden");
 		container.setAttribute("style", "background-image: url('img/missing_icon.png')");
@@ -954,10 +957,10 @@ function passFactionData(DomNode, diffData, classRequirement) {
 		DomNode.dataset.itemName = data.itemName;
 		DomNode.dataset.itemTypeName = "Progression";
 	}
-	if(DomNode.dataset.itemName === "sivaclusters") {
-		var data = DestinyGrimoireCardDefinition[103094];
-		DomNode.dataset.itemDescription = data.cardDescription;
-		DomNode.dataset.itemName = data.cardName;
+	if(DomNode.dataset.itemName === "d15.fall.record_books.rise_of_iron") {
+		var data = DestinyRecordBookDefinition[243968262];
+		DomNode.dataset.itemDescription = data.displayDescription;
+		DomNode.dataset.itemName = data.displayName;
 		DomNode.dataset.itemTypeName = "Progression";
 	}
 	if (DestinyFactionDefinition[diffData.factionHash]) {
@@ -970,6 +973,8 @@ function passFactionData(DomNode, diffData, classRequirement) {
 		DomNode.dataset.itemImage = getItemDefinition(1069694698).icon;
 	} else if (diffData.name === "terminals") {
 		DomNode.dataset.itemImage = getItemDefinition(2751204699).icon;
+	} else if (diffData.name === "d15.fall.record_books.rise_of_iron") {
+		DomNode.dataset.itemImage = DestinyRewardSourceDefinition[24296771].icon;
 	} else {
 		DomNode.dataset.itemImage = "/img/missing_icon.png";
 	}

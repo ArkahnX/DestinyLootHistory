@@ -3,9 +3,20 @@ function hasQuality(item) {
 	return (item.primaryStat && item.primaryStat.statHash === 3897883278 && item.primaryStat.value > 199 && (itemDef.tierTypeName === "Legendary" || itemDef.tierTypeName === "Exotic") && item.stats);
 }
 
+function fitValue(light) {
+	if (light > 300) {
+		return (0.2546 * light) - 23.825;
+	}
+	if (light > 200) {
+		return (0.1801 * light) - 1.4612;
+	} else {
+		return -1;
+	}
+}
+
 function parseQuality(startingStat, startingDefense, endingDefense) {
-	var max = Math.floor(statValues[endingDefense] / statValues[startingDefense] * (startingStat + 1));
-	var min = Math.floor(statValues[endingDefense] / statValues[startingDefense] * startingStat);
+	var max = Math.floor(fitValue(endingDefense) / fitValue(startingDefense) * (startingStat + 1));
+	var min = Math.floor(fitValue(endingDefense) / fitValue(startingDefense) * startingStat);
 	return {
 		max,
 		min
