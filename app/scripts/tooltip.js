@@ -52,7 +52,7 @@ function setTooltipData(dataset, element, event) {
 			elements.itemPrimaryStat.textContent = dataset.primaryStat;
 			elements.itemStatText.textContent = dataset.primaryStatName;
 		}
-		elements.itemDescription.textContent = dataset.itemDescription || itemDetails.itemDescription;
+		elements.itemDescription.innerHTML = dataset.itemDescription || itemDetails.itemDescription;
 		elements.classRequirement.innerHTML = "";
 		let json = dataset.classRequirement;
 		try {

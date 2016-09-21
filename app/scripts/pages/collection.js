@@ -690,6 +690,12 @@ function findShips() {
 	displayMissingVendorItems(mainContainer, 2244880194, 459708109);
 }
 
+function findSparrows() {
+	var mainContainer = document.getElementById("sparrowContainer");
+	mainContainer.innerHTML = "Loading...";
+	displayMissingVendorItems(mainContainer, 44395194, 459708109);
+}
+
 function findT12() {
 	var mainContainer = document.getElementById("t12Container");
 	mainContainer.innerHTML = "Loading...";
@@ -750,6 +756,9 @@ function postInitItems() {
 				}
 				if (event.target.dataset.feature === "ships") {
 					findShips();
+				}
+				if (event.target.dataset.feature === "sparrows") {
+					findSparrows();
 				}
 				if (event.target.dataset.feature === "t12") {
 					chrome.storage.local.get("inventories", function(data) {
