@@ -154,15 +154,18 @@ function getNodes(item, nodes, talentGridHash) {
 	var parsedNodes = [];
 	var rows = 1;
 	var columns = 1;
-	if (!item) {
-		itemData = {};
-		itemData.nodes = nodes;
-		itemData.talentGridHash = talentGridHash;
+	console.log(item,nodes,talentGridHash)
+	if(!nodes && !talentGridHash) {
 		return {
 			nodes: parsedNodes,
 			rows,
 			columns
 		};
+	}
+	if (!item) {
+		itemData = {};
+		itemData.nodes = nodes;
+		itemData.talentGridHash = talentGridHash;
 	}
 	if (itemData.nodes) {
 		var grid = DestinyCompactTalentDefinition[itemData.talentGridHash];

@@ -651,7 +651,7 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 		container.dataset.qualityMax = qualityData.max;
 		container.dataset.qualityColor = qualityData.color;
 	} else {
-		quality.className = "hidden "+ itemClasses(itemData).join(" ");
+		quality.className = "hidden " + itemClasses(itemData).join(" ");
 		stat.classList.remove("with-quality");
 	}
 	container.className = itemClasses(itemData).join(" ");
@@ -878,8 +878,8 @@ function passData(DomNode, itemData, classRequirement, optionalCosts) {
 			DomNode.dataset.classRequirement = JSON.stringify(classRequirement);
 		}
 	}
-	for(var attr in itemData) {
-		if(typeof itemData[attr] === "object") {
+	for (var attr in itemData) {
+		if (typeof itemData[attr] === "object") {
 			DomNode.dataset[attr] = JSON.stringify(itemData[attr]);
 		} else {
 			DomNode.dataset[attr] = itemData[attr];
@@ -908,8 +908,10 @@ function passData(DomNode, itemData, classRequirement, optionalCosts) {
 	// DomNode.dataset.itemImage = itemDefinition.icon;
 	// DomNode.dataset.itemTypeName = itemDefinition.itemTypeName;
 	// DomNode.dataset.equipRequiredLevel = itemData.equipRequiredLevel || 0;
-	// DomNode.dataset.primaryStat = primaryStat(itemData);
-	// DomNode.dataset.primaryStatName = primaryStatName(itemData);
+	if (!DomNode.dataset.primaryStat) {
+		DomNode.dataset.primaryStat = primaryStat(itemData);
+		DomNode.dataset.primaryStatName = primaryStatName(itemData);
+	}
 	// DomNode.dataset.itemDescription = itemDefinition.itemDescription;
 	// DomNode.dataset.damageTypeName = elementType(itemData);
 	// DomNode.dataset.classRequirement = "";
@@ -939,25 +941,25 @@ function passFactionData(DomNode, diffData, classRequirement) {
 		DomNode.dataset.itemDescription = "";
 		DomNode.dataset.itemTypeName = "Progression";
 	}
-	if(DomNode.dataset.itemName === "terminals") {
+	if (DomNode.dataset.itemName === "terminals") {
 		var data = DestinyGrimoireCardDefinition[103094];
 		DomNode.dataset.itemDescription = data.cardDescription;
 		DomNode.dataset.itemName = data.cardName;
 		DomNode.dataset.itemTypeName = "Progression";
 	}
-	if(DomNode.dataset.itemName === "r1_s4_hiveship_orbs") {
+	if (DomNode.dataset.itemName === "r1_s4_hiveship_orbs") {
 		var data = DestinyRecordDefinition[1872531700];
 		DomNode.dataset.itemDescription = data.description;
 		DomNode.dataset.itemName = data.displayName;
 		DomNode.dataset.itemTypeName = "Progression";
 	}
-	if(DomNode.dataset.itemName === "pvp_iron_banner.loss_tokens") {
+	if (DomNode.dataset.itemName === "pvp_iron_banner.loss_tokens") {
 		var data = getItemDefinition(3397982326);
 		DomNode.dataset.itemDescription = data.itemDescription;
 		DomNode.dataset.itemName = data.itemName;
 		DomNode.dataset.itemTypeName = "Progression";
 	}
-	if(DomNode.dataset.itemName === "d15.fall.record_books.rise_of_iron") {
+	if (DomNode.dataset.itemName === "d15.fall.record_books.rise_of_iron") {
 		var data = DestinyRecordBookDefinition[243968262];
 		DomNode.dataset.itemDescription = data.displayDescription;
 		DomNode.dataset.itemName = data.displayName;
