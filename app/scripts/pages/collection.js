@@ -42,6 +42,11 @@ function findIronBanner(inventories) {
 			name: "Iron Breed",
 			matches: []
 		},
+		DaysOfIron: {
+			hashes: [],
+			name: "Days of Iron",
+			matches: []
+		},
 		IronSaga: {
 			hashes: [],
 			name: "Iron Saga",
