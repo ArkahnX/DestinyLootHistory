@@ -122,7 +122,7 @@ function parseItemQuality(item) {
 		}
 		if (statValue) {
 			var max = 335;
-			if ((itemType === "ghost" || itemType === "class" || itemType === "artifact") && light > max) {
+			if (light > max) {
 				max = light;
 			}
 			scaled = parseQuality(statValue, light, max);
