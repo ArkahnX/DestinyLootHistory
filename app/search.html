@@ -3,41 +3,18 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Loot History</title>
 		<link rel="stylesheet" type="text/css" href="ui.css">
-		<style id="searchStyle">
-			.main-section > div{ display:none; }
-		</style>
 	</head>
 	<body>
 		<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
 		<header id="status" class="active">
 			<nav>
-				<ul id="searchTerms">
-					
-					<li data-id="0">
-						<select class="nameType" id="searchType">
-							<option value="itemName" selected="true">Name</option>
-							<option value="itemTypeName">Item Type</option>
-							<option value="itemDescription">Description</option>
-							<option value="tierTypeName">Rarity</option>
-							<option value="damageTypeName">Damage Type</option>
-							<option value="primaryStat">Light Level / Quantity </option>
-						</select>
-						<input class="nameBox" type="text" id="jetsSearch" placeholder="Loading, please wait." disabled>
-						<!-- <select class="termType"> -->
-						<!-- <option value="added" selected="true">Added</option> -->
-						<!-- <option value="removed">Removed</option> -->
-						<!-- <option value="both">Both</option> -->
-						<!-- </select> -->
-						<!-- <input class="removeSearchTerm" type="button" value="Remove Term"> -->
-					</li>
-				</ul>
-				<!-- <input type="button" value="Add Search Term" id="addSearchTerm"> -->
-				<input type="button" value="Search" id="searchButton">
-				<!-- <select id="paginate"></select> -->
+				<input class="nameBox" id="resultQuantityBox" type="text" disabled>
+				<input class="nameBox" id="searchInput" type="text" placeholder="Enter Search Term...">
+				<select id="paginate"></select>
 			</nav>
 		</header>
 		<div id="container">
-			<div class="title-bar center">
+			<div class="title-bar center fixed">
 					<div class="title"><h1 class="section-title">DATE</h1></div>
 					<div class="title"><h1 class="section-title">PROGRESS</h1></div>
 					<div class="title"><h1 class="section-title">ADDED</h1></div>

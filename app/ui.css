@@ -76,6 +76,10 @@ body {
 	padding-bottom:20px;
 }
 
+.title-bar.fixed + .center {
+	margin-top: 20px;
+}
+
 textarea {
 	overflow: auto;
 
@@ -1717,4 +1721,9 @@ optgroup option {
 	text-align: center;
 
 	background: #bfc5c6;
+}
+
+.fixed {
+	    position: absolute;
+    right: calc(50% - 386px);
 }

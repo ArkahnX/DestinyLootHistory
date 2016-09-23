@@ -54,6 +54,11 @@ var elementNames = {
 };
 
 var currentItemSet = [];
+var moment = moment || null
+
+if (moment) {
+	var timezone = moment.tz.guess();
+}
 
 function initUi() {
 	for (var elementName in elements) {
@@ -363,163 +368,6 @@ function getInfo(item, itemDef, attribute) {
 	return item[attribute];
 }
 
-var searchTypes = searchTypes || false;
-
-function makeSearchData(itemDiff) {
-	var searchData = {};
-	if (searchTypes) {
-		for (let page of pages) {
-			if (itemDiff[page]) {
-				for (var type of searchTypes) {
-					for (let itemData of itemDiff[page]) {
-						if (itemData.item) {
-							itemData = itemData.item;
-						}
-						itemData = JSON.parse(itemData);
-						var itemTypeValue = "";
-						let itemDefinition = null;
-						if (itemData.itemHash) {
-							itemDefinition = getItemDefinition(itemData.itemHash, itemData);
-							if (type === "tierTypeName") {
-								if (itemDefinition.tierTypeName) {
-									itemTypeValue = itemDefinition.tierTypeName;
-								} else {
-									itemTypeValue = "Common";
-								}
-							} else if (type === "itemName") {
-								itemTypeValue = itemDefinition.itemName;
-							} else if (type === "itemTypeName") {
-								itemTypeValue = itemDefinition.itemTypeName;
-							} else if (type === "primaryStat") {
-								itemTypeValue = primaryStat(itemData);
-							} else if (type === "itemDescription") {
-								itemTypeValue = itemDefinition.itemDescription || "";
-							} else if (type === "damageTypeName") {
-								itemTypeValue = elementType(itemData);
-							}
-						} else {
-							if (itemData.factionHash) {
-								itemDefinition = DestinyFactionDefinition[itemData.factionHash];
-								if (type === "itemName") {
-									itemTypeValue = itemDefinition.factionName;
-								} else if (type === "itemDescription") {
-									itemTypeValue = itemDefinition.factionDescription;
-								}
-							} else {
-								itemDefinition = DestinyProgressionDefinition[itemData.progressionHash];
-								if (type === "itemName") {
-									itemTypeValue = itemDefinition.name;
-								}
-							}
-						}
-						// var itemTypeValue = getInfo(itemData, getItemDefinition(itemData.itemHash), type);
-						if (typeof itemTypeValue !== "string") {
-							// console.log(itemTypeValue, page, type, item, itemDefinition, itemData)
-						}
-						var nodeValue = itemTypeValue || "";
-						if (typeof nodeValue === "string") {
-							nodeValue = itemTypeValue.replace(/(\r\n|\n|\r)/gm, " ").toLowerCase();
-						}
-						if (!searchData[type]) {
-							searchData[type] = "";
-						}
-						if (searchData[type].indexOf(nodeValue) === -1) {
-							searchData[type] += " | " + nodeValue;
-						}
-					}
-				}
-			}
-		}
-	}
-	return searchData;
-}
-
-function work(item, index) {
-	// logger.startLogging("UI");
-	if (lastIndex < index) {
-		if (!item.added) {
-			console.log(item);
-		}
-		var searchData = makeSearchData(item);
-		var addedQty = item.added.length;
-		var removedQty = item.removed.length;
-		var progressionQty = 0;
-		if (item.progression) {
-			progressionQty = item.progression.length;
-		}
-		var transferredQty = 0;
-		if (item.transferred) {
-			transferredQty = item.transferred.length;
-		}
-		var className = rowHeight(addedQty, removedQty, transferredQty, progressionQty);
-		lastIndex = index;
-		fragments.date.insertBefore(createDate(item, className, searchData), fragments.date.firstChild);
-		fragments.progression.insertBefore(createProgress(item, className, "progression", searchData), fragments.progression.firstChild);
-		for (let page of pages) {
-			if (page !== "date" && page !== "progression") {
-				fragments[page].insertBefore(createItems(item, className, page, searchData), fragments[page].firstChild);
-			}
-		}
-	}
-}
-
-function postWork(resolve) {
-	if (document.getElementById("noItemOverlay")) {
-		if (!currentItemSet || !currentItemSet.length && localStorage.error === "false") {
-			document.getElementById("noItemOverlay").classList.remove("hidden");
-		} else {
-			document.getElementById("noItemOverlay").classList.add("hidden");
-		}
-	}
-	if (oldItemChangeQuantity !== (currentItemSet && currentItemSet.length) || oldPageNumber !== pageNumber) {
-		for (var page of pages) {
-			while (elements[page].lastChild) {
-				elements[page].removeChild(elements[page].lastChild);
-			}
-		}
-		var maxLength = fragments.date.children.length;
-		if ((pageNumber + 1) * pageQuantity < maxLength) {
-			maxLength = (pageNumber + 1) * pageQuantity;
-		}
-		var minNumber = (pageNumber * pageQuantity) - 1;
-		if (minNumber < 0) {
-			minNumber = 0;
-		}
-		var tempFragments = {};
-		for (let page of pages) {
-			tempFragments[page] = document.createDocumentFragment();
-			for (let i = minNumber; i < maxLength; i++) {
-				if (page === "date") {
-					let node = fragments[page].children[i].cloneNode(true);
-					if (!node.dataset.activity) {
-						for (let n = currentItemSet.length - 1; n > 0; n--) {
-							if (currentItemSet[n].id === parseInt(node.dataset.index) && currentItemSet[n].match) {
-								var match = JSON.parse(currentItemSet[n].match);
-								node.dataset.activity = match.activityHash;
-								node.dataset.activityType = match.activityTypeHashOverride || DestinyActivityDefinition[match.activityHash].activityTypeHash;
-							}
-							if (currentItemSet[n].id < parseInt(node.dataset.index)) {
-								break;
-							}
-						}
-					}
-					fragments[page].children[i] = node;
-					tempFragments[page].appendChild(node);
-				} else {
-					tempFragments[page].appendChild(fragments[page].children[i].cloneNode(true));
-				}
-			}
-		}
-		window.requestAnimationFrame(function() {
-			for (let page of pages) {
-				elements[page].appendChild(tempFragments[page]);
-			}
-			resolve();
-			window.requestAnimationFrame(postDisplay);
-		});
-	}
-}
-
 function postDisplay() {
 	constructMatchInterface();
 	makePages();
@@ -535,43 +383,6 @@ function postDisplay() {
 			n.draw();
 		}
 	}
-}
-var moment = moment || null
-
-if (moment) {
-	var timezone = moment.tz.guess();
-}
-
-var UIhideItemResults = false;
-
-function displayResults(customItems, hideItemResults) {
-	if (customItems && customItems.length) {
-		currentItemSet = customItems;
-	}
-	UIhideItemResults = hideItemResults;
-	// logger.startLogging("UI");
-	return new Promise(function displayResultsCore(resolve, reject) {
-		// logger.startLogging("UI");
-		// logger.timeEnd("grab matches");
-		// logger.time("loadResults");
-		if (oldItemChangeQuantity !== (currentItemSet && currentItemSet.length) || oldPageNumber !== pageNumber) {
-			for (var page of pages) {
-				while (elements[page].lastChild) {
-					elements[page].removeChild(elements[page].lastChild);
-				}
-				elements[page].innerHTML = "<h2 class='section-title'>Loading...</h2>";
-			}
-			// Start iterator, it will return a promise
-			var promise = asyncIterator(currentItemSet || [], work, pageQuantity);
-
-			// When promise is resolved, output results
-			promise.then(function() {
-				postWork(resolve);
-			});
-		} else {
-			postWork(resolve);
-		}
-	});
 }
 
 function itemType(itemHash) {
@@ -651,7 +462,7 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 		container.dataset.qualityMax = qualityData.max;
 		container.dataset.qualityColor = qualityData.color;
 	} else {
-		quality.className = "hidden "+ itemClasses(itemData).join(" ");
+		quality.className = "hidden " + itemClasses(itemData).join(" ");
 		stat.classList.remove("with-quality");
 	}
 	container.className = itemClasses(itemData).join(" ");
@@ -878,8 +689,8 @@ function passData(DomNode, itemData, classRequirement, optionalCosts) {
 			DomNode.dataset.classRequirement = JSON.stringify(classRequirement);
 		}
 	}
-	for(var attr in itemData) {
-		if(typeof itemData[attr] === "object") {
+	for (var attr in itemData) {
+		if (typeof itemData[attr] === "object") {
 			DomNode.dataset[attr] = JSON.stringify(itemData[attr]);
 		} else {
 			DomNode.dataset[attr] = itemData[attr];
@@ -908,8 +719,10 @@ function passData(DomNode, itemData, classRequirement, optionalCosts) {
 	// DomNode.dataset.itemImage = itemDefinition.icon;
 	// DomNode.dataset.itemTypeName = itemDefinition.itemTypeName;
 	// DomNode.dataset.equipRequiredLevel = itemData.equipRequiredLevel || 0;
-	// DomNode.dataset.primaryStat = primaryStat(itemData);
-	// DomNode.dataset.primaryStatName = primaryStatName(itemData);
+	if (!DomNode.dataset.primaryStat) {
+		DomNode.dataset.primaryStat = primaryStat(itemData);
+		DomNode.dataset.primaryStatName = primaryStatName(itemData);
+	}
 	// DomNode.dataset.itemDescription = itemDefinition.itemDescription;
 	// DomNode.dataset.damageTypeName = elementType(itemData);
 	// DomNode.dataset.classRequirement = "";
@@ -939,25 +752,25 @@ function passFactionData(DomNode, diffData, classRequirement) {
 		DomNode.dataset.itemDescription = "";
 		DomNode.dataset.itemTypeName = "Progression";
 	}
-	if(DomNode.dataset.itemName === "terminals") {
+	if (DomNode.dataset.itemName === "terminals") {
 		var data = DestinyGrimoireCardDefinition[103094];
 		DomNode.dataset.itemDescription = data.cardDescription;
 		DomNode.dataset.itemName = data.cardName;
 		DomNode.dataset.itemTypeName = "Progression";
 	}
-	if(DomNode.dataset.itemName === "r1_s4_hiveship_orbs") {
+	if (DomNode.dataset.itemName === "r1_s4_hiveship_orbs") {
 		var data = DestinyRecordDefinition[1872531700];
 		DomNode.dataset.itemDescription = data.description;
 		DomNode.dataset.itemName = data.displayName;
 		DomNode.dataset.itemTypeName = "Progression";
 	}
-	if(DomNode.dataset.itemName === "pvp_iron_banner.loss_tokens") {
+	if (DomNode.dataset.itemName === "pvp_iron_banner.loss_tokens") {
 		var data = getItemDefinition(3397982326);
 		DomNode.dataset.itemDescription = data.itemDescription;
 		DomNode.dataset.itemName = data.itemName;
 		DomNode.dataset.itemTypeName = "Progression";
 	}
-	if(DomNode.dataset.itemName === "d15.fall.record_books.rise_of_iron") {
+	if (DomNode.dataset.itemName === "d15.fall.record_books.rise_of_iron") {
 		var data = DestinyRecordBookDefinition[243968262];
 		DomNode.dataset.itemDescription = data.displayDescription;
 		DomNode.dataset.itemName = data.displayName;
@@ -1036,4 +849,153 @@ function characterSource(itemDiff, moveType, index) {
 		starter = "From " + characterName(fromId, null) + " to ";
 	}
 	return starter + characterName(toId, light);
+}
+
+function makeEmptySubSection(itemDiff, className) {
+	var subContainer = document.createElement("div");
+	subContainer.className = "sub-section " + className;
+	subContainer.dataset.index = itemDiff.id;
+	return subContainer;
+}
+
+function fillSubSection(subContainer, itemDiff, className, moveType) {
+	subContainer.className = "sub-section " + className;
+	subContainer.dataset.index = itemDiff.id;
+	if (itemDiff[moveType] && itemDiff[moveType].length) {
+		var docfrag = document.createDocumentFragment();
+		for (var i = 0; i < itemDiff[moveType].length; i++) {
+			var itemData = itemDiff[moveType][i];
+			var parsedItem = itemData;
+			if (parsedItem.item) {
+				parsedItem = parsedItem.item;
+			}
+			parsedItem = JSON.parse(parsedItem);
+			var endItem;
+			if (moveType === "progression") {
+				endItem = makeProgress(parsedItem, characterSource(itemDiff, moveType, i));
+			} else {
+				endItem = makeItem(parsedItem, characterSource(itemDiff, moveType, i));
+			}
+			docfrag.appendChild(endItem);
+		}
+		subContainer.appendChild(docfrag);
+	}
+	// var searchData = makeSearchData(itemDiff);
+	// for (var typeInfo in searchData) {
+	// 	subContainer.dataset[typeInfo] = searchData[typeInfo];
+	// }
+}
+
+function fillDateSection(subContainer, itemDiff, className) {
+	var timestamp = itemDiff.timestamp;
+	var activity = "";
+	var activityType = "";
+	if (itemDiff.match) {
+		var match = JSON.parse(itemDiff.match);
+		activity = match.activityHash;
+		activityType = match.activityTypeHashOverride || DestinyActivityDefinition[match.activityHash].activityTypeHash;
+	}
+	subContainer.className = "sub-section " + className + " timestamp";
+
+	var localTime = moment.utc(timestamp).tz(timezone);
+	var activityString = "";
+	if (activity) {
+		var activityDef = DestinyActivityDefinition[activity];
+		var activityTypeDef = DestinyActivityTypeDefinition[activityType];
+		if (activityDef && activityTypeDef) {
+			var activityName = activityDef.activityName;
+			var activityTypeName = activityTypeDef.activityTypeName;
+			activityString = activityTypeName + " - " + activityName;
+		}
+		if (globalOptions.pgcrImage) {
+			subContainer.style.backgroundImage = `url(https://www.bungie.net${activityDef.pgcrImage})`;
+			subContainer.classList.add("bg");
+		} else {
+			subContainer.style.backgroundImage = "";
+			subContainer.classList.remove("bg");
+		}
+	}
+	if (globalOptions.relativeDates) {
+		subContainer.innerHTML = localTime.fromNow() + "<br>" + activityString;
+	} else {
+		subContainer.innerHTML = localTime.format("ddd[,] ll LTS") + "<br>" + activityString;
+	}
+	subContainer.setAttribute("title", localTime.format("ddd[,] ll LTS") + "\n" + activityString);
+	subContainer.dataset.timestamp = timestamp;
+	subContainer.dataset.activity = activity;
+	subContainer.dataset.activityType = activityType;
+	subContainer.dataset.index = itemDiff.id;
+	// var searchData = makeSearchData(itemDiff);
+	// for (var typeInfo in searchData) {
+	// 	subContainer.dataset[typeInfo] = searchData[typeInfo];
+	// }
+}
+
+var dataTypes = ["date", "progression", "added", "removed", "transferred"];
+
+function newDisplayResults() {
+	return new Promise(function(resolve) {
+		var endPoint = currentItemSet.length - ((pageNumber + 1) * 50);
+		if (endPoint < 0) {
+			endPoint = 0;
+		}
+		var startPoint = endPoint + 50;
+		if (startPoint > currentItemSet.length) {
+			startPoint = currentItemSet.length;
+		}
+		var index = 0;
+		if (oldPageNumber !== pageNumber) {
+			cleanupMainPage();
+		}
+		// cleanupMainPage();
+		// for (var i = startPoint; i > endPoint; i--) {
+		for (var i = endPoint; i < startPoint; i++) { // starting from bottom element
+			var itemDiff = currentItemSet[i];
+			var addedQty = itemDiff.added.length;
+			var removedQty = itemDiff.removed.length;
+			var progressionQty = 0;
+			if (itemDiff.progression) {
+				progressionQty = itemDiff.progression.length;
+			}
+			var transferredQty = 0;
+			if (itemDiff.transferred) {
+				transferredQty = itemDiff.transferred.length;
+			}
+			var className = rowHeight(addedQty, removedQty, transferredQty, progressionQty);
+			for (var attr of dataTypes) {
+				var childrenList = [];
+				var subSection = elements[attr].children[elements[attr].children.length - index - 1];
+				if (subSection) {
+					while (subSection && parseInt(subSection.dataset.index) !== itemDiff.id) {
+						for (let child of subSection.children) {
+							if (attr !== "date") {
+								sendToCache(child);
+							}
+							childrenList.push(child);
+						}
+						for (var DomNode of childrenList) {
+							if (DomNode.parentNode) {
+								DomNode.parentNode.removeChild(DomNode);
+							}
+						}
+						subSection.parentNode.removeChild(subSection);
+						subSection = elements[attr].children[elements[attr].children.length - index - 1];
+					}
+				} else if (subSection && attr === "date") {
+					fillDateSection(subSection, itemDiff, className);
+				} else if (!subSection) {
+					subSection = makeEmptySubSection(itemDiff, className);
+					elements[attr].insertBefore(subSection, elements[attr].firstChild);
+					if (attr === "added" || attr === "removed" || attr === "transferred" || attr === "progression") {
+						fillSubSection(subSection, itemDiff, className, attr);
+					}
+					if (attr === "date") {
+						fillDateSection(subSection, itemDiff, className);
+					}
+				}
+			}
+			index++;
+		}
+		resolve();
+	});
 }
