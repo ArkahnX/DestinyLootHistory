@@ -326,7 +326,6 @@ function handleOtherStats(dataset, resolve) {
 	}
 	if (dataset.nodes && dataset.talentGridHash) {
 		var nodeData = getNodes(false, JSON.parse(dataset.nodes), parseInt(dataset.talentGridHash, 10));
-		console.log(nodeData)
 		if (itemDef.bucketTypeHash === 4023194814) {
 			nodeData.columns = nodeData.columns + 1;
 		}

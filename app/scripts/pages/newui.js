@@ -103,9 +103,15 @@ var dataTypes = ["date", "progression", "added", "removed", "transferred"];
 function newDisplayResults() {
 	return new Promise(function(resolve) {
 		var endPoint = currentItemSet.length - ((pageNumber + 1) * 50);
+		if (endPoint < 0) {
+			endPoint = 0;
+		}
 		var startPoint = endPoint + 50;
+		if (startPoint > currentItemSet.length) {
+			startPoint = currentItemSet.length;
+		}
 		var index = 0;
-		if(oldPageNumber !== pageNumber) {
+		if (oldPageNumber !== pageNumber) {
 			cleanupMainPage();
 		}
 		// cleanupMainPage();
@@ -126,10 +132,12 @@ function newDisplayResults() {
 			for (var attr of dataTypes) {
 				var childrenList = [];
 				var subSection = elements[attr].children[elements[attr].children.length - index - 1];
-				if (subSection && attr !== "date") {
+				if (subSection) {
 					while (subSection && parseInt(subSection.dataset.index) !== itemDiff.id) {
 						for (let child of subSection.children) {
-							sendToCache(child);
+							if (attr !== "date") {
+								sendToCache(child);
+							}
 							childrenList.push(child);
 						}
 						for (var DomNode of childrenList) {

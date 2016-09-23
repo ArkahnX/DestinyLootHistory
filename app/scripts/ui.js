@@ -363,84 +363,14 @@ function getInfo(item, itemDef, attribute) {
 	return item[attribute];
 }
 
-var searchTypes = searchTypes || false;
-
-function makeSearchData(itemDiff) {
-	var searchData = {};
-	if (searchTypes) {
-		for (let page of pages) {
-			if (itemDiff[page]) {
-				for (var type of searchTypes) {
-					for (let itemData of itemDiff[page]) {
-						if (itemData.item) {
-							itemData = itemData.item;
-						}
-						itemData = JSON.parse(itemData);
-						var itemTypeValue = "";
-						let itemDefinition = null;
-						if (itemData.itemHash) {
-							itemDefinition = getItemDefinition(itemData.itemHash, itemData);
-							if (type === "tierTypeName") {
-								if (itemDefinition.tierTypeName) {
-									itemTypeValue = itemDefinition.tierTypeName;
-								} else {
-									itemTypeValue = "Common";
-								}
-							} else if (type === "itemName") {
-								itemTypeValue = itemDefinition.itemName;
-							} else if (type === "itemTypeName") {
-								itemTypeValue = itemDefinition.itemTypeName;
-							} else if (type === "primaryStat") {
-								itemTypeValue = primaryStat(itemData);
-							} else if (type === "itemDescription") {
-								itemTypeValue = itemDefinition.itemDescription || "";
-							} else if (type === "damageTypeName") {
-								itemTypeValue = elementType(itemData);
-							}
-						} else {
-							if (itemData.factionHash) {
-								itemDefinition = DestinyFactionDefinition[itemData.factionHash];
-								if (type === "itemName") {
-									itemTypeValue = itemDefinition.factionName;
-								} else if (type === "itemDescription") {
-									itemTypeValue = itemDefinition.factionDescription;
-								}
-							} else {
-								itemDefinition = DestinyProgressionDefinition[itemData.progressionHash];
-								if (type === "itemName") {
-									itemTypeValue = itemDefinition.name;
-								}
-							}
-						}
-						// var itemTypeValue = getInfo(itemData, getItemDefinition(itemData.itemHash), type);
-						if (typeof itemTypeValue !== "string") {
-							// console.log(itemTypeValue, page, type, item, itemDefinition, itemData)
-						}
-						var nodeValue = itemTypeValue || "";
-						if (typeof nodeValue === "string") {
-							nodeValue = itemTypeValue.replace(/(\r\n|\n|\r)/gm, " ").toLowerCase();
-						}
-						if (!searchData[type]) {
-							searchData[type] = "";
-						}
-						if (searchData[type].indexOf(nodeValue) === -1) {
-							searchData[type] += " | " + nodeValue;
-						}
-					}
-				}
-			}
-		}
-	}
-	return searchData;
-}
-
 function work(item, index) {
 	// logger.startLogging("UI");
 	if (lastIndex < index) {
 		if (!item.added) {
 			console.log(item);
 		}
-		var searchData = makeSearchData(item);
+		var searchData = {};
+		// var searchData = makeSearchData(item);
 		var addedQty = item.added.length;
 		var removedQty = item.removed.length;
 		var progressionQty = 0;
@@ -542,13 +472,10 @@ if (moment) {
 	var timezone = moment.tz.guess();
 }
 
-var UIhideItemResults = false;
-
-function displayResults(customItems, hideItemResults) {
+function displayResults(customItems) {
 	if (customItems && customItems.length) {
 		currentItemSet = customItems;
 	}
-	UIhideItemResults = hideItemResults;
 	// logger.startLogging("UI");
 	return new Promise(function displayResultsCore(resolve, reject) {
 		// logger.startLogging("UI");

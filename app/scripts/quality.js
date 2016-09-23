@@ -1,6 +1,25 @@
+/**
+None				0
+Currency			1
+Armor				2
+Weapon				3
+Bounty				4
+CompletedBounty		5
+BountyReward		6
+Message				7
+Engram				8
+Consumable			9
+ExchangeMaterial	10
+MissionReward		11
+QuestStep			12
+QuestStepComplete	13
+Emblem				14
+Quest				15
+**/
+
 function hasQuality(item) {
 	var itemDef = getItemDefinition(item.itemHash);
-	return (item.primaryStat && item.primaryStat.statHash === 3897883278 && item.primaryStat.value > 199 && (itemDef.tierTypeName === "Legendary" || itemDef.tierTypeName === "Exotic") && item.stats);
+	return (itemDef.itemType === 2 && item.primaryStat && item.primaryStat.value > 199 && (itemDef.tierType === 5 || itemDef.tierType === 6) && item.stats);
 }
 
 function fitValue(light) {
@@ -41,14 +60,35 @@ function containsNodes(item, nodeNameList) {
 	return Math.round((result / nodeNameList.length) * 100) || 0;
 }
 
+function getItemCategoryName(item) {
+	var itemDef = getItemDefinition(item.itemHash);
+	if (itemDef.itemCategoryHashes.indexOf(38) > -1) {
+		return "artifact";
+	}
+	if (itemDef.itemCategoryHashes.indexOf(39) > -1) {
+		return "ghost";
+	}
+	if (itemDef.itemCategoryHashes.indexOf(45) > -1) {
+		return "helmet";
+	}
+	if (itemDef.itemCategoryHashes.indexOf(46) > -1) {
+		return "gauntlets";
+	}
+	if (itemDef.itemCategoryHashes.indexOf(47) > -1) {
+		return "chest";
+	}
+	if (itemDef.itemCategoryHashes.indexOf(48) > -1) {
+		return "leg";
+	}
+	if (itemDef.itemCategoryHashes.indexOf(49) > -1) {
+		return "class";
+	}
+}
 
 function parseItemQuality(item) {
 	var grid = getNodes(item);
 	var itemDef = getItemDefinition(item.itemHash);
-	var itemType = itemDef.itemTypeName.split(" ")[0];
-	if (itemDef.itemTypeName.split(" ")[1]) {
-		itemType = itemType + " " + itemDef.itemTypeName.split(" ")[1];
-	}
+	var itemType = getItemCategoryName(item);
 	var stats = item.stats;
 	var light = item.primaryStat.value;
 
@@ -65,12 +105,12 @@ function parseItemQuality(item) {
 		max: split * 2
 	};
 
+	var statBonus = getBonus(item.primaryStat.value, itemType);
 	for (var stat of stats) {
 		var scaled = 0;
 		var statValue = stat.value;
 		for (var node of grid) {
 			if (node.isActivated) {
-				var statBonus = getBonus(item.primaryStat.value, itemType);
 				if (stat.statHash === 144602215 && node.nodeStepHash === 1034209669) { // intellect
 					statValue = stat.value - statBonus;
 				} else if (stat.statHash === 1735777505 && node.nodeStepHash === 1263323987) { // discipline
@@ -81,7 +121,11 @@ function parseItemQuality(item) {
 			}
 		}
 		if (statValue) {
-			scaled = parseQuality(statValue, light, 335);
+			var max = 335;
+			if ((itemType === "ghost" || itemType === "class" || itemType === "artifact") && light > max) {
+				max = light;
+			}
+			scaled = parseQuality(statValue, light, max);
 		}
 		ret.total.min += scaled.min || 0;
 		ret.total.max += scaled.max || 0;
@@ -104,7 +148,7 @@ function getColor(value) {
 
 function getBonus(light, type) {
 	// logger.startLogging("quality");
-	switch (type.toLowerCase()) {
+	switch (type) {
 		case 'helmet':
 			return light < 292 ? 15 :
 				light < 307 ? 16 :
@@ -115,27 +159,23 @@ function getBonus(light, type) {
 				light < 305 ? 14 :
 				light < 319 ? 15 :
 				light < 333 ? 16 : 17;
-		case 'chest armor':
+		case 'chest':
 			return light < 287 ? 20 :
 				light < 300 ? 21 :
 				light < 310 ? 22 :
 				light < 319 ? 23 :
 				light < 328 ? 24 : 25;
-		case 'leg armor':
+		case 'leg':
 			return light < 284 ? 18 :
 				light < 298 ? 19 :
 				light < 309 ? 20 :
 				light < 319 ? 21 :
 				light < 329 ? 22 : 23;
-		case 'warlock bond':
-		case 'titan mark':
-		case 'hunter cloak':
-		case 'ghost shell':
+		case 'class':
+		case 'ghost':
 			return light < 295 ? 8 :
 				light < 319 ? 9 : 10;
-		case 'hunter artifact':
-		case 'warlock artifact':
-		case 'titan artifact':
+		case 'artifact':
 			return light < 287 ? 34 :
 				light < 295 ? 35 :
 				light < 302 ? 36 :
@@ -143,7 +183,8 @@ function getBonus(light, type) {
 				light < 314 ? 38 :
 				light < 319 ? 39 :
 				light < 325 ? 40 :
-				light < 330 ? 41 : 42;
+				light < 330 ? 41 :
+				light < 335 ? 42 : 43;
 	}
 	// logger.warn('item bonus not found', type);
 	return 0;
@@ -154,8 +195,7 @@ function getNodes(item, nodes, talentGridHash) {
 	var parsedNodes = [];
 	var rows = 1;
 	var columns = 1;
-	console.log(item,nodes,talentGridHash)
-	if(!nodes && !talentGridHash) {
+	if (!nodes && !talentGridHash && !item) {
 		return {
 			nodes: parsedNodes,
 			rows,
@@ -209,17 +249,13 @@ function getNodes(item, nodes, talentGridHash) {
 }
 
 var maxStatRolls = {
-	"Helmet": 46,
-	"Gauntlets": 41,
-	"Chest Armor": 61,
-	"Leg Armor": 56,
-	"Hunter Cloak": 25,
-	"Titan Mark": 25,
-	"Warlock Bond": 25,
-	"Ghost Shell": 25,
-	"Hunter Artifact": 38,
-	"Titan Artifact": 38,
-	"Warlock Artifact": 38
+	"helmet": 46,
+	"gauntlets": 41,
+	"chest": 61,
+	"leg": 56,
+	"class": 25,
+	"ghost": 25,
+	"artifact": 38
 };
 
 var statValues = {
