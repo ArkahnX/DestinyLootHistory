@@ -96,7 +96,6 @@ function initializeStoredVariables() {
 		localStorage.move3oCCooldown = _checkValue(localStorage.move3oCCooldown, _checkBoolean, "false");
 		localStorage.newestCharacter = _checkValue(localStorage.newestCharacter, _checkNumber, "vault");
 		localStorage.notificationClosed = _checkValue(localStorage.notificationClosed, _checkBoolean, "false");
-		localStorage.disableQuality = _checkValue(localStorage.disableQuality, _checkBoolean, "false");
 		localStorage.autoLockHighLight = _checkValue(localStorage.autoLockHighLight, _checkBoolean, "false");
 		localStorage.updateUI = _checkValue(localStorage.updateUI, _checkBoolean, "true");
 		localStorage.systems = _checkValue(localStorage.systems, _checkJSON, JSON.stringify({}));
@@ -130,7 +129,7 @@ function initializeStoredVariables() {
 				keepSingleStackItems: [],
 				autoMoveItemsToVault: [],
 				minQuality: 90,
-				minLight: 335
+				minLight: 350
 			};
 			for (var option in options) {
 				newOptions[option] = options[option];
@@ -139,11 +138,6 @@ function initializeStoredVariables() {
 			var month = dateObj.getUTCMonth() + 1;
 			var day = dateObj.getUTCDate();
 
-			if (localStorage.disableQuality === "false" && month >= 9 && day >= 20) {
-				localStorage.disableQuality = "true";
-				newOptions.showQuality = false;
-				newOptions.minQuality = 100;
-			}
 			if (localStorage.autoLockHighLight === "false") {
 				localStorage.autoLockHighLight = "true";
 				newOptions.lockHighLight = newOptions.autoLock;

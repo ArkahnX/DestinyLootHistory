@@ -54,6 +54,11 @@ var elementNames = {
 };
 
 var currentItemSet = [];
+var moment = moment || null
+
+if (moment) {
+	var timezone = moment.tz.guess();
+}
 
 function initUi() {
 	for (var elementName in elements) {
@@ -363,93 +368,6 @@ function getInfo(item, itemDef, attribute) {
 	return item[attribute];
 }
 
-function work(item, index) {
-	// logger.startLogging("UI");
-	if (lastIndex < index) {
-		if (!item.added) {
-			console.log(item);
-		}
-		var searchData = {};
-		// var searchData = makeSearchData(item);
-		var addedQty = item.added.length;
-		var removedQty = item.removed.length;
-		var progressionQty = 0;
-		if (item.progression) {
-			progressionQty = item.progression.length;
-		}
-		var transferredQty = 0;
-		if (item.transferred) {
-			transferredQty = item.transferred.length;
-		}
-		var className = rowHeight(addedQty, removedQty, transferredQty, progressionQty);
-		lastIndex = index;
-		fragments.date.insertBefore(createDate(item, className, searchData), fragments.date.firstChild);
-		fragments.progression.insertBefore(createProgress(item, className, "progression", searchData), fragments.progression.firstChild);
-		for (let page of pages) {
-			if (page !== "date" && page !== "progression") {
-				fragments[page].insertBefore(createItems(item, className, page, searchData), fragments[page].firstChild);
-			}
-		}
-	}
-}
-
-function postWork(resolve) {
-	if (document.getElementById("noItemOverlay")) {
-		if (!currentItemSet || !currentItemSet.length && localStorage.error === "false") {
-			document.getElementById("noItemOverlay").classList.remove("hidden");
-		} else {
-			document.getElementById("noItemOverlay").classList.add("hidden");
-		}
-	}
-	if (oldItemChangeQuantity !== (currentItemSet && currentItemSet.length) || oldPageNumber !== pageNumber) {
-		for (var page of pages) {
-			while (elements[page].lastChild) {
-				elements[page].removeChild(elements[page].lastChild);
-			}
-		}
-		var maxLength = fragments.date.children.length;
-		if ((pageNumber + 1) * pageQuantity < maxLength) {
-			maxLength = (pageNumber + 1) * pageQuantity;
-		}
-		var minNumber = (pageNumber * pageQuantity) - 1;
-		if (minNumber < 0) {
-			minNumber = 0;
-		}
-		var tempFragments = {};
-		for (let page of pages) {
-			tempFragments[page] = document.createDocumentFragment();
-			for (let i = minNumber; i < maxLength; i++) {
-				if (page === "date") {
-					let node = fragments[page].children[i].cloneNode(true);
-					if (!node.dataset.activity) {
-						for (let n = currentItemSet.length - 1; n > 0; n--) {
-							if (currentItemSet[n].id === parseInt(node.dataset.index) && currentItemSet[n].match) {
-								var match = JSON.parse(currentItemSet[n].match);
-								node.dataset.activity = match.activityHash;
-								node.dataset.activityType = match.activityTypeHashOverride || DestinyActivityDefinition[match.activityHash].activityTypeHash;
-							}
-							if (currentItemSet[n].id < parseInt(node.dataset.index)) {
-								break;
-							}
-						}
-					}
-					fragments[page].children[i] = node;
-					tempFragments[page].appendChild(node);
-				} else {
-					tempFragments[page].appendChild(fragments[page].children[i].cloneNode(true));
-				}
-			}
-		}
-		window.requestAnimationFrame(function() {
-			for (let page of pages) {
-				elements[page].appendChild(tempFragments[page]);
-			}
-			resolve();
-			window.requestAnimationFrame(postDisplay);
-		});
-	}
-}
-
 function postDisplay() {
 	constructMatchInterface();
 	makePages();
@@ -465,40 +383,6 @@ function postDisplay() {
 			n.draw();
 		}
 	}
-}
-var moment = moment || null
-
-if (moment) {
-	var timezone = moment.tz.guess();
-}
-
-function displayResults(customItems) {
-	if (customItems && customItems.length) {
-		currentItemSet = customItems;
-	}
-	// logger.startLogging("UI");
-	return new Promise(function displayResultsCore(resolve, reject) {
-		// logger.startLogging("UI");
-		// logger.timeEnd("grab matches");
-		// logger.time("loadResults");
-		if (oldItemChangeQuantity !== (currentItemSet && currentItemSet.length) || oldPageNumber !== pageNumber) {
-			for (var page of pages) {
-				while (elements[page].lastChild) {
-					elements[page].removeChild(elements[page].lastChild);
-				}
-				elements[page].innerHTML = "<h2 class='section-title'>Loading...</h2>";
-			}
-			// Start iterator, it will return a promise
-			var promise = asyncIterator(currentItemSet || [], work, pageQuantity);
-
-			// When promise is resolved, output results
-			promise.then(function() {
-				postWork(resolve);
-			});
-		} else {
-			postWork(resolve);
-		}
-	});
 }
 
 function itemType(itemHash) {
@@ -965,4 +849,153 @@ function characterSource(itemDiff, moveType, index) {
 		starter = "From " + characterName(fromId, null) + " to ";
 	}
 	return starter + characterName(toId, light);
+}
+
+function makeEmptySubSection(itemDiff, className) {
+	var subContainer = document.createElement("div");
+	subContainer.className = "sub-section " + className;
+	subContainer.dataset.index = itemDiff.id;
+	return subContainer;
+}
+
+function fillSubSection(subContainer, itemDiff, className, moveType) {
+	subContainer.className = "sub-section " + className;
+	subContainer.dataset.index = itemDiff.id;
+	if (itemDiff[moveType] && itemDiff[moveType].length) {
+		var docfrag = document.createDocumentFragment();
+		for (var i = 0; i < itemDiff[moveType].length; i++) {
+			var itemData = itemDiff[moveType][i];
+			var parsedItem = itemData;
+			if (parsedItem.item) {
+				parsedItem = parsedItem.item;
+			}
+			parsedItem = JSON.parse(parsedItem);
+			var endItem;
+			if (moveType === "progression") {
+				endItem = makeProgress(parsedItem, characterSource(itemDiff, moveType, i));
+			} else {
+				endItem = makeItem(parsedItem, characterSource(itemDiff, moveType, i));
+			}
+			docfrag.appendChild(endItem);
+		}
+		subContainer.appendChild(docfrag);
+	}
+	// var searchData = makeSearchData(itemDiff);
+	// for (var typeInfo in searchData) {
+	// 	subContainer.dataset[typeInfo] = searchData[typeInfo];
+	// }
+}
+
+function fillDateSection(subContainer, itemDiff, className) {
+	var timestamp = itemDiff.timestamp;
+	var activity = "";
+	var activityType = "";
+	if (itemDiff.match) {
+		var match = JSON.parse(itemDiff.match);
+		activity = match.activityHash;
+		activityType = match.activityTypeHashOverride || DestinyActivityDefinition[match.activityHash].activityTypeHash;
+	}
+	subContainer.className = "sub-section " + className + " timestamp";
+
+	var localTime = moment.utc(timestamp).tz(timezone);
+	var activityString = "";
+	if (activity) {
+		var activityDef = DestinyActivityDefinition[activity];
+		var activityTypeDef = DestinyActivityTypeDefinition[activityType];
+		if (activityDef && activityTypeDef) {
+			var activityName = activityDef.activityName;
+			var activityTypeName = activityTypeDef.activityTypeName;
+			activityString = activityTypeName + " - " + activityName;
+		}
+		if (globalOptions.pgcrImage) {
+			subContainer.style.backgroundImage = `url(https://www.bungie.net${activityDef.pgcrImage})`;
+			subContainer.classList.add("bg");
+		} else {
+			subContainer.style.backgroundImage = "";
+			subContainer.classList.remove("bg");
+		}
+	}
+	if (globalOptions.relativeDates) {
+		subContainer.innerHTML = localTime.fromNow() + "<br>" + activityString;
+	} else {
+		subContainer.innerHTML = localTime.format("ddd[,] ll LTS") + "<br>" + activityString;
+	}
+	subContainer.setAttribute("title", localTime.format("ddd[,] ll LTS") + "\n" + activityString);
+	subContainer.dataset.timestamp = timestamp;
+	subContainer.dataset.activity = activity;
+	subContainer.dataset.activityType = activityType;
+	subContainer.dataset.index = itemDiff.id;
+	// var searchData = makeSearchData(itemDiff);
+	// for (var typeInfo in searchData) {
+	// 	subContainer.dataset[typeInfo] = searchData[typeInfo];
+	// }
+}
+
+var dataTypes = ["date", "progression", "added", "removed", "transferred"];
+
+function newDisplayResults() {
+	return new Promise(function(resolve) {
+		var endPoint = currentItemSet.length - ((pageNumber + 1) * 50);
+		if (endPoint < 0) {
+			endPoint = 0;
+		}
+		var startPoint = endPoint + 50;
+		if (startPoint > currentItemSet.length) {
+			startPoint = currentItemSet.length;
+		}
+		var index = 0;
+		if (oldPageNumber !== pageNumber) {
+			cleanupMainPage();
+		}
+		// cleanupMainPage();
+		// for (var i = startPoint; i > endPoint; i--) {
+		for (var i = endPoint; i < startPoint; i++) { // starting from bottom element
+			var itemDiff = currentItemSet[i];
+			var addedQty = itemDiff.added.length;
+			var removedQty = itemDiff.removed.length;
+			var progressionQty = 0;
+			if (itemDiff.progression) {
+				progressionQty = itemDiff.progression.length;
+			}
+			var transferredQty = 0;
+			if (itemDiff.transferred) {
+				transferredQty = itemDiff.transferred.length;
+			}
+			var className = rowHeight(addedQty, removedQty, transferredQty, progressionQty);
+			for (var attr of dataTypes) {
+				var childrenList = [];
+				var subSection = elements[attr].children[elements[attr].children.length - index - 1];
+				if (subSection) {
+					while (subSection && parseInt(subSection.dataset.index) !== itemDiff.id) {
+						for (let child of subSection.children) {
+							if (attr !== "date") {
+								sendToCache(child);
+							}
+							childrenList.push(child);
+						}
+						for (var DomNode of childrenList) {
+							if (DomNode.parentNode) {
+								DomNode.parentNode.removeChild(DomNode);
+							}
+						}
+						subSection.parentNode.removeChild(subSection);
+						subSection = elements[attr].children[elements[attr].children.length - index - 1];
+					}
+				} else if (subSection && attr === "date") {
+					fillDateSection(subSection, itemDiff, className);
+				} else if (!subSection) {
+					subSection = makeEmptySubSection(itemDiff, className);
+					elements[attr].insertBefore(subSection, elements[attr].firstChild);
+					if (attr === "added" || attr === "removed" || attr === "transferred" || attr === "progression") {
+						fillSubSection(subSection, itemDiff, className, attr);
+					}
+					if (attr === "date") {
+						fillDateSection(subSection, itemDiff, className);
+					}
+				}
+			}
+			index++;
+		}
+		resolve();
+	});
 }
