@@ -343,21 +343,19 @@ function checkDiff(sourceArray, newArray) {
 			}
 			if (newArray[e].itemInstanceId === sourceArray[i].itemInstanceId && newArray[e].itemHash === sourceArray[i].itemHash) {
 				found = true;
-				if (newArray[e].stackSize !== sourceArray[i].stackSize) {
+				if (sourceArray[i].primaryStat && newArray[e].primaryStat && sourceArray[i].primaryStat.value > newArray[e].primaryStat.value) {
+					itemsRemovedFromSource.push(JSON.stringify(sourceArray[i]));
+				} else if (newArray[e].stackSize !== sourceArray[i].stackSize) {
 					var newItem = JSON.parse(JSON.stringify(sourceArray[i]));
-					if (newItem.primaryStat && newItem.primaryStat.value !== sourceArray[i].primaryStat.value) {
-						itemsRemovedFromSource.push(JSON.stringify(newItem));
+					if (typeof sourceArray[i].stackSize === "number") {
+						newItem.stackSize = sourceArray[i].stackSize - newArray[e].stackSize;
+						if (newItem.stackSize > 0) {
+							itemsRemovedFromSource.push(JSON.stringify(newItem));
+						}
 					} else {
-						if (typeof sourceArray[i].stackSize === "number") {
-							newItem.stackSize = sourceArray[i].stackSize - newArray[e].stackSize;
-							if (newItem.stackSize > 0) {
-								itemsRemovedFromSource.push(JSON.stringify(newItem));
-							}
-						} else {
-							newItem.stackSize = sourceArray[i].stackSize;
-							if (parseInt(newArray[e].stackSize, 10) !== parseInt(sourceArray[i].stackSize, 10)) {
-								itemsRemovedFromSource.push(JSON.stringify(newItem));
-							}
+						newItem.stackSize = sourceArray[i].stackSize;
+						if (parseInt(newArray[e].stackSize, 10) !== parseInt(sourceArray[i].stackSize, 10)) {
+							itemsRemovedFromSource.push(JSON.stringify(newItem));
 						}
 					}
 				}
@@ -498,7 +496,7 @@ function afterAdvisors(advisorData, resolve, currentDateString) {
 	logger.time("Local Inventory");
 	// get old data saved from the last pass
 	database.getMultipleStores(["itemChanges", "progression", "currencies", "inventories"]).then(function afterStorageGet(result) {
-	// chrome.storage.local.get(["itemChanges", "progression", "currencies", "inventories"], function afterStorageGet(result) {
+		// chrome.storage.local.get(["itemChanges", "progression", "currencies", "inventories"], function afterStorageGet(result) {
 		if (chrome.runtime.lastError) {
 			logger.error(chrome.runtime.lastError);
 		}
