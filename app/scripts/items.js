@@ -621,12 +621,29 @@ function hasInventorySpace(characterId, itemHash) {
 	return totalStackSize < vaultSize;
 }
 
-function findThreeOfCoins(characterId) {
-	var characterInventory = findInArray(newInventories, "characterId", characterId);
-	if (characterInventory.inventory) {
-		for (let item of characterInventory.inventory) {
-			if (item.itemHash === 417308266) {
-				return characterId;
+function findThreeOfCoins(characterId, checkAllCharacters) {
+	var found = false;
+	if (checkAllCharacters === true) {
+		found = findThreeOfCoins(characterId);
+		if (found) {
+			return found;
+		}
+		for (var character of newInventories) {
+			if (character.characterId !== characterId) {
+				found = findThreeOfCoins(characterId);
+				if (found) {
+					return found;
+				}
+			}
+		}
+		return found;
+	} else {
+		var characterInventory = findInArray(newInventories, "characterId", characterId);
+		if (characterInventory.inventory) {
+			for (let item of characterInventory.inventory) {
+				if (item.itemHash === 417308266) {
+					return characterId;
+				}
 			}
 		}
 	}
@@ -646,12 +663,13 @@ function check3oC() {
 			if (localStorage.move3oC && localStorage.move3oC === "true") { // we have just completed an activity, remind the User about Three of Coins
 				if (localStorage.newestCharacter) {
 					logger.log("three of coins reminder sent");
-					var threeOfCoinsCharacter = findThreeOfCoins(localStorage.newestCharacter);
+					var threeOfCoinsCharacter = findThreeOfCoins(localStorage.newestCharacter, true);
+					logger.log("Sending 3oC from "+threeOfCoinsCharacter);
 					if (threeOfCoinsCharacter && hasInventorySpace("vault", 417308266)) {
 						setTimeout(function() {
 							bungie.transfer(threeOfCoinsCharacter, "0", 417308266, 1, true).then(function(response) {
 								console.log(response);
-								bungie.transfer(threeOfCoinsCharacter, "0", 417308266, 1, false).then(function(response) {
+								bungie.transfer(localStorage.newestCharacter, "0", 417308266, 1, false).then(function(response) {
 									console.log(response);
 								});
 							});
@@ -703,7 +721,7 @@ function eligibleToLock(item, characterId) {
 			logger.info(`Failing autoLock on options. showQuality: ${options.showQuality} autoLock: ${options.autoLock} lockHighLight: ${options.lockHighLight}`);
 			return false;
 		}
-		if (!item.stats || !item.primaryStat || (itemDef.tierTypeName !== "Legendary" && itemDef.tierTypeName !== "Exotic") || (item.primaryStat.statHash !== 368428387 && item.primaryStat.statHash !== 3897883278)) {
+		if (!item.stats || !item.primaryStat || (item.primaryStat.statHash !== 368428387 && item.primaryStat.statHash !== 3897883278)) {
 			logger.info("Failing autoLock on item type for " + itemDef.itemName);
 			return false;
 		}
