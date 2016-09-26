@@ -9,7 +9,10 @@ function handleTooltipData(dataset, element, event) {
 }
 
 function setTooltipData(dataset, element, event) {
-	var itemDetails = getItemDefinition(dataset.itemHash);
+	var itemDetails = dataset;
+	if(element.className.indexOf("faction") === -1) {
+		itemDetails = getItemDefinition(dataset.itemHash);
+	}
 	if (dataset.itemName || itemDetails.itemName) {
 		if (dataset.itemImage || itemDetails.icon) {
 			elements.itemImage.src = "https://www.bungie.net" + (dataset.itemImage || itemDetails.icon);
