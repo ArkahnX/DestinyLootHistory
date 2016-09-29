@@ -128,6 +128,7 @@ function sortItemDiff(itemDiff, progression, items, engrams, currency, bounties,
 
 function getProductivity() {
 	var mainContainer = document.getElementById("productivity");
+	mainContainer.innerHTML = "";
 	database.getAllEntries("itemChanges").then(function(localResult) {
 		var productivityRange = [];
 		var progression = {};

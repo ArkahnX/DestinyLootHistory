@@ -10,7 +10,7 @@ function handleTooltipData(dataset, element, event) {
 
 function setTooltipData(dataset, element, event) {
 	var itemDetails = dataset;
-	if(element.className.indexOf("faction") === -1) {
+	if(element.className.indexOf("faction") === -1 || element.className.indexOf("currency") > -1) {
 		itemDetails = getItemDefinition(dataset.itemHash);
 	}
 	if (dataset.itemName || itemDetails.itemName) {
