@@ -3,60 +3,14 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Loot History</title>
 		<link rel="stylesheet" type="text/css" href="ui.css">
-		<style id="searchStyle">
-			.sub-section > [data-item-type="engram"]{ display:none; }
-			.sub-section > [data-item-type="currency"]{ display:none; }
-			.sub-section > [data-item-type="armor"][data-item-rarity="rare"]{ display:none; }
-			.sub-section > [data-item-type="armor"][data-item-rarity="uncommon"]{ display:none; }
-			.sub-section > [data-item-type="weapon"][data-item-rarity="rare"]{ display:none; }
-			.sub-section > [data-item-type="weapon"][data-item-rarity="uncommon"]{ display:none; }
-		</style>
-		<style>
-			.item {
-				width:90px;
-				height:90px;
-				min-width: 15px;
-			}
-			.item-container {
-				width:96px;
-				height:96px;
-				margin:6px;
-			}
-			#container, #tooltip {
-				height: calc(100% - 32px);
-			}
-			.sub-section {
-				margin-bottom:30px;
-			}
-			.primary-stat {
-				padding: 0 6px;
-				font-size: 15px;
-			}
-			.quality {
-				font-size: 15px;
-			}
-			input {
-				float:left;
-			}
-		</style>
 	</head>
 	<body>
-		<header id="status" class="hidden">
+		<header id="status">
 			<nav>
-				<input type="button" value="Begin Tracking" id="startTracking" disabled />
+				<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
+				<input type="text" id="query" style="width:100%" class="hidden">
 			</nav>
 		</header>
-		<div class="title-bar">
-			<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
-			<div class="center" id="character-headers" style="text-align: center;">
-				<input type="text" id="query" style="width:100%" class="hidden">
-			</div>
-		</div>
-		<div id="container">
-			<div class="center" id="character-sections">
-				<div id="history" class="main-section" style="width: inherit;">Loading items...</div>
-			</div>
-		</div>
 		<div id="tooltip">
 			<section id="item-head">
 				<canvas id="squareProgress" width="71" height="71" class="bigProgress"></canvas>
@@ -101,6 +55,11 @@
 					</tbody>
 				</table>
 			</section>
+		</div>
+		<div id="width-wrapper" class="center">
+			<div id="container">
+				<div id="history" class="main-section" style="width: inherit;">Loading items...</div>
+			</div>
 		</div>
 		<div id="copyright">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
 		<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js" async></script>

@@ -630,7 +630,7 @@ function findThreeOfCoins(characterId, checkAllCharacters) {
 		}
 		for (var character of newInventories) {
 			if (character.characterId !== characterId) {
-				found = findThreeOfCoins(characterId);
+				found = findThreeOfCoins(character.characterId);
 				if (found) {
 					return found;
 				}
@@ -647,6 +647,7 @@ function findThreeOfCoins(characterId, checkAllCharacters) {
 			}
 		}
 	}
+	logger.log("Unable to find 3oC on "+characterId);
 	return false;
 }
 
@@ -704,7 +705,7 @@ function lockByLightLevel(options, item, characterId) {
 
 function lockByQualityLevel(options, item, characterId) {
 	var qualityLevel = parseItemQuality(item);
-	if (qualityLevel.min >= (options.minQuality || 90)) {
+	if (qualityLevel.min >= (options.minQuality || 90) && hasQuality(item)) {
 		bungie.lock(characterId, item.itemInstanceId).then(function(response) {
 			logger.log(response);
 		});

@@ -58,8 +58,8 @@ function checkInventory() {
 	logger.info(inventoryData);
 	// return false;
 	var sourceIndex = 0;
-	var sources = [3107502809, 36493462, 460228854, 3945957624, 344892955, 3739898362];
-	var descriptions = ["Dark Below", "House of Wolves", "The Taken King", "Sparrow Racing League", "Crimson Doubles", "April Update"];
+	var sources = [3107502809, 36493462, 460228854, 3945957624, 344892955, 3739898362, 24296771];
+	var descriptions = ["Dark Below", "House of Wolves", "The Taken King", "Sparrow Racing League", "Crimson Doubles", "April Update", "Rise of Iron"];
 	var div = document.createElement("div");
 	div.classList.add("sub-section");
 	var description = document.createElement("h1");
@@ -69,44 +69,45 @@ function checkInventory() {
 	var div = document.createElement("div");
 	div.classList.add("sub-section");
 	for (var item of inventoryData) {
-		var itemDefinition = getItemDefinition(item.itemHash);
-		var found = false;
-		if (itemDefinition.sourceHashes && itemDefinition.sourceHashes.length && sources[sourceIndex] && itemDefinition.sourceHashes.indexOf(sources[sourceIndex]) > -1) {
-			if (sources[sourceIndex - 1] && sources[sourceIndex - 1] !== 460228854) {
-				if (itemDefinition.sourceHashes.indexOf(sources[sourceIndex - 1]) === -1) {
-					if (itemDefinition.tierTypeName !== "Exotic" && itemDefinition.bucketTypeHash !== 284967655 && itemDefinition.tierTypeName !== "Rare") {
-						found = true;
+		var itemDataType = itemType(item.itemHash);
+		var itemDataRarity = itemRarity(item.itemHash);
+		if ((itemDataType !== "engram" && itemDataType !== "currency") && ((itemDataType === "armor" && itemDataRarity !== "uncommon" && itemDataRarity !== "rare") || (itemDataType === "weapon" && itemDataRarity !== "uncommon" && itemDataRarity !== "rare") || itemDataType === "other")) {
+			var itemDefinition = getItemDefinition(item.itemHash);
+			var found = false;
+			if (itemDefinition.sourceHashes && itemDefinition.sourceHashes.length && sources[sourceIndex] && itemDefinition.sourceHashes.indexOf(sources[sourceIndex]) > -1) {
+				if (sources[sourceIndex - 1] && sources[sourceIndex - 1] !== 460228854) {
+					if (itemDefinition.sourceHashes.indexOf(sources[sourceIndex - 1]) === -1) {
+						if (itemDefinition.tierTypeName !== "Exotic" && itemDefinition.bucketTypeHash !== 284967655 && itemDefinition.tierTypeName !== "Rare") {
+							found = true;
+						}
 					}
+				} else {
+					found = true;
 				}
-			} else {
-				found = true;
+				if (found) {
+					var source = DestinyRewardSourceDefinition[sources[sourceIndex]];
+					characterHistory.appendChild(div);
+					div = document.createElement("div");
+					div.classList.add("sub-section");
+					div.classList.add(source.identifier);
+					var sourceDescription = document.createElement("h1");
+					sourceDescription.textContent = descriptions[sourceIndex];
+					div.appendChild(sourceDescription);
+					characterHistory.appendChild(div);
+					var div = document.createElement("div");
+					div.classList.add("sub-section");
+					sourceIndex++;
+				}
 			}
-			if (found) {
-				var source = DestinyRewardSourceDefinition[sources[sourceIndex]];
-				characterHistory.appendChild(div);
-				div = document.createElement("div");
-				div.classList.add("sub-section");
-				div.classList.add(source.identifier);
-				var sourceDescription = document.createElement("h1");
-				sourceDescription.textContent = descriptions[sourceIndex];
-				div.appendChild(sourceDescription);
-				characterHistory.appendChild(div);
-				var div = document.createElement("div");
-				div.classList.add("sub-section");
-				sourceIndex++;
-			}
+			div.appendChild(makeItem(item, ""));
 		}
-		div.appendChild(makeItem(item, ""));
 	}
 	characterHistory.appendChild(div);
-	var checkBox = document.querySelector("#query");
-	checkBox.value = document.querySelector('#searchStyle').textContent;
-	checkBox.addEventListener("keyup", checkBoxChange, false);
 }
 database.open().then(function() {
 	database.getMultipleStores(database.allStores).then(function(result) {
 		console.log(result)
-		// chrome.storage.local.get(null, function(result) {
+			// chrome.storage.local.get(null, function(result) {
 		if (chrome.runtime.lastError) {
 			logger.error(chrome.runtime.lastError);
 		}
@@ -115,14 +116,3 @@ database.open().then(function() {
 		initItems(checkInventory);
 	});
 });
-
-var queryDelay = 0;
-
-function checkBoxChange() {
-	clearTimeout(queryDelay);
-	queryDelay = setTimeout(function() {
-		var searchStyle = document.querySelector('#searchStyle');
-		var query = document.querySelector('#query');
-		searchStyle.textContent = query.value;
-	}, 300);
-}
