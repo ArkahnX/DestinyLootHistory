@@ -51,7 +51,7 @@ function containsNodes(item, nodeNameList) {
 	var grid = getNodes(item);
 	for (var nodeName of nodeNameList) {
 		for (var node of grid) {
-			if (node.nodeStepName.toLowerCase().indexOf(nodeName.toLowerCase()) > -1) {
+			if (node.nodeStepName && node.nodeStepName.toLowerCase().indexOf(nodeName.toLowerCase()) > -1) {
 				result++;
 				break;
 			}
