@@ -6,50 +6,28 @@
 		<link rel="stylesheet" type="text/css" href="font-awesome.min.css">
 		<style>
 			.item {
-				width:90px;
-				height:90px;
+				width:60px;
+				height:60px;
 				min-width: 15px;
 			}
 			.item-container {
-				width:96px;
-				height:96px;
+				width:66px;
+				height:66px;
 				margin:6px;
-			}
-			#container, #tooltip {
-				height: calc(100% - 32px);
-			}
-			.sub-section {
-				margin-bottom:30px;
-			}
-			.primary-stat {
-				padding: 0 6px;
-				font-size: 15px;
-			}
-			.quality {
-				font-size: 15px;
-			}
-			input {
-				float:left;
 			}
 		</style>
 	</head>
 	<body>
-		<div class="title-bar">
-			<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
-			<div class="main-select">
-				<label for="character">Character: <select id="character"></select></label>
-				<label for="vendor">Vendor: <select id="vendor"></select></label>
-				<label for="compare">Compare: <select id="compare"></select></label>
-			</div>
-		</div>
-		<div id="container">
-			<div class="center" id="character-sections">
-				<div class="center" id="vendors">
-					<div class="sub-section"><h2>Reward Source data from items that have been previously acquired are innaccurate due to lack of information in the Bungie API.</h2></div>
+		<header id="status">
+			<nav>
+				<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
+				<div class="main-select">
+					<label for="character">Character: <select id="character"></select></label>
+					<label for="vendor">Vendor: <select id="vendor"></select></label>
+					<label for="compare">Compare: <select id="compare"></select></label>
 				</div>
-				<div id="history" class="main-section" style="width: inherit;"></div>
-			</div>
-		</div>
+			</nav>
+		</header>
 		<div id="tooltip">
 			<section id="item-head">
 				<canvas id="squareProgress" width="71" height="71" class="bigProgress"></canvas>
@@ -94,6 +72,14 @@
 					</tbody>
 				</table>
 			</section>
+		</div>
+		<div id="width-wrapper" class="center">
+			<div id="container">
+				<div class="center" id="vendors">
+					<div class="sub-section"><h2>Reward Source data from items that have been previously acquired are innaccurate due to lack of information in the Bungie API.</h2></div>
+				</div>
+				<div id="history" class="main-section" style="width: inherit;"></div>
+			</div>
 		</div>
 		<div id="copyright">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
 		<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js" async></script>

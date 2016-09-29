@@ -5,18 +5,12 @@
 		<link rel="stylesheet" type="text/css" href="ui.css">
 	</head>
 	<body>
-		<header id="status" class="hidden">
+		<header id="status">
 			<nav>
-				<input type="button" value="Begin Tracking" id="startTracking" disabled />
+				<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
+				<label for="character">Character: <select id="character"></select></label>
 			</nav>
 		</header>
-		<div class="title-bar">
-			<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
-			<div class="center" id="character-headers" style="text-align: center;">
-				<label for="character">Character: <select id="character"></select></label>
-				<div class="title"><h1 class="section-title">COLLECTION</h1></div>
-			</div>
-		</div>
 		<div id="debugHome" class="collection solidBackground hidden">
 			<ul>
 				<li>
