@@ -52,7 +52,7 @@ function initItems(callback) {
 
 			console.timeEnd("load Bungie Data");
 			if (typeof callback === "function") {
-				callback();
+				// callback();
 			}
 			database.open().then(checkInventory);
 		}).catch(function(e) {
@@ -89,6 +89,7 @@ function checkInventory() {
 			} else {
 				var arrayToMerge = [];
 				for (var item of inventory.inventory) {
+					item.characterId = characterName(inventory.characterId);
 					if (item.itemInstanceId !== "0") {
 						arrayToMerge.push(item);
 					} else {
@@ -152,7 +153,7 @@ function checkInventory() {
 					characterHistory.appendChild(nodeList);
 				}
 				containingDiv = document.getElementById(bucketName);
-				containingDiv.appendChild(makeItem(item, "vault"));
+				containingDiv.appendChild(makeItem(item, item.characterId || "Vault"));
 			}
 		}
 		console.timeEnd("Bungie Inventory");
@@ -327,4 +328,6 @@ function buildCompactItem(itemData, bucketHash) {
 	return newItemData;
 }
 // var bungie = new Bungie();
-initItems(function() {});
+initItems(function() {
+	database.open().then(checkInventory);
+});

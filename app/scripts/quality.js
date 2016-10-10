@@ -106,29 +106,31 @@ function parseItemQuality(item) {
 	};
 
 	var statBonus = getBonus(item.primaryStat.value, itemType);
-	for (var stat of stats) {
-		var scaled = 0;
-		var statValue = stat.value;
-		for (var node of grid) {
-			if (node.isActivated) {
-				if (stat.statHash === 144602215 && node.nodeStepHash === 1034209669) { // intellect
-					statValue = stat.value - statBonus;
-				} else if (stat.statHash === 1735777505 && node.nodeStepHash === 1263323987) { // discipline
-					statValue = stat.value - statBonus;
-				} else if (stat.statHash === 4244567218 && node.nodeStepHash === 193091484) { // strength
-					statValue = stat.value - statBonus;
+	if (stats) {
+		for (var stat of stats) {
+			var scaled = 0;
+			var statValue = stat.value;
+			for (var node of grid) {
+				if (node.isActivated) {
+					if (stat.statHash === 144602215 && node.nodeStepHash === 1034209669) { // intellect
+						statValue = stat.value - statBonus;
+					} else if (stat.statHash === 1735777505 && node.nodeStepHash === 1263323987) { // discipline
+						statValue = stat.value - statBonus;
+					} else if (stat.statHash === 4244567218 && node.nodeStepHash === 193091484) { // strength
+						statValue = stat.value - statBonus;
+					}
 				}
 			}
-		}
-		if (statValue) {
-			var max = 335;
-			if (light > max) {
-				max = light;
+			if (statValue) {
+				var max = 335;
+				if (light > max) {
+					max = light;
+				}
+				scaled = parseQuality(statValue, light, max);
 			}
-			scaled = parseQuality(statValue, light, max);
+			ret.total.min += scaled.min || 0;
+			ret.total.max += scaled.max || 0;
 		}
-		ret.total.min += scaled.min || 0;
-		ret.total.max += scaled.max || 0;
 	}
 
 	return {
@@ -227,6 +229,7 @@ function getNodes(item, nodes, talentGridHash) {
 						nodeStepHash: step.nodeStepHash,
 						nodeStepName: step.nodeStepName,
 						isActivated: node.isActivated,
+						state:node.state
 					};
 					parsedNodes.push(nodeData);
 				}

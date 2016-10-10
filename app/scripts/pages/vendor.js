@@ -245,45 +245,51 @@ function makeItemsFromVendor(vendor) {
 		subContainer.appendChild(docfrag);
 		mainContainer.appendChild(subContainer);
 	}
+	if(!manualVendorHashMap[localVendor.vendorHash]) {
+		elements.status.classList.remove("active");
+		return;
+	}
 	for (var packageHash of manualVendorHashMap[localVendor.vendorHash]) {
 		for (var singlePackage of localVendor.packages) {
 			if (packageHash === singlePackage.itemHash) {
 				var vendorPackage = singlePackage && singlePackage.derivedItemCategories || [];
-				console.log(singlePackage, vendorPackage, vendorPackage.length - 2);
-				// for (let category of vendorPackage) {
-				for (var e = 0; e < vendorPackage.length - 1; e++) {
-					var category = vendorPackage[e];
-					let titleContainer = document.createElement("div");
-					titleContainer.classList.add("sub-section");
-					titleContainer.innerHTML = "<h2>" + singlePackage.itemName + " - " + category.categoryDescription + "</h2>";
-					mainContainer.appendChild(titleContainer);
-					let subContainer = document.createElement("div");
-					subContainer.classList.add("sub-section");
-					let docfrag = document.createDocumentFragment();
-					for (let item of category.items) {
-						docfrag.appendChild(makeItem(getItemDefinition(item.itemHash, item)));
+				for (let category of vendorPackage) {
+					if (category.items.length) {
+						// for (var e = 0; e < vendorPackage.length - 1; e++) {
+						// var category = vendorPackage[e];
+						let titleContainer = document.createElement("div");
+						titleContainer.classList.add("sub-section");
+						titleContainer.innerHTML = "<h2>" + singlePackage.itemName + " - " + category.categoryDescription + "</h2>";
+						mainContainer.appendChild(titleContainer);
+						let subContainer = document.createElement("div");
+						subContainer.classList.add("sub-section");
+						let docfrag = document.createDocumentFragment();
+						for (let item of category.items) {
+							docfrag.appendChild(makeItem(getItemDefinition(item.itemHash, item)));
+						}
+						subContainer.appendChild(docfrag);
+						mainContainer.appendChild(subContainer);
 					}
-					subContainer.appendChild(docfrag);
-					mainContainer.appendChild(subContainer);
 				}
 			}
 		}
 	}
-	if (localVendor.packages.length) {
-		var category = localVendor.packages[0].derivedItemCategories[localVendor.packages[0].derivedItemCategories.length - 1];
-		let textContainer = document.createElement("div");
-		textContainer.classList.add("sub-section");
-		textContainer.innerHTML = "<h2>" + singlePackage.itemName + " - " + category.categoryDescription + "</h2>";
-		mainContainer.appendChild(textContainer);
-		let subSection = document.createElement("div");
-		subSection.classList.add("sub-section");
-		let itemFrag = document.createDocumentFragment();
-		for (let item of category.items) {
-			itemFrag.appendChild(makeItem(getItemDefinition(item.itemHash, item)));
-		}
-		subSection.appendChild(itemFrag);
-		mainContainer.appendChild(subSection);
-	}
+	elements.status.classList.remove("active");
+	// if (localVendor.packages.length) {
+	// 	var category = localVendor.packages[0].derivedItemCategories[localVendor.packages[0].derivedItemCategories.length - 1];
+	// 	let textContainer = document.createElement("div");
+	// 	textContainer.classList.add("sub-section");
+	// 	textContainer.innerHTML = "<h2>" + singlePackage.itemName + " - " + category.categoryDescription + "</h2>";
+	// 	mainContainer.appendChild(textContainer);
+	// 	let subSection = document.createElement("div");
+	// 	subSection.classList.add("sub-section");
+	// 	let itemFrag = document.createDocumentFragment();
+	// 	for (let item of category.items) {
+	// 		itemFrag.appendChild(makeItem(getItemDefinition(item.itemHash, item)));
+	// 	}
+	// 	subSection.appendChild(itemFrag);
+	// 	mainContainer.appendChild(subSection);
+	// }
 }
 
 function listContainsItem(list, itemHash) {
@@ -295,8 +301,27 @@ function listContainsItem(list, itemHash) {
 	return false;
 }
 
-function compressPackage(package) {
-	var derivedItemCategories = [];
+function compressPackages(packages) {
+	var itemHashes = [];
+	for (let packageInfo of packages) {
+		var derivedItemCategories = [];
+		var index = 0;
+		for (let packageCategory of packageInfo.derivedItemCategories) {
+			derivedItemCategories[index] = {
+				categoryDescription: packageCategory.categoryDescription,
+				items: []
+			};
+			for (var item of packageCategory.items) {
+				if (itemHashes.indexOf(item.itemHash) === -1) {
+					itemHashes.push(item.itemHash);
+					derivedItemCategories[index].items.push(item);
+				}
+			}
+			index++;
+		}
+		packageInfo.derivedItemCategories = derivedItemCategories;
+	}
+	return packages;
 	derivedItemCategories[0] = {
 		categoryDescription: package.derivedItemCategories[0].categoryDescription,
 		items: []
@@ -314,15 +339,15 @@ function compressPackage(package) {
 	let possibleText = derivedItemCategories[1].categoryDescription.split(" ");
 	for (let packageCategory of package.derivedItemCategories) {
 		if (packageCategory.categoryDescription.indexOf(guaranteedText) > -1) {
-			for(let item of packageCategory.items) {
-				if(listContainsItem(derivedItemCategories[0].items, item.itemHash) === false) {
+			for (let item of packageCategory.items) {
+				if (listContainsItem(derivedItemCategories[0].items, item.itemHash) === false) {
 					derivedItemCategories[0].items.push(item);
 				}
 			}
 		}
 		if (packageCategory.categoryDescription.indexOf(possibleText) > -1) {
-			for(let item of packageCategory.items) {
-				if(listContainsItem(derivedItemCategories[1].items, item.itemHash) === false) {
+			for (let item of packageCategory.items) {
+				if (listContainsItem(derivedItemCategories[1].items, item.itemHash) === false) {
 					derivedItemCategories[1].items.push(item);
 				}
 			}
@@ -333,6 +358,7 @@ function compressPackage(package) {
 }
 
 function addPackagesToVendors() {
+	var packages = [];
 	for (let vendorType of vendors) {
 		for (let vendor of vendorType) {
 			vendor.packages = [];
@@ -341,12 +367,13 @@ function addPackagesToVendors() {
 					for (let itemDefinition of DestinyCompactItemDefinition) {
 						// console.log(itemDefinition);
 						if (itemDefinition.itemTypeName === "Package" && itemDefinition.derivedItemCategories && itemDefinition.derivedItemVendorHash && manualVendorHashMap[vendorHash].indexOf(itemDefinition.itemHash) > -1) {
-							itemDefinition.derivedItemCategories = compressPackage(itemDefinition);
+							// itemDefinition.derivedItemCategories = compressPackage(itemDefinition);
 							vendor.packages.push(itemDefinition);
 						}
 					}
 				}
 			}
+			vendor.packages = compressPackages(vendor.packages);
 		}
 	}
 }
@@ -430,6 +457,7 @@ database.open().then(function() {
 });
 
 function getVendor(hash) {
+	elements.status.classList.add("active");
 	var mainContainer = document.getElementById("history");
 	mainContainer.innerHTML = "";
 	lastVendor = parseInt(hash);
@@ -447,11 +475,13 @@ function getVendor(hash) {
 		} else {
 			document.getElementById("history").innerHTML = `<h2>${response.Message}</h2>`;
 			console.log(lastVendor);
+			elements.status.classList.remove("active");
 		}
 	});
 }
 
 function compareVendor(vendorHash, compareHash) {
+	elements.status.classList.add("active");
 	var mainContainer = document.getElementById("history");
 	mainContainer.innerHTML = "";
 	lastVendor = parseInt(vendorHash);

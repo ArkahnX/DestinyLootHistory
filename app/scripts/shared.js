@@ -93,7 +93,7 @@ function getItemDefinition(hash, item) {
 	}
 	// tracker.sendEvent('Item not in database', `${hash}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 	if (missingItemHashes.indexOf(hash) === -1) {
-		logger.error(`Item Reference ${hash} is not in database. This has been reported.`);
+		// logger.error(`Item Reference ${hash} is not in database. This has been reported.`);
 		console.error(`Item Reference ${hash} is not in database. This has been reported.`);
 		if (item) {
 			console.log(item)
