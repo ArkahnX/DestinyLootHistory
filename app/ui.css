@@ -462,8 +462,8 @@ header {
 }
 
 .RiseofIron:not(.rare) #item-head,
-.ChallengeoftheElders:not(.rare) #item-head,
-.WrathoftheMachine:not(.rare) #item-head {
+.ChallengeoftheElders:not(.rare):not(.TheTakenKing) #item-head,
+.WrathoftheMachine:not(.rare):not(.TheTakenKing) #item-head {
 	background-image: linear-gradient(45deg,transparent 244px,rgba(0,0,0,.11) 30px);
 }
 

@@ -352,9 +352,9 @@ function getProductivity() {
 				container.className = "productiveCurrency productiveBox";
 				let itemDef = getItemDefinition(engramItem.hash);
 				itemDef.stackSize = engramItem.diff;
-				if (engramItem.diff === 0) {
+				if (engramItem.diff <= 0) {
 					itemDef.removed = true;
-					itemDef.stackSize = 0;
+					itemDef.stackSize = "0";
 				}
 				let itemElement = makeItem(itemDef);
 				let textNode = document.createElement("span");
@@ -377,9 +377,9 @@ function getProductivity() {
 				let container = document.createElement("span");
 				container.className = "productiveCurrency productiveBox";
 				let itemDef = getItemDefinition(bountyItem.itemHash);
-				if (bountyItem.diff === 0) {
+				if (bountyItem.diff <= 0) {
 					bountyItem.removed = true;
-					bountyItem.stackSize = 0;
+					bountyItem.stackSize = "0";
 				}
 				let itemElement = makeItem(bountyItem);
 				let textNode = document.createElement("span");
@@ -402,6 +402,10 @@ function getProductivity() {
 				let container = document.createElement("span");
 				container.className = "productiveCurrency productiveBox";
 				let itemDef = getItemDefinition(materialItem.itemHash);
+				if (materialItem.diff <= 0) {
+					materialItem.removed = true;
+					materialItem.stackSize = "0";
+				}
 				let itemElement = makeItem(materialItem);
 				let textNode = document.createElement("span");
 				textNode.className = "productiveCurrency";
@@ -423,6 +427,10 @@ function getProductivity() {
 				let container = document.createElement("span");
 				container.className = "productiveCurrency productiveBox";
 				let itemDef = getItemDefinition(offeringItem.itemHash);
+				if (offeringItem.stackSize <= 0) {
+					offeringItem.removed = true;
+					offeringItem.stackSize = "0";
+				}
 				let itemElement = makeItem(offeringItem);
 				let textNode = document.createElement("span");
 				textNode.className = "productiveCurrency";
@@ -447,15 +455,15 @@ function getProductivity() {
 				// exoticContainer.innerHTML = "<p>" + itemDef.itemTypeName + "</p>";
 				let itemElement;
 				if (exoticItem.item) {
-					if (exoticItem.diff === 0) {
+					if (exoticItem.diff <= 0) {
 						exoticItem.item.removed = true;
-						exoticItem.item.stackSize = 0;
+						exoticItem.item.stackSize = "0";
 					}
 					itemElement = makeItem(exoticItem.item);
 				} else {
-					if (exoticItem.diff === 0) {
+					if (exoticItem.diff <= 0) {
 						itemDef.removed = true;
-						itemDef.stackSize = 0;
+						itemDef.stackSize = "0";
 					}
 					itemElement = makeItem(itemDef);
 				}
@@ -482,15 +490,15 @@ function getProductivity() {
 				// itemContainer.innerHTML = "<p>" + itemDef.itemTypeName + "</p>";
 				let itemElement;
 				if (itemItem.item) {
-					if (itemItem.diff === 0) {
+					if (itemItem.diff <= 0) {
 						itemItem.item.removed = true;
-						itemItem.item.stackSize = 0;
+						itemItem.item.stackSize = "0";
 					}
 					itemElement = makeItem(itemItem.item);
 				} else {
-					if (itemItem.diff === 0) {
+					if (itemItem.diff <= 0) {
 						itemDef.removed = true;
-						itemDef.stackSize = 0;
+						itemDef.stackSize = "0";
 					}
 					itemElement = makeItem(itemDef);
 				}
