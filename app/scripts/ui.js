@@ -385,19 +385,34 @@ function postDisplay() {
 	}
 }
 
-function itemType(itemHash) {
-	let itemDef = getItemDefinition(itemHash);
-	if (itemDef.itemTypeName && itemDef.itemTypeName.indexOf("Engram") > -1) {
+function itemType(item) {
+	let itemDef = getItemDefinition(item.itemHash, item);
+	if (itemDef.itemType === 8) {
 		return "engram";
 	}
-	if ([14239492, 20886954, 434908299, 1585787867, 4023194814, 3551918588, 3448274439].indexOf(itemDef.bucketTypeHash) > -1) {
+	if (itemDef.itemType === 2) {
 		return "armor";
+	}
+	if (itemDef.itemType === 1) {
+		return "currency";
+	}
+	if (itemDef.itemType === 3) {
+		return "weapon";
+	}
+	if (itemDef.itemType === 4) {
+		return "bounty";
+	}
+	if(itemDef.bucketTypeHash === 1469714392) {
+		return "consumable";
+	}
+	if(itemDef.bucketTypeHash === 3865314626) {
+		return "material";
+	}
+	if(itemDef.bucketTypeHash === 3313201758) {
+		return "ornament";
 	}
 	if ([284967655, 2025709351].indexOf(itemDef.bucketTypeHash) > -1) {
 		return "vehicle";
-	}
-	if ([953998645, 1498876634, 2465295065].indexOf(itemDef.bucketTypeHash) > -1) {
-		return "weapon";
 	}
 	if ([4274335291, 3796357825, 3054419239, 2973005342].indexOf(itemDef.bucketTypeHash) > -1) {
 		return "social";
@@ -450,7 +465,7 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 	} else {
 		itemContainer.classList.remove("undiscovered");
 	}
-	itemContainer.dataset.itemType = itemType(itemData.itemHash);
+	itemContainer.dataset.itemType = itemType(itemData);
 	itemContainer.dataset.itemRarity = itemRarity(itemData.itemHash);
 	if (hasQuality(itemData) && globalOptions.showQuality) {
 		quality.className = "quality";
@@ -722,6 +737,9 @@ function passData(DomNode, itemData, classRequirement, optionalCosts) {
 	if (!DomNode.dataset.primaryStat) {
 		DomNode.dataset.primaryStat = primaryStat(itemData);
 		DomNode.dataset.primaryStatName = primaryStatName(itemData);
+	}
+	if(!DomNode.dataset.nodes && DomNode.dataset.talentGridHash) {
+		DomNode.dataset.nodes = JSON.stringify(buildFakeNodes(DomNode.dataset.talentGridHash));
 	}
 	// DomNode.dataset.itemDescription = itemDefinition.itemDescription;
 	// DomNode.dataset.damageTypeName = elementType(itemData);

@@ -270,6 +270,7 @@ header {
 	line-height: normal;
 
 	position: absolute;
+	z-index: 0;
 	right: 0;
 	bottom: 0;
 
@@ -312,24 +313,12 @@ header {
 	background: #85C5EC;
 }
 
-.complete.arc + .primary-stat {
-	color: #85C5EC;
-}
-
 .solar + .primary-stat {
 	background: #F2721B;
 }
 
-.complete.solar + .primary-stat {
-	color: #F2721B;
-}
-
 .void + .primary-stat {
 	background: #B184C5;
-}
-
-.complete.void + .primary-stat {
-	color: #B184C5;
 }
 
 .main-section {
@@ -472,9 +461,9 @@ header {
 	background: #C14443;
 }
 
-.RiseofIron #item-head,
-.ChallengeoftheElders #item-head,
-.WrathoftheMachine #item-head {
+.RiseofIron:not(.rare) #item-head,
+.ChallengeoftheElders:not(.rare) #item-head,
+.WrathoftheMachine:not(.rare) #item-head {
 	background-image: linear-gradient(45deg,transparent 244px,rgba(0,0,0,.11) 30px);
 }
 
@@ -838,7 +827,11 @@ h1 {
 	width: 50px;
 	height: 50px;
 
-	background-size: cover;
+	border-radius: 50%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-origin: padding-box;
+	background-size: 80%;
 }
 
 #notification {
@@ -953,6 +946,8 @@ p {
 }
 
 ul.drop-down {
+	z-index: 2;
+
 	display: inline;
 
 	margin: 0;
@@ -1230,9 +1225,14 @@ fieldset ul {
 	margin-top: 14px;
 
 	transform: translate(0, 0);
-	letter-spacing: 1px;
+	/*letter-spacing: 1px;*/
 
 	opacity: 1;
+}
+
+#debugHome li p,
+#debugHome li h2 {
+	letter-spacing: 1px;
 }
 
 #debugHome p {
@@ -1293,6 +1293,15 @@ fieldset ul {
 #debugHome ul > li:nth-of-type(8) {
 	animation-delay: 2s;
 }
+#debugHome ul > li:nth-of-type(9) {
+	animation-delay: 2.25s;
+}
+#debugHome ul > li:nth-of-type(10) {
+	animation-delay: 2.5s;
+}
+#debugHome ul > li:nth-of-type(11) {
+	animation-delay: 2.75s;
+}
 #debugHome ul > li:last-of-type {
 	padding-bottom: 0;
 }
@@ -1300,30 +1309,18 @@ fieldset ul {
 	position: absolute;
 	right: 30px;
 
+	width: 0;
+	height: 0;
 	margin-top: 16px;
 
-	transform: translate(-6px, 0);
-}
-#debugHome ul li i:before,
-#debugHome ul li i:after {
-	position: absolute;
+	transform: rotate(0deg);
 
-	width: 3px;
-	height: 9px;
+	border-top: 20px solid #000;
+	border-right: 20px solid transparent;
+	border-left: 20px solid transparent;
+	transition: transform .2s;
+}
 
-	content: '';
-
-	background-color: #000;
-}
-#debugHome ul li i:before {
-	transform: translate(-2px, -1px) rotate(45deg);
-}
-#debugHome.collection ul li i:after {
-	transform: translate(2px, 0) rotate(-45deg);
-}
-#debugHome ul li i:after {
-	transform: translate(2px, -1px) rotate(-45deg);
-}
 #debugHome ul li input[type=checkbox] {
 	position: absolute;
 	z-index: 1;
@@ -1345,14 +1342,8 @@ fieldset ul {
 
 	opacity: 0;
 }
-#debugHome.collection ul li input[type=checkbox]:checked ~ i:before {
-	transform: translate(2px, -2px) rotate(45deg);
-}
-#debugHome ul li input[type=checkbox]:checked ~ i:before {
-	transform: translate(2px, 0px) rotate(45deg);
-}
-#debugHome ul li input[type=checkbox]:checked ~ i:after {
-	transform: translate(-2px, 0) rotate(-45deg);
+#debugHome ul li input[type=checkbox]:checked ~ i {
+	transform: rotate(180deg);
 }
 
 @keyframes flipdown {
@@ -1532,10 +1523,6 @@ optgroup option {
 	max-width: 100%;
 	max-height: 95%;
 	padding-top: 40px;
-}
-
-.complete + .primary-stat {
-	background: rgba(245,220,86,.9);
 }
 
 .purchaseable {
@@ -1765,4 +1752,39 @@ optgroup option {
 
 nav label select {
 	vertical-align: top;
+}
+
+.node-selected {
+	background-color: #4887BA;
+}
+
+.node-complete {
+	border-width: 3px;
+	border-style: solid;
+	border-color: #5EA16A;
+}
+
+/* line 3, /Shared/Styles/Site/_destiny_base_kit.scss */
+::-webkit-scrollbar {
+		width: 17px;
+}
+
+/* Track */
+/* line 8, /Shared/Styles/Site/_destiny_base_kit.scss */
+::-webkit-scrollbar-track {
+		background: #b5bab7;
+		box-shadow: inset 0 0 5px #12161b;
+}
+
+/* Handle */
+/* line 15, /Shared/Styles/Site/_destiny_base_kit.scss */
+::-webkit-scrollbar-thumb {
+		background: #dee1dd;
+		border: 1px solid #717676;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* line 22, /Shared/Styles/Site/_destiny_base_kit.scss */
+::-webkit-scrollbar-thumb:hover {
+		background: #c8cdc6;
 }
