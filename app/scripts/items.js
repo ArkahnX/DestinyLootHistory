@@ -368,25 +368,22 @@ function checkDiff(sourceArray, newArray) {
 	return itemsRemovedFromSource;
 }
 
-function checkThreeOfCoinsXp(track3oC, characterId, currentProgress, characterDisplayXp) {
+function checkThreeOfCoinsXp(track3oC, characterId) {
 	if (track3oC === true) {
 		logger.startLogging("3oC");
 		var threeOfCoinsProgress = JSON.parse(localStorage.threeOfCoinsProgress);
-		if (!threeOfCoinsProgress[characterId]) {
-			threeOfCoinsProgress[characterId] = currentProgress.currentProgress;
-		}
 		var old3oCProgress = parseInt(threeOfCoinsProgress[characterId], 10);
-		var progressChange = characterDisplayXp.currentProgress - old3oCProgress;
 		if (localStorage.move3oCCooldown === "true") {
-			if (characterDisplayXp.currentProgress > 0 && progressChange > 0) {
+			if (characterDescriptions[characterId].currentActivityHash !== old3oCProgress) {
 				localStorage.move3oCCooldown = "false";
 			}
 		}
-		if (characterDisplayXp.currentProgress === 0 && progressChange < 0 && localStorage.move3oCCooldown === "false") {
+		if (localStorage.move3oCCooldown === "false") {
+			console.log(characterId, characterDescriptions[characterId], threeOfCoinsProgress[characterId])
 			localStorage.move3oC = "true";
 			localStorage.move3oCCooldown = "true";
 		}
-		threeOfCoinsProgress[characterId] = characterDisplayXp.currentProgress;
+		threeOfCoinsProgress[characterId] = characterDescriptions[characterId].currentActivityHash;
 		localStorage.threeOfCoinsProgress = JSON.stringify(threeOfCoinsProgress);
 	}
 }
@@ -399,9 +396,6 @@ function checkFactionDiff(sourceArray, newArray, characterId) {
 			if (newArray[e].progressionHash == sourceArray[i].progressionHash && newArray[e].progressionHash === 3298204156) {
 				var characterDisplayXp = newArray[e];
 				var currentProgress = sourceArray[i];
-				getOption("track3oC").then(function(track3oC) {
-					checkThreeOfCoinsXp(track3oC, characterId, currentProgress, characterDisplayXp);
-				});
 			} else if (newArray[e].progressionHash == sourceArray[i].progressionHash && newArray[e].currentProgress !== sourceArray[i].currentProgress) {
 				var newItem = {
 					progressionHash: newArray[e].progressionHash,
@@ -647,7 +641,7 @@ function findThreeOfCoins(characterId, checkAllCharacters) {
 			}
 		}
 	}
-	logger.log("Unable to find 3oC on "+characterId);
+	logger.log("Unable to find 3oC on " + characterId);
 	return false;
 }
 
@@ -660,17 +654,19 @@ function check3oC() {
 				resolve();
 				return false;
 			}
+			checkThreeOfCoinsXp(track3oC, localStorage.newestCharacter);
 			logger.log("We ARE tracking 3oC");
 			if (localStorage.move3oC && localStorage.move3oC === "true") { // we have just completed an activity, remind the User about Three of Coins
 				if (localStorage.newestCharacter) {
-					logger.log("three of coins reminder sent");
+					localStorage.move3oC = "false";
 					var threeOfCoinsCharacter = findThreeOfCoins(localStorage.newestCharacter, true);
-					logger.log("Sending 3oC from "+threeOfCoinsCharacter);
+					logger.log("Sending 3oC from " + threeOfCoinsCharacter);
 					if (threeOfCoinsCharacter && hasInventorySpace("vault", 417308266)) {
 						setTimeout(function() {
 							bungie.transfer(threeOfCoinsCharacter, "0", 417308266, 1, true).then(function(response) {
 								console.log(response);
 								bungie.transfer(localStorage.newestCharacter, "0", 417308266, 1, false).then(function(response) {
+									logger.log("three of coins reminder sent");
 									console.log(response);
 								});
 							});
@@ -678,7 +674,6 @@ function check3oC() {
 					} else {
 						logger.log("three of coins reminder sent, but no space in vault.");
 					}
-					localStorage.move3oC = "false";
 					resolve();
 				} else {
 					logger.warn("Unable to determine 3oC target.");
@@ -788,4 +783,18 @@ function autoMoveToVault(item, characterId) {
 			logger.log(response);
 		});
 	});
+}
+
+function buildFakeNodes(talentGridHash) {
+	var nodes = [];
+	var talentGridDef = DestinyCompactTalentDefinition[talentGridHash];
+	for(var i=0;i<talentGridDef.nodes.length;i++) {
+		nodes.push({
+			isActivated:false,
+			stepIndex:0,
+			nodeHash:i,
+			state:7
+		});
+	}
+	return nodes;
 }

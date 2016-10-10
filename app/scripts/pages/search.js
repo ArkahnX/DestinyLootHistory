@@ -6,8 +6,9 @@ var searchTypes = ["itemName", "itemTypeName", "itemDescription", "tierTypeName"
 function makeSearchData(itemDiff) {
 	var searchData = {};
 	if (searchTypes) {
-		for (let itemDiffType of itemDiff) {
-			if (Array.isArray(itemDiffType)) {
+		for (let attr in itemDiff) {
+			let itemDiffType = itemDiff[attr];
+			if (Array.isArray(itemDiffType) && attr !== "transferred") {
 				for (var type of searchTypes) {
 					for (let itemData of itemDiffType) {
 						if (itemData.item) {

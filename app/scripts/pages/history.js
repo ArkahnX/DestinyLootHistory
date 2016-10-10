@@ -25,6 +25,24 @@ function itemInArray(array, value) {
 	return false;
 }
 
+function goodItemToDisplay(item) {
+	var itemDataType = itemType(item);
+	var itemDataRarity = itemRarity(item.itemHash);
+	if(itemDataType === "engram" || itemDataType === "currency" || itemDataType === "bounty") {
+		return false;
+	}
+	if(itemDataRarity === "uncommon" && (itemDataType === "armor" || itemDataType === "weapon")) {
+		return false;
+	}
+	if(itemDataRarity === "rare" && (itemDataType === "armor" || itemDataType === "weapon")) {
+		return false;
+	}
+	if(itemDataRarity === "common" && (itemDataType === "armor" || itemDataType === "weapon")) {
+		return false;
+	}
+	return true;
+}
+
 function checkInventory() {
 	logger.startLogging("history");
 	logger.time("Bungie Inventory");
@@ -69,9 +87,7 @@ function checkInventory() {
 	var div = document.createElement("div");
 	div.classList.add("sub-section");
 	for (var item of inventoryData) {
-		var itemDataType = itemType(item.itemHash);
-		var itemDataRarity = itemRarity(item.itemHash);
-		if ((itemDataType !== "engram" && itemDataType !== "currency") && ((itemDataType === "armor" && itemDataRarity !== "uncommon" && itemDataRarity !== "rare") || (itemDataType === "weapon" && itemDataRarity !== "uncommon" && itemDataRarity !== "rare") || itemDataType === "other")) {
+		if (goodItemToDisplay(item)) {
 			var itemDefinition = getItemDefinition(item.itemHash);
 			var found = false;
 			if (itemDefinition.sourceHashes && itemDefinition.sourceHashes.length && sources[sourceIndex] && itemDefinition.sourceHashes.indexOf(sources[sourceIndex]) > -1) {

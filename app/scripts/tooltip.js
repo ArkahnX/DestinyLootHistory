@@ -10,7 +10,7 @@ function handleTooltipData(dataset, element, event) {
 
 function setTooltipData(dataset, element, event) {
 	var itemDetails = dataset;
-	if(element.className.indexOf("faction") === -1 || element.className.indexOf("currency") > -1) {
+	if (element.className.indexOf("faction") === -1 || element.className.indexOf("currency") > -1) {
 		itemDetails = getItemDefinition(dataset.itemHash);
 	}
 	if (dataset.itemName || itemDetails.itemName) {
@@ -143,30 +143,52 @@ function handleOtherStats(dataset, resolve) {
 	if (dataset.stats && itemDef.stats) {
 		var stats = JSON.parse(dataset.stats);
 		var sortedStats = [];
-		for (var statHash of statHashes) {
-			for (var statDef of itemDef.stats) {
-				let found = false;
-				if (statDef.statHash === statHash) {
-					found = true;
-				}
-				for (var stat of stats) {
-					if (stat.statHash === statHash && statDef.statHash === statHash) {
+		var missingItemDefStats = true;
+		for (var statDef of itemDef.stats) {
+			if (statHashes.indexOf(statDef.statHash) > -1) {
+				missingItemDefStats = false;
+				break;
+			}
+		}
+		if (missingItemDefStats) {
+			for (let statHash of statHashes) {
+				for (let stat of stats) {
+					if (stat.statHash === statHash) {
 						sortedStats.push({
-							minimum: statDef.minimum,
-							maximum: statDef.maximum,
+							minimum: 0,
+							maximum: 25,
 							value: stat.value,
 							statName: DestinyStatDefinition[stat.statHash].statName
 						});
-						found = false;
 					}
 				}
-				if (found === true) {
-					sortedStats.push({
-						minimum: statDef.minimum,
-						maximum: statDef.maximum,
-						value: statDef.value,
-						statName: DestinyStatDefinition[statDef.statHash].statName
-					});
+			}
+		} else {
+			for (let statHash of statHashes) {
+				for (let statDef of itemDef.stats) {
+					let found = false;
+					if (statDef.statHash === statHash) {
+						found = true;
+					}
+					for (let stat of stats) {
+						if (stat.statHash === statHash && statDef.statHash === statHash) {
+							sortedStats.push({
+								minimum: statDef.minimum,
+								maximum: statDef.maximum,
+								value: stat.value,
+								statName: DestinyStatDefinition[stat.statHash].statName
+							});
+							found = false;
+						}
+					}
+					if (found === true) {
+						sortedStats.push({
+							minimum: statDef.minimum,
+							maximum: statDef.maximum,
+							value: statDef.value,
+							statName: DestinyStatDefinition[statDef.statHash].statName
+						});
+					}
 				}
 			}
 		}
@@ -343,15 +365,23 @@ function handleOtherStats(dataset, resolve) {
 			}
 			elements.nodeTable.appendChild(NodeList);
 		}
-		for (let node of nodeData.nodes) {
-			let tableText = document.getElementById(`row${node.row}column${node.column}`);
-			// tableText.classList.add("node");
-			if (node.icon) {
-				tableText.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + node.icon + "')");
+		if (nodeData && nodeData.nodes) {
+			for (let node of nodeData.nodes) {
+				let tableText = document.getElementById(`row${node.row}column${node.column}`);
+				tableText.dataset.state = node.state;
+				// tableText.classList.add("node");
+				if (node.icon) {
+					tableText.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + node.icon + "')");
+				}
+				if (node.isActivated) {
+					tableText.classList.add("node-selected");
+				} else if (node.state === 9 || node.state === 0) {
+					tableText.classList.add("node-complete");
+				}
+				tableText.title = node.nodeStepName + " \n" + node.nodeStepDescription;
 			}
-			tableText.title = node.nodeStepName + " \n" + node.nodeStepDescription;
 		}
-		if (itemDef.bucketTypeHash === 4023194814) {
+		if (itemDef.bucketTypeHash === 4023194814) { // ghost shell icons
 			if (nodeData.rows > 1 && nodeData.columns > 1) {
 				let materialIcon = document.getElementById(`row${1}column${nodeData.columns}`);
 				let guardianIcon = document.getElementById(`row${2}column${nodeData.columns}`);
