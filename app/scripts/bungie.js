@@ -216,7 +216,7 @@ var bungie = (function Bungie() {
 						domain: ".bungie.net"
 					}, function(cookies) {
 						if (chrome.runtime.lastError) {
-							tracker.sendEvent('Cookie Runtime Error', chrome.runtime.lastError, `version ${localStorage.version}, systems ${localStorage.systems}`);
+							tracker.sendEvent('Cookie Runtime Error', JSON.stringify(chrome.runtime.lastError), `version ${localStorage.version}, systems ${localStorage.systems}`);
 							console.error(chrome.runtime.lastError);
 						}
 						if (cookies && cookies.length) {
