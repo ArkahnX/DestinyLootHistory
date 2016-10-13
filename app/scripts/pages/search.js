@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		database.getMultipleStores(database.allStores).then(function(result) {
 			console.log(result);
 		});
-		initUi();
+		initUi(elements.container);
 		document.getElementById("status").classList.remove("active");
 		var searchElement = document.querySelector('#searchInput');
 		var searchTimeout = null;

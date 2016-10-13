@@ -1,6 +1,6 @@
 tracker.sendAppView('TestScreen');
 // console.disable();
-initUi();
+initUi(elements.container);
 var data = {
 	inventories: {},
 	progression: {},
@@ -26,7 +26,7 @@ var characterDescriptions = {
 function initItems(callback) {
 	// console.startLogging("items");
 	console.time("load Bungie Data");
-	initUi();
+	initUi(elements.container);
 	getOption("activeType").then(bungie.setActive);
 	bungie.user().then(function(u) {
 		if (u.error) {

@@ -11,7 +11,7 @@ console.log(debugMessage);
 
 logger.disable();
 document.addEventListener("DOMContentLoaded", function() {
-	initUi();
+	initUi(elements.container);
 }, false);
 
 var jsonCharacterDescriptions = "";

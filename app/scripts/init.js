@@ -83,7 +83,7 @@ function _stringToInt(string, defaultValue) {
 	return defaultValue;
 }
 
-var goodStorageValues = ["characterDescriptions", "error", "errorMessage", "itemChangeDetected", "listening", "move3oC", "move3oCCooldown", "newestCharacter", "notificationClosed", "disableQuality", "autoLockHighLight", "systems", "version", "threeOfCoinsProgress"];
+var goodStorageValues = ["characterDescriptions", "error", "errorMessage", "itemChangeDetected", "listening", "move3oC", "move3oCCooldown", "newestCharacter", "notificationClosed", "disableQuality", "autoLockHighLight", "systems", "version", "threeOfCoinsProgress", "coolDowns"];
 
 function initializeStoredVariables() {
 	return new Promise(function(resolve) {
@@ -94,6 +94,7 @@ function initializeStoredVariables() {
 		localStorage.listening = _checkValue(localStorage.listening, _checkBoolean, "false");
 		localStorage.move3oC = _checkValue(localStorage.move3oC, _checkBoolean, "false");
 		localStorage.move3oCCooldown = _checkValue(localStorage.move3oCCooldown, _checkBoolean, "false");
+		localStorage.coolDowns = JSON.stringify({});
 		localStorage.newestCharacter = _checkValue(localStorage.newestCharacter, _checkNumber, "vault");
 		localStorage.notificationClosed = _checkValue(localStorage.notificationClosed, _checkBoolean, "false");
 		localStorage.autoLockHighLight = _checkValue(localStorage.autoLockHighLight, _checkBoolean, "false");
@@ -120,6 +121,8 @@ function initializeStoredVariables() {
 				activeType: "psn",
 				autoLock: false,
 				track3oC: true,
+				trackBoosters: true,
+				obeyCooldowns:true,
 				relativeDates: true,
 				pgcrImage: false,
 				showQuality: true,

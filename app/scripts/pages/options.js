@@ -65,7 +65,7 @@ for (var itemDef of DestinyCompactItemDefinition) {
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
-	initUi();
+	initUi(elements.container);
 	var startOnLaunchButton = document.getElementById("startOnLaunch");
 	var backupDataButton = document.getElementById("backupData");
 	var exportDataButton = document.getElementById("exportData");

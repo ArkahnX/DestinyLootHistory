@@ -548,6 +548,6 @@ function flattenItems(itemCategories) {
 	return result;
 }
 
-initUi();
+initUi(elements.container);
 
 window.requestAnimationFrame(date.keepDatesUpdated);

@@ -2,12 +2,12 @@ tracker.sendAppView('BackgroundScreen');
 var globalOptions = {};
 
 function _backup() {
-	database.getAllEntries("itemChanges").then(function(data) {
+	database.getAllEntries("itemChanges").then(function(/*data*/) {
 		// chrome.storage.local.get(null, function(data) {
 		if (chrome.runtime.lastError) {
 			logger.error(chrome.runtime.lastError);
 		}
-		var url = 'data:application/json;base64,' + btoa(JSON.stringify(data.itemChanges));
+		// var url = 'data:application/json;base64,' + btoa(JSON.stringify(data.itemChanges));
 		// chrome.downloads.download({
 		// 	url: url,
 		// 	filename: `itemChanges-${moment().format("YYYY-MM-DD_hh-mm-A")}.json`
@@ -53,9 +53,9 @@ function init() {
 	if (bungie) {
 		chrome.cookies.getAll({
 			domain: "www.bungie.net"
-		}, function initCookies(result) {
+		}, function initCookies() {
 			if (chrome.runtime.lastError) {
-				console.error(chrome.runtime.lastError)
+				console.error(chrome.runtime.lastError);
 				setTimeout(init, 1000);
 			} else {
 				var manifest = chrome.runtime.getManifest();

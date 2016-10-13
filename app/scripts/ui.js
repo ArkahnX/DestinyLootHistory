@@ -24,10 +24,11 @@ var elements = {
 	statTable: document.getElementById("stat-table"),
 	nodeTable: document.getElementById("node-table"),
 	costTable: document.getElementById("cost-table"),
-	ToCReminder: document.getElementById("ToCReminder"),
 	toggleSystem: document.getElementById("toggleSystem"),
 	autoLock: document.getElementById("autoLock"),
 	track3oC: document.getElementById("track3oC"),
+	trackBoosters: document.getElementById("trackBoosters"),
+	obeyCooldowns: document.getElementById("obeyCooldowns"),
 	paginate: document.getElementById("paginate"),
 	showQuality: document.getElementById("showQuality"),
 	useGuardianLight: document.getElementById("useGuardianLight"),
@@ -60,7 +61,7 @@ if (moment) {
 	var timezone = moment.tz.guess();
 }
 
-function initUi() {
+function initUi(elementTarget) {
 	for (var elementName in elements) {
 		if (elementNames[elementName]) {
 			elements[elementName] = document.getElementById(elementNames[elementName]);
@@ -82,8 +83,8 @@ function initUi() {
 			});
 		});
 	}
-	if (elements.container) {
-		elements.container.addEventListener("mouseover", function(event) {
+	if (elementTarget) {
+		elementTarget.addEventListener("mouseover", function(event) {
 			var target = null;
 			if (event.target.classList.contains("item") || event.target.classList.contains("faction")) {
 				target = event.target;
@@ -103,30 +104,6 @@ function initUi() {
 				previousElement = null;
 			}
 		}, true);
-	}
-	if (elements.ToCReminder) {
-		getOption("track3oC").then(function(track3oC) {
-			if (track3oC === false) {
-				elements.ToCReminder.value = "Turn on 3oC reminder";
-				elements.ToCReminder.classList.add("grey");
-				elements.ToCReminder.classList.remove("green");
-			}
-			elements.ToCReminder.addEventListener("click", function(event) {
-				getOption("track3oC").then(function(track3oC) {
-					if (track3oC === false) {
-						setOption("track3oC", true);
-						elements.ToCReminder.value = "Turn off 3oC reminder";
-						elements.ToCReminder.classList.remove("grey");
-						elements.ToCReminder.classList.add("green");
-					} else {
-						setOption("track3oC", false);
-						elements.ToCReminder.value = "Turn on 3oC reminder";
-						elements.ToCReminder.classList.add("grey");
-						elements.ToCReminder.classList.remove("green");
-					}
-				});
-			}, false);
-		});
 	}
 	if (elements.toggleSystem) {
 		getOption("activeType").then(function(activeType) {
@@ -172,6 +149,14 @@ function initUi() {
 		if (elements.track3oC) {
 			elements.track3oC.checked = options.track3oC === true;
 			elements.track3oC.addEventListener("change", handleCheckboxChange, false);
+		}
+		if (elements.trackBoosters) {
+			elements.trackBoosters.checked = options.trackBoosters === true;
+			elements.trackBoosters.addEventListener("change", handleCheckboxChange, false);
+		}
+		if (elements.obeyCooldowns) {
+			elements.obeyCooldowns.checked = options.obeyCooldowns === true;
+			elements.obeyCooldowns.addEventListener("change", handleCheckboxChange, false);
 		}
 		if (elements.showQuality) {
 			elements.showQuality.checked = options.showQuality === true;

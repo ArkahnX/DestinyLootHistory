@@ -52,6 +52,7 @@ var bungie = (function Bungie() {
 			let r = new XMLHttpRequest();
 			r.open(opts.method, "https://www.bungie.net/Platform" + opts.route, true);
 			r.setRequestHeader('X-API-Key', '4a6cc3aa21d94c949e3f44736d036a8f');
+			r.timeout = 5000;
 			r.onload = function() {
 				if (this.status >= 200 && this.status < 400) {
 					var response = JSON.parse(this.response);
@@ -99,7 +100,7 @@ var bungie = (function Bungie() {
 						opts.complete(response.Response, response);
 					} else if (response.ErrorCode === 99) {
 						logger.startLogging("Bungie Logs");
-						tracker.sendEvent('User Not Found', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
+						tracker.sendEvent('User Not Logged In', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 						logger.error('Error loading user. Make sure your account is <a href="https://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message));
 						localStorage.error = "true";
 						localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="https://www.bungie.net">linked with bungie.net and you are logged in</a>.<br>This is a generic error, please use the <a href="debug.html">report issue feature</a> so the developers can assist.';
@@ -210,14 +211,13 @@ var bungie = (function Bungie() {
 					r.send(JSON.stringify(opts.payload));
 				} else {
 					localStorage.error = "true";
-					tracker.sendEvent('Cookie Not Found', `Status: ${this.status}, Message: ${this.response}, Route: ${opts.route}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
-					logger.error('Error loading cookie.' + localStorage.systems);
-					localStorage.errorMessage = `Error loading user. Please sign out and sign back in to <a href="https://www.bungie.net">linked with bungie.net</a> then click Restart Tracking`;
+					localStorage.errorMessage = `Error loading user. Please sign out and sign back in to <a href="https://www.bungie.net">linked with bungie.net</a> then click Restart Tracking.\nThis issue is being actively worked on. <a href="https://docs.google.com/forms/d/e/1FAIpQLSeuHPgi_vetjNlQvVbOE8M7qM-7G5I4zmGalSKmUGT4UQ0Ekw/viewform">Please report it with this survey</a>.`;
 					chrome.cookies.getAll({
 						domain: ".bungie.net"
 					}, function(cookies) {
 						if (chrome.runtime.lastError) {
-							logger.error(chrome.runtime.lastError);
+							tracker.sendEvent('Cookie Runtime Error', chrome.runtime.lastError, `version ${localStorage.version}, systems ${localStorage.systems}`);
+							console.error(chrome.runtime.lastError);
 						}
 						if (cookies && cookies.length) {
 							var cookieNames = {};
@@ -234,10 +234,10 @@ var bungie = (function Bungie() {
 							}
 							var result = JSON.stringify(cookieNames);
 							// console.log(result)
-							tracker.sendEvent('Cookie Not Found', result, `version ${localStorage.version}, systems ${localStorage.systems}`);
+							tracker.sendEvent('bungled not found', result, `version ${localStorage.version}, systems ${localStorage.systems}`);
 							logger.error('Error loading cookie.' + result);
 						} else {
-							tracker.sendEvent('Cookie Not Found', "{}", `version ${localStorage.version}, systems ${localStorage.systems}`);
+							tracker.sendEvent('no bungienet cookies', JSON.stringify(cookies), `version ${localStorage.version}, systems ${localStorage.systems}`);
 							logger.error('Error loading cookie. {}');
 						}
 						logger.endLogging();

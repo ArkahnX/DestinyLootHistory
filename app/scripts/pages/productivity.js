@@ -520,7 +520,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		database.getMultipleStores(database.allStores).then(function(result) {
 			console.log(result);
 		});
-		initUi();
+		initUi(elements.container);
 		var startDateInput = document.getElementById("startDate");
 		var endDateInput = document.getElementById("endDate");
 		var presetDateInput = document.getElementById("presetDate");

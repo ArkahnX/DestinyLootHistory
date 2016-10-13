@@ -150,7 +150,7 @@ function join(object) {
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
-	initUi();
+	initUi(elements.container);
 	var exportDataButton = document.getElementById("exportData");
 	var minDateInput = document.getElementById("MinDate");
 	if (minDateInput) {

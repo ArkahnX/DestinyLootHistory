@@ -368,24 +368,25 @@ function checkDiff(sourceArray, newArray) {
 	return itemsRemovedFromSource;
 }
 
-function checkThreeOfCoinsXp(track3oC, characterId) {
-	if (track3oC === true) {
-		logger.startLogging("3oC");
-		var threeOfCoinsProgress = JSON.parse(localStorage.threeOfCoinsProgress);
-		var old3oCProgress = parseInt(threeOfCoinsProgress[characterId], 10);
-		if (localStorage.move3oCCooldown === "true") {
-			if (characterDescriptions[characterId].currentActivityHash !== old3oCProgress) {
-				localStorage.move3oCCooldown = "false";
-			}
+function checkReminderEligibility(characterId) {
+	logger.startLogging("3oC");
+	var threeOfCoinsProgress = JSON.parse(localStorage.threeOfCoinsProgress);
+	var old3oCProgress = parseInt(threeOfCoinsProgress[characterId], 10);
+	console.log(localStorage.move3oCCooldown, characterDescriptions[characterId].currentActivityHash !== old3oCProgress)
+	if (localStorage.move3oCCooldown === "true") {
+		if (characterDescriptions[characterId].currentActivityHash !== old3oCProgress) {
+			console.log("MOVING TO ", DestinyActivityDefinition[characterDescriptions[characterId].currentActivityHash]);
+			localStorage.move3oCCooldown = "false";
 		}
-		if (localStorage.move3oCCooldown === "false") {
-			console.log(characterId, characterDescriptions[characterId], threeOfCoinsProgress[characterId])
-			localStorage.move3oC = "true";
-			localStorage.move3oCCooldown = "true";
-		}
-		threeOfCoinsProgress[characterId] = characterDescriptions[characterId].currentActivityHash;
-		localStorage.threeOfCoinsProgress = JSON.stringify(threeOfCoinsProgress);
 	}
+	if (localStorage.move3oCCooldown === "false") {
+		console.log(localStorage.move3oCCooldown)
+		console.log(characterId, characterDescriptions[characterId], threeOfCoinsProgress[characterId])
+		localStorage.move3oC = "true";
+		localStorage.move3oCCooldown = "true";
+	}
+	threeOfCoinsProgress[characterId] = characterDescriptions[characterId].currentActivityHash;
+	localStorage.threeOfCoinsProgress = JSON.stringify(threeOfCoinsProgress);
 }
 
 function checkFactionDiff(sourceArray, newArray, characterId) {
@@ -615,16 +616,16 @@ function hasInventorySpace(characterId, itemHash) {
 	return totalStackSize < vaultSize;
 }
 
-function findThreeOfCoins(characterId, checkAllCharacters) {
+function findCharacterWithItem(characterId, itemHash, checkAllCharacters) {
 	var found = false;
 	if (checkAllCharacters === true) {
-		found = findThreeOfCoins(characterId);
+		found = findCharacterWithItem(characterId, itemHash);
 		if (found) {
 			return found;
 		}
 		for (var character of newInventories) {
 			if (character.characterId !== characterId) {
-				found = findThreeOfCoins(character.characterId);
+				found = findCharacterWithItem(character.characterId, itemHash);
 				if (found) {
 					return found;
 				}
@@ -635,55 +636,109 @@ function findThreeOfCoins(characterId, checkAllCharacters) {
 		var characterInventory = findInArray(newInventories, "characterId", characterId);
 		if (characterInventory.inventory) {
 			for (let item of characterInventory.inventory) {
-				if (item.itemHash === 417308266) {
+				if (item.itemHash === itemHash) {
 					return characterId;
 				}
 			}
 		}
 	}
-	logger.log("Unable to find 3oC on " + characterId);
+	logger.log("Unable to find " + itemHash + " on " + characterId);
 	return false;
 }
+
+var arena = [680256650, 3705723572];
+var strikes = [4164571395, 4110605575, 2889152536, 575572995];
+var crucible = [4047366879, 4013076195, 3990775146, 3957072814, 3923114990, 3887258850, 3852968078, 3832998222, 3828541881, 3695721985, 3616808722, 3614615911, 3597531865, 3582414910, 3547232662, 3433065842, 3432675002, 3409618559, 3323301749, 2942016862, 2833173037, 2691931425, 2127351241, 1860850614, 1646825171, 1533445734, 1526862764, 1337970376, 1066759414, 1030667770, 976536573, 736189348, 579151588, 308891298, 295266492, 126790154, 55476966, 39921727];
+var ThreeofCoinsTimeout;
+var BoosterTimeout;
 
 function check3oC() {
 	return new Promise(function(resolve) {
 		logger.startLogging("3oC");
-		getOption("track3oC").then(function(track3oC) {
-			if (track3oC !== true) {
-				logger.log("We are NOT tracking 3oC");
-				resolve();
-				return false;
-			}
-			checkThreeOfCoinsXp(track3oC, localStorage.newestCharacter);
-			logger.log("We ARE tracking 3oC");
-			if (localStorage.move3oC && localStorage.move3oC === "true") { // we have just completed an activity, remind the User about Three of Coins
-				if (localStorage.newestCharacter) {
-					localStorage.move3oC = "false";
-					var threeOfCoinsCharacter = findThreeOfCoins(localStorage.newestCharacter, true);
-					logger.log("Sending 3oC from " + threeOfCoinsCharacter);
-					if (threeOfCoinsCharacter && hasInventorySpace("vault", 417308266)) {
-						setTimeout(function() {
-							bungie.transfer(threeOfCoinsCharacter, "0", 417308266, 1, true).then(function(response) {
-								console.log(response);
-								bungie.transfer(localStorage.newestCharacter, "0", 417308266, 1, false).then(function(response) {
-									logger.log("three of coins reminder sent");
-									console.log(response);
-								});
-							});
-						}, 5000);
-					} else {
-						logger.log("three of coins reminder sent, but no space in vault.");
-					}
-					resolve();
-				} else {
-					logger.warn("Unable to determine 3oC target.");
-					resolve(); // we don't know who you are playing :(
+		if (globalOptions.track3oC !== true && globalOptions.trackBoosters !== true) {
+			logger.log("We are NOT tracking 3oC");
+			resolve();
+			return false;
+		}
+		checkReminderEligibility(localStorage.newestCharacter);
+		logger.log("We ARE tracking 3oC");
+		if (localStorage.move3oC === "true" && localStorage.newestCharacter) { // we have just completed an activity, remind the User about Three of Coins
+			localStorage.move3oC = "false";
+			var coolDowns = JSON.parse(localStorage.coolDowns);
+			var threeOfCoinsCharacter = findCharacterWithItem(localStorage.newestCharacter, 417308266, true);
+			var activityHash = characterDescriptions[localStorage.newestCharacter].currentActivityHash;
+			var activityType = 0;
+			var repBoosterHash = 0;
+			if (activityHash !== 0) {
+				activityType = DestinyActivityDefinition[activityHash].activityTypeHash;
+				if (arena.indexOf(activityType) > -1) {
+					repBoosterHash = 1603376703;
 				}
-			} else {
-				logger.log(`We cannot move 3oC because move3oC = ${localStorage.move3oC}`);
-				resolve();
+				if (strikes.indexOf(activityType) > -1) {
+					repBoosterHash = 2220921114;
+				}
+				if (crucible.indexOf(activityType) > -1) {
+					repBoosterHash = 1500229041;
+				}
 			}
-		});
+			if (repBoosterHash !== 0) {
+				var boosterCharacter = findCharacterWithItem(localStorage.newestCharacter, repBoosterHash, true);
+				logger.log("Sending booster from " + boosterCharacter);
+				if (boosterCharacter && hasInventorySpace("vault", repBoosterHash)) {
+					clearTimeout(ThreeofCoinsTimeout);
+					let time = 5000;
+					if (globalOptions.obeyCooldowns && coolDowns[localStorage.newestCharacter + repBoosterHash]) {
+						time = 1800000 - (new Date().getTime() - coolDowns[localStorage.newestCharacter + repBoosterHash]);
+					}
+					if (time < 5000) {
+						time = 5000;
+					}
+					console.log("Booster time " + time)
+					ThreeofCoinsTimeout = setTimeout(function() {
+						bungie.transfer(boosterCharacter, "0", repBoosterHash, 1, true).then(function(response) {
+							console.log(response);
+							bungie.transfer(localStorage.newestCharacter, "0", repBoosterHash, 1, false).then(function(response) {
+								logger.log("reputation booster reminder sent");
+								coolDowns[localStorage.newestCharacter + repBoosterHash] = new Date().getTime();
+								localStorage.coolDowns = JSON.stringify(coolDowns);
+								console.log(response);
+							});
+						});
+					}, time);
+				} else {
+					logger.log("three of coins reminder sent, but no space in vault.");
+				}
+			}
+			logger.log("Sending 3oC from " + threeOfCoinsCharacter);
+			if (threeOfCoinsCharacter && hasInventorySpace("vault", 417308266)) {
+				clearTimeout(BoosterTimeout);
+				let time = 5000;
+				if (globalOptions.obeyCooldowns && coolDowns[localStorage.newestCharacter + 417308266]) {
+					time = 600000 - (new Date().getTime() - coolDowns[localStorage.newestCharacter + 417308266]);
+				}
+				if (time < 5000) {
+					time = 5000;
+				}
+				console.log("3oC time " + time)
+				BoosterTimeout = setTimeout(function() {
+					bungie.transfer(threeOfCoinsCharacter, "0", 417308266, 1, true).then(function(response) {
+						console.log(response);
+						bungie.transfer(localStorage.newestCharacter, "0", 417308266, 1, false).then(function(response) {
+							logger.log("three of coins reminder sent");
+							coolDowns[localStorage.newestCharacter + 417308266] = new Date().getTime();
+							localStorage.coolDowns = JSON.stringify(coolDowns);
+							console.log(response);
+						});
+					});
+				}, time);
+			} else {
+				logger.log("three of coins reminder sent, but no space in vault.");
+			}
+			resolve();
+		} else {
+			logger.log(`We cannot move 3oC because move3oC = ${localStorage.move3oC}`);
+			resolve();
+		}
 	});
 }
 
@@ -788,12 +843,12 @@ function autoMoveToVault(item, characterId) {
 function buildFakeNodes(talentGridHash) {
 	var nodes = [];
 	var talentGridDef = DestinyCompactTalentDefinition[talentGridHash];
-	for(var i=0;i<talentGridDef.nodes.length;i++) {
+	for (var i = 0; i < talentGridDef.nodes.length; i++) {
 		nodes.push({
-			isActivated:false,
-			stepIndex:0,
-			nodeHash:i,
-			state:7
+			isActivated: false,
+			stepIndex: 0,
+			nodeHash: i,
+			state: 7
 		});
 	}
 	return nodes;
