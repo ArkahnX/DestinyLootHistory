@@ -10,6 +10,7 @@ var bungie = (function Bungie() {
 	var active = {
 		id: 'loading'
 	};
+	var badAddresses = {};
 
 	// private methods
 	function _getAllCookies(callback) {
@@ -18,19 +19,22 @@ var bungie = (function Bungie() {
 		}, callback);
 	}
 
-	function _getCookie(name) {
+	function _getCookies(names) {
 		return new Promise(function(resolve) {
 			_getAllCookies(function(cookies) {
 				if (chrome.runtime.lastError) {
-					logger.error(chrome.runtime.lastError);
+					tracker.sendEvent('unable to read cookies', JSON.stringify(chrome.runtime.lastError), `version ${localStorage.version}, systems ${localStorage.systems}`);
+					console.error(chrome.runtime.lastError);
 				}
 				if (cookies && cookies.length) {
-					var bungled = null;
-					for (var cookieName in cookies) {
-						var cookie = cookies[cookieName];
-						if (cookie.name === name && cookie.value) {
-							bungled = cookie.value;
-							break;
+					var bungled = [];
+					for (var name of names) {
+						for (var cookieName in cookies) {
+							var cookie = cookies[cookieName];
+							if (name === cookie.name && cookie.value) {
+								bungled.push(cookie.value);
+								break;
+							}
 						}
 					}
 					resolve(bungled);
@@ -43,6 +47,15 @@ var bungie = (function Bungie() {
 
 	function _request(opts) {
 		var newDate = new Date().getTime();
+		if (badAddresses[opts.shortRoute]) {
+			badAddresses[opts.shortRoute] += 1;
+			if (badAddresses[opts.shortRoute] > 6) {
+				badAddresses[opts.shortRoute] = 0;
+			} else {
+				opts.incomplete();
+				return false;
+			}
+		}
 		if ((lastRoute === opts.shortRoute && newDate - lastRequestTime >= 800) || lastRoute !== opts.shortRoute) { // make sure not to poll more than once per second for the same type of request
 			logger.startLogging("Bungie Logs");
 			logger.info(`Bungie API Query Route ${opts.route}`);
@@ -52,7 +65,7 @@ var bungie = (function Bungie() {
 			let r = new XMLHttpRequest();
 			r.open(opts.method, "https://www.bungie.net/Platform" + opts.route, true);
 			r.setRequestHeader('X-API-Key', '4a6cc3aa21d94c949e3f44736d036a8f');
-			r.timeout = 5000;
+			// r.timeout = 5000;
 			r.onload = function() {
 				if (this.status >= 200 && this.status < 400) {
 					var response = JSON.parse(this.response);
@@ -100,7 +113,7 @@ var bungie = (function Bungie() {
 						opts.complete(response.Response, response);
 					} else if (response.ErrorCode === 99) {
 						logger.startLogging("Bungie Logs");
-						tracker.sendEvent('User Not Logged In', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
+						tracker.sendEvent('User Not Logged In', `CSRF: ${opts.csrf}, ATK: ${opts.atk}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 						logger.error('Error loading user. Make sure your account is <a href="https://www.bungie.net">linked with bungie.net and you are logged in</a>.\n<br>' + JSON.stringify(response.Message));
 						localStorage.error = "true";
 						localStorage.errorMessage = 'Error loading user. Make sure your account is <a href="https://www.bungie.net">linked with bungie.net and you are logged in</a>.<br>This is a generic error, please use the <a href="debug.html">report issue feature</a> so the developers can assist.';
@@ -138,6 +151,7 @@ var bungie = (function Bungie() {
 						localStorage.error = "true";
 						tracker.sendEvent('Unhandled Error', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 						localStorage.errorMessage = 'Unhandled Bungie Error, please use the <a href="debug.html">report issue feature</a> so the developers can assist.\n' + JSON.stringify(response.Message);
+						badAddresses[opts.shortRoute] = 1;
 						logger.endLogging();
 						logger.saveData();
 						opts.incomplete();
@@ -203,49 +217,81 @@ var bungie = (function Bungie() {
 				opts.incomplete();
 			};
 
-			_getCookie('bungled').then(function(token) {
-				logger.startLogging("bungie");
-				if (token !== null && token !== false) {
-					r.withCredentials = true;
-					r.setRequestHeader('x-csrf', token);
-					r.send(JSON.stringify(opts.payload));
-				} else {
+			// _getCookies(['bungled', 'bungleatk']).then(function(tokens) {
+			// 	logger.startLogging("bungie");
+			// 	if (tokens && tokens.length && tokens.length === 2) {
+			// 		r.withCredentials = true;
+			// 		r.setRequestHeader('x-csrf', tokens[0]);
+			// 		opts.csrf = tokens[0];
+			// 		opts.atk = tokens[1].length;
+			// 		r.send(JSON.stringify(opts.payload));
+			// 	} else {
+			// 		if (typeof tokens === "object") {
+			// 			tracker.sendEvent('some bungienet tokens', JSON.stringify(tokens), `version ${localStorage.version}, systems ${localStorage.systems}`);
+			// 		} else {
+			// 			tracker.sendEvent('no bungienet tokens', typeof tokens, `version ${localStorage.version}, systems ${localStorage.systems}`);
+			// 			// logger.error('Error loading cookie. {}');
+			// 		}
+			// 		localStorage.error = "true";
+			// 		localStorage.errorMessage = `Error loading user. Please sign out and sign back in to <a href="https://www.bungie.net">linked with bungie.net</a> then click Restart Tracking.\nThis issue is being actively worked on. <a href="https://docs.google.com/forms/d/e/1FAIpQLSeuHPgi_vetjNlQvVbOE8M7qM-7G5I4zmGalSKmUGT4UQ0Ekw/viewform">Please report it with this survey</a>.`;
+			chrome.cookies.getAll({
+				domain: "www.bungie.net"
+			}, function(cookies) {
+				if (chrome.runtime.lastError) {
+					if (typeof cookies !== "object") {
+						tracker.sendEvent('Chrome Cookie Runtime Error', JSON.stringify(chrome.runtime.lastError) + "~" + cookies, `version ${localStorage.version}, systems ${localStorage.systems}`);
+					} else {
+						tracker.sendEvent('Chrome Cookie Runtime Error', JSON.stringify(chrome.runtime.lastError) + "~" + JSON.stringify(cookies), `version ${localStorage.version}, systems ${localStorage.systems}`);
+					}
+					console.error(chrome.runtime.lastError);
 					localStorage.error = "true";
 					localStorage.errorMessage = `Error loading user. Please sign out and sign back in to <a href="https://www.bungie.net">linked with bungie.net</a> then click Restart Tracking.\nThis issue is being actively worked on. <a href="https://docs.google.com/forms/d/e/1FAIpQLSeuHPgi_vetjNlQvVbOE8M7qM-7G5I4zmGalSKmUGT4UQ0Ekw/viewform">Please report it with this survey</a>.`;
-					chrome.cookies.getAll({
-						domain: ".bungie.net"
-					}, function(cookies) {
-						if (chrome.runtime.lastError) {
-							tracker.sendEvent('Cookie Runtime Error', JSON.stringify(chrome.runtime.lastError), `version ${localStorage.version}, systems ${localStorage.systems}`);
-							console.error(chrome.runtime.lastError);
+					opts.incomplete();
+				} else if (cookies && cookies.length) {
+					var cookieNames = {};
+					for (var cookie of cookies) {
+						if (cookie.name) {
+							cookieNames[cookie.name] = cookie.value + "";
 						}
-						if (cookies && cookies.length) {
-							var cookieNames = {};
-							for (var cookie of cookies) {
-								if (cookie.name) {
-									cookieNames[cookie.name] = cookie.value && cookie.value.length || 0;
-									if (cookie.value && cookie.value.length < 20) {
-										cookieNames[cookie.name] = cookie.value;
-									}
-									if (cookie.name === "bungleme") {
-										cookieNames[cookie.name] = cookie.value;
-									}
-								}
-							}
-							var result = JSON.stringify(cookieNames);
-							// console.log(result)
-							tracker.sendEvent('bungled not found', result, `version ${localStorage.version}, systems ${localStorage.systems}`);
-							logger.error('Error loading cookie.' + result);
-						} else {
-							tracker.sendEvent('no bungienet cookies', JSON.stringify(cookies), `version ${localStorage.version}, systems ${localStorage.systems}`);
-							logger.error('Error loading cookie. {}');
-						}
-						logger.endLogging();
-						logger.saveData();
+					}
+					if (cookieNames.bungled && cookieNames.bungleatk) {
+						r.withCredentials = true;
+						r.setRequestHeader('x-csrf', cookieNames.bungled);
+						opts.csrf = cookieNames.bungled;
+						opts.atk = cookieNames.bungleatk.length;
+						r.send(JSON.stringify(opts.payload));
+					} else {
+						tracker.sendEvent('Chrome Cookie Not Found', `CSRF: ${cookieNames.bungled}, ATK: ${cookieNames.bungleatk.length}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
+						localStorage.error = "true";
+						localStorage.errorMessage = `Error loading user. Please sign out and sign back in to <a href="https://www.bungie.net">linked with bungie.net</a> then click Restart Tracking.\nThis issue is being actively worked on. <a href="https://docs.google.com/forms/d/e/1FAIpQLSeuHPgi_vetjNlQvVbOE8M7qM-7G5I4zmGalSKmUGT4UQ0Ekw/viewform">Please report it with this survey</a>.`;
 						opts.incomplete();
-					});
+					}
 				}
 			});
+			// 	if (cookies && cookies.length) {
+			// 		var cookieNames = {};
+			// 		for (var cookie of cookies) {
+			// 			if (cookie.name) {
+			// 				cookieNames[cookie.name] = cookie.value;
+			// 			}
+			// 		}
+			// 		var result = JSON.stringify(cookieNames);
+			// 		tracker.sendEvent('bungled or bungleatk not found', result, `version ${localStorage.version}, systems ${localStorage.systems}`);
+			// 		logger.error('Error loading cookie.' + result);
+			// 	} else {
+			// 		if (typeof cookies === "object") {
+			// 			tracker.sendEvent('some bungienet cookies', JSON.stringify(cookies), `version ${localStorage.version}, systems ${localStorage.systems}`);
+			// 		} else {
+			// 			tracker.sendEvent('no bungienet cookies', typeof cookies, `version ${localStorage.version}, systems ${localStorage.systems}`);
+			// 			// logger.error('Error loading cookie. {}');
+			// 		}
+			// 	}
+			// 	logger.endLogging();
+			// 	logger.saveData();
+			// 	opts.incomplete();
+			// });
+			// }
+			// });
 		} else {
 			setTimeout(function() {
 				_request(opts);
