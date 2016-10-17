@@ -37,7 +37,7 @@ var database = (function() {
 			var request = store.put(entry);
 
 			request.onsuccess = function(e) {
-				resolve();
+				resolve(entry);
 			};
 
 			request.onerror = database.onerror;
@@ -109,22 +109,6 @@ var database = (function() {
 		});
 	};
 
-	database.deleteTodo = function(id) {
-		var db = database.db;
-		var trans = db.transaction(["todo"], "readwrite");
-		var store = trans.objectStore("todo");
-
-		var request = store.delete(id);
-
-		request.onsuccess = function(e) {
-			database.getAllTodoItems();
-		};
-
-		request.onerror = function(e) {
-			console.log("Error Adding: ", e);
-		};
-	};
-
 	database.addFromObject = function(result) {
 		return new Promise(function(resolve) {
 			// console.log(result);
@@ -156,7 +140,7 @@ var database = (function() {
 	database.open = function() {
 		return new Promise(function(resolve) {
 			console.time("database");
-			var request = indexedDB.open("DestinyLootHistory", 8);
+			var request = indexedDB.open("DestinyLootHistory", 10);
 
 			// We can only create Object stores in a versionchange transaction.
 			request.onupgradeneeded = function(e) {
@@ -184,40 +168,60 @@ var database = (function() {
 				// if (db.objectStoreNames.contains("itemChanges")) {
 				// 	db.deleteObjectStore("itemChanges");
 				// }
-
-				var currencyStore = db.createObjectStore("currencies", {
-					keyPath: "itemHash"
-				});
-				currencyStore.createIndex("itemHash", "itemHash", {
-					unique: true
-				});
-				var inventoryStore = db.createObjectStore("inventories", {
-					keyPath: "characterId"
-				});
-				inventoryStore.createIndex("characterId", "characterId", {
-					unique: true
-				});
-				var matchStore = db.createObjectStore("matches", {
-					keyPath: "activityInstance"
-				});
-				matchStore.createIndex("itemHash", "itemHash", {
-					unique: true
-				});
-				var progressStore = db.createObjectStore("progression", {
-					keyPath: "characterId"
-				});
-				progressStore.createIndex("characterId", "characterId", {
-					unique: true
-				});
-				var itemChangeStore = db.createObjectStore("itemChanges", {
-					keyPath: "id"
-				});
-				itemChangeStore.createIndex("id", "id", {
-					unique: true
-				});
-				itemChangeStore.createIndex("timestamp", "timestamp", {
-					unique: false
-				});
+				if (!db.objectStoreNames.contains("currencies")) {
+					var currencyStore = db.createObjectStore("currencies", {
+						keyPath: "itemHash"
+					});
+					currencyStore.createIndex("itemHash", "itemHash", {
+						unique: true
+					});
+				}
+				if (!db.objectStoreNames.contains("inventories")) {
+					var inventoryStore = db.createObjectStore("inventories", {
+						keyPath: "characterId"
+					});
+					inventoryStore.createIndex("characterId", "characterId", {
+						unique: true
+					});
+				}
+				if (!db.objectStoreNames.contains("matches")) {
+					var matchStore = db.createObjectStore("matches", {
+						keyPath: "activityInstance"
+					});
+					matchStore.createIndex("itemHash", "itemHash", {
+						unique: true
+					});
+				}
+				if (!db.objectStoreNames.contains("progression")) {
+					var progressStore = db.createObjectStore("progression", {
+						keyPath: "characterId"
+					});
+					progressStore.createIndex("characterId", "characterId", {
+						unique: true
+					});
+				}
+				if (!db.objectStoreNames.contains("itemChanges")) {
+					var itemChangeStore = db.createObjectStore("itemChanges", {
+						keyPath: "id"
+					});
+					itemChangeStore.createIndex("id", "id", {
+						unique: true
+					});
+					itemChangeStore.createIndex("timestamp", "timestamp", {
+						unique: false
+					});
+				}
+				// if (db.objectStoreNames.contains("vendors")) {
+					// db.deleteObjectStore("vendors");
+				// }
+				if (!db.objectStoreNames.contains("vendors")) {
+					var vendorStore = db.createObjectStore("vendors", {
+						keyPath: "vendorCharacterHash"
+					});
+					vendorStore.createIndex("vendorCharacterHash", "vendorCharacterHash", {
+						unique: true
+					});
+				}
 			};
 
 			request.onsuccess = function(e) {

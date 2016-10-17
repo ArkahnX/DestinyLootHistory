@@ -1,5 +1,10 @@
 tracker.sendAppView('SearchScreen');
 logger.disable();
+var DEBUG = false;
+var manifest = chrome.runtime.getManifest();
+if (!manifest.key) {
+	DEBUG = true;
+}
 characterDescriptions = JSON.parse(localStorage.characterDescriptions);
 var searchTypes = ["itemName", "itemTypeName", "itemDescription", "tierTypeName", "damageTypeName", "primaryStat"];
 

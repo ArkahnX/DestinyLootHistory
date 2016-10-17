@@ -1,0 +1,182 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Destiny Gear Quality</title>
+		<link rel="stylesheet" type="text/css" href="ui.css">
+	</head>
+	<body>
+		<header id="status" class="active">
+			<nav>
+				<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
+				<ul class="drop-down">
+					<li><input type="button" value="Refresh Gear" class="button" id="refreshGear" disabled /></li>
+				</ul>
+				<!-- <label for="character">Character: <select id="character"></select></label> -->
+			</nav>
+		</header>
+		<div id="debugHome" class="collection solidBackground hidden">
+			<ul>
+				<li>
+					<input type="checkbox" class="collection-section">
+					<i></i>
+					<h2>Filters</h2>
+					<div>
+						<!-- <fieldset> -->
+							<!-- <legend>Sort Order</legend> -->
+							<!-- <span><input id="qualitySortOrder" type="text" name="q" placeholder="Quality Sort Order"></span> -->
+							<p>Drag to Prioritize</p>
+							<ul id="qualitySortOrderList" class="gearList">
+								<li id="gearRarity">Gear Rarity</li>
+								<li id="gearPerks">Gear Perks</li>
+								<li id="gearLight">High Light</li>
+								<li id="gearLevel">Gear XP</li>
+								<li id="gearQuality">Stat Quality</li>
+								<li id="gearXPIncomplete">XP Incomplete</li>
+								<li id="gearNeedsUpgrades">Incomplete Nodes</li>
+								<li id="gearSource">Reward Source</li>
+								<li id="gearDuplicates">Duplicate Gear</li>
+								<li id="gearXPMax">XP Maxed</li>
+							</ul>
+							<ul id="qualitySortOrderListUnused" class="gearList">
+							<p>Unused ratings</p>
+								
+							</ul>
+							<br />
+							<p>Drag to Prioritize</p>
+							<ul id="perkSortOrderList" class="gearList">
+								
+							</ul>
+							<p>Unsaved Perks. Drag here to ignore.</p>
+							<ul id="perkSortOrderListUnused" class="gearList">
+								
+							</ul>
+							<br />
+							<span><input id="perkSortOrder" type="text" name="q" placeholder="Perk Sort Order"></span>
+							<br />
+							<span><input id="rewardSources" type="text" name="q" placeholder="Reward Sources"></span>
+							<br />
+							<label>Hide Unmatched Gear:</label><input type="checkbox" id="hideUnmatched" checked>
+							<label>Class:</label>
+							<select id="classType">
+								<option value="0">Titan</option>
+								<option value="1">Hunter</option>
+								<option value="2">Warlock</option>
+								<option value="3" selected>Any</option>
+							</select>
+							<label>Gear:</label>
+							<select id="categoryHash">
+								<optgroup label="Weapons">
+									<option value="1">All Weapons</option>
+									<optgroup label="Primary Weapons">
+										<option value="2">Primary Weapon</option>
+										<option value="5">Auto Rifle</option>
+										<option value="6">Hand Cannon</option>
+										<option value="7">Pulse Rifle</option>
+										<option value="8">Scout Rifle</option>
+									</optgroup>
+									<optgroup label="Special Weapons">
+										<option value="3">Special Weapon</option>
+										<option value="9">Fusion Rifle</option>
+										<option value="10">Sniper Rifle</option>
+										<option value="11">Shotgun</option>
+										<option value="14">Sidearm</option>
+									</optgroup>
+									<optgroup label="Heavy Weapons">
+										<option value="4">Heavy Weapon</option>
+										<option value="12">Machine Gun</option>
+										<option value="13">Rocket Launcher</option>
+									</optgroup>
+								</optgroup>
+								<optgroup label="Armor">
+									<option value="20">All Armor</option>
+									<option value="45" selected>Helmets</option>
+									<option value="46">Arms</option>
+									<option value="47">Chest</option>
+									<option value="48">Legs</option>
+									<option value="49">Class Items</option>
+									<option value="39">Ghost</option>
+									<option value="38">Artifact</option>
+								</optgroup>
+							</select>
+						<!-- </fieldset> -->
+					</div>
+				</li>
+				<li>
+					<input type="checkbox" class="collection-section" data-feature="results">
+					<i></i>
+					<h2>Gear</h2>
+					<div id="resultContainer">Loading...
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div id="tooltip">
+			<section id="item-head">
+				<canvas id="squareProgress" width="71" height="71" class="bigProgress"></canvas>
+				<img id="item-image" />
+				<h2 id="item-name"></h2>
+				<div>
+					<span id="item-type"></span>
+					<span id="item-rarity"></span>
+				</div>
+			</section>
+			<section id="class-requirement">
+			</section>
+			<section id="item-body">
+				<div id="level-text">Requires Level <span id="item-required-equip-level"></span></div>
+				<h1 id="item-primary-stat"></h1>
+				<div id="item-stat-text"></div>
+				<div id="item-description"></div>
+			</section>
+			<section id="item-stats">
+				<table>
+					<tbody id="stat-table">
+						
+					</tbody>
+				</table>
+			</section>
+			<section id="item-nodes">
+				<table>
+					<tbody id="node-table">
+					</tbody>
+				</table>
+			</section>
+			<section id="item-cost">
+				<table>
+					<tbody id="cost-table">
+					</tbody>
+				</table>
+			</section>
+			<section id="item-compare">
+				<table>
+					<tbody id="compare-table">
+					</tbody>
+				</table>
+			</section>
+		</div>
+		<div id="copyright">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
+		<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js"></script>
+		<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>
+		<script type="text/javascript" src="DestinyDatabase/DestinyCompactTalentDefinition.js"></script>
+		<script type="text/javascript" src="DestinyDatabase/DestinyCompactDefinition.js"></script>
+		<script type="text/javascript" src="scripts/vendor/insignia.min.js"></script>
+		<script type="text/javascript" src="scripts/vendor/auto-complete.min.js"></script>
+		<script type="text/javascript" src="scripts/vendor/fuse.min.js"></script>
+		<script type="text/javascript" src="scripts/vendor/sortable.min.js"></script>
+		<script type="text/javascript" src="scripts/vendor/bignumber.min.js"></script>
+		<script type="text/javascript" src="scripts/vendor/moment.js"></script>
+		<script type="text/javascript" src="scripts/vendor/moment-timezone.js"></script>
+		<script type="text/javascript" src="scripts/vendor/google-analytics-bundle.js"></script>
+		<script type="text/javascript" src="scripts/tools/date.js"></script>
+		<script type="text/javascript" src="scripts/tools/item.js"></script>
+		<script type="text/javascript" src="scripts/tools/db.js"></script>
+		<script type="text/javascript" src="scripts/shared.js"></script>
+		<script type="text/javascript" src="scripts/logger.js"></script>
+		<script type="text/javascript" src="scripts/bungie.js"></script>
+		<script type="text/javascript" src="scripts/quality.js"></script>
+		<script type="text/javascript" src="scripts/items.js"></script>
+		<script type="text/javascript" src="scripts/ui.js"></script>
+		<script type="text/javascript" src="scripts/tooltip.js"></script>
+		<script type="text/javascript" src="scripts/pages/quality.js"></script>
+	</body>
+</html>

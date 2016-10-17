@@ -1,6 +1,11 @@
 tracker.sendAppView('TestScreen');
 // console.disable();
 initUi(elements.container);
+var DEBUG = false;
+var manifest = chrome.runtime.getManifest();
+if (!manifest.key) {
+	DEBUG = true;
+}
 var data = {
 	inventories: {},
 	progression: {},

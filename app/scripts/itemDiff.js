@@ -311,10 +311,14 @@ function processDifference(currentDateString, resolve) {
 		}
 		if (progress.characterId === diffCharacterId) {
 			finalDiff.progression.push(progress.item);
-			progressionCharacters.push(diffCharacterId);
+			if (progressionCharacters.indexOf(diffCharacterId) === -1) {
+				progressionCharacters.push(diffCharacterId);
+			}
 		} else {
 			finalDiff.progression.push(progress);
-			progressionCharacters.push(progress.characterId);
+			if (progressionCharacters.indexOf(progress.characterId) === -1) {
+				progressionCharacters.push(progress.characterId);
+			}
 		}
 	}
 	for (let transfer of transferQ) {
@@ -333,6 +337,8 @@ function processDifference(currentDateString, resolve) {
 		trackingTimer = 0;
 	}
 	logger.log(`forceUpdate ${forceupdate}, removed ${finalDiff.removed.length}, added ${finalDiff.added.length}, transferred ${(finalDiff.transferred && finalDiff.transferred.length && forceupdate)}, transferQ ${(transferQ.length && forceupdate)}, progression ${(finalDiff.progression && finalDiff.progression.length && forceupdate)} tracking timer ${trackingTimer}`);
+	console.log(progressionCharacters, finalDiff.progression)
+	console.log(finalDiff.removed.length, finalDiff.added.length, (finalDiff.transferred && finalDiff.transferred.length && forceupdate), (transferQ.length && forceupdate), (finalDiff.progression && finalDiff.progression.length && forceupdate), finalDiff.removed.length || finalDiff.added.length || (finalDiff.transferred && finalDiff.transferred.length && forceupdate) || (transferQ.length && forceupdate) || (finalDiff.progression && finalDiff.progression.length && forceupdate))
 	if (finalDiff.removed.length || finalDiff.added.length || (finalDiff.transferred && finalDiff.transferred.length && forceupdate) || (transferQ.length && forceupdate) || (finalDiff.progression && finalDiff.progression.length && forceupdate)) {
 		for (var addedQ of addedCurrencyQ) {
 			finalDiff.added.push(addedQ.item);
@@ -340,14 +346,28 @@ function processDifference(currentDateString, resolve) {
 		for (var removedQ of removedCurrencyQ) {
 			finalDiff.removed.push(removedQ.item);
 		}
+		console.log(finalDiff.progression && finalDiff.progression.length)
 		if (finalDiff.progression && finalDiff.progression.length) {
-			for (let characterId of progressionCharacters) {
-				var oldProgress = findInArray(oldProgression, "characterId", characterId);
-				var oldProgress2 = findInArray(data.progression, "characterId", characterId);
-				var newProgress = findInArray(newProgression, "characterId", characterId);
-				oldProgress.progression = newProgress.progression;
-				oldProgress2.progression = newProgress.progression;
-			}
+			// for (var i = 0; i < newProgression.length; i++) {
+			// 	for (let characterId of progressionCharacters) {
+			// 		if (newProgression[i].characterId === characterId) {
+			// 			for (let e = 0; e < oldProgression.length; e++) {
+			// 				if (oldProgression[e].characterId === characterId) {
+			// 					oldProgression[e].progression = newProgression[i].progression;
+			// 					break;
+			// 				}
+			// 			}
+			// 			for (let e = 0; e < data.progression.length; e++) {
+			// 				if (data.progression[e].characterId === characterId) {
+			// 					data.progression[e].progression = newProgression[i].progression;
+			// 					break;
+			// 				}
+			// 			}
+			// 		}
+			// 	}
+			// }
+			oldProgression = newProgression;
+			data.progression = newProgression;
 			oldInventories = newInventories;
 			if (Object.keys(oldInventories).length === 0) {
 				logger.error(newInventories);

@@ -1017,7 +1017,6 @@ ul.drop-down li:hover ul {
 fieldset {
 	display: block;
 
-	margin: 0 0 2em 0;
 	padding: 0 1em 1em 1em;
 
 	text-align: left;
@@ -1025,10 +1024,19 @@ fieldset {
 	border: none;
 }
 
+fieldset:not(:last-child) {
+	margin: 0 0 2em 0;
+}
+
 legend {
 	font-size: 24px;
 
 	text-align: left;
+}
+li label {
+	font-size: 13px;
+
+	margin: 0;
 }
 fieldset label {
 	font-weight: bold;
@@ -1066,11 +1074,6 @@ input[type=number] {
 input[type=text]:focus,
 input[type=number]:focus {
 	outline: 2px solid #004A8C;
-}
-li label {
-	font-size: 13px;
-
-	margin: 0;
 }
 
 label + input[type=checkbox] {
@@ -1179,9 +1182,9 @@ fieldset ul {
 	font-weight: 100;
 	line-height: 42px;
 
+	animation: flipdown .5s ease both;
 	letter-spacing: 3px;
 	text-transform: uppercase;
-	animation: flipdown .5s ease both;
 }
 
 #debugHome h2 {
@@ -1195,8 +1198,8 @@ fieldset ul {
 	margin: 0;
 
 	cursor: pointer;
-	letter-spacing: 1px;
 	-webkit-user-select: none;
+	letter-spacing: 1px;
 }
 
 #debugHome li > div {
@@ -1227,7 +1230,7 @@ fieldset ul {
 	-webkit-user-select: initial;
 }
 
-#debugHome ul {
+#debugHome > ul {
 	width: 99%;
 	margin: 0 auto;
 	padding: 0;
@@ -1236,7 +1239,7 @@ fieldset ul {
 
 	perspective: 900;
 }
-#debugHome ul > li {
+#debugHome > ul > li {
 	position: relative;
 
 	margin: 0;
@@ -1289,7 +1292,7 @@ fieldset ul {
 #debugHome ul > li:nth-of-type(11) {
 	animation-delay: 1.10s;
 }
-#debugHome ul > li:last-of-type {
+#debugHome > ul > li:last-of-type {
 	padding-bottom: 0;
 }
 #debugHome ul li i {
@@ -1300,15 +1303,15 @@ fieldset ul {
 	height: 0;
 	margin-top: 16px;
 
+	transition: transform .2s;
 	transform: rotate(0deg);
 
 	border-top: 20px solid #000;
 	border-right: 20px solid transparent;
 	border-left: 20px solid transparent;
-	transition: transform .2s;
 }
 
-#debugHome ul li input[type=checkbox] {
+#debugHome ul li > input[type=checkbox] {
 	position: absolute;
 	z-index: 1;
 	left: 0;
@@ -1750,29 +1753,93 @@ nav label select {
 
 /* line 3, /Shared/Styles/Site/_destiny_base_kit.scss */
 ::-webkit-scrollbar {
-		width: 17px;
+	width: 17px;
 }
 
 /* Track */
 /* line 8, /Shared/Styles/Site/_destiny_base_kit.scss */
 ::-webkit-scrollbar-track {
-		background: #b5bab7;
-		box-shadow: inset 0 0 5px #12161b;
+	background: #B5BAB7;
+	box-shadow: inset 0 0 5px #12161B;
 }
 
 /* Handle */
 /* line 15, /Shared/Styles/Site/_destiny_base_kit.scss */
 ::-webkit-scrollbar-thumb {
-		background: #dee1dd;
-		border: 1px solid #717676;
-		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+	border: 1px solid #717676;
+	background: #DEE1DD;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
 }
 
 /* line 22, /Shared/Styles/Site/_destiny_base_kit.scss */
 ::-webkit-scrollbar-thumb:hover {
-		background: #c8cdc6;
+	background: #C8CDC6;
 }
 
 .hidden {
 	display: none!important;
+}
+
+.perkIcon {
+	border-radius: 50%;
+	background-color: #4887BA;
+}
+
+.gearList {
+	min-height: 42px;
+	padding-left: 5px;
+	display:inline-block;
+	min-width:200px;
+	border: 1px solid grey;
+}
+
+.gearList li {
+	display: inline-block;
+	float: left;
+
+	padding: 5px 0;
+
+	cursor: move;
+}
+
+.gearList li * {
+	cursor: move;
+}
+
+#perkSortOrderListUnused li,
+#qualitySortOrderListUnused li {
+	margin: 3px 3px;
+	padding: 3px 3px;
+
+	border: 1px solid grey;
+}
+
+#qualitySortOrderList,
+#qualitySortOrderListUnused {
+	display: block;
+	float: left;
+
+	width: 50%;
+}
+
+#perkSortOrderList li img,
+#perkSortOrderListUnused li img {
+	margin-right: 3px;
+}
+
+#qualitySortOrderList li:not(:last-child):after,
+#perkSortOrderList li:not(:last-child):after {
+	padding: 0 5px;
+
+	content: '>';
+	cursor: default;
+}
+
+br {
+	clear: both;
+}
+
+ul > p {
+	display: inline-block;
+	float: left;
 }

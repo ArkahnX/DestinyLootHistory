@@ -3,6 +3,11 @@ if (localStorage.characterDescriptions) {
 	characterDescriptions = JSON.parse(localStorage.characterDescriptions);
 	jsonCharacterDescriptions = localStorage.characterDescriptions;
 }
+var DEBUG = false;
+var manifest = chrome.runtime.getManifest();
+if (!manifest.key) {
+	DEBUG = true;
+}
 var debugMessage = `Destiny Loot History V${chrome.runtime.getManifest().version}
 GitHub: https://github.com/ArkahnX/DestinyLootHistory
 Gallery: http://imgur.com/a/QGLZf

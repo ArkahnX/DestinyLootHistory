@@ -1,5 +1,10 @@
 tracker.sendAppView('Collection');
 logger.disable();
+var DEBUG = false;
+var manifest = chrome.runtime.getManifest();
+if (!manifest.key) {
+	DEBUG = true;
+}
 getOption("activeType").then(bungie.setActive);
 var globalOptions = {};
 getAllOptions().then(function(options) {
@@ -686,38 +691,38 @@ function displayMissingVendorItems(mainContainer, lastVendor, saleVendor) {
 		if (err) {
 			console.error(err);
 		}
-	}).then(function(kioskResponse) {
+	}).then(function(kioskVendor) {
 		bungie.getVendorForCharacter(selectedCharacter, saleVendor).catch(function(err) {
 			if (err) {
 				console.error(err);
 			}
-		}).then(function(vendorResponse) {
-			console.log(kioskResponse, kioskResponse.Response && kioskResponse.Response.data, DestinyVendorDefinition[lastVendor]);
-			if (kioskResponse.Response && vendorResponse.Response) {
+		}).then(function(itemVendor) {
+			console.log(kioskVendor, DestinyVendorDefinition[lastVendor]);
+			if (kioskVendor.vendorHash && itemVendor.vendorHash) {
 				mainContainer.innerHTML = "";
 				var missingContainer = document.createElement("div");
 				missingContainer.classList.add("sub-section");
 				missingContainer.innerHTML = "<p>Missing from Collection</p>";
 				var missingFragment = document.createDocumentFragment();
 				var sellingContainer = document.createElement("div");
-				sellingContainer.innerHTML = "<p>Available to Purchase from " + DestinyVendorDefinition[saleVendor].summary.vendorName + " " + date.vendorRefreshDate(vendorResponse.Response.data.vendor) + "</p>";
+				sellingContainer.innerHTML = "<p>Available to Purchase from " + DestinyVendorDefinition[saleVendor].summary.vendorName + " " + date.vendorRefreshDate(saleVendor) + "</p>";
 				sellingContainer.classList.add("sub-section");
 				var sellingFragment = document.createDocumentFragment();
 				var missingHashes = [];
-				for (let category of kioskResponse.Response.data.vendor.saleItemCategories) {
+				for (let category of kioskVendor.saleItemCategories) {
 					for (let emblem of category.saleItems) {
 						if (emblem.failureIndexes[0] || (emblem.requiredUnlockFlags && emblem.requiredUnlockFlags[0].isSet === false) || emblem.itemStatus & 8) {
 							missingHashes.push(emblem.item.itemHash);
 							missingFragment.appendChild(makeItem(emblem.item, DestinyVendorDefinition[lastVendor].failureStrings[emblem.failureIndexes[0]]));
 						} else {
-							console.log(getItemDefinition(emblem.item.itemHash).itemName, emblem);
+							// console.log(getItemDefinition(emblem.item.itemHash).itemName, emblem);
 						}
 					}
 				}
-				for (let category of vendorResponse.Response.data.vendor.saleItemCategories) {
+				for (let category of itemVendor.saleItemCategories) {
 					for (let saleItem of category.saleItems) {
 						if (missingHashes.indexOf(saleItem.item.itemHash) > -1) {
-							var costs = Item.getCosts(saleItem, vendorResponse.Response.data.vendor, newInventories, selectedCharacter);
+							var costs = Item.getCosts(saleItem, itemVendor, newInventories, selectedCharacter);
 							sellingFragment.appendChild(makeItem(saleItem.item, DestinyVendorDefinition[lastVendor].failureStrings[saleItem.failureIndexes[0]], costs));
 						}
 					}
@@ -729,7 +734,7 @@ function displayMissingVendorItems(mainContainer, lastVendor, saleVendor) {
 				mainContainer.appendChild(missingContainer);
 			} else {
 				console.log(lastVendor, saleVendor);
-				mainContainer.innerHTML = `<h2>${kioskResponse.Message}</h2>`;
+				mainContainer.innerHTML = `<h2>${kioskVendor.Message}</h2>`;
 			}
 		});
 	});
@@ -744,31 +749,31 @@ function VendorNetworkTask(vendorHash, resolve) {
 			console.error(err);
 		}
 	}).then(function(vendorResponse) {
-		if (vendorResponse && vendorResponse.Response) {
-			resolve(vendorResponse.Response.data);
+		if (vendorResponse.vendorHash) {
+			resolve(vendorResponse);
 		} else {
 			resolve(false);
 		}
 	});
 }
 
-function VendorResultTask(data, vendorHash) {
-	if (data) {
+function VendorResultTask(vendor, vendorHash) {
+	if (vendor) {
 		vendorItems[vendorHash] = {
 			name: DestinyVendorDefinition[vendorHash].summary.vendorName,
-			currencies: data.vendor.currencies,
-			nextRefreshDate: data.vendor.nextRefreshDate,
+			currencies: vendor.currencies,
+			nextRefreshDate: vendor.nextRefreshDate,
 			items: []
 		};
 		var docFrag = document.createDocumentFragment();
 		var titleContainer = document.createElement("div");
 		titleContainer.classList.add("sub-section");
-		titleContainer.innerHTML = "<p>" + vendorItems[vendorHash].name + " " + date.vendorRefreshDate(data.vendor) + "</p>";
-		for (let category of data.vendor.saleItemCategories) {
+		titleContainer.innerHTML = "<p>" + vendorItems[vendorHash].name + " " + date.vendorRefreshDate(vendor) + "</p>";
+		for (let category of vendor.saleItemCategories) {
 			for (let saleItem of category.saleItems) {
 				if (hasQuality(saleItem.item) && parseItemQuality(saleItem.item).min > 92) {
 					vendorItems[vendorHash].items.push(saleItem);
-					var costs = Item.getCosts(saleItem, data.vendor, newInventories, selectedCharacter);
+					var costs = Item.getCosts(saleItem, vendor, newInventories, selectedCharacter);
 					titleContainer.appendChild(makeItem(saleItem.item, vendorItems[vendorHash].name, costs));
 				}
 			}
@@ -782,7 +787,7 @@ function VendorResultTask(data, vendorHash) {
 }
 
 function displayT12VendorItems(mainContainer) { // rerun hunter vanguard, titan vanguard, warlock vanguard and house of judgement if 
-	sequence([2796397637, 3746647075, 3611686524, 174528503, 3902439767, 1821699360, 3003633346, 242140165, 1808244981, 2680694281, 1990950, 1575820975, 1998812735, 2610555297, 2190824860], VendorNetworkTask, VendorResultTask).then(function() {
+	sequence([2796397637, 3746647075, 3611686524, 174528503, 3902439767, 1821699360, 3003633346, 242140165, 1808244981, 2680694281, 1990950, 1575820975, 1998812735, 2610555297, 2190824860, 2190824863], VendorNetworkTask, VendorResultTask).then(function() {
 		var docFrag = document.createDocumentFragment();
 		mainContainer.innerHTML = "";
 		for (var vendor of vendorItems) {
@@ -925,7 +930,7 @@ function postInitItems() {
 					}
 				}
 				if (event.target.dataset.feature === "t12") {
-					chrome.storage.local.get("inventories", function(data) {
+					database.getAllEntries("inventories").then(function(data) {
 						newInventories = data.inventories;
 						if (!bungieProfileLoaded) {
 							initItems(function() {

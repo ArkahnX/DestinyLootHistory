@@ -1,5 +1,10 @@
 tracker.sendAppView('OptionsScreen');
 database.open();
+var DEBUG = false;
+var manifest = chrome.runtime.getManifest();
+if (!manifest.key) {
+	DEBUG = true;
+}
 function backupData() {
 	var backupDataButton = document.getElementById("backupData");
 	database.getMultipleStores(database.allStores).then(function(data) {

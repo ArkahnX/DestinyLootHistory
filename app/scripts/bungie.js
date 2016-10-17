@@ -138,6 +138,7 @@ var bungie = (function Bungie() {
 						localStorage.error = "true";
 						tracker.sendEvent('System Disabled Maintenance', `Code: ${response.ErrorCode}, Message: ${response.Message}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 						localStorage.errorMessage = 'Bungie servers are undergoing maintenance. Please use "Restart Tracking" to try to connect again. \n' + JSON.stringify(response.Message);
+						badAddresses[opts.shortRoute] = 1;
 						logger.endLogging();
 						logger.saveData();
 						opts.incomplete();
@@ -483,13 +484,29 @@ var bungie = (function Bungie() {
 	};
 	bungie.getVendorForCharacter = function(characterId, vendorId) {
 		return new Promise(function(resolve, reject) {
-			_request({
-				route: `/Destiny/${active.type}/MyAccount/Character/${characterId}/Vendor/${vendorId}/Metadata/`,
-				shortRoute: '/Destiny//MyAccount/Character//Vendor//Metadata/',
-				method: 'GET',
-				noerror: true,
-				incomplete: reject,
-				complete: resolve
+			database.getEntry("vendors", vendorId+"-"+characterId).then(function(data) {
+				if (!data || moment(data.nextRefreshDate).isBefore(moment()) || moment(data.nextRefreshDate).format("YYYY") === "9999") {
+					_request({
+						route: `/Destiny/${active.type}/MyAccount/Character/${characterId}/Vendor/${vendorId}/Metadata/`,
+						shortRoute: '/Destiny//MyAccount/Character//Vendor//Metadata/',
+						method: 'GET',
+						noerror: true,
+						incomplete: reject,
+						complete: function(bungieResult) {
+							if (bungieResult.Response) {
+								if(moment(bungieResult.Response.data.vendor.nextRefreshDate).format("YYYY") === "9999" || moment(bungieResult.Response.data.vendor.nextRefreshDate).isBefore(moment())) {
+									bungieResult.Response.data.vendor.nextRefreshDate = moment().add(1,"days").format("YYYY-MM-DDTHH:mm:ssZ");
+								}
+								bungieResult.Response.data.vendor.vendorCharacterHash = vendorId+"-"+characterId;
+								database.addSingle("vendors", bungieResult.Response.data.vendor).then(resolve);
+							} else {
+								resolve(bungieResult);
+							}
+						}
+					});
+				} else {
+					resolve(data);
+				}
 			});
 		});
 	};

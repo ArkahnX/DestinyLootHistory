@@ -1,5 +1,10 @@
 tracker.sendAppView('DebugScreen');
 logger.disable();
+var DEBUG = false;
+var manifest = chrome.runtime.getManifest();
+if (!manifest.key) {
+	DEBUG = true;
+}
 logger.init().then(function debugInit() {
 	var outPutArea = document.getElementById("logOutput");
 	var logOption = document.getElementById("showLog");

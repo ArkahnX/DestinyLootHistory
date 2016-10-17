@@ -1,6 +1,11 @@
 tracker.sendAppView('Vendor');
 logger.disable();
 var globalOptions = {};
+var DEBUG = false;
+var manifest = chrome.runtime.getManifest();
+if (!manifest.key) {
+	DEBUG = true;
+}
 getAllOptions().then(function(options) {
 	globalOptions = options;
 });
@@ -467,13 +472,13 @@ function getVendor(hash) {
 		if (err) {
 			logger.error(err);
 		}
-	}).then(function(response) {
-		console.log(response, response.Response && response.Response.data, DestinyVendorDefinition[lastVendor]);
-		if (response.Response) {
+	}).then(function(vendorData) {
+		console.log(vendorData, DestinyVendorDefinition[lastVendor]);
+		if (vendorData.vendorHash) {
 			document.getElementById("history").innerHTML = "";
-			makeItemsFromVendor(response.Response.data.vendor);
+			makeItemsFromVendor(vendorData);
 		} else {
-			document.getElementById("history").innerHTML = `<h2>${response.Message}</h2>`;
+			document.getElementById("history").innerHTML = `<h2>${vendorData.Message}</h2>`;
 			console.log(lastVendor);
 			elements.status.classList.remove("active");
 		}
@@ -496,25 +501,25 @@ function compareVendor(vendorHash, compareHash) {
 				logger.error(err);
 			}
 		}).then(function(responseCompare) {
-			if (responseMain.Response && responseCompare.Response) {
-				var vendorSaleItems = responseMain.Response.data.vendor.saleItemCategories;
-				var vendorName = DestinyVendorDefinition[responseMain.Response.data.vendor.vendorHash].summary.vendorName;
-				var compareName = DestinyVendorDefinition[responseCompare.Response.data.vendor.vendorHash].summary.vendorName;
-				var compareSaleItems = responseCompare.Response.data.vendor.saleItemCategories;
+			if (responseMain.vendorHash && responseCompare.vendorHash) {
+				var vendorSaleItems = responseMain.saleItemCategories;
+				var vendorName = DestinyVendorDefinition[responseMain.vendorHash].summary.vendorName;
+				var compareName = DestinyVendorDefinition[responseCompare.vendorHash].summary.vendorName;
+				var compareSaleItems = responseCompare.saleItemCategories;
 				var flattenedVendorItems = flattenItems(vendorSaleItems);
 				var flattenedCompareItems = flattenItems(compareSaleItems);
 				var currencies = {};
-				if (Object.keys(responseMain.Response.data.vendor.currencies).length > 0) {
-					currencies = responseMain.Response.data.vendor.currencies;
+				if (Object.keys(responseMain.currencies).length > 0) {
+					currencies = responseMain.currencies;
 				}
-				if (Object.keys(responseCompare.Response.data.vendor.currencies).length > 0) {
-					currencies = responseCompare.Response.data.vendor.currencies;
+				if (Object.keys(responseCompare.currencies).length > 0) {
+					currencies = responseCompare.currencies;
 				}
 				var saleItemCategories = [{
-					categoryTitle: vendorName + " reset " + moment(responseMain.Response.data.vendor.nextRefreshDate).fromNow(),
+					categoryTitle: vendorName + " reset " + moment(responseMain.nextRefreshDate).fromNow(),
 					saleItems: []
 				}, {
-					categoryTitle: compareName + " reset " + moment(responseCompare.Response.data.vendor.nextRefreshDate).fromNow(),
+					categoryTitle: compareName + " reset " + moment(responseCompare.nextRefreshDate).fromNow(),
 					saleItems: []
 				}];
 				var vendor = {

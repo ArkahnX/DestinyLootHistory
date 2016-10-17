@@ -288,20 +288,69 @@ function buildCompactItem(itemData) {
 		};
 	}
 	if (itemData.nodes && itemData.nodes.length) {
+		var gridComplete = 0;
 		newItemData.nodes = [];
 		for (var node of itemData.nodes) {
 			if (!node) {
 				logger.info(itemData, itemData.nodes, itemData.nodes.length);
 			}
 			if (node && !node.hidden) {
+				if (node.isActivated) {
+					node.state = 10;
+				}
 				newItemData.nodes.push({
 					isActivated: node.isActivated,
 					stepIndex: node.stepIndex,
 					nodeHash: node.nodeHash,
 					state: node.state
 				});
+				if (node.state !== 7) {
+					if (node.state === 0 && node.isActivated) {
+						gridComplete++;
+					} else if (node.state !== 0) {
+						gridComplete++;
+					}
+				}
 			}
 		}
+		if (gridComplete === newItemData.nodes.length) {
+			newItemData.isGridComplete = true;
+		}
+	}
+	if (itemData.progression) {
+		var totalLevel = itemData.progression.level;
+		var totalXp = itemData.progression.currentProgress;
+		var totalXpRequired = 0;
+		var maxGridLevel = 0;
+		var talentDef = DestinyCompactTalentDefinition[itemData.talentGridHash];
+		var finalNode;
+		var progressDef = DestinyProgressionDefinition[itemData.progression.progressionHash];
+		for (let node of newItemData.nodes) {
+			var nodeDef = talentDef.nodes[node.nodeHash];
+			var stepDef = nodeDef.steps[node.stepIndex];
+			var activatedAtGridLevel = stepDef.activationRequirement.gridLevel;
+			if (activatedAtGridLevel <= totalLevel && node.state === 0) {
+				node.state = 1;
+			}
+			if (activatedAtGridLevel > maxGridLevel) {
+				maxGridLevel = activatedAtGridLevel;
+				finalNode = node;
+			}
+			if (!finalNode) {
+				finalNode = node;
+			}
+		}
+		if (newItemData.nodes && newItemData.nodes.length && finalNode.isActivated) {
+			newItemData.isGridComplete = true;
+		}
+		if (maxGridLevel > 0) {
+			for (var step = 1; step <= maxGridLevel; step++) {
+				totalXpRequired += progressDef.steps[Math.min(step, progressDef.steps.length) - 1].progressTotal;
+			}
+		}
+		newItemData.xpComplete = totalXpRequired <= totalXp;
+		newItemData.xpTotal = Math.min(totalXpRequired, totalXp);
+		newItemData.xpMax = totalXpRequired;
 	}
 	return newItemData;
 }
@@ -372,7 +421,7 @@ function checkReminderEligibility(characterId) {
 	logger.startLogging("3oC");
 	var threeOfCoinsProgress = JSON.parse(localStorage.threeOfCoinsProgress);
 	var old3oCProgress = parseInt(threeOfCoinsProgress[characterId], 10);
-	console.log(localStorage.move3oCCooldown, characterDescriptions[characterId].currentActivityHash !== old3oCProgress)
+	// console.log(localStorage.move3oCCooldown, characterDescriptions[characterId].currentActivityHash !== old3oCProgress)
 	if (localStorage.move3oCCooldown === "true") {
 		if (characterDescriptions[characterId].currentActivityHash !== old3oCProgress) {
 			console.log("MOVING TO ", DestinyActivityDefinition[characterDescriptions[characterId].currentActivityHash]);
@@ -380,8 +429,8 @@ function checkReminderEligibility(characterId) {
 		}
 	}
 	if (localStorage.move3oCCooldown === "false") {
-		console.log(localStorage.move3oCCooldown)
-		console.log(characterId, characterDescriptions[characterId], threeOfCoinsProgress[characterId])
+		// console.log(localStorage.move3oCCooldown)
+		// console.log(characterId, characterDescriptions[characterId], threeOfCoinsProgress[characterId])
 		localStorage.move3oC = "true";
 		localStorage.move3oCCooldown = "true";
 	}

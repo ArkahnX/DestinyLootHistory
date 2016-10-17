@@ -2,6 +2,11 @@ tracker.sendAppView('HistoryScreen');
 getOption("activeType").then(bungie.setActive);
 initUi(elements.container);
 var globalOptions = {};
+var DEBUG = false;
+var manifest = chrome.runtime.getManifest();
+if (!manifest.key) {
+	DEBUG = true;
+}
 getAllOptions().then(function(options) {
 	globalOptions = options;
 });

@@ -122,7 +122,7 @@ function initializeStoredVariables() {
 				autoLock: false,
 				track3oC: true,
 				trackBoosters: true,
-				obeyCooldowns:true,
+				obeyCooldowns:false,
 				relativeDates: true,
 				pgcrImage: false,
 				showQuality: true,
@@ -131,6 +131,9 @@ function initializeStoredVariables() {
 				debugLogging: false,
 				keepSingleStackItems: [],
 				autoMoveItemsToVault: [],
+				qualitySortOrder: [],
+				perkSortOrder: [],
+				rewardSources: [],
 				minQuality: 90,
 				minLight: 350
 			};

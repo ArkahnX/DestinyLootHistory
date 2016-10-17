@@ -33,6 +33,10 @@ var elements = {
 	showQuality: document.getElementById("showQuality"),
 	useGuardianLight: document.getElementById("useGuardianLight"),
 	lockHighLight: document.getElementById("lockHighLight"),
+	classType: document.getElementById("classType"),
+	categoryHash: document.getElementById("categoryHash"),
+	hideUnmatched: document.getElementById("hideUnmatched"),
+	refreshGear: document.getElementById("refreshGear"),
 	version: document.getElementById("version")
 };
 

@@ -1,5 +1,6 @@
 tracker.sendAppView('BackgroundScreen');
 var globalOptions = {};
+var DEBUG = false;
 
 function _backup() {
 	database.getAllEntries("itemChanges").then(function(/*data*/) {
@@ -61,6 +62,7 @@ function init() {
 				var manifest = chrome.runtime.getManifest();
 				// If we have no key, this means this extension is not a webstore install, so we should back up live data, just in case.
 				if (!manifest.key) {
+					DEBUG = true;
 					backupHistory();
 				}
 				initializeStoredVariables().then(function() {

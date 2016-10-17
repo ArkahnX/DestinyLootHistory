@@ -1,6 +1,11 @@
 var endDate = moment();
 var startDate = moment(moment().subtract(24, "hours"));
 var globalOptions = {};
+var DEBUG = false;
+var manifest = chrome.runtime.getManifest();
+if (!manifest.key) {
+	DEBUG = true;
+}
 getAllOptions().then(function(options) {
 	globalOptions = options;
 });

@@ -290,8 +290,10 @@ function handleOtherStats(dataset, resolve) {
 		}
 		for (var characterInventory of sourceInventories) {
 			for (var item of characterInventory.inventory) {
-				if (item.itemHash === parseInt(dataset.itemHash) && item.itemInstanceId !== dataset.itemInstanceId) {
-					comparisonItems.push(item);
+				if (item.itemHash === parseInt(dataset.itemHash)) {
+					if (item.itemInstanceId !== dataset.itemInstanceId) {
+						comparisonItems.push(item);
+					}
 				}
 			}
 		}
@@ -366,6 +368,7 @@ function handleOtherStats(dataset, resolve) {
 			elements.nodeTable.appendChild(NodeList);
 		}
 		if (nodeData && nodeData.nodes) {
+			// var talentDef = DestinyCompactTalentDefinition[dataset.talentGridHash];
 			for (let node of nodeData.nodes) {
 				let tableText = document.getElementById(`row${node.row}column${node.column}`);
 				tableText.dataset.state = node.state;
@@ -375,10 +378,17 @@ function handleOtherStats(dataset, resolve) {
 				}
 				if (node.isActivated) {
 					tableText.classList.add("node-selected");
-				} else if (node.state === 9 || node.state === 0) {
+				} else if (node.state === 9 || node.state === 1 || node.state === 5 || node.state === 6) {
 					tableText.classList.add("node-complete");
 				}
 				tableText.title = node.nodeStepName + " \n" + node.nodeStepDescription;
+				if (DEBUG) {
+					// console.log(node, talentDef);
+					// var nodeDef = talentDef.nodes[node.nodeHash];
+					// var stepDef = nodeDef.steps[node.stepIndex];
+					// var activatedAtGridLevel = stepDef.activationRequirement.gridLevel;
+					tableText.title = node.nodeStepName + " \n" + node.nodeStepDescription + " \nState: " + node.state + " \nGrid: " + node.activatedAtGridLevel;
+				}
 			}
 		}
 		if (itemDef.bucketTypeHash === 4023194814) { // ghost shell icons
