@@ -133,6 +133,10 @@ function initializeStoredVariables() {
 				autoMoveItemsToVault: [],
 				qualitySortOrder: [],
 				perkSortOrder: [],
+				tagKeepInstances:[],
+				tagInfuseUpInstances:[],
+				tagInfusionFodderInstances:[],
+				tagJunkInstances:[],
 				rewardSources: [],
 				minQuality: 90,
 				minLight: 350
