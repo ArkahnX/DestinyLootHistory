@@ -262,7 +262,7 @@ var bungie = (function Bungie() {
 						opts.atk = cookieNames.bungleatk.length;
 						r.send(JSON.stringify(opts.payload));
 					} else {
-						tracker.sendEvent('Chrome Cookie Not Found', `CSRF: ${cookieNames.bungled}, ATK: ${cookieNames.bungleatk.length}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
+						tracker.sendEvent('Chrome Cookie Not Found', `CSRF: ${cookieNames.bungled}, ATK: ${cookieNames.bungleatk && cookieNames.bungleatk.length || 0}, Route: ${opts.shortRoute}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 						localStorage.error = "true";
 						localStorage.errorMessage = `Error loading user. Please sign out and sign back in to <a href="https://www.bungie.net">linked with bungie.net</a> then click Restart Tracking.\nThis issue is being actively worked on. <a href="https://docs.google.com/forms/d/e/1FAIpQLSeuHPgi_vetjNlQvVbOE8M7qM-7G5I4zmGalSKmUGT4UQ0Ekw/viewform">Please report it with this survey</a>.`;
 						opts.incomplete();

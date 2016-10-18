@@ -317,7 +317,7 @@ function buildCompactItem(itemData) {
 			newItemData.isGridComplete = true;
 		}
 	}
-	if (itemData.progression) {
+	if (itemData.progression && newItemData.nodes) {
 		var totalLevel = itemData.progression.level;
 		var totalXp = itemData.progression.currentProgress;
 		var totalXpRequired = 0;
