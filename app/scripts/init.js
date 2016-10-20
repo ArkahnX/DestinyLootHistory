@@ -122,7 +122,7 @@ function initializeStoredVariables() {
 				autoLock: false,
 				track3oC: true,
 				trackBoosters: true,
-				obeyCooldowns:false,
+				obeyCooldowns: false,
 				relativeDates: true,
 				pgcrImage: false,
 				showQuality: true,
@@ -133,13 +133,19 @@ function initializeStoredVariables() {
 				autoMoveItemsToVault: [],
 				qualitySortOrder: [],
 				perkSortOrder: [],
-				tagKeepInstances:[],
-				tagInfuseUpInstances:[],
-				tagInfusionFodderInstances:[],
-				tagJunkInstances:[],
 				rewardSources: [],
 				minQuality: 90,
-				minLight: 350
+				minLight: 350,
+				tagWeaponInstances: [],
+				tagArmorInstances: [],
+				tagOtherInstances: [],
+				tagArmorIndexes: [],
+				tagWeaponIndexes: [],
+				tagOtherIndexes: [],
+				tagList1: [],
+				tagList2: [],
+				tagList3: [],
+				tagIdIndex:0
 			};
 			for (var option in options) {
 				newOptions[option] = options[option];

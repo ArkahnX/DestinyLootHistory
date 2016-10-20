@@ -75,6 +75,8 @@
 		"parseItemQuality": false,
 		"getAllOptions": false,
 		"getOption": false,
+		"tags": false,
+		"setOptionsObject": false,
 		"Fuse": false,
 		"DEBUG": false,
 		"autoComplete": false,

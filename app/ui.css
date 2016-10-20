@@ -268,7 +268,7 @@ header {
 	line-height: normal;
 
 	position: absolute;
-	z-index: 0;
+	z-index: 1;
 	right: 0;
 	bottom: 0;
 

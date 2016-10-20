@@ -36,14 +36,18 @@ function getAllOptions() {
 	});
 }
 
-function setOption(name, value) {
-	var obj = {};
-	obj[name] = value;
+function setOptionsObject(obj) {
 	chrome.storage.sync.set(obj, function() {
 		if (chrome.runtime.lastError) {
 			logger.error(chrome.runtime.lastError);
 		}
 	});
+}
+
+function setOption(name, value) {
+	var obj = {};
+	obj[name] = value;
+	setOptionsObject(obj);
 }
 
 function findInArray(array, property, value) {
