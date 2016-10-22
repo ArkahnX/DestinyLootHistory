@@ -10,10 +10,17 @@ function handleTooltipData(dataset, element, event) {
 
 function setTooltipData(dataset, element, event) {
 	var itemDetails = dataset;
+	document.getElementById("tag").classList.add("hidden");
 	if (element.className.indexOf("faction") === -1 || element.className.indexOf("currency") > -1) {
 		itemDetails = getItemDefinition(dataset.itemHash);
 	}
 	if (dataset.itemName || itemDetails.itemName) {
+		if (dataset.canTag) {
+			elements.tooltip.dataset.itemInstanceId = dataset.itemInstanceId;
+			elements.tooltip.dataset.itemHash = dataset.itemHash;
+			document.getElementById("tag").value = dataset.tagHash;
+			document.getElementById("tag").classList.remove("hidden");
+		}
 		if (dataset.itemImage || itemDetails.icon) {
 			elements.itemImage.src = "https://www.bungie.net" + (dataset.itemImage || itemDetails.icon);
 		} else if (dataset.itemName === "Classified" || itemDetails.itemName === "Classified") {

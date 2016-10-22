@@ -82,6 +82,7 @@ var globalOptions = {};
 
 getAllOptions().then(function(options) {
 	globalOptions = options;
+	tags.update();
 });
 
 function processSearchTerm() {

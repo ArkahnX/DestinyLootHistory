@@ -4,17 +4,128 @@ window.tags = (function() {
 	let hashTags = ["tagWeaponInstances", "tagArmorInstances", "tagOtherInstances"];
 	let indexTags = ["tagWeaponIndexes", "tagArmorIndexes", "tagOtherIndexes"];
 	let tagArrays = ["tagList1", "tagList2", "tagList3"];
-	let tagHashes = ["keep", "junk", "infuseup", "infusionfodder", "custom"];
+	let tagHashes = ["keep", "junk", "infuseup", "infusionfodder", "custom", "default", "needstesting"];
+	const defaultTag = {
+		tagId: 0,
+		tagHash: 5
+	};
 	let tagNames = {
+		default: "Tag Item",
 		keep: "Keep",
 		junk: "Bad Rolls",
 		infuseup: "Needs Infusing",
 		infusionfodder: "Infusion Fuel",
-		custom: "Custom Tag"
+		custom: "Custom Tag",
+		needstesting: "Needs Testing"
+	};
+	let tagIcons = {
+		default: "tag",
+		keep: "star",
+		junk: "ban",
+		infuseup: "arrow-up",
+		infusionfodder: "arrow-down",
+		custom: "tags",
+		needstesting: "question-circle"
 	};
 
-	tags.tagName = function(tagHash) {
-		var name = tagHashes[tagHash];
+	tags.cleanup = function(inventories) {
+		console.time("cleanup");
+		let itemHashes = [];
+		let deleteHashes = [];
+		for (let characterInventory of inventories) {
+			for (let item of characterInventory.inventory) {
+				if (item.itemInstanceId) {
+					itemHashes.push(item.itemInstanceId);
+				}
+			}
+		}
+		for (let hashTag of hashTags) {
+			for (let hash of localOptions[hashTag]) {
+				if (itemHashes.indexOf(hash) === -1) {
+					deleteHashes.push(hash);
+				} else {
+					console.log(hash)
+
+				}
+			}
+		}
+		for (let hash of deleteHashes) {
+			tags.quickRemoveTag(hash);
+		}
+		console.log(localOptions)
+		setOptionsObject(localOptions);
+		console.timeEnd("cleanup");
+	};
+
+	tags.getUI = function() {
+		let tagSelect = document.getElementById("tag");
+		var tagFloat = document.getElementById("tagfloat");
+		if (tagSelect && tagFloat) {
+			for (let i = 0; i < tagHashes.length; i++) {
+				let tagName = tagNames[tagHashes[i]];
+
+				var optionElement = document.createElement("option");
+				optionElement.value = i;
+				optionElement.textContent = tagName;
+				if (i === 5) {
+					optionElement.selected = true;
+				}
+				tagSelect.appendChild(optionElement);
+				if (i !== 5) {
+					var liElement = document.createElement("li");
+					liElement.textContent = tagName;
+					liElement.value = i;
+					liElement.classList.add("button");
+					tagFloat.appendChild(liElement);
+				}
+			}
+		}
+		tagSelect.addEventListener("change", function() {
+			var origin = elements.tooltip.dataset.itemInstanceId;
+			var itemHash = parseInt(elements.tooltip.dataset.itemHash);
+			var tagType = parseInt(tagSelect.value);
+			var results = document.querySelectorAll(`.item-container[data-id="${origin}"]`);
+			for (var result of results) {
+				var tag = result.children[3];
+				tag.classList.add("tag-corner");
+				tag.innerHTML = `<i class="fa fa-${tags.getIcon({tagHash:tagType})} fa-lg"></i>`;
+			}
+			tags.setTag({
+				itemInstanceId: origin,
+				itemHash: itemHash,
+			}, tagType);
+		});
+		tagFloat.addEventListener("click", function(event) {
+			var origin = tagFloat.dataset.itemInstanceId;
+			var itemHash = parseInt(tagFloat.dataset.itemHash);
+			var tagType = parseInt(event.target.value);
+			var results = document.querySelectorAll(`.item-container[data-id="${origin}"]`);
+			for (var result of results) {
+				var tag = result.children[3];
+				tag.classList.add("tag-corner");
+				tag.innerHTML = `<i class="fa fa-${tags.getIcon({tagHash:tagType})} fa-lg"></i>`;
+			}
+			tags.setTag({
+				itemInstanceId: origin,
+				itemHash: itemHash,
+			}, tagType);
+			tagFloat.classList.add("hidden");
+		}, true);
+	};
+
+	tags.getIcon = function(tag) {
+		if (tag === false) {
+			return "tag";
+		}
+		var name = tagHashes[tag.tagHash];
+		return tagIcons[name];
+	};
+
+	tags.getName = function(tag) {
+		if (tag === false) {
+			return tagNames["default"];
+		}
+		var name = tagHashes[tag.tagHash];
 		return tagNames[name];
 	};
 
@@ -49,15 +160,13 @@ window.tags = (function() {
 
 	tags.canTag = function(item) {
 		if (!item.itemInstanceId) {
-			return false;
+			return -1;
 		}
-		if (tagType(item) > -1) {
-			return true;
-		}
-		return false;
+		return tagType(item);
 	};
 
 	tags.getTag = function(item) {
+		console.time("getTag");
 		let tagType = tags.canTag(item);
 		if (tagType === -1) {
 			return false;
@@ -65,18 +174,21 @@ window.tags = (function() {
 		let hashIndex = localOptions[hashTags[tagType]].indexOf(item.itemInstanceId);
 		if (hashIndex > -1) {
 			let tagIndex = localOptions[indexTags[tagType]][hashIndex].split(":");
-			let arrayIndex = parseInt(tagIndex[0], 10);
+			let arrayIndex = parseInt(tagIndex[2] || 0, 10);
 			let tagId = parseInt(tagIndex[1], 10);
 			for (var tag of localOptions[tagArrays[arrayIndex]]) {
 				if (tag.tagId === tagId) {
+					console.timeEnd("getTag");
 					return tag;
 				}
 			}
 		}
-		return false;
+		console.timeEnd("getTag");
+		return defaultTag;
 	};
 
 	tags.removeTag = function(item, dontSave) {
+		console.time("removeTag");
 		let tagType = tags.canTag(item);
 		if (tagType === -1) {
 			return false;
@@ -84,8 +196,8 @@ window.tags = (function() {
 		let hashIndex = localOptions[hashTags[tagType]].indexOf(item.itemInstanceId);
 		if (hashIndex > -1) {
 			let tagIndex = localOptions[indexTags[tagType]][hashIndex].split(":");
-			let arrayIndex = parseInt(tagIndex[0], 10);
 			let tagId = parseInt(tagIndex[1], 10);
+			let arrayIndex = parseInt(tagIndex[2] || 0, 10);
 			for (let i = 0; i < localOptions[tagArrays[arrayIndex]].length; i++) {
 				let tag = localOptions[tagArrays[arrayIndex]][i];
 				if (tag.tagId === tagId) {
@@ -97,14 +209,40 @@ window.tags = (function() {
 						setOption(indexTags[tagType], localOptions[indexTags[tagType]]);
 						setOption(tagArrays[arrayIndex], localOptions[tagArrays[arrayIndex]]);
 					}
+					console.timeEnd("removeTag");
 					return true;
 				}
 			}
 		}
+		console.timeEnd("removeTag");
 		return false;
 	};
 
+	tags.quickRemoveTag = function(itemInstanceId) {
+		console.time("quickRemoveTag");
+		for (var tagType = 0; tagType < hashTags.length; tagType++) {
+			let hashIndex = localOptions[hashTags[tagType]].indexOf(itemInstanceId);
+			if (hashIndex > -1) {
+				let tagIndex = localOptions[indexTags[tagType]][hashIndex].split(":");
+				let tagId = parseInt(tagIndex[1], 10);
+				let arrayIndex = parseInt(tagIndex[2] || 0, 10);
+				for (let i = 0; i < localOptions[tagArrays[arrayIndex]].length; i++) {
+					let tag = localOptions[tagArrays[arrayIndex]][i];
+					if (tag.tagId === tagId) {
+						localOptions[hashTags[tagType]].splice(hashIndex, 1);
+						localOptions[indexTags[tagType]].splice(hashIndex, 1);
+						localOptions[tagArrays[arrayIndex]].splice(i, 1);
+						console.timeEnd("quickRemoveTag");
+						return true;
+					}
+				}
+				break;
+			}
+		}
+	};
+
 	tags.setTag = function(item, tagHash) {
+		console.time("setTag");
 		let tagType = tags.canTag(item);
 		if (tagType === -1) {
 			return false;
@@ -112,12 +250,12 @@ window.tags = (function() {
 		tags.removeTag(item, true);
 		localOptions.tagIdIndex += 1;
 		localOptions[hashTags[tagType]].push(item.itemInstanceId);
-		localOptions[indexTags[tagType]].push(`${tagType}:${localOptions.tagIdIndex}`);
 		for (var i = 0; i < 3; i++) {
 			if (localOptions[tagArrays[i]].length < 200) {
+				localOptions[indexTags[tagType]].push(`${tagType}:${localOptions.tagIdIndex}:${i}`);
 				localOptions[tagArrays[i]].push({
-					tagId:localOptions.tagIdIndex,
-					tagHash:tagHash
+					tagId: localOptions.tagIdIndex,
+					tagHash: tagHash
 				});
 				// setOption(tagArrays[i], localOptions[tagArrays[i]]);
 				// setOption(indexTags[tagType], localOptions[indexTags[tagType]]);
@@ -127,6 +265,7 @@ window.tags = (function() {
 				break;
 			}
 		}
+		console.timeEnd("setTag");
 	};
 	return tags;
 }());

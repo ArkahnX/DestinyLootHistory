@@ -9,6 +9,7 @@ if (!manifest.key) {
 }
 getAllOptions().then(function(options) {
 	globalOptions = options;
+	tags.update();
 });
 var relevantStats = ["itemHash", "itemInstanceId", "isEquipped", "itemInstanceId", "stackSize", "itemLevel", "qualityLevel", "stats", "primaryStat", "equipRequiredLevel", "damageTypeHash", "progression", "talentGridHash", "nodes", "isGridComplete", "objectives"];
 var badBuckets = [375726501, 1469714392, 1626737477, 1801258597, 2197472680, 2422292810, 2689798308, 2689798304, 2689798309, 2689798310, 3161908920, 3772930460];

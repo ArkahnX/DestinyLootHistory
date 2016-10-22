@@ -3,6 +3,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Destiny Collection</title>
 		<link rel="stylesheet" type="text/css" href="ui.css">
+		<link rel="stylesheet" type="text/css" href="font-awesome.min.css">
 	</head>
 	<body>
 		<header id="status" class="active">
@@ -85,6 +86,9 @@
 				</li>
 			</ul>
 		</div>
+		<ul id="tagfloat" class="hidden">
+
+		</ul>
 		<div id="tooltip">
 			<section id="item-head">
 				<canvas id="squareProgress" width="71" height="71" class="bigProgress"></canvas>
@@ -100,6 +104,9 @@
 			</section>
 			<section id="item-body">
 				<div id="level-text">Requires Level <span id="item-required-equip-level"></span></div>
+				<select id="tag" class="hidden">
+				</select>
+				<br />
 				<h1 id="item-primary-stat"></h1>
 				<div id="item-stat-text"></div>
 				<div id="item-description"></div>
@@ -141,6 +148,7 @@
 		<script type="text/javascript" src="scripts/tools/date.js"></script>
 		<script type="text/javascript" src="scripts/tools/item.js"></script>
 		<script type="text/javascript" src="scripts/tools/db.js"></script>
+		<script type="text/javascript" src="scripts/tools/tags.js"></script>
 		<script type="text/javascript" src="scripts/shared.js"></script>
 		<script type="text/javascript" src="scripts/logger.js"></script>
 		<script type="text/javascript" src="scripts/bungie.js"></script>

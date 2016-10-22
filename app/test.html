@@ -3,6 +3,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Destiny Inventory</title>
 		<link rel="stylesheet" type="text/css" href="ui.css">
+		<link rel="stylesheet" type="text/css" href="font-awesome.min.css">
 	</head>
 	<body>
 		<header id="status">
@@ -10,6 +11,14 @@
 				<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
 			</nav>
 		</header>
+		<div id="width-wrapper" class="center">
+			<div id="container">
+				<div id="history" class="main-section" style="width: inherit;"></div>
+			</div>
+		</div>
+		<ul id="tagfloat" class="hidden">
+
+		</ul>
 		<div id="tooltip">
 			<section id="item-head">
 				<canvas id="squareProgress" width="71" height="71" class="bigProgress"></canvas>
@@ -25,6 +34,9 @@
 			</section>
 			<section id="item-body">
 				<div id="level-text">Requires Level <span id="item-required-equip-level"></span></div>
+				<select id="tag" class="hidden">
+				</select>
+				<br />
 				<h1 id="item-primary-stat"></h1>
 				<div id="item-stat-text"></div>
 				<div id="item-description"></div>
@@ -54,11 +66,6 @@
 					</tbody>
 				</table>
 			</section>
-		</div>
-		<div id="width-wrapper" class="center">
-			<div id="container">
-				<div id="history" class="main-section" style="width: inherit;"></div>
-			</div>
 		</div>
 		<div id="copyright">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
 		<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js" async></script>

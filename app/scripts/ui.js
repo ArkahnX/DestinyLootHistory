@@ -29,6 +29,7 @@ var elements = {
 	track3oC: document.getElementById("track3oC"),
 	trackBoosters: document.getElementById("trackBoosters"),
 	obeyCooldowns: document.getElementById("obeyCooldowns"),
+	autoTagInventory: document.getElementById("autoTagInventory"),
 	paginate: document.getElementById("paginate"),
 	showQuality: document.getElementById("showQuality"),
 	useGuardianLight: document.getElementById("useGuardianLight"),
@@ -63,6 +64,14 @@ var moment = moment || null
 
 if (moment) {
 	var timezone = moment.tz.guess();
+}
+
+function getOffset(el) {
+	el = el.getBoundingClientRect();
+	return {
+		left: el.left + window.scrollX,
+		top: el.top + window.scrollY
+	}
 }
 
 function initUi(elementTarget) {
@@ -108,6 +117,38 @@ function initUi(elementTarget) {
 				previousElement = null;
 			}
 		}, true);
+		elementTarget.addEventListener("contextmenu", function(event) {
+			var target = null;
+			if (event.target.classList.contains("item") || event.target.classList.contains("faction")) {
+				target = event.target;
+			} else if (event.target.parentNode.classList.contains("item") || event.target.parentNode.classList.contains("faction")) {
+				target = event.target.parentNode;
+			} else if (event.target.parentNode.classList.contains("item-container")) {
+				target = event.target.parentNode.children[0];
+			}
+			if (target && target.dataset.canTag) {
+				event.preventDefault();
+				var tagFloat = document.getElementById("tagfloat");
+				tagFloat.dataset.itemInstanceId = target.dataset.itemInstanceId;
+				tagFloat.dataset.itemHash = target.dataset.itemHash;
+				var coords = getOffset(target);
+				if (coords.top + 250 > window.innerHeight) {
+					tagFloat.style.top = coords.top - tagFloat.getBoundingClientRect().height;
+				} else {
+					tagFloat.style.top = coords.top + 50;
+				}
+				tagFloat.style.left = coords.left;
+				tagFloat.classList.remove("hidden");
+			}
+		}, true);
+		document.getElementById("container").addEventListener("scroll", function() {
+			// console.log(document.getElementById("tagfloat"));
+			document.getElementById("tagfloat").classList.add("hidden");
+		}, false);
+		window.addEventListener("resize", function() {
+			// console.log(document.getElementById("tagfloat"));
+			document.getElementById("tagfloat").classList.add("hidden");
+		}, false);
 	}
 	if (elements.toggleSystem) {
 		getOption("activeType").then(function(activeType) {
@@ -145,6 +186,7 @@ function initUi(elementTarget) {
 			}
 		}
 	}
+	tags.getUI();
 	getAllOptions().then(function(options) {
 		if (elements.autoLock) {
 			elements.autoLock.checked = options.autoLock === true;
@@ -161,6 +203,10 @@ function initUi(elementTarget) {
 		if (elements.obeyCooldowns) {
 			elements.obeyCooldowns.checked = options.obeyCooldowns === true;
 			elements.obeyCooldowns.addEventListener("change", handleCheckboxChange, false);
+		}
+		if (elements.autoTagInventory) {
+			elements.autoTagInventory.checked = options.autoTagInventory === true;
+			elements.autoTagInventory.addEventListener("change", handleCheckboxChange, false);
 		}
 		if (elements.showQuality) {
 			elements.showQuality.checked = options.showQuality === true;
@@ -391,13 +437,13 @@ function itemType(item) {
 	if (itemDef.itemType === 4) {
 		return "bounty";
 	}
-	if(itemDef.bucketTypeHash === 1469714392) {
+	if (itemDef.bucketTypeHash === 1469714392) {
 		return "consumable";
 	}
-	if(itemDef.bucketTypeHash === 3865314626) {
+	if (itemDef.bucketTypeHash === 3865314626) {
 		return "material";
 	}
-	if(itemDef.bucketTypeHash === 3313201758) {
+	if (itemDef.bucketTypeHash === 3313201758) {
 		return "ornament";
 	}
 	if ([284967655, 2025709351].indexOf(itemDef.bucketTypeHash) > -1) {
@@ -428,12 +474,15 @@ var itemCache = [];
 
 function makeItem(itemData, classRequirement, optionalCosts) {
 	var docfrag = document.createDocumentFragment();
-	var itemContainer, container, stat, quality;
+	var itemContainer, container, stat, quality, tag;
 	if (itemCache.length) {
 		itemContainer = itemCache.pop();
 		container = itemContainer.children[0];
 		quality = itemContainer.children[1];
 		stat = itemContainer.children[2];
+		tag = itemContainer.children[3];
+		tag.innerHTML = "";
+		tag.classList.remove("tag-corner");
 		for (var attr in container.dataset) {
 			delete container.dataset[attr];
 		}
@@ -441,11 +490,13 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 		itemContainer = document.createElement("div");
 		container = document.createElement("div");
 		stat = document.createElement("div");
+		tag = document.createElement("div");
 		quality = document.createElement("div");
 		itemContainer.classList.add("item-container");
 		itemContainer.appendChild(container);
 		itemContainer.appendChild(quality);
 		itemContainer.appendChild(stat);
+		itemContainer.appendChild(tag);
 		stat.classList.add("primary-stat");
 	}
 	docfrag.appendChild(itemContainer);
@@ -456,6 +507,17 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 	}
 	itemContainer.dataset.itemType = itemType(itemData);
 	itemContainer.dataset.itemRarity = itemRarity(itemData.itemHash);
+	let tagData = tags.getTag(itemData);
+	if (tagData) {
+		itemContainer.dataset.id = `${itemData.itemInstanceId}`;
+		// tag.innerHTML = `<i class="fa fa-${tags.getIcon(tagData)}"></i><span class="tag-text">${tags.getName(tagData)}</span>`;
+		container.dataset.canTag = "true";
+		container.dataset.tagHash = tagData.tagHash;
+		if (tagData.tagHash !== 5) {
+			tag.classList.add("tag-corner");
+			tag.innerHTML = `<i class="fa fa-${tags.getIcon(tagData)} fa-lg"></i>`;
+		}
+	}
 	if (hasQuality(itemData) && globalOptions.showQuality) {
 		quality.className = "quality";
 		stat.classList.add("with-quality");
@@ -727,7 +789,7 @@ function passData(DomNode, itemData, classRequirement, optionalCosts) {
 		DomNode.dataset.primaryStat = primaryStat(itemData);
 		DomNode.dataset.primaryStatName = primaryStatName(itemData);
 	}
-	if(!DomNode.dataset.nodes && DomNode.dataset.talentGridHash) {
+	if (!DomNode.dataset.nodes && DomNode.dataset.talentGridHash) {
 		DomNode.dataset.nodes = JSON.stringify(buildFakeNodes(DomNode.dataset.talentGridHash));
 	}
 	// DomNode.dataset.itemDescription = itemDefinition.itemDescription;

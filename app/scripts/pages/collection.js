@@ -9,6 +9,7 @@ getOption("activeType").then(bungie.setActive);
 var globalOptions = {};
 getAllOptions().then(function(options) {
 	globalOptions = options;
+	tags.update();
 });
 var selectedCharacter = localStorage.newestCharacter;
 var newInventories = newInventories || {};

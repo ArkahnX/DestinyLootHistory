@@ -26,6 +26,7 @@ var globalOptions = {};
 function frontEndUpdate() {
 	getAllOptions().then(function(options) {
 		globalOptions = options;
+		tags.update();
 	});
 	if (elements.toggleSystem) {
 		getOption("activeType").then(function(activeType) {

@@ -8,6 +8,7 @@ if (!manifest.key) {
 }
 getAllOptions().then(function(options) {
 	globalOptions = options;
+	tags.update();
 });
 var saleItemStatuses = [
 	"Success",

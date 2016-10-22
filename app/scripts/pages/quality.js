@@ -342,6 +342,7 @@ function organiseGear(options) {
 
 function startUi(options) {
 	globalOptions = options;
+	tags.update();
 	for (var perkHash of perkHashIndex) {
 		let perkDef = DestinySandboxPerkDefinition[perkHash];
 		perkList.push({

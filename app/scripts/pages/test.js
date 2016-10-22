@@ -24,9 +24,10 @@ function checkInventory() {
 		if (chrome.runtime.lastError) {
 			logger.error(chrome.runtime.lastError);
 		}
-		console.log(remoteData)
+		console.log(remoteData);
 		data = remoteData;
 		tags.update();
+		tags.cleanup(remoteData.inventories);
 		// sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
 		// sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
 		var characterHistory = document.getElementById("history");
@@ -54,11 +55,21 @@ function checkInventory() {
 						}
 					}
 				}
-				console.log(arrayToMerge.length);
+				// console.log(arrayToMerge.length);
 				Array.prototype.push.apply(inventoryData, arrayToMerge);
 			}
 		}
 		for (let item of inventoryData) {
+			if(globalOptions.autoTagInventory) {
+				var tag = tags.getTag(item);
+				if(tag.tagHash === 5) {
+					
+				}
+			}
+			// var tag = tags.getTag(item);
+			// if(tag) {
+			// 	// console.log(tags.getName(tag))
+			// }
 			let itemDefinition = getItemDefinition(item.itemHash);
 			let bucketName = DestinyInventoryBucketDefinition[itemDefinition.bucketTypeHash] && DestinyInventoryBucketDefinition[itemDefinition.bucketTypeHash].bucketName || itemDefinition.bucketTypeHash;
 			if (!sortedInventoryData[bucketName]) {
