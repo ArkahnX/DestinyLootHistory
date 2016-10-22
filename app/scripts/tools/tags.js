@@ -1,18 +1,9 @@
 window.tags = (function() {
 	let tags = {};
 	let localOptions = {};
-	let hashTags = ["tagWeaponInstances", "tagArmorInstances", "tagOtherInstances"];
-	let indexTags = ["tagWeaponIndexes", "tagArmorIndexes", "tagOtherIndexes"];
-	let tagArrays = ["tagList1", "tagList2", "tagList3"];
 	let tagStorageArrays = ["tags1", "tags2", "tags3", "tags4"];
 	let hashArrays = ["tagHashes1", "tagHashes2", "tagHashes3", "tagHashes4"];
 	let tagHashes = ["keep", "junk", "infuseup", "infusionfodder", "custom", "default", "needstesting", "needsbetterstats"];
-	var oldTimes = 0;
-	var newTimes = 0;
-
-	tags.time = function() {
-		console.log(`oldTime ${oldTimes}, newTime ${newTimes}`);
-	}
 	const defaultTag = {
 		tagId: 0,
 		tagHash: 5
@@ -38,7 +29,7 @@ window.tags = (function() {
 		needstesting: "question-circle"
 	};
 
-	function newCleanup(inventories) {
+	tags.cleanup = function(inventories) {
 		console.time("newCleanup");
 		let deleteIndexes = {};
 		let itemHashes = [];
@@ -52,7 +43,6 @@ window.tags = (function() {
 		for (let arrayIndex = 0; arrayIndex < hashArrays.length; arrayIndex++) {
 			let hashArrayName = hashArrays[arrayIndex];
 			let storageArrayName = tagStorageArrays[arrayIndex];
-			console.log(hashArrayName, storageArrayName, localOptions)
 			for (let hashIndex = 0; hashIndex < localOptions[hashArrayName].length; hashIndex++) {
 				let hash = localOptions[hashArrayName][hashIndex];
 				if (itemHashes.indexOf(hash) === -1) {
@@ -81,33 +71,6 @@ window.tags = (function() {
 		return setOptionsObject(localOptions).then(function() {
 			// console.timeEnd("newCleanup");
 		});
-	}
-
-	tags.cleanup = function(inventories) {
-		return newCleanup(inventories);
-		console.time("cleanup");
-		let itemHashes = [];
-		let deleteHashes = [];
-		for (let characterInventory of inventories) {
-			for (let item of characterInventory.inventory) {
-				if (item.itemInstanceId) {
-					itemHashes.push(item.itemInstanceId);
-				}
-			}
-		}
-		for (let hashTag of hashTags) {
-			for (let hash of localOptions[hashTag]) {
-				if (itemHashes.indexOf(hash) === -1) {
-					deleteHashes.push(hash);
-				}
-			}
-		}
-		for (let hash of deleteHashes) {
-			tags.quickRemoveTag(hash);
-		}
-		console.log(localOptions);
-		setOptionsObject(localOptions);
-		console.timeEnd("cleanup");
 	};
 
 	tags.getUI = function() {
@@ -200,15 +163,6 @@ window.tags = (function() {
 
 	tags.update = function() {
 		localOptions = {
-			tagWeaponInstances: globalOptions.tagWeaponInstances,
-			tagArmorInstances: globalOptions.tagArmorInstances,
-			tagOtherInstances: globalOptions.tagOtherInstances,
-			tagArmorIndexes: globalOptions.tagArmorIndexes,
-			tagWeaponIndexes: globalOptions.tagWeaponIndexes,
-			tagOtherIndexes: globalOptions.tagOtherIndexes,
-			tagList1: globalOptions.tagList1,
-			tagList2: globalOptions.tagList2,
-			tagList3: globalOptions.tagList3,
 			tags1: globalOptions.tags1,
 			tags2: globalOptions.tags2,
 			tags3: globalOptions.tags3,
@@ -242,106 +196,19 @@ window.tags = (function() {
 		return tagType(item);
 	};
 
-	function newGetTag(item) {
-		let startTime = window.performance.now();
+	tags.getTag = function(item) {
+		console.time("getTag");
 		let tagType = tags.canTag(item);
 		if (tagType === -1) {
 			return false;
 		}
-		// for (let arrayIndex = 0; arrayIndex < hashArrays.length; arrayIndex++) {
 		let tagIndex = localOptions[hashArrays[tagType]].indexOf(item.itemInstanceId);
 		if (tagIndex > -1) {
-			let endTime = window.performance.now();
-			newTimes += (endTime - startTime);
+			console.timeEnd("getTag");
 			return localOptions[tagStorageArrays[tagType]][tagIndex];
 		}
-		// }
-		let endTime = window.performance.now();
-		newTimes += (endTime - startTime);
+		console.timeEnd("getTag");
 		return defaultTag;
-	}
-
-	tags.getTag = function(item) {
-		return newGetTag(item);
-		// console.time("getTag");
-		let startTime = window.performance.now();
-		let tagType = tags.canTag(item);
-		if (tagType === -1) {
-			return false;
-		}
-		let hashIndex = localOptions[hashTags[tagType]].indexOf(item.itemInstanceId);
-		if (hashIndex > -1) {
-			let tagIndex = localOptions[indexTags[tagType]][hashIndex].split(":");
-			let arrayIndex = parseInt(tagIndex[2] || 0, 10);
-			let tagId = parseInt(tagIndex[1], 10);
-			for (var tag of localOptions[tagArrays[arrayIndex]]) {
-				if (tag.tagId === tagId) {
-					let endTime = window.performance.now();
-					oldTimes += (endTime - startTime);
-					// setNewTag(item, tag.tagHash);
-					// console.timeEnd("getTag");
-					return tag;
-				}
-			}
-		}
-		// console.timeEnd("getTag");
-		let endTime = window.performance.now();
-		oldTimes += (endTime - startTime);
-		return defaultTag;
-	};
-
-	tags.removeTag = function(item, dontSave) {
-		console.time("removeTag");
-		let tagType = tags.canTag(item);
-		if (tagType === -1) {
-			return false;
-		}
-		let hashIndex = localOptions[hashTags[tagType]].indexOf(item.itemInstanceId);
-		if (hashIndex > -1) {
-			let tagIndex = localOptions[indexTags[tagType]][hashIndex].split(":");
-			let tagId = parseInt(tagIndex[1], 10);
-			let arrayIndex = parseInt(tagIndex[2] || 0, 10);
-			for (let i = 0; i < localOptions[tagArrays[arrayIndex]].length; i++) {
-				let tag = localOptions[tagArrays[arrayIndex]][i];
-				if (tag.tagId === tagId) {
-					localOptions[hashTags[tagType]].splice(hashIndex, 1);
-					localOptions[indexTags[tagType]].splice(hashIndex, 1);
-					localOptions[tagArrays[arrayIndex]].splice(i, 1);
-					if (!dontSave) {
-						setOption(hashTags[tagType], localOptions[hashTags[tagType]]);
-						setOption(indexTags[tagType], localOptions[indexTags[tagType]]);
-						setOption(tagArrays[arrayIndex], localOptions[tagArrays[arrayIndex]]);
-					}
-					console.timeEnd("removeTag");
-					return true;
-				}
-			}
-		}
-		console.timeEnd("removeTag");
-		return false;
-	};
-
-	tags.quickRemoveTag = function(itemInstanceId) {
-		console.time("quickRemoveTag");
-		for (var tagType = 0; tagType < hashTags.length; tagType++) {
-			let hashIndex = localOptions[hashTags[tagType]].indexOf(itemInstanceId);
-			if (hashIndex > -1) {
-				let tagIndex = localOptions[indexTags[tagType]][hashIndex].split(":");
-				let tagId = parseInt(tagIndex[1], 10);
-				let arrayIndex = parseInt(tagIndex[2] || 0, 10);
-				for (let i = 0; i < localOptions[tagArrays[arrayIndex]].length; i++) {
-					let tag = localOptions[tagArrays[arrayIndex]][i];
-					if (tag.tagId === tagId) {
-						localOptions[hashTags[tagType]].splice(hashIndex, 1);
-						localOptions[indexTags[tagType]].splice(hashIndex, 1);
-						localOptions[tagArrays[arrayIndex]].splice(i, 1);
-						console.timeEnd("quickRemoveTag");
-						return true;
-					}
-				}
-				break;
-			}
-		}
 	};
 
 	tags.setTagWithoutSaving = function(item, tagHash) {
@@ -368,7 +235,13 @@ window.tags = (function() {
 		}
 	};
 
-	function setNewTag(item, tagHash) {
+	tags.saveAll = function() {
+		return setOptionsObject(localOptions).then(function() {
+			console.log("Done");
+		});
+	};
+
+	tags.setTag = function(item, tagHash) {
 		console.time("setNewTag");
 		let tagType = tags.canTag(item);
 		if (tagType === -1) {
@@ -379,9 +252,8 @@ window.tags = (function() {
 			if (tagIndex > -1) {
 				// return true;
 				localOptions[tagStorageArrays[tagType]][tagIndex].tagHash = tagHash;
-				return setOptionsObject(localOptions).then(function() {
-					console.timeEnd("setNewTag");
-				});
+				console.timeEnd("setNewTag");
+				return setOptionsObject(localOptions);
 			}
 		}
 		// for (let arrayIndex = 0; arrayIndex < hashArrays.length; arrayIndex++) {
@@ -399,40 +271,6 @@ window.tags = (function() {
 			console.error("not enough space");
 		}
 		// }
-	}
-
-	tags.saveAll = function() {
-		return setOptionsObject(localOptions).then(function() {
-			console.log("Done");
-		});
-	};
-
-	tags.setTag = function(item, tagHash) {
-		return setNewTag(item, tagHash);
-		console.time("setTag");
-		let tagType = tags.canTag(item);
-		if (tagType === -1) {
-			return false;
-		}
-		tags.removeTag(item, true);
-		localOptions.tagIdIndex += 1;
-		localOptions[hashTags[tagType]].push(item.itemInstanceId);
-		for (var i = 0; i < 3; i++) {
-			if (localOptions[tagArrays[i]].length < 200) {
-				localOptions[indexTags[tagType]].push(`${tagType}:${localOptions.tagIdIndex}:${i}`);
-				localOptions[tagArrays[i]].push({
-					tagId: localOptions.tagIdIndex,
-					tagHash: tagHash
-				});
-				// setOption(tagArrays[i], localOptions[tagArrays[i]]);
-				// setOption(indexTags[tagType], localOptions[indexTags[tagType]]);
-				// setOption(hashTags[tagType], localOptions[hashTags[tagType]]);
-				// setOption("tagIdIndex", localOptions.tagIdIndex);
-				return setOptionsObject(localOptions).then(function() {
-					console.timeEnd("setTag");
-				});
-			}
-		}
 	};
 	return tags;
 }());
