@@ -117,7 +117,7 @@ function initUi(elementTarget) {
 				previousElement = null;
 			}
 		}, true);
-		elementTarget.addEventListener("contextmenu", function(event) {
+		elementTarget.addEventListener("mousedown", function(event) {
 			var target = null;
 			if (event.target.classList.contains("item") || event.target.classList.contains("faction")) {
 				target = event.target;
@@ -131,23 +131,34 @@ function initUi(elementTarget) {
 				var tagFloat = document.getElementById("tagfloat");
 				tagFloat.dataset.itemInstanceId = target.dataset.itemInstanceId;
 				tagFloat.dataset.itemHash = target.dataset.itemHash;
+				let tagFloatHeight = tagFloat.getBoundingClientRect().height;
 				var coords = getOffset(target);
-				if (coords.top + 250 > window.innerHeight) {
-					tagFloat.style.top = coords.top - tagFloat.getBoundingClientRect().height;
+				if (coords.top + tagFloatHeight+50 > window.innerHeight) {
+					tagFloat.style.top = coords.top - tagFloatHeight;
+					tagFloat.classList.add("flip");
 				} else {
 					tagFloat.style.top = coords.top + 50;
+					tagFloat.classList.remove("flip");
 				}
-				tagFloat.style.left = coords.left;
-				tagFloat.classList.remove("hidden");
+				tagFloat.style.left = coords.left-50;
+				tagFloat.classList.remove("invisible");
 			}
 		}, true);
-		document.getElementById("container").addEventListener("scroll", function() {
-			// console.log(document.getElementById("tagfloat"));
-			document.getElementById("tagfloat").classList.add("hidden");
-		}, false);
+		if (document.getElementById("width-wrapper")) {
+			document.getElementById("width-wrapper").addEventListener("scroll", function() {
+				// console.log(document.getElementById("tagfloat"));
+				document.getElementById("tagfloat").classList.add("invisible");
+			}, false);
+		}
+		if (document.getElementById("debugHome")) {
+			document.getElementById("debugHome").addEventListener("scroll", function() {
+				// console.log(document.getElementById("tagfloat"));
+				document.getElementById("tagfloat").classList.add("invisible");
+			}, false);
+		}
 		window.addEventListener("resize", function() {
 			// console.log(document.getElementById("tagfloat"));
-			document.getElementById("tagfloat").classList.add("hidden");
+			document.getElementById("tagfloat").classList.add("invisible");
 		}, false);
 	}
 	if (elements.toggleSystem) {

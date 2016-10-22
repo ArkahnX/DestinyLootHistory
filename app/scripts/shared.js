@@ -37,10 +37,13 @@ function getAllOptions() {
 }
 
 function setOptionsObject(obj) {
-	chrome.storage.sync.set(obj, function() {
-		if (chrome.runtime.lastError) {
-			logger.error(chrome.runtime.lastError);
-		}
+	return new Promise(function(resolve) {
+		chrome.storage.sync.set(obj, function() {
+			if (chrome.runtime.lastError) {
+				logger.error(chrome.runtime.lastError);
+			}
+			resolve(obj);
+		});
 	});
 }
 

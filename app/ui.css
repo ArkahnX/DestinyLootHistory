@@ -1875,27 +1875,68 @@ ul > p {
 	background: #00396C;
 }
 
+#tagFloat:before {
+	position: absolute;
+	z-index: 9;
+	top: -50px;
+	bottom: auto;
+	left: auto;
+
+	display: block;
+
+	width: 0;
+
+	content: '';
+	/* right: 40px; */
+
+	border-width: 0 0 50px 50px;
+	/* bottom: -20px; */
+	/* left: 40px; */
+	/* border-width: 20px 20px 0; */
+	border-style: solid;
+	border-color: rgba(24,22,13,.9) transparent;
+}
+
+#tagFloat.flip:before {
+	    bottom: -50px;
+    border-width: 50px 0 0px 50px;
+    top: initial;
+}
+
 #tagFloat {
 	position: absolute;
+	z-index: 9;
 	top: 0;
 	left: 0;
+
+	box-shadow: 0 2px 5px 0 black;
 }
 
 #tagFloat li {
+	font-family: 'Roboto', sans-serif;
+	/* font-size: 16px; */
+	/* font-style: italic; */
+	line-height: 20px;
+
 	position: relative;
+	z-index: 9;
 
 	display: block;
 
 	cursor: pointer;
 	transition: all .2s;
 	white-space: nowrap;
+	text-transform: capitalize;
 
-	color: #FFF;
-	background: #555;
+	color: #F5F5F5;
+	background: rgba(24,22,13,.9);
 	text-shadow: 0 -1px 0 #000;
-	z-index:9;
 }
 
 #tagFloat li:hover {
 	background: #666;
+}
+
+.invisible {
+	visibility: hidden;
 }

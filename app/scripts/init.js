@@ -145,6 +145,14 @@ function initializeStoredVariables() {
 				tagList1: [],
 				tagList2: [],
 				tagList3: [],
+				tags1: [],
+				tags2: [],
+				tags3: [],
+				tags4: [],
+				tagHashes1: [],
+				tagHashes2: [],
+				tagHashes3: [],
+				tagHashes4: [],
 				tagIdIndex:0
 			};
 			for (var option in options) {

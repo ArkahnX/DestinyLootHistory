@@ -60,10 +60,10 @@ function checkInventory() {
 			}
 		}
 		for (let item of inventoryData) {
-			if(globalOptions.autoTagInventory) {
+			if (globalOptions.autoTagInventory) {
 				var tag = tags.getTag(item);
-				if(tag.tagHash === 5) {
-					
+				if (tag.tagHash === 5) {
+
 				}
 			}
 			// var tag = tags.getTag(item);
@@ -79,13 +79,15 @@ function checkInventory() {
 		}
 		for (let bucket of sortedInventoryData) {
 			bucket.sort(function(a, b) {
-				if(a.primaryStat && !b.primaryStat) {
+				if (a.primaryStat && !b.primaryStat) {
 					return 0 - parseInt(a.primaryStat.value);
-				} else if(b.primaryStat && !a.primaryStat) {
+				} else if (b.primaryStat && !a.primaryStat) {
 					return parseInt(b.primaryStat.value) - 0;
+				} else if (a.primaryStat && b.primaryStat && !isNaN(parseInt(a.primaryStat.value)) && a.primaryStat.value === b.primaryStat.value && hasQuality(a) && hasQuality(b)) {
+					return parseItemQuality(b).min - parseItemQuality(a).min;
 				} else if (a.primaryStat && b.primaryStat && !isNaN(parseInt(a.primaryStat.value))) {
 					return parseInt(b.primaryStat.value) - parseInt(a.primaryStat.value);
-				} else if(!a.primaryStat && !b.primaryStat && a.stackSize === b.stackSize) {
+				} else if (!a.primaryStat && !b.primaryStat && a.stackSize === b.stackSize) {
 					return b.itemInstanceId - a.itemInstanceId;
 				} else if (!isNaN(parseInt(a.stackSize))) {
 					return parseInt(b.stackSize) - parseInt(a.stackSize);
@@ -120,6 +122,34 @@ function checkInventory() {
 	});
 }
 
+function hideItems() {
+	let value = parseInt(document.getElementById("showOnly").value, 10);
+	if (value !== 5) {
+		let results1 = document.querySelectorAll(`.item[data-can-tag="true"]:not([data-tag-hash="${value}"])`);
+		for (let result of results1) {
+			result.parentNode.classList.add("undiscovered");
+		}
+		let results2 = document.querySelectorAll(`.item[data-can-tag="true"][data-tag-hash="${value}"]`);
+		for (let result of results2) {
+			result.parentNode.classList.remove("undiscovered");
+		}
+	} else {
+		let results = document.querySelectorAll(".undiscovered");
+			for (let result of results) {
+				result.classList.remove("undiscovered");
+			}
+		if (document.getElementById("hideTaggedItems").checked) {
+			let results = document.querySelectorAll(".item-container .tag-corner");
+			for (let result of results) {
+				result.parentNode.classList.add("undiscovered");
+			}
+		}
+	}
+}
+
 initItems(function() {
+	document.getElementById("hideTaggedItems").addEventListener("change", hideItems);
+	document.getElementById("showOnly").addEventListener("change", hideItems);
 	database.open().then(checkInventory);
+	setInterval(hideItems, 5000);
 });
