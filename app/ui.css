@@ -1203,10 +1203,10 @@ fieldset ul {
 	letter-spacing: 1px;
 }
 
-#debugHome li > div {
+.dropdowncontent {
 	/*color: rgba(48, 69, 92, 0.8);*/
-	font-size: 17px;
-	line-height: 26px;
+	/*font-size: 17px;*/
+	/*line-height: 26px;*/
 
 	position: relative;
 	z-index: 2;
@@ -1296,7 +1296,7 @@ fieldset ul {
 #debugHome > ul > li:last-of-type {
 	padding-bottom: 0;
 }
-#debugHome ul li i {
+#debugHome ul li > i {
 	position: absolute;
 	right: 30px;
 
@@ -1739,10 +1739,6 @@ optgroup option {
 	margin: 0 auto;
 }
 
-nav label select {
-	vertical-align: top;
-}
-
 .node-selected {
 	background-color: #4887BA;
 }
@@ -1858,9 +1854,13 @@ ul > p {
 	text-shadow: 0 0 2px black;
 }
 #tooltip #tag {
+	font-size: 16px;
+
 	float: right;
 
-	padding: 7px;
+	padding: 1px;
+
+	text-transform: capitalize;
 
 	color: #F5F5F5;
 	background: transparent;
@@ -1898,9 +1898,10 @@ ul > p {
 }
 
 #tagFloat.flip:before {
-	    bottom: -50px;
-    border-width: 50px 0 0px 50px;
-    top: initial;
+	top: initial;
+	bottom: -50px;
+
+	border-width: 50px 0 0 50px;
 }
 
 #tagFloat {
@@ -1939,4 +1940,8 @@ ul > p {
 
 .invisible {
 	visibility: hidden;
+}
+
+nav input[type=checkbox] {
+	    vertical-align: middle;
 }

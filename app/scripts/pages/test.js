@@ -17,17 +17,27 @@ getAllOptions().then(function(options) {
 	globalOptions = options;
 });
 
+function cleanupInventories() {
+	var mainSection = document.getElementById("history");
+	for (var subSection of mainSection.children) {
+		if (subSection.children.length > 1) {
+			for (var itemContainer of subSection.children) {
+				itemCache.push(itemContainer);
+			}
+			subSection.innerHTML = "";
+		}
+	}
+}
+
 function checkInventory() {
 	// console.startLogging("items");
 	console.time("Bungie Inventory");
 	database.getAllEntries("inventories").then(function(remoteData) {
-		if (chrome.runtime.lastError) {
-			logger.error(chrome.runtime.lastError);
-		}
 		console.log(remoteData);
 		data = remoteData;
 		tags.update();
 		tags.cleanup(remoteData.inventories);
+		cleanupInventories();
 		// sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
 		// sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
 		var characterHistory = document.getElementById("history");
@@ -71,11 +81,13 @@ function checkInventory() {
 			// 	// console.log(tags.getName(tag))
 			// }
 			let itemDefinition = getItemDefinition(item.itemHash);
-			let bucketName = DestinyInventoryBucketDefinition[itemDefinition.bucketTypeHash] && DestinyInventoryBucketDefinition[itemDefinition.bucketTypeHash].bucketName || itemDefinition.bucketTypeHash;
-			if (!sortedInventoryData[bucketName]) {
-				sortedInventoryData[bucketName] = [];
+			if(itemDefinition.bucketTypeHash === 21559313 || itemDefinition.bucketTypeHash === undefined) {
+				itemDefinition.bucketTypeHash = 215593132;
 			}
-			sortedInventoryData[bucketName].push(item);
+			if (!sortedInventoryData[itemDefinition.bucketTypeHash]) {
+				sortedInventoryData[itemDefinition.bucketTypeHash] = [];
+			}
+			sortedInventoryData[itemDefinition.bucketTypeHash].push(item);
 		}
 		for (let bucket of sortedInventoryData) {
 			bucket.sort(function(a, b) {
@@ -97,11 +109,18 @@ function checkInventory() {
 			});
 		}
 		console.log(sortedInventoryData);
+		let sortedBuckets = Object.keys(sortedInventoryData);
+		sortedBuckets.sort(function(a, b) {
+			console.log(a,b)
+			var aweight = DestinyInventoryBucketDefinition[a].bucketOrder;
+			var bweight = DestinyInventoryBucketDefinition[b].bucketOrder;
+			return aweight - bweight;
+		});
 		let containingDiv = null;
-		for (let bucket of sortedInventoryData) {
+		for (let bucketHash of sortedBuckets) {
+			let bucket = sortedInventoryData[bucketHash];
 			for (let item of bucket) {
-				var itemDefinition = getItemDefinition(item.itemHash);
-				var bucketName = DestinyInventoryBucketDefinition[itemDefinition.bucketTypeHash] && DestinyInventoryBucketDefinition[itemDefinition.bucketTypeHash].bucketName || itemDefinition.bucketTypeHash;
+				var bucketName = DestinyInventoryBucketDefinition[bucketHash] && DestinyInventoryBucketDefinition[bucketHash].bucketName || bucketHash;
 				if (document.getElementById(bucketName) === null) {
 					var div = document.createElement("div");
 					div.classList.add("sub-section");
@@ -135,9 +154,9 @@ function hideItems() {
 		}
 	} else {
 		let results = document.querySelectorAll(".undiscovered");
-			for (let result of results) {
-				result.classList.remove("undiscovered");
-			}
+		for (let result of results) {
+			result.classList.remove("undiscovered");
+		}
 		if (document.getElementById("hideTaggedItems").checked) {
 			let results = document.querySelectorAll(".item-container .tag-corner");
 			for (let result of results) {
@@ -147,9 +166,10 @@ function hideItems() {
 	}
 }
 
-initItems(function() {
+document.addEventListener("DOMContentLoaded", function() {
 	document.getElementById("hideTaggedItems").addEventListener("change", hideItems);
 	document.getElementById("showOnly").addEventListener("change", hideItems);
+	document.getElementById("refreshInventory").addEventListener("click", checkInventory);
 	database.open().then(checkInventory);
 	setInterval(hideItems, 5000);
 });

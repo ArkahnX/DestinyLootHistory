@@ -104,6 +104,7 @@ function frontEndUpdate() {
 		database.getMultipleStores(["itemChanges", "inventories"]).then(function chromeStorageGet(localData) {
 			currentItemSet = localData.itemChanges;
 			newInventories = localData.inventories;
+			tags.cleanup(newInventories);
 			console.time("UpdateUI");
 			newDisplayResults().then(function() {
 				postDisplay();

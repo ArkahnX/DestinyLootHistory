@@ -142,6 +142,9 @@ function initUi(elementTarget) {
 				}
 				tagFloat.style.left = coords.left-50;
 				tagFloat.classList.remove("invisible");
+			} else {
+				let tagFloat = document.getElementById("tagfloat");
+				tagFloat.classList.add("invisible");
 			}
 		}, true);
 		if (document.getElementById("width-wrapper")) {
@@ -492,6 +495,9 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 		quality = itemContainer.children[1];
 		stat = itemContainer.children[2];
 		tag = itemContainer.children[3];
+		if(!tag) {
+			console.log(itemContainer)
+		}
 		tag.innerHTML = "";
 		tag.classList.remove("tag-corner");
 		for (var attr in container.dataset) {

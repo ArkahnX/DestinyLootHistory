@@ -173,6 +173,7 @@ window.tags = (function() {
 			tagHashes1: globalOptions.tagHashes1,
 			tagIdIndex: globalOptions.tagIdIndex
 		};
+		console.log(localOptions)
 	};
 
 	function tagType(item) {
@@ -241,21 +242,40 @@ window.tags = (function() {
 		});
 	};
 
+	let timer = -1;
+
+	function updateGlobalOptions() {
+		clearTimeout(timer);
+		timer = setTimeout(function() {
+			getAllOptions().then(function(options) {
+				globalOptions = options;
+				tags.update();
+			});
+		}, 10000);
+	}
+
 	tags.setTag = function(item, tagHash) {
 		console.time("setNewTag");
 		let tagType = tags.canTag(item);
 		if (tagType === -1) {
 			return false;
 		}
-		for (let arrayIndex = 0; arrayIndex < hashArrays.length; arrayIndex++) {
-			let tagIndex = localOptions[hashArrays[tagType]].indexOf(item.itemInstanceId);
-			if (tagIndex > -1) {
-				// return true;
+		// for (let arrayIndex = 0; arrayIndex < hashArrays.length; arrayIndex++) {
+		let tagIndex = localOptions[hashArrays[tagType]].indexOf(item.itemInstanceId);
+		if (tagIndex > -1) {
+			// return true;
+			if (localOptions[tagStorageArrays[tagType]][tagIndex].tagHash !== tagHash) {
 				localOptions[tagStorageArrays[tagType]][tagIndex].tagHash = tagHash;
+				return setOptionsObject(localOptions).then(function() {
+					console.timeEnd("setNewTag");
+					updateGlobalOptions();
+				});
+			} else {
 				console.timeEnd("setNewTag");
-				return setOptionsObject(localOptions);
+				return true;
 			}
 		}
+		// }
 		// for (let arrayIndex = 0; arrayIndex < hashArrays.length; arrayIndex++) {
 		if (localOptions[hashArrays[tagType]].length < 300) {
 			localOptions[hashArrays[tagType]].push(item.itemInstanceId);
@@ -266,6 +286,7 @@ window.tags = (function() {
 			// return true;
 			return setOptionsObject(localOptions).then(function() {
 				console.timeEnd("setNewTag");
+				updateGlobalOptions();
 			});
 		} else {
 			console.error("not enough space");

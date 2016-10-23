@@ -397,6 +397,7 @@ database.open().then(function() {
 			logger.error(chrome.runtime.lastError);
 		}
 		newInventories = data.inventories;
+		tags.cleanup(data.inventories);
 		initItems(function() {
 			var characterHTML = "";
 			for (let characterId in characterDescriptions) {

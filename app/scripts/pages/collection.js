@@ -17,6 +17,7 @@ var bungieProfileLoaded = false;
 
 function flattenInventories(inventories) {
 	return new Promise(function(resolve) {
+		tags.cleanup(inventories);
 		newInventories = inventories;
 		var endResult = {
 			weapons: {
