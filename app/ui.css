@@ -1945,3 +1945,7 @@ ul > p {
 nav input[type=checkbox] {
 	    vertical-align: middle;
 }
+
+.inverted {
+	filter: invert(100%);
+}

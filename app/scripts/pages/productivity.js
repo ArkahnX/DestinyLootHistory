@@ -14,8 +14,27 @@ var archonsForgeOfferings = [53222595, 75513258, 320546391, 467779878, 499606006
 
 function sortItemDiff(itemDiff, progression, items, engrams, currency, bounties, materials, offerings, exotics, matches, currentProgress) {
 	for (var attr in itemDiff) {
-		if (itemDiff.match && matches.indexOf(itemDiff.match) === -1) {
-			matches.push(itemDiff.match);
+		if (itemDiff.match) {
+			let match = JSON.parse(itemDiff.match);
+			let identifier = match.activityHash;
+			identifier = DestinyActivityDefinition[identifier].activityTypeHash;
+			if (match.activityTypeHashOverride) {
+				identifier = match.activityTypeHashOverride;
+			}
+			if (!matches[identifier]) {
+				let activityType = DestinyActivityTypeDefinition[identifier];
+				matches[identifier] = {
+					instances: [match.activityInstance],
+					icon: activityType.icon,
+					played:1,
+					name: activityType.activityTypeName,
+					timeSpent: match.activityTime
+				};
+			} else if (matches[identifier] && matches[identifier].instances.indexOf(match.activityInstance) === -1) {
+				matches[identifier].timeSpent += match.activityTime;
+				matches[identifier].played += 1;
+				matches[identifier].instances.push(match.activityInstance);
+			}
 		}
 		if (Array.isArray(itemDiff[attr])) {
 			for (var item of itemDiff[attr]) {
@@ -190,7 +209,7 @@ function sortItemDiff(itemDiff, progression, items, engrams, currency, bounties,
 							exotics[itemDef.itemHash] = {
 								name: itemDef.itemName,
 								itemHash: item.itemHash,
-								itemInstances:[],
+								itemInstances: [],
 								item: item,
 								added: 0,
 								deleted: 0,
@@ -212,7 +231,7 @@ function sortItemDiff(itemDiff, progression, items, engrams, currency, bounties,
 							items[identifier] = {
 								name: (itemDef.tierTypeName || "") + " " + bucket.bucketName,
 								itemHash: item.itemHash,
-								itemInstances:[],
+								itemInstances: [],
 								added: 0,
 								deleted: 0,
 								diff: 0
@@ -291,7 +310,7 @@ function getProductivity() {
 			}
 		};
 		var currency = {};
-		var matches = [];
+		var matches = {};
 		var bounties = {};
 		for (let itemDiff of localResult.itemChanges) {
 			let localTime = moment.utc(itemDiff.timestamp).tz(timezone);
@@ -302,7 +321,7 @@ function getProductivity() {
 		for (let itemDiff of productivityRange) {
 			sortItemDiff(itemDiff, progression, items, engrams, currency, bounties, materials, offerings, exotics, matches, currentProgress);
 		}
-
+		console.log(matches)
 		var currencyContainer = document.createElement("div");
 		currencyContainer.classList.add("sub-section");
 		var currencyFrag = document.createDocumentFragment();
@@ -324,6 +343,39 @@ function getProductivity() {
 		}
 		currencyContainer.appendChild(currencyFrag);
 		mainContainer.appendChild(currencyContainer);
+
+		var matchContainer = document.createElement("div");
+		matchContainer.classList.add("sub-section");
+		var matchFrag = document.createDocumentFragment();
+		for (let matchItem of matches) {
+			if (matchItem.added !== 0 || matchItem.deleted !== 0) {
+				let container = document.createElement("span");
+				container.className = "productiveCurrency productiveBox";
+				matchContainer.innerHTML = "<p>Activities</p>";
+				let itemContainer = document.createElement("div");
+				let container2 = document.createElement("div");
+				container2.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + matchItem.icon + "')");
+				container2.classList.add("faction","inverted");
+				let stat = document.createElement("div");
+				stat.textContent = matchItem.played;
+				let tag = document.createElement("div");
+				let quality = document.createElement("div");
+				itemContainer.classList.add("item-container");
+				itemContainer.appendChild(container2);
+				itemContainer.appendChild(quality);
+				itemContainer.appendChild(stat);
+				itemContainer.appendChild(tag);
+				stat.classList.add("primary-stat");
+				let textNode = document.createElement("span");
+				textNode.className = "productiveCurrency";
+				textNode.innerHTML = `${matchItem.name}\n<br> Time Spent: ${moment.duration(matchItem.timeSpent, 'seconds').humanize()}\n<br> Activities Played: ${matchItem.played}`;
+				container.appendChild(itemContainer);
+				container.appendChild(textNode);
+				matchFrag.appendChild(container);
+			}
+		}
+		matchContainer.appendChild(matchFrag);
+		mainContainer.appendChild(matchContainer);
 
 		var factionContainer = document.createElement("div");
 		factionContainer.classList.add("sub-section");

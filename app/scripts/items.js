@@ -392,7 +392,7 @@ function checkDiff(sourceArray, newArray) {
 			}
 			if (newArray[e].itemInstanceId === sourceArray[i].itemInstanceId && newArray[e].itemHash === sourceArray[i].itemHash) {
 				found = true;
-				if (sourceArray[i].primaryStat && newArray[e].primaryStat && sourceArray[i].primaryStat.value > newArray[e].primaryStat.value) {
+				if (sourceArray[i].primaryStat && newArray[e].primaryStat && sourceArray[i].primaryStat.value !== newArray[e].primaryStat.value) {
 					itemsRemovedFromSource.push(JSON.stringify(sourceArray[i]));
 				} else if (newArray[e].stackSize !== sourceArray[i].stackSize) {
 					var newItem = JSON.parse(JSON.stringify(sourceArray[i]));

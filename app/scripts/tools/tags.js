@@ -173,7 +173,7 @@ window.tags = (function() {
 			tagHashes1: globalOptions.tagHashes1,
 			tagIdIndex: globalOptions.tagIdIndex
 		};
-		console.log(localOptions)
+		// console.log(localOptions)
 	};
 
 	function tagType(item) {
