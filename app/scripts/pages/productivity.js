@@ -1,15 +1,10 @@
 var endDate = moment();
 var startDate = moment(moment().subtract(24, "hours"));
-var globalOptions = {};
-var DEBUG = false;
-var manifest = chrome.runtime.getManifest();
-if (!manifest.key) {
-	DEBUG = true;
-}
 getAllOptions().then(function(options) {
 	globalOptions = options;
 	tags.update();
 });
+
 var archonsForgeOfferings = [53222595, 75513258, 320546391, 467779878, 499606006, 509258536, 1071829038, 1314964292, 1389966135, 1487443337, 1572235095, 1923380455, 2105075347, 2125668903, 2221360244, 2555632266, 3373783208, 3496832972, 3771657596, 3989468294, 4268984314];
 
 function sortItemDiff(itemDiff, progression, items, engrams, currency, bounties, materials, offerings, exotics, matches, currentProgress) {
@@ -460,9 +455,8 @@ function getProductivity() {
 				let container = document.createElement("span");
 				container.className = "productiveCurrency productiveBox";
 				let itemDef = getItemDefinition(materialItem.itemHash);
-				if (materialItem.diff <= 0) {
+				if (materialItem.diff <= 0 || materialItem.stackSize <= 0) {
 					materialItem.removed = true;
-					materialItem.stackSize = "0";
 				}
 				let itemElement = makeItem(materialItem);
 				let textNode = document.createElement("span");

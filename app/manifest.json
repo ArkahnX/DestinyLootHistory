@@ -24,7 +24,6 @@
 			"scripts/tools/db.js",
 			"scripts/shared.js",
 			"scripts/init.js",
-			"scripts/logger.js",
 			"scripts/bungie.js",
 			"scripts/matches.js",
 			"scripts/quality.js",

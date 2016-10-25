@@ -1,10 +1,4 @@
 tracker.sendAppView('SearchScreen');
-logger.disable();
-var DEBUG = false;
-var manifest = chrome.runtime.getManifest();
-if (!manifest.key) {
-	DEBUG = true;
-}
 characterDescriptions = JSON.parse(localStorage.characterDescriptions);
 var searchTypes = ["itemName", "itemTypeName", "itemDescription", "tierTypeName", "damageTypeName", "primaryStat"];
 
@@ -77,8 +71,6 @@ function makeSearchData(itemDiff) {
 	}
 	return searchData;
 }
-
-var globalOptions = {};
 
 getAllOptions().then(function(options) {
 	globalOptions = options;

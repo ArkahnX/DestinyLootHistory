@@ -1,11 +1,4 @@
 tracker.sendAppView('Vendor');
-logger.disable();
-var globalOptions = {};
-var DEBUG = false;
-var manifest = chrome.runtime.getManifest();
-if (!manifest.key) {
-	DEBUG = true;
-}
 getAllOptions().then(function(options) {
 	globalOptions = options;
 	tags.update();
@@ -394,7 +387,7 @@ database.open().then(function() {
 	database.getAllEntries("inventories").then(function(data) {
 		// chrome.storage.local.get("inventories", function(data) {
 		if (chrome.runtime.lastError) {
-			logger.error(chrome.runtime.lastError);
+			console.error(chrome.runtime.lastError);
 		}
 		newInventories = data.inventories;
 		tags.cleanup(data.inventories);
@@ -472,7 +465,7 @@ function getVendor(hash) {
 	document.getElementById("compare").value = "None";
 	bungie.getVendorForCharacter(selectedCharacter, lastVendor).catch(function(err) {
 		if (err) {
-			logger.error(err);
+			console.error(err);
 		}
 	}).then(function(vendorData) {
 		console.log(vendorData, DestinyVendorDefinition[lastVendor]);
@@ -495,12 +488,12 @@ function compareVendor(vendorHash, compareHash) {
 	selectedCharacter = document.getElementById("character").value;
 	bungie.getVendorForCharacter(selectedCharacter, lastVendor).catch(function(err) {
 		if (err) {
-			logger.error(err);
+			console.error(err);
 		}
 	}).then(function(responseMain) {
 		bungie.getVendorForCharacter(selectedCharacter, compareHash).catch(function(err) {
 			if (err) {
-				logger.error(err);
+				console.error(err);
 			}
 		}).then(function(responseCompare) {
 			if (responseMain.vendorHash && responseCompare.vendorHash) {

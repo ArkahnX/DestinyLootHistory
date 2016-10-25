@@ -1,12 +1,10 @@
 tracker.sendAppView('BackgroundScreen');
-var globalOptions = {};
-var DEBUG = false;
 
 function _backup() {
-	database.getAllEntries("itemChanges").then(function(/*data*/) {
+	database.getAllEntries("itemChanges").then(function( /*data*/ ) {
 		// chrome.storage.local.get(null, function(data) {
 		if (chrome.runtime.lastError) {
-			logger.error(chrome.runtime.lastError);
+			console.error(chrome.runtime.lastError);
 		}
 		// var url = 'data:application/json;base64,' + btoa(JSON.stringify(data.itemChanges));
 		// chrome.downloads.download({
@@ -59,18 +57,13 @@ function init() {
 				console.error(chrome.runtime.lastError);
 				setTimeout(init, 1000);
 			} else {
-				var manifest = chrome.runtime.getManifest();
 				// If we have no key, this means this extension is not a webstore install, so we should back up live data, just in case.
-				if (!manifest.key) {
-					DEBUG = true;
+				if (DEBUG) {
 					backupHistory();
 				}
 				initializeStoredVariables().then(function() {
-					// Found in logger.js used to store logs. These logs are accessed via debug.html and display the running state of my application. I request users having issues to send me their debug logs.
-					logger.init().then(function() {
-						// found in timers.js
-						startTimer("activityTracker", 50);
-					});
+					// found in timers.js
+					startTimer("activityTracker", 50);
 				});
 				startTimer("extensionIcon");
 			}
@@ -90,10 +83,9 @@ database.open().then(function() {
 	database.getMultipleStores(database.allStores).then(function(result) {
 		// chrome.storage.local.get(null, function(result) {
 		if (chrome.runtime.lastError) {
-			logger.error(chrome.runtime.lastError);
+			console.error(chrome.runtime.lastError);
 		}
-		logger.startLogging("Backend");
-		logger.info(result);
+		console.info(result);
 		init();
 	});
 });

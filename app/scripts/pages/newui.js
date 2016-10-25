@@ -1,12 +1,8 @@
 tracker.sendAppView('MainScreen');
+var jsonCharacterDescriptions = "";
 if (localStorage.characterDescriptions) {
 	characterDescriptions = JSON.parse(localStorage.characterDescriptions);
 	jsonCharacterDescriptions = localStorage.characterDescriptions;
-}
-var DEBUG = false;
-var manifest = chrome.runtime.getManifest();
-if (!manifest.key) {
-	DEBUG = true;
 }
 var debugMessage = `Destiny Loot History V${chrome.runtime.getManifest().version}
 GitHub: https://github.com/ArkahnX/DestinyLootHistory
@@ -14,14 +10,11 @@ Gallery: http://imgur.com/a/QGLZf
 Reddit: https://www.reddit.com/message/compose/?to=ArkahnX`;
 console.log(debugMessage);
 
-logger.disable();
 document.addEventListener("DOMContentLoaded", function() {
 	initUi(elements.container);
 }, false);
 
-var jsonCharacterDescriptions = "";
 var notificationCooldown = 0;
-var globalOptions = {};
 
 function frontEndUpdate() {
 	getAllOptions().then(function(options) {
@@ -124,7 +117,7 @@ getAllOptions().then(function(options) {
 			frontEndUpdate();
 			// chrome.storage.local.get(null, function(result) {
 			if (chrome.runtime.lastError) {
-				logger.error(chrome.runtime.lastError);
+				console.error(chrome.runtime.lastError);
 			}
 			console.log(result);
 		});

@@ -1,12 +1,5 @@
 tracker.sendAppView('Collection');
-logger.disable();
-var DEBUG = false;
-var manifest = chrome.runtime.getManifest();
-if (!manifest.key) {
-	DEBUG = true;
-}
 getOption("activeType").then(bungie.setActive);
-var globalOptions = {};
 getAllOptions().then(function(options) {
 	globalOptions = options;
 	tags.update();

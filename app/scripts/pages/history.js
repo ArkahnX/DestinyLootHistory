@@ -1,12 +1,6 @@
 tracker.sendAppView('HistoryScreen');
 getOption("activeType").then(bungie.setActive);
 initUi(elements.container);
-var globalOptions = {};
-var DEBUG = false;
-var manifest = chrome.runtime.getManifest();
-if (!manifest.key) {
-	DEBUG = true;
-}
 getAllOptions().then(function(options) {
 	globalOptions = options;
 	tags.update();
@@ -50,8 +44,7 @@ function goodItemToDisplay(item) {
 }
 
 function checkInventory() {
-	logger.startLogging("history");
-	logger.time("Bungie Inventory");
+	console.time("Bungie Inventory");
 	var characterHistory = document.getElementById("history");
 	characterHistory.innerHTML = "";
 	var inventoryData = [];
@@ -79,7 +72,7 @@ function checkInventory() {
 			inventoryData.splice(i, 1);
 		}
 	}
-	logger.info(inventoryData);
+	console.info(inventoryData);
 	// return false;
 	var sourceIndex = 0;
 	var sources = [3107502809, 36493462, 460228854, 3945957624, 344892955, 3739898362, 24296771];
@@ -131,7 +124,7 @@ database.open().then(function() {
 		console.log(result)
 			// chrome.storage.local.get(null, function(result) {
 		if (chrome.runtime.lastError) {
-			logger.error(chrome.runtime.lastError);
+			console.error(chrome.runtime.lastError);
 		}
 		data.itemChanges = result.itemChanges;
 		data.inventories = result.inventories;

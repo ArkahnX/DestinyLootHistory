@@ -168,7 +168,6 @@ function getColor(value) {
 }
 
 function getBonus(light, type) {
-	// logger.startLogging("quality");
 	switch (type) {
 		case 'helmet':
 			return light < 292 ? 15 :
@@ -207,7 +206,7 @@ function getBonus(light, type) {
 				light < 330 ? 41 :
 				light < 335 ? 42 : 43;
 	}
-	// logger.warn('item bonus not found', type);
+	// console.warn('item bonus not found', type);
 	return 0;
 }
 

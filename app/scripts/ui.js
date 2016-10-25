@@ -82,11 +82,8 @@ function initUi(elementTarget) {
 			elements[elementName] = document.getElementById(elementName);
 		}
 	}
-	var manifest = chrome.runtime.getManifest();
-	if (typeof manifest.key === "undefined") {
-		if (elements.version) {
-			elements.version.textContent = (manifest.version_name);
-		}
+	if (elements.version && DEBUG) {
+		elements.version.textContent = (manifest.version_name);
 	}
 	var reloadButtons = document.querySelectorAll(".reload");
 	for (var reloadButton of reloadButtons) {
@@ -133,14 +130,14 @@ function initUi(elementTarget) {
 				tagFloat.dataset.itemHash = target.dataset.itemHash;
 				let tagFloatHeight = tagFloat.getBoundingClientRect().height;
 				var coords = getOffset(target);
-				if (coords.top + tagFloatHeight+50 > window.innerHeight) {
+				if (coords.top + tagFloatHeight + 50 > window.innerHeight) {
 					tagFloat.style.top = coords.top - tagFloatHeight;
 					tagFloat.classList.add("flip");
 				} else {
 					tagFloat.style.top = coords.top + 50;
 					tagFloat.classList.remove("flip");
 				}
-				tagFloat.style.left = coords.left-50;
+				tagFloat.style.left = coords.left - 50;
 				tagFloat.classList.remove("invisible");
 			} else {
 				let tagFloat = document.getElementById("tagfloat");
@@ -200,7 +197,9 @@ function initUi(elementTarget) {
 			}
 		}
 	}
-	tags.getUI();
+	if (typeof tags !== "undefined") {
+		tags.getUI();
+	}
 	getAllOptions().then(function(options) {
 		if (elements.autoLock) {
 			elements.autoLock.checked = options.autoLock === true;
@@ -495,7 +494,7 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 		quality = itemContainer.children[1];
 		stat = itemContainer.children[2];
 		tag = itemContainer.children[3];
-		if(!tag) {
+		if (!tag) {
 			console.log(itemContainer)
 		}
 		tag.innerHTML = "";
@@ -678,7 +677,6 @@ function makeProgress(progressData, classRequirement) {
 }
 
 function itemClasses(itemData) {
-	// logger.startLogging("UI");
 	var classList = [];
 	if (itemData.isGridComplete) {
 		classList.push("complete");
@@ -761,7 +759,6 @@ function primaryStatName(itemData) {
 }
 
 function passData(DomNode, itemData, classRequirement, optionalCosts) {
-	// logger.startLogging("UI");
 	if (optionalCosts) {
 		DomNode.dataset.costs = JSON.stringify(optionalCosts);
 	}
@@ -900,7 +897,6 @@ function characterName(characterId, light) {
 	if (!characterDescriptions[characterId]) {
 		return "";
 	}
-	// logger.startLogging("UI");
 	if (light === null) {
 		return characterDescriptions[characterId].name;
 	}
@@ -908,7 +904,7 @@ function characterName(characterId, light) {
 		return "Vault";
 	}
 	if (!characterDescriptions[characterId]) {
-		// logger.log(light)
+		// console.log(light)
 	}
 	return characterDescriptions[characterId].race + " " + characterDescriptions[characterId].gender + " " + characterDescriptions[characterId].name + " (" + (light || characterDescriptions[characterId].light) + ")";
 }
@@ -916,7 +912,7 @@ function characterName(characterId, light) {
 function characterSource(itemDiff, moveType, index) {
 	var itemData = itemDiff[moveType][index];
 	var light = itemDiff.light;
-	// logger.log(itemDiff.characterId,itemData);
+	// console.log(itemDiff.characterId,itemData);
 	var toId = itemDiff.characterId;
 	var fromId = "";
 	var starter = "Added to ";
