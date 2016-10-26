@@ -96,6 +96,11 @@ function frontEndUpdate() {
 		localStorage.updateUI = "false";
 		database.getMultipleStores(["itemChanges", "inventories"]).then(function chromeStorageGet(localData) {
 			currentItemSet = localData.itemChanges;
+			if (!currentItemSet || !currentItemSet.length && localStorage.error === "false") {
+				document.getElementById("noItemOverlay").classList.remove("hidden");
+			} else {
+				document.getElementById("noItemOverlay").classList.add("hidden");
+			}
 			newInventories = localData.inventories;
 			tags.cleanup(newInventories);
 			console.time("UpdateUI");

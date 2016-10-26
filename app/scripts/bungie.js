@@ -63,7 +63,7 @@ var bungie = (function Bungie() {
 			lastRequestTime = newDate;
 			let r = new XMLHttpRequest();
 			r.open(opts.method, "https://www.bungie.net/Platform" + opts.route, true);
-			r.setRequestHeader('X-API-Key', '4a6cc3aa21d94c949e3f44736d036a8f');
+			r.setRequestHeader('X-API-Key', API_KEY);
 			// r.timeout = 5000;
 			r.onload = function() {
 				if (this.status >= 200 && this.status < 400) {

@@ -7,7 +7,7 @@ getAllOptions().then(function(options) {
 
 var archonsForgeOfferings = [53222595, 75513258, 320546391, 467779878, 499606006, 509258536, 1071829038, 1314964292, 1389966135, 1487443337, 1572235095, 1923380455, 2105075347, 2125668903, 2221360244, 2555632266, 3373783208, 3496832972, 3771657596, 3989468294, 4268984314];
 
-function sortItemDiff(itemDiff, progression, items, engrams, currency, bounties, materials, offerings, exotics, matches, currentProgress) {
+function sortItemDiff(itemDiff, progression, items, engrams, currency, bounties, materials, offerings, exotics, matches, currentProgress, ornaments) {
 	for (var attr in itemDiff) {
 		if (itemDiff.match) {
 			let match = JSON.parse(itemDiff.match);
@@ -84,7 +84,24 @@ function sortItemDiff(itemDiff, progression, items, engrams, currency, bounties,
 				} else if (item.itemHash) {
 					var itemTypeName = itemType(item);
 					var itemDef = getItemDefinition(item.itemHash, item);
-					if (itemTypeName === "currency") {
+					if (itemDef.itemCategoryHashes && itemDef.itemCategoryHashes.indexOf(56) > -1) {
+						if (!ornaments[item.itemHash]) {
+							ornaments[item.itemHash] = {
+								name: itemDef.itemName,
+								hash: item.itemHash,
+								added: 0,
+								deleted: 0,
+								diff: 0
+							};
+						}
+						if (attr === "added") {
+							ornaments[item.itemHash].added += item.stackSize;
+						}
+						if (attr === "removed") {
+							ornaments[item.itemHash].deleted += item.stackSize;
+						}
+						ornaments[item.itemHash].diff = ornaments[item.itemHash].added - ornaments[item.itemHash].deleted;
+					} else if (itemTypeName === "currency") {
 						if (!currency[item.itemHash]) {
 							currency[item.itemHash] = {
 								name: itemDef.itemName,
@@ -219,6 +236,7 @@ function sortItemDiff(itemDiff, progression, items, engrams, currency, bounties,
 							exotics[item.itemHash].deleted += 1;
 						}
 						exotics[item.itemHash].diff = exotics[item.itemHash].added - exotics[item.itemHash].deleted;
+						exotics[item.itemHash].item.stackSize = exotics[item.itemHash].added - exotics[item.itemHash].deleted;
 					} else if (itemDef.bucketTypeHash && itemDef.itemCategoryHashes && (itemDef.itemCategoryHashes.indexOf(20) > -1 || itemDef.itemCategoryHashes.indexOf(1) > -1)) {
 						var identifier = itemDef.tierTypeName + itemDef.bucketTypeHash;
 						var bucket = DestinyInventoryBucketDefinition[itemDef.bucketTypeHash];
@@ -307,6 +325,7 @@ function getProductivity() {
 		var currency = {};
 		var matches = {};
 		var bounties = {};
+		var ornaments = {};
 		for (let itemDiff of localResult.itemChanges) {
 			let localTime = moment.utc(itemDiff.timestamp).tz(timezone);
 			if (localTime.isBetween(startDate, endDate)) {
@@ -314,7 +333,7 @@ function getProductivity() {
 			}
 		}
 		for (let itemDiff of productivityRange) {
-			sortItemDiff(itemDiff, progression, items, engrams, currency, bounties, materials, offerings, exotics, matches, currentProgress);
+			sortItemDiff(itemDiff, progression, items, engrams, currency, bounties, materials, offerings, exotics, matches, currentProgress, ornaments);
 		}
 		console.log(matches)
 		var currencyContainer = document.createElement("div");
@@ -338,6 +357,31 @@ function getProductivity() {
 		}
 		currencyContainer.appendChild(currencyFrag);
 		mainContainer.appendChild(currencyContainer);
+
+		var ornamentContainer = document.createElement("div");
+		ornamentContainer.classList.add("sub-section");
+		ornamentContainer.innerHTML = "<p>" + DestinyItemCategoryDefinition[56].title + "</p>";
+		var ornamentFrag = document.createDocumentFragment();
+		for (let ornamentItem of ornaments) {
+			if (ornamentItem.added !== 0 || ornamentItem.deleted !== 0) {
+				let container = document.createElement("span");
+				container.className = "productiveCurrency productiveBox";
+				let itemDef = getItemDefinition(ornamentItem.hash);
+				itemDef.stackSize = ornamentItem.diff;
+				if (ornamentItem.diff <= 0 || ornamentItem.stackSize <= 0) {
+					itemDef.removed = true;
+				}
+				let itemElement = makeItem(itemDef);
+				let textNode = document.createElement("span");
+				textNode.className = "productiveCurrency";
+				textNode.innerHTML = `${ornamentItem.name}\n<br> Collected: ${ornamentItem.added}\n<br> Dismantled: ${ornamentItem.deleted}`;
+				container.appendChild(itemElement);
+				container.appendChild(textNode);
+				ornamentFrag.appendChild(container);
+			}
+		}
+		ornamentContainer.appendChild(ornamentFrag);
+		mainContainer.appendChild(ornamentContainer);
 
 		var matchContainer = document.createElement("div");
 		matchContainer.classList.add("sub-section");
@@ -432,7 +476,6 @@ function getProductivity() {
 				let itemDef = getItemDefinition(bountyItem.itemHash);
 				if (bountyItem.diff <= 0 || bountyItem.stackSize <= 0) {
 					bountyItem.removed = true;
-					bountyItem.stackSize = "0";
 				}
 				let itemElement = makeItem(bountyItem);
 				let textNode = document.createElement("span");
