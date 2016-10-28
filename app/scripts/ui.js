@@ -493,6 +493,7 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 		container = itemContainer.children[0];
 		quality = itemContainer.children[1];
 		stat = itemContainer.children[2];
+		stat.className = "";
 		tag = itemContainer.children[3];
 		if (!tag) {
 			console.log(itemContainer)
