@@ -5,11 +5,10 @@ var trackingTimer = 0;
 
 function processDifference(currentDateString, resolve) {
 	// reset variables
-	logger.startLogging("itemDiff");
 	transferQ.length = 0;
 	addedCurrencyQ.length = 0;
 	removedCurrencyQ.length = 0;
-	logger.time("Process Difference");
+	console.time("Process Difference");
 	var previousItem = data.itemChanges[data.itemChanges.length - 1];
 	var uniqueIndex = 0;
 	var forceupdate = false;
@@ -52,7 +51,7 @@ function processDifference(currentDateString, resolve) {
 					let parsedItem = JSON.parse(addition);
 					let itemId = parsedItem.itemHash + "-" + parsedItem.itemInstanceId + "-" + diffObject.characterId;
 					if (tempAdditions[itemId]) {
-						logger.error("Invalid duplicate of item", parsedItem, itemId, tempAdditions[itemId], addition, diffObject);
+						console.error("Invalid duplicate of item", parsedItem, itemId, tempAdditions[itemId], addition, diffObject);
 					} else {
 						tempAdditions[itemId] = {
 							characterId: diffObject.characterId,
@@ -64,7 +63,7 @@ function processDifference(currentDateString, resolve) {
 						};
 					}
 				} else {
-					logger.error("This is an incorrectly logged item.", diffObject.added, addition);
+					console.error("This is an incorrectly logged item.", diffObject.added, addition);
 				}
 			}
 			for (var removal of diffObject.removed) {
@@ -88,12 +87,11 @@ function processDifference(currentDateString, resolve) {
 						};
 					}
 				} else {
-					logger.error("This is an incorrectly logged item.", diffObject.removed, removal);
+					console.error("This is an incorrectly logged item.", diffObject.removed, removal);
 				}
 			}
 		}
 	}
-	logger.startLogging("itemDiff");
 	var diffCharacterId = localStorage.newestCharacter;
 	for (let tempAddition of tempAdditions) {
 		var foundAddition = false;
@@ -134,7 +132,7 @@ function processDifference(currentDateString, resolve) {
 							item: JSON.stringify(parsedItem)
 						});
 					} else if (stackSizeResult < 0) { // partial transfer with removals
-						logger.log(`Stacksize ${stackSizeResult}, addition stack ${tempAddition.stackSize}, removal stack ${tempRemoval.stackSize}`);
+						console.log(`Stacksize ${stackSizeResult}, addition stack ${tempAddition.stackSize}, removal stack ${tempRemoval.stackSize}`);
 						let parsedItem1 = JSON.parse(tempAddition.item);
 						parsedItem1.stackSize = Math.abs(tempAddition.stackSize);
 						let TQTemp = {
@@ -144,7 +142,7 @@ function processDifference(currentDateString, resolve) {
 						};
 						transferQ.push(TQTemp);
 						tempRemoval.stackSize = tempRemoval.stackSize - tempAddition.stackSize;
-						logger.log(`${tempRemoval.itemHash} partial transfer with removals ${tempRemoval.stackSize} stack remaining`);
+						console.log(`${tempRemoval.itemHash} partial transfer with removals ${tempRemoval.stackSize} stack remaining`);
 						let parsedItem = JSON.parse(tempRemoval.item);
 						parsedItem.stackSize = tempRemoval.stackSize;
 						tempRemoval.item = JSON.stringify(parsedItem);
@@ -153,7 +151,7 @@ function processDifference(currentDateString, resolve) {
 						// 	item: JSON.stringify(parsedItem)
 						// });
 					} else {
-						logger.error("Unhandled state", stackSizeResult, tempAddition, tempRemoval);
+						console.error("Unhandled state", stackSizeResult, tempAddition, tempRemoval);
 					}
 					break;
 				}
@@ -164,7 +162,7 @@ function processDifference(currentDateString, resolve) {
 		 */
 		if (!foundAddition) {
 			if ((databaseDefinition.bucketTypeHash === 2197472680 || databaseDefinition.bucketTypeHash === 1801258597 || localDefinition.objectives) && parseInt(localDefinition.stackSize, 10) > 0) {
-				logger.log("passed to progression");
+				console.log("passed to progression");
 				if (parseInt(localDefinition.stackSize, 10) >= 100) {
 					forceupdate = true;
 				}
@@ -180,7 +178,6 @@ function processDifference(currentDateString, resolve) {
 			}
 		}
 	}
-	logger.startLogging("itemDiff");
 	for (let tempRemoval of tempRemovals) {
 		var foundRemoval = false;
 		for (let tempAddition of tempAdditions) {
@@ -198,7 +195,7 @@ function processDifference(currentDateString, resolve) {
 				for (var progress of progression) {
 					progress = JSON.parse(progress.item);
 					if (localDefinition.itemInstanceId === progress.itemInstanceId && localDefinition.stackSize !== progress.stackSize) {
-						// logger.log(progress);
+						// console.log(progress);
 						if (parseInt(progress.stackSize, 10) >= 100) {
 							forceupdate = true;
 						}
@@ -207,7 +204,7 @@ function processDifference(currentDateString, resolve) {
 					}
 				}
 				// if (!found) {
-				// 	logger.error("Unable to locate progression item.", tempRemoval, progression, tempAdditions, additions);
+				// 	console.error("Unable to locate progression item.", tempRemoval, progression, tempAdditions, additions);
 				// }
 				/**
 				 * Bounty was probably completed
@@ -239,7 +236,7 @@ function processDifference(currentDateString, resolve) {
 					});
 
 				} else {
-					logger.error("This is an incorrectly logged item.", progressDiff, progress);
+					console.error("This is an incorrectly logged item.", progressDiff, progress);
 				}
 			}
 		}
@@ -285,7 +282,6 @@ function processDifference(currentDateString, resolve) {
 			}
 		}
 	}
-	logger.startLogging("itemDiff");
 	var progressionCharacters = [];
 	for (let addition of additions) {
 		var parsedItemHash = JSON.parse(addition.item).itemHash;
@@ -311,10 +307,14 @@ function processDifference(currentDateString, resolve) {
 		}
 		if (progress.characterId === diffCharacterId) {
 			finalDiff.progression.push(progress.item);
-			progressionCharacters.push(diffCharacterId);
+			if (progressionCharacters.indexOf(diffCharacterId) === -1) {
+				progressionCharacters.push(diffCharacterId);
+			}
 		} else {
 			finalDiff.progression.push(progress);
-			progressionCharacters.push(progress.characterId);
+			if (progressionCharacters.indexOf(progress.characterId) === -1) {
+				progressionCharacters.push(progress.characterId);
+			}
 		}
 	}
 	for (let transfer of transferQ) {
@@ -323,16 +323,18 @@ function processDifference(currentDateString, resolve) {
 		}
 		finalDiff.transferred.push(Object.assign({}, transfer));
 	}
-	logger.log(`FINAL DIFF INFO`, finalDiff)
+	console.log(`FINAL DIFF INFO`, finalDiff)
 	if (finalDiff.removed.length || finalDiff.added.length || (transferQ.length) || (finalDiff.progression && finalDiff.progression.length)) {
 		localStorage.itemChangeDetected = "true";
-		// logger.log(finalDiff, transferQ);
+		// console.log(finalDiff, transferQ);
 	}
 	if (trackingTimer > 15) {
 		forceupdate = true;
 		trackingTimer = 0;
 	}
-	logger.log(`forceUpdate ${forceupdate}, removed ${finalDiff.removed.length}, added ${finalDiff.added.length}, transferred ${(finalDiff.transferred && finalDiff.transferred.length && forceupdate)}, transferQ ${(transferQ.length && forceupdate)}, progression ${(finalDiff.progression && finalDiff.progression.length && forceupdate)} tracking timer ${trackingTimer}`);
+	console.log(`forceUpdate ${forceupdate}, removed ${finalDiff.removed.length}, added ${finalDiff.added.length}, transferred ${(finalDiff.transferred && finalDiff.transferred.length && forceupdate)}, transferQ ${(transferQ.length && forceupdate)}, progression ${(finalDiff.progression && finalDiff.progression.length && forceupdate)} tracking timer ${trackingTimer}`);
+	console.log(progressionCharacters, finalDiff.progression)
+	console.log(finalDiff.removed.length, finalDiff.added.length, (finalDiff.transferred && finalDiff.transferred.length && forceupdate), (transferQ.length && forceupdate), (finalDiff.progression && finalDiff.progression.length && forceupdate), finalDiff.removed.length || finalDiff.added.length || (finalDiff.transferred && finalDiff.transferred.length && forceupdate) || (transferQ.length && forceupdate) || (finalDiff.progression && finalDiff.progression.length && forceupdate))
 	if (finalDiff.removed.length || finalDiff.added.length || (finalDiff.transferred && finalDiff.transferred.length && forceupdate) || (transferQ.length && forceupdate) || (finalDiff.progression && finalDiff.progression.length && forceupdate)) {
 		for (var addedQ of addedCurrencyQ) {
 			finalDiff.added.push(addedQ.item);
@@ -340,17 +342,31 @@ function processDifference(currentDateString, resolve) {
 		for (var removedQ of removedCurrencyQ) {
 			finalDiff.removed.push(removedQ.item);
 		}
+		console.log(finalDiff.progression && finalDiff.progression.length)
 		if (finalDiff.progression && finalDiff.progression.length) {
-			for (let characterId of progressionCharacters) {
-				var oldProgress = findInArray(oldProgression, "characterId", characterId);
-				var oldProgress2 = findInArray(data.progression, "characterId", characterId);
-				var newProgress = findInArray(newProgression, "characterId", characterId);
-				oldProgress.progression = newProgress.progression;
-				oldProgress2.progression = newProgress.progression;
-			}
+			// for (var i = 0; i < newProgression.length; i++) {
+			// 	for (let characterId of progressionCharacters) {
+			// 		if (newProgression[i].characterId === characterId) {
+			// 			for (let e = 0; e < oldProgression.length; e++) {
+			// 				if (oldProgression[e].characterId === characterId) {
+			// 					oldProgression[e].progression = newProgression[i].progression;
+			// 					break;
+			// 				}
+			// 			}
+			// 			for (let e = 0; e < data.progression.length; e++) {
+			// 				if (data.progression[e].characterId === characterId) {
+			// 					data.progression[e].progression = newProgression[i].progression;
+			// 					break;
+			// 				}
+			// 			}
+			// 		}
+			// 	}
+			// }
+			oldProgression = newProgression;
+			data.progression = newProgression;
 			oldInventories = newInventories;
 			if (Object.keys(oldInventories).length === 0) {
-				logger.error(newInventories);
+				console.error(newInventories);
 			}
 			data.inventories = newInventories;
 			oldCurrencies = newCurrencies;
@@ -360,7 +376,7 @@ function processDifference(currentDateString, resolve) {
 			data.progression = oldProgression;
 			oldInventories = newInventories;
 			if (Object.keys(oldInventories).length === 0) {
-				logger.error(newInventories);
+				console.error(newInventories);
 			}
 			data.inventories = newInventories;
 			oldCurrencies = newCurrencies;
@@ -370,7 +386,7 @@ function processDifference(currentDateString, resolve) {
 			finalChanges.push(finalDiff);
 		} else {
 			tracker.sendEvent('finalChanges Huge', `Added ${finalDiff.added.length}, Removed ${finalDiff.removed.length}, Progression ${finalDiff.progression && finalDiff.progression.length || 0}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
-			logger.warn(`bungie systems ${JSON.stringify(bungie.getMemberships())}, bungie active ${JSON.stringify(bungie.getActive())}`);
+			console.warn(`bungie systems ${JSON.stringify(bungie.getMemberships())}, bungie active ${JSON.stringify(bungie.getActive())}`);
 		}
 		for (var itemDiff of finalDiff.added) {
 			var localCharacterId = finalDiff.characterId;
@@ -411,9 +427,9 @@ function processDifference(currentDateString, resolve) {
 		// 		}
 		// 	}
 		// }
-		// // logger.log(_inventories,_inventories2);
-		// logger.log(`Vault ${_inventories.vault}/${_inventories2.vault}/${inventories.vault} Char1 ${_inventories[characterIdList[1]]}/${_inventories2[characterIdList[1]]}/${inventories[characterIdList[1]]} Char2 ${_inventories[characterIdList[2]]}/${_inventories2[characterIdList[2]]}/${inventories[characterIdList[2]]} Char3 ${_inventories[characterIdList[3]]}/${_inventories2[characterIdList[3]]}/${inventories[characterIdList[3]]} TRANSFER ${transferQ.length}`);
-		// logger.log(`GLIMMER ${oldCurrencies[0].value}/${newCurrencies[0].value}` + ` LEGENDARY MARKS ${oldCurrencies[1].value}/${newCurrencies[1].value}` + ` SILVER ${oldCurrencies[2].value}/${newCurrencies[2].value}`);
+		// // console.log(_inventories,_inventories2);
+		// console.log(`Vault ${_inventories.vault}/${_inventories2.vault}/${inventories.vault} Char1 ${_inventories[characterIdList[1]]}/${_inventories2[characterIdList[1]]}/${inventories[characterIdList[1]]} Char2 ${_inventories[characterIdList[2]]}/${_inventories2[characterIdList[2]]}/${inventories[characterIdList[2]]} Char3 ${_inventories[characterIdList[3]]}/${_inventories2[characterIdList[3]]}/${inventories[characterIdList[3]]} TRANSFER ${transferQ.length}`);
+		// console.log(`GLIMMER ${oldCurrencies[0].value}/${newCurrencies[0].value}` + ` LEGENDARY MARKS ${oldCurrencies[1].value}/${newCurrencies[1].value}` + ` SILVER ${oldCurrencies[2].value}/${newCurrencies[2].value}`);
 		if (Object.keys(oldInventories).length === 0) {
 			oldInventories = newInventories;
 		}
@@ -432,11 +448,11 @@ function processDifference(currentDateString, resolve) {
 	}
 	if (additions.length || removals.length || transfers.length || progression.length) {
 		// trackIdle();
-		// logger.log(currentDateString, "\nAdditions:", additions, "\nRemovals:", removals, "\nTransfers:", transfers, "\nChanges:", changes, "\nFinal Changes:", finalChanges);
+		// console.log(currentDateString, "\nAdditions:", additions, "\nRemovals:", removals, "\nTransfers:", transfers, "\nChanges:", changes, "\nFinal Changes:", finalChanges);
 	}
 	Array.prototype.push.apply(data.itemChanges, finalChanges);
-	logger.timeEnd("Process Difference");
-	logger.time("grab matches");
+	console.timeEnd("Process Difference");
+	console.time("grab matches");
 	trackingTimer++;
 	getLocalMatches().then(getRemoteMatches).catch(function(err) {
 		if (err) {

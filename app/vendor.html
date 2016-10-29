@@ -18,7 +18,7 @@
 		</style>
 	</head>
 	<body>
-		<header id="status">
+		<header id="status" class="active">
 			<nav>
 				<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
 				<div class="main-select">
@@ -28,6 +28,17 @@
 				</div>
 			</nav>
 		</header>
+		<div id="width-wrapper" class="center">
+			<div id="container">
+				<div class="center" id="vendors">
+					<div class="sub-section"><h2>Reward Source data from items that have been previously acquired are innaccurate due to lack of information in the Bungie API.</h2></div>
+				</div>
+				<div id="history" class="main-section" style="width: inherit;"></div>
+			</div>
+		</div>
+		<ul id="tagfloat" class="invisible">
+
+		</ul>
 		<div id="tooltip">
 			<section id="item-head">
 				<canvas id="squareProgress" width="71" height="71" class="bigProgress"></canvas>
@@ -43,6 +54,9 @@
 			</section>
 			<section id="item-body">
 				<div id="level-text">Requires Level <span id="item-required-equip-level"></span></div>
+				<select id="tag" class="hidden">
+				</select>
+				<br />
 				<h1 id="item-primary-stat"></h1>
 				<div id="item-stat-text"></div>
 				<div id="item-description"></div>
@@ -73,14 +87,6 @@
 				</table>
 			</section>
 		</div>
-		<div id="width-wrapper" class="center">
-			<div id="container">
-				<div class="center" id="vendors">
-					<div class="sub-section"><h2>Reward Source data from items that have been previously acquired are innaccurate due to lack of information in the Bungie API.</h2></div>
-				</div>
-				<div id="history" class="main-section" style="width: inherit;"></div>
-			</div>
-		</div>
 		<div id="copyright">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
 		<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js" async></script>
 		<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js" async></script>
@@ -91,8 +97,8 @@
 		<script type="text/javascript" src="scripts/vendor/google-analytics-bundle.js"></script>
 		<script type="text/javascript" src="scripts/tools/date.js"></script>
 		<script type="text/javascript" src="scripts/tools/db.js"></script>
+		<script type="text/javascript" src="scripts/tools/tags.js"></script>
 		<script type="text/javascript" src="scripts/shared.js"></script>
-		<script type="text/javascript" src="scripts/logger.js"></script>
 		<script type="text/javascript" src="scripts/bungie.js"></script>
 		<script type="text/javascript" src="scripts/quality.js"></script>
 		<script type="text/javascript" src="scripts/ui.js"></script>

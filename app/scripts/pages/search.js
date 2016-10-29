@@ -1,5 +1,4 @@
 tracker.sendAppView('SearchScreen');
-logger.disable();
 characterDescriptions = JSON.parse(localStorage.characterDescriptions);
 var searchTypes = ["itemName", "itemTypeName", "itemDescription", "tierTypeName", "damageTypeName", "primaryStat"];
 
@@ -73,10 +72,9 @@ function makeSearchData(itemDiff) {
 	return searchData;
 }
 
-var globalOptions = {};
-
 getAllOptions().then(function(options) {
 	globalOptions = options;
+	tags.update();
 });
 
 function processSearchTerm() {
@@ -127,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		database.getMultipleStores(database.allStores).then(function(result) {
 			console.log(result);
 		});
-		initUi();
+		initUi(document.body);
 		document.getElementById("status").classList.remove("active");
 		var searchElement = document.querySelector('#searchInput');
 		var searchTimeout = null;

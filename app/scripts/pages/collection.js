@@ -1,113 +1,16 @@
 tracker.sendAppView('Collection');
-logger.disable();
 getOption("activeType").then(bungie.setActive);
-var globalOptions = {};
 getAllOptions().then(function(options) {
 	globalOptions = options;
+	tags.update();
 });
-
-function getSortWeight(itemDef) {
-	var weight = itemDef.classType * 10 || 0;
-	if (itemDef.itemCategoryHashes) {
-		if (itemDef.itemCategoryHashes.indexOf(2) > -1) {
-			weight += 10;
-		} else if (itemDef.itemCategoryHashes.indexOf(3) > -1) {
-			weight += 20;
-		} else if (itemDef.itemCategoryHashes.indexOf(4) > -1) {
-			weight += 30;
-		}
-		if (itemDef.itemCategoryHashes.indexOf(5) > -1) {
-			weight += 40;
-		} else if (itemDef.itemCategoryHashes.indexOf(6) > -1) {
-			weight += 50;
-		} else if (itemDef.itemCategoryHashes.indexOf(7) > -1) {
-			weight += 60;
-		} else if (itemDef.itemCategoryHashes.indexOf(9) > -1) {
-			weight += 70;
-		} else if (itemDef.itemCategoryHashes.indexOf(10) > -1) {
-			weight += 80;
-		} else if (itemDef.itemCategoryHashes.indexOf(11) > -1) {
-			weight += 90;
-		} else if (itemDef.itemCategoryHashes.indexOf(14) > -1) {
-			weight += 100;
-		} else if (itemDef.itemCategoryHashes.indexOf(12) > -1) {
-			weight += 110;
-		} else if (itemDef.itemCategoryHashes.indexOf(13) > -1) {
-			weight += 120;
-		} else if (itemDef.itemCategoryHashes.indexOf(54) > -1) {
-			weight += 130;
-		}
-		if (itemDef.itemCategoryHashes.indexOf(45) > -1) {
-			weight += 1;
-		} else if (itemDef.itemCategoryHashes.indexOf(46) > -1) {
-			weight += 2;
-		} else if (itemDef.itemCategoryHashes.indexOf(47) > -1) {
-			weight += 3;
-		} else if (itemDef.itemCategoryHashes.indexOf(48) > -1) {
-			weight += 4;
-		} else if (itemDef.itemCategoryHashes.indexOf(49) > -1) {
-			weight += 5;
-		}
-	}
-	// console.log(itemDef.itemName, itemDef.itemCategoryHashes, itemDef.classType, weight)
-	return weight;
-}
-
-function sortList(list) {
-	list.sort(function(a, b) {
-		var aDef = getItemDefinition(a);
-		var bDef = getItemDefinition(b);
-		var aWeight = getSortWeight(aDef);
-		var bWeight = getSortWeight(bDef);
-		if (aWeight === bWeight) {
-			return aDef.itemName.localeCompare(bDef.itemName);
-		}
-		return aWeight - bWeight;
-	});
-	console.log(JSON.stringify(list));
-	return list;
-}
-
-function sortGear(nameObject) {
-	for (let group of nameObject) {
-		group.hashes = sortList(group.hashes);
-	}
-	console.log(JSON.stringify(nameObject));
-}
-
-function findItemDefinitions(nameObject) {
-	for (let itemDef of DestinyCompactItemDefinition) {
-		if (itemDef.itemCategoryHashes && itemDef.itemName) {
-			if (itemDef.itemCategoryHashes.indexOf(20) > -1) {
-				for (let group of nameObject) {
-					if (itemDef.itemName.indexOf(group.name) > -1) {
-						group.hashes.push(itemDef.itemHash);
-					}
-				}
-			}
-		}
-	}
-	for (let group of nameObject) {
-		group.hashes = sortList(group.hashes);
-	}
-	console.log(JSON.stringify(nameObject));
-}
-
-function limitItemDefinitions(list) {
-	var newList = [];
-	for (var item of list) {
-		var itemDef = getItemDefinition(item);
-		if (itemDef.sourceHashes && (itemDef.sourceHashes.indexOf(460228854) > -1 || itemDef.sourceHashes.indexOf(24296771) > -1)) {
-			newList.push(item);
-		}
-	}
-	console.log(JSON.stringify(newList));
-}
-
+var selectedCharacter = localStorage.newestCharacter;
 var newInventories = newInventories || {};
+var bungieProfileLoaded = false;
 
 function flattenInventories(inventories) {
 	return new Promise(function(resolve) {
+		tags.cleanup(inventories);
 		newInventories = inventories;
 		var endResult = {
 			weapons: {
@@ -138,7 +41,7 @@ function flattenInventories(inventories) {
 				category: 39,
 				results: []
 			}
-		}
+		};
 		for (var characterInventory of inventories) {
 			var _characterName = characterName(characterInventory.characterId);
 			for (var item of characterInventory.inventory) {
@@ -158,7 +61,7 @@ function flattenInventories(inventories) {
 }
 
 function findIronBanner(inventoryCategories) {
-	console.log(inventoryCategories)
+	console.log(inventoryCategories);
 	var mainContainer = document.getElementById("ironbannerContainer");
 	// mainContainer.innerHTML = "Loading...";
 	var sortedGear = {
@@ -225,7 +128,7 @@ function findIronBanner(inventoryCategories) {
 			"matches": []
 		};
 	}
-	sortGear(sortedGear);
+	// sortGear(sortedGear);
 	for (var group of sortedGear) {
 		for (var hash of group.hashes) {
 			var topGear = getItemDefinition(hash);
@@ -267,6 +170,7 @@ function findIronBanner(inventoryCategories) {
 		titleContainer.appendChild(docfrag);
 		mainContainer.appendChild(titleContainer);
 	}
+	elements.status.classList.remove("active");
 	console.log(sortedGear);
 }
 
@@ -328,7 +232,7 @@ function findTrials(inventoryCategories) {
 			"matches": []
 		}
 	};
-	sortGear(sortedGear);
+	// sortGear(sortedGear);
 	for (var group of sortedGear) {
 		for (var hash of group.hashes) {
 			var topGear = getItemDefinition(hash);
@@ -370,6 +274,7 @@ function findTrials(inventoryCategories) {
 		titleContainer.appendChild(docfrag);
 		mainContainer.appendChild(titleContainer);
 	}
+	elements.status.classList.remove("active");
 	console.log(sortedGear);
 }
 
@@ -425,7 +330,7 @@ function findRaid(inventoryCategories) {
 			"matches": []
 		}
 	};
-	sortGear(sortedGear);
+	// sortGear(sortedGear);
 	for (var group of sortedGear) {
 		for (var hash of group.hashes) {
 			var topGear = getItemDefinition(hash);
@@ -467,6 +372,7 @@ function findRaid(inventoryCategories) {
 		titleContainer.appendChild(docfrag);
 		mainContainer.appendChild(titleContainer);
 	}
+	elements.status.classList.remove("active");
 	console.log(sortedGear);
 }
 
@@ -564,6 +470,7 @@ function findExotics(inventoryCategories) {
 		titleContainer.appendChild(docfrag);
 		mainContainer.appendChild(titleContainer);
 	}
+	elements.status.classList.remove("active");
 	console.log(sortedGear);
 }
 
@@ -701,7 +608,7 @@ function findGhosts(inventories) {
 			matches: []
 		}
 	};
-	for (var itemDef of DestinyCompactItemDefinition) {
+	for (let itemDef of DestinyCompactItemDefinition) {
 		if (itemDef.bucketTypeHash === 4023194814 && (itemDef.tierTypeName === "Legendary" || itemDef.tierTypeName === "Exotic")) {
 			sortedGhosts.uniqueGhosts.hashes.push({
 				itemHash: itemDef.itemHash,
@@ -734,9 +641,9 @@ function findGhosts(inventories) {
 		}
 		sortedGhosts.uniqueGhosts.matches.push(uniqueGhost.topGhost);
 	}
-	for (var ghost of ghosts) {
-		var found = false;
-		for (var sorting of sortedGhosts) {
+	for (let ghost of ghosts) {
+		let found = false;
+		for (let sorting of sortedGhosts) {
 			if (sorting.search && containsNodes(ghost, sorting.search) >= 100) {
 				sorting.matches.push(ghost);
 				found = true;
@@ -774,6 +681,7 @@ function findGhosts(inventories) {
 		// mainContainer.innerHTML = "";
 		mainContainer.appendChild(titleContainer);
 	}
+	elements.status.classList.remove("active");
 	console.log(sortedGhosts);
 }
 
@@ -783,38 +691,38 @@ function displayMissingVendorItems(mainContainer, lastVendor, saleVendor) {
 		if (err) {
 			console.error(err);
 		}
-	}).then(function(kioskResponse) {
+	}).then(function(kioskVendor) {
 		bungie.getVendorForCharacter(selectedCharacter, saleVendor).catch(function(err) {
 			if (err) {
 				console.error(err);
 			}
-		}).then(function(vendorResponse) {
-			console.log(kioskResponse, kioskResponse.Response && kioskResponse.Response.data, DestinyVendorDefinition[lastVendor]);
-			if (kioskResponse.Response && vendorResponse.Response) {
+		}).then(function(itemVendor) {
+			console.log(kioskVendor, DestinyVendorDefinition[lastVendor]);
+			if (kioskVendor.vendorHash && itemVendor.vendorHash) {
 				mainContainer.innerHTML = "";
 				var missingContainer = document.createElement("div");
 				missingContainer.classList.add("sub-section");
 				missingContainer.innerHTML = "<p>Missing from Collection</p>";
 				var missingFragment = document.createDocumentFragment();
 				var sellingContainer = document.createElement("div");
-				sellingContainer.innerHTML = "<p>Available to Purchase from " + DestinyVendorDefinition[saleVendor].summary.vendorName + " " + date.vendorRefreshDate(vendorResponse.Response.data.vendor) + "</p>";
+				sellingContainer.innerHTML = "<p>Available to Purchase from " + DestinyVendorDefinition[saleVendor].summary.vendorName + " " + date.vendorRefreshDate(saleVendor) + "</p>";
 				sellingContainer.classList.add("sub-section");
 				var sellingFragment = document.createDocumentFragment();
 				var missingHashes = [];
-				for (let category of kioskResponse.Response.data.vendor.saleItemCategories) {
+				for (let category of kioskVendor.saleItemCategories) {
 					for (let emblem of category.saleItems) {
-						if (emblem.failureIndexes[0] || (emblem.requiredUnlockFlags && emblem.requiredUnlockFlags[0].isSet === false) || emblem.itemStatus & 8) {
+						if (emblem.failureIndexes[0] || (emblem.requiredUnlockFlags && emblem.requiredUnlockFlags[0] && emblem.requiredUnlockFlags[0].isSet === false) || emblem.itemStatus & 8) {
 							missingHashes.push(emblem.item.itemHash);
 							missingFragment.appendChild(makeItem(emblem.item, DestinyVendorDefinition[lastVendor].failureStrings[emblem.failureIndexes[0]]));
 						} else {
-							console.log(getItemDefinition(emblem.item.itemHash).itemName, emblem);
+							// console.log(getItemDefinition(emblem.item.itemHash).itemName, emblem);
 						}
 					}
 				}
-				for (let category of vendorResponse.Response.data.vendor.saleItemCategories) {
+				for (let category of itemVendor.saleItemCategories) {
 					for (let saleItem of category.saleItems) {
 						if (missingHashes.indexOf(saleItem.item.itemHash) > -1) {
-							var costs = Item.getCosts(saleItem, vendorResponse.Response.data.vendor, newInventories, selectedCharacter);
+							var costs = Item.getCosts(saleItem, itemVendor, newInventories, selectedCharacter);
 							sellingFragment.appendChild(makeItem(saleItem.item, DestinyVendorDefinition[lastVendor].failureStrings[saleItem.failureIndexes[0]], costs));
 						}
 					}
@@ -824,9 +732,11 @@ function displayMissingVendorItems(mainContainer, lastVendor, saleVendor) {
 				sellingContainer.appendChild(sellingFragment);
 				mainContainer.appendChild(sellingContainer);
 				mainContainer.appendChild(missingContainer);
+				elements.status.classList.remove("active");
 			} else {
 				console.log(lastVendor, saleVendor);
-				mainContainer.innerHTML = `<h2>${kioskResponse.Message}</h2>`;
+				mainContainer.innerHTML = `<h2>${kioskVendor.Message}</h2>`;
+				elements.status.classList.remove("active");
 			}
 		});
 	});
@@ -841,31 +751,45 @@ function VendorNetworkTask(vendorHash, resolve) {
 			console.error(err);
 		}
 	}).then(function(vendorResponse) {
-		if (vendorResponse && vendorResponse.Response) {
-			resolve(vendorResponse.Response.data);
+		if (vendorResponse.vendorHash) {
+			resolve(vendorResponse);
 		} else {
 			resolve(false);
 		}
 	});
 }
 
-function VendorResultTask(data, vendorHash) {
-	if (data) {
+function VendorResultTask(vendor, vendorHash) {
+	if (vendor) {
 		vendorItems[vendorHash] = {
 			name: DestinyVendorDefinition[vendorHash].summary.vendorName,
-			currencies: data.vendor.currencies,
-			nextRefreshDate: data.vendor.nextRefreshDate,
+			currencies: vendor.currencies,
+			nextRefreshDate: vendor.nextRefreshDate,
 			items: []
 		};
 		var docFrag = document.createDocumentFragment();
 		var titleContainer = document.createElement("div");
 		titleContainer.classList.add("sub-section");
-		titleContainer.innerHTML = "<p>" + vendorItems[vendorHash].name + " " + date.vendorRefreshDate(data.vendor) + "</p>";
-		for (let category of data.vendor.saleItemCategories) {
+		titleContainer.innerHTML = "<p>" + vendorItems[vendorHash].name + " " + date.vendorRefreshDate(vendor) + "</p>";
+		for (let category of vendor.saleItemCategories) {
 			for (let saleItem of category.saleItems) {
+				let itemDef = getItemDefinition(saleItem.item.itemHash);
+				if (!saleItem.item.primaryStat && itemDef.itemCategoryHashes) {
+					if (itemDef.itemCategoryHashes.indexOf(1) > -1) {
+						saleItem.item.primaryStat = {
+							value: 350,
+							statHash: 368428387
+						};
+					} else if (itemDef.itemCategoryHashes.indexOf(20) > -1) {
+						saleItem.item.primaryStat = {
+							value: 350,
+							statHash: 209426660
+						};
+					}
+				}
 				if (hasQuality(saleItem.item) && parseItemQuality(saleItem.item).min > 92) {
 					vendorItems[vendorHash].items.push(saleItem);
-					var costs = Item.getCosts(saleItem, data.vendor, newInventories, selectedCharacter);
+					var costs = Item.getCosts(saleItem, vendor, newInventories, selectedCharacter);
 					titleContainer.appendChild(makeItem(saleItem.item, vendorItems[vendorHash].name, costs));
 				}
 			}
@@ -879,7 +803,7 @@ function VendorResultTask(data, vendorHash) {
 }
 
 function displayT12VendorItems(mainContainer) { // rerun hunter vanguard, titan vanguard, warlock vanguard and house of judgement if 
-	sequence([2796397637, 3746647075, 3611686524, 174528503, 3902439767, 1821699360, 3003633346, 242140165, 1808244981, 2680694281, 1990950, 1575820975, 1998812735, 2610555297, 2190824860], VendorNetworkTask, VendorResultTask).then(function() {
+	sequence([2796397637, 3746647075, 3611686524, 174528503, 3902439767, 1821699360, 3003633346, 242140165, 1808244981, 2680694281, 1990950, 1575820975, 1998812735, 2610555297, 2190824860, 2190824863], VendorNetworkTask, VendorResultTask).then(function() {
 		var docFrag = document.createDocumentFragment();
 		mainContainer.innerHTML = "";
 		for (var vendor of vendorItems) {
@@ -893,6 +817,7 @@ function displayT12VendorItems(mainContainer) { // rerun hunter vanguard, titan 
 				}
 				titleContainer.appendChild(docFrag);
 				mainContainer.appendChild(titleContainer);
+				elements.status.classList.remove("active");
 			}
 		}
 	});
@@ -932,9 +857,6 @@ function findT12() {
 	}
 }
 
-var selectedCharacter = localStorage.newestCharacter;
-var newInventories = {};
-
 function postInitItems() {
 	var characterHTML = "";
 	for (let characterId in characterDescriptions) {
@@ -944,10 +866,12 @@ function postInitItems() {
 	}
 	elements.status.classList.remove("active");
 	document.getElementById("character").innerHTML = characterHTML;
+	document.getElementById("debugHome").classList.remove("hidden");
 	document.querySelectorAll(".collection-section").forEach(function(element) {
 		element.addEventListener("click", function(event) {
 			if (event.target.checked === false) {
 				if (event.target.dataset.feature === "ghosts") {
+					elements.status.classList.add("active");
 					database.getAllEntries("inventories").then(function(data) {
 						// chrome.storage.local.get("inventories", function(data) {
 						console.log(data.inventories);
@@ -956,6 +880,7 @@ function postInitItems() {
 					});
 				}
 				if (event.target.dataset.feature === "ironbanner") {
+					elements.status.classList.add("active");
 					database.getAllEntries("inventories").then(function(data) {
 						// chrome.storage.local.get("inventories", function(data) {
 						console.log(data.inventories);
@@ -963,6 +888,7 @@ function postInitItems() {
 					});
 				}
 				if (event.target.dataset.feature === "trials") {
+					elements.status.classList.add("active");
 					database.getAllEntries("inventories").then(function(data) {
 						// chrome.storage.local.get("inventories", function(data) {
 						console.log(data.inventories);
@@ -970,6 +896,7 @@ function postInitItems() {
 					});
 				}
 				if (event.target.dataset.feature === "raid") {
+					elements.status.classList.add("active");
 					database.getAllEntries("inventories").then(function(data) {
 						// chrome.storage.local.get("inventories", function(data) {
 						console.log(data.inventories);
@@ -977,6 +904,7 @@ function postInitItems() {
 					});
 				}
 				if (event.target.dataset.feature === "exotics") {
+					elements.status.classList.add("active");
 					database.getAllEntries("inventories").then(function(data) {
 						// chrome.storage.local.get("inventories", function(data) {
 						console.log(data.inventories);
@@ -984,6 +912,7 @@ function postInitItems() {
 					});
 				}
 				if (event.target.dataset.feature === "emblems") {
+					elements.status.classList.add("active");
 					if (!bungieProfileLoaded) {
 						initItems(function() {
 							bungieProfileLoaded = true;
@@ -994,6 +923,7 @@ function postInitItems() {
 					}
 				}
 				if (event.target.dataset.feature === "shaders") {
+					elements.status.classList.add("active");
 					if (!bungieProfileLoaded) {
 						initItems(function() {
 							bungieProfileLoaded = true;
@@ -1004,6 +934,7 @@ function postInitItems() {
 					}
 				}
 				if (event.target.dataset.feature === "ships") {
+					elements.status.classList.add("active");
 					if (!bungieProfileLoaded) {
 						initItems(function() {
 							bungieProfileLoaded = true;
@@ -1014,6 +945,7 @@ function postInitItems() {
 					}
 				}
 				if (event.target.dataset.feature === "sparrows") {
+					elements.status.classList.add("active");
 					if (!bungieProfileLoaded) {
 						initItems(function() {
 							bungieProfileLoaded = true;
@@ -1024,7 +956,8 @@ function postInitItems() {
 					}
 				}
 				if (event.target.dataset.feature === "t12") {
-					chrome.storage.local.get("inventories", function(data) {
+					elements.status.classList.add("active");
+					database.getAllEntries("inventories").then(function(data) {
 						newInventories = data.inventories;
 						if (!bungieProfileLoaded) {
 							initItems(function() {
@@ -1039,13 +972,10 @@ function postInitItems() {
 			}
 		}, false);
 	});
-	document.getElementById("debugHome").classList.remove("hidden");
 }
 
-var bungieProfileLoaded = false;
-
 document.addEventListener("DOMContentLoaded", function() {
-	initUi();
+	initUi(document.body);
 	characterDescriptions = JSON.parse(localStorage.characterDescriptions);
 
 	// findGhosts(data.inventories);
@@ -1055,26 +985,26 @@ document.addEventListener("DOMContentLoaded", function() {
 	// findShips();
 	// });
 
-	document.getElementById("debugHome").addEventListener("mouseover", function(event) {
-		var target = null;
-		if (event.target.classList.contains("item") || event.target.classList.contains("faction")) {
-			target = event.target;
-		} else if (event.target.parentNode.classList.contains("item") || event.target.parentNode.classList.contains("faction")) {
-			target = event.target.parentNode;
-		} else if (event.target.parentNode.classList.contains("item-container")) {
-			target = event.target.parentNode.children[0];
-		}
-		if (target && target !== previousElement) {
-			// elements.tooltip.classList.add("hidden");
-			previousElement = target;
-			handleTooltipData(target.dataset, target, event);
-		}
-		if (!target) {
-			clearTimeout(tooltipTimeout);
-			// elements.tooltip.classList.add("hidden");
-			previousElement = null;
-		}
-	}, true);
+	// document.getElementById("debugHome").addEventListener("mouseover", function(event) {
+	// 	var target = null;
+	// 	if (event.target.classList.contains("item") || event.target.classList.contains("faction")) {
+	// 		target = event.target;
+	// 	} else if (event.target.parentNode.classList.contains("item") || event.target.parentNode.classList.contains("faction")) {
+	// 		target = event.target.parentNode;
+	// 	} else if (event.target.parentNode.classList.contains("item-container")) {
+	// 		target = event.target.parentNode.children[0];
+	// 	}
+	// 	if (target && target !== previousElement) {
+	// 		// elements.tooltip.classList.add("hidden");
+	// 		previousElement = target;
+	// 		handleTooltipData(target.dataset, target, event);
+	// 	}
+	// 	if (!target) {
+	// 		clearTimeout(tooltipTimeout);
+	// 		// elements.tooltip.classList.add("hidden");
+	// 		previousElement = null;
+	// 	}
+	// }, true);
 	// initItems(function() {
 	database.open().then(postInitItems);
 	// });

@@ -3,6 +3,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Loot History</title>
 		<link rel="stylesheet" type="text/css" href="ui.css">
+		<link rel="stylesheet" type="text/css" href="font-awesome.min.css">
 	</head>
 	<body>
 		<header id="status" class="active">
@@ -13,6 +14,29 @@
 				<select id="paginate"></select>
 			</nav>
 		</header>
+		<div id="width-wrapper" class="center">
+			<div id="sticky-title-bar">
+				<div class="title-bar center">
+					<div class="title"><h1 class="section-title">DATE</h1></div>
+					<div class="title"><h1 class="section-title">PROGRESS</h1></div>
+					<div class="title"><h1 class="section-title">ADDED</h1></div>
+					<div class="title"><h1 class="section-title">REMOVED</h1></div>
+					<div class="title"><h1 class="section-title">TRANSFERRED</h1></div>
+				</div>
+			</div>
+			<div id="container" class="container">
+				<div class="center">
+					<div id="date" class="main-section"></div>
+					<div id="progression" class="main-section"></div>
+					<div id="added" class="main-section"></div>
+					<div id="removed" class="main-section"></div>
+					<div id="transferred" class="main-section"></div>
+				</div>
+			</div>
+		</div>
+		<ul id="tagfloat" class="invisible">
+
+		</ul>
 		<div id="tooltip">
 			<section id="item-head">
 				<canvas id="squareProgress" width="71" height="71" class="bigProgress"></canvas>
@@ -28,6 +52,9 @@
 			</section>
 			<section id="item-body">
 				<div id="level-text">Requires Level <span id="item-required-equip-level"></span></div>
+				<select id="tag" class="hidden">
+				</select>
+				<br />
 				<h1 id="item-primary-stat"></h1>
 				<div id="item-stat-text"></div>
 				<div id="item-description"></div>
@@ -58,38 +85,17 @@
 				</table>
 			</section>
 		</div>
-		<div id="width-wrapper" class="center">
-			<div id="sticky-title-bar">
-				<div class="title-bar center">
-					<div class="title"><h1 class="section-title">DATE</h1></div>
-					<div class="title"><h1 class="section-title">PROGRESS</h1></div>
-					<div class="title"><h1 class="section-title">ADDED</h1></div>
-					<div class="title"><h1 class="section-title">REMOVED</h1></div>
-					<div class="title"><h1 class="section-title">TRANSFERRED</h1></div>
-				</div>
-			</div>
-			<div id="container" class="container">
-				<div class="center">
-					<div id="date" class="main-section"></div>
-					<div id="progression" class="main-section"></div>
-					<div id="added" class="main-section"></div>
-					<div id="removed" class="main-section"></div>
-					<div id="transferred" class="main-section"></div>
-				</div>
-			</div>
-		</div>
 		<div id="copyright">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
 		<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js"></script>
 		<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>
 		<script type="text/javascript" src="DestinyDatabase/DestinyCompactTalentDefinition.js"></script>
 		<script type="text/javascript" src="DestinyDatabase/DestinyCompactDefinition.js"></script>
-		<script type="text/javascript" src="scripts/vendor/AsyncIterator.js"></script>
 		<script type="text/javascript" src="scripts/vendor/moment.js"></script>
 		<script type="text/javascript" src="scripts/vendor/moment-timezone.js"></script>
 		<script type="text/javascript" src="scripts/vendor/google-analytics-bundle.js"></script>
 		<script type="text/javascript" src="scripts/vendor/SquareProgress.js"></script>
 		<script type="text/javascript" src="scripts/tools/db.js"></script>
-		<script type="text/javascript" src="scripts/logger.js"></script>
+		<script type="text/javascript" src="scripts/tools/tags.js"></script>
 		<script type="text/javascript" src="scripts/shared.js"></script>
 		<script type="text/javascript" src="scripts/bungie.js"></script>
 		<script type="text/javascript" src="scripts/quality.js"></script>
