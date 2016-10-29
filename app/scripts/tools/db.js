@@ -10,21 +10,25 @@ var database = (function() {
 
 	database.addFromArray = function(name, entries) {
 		return new Promise(function(resolve) {
-			var db = database.db;
-			var trans = db.transaction([name], "readwrite");
-			var store = trans.objectStore(name);
-			sequence(entries, function(entry, complete) {
-				var request = store.put(entry);
+			if (entries && entries.length) {
+				var db = database.db;
+				var trans = db.transaction([name], "readwrite");
+				var store = trans.objectStore(name);
+				sequence(entries, function(entry, complete) {
+					var request = store.put(entry);
 
-				request.onsuccess = function() {
-					complete();
-				};
+					request.onsuccess = function() {
+						complete();
+					};
 
-				request.onerror = database.onerror;
-			}, function() {}).then(function() {
-				console.log("Completed: " + name);
+					request.onerror = database.onerror;
+				}, function() {}).then(function() {
+					console.log("Completed: " + name);
+					resolve();
+				});
+			} else {
 				resolve();
-			});
+			}
 		});
 	};
 
@@ -212,7 +216,7 @@ var database = (function() {
 					});
 				}
 				// if (db.objectStoreNames.contains("vendors")) {
-					// db.deleteObjectStore("vendors");
+				// db.deleteObjectStore("vendors");
 				// }
 				if (!db.objectStoreNames.contains("vendors")) {
 					var vendorStore = db.createObjectStore("vendors", {

@@ -393,9 +393,7 @@ function addPackagesToVendors() {
 var deadVendors = [415161769, 863056813, 3019290222, 2698860028, 1660667815, 1588933401, 2586808090, 1653856985, 529545063, 1353750121, 4275962006, 163657562, 3898086963, 3165969428, 892630493, 2016602161];
 var selectedCharacter = localStorage.newestCharacter;
 var lastVendor = "";
-var vendors = {
-	other: []
-};
+var vendors = {};
 database.open().then(function() {
 	database.getAllEntries("inventories").then(function(data) {
 		// chrome.storage.local.get("inventories", function(data) {
@@ -427,7 +425,7 @@ database.open().then(function() {
 						vendors[vendor.summary.vendorSubcategoryHash].push(vendor.summary);
 					}
 				} else {
-					vendors.other.push(vendor.summary);
+					// vendors.other.push(vendor.summary);
 				}
 			}
 			for (let vendorCategory in vendors) {
