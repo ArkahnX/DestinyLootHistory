@@ -184,6 +184,19 @@ function makeSaleItem(itemHash, unlockStatuses, saleItem, currencies) {
 			});
 		}
 	}
+	if (!saleItem.item.primaryStat && itemDef.itemCategoryHashes) {
+		if (itemDef.itemCategoryHashes.indexOf(1) > -1) {
+			saleItem.item.primaryStat = {
+				value: 350,
+				statHash:368428387
+			};
+		} else if (itemDef.itemCategoryHashes.indexOf(20) > -1) {
+			saleItem.item.primaryStat = {
+				value: 350,
+				statHash:209426660
+			};
+		}
+	}
 	var item = makeItem(saleItem.item, unlockFlag, costs);
 	if (acquired !== 0) {
 		item.children[0].classList.add("undiscovered");
@@ -244,7 +257,7 @@ function makeItemsFromVendor(vendor) {
 		subContainer.appendChild(docfrag);
 		mainContainer.appendChild(subContainer);
 	}
-	if(!manualVendorHashMap[localVendor.vendorHash]) {
+	if (!manualVendorHashMap[localVendor.vendorHash]) {
 		elements.status.classList.remove("active");
 		return;
 	}
@@ -452,6 +465,7 @@ database.open().then(function() {
 					getVendor(document.getElementById("vendor").value);
 				}
 			});
+			elements.status.classList.remove("active");
 		});
 	});
 });
@@ -548,6 +562,6 @@ function flattenItems(itemCategories) {
 	return result;
 }
 
-initUi(elements.container);
+initUi(document.body);
 
 window.requestAnimationFrame(date.keepDatesUpdated);

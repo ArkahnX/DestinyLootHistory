@@ -1,23 +1,27 @@
 var tooltipTimeout = null;
 var newInventories = newInventories || {};
+var lastToolTipItemInstance = "";
 
 function handleTooltipData(dataset, element, event) {
 	clearTimeout(tooltipTimeout);
-	tooltipTimeout = setTimeout(function() {
-		setTooltipData(dataset, element, event);
-	}, 100);
+	if (lastToolTipItemInstance !== dataset.itemHash + "-" + dataset.itemInstanceId) {
+		tooltipTimeout = setTimeout(function() {
+			setTooltipData(dataset, element, event);
+		}, 100);
+	}
 }
 
 function setTooltipData(dataset, element, event) {
+	lastToolTipItemInstance = dataset.itemHash + "-" + dataset.itemInstanceId;
 	var itemDetails = dataset;
 	document.getElementById("tag").classList.add("hidden");
 	if (element.className.indexOf("faction") === -1 || element.className.indexOf("currency") > -1) {
 		itemDetails = getItemDefinition(dataset.itemHash);
 	}
 	if (dataset.itemName || itemDetails.itemName) {
+		elements.tooltip.dataset.itemInstanceId = dataset.itemInstanceId;
+		elements.tooltip.dataset.itemHash = dataset.itemHash;
 		if (dataset.canTag) {
-			elements.tooltip.dataset.itemInstanceId = dataset.itemInstanceId;
-			elements.tooltip.dataset.itemHash = dataset.itemHash;
 			document.getElementById("tag").value = dataset.tagHash;
 			document.getElementById("tag").classList.remove("hidden");
 		}
@@ -77,7 +81,9 @@ function setTooltipData(dataset, element, event) {
 			}
 			elements.classRequirement.innerHTML = result.join("\n");
 		} catch (e) {
-			elements.classRequirement.innerHTML = "<span>" + json + "</span>";
+			if (json) {
+				elements.classRequirement.innerHTML = "<span>" + json + "</span>";
+			}
 		}
 		handleStats(dataset.itemTypeName, dataset).then(function() {
 			elements.tooltip.className = "";
@@ -298,13 +304,14 @@ function handleOtherStats(dataset, resolve) {
 		for (var characterInventory of sourceInventories) {
 			for (var item of characterInventory.inventory) {
 				if (item.itemHash === parseInt(dataset.itemHash)) {
-					if (item.itemInstanceId !== dataset.itemInstanceId) {
-						comparisonItems.push(item);
-					}
+					comparisonItems.push(item);
 				}
 			}
 		}
-		if (comparisonItems.length > 0) {
+		if (comparisonItems.length > 1) {
+			comparisonItems.sort(function(a, b) {
+				a.itemInstanceId.localeCompare(b.itemInstanceId);
+			});
 			let titleRow = document.createElement("tr");
 			titleRow.classList.add("node-list");
 			let titleText = document.createElement("td");

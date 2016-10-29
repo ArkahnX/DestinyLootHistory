@@ -11,7 +11,7 @@ Reddit: https://www.reddit.com/message/compose/?to=ArkahnX`;
 console.log(debugMessage);
 
 document.addEventListener("DOMContentLoaded", function() {
-	initUi(elements.container);
+	initUi(document.body);
 }, false);
 
 var notificationCooldown = 0;

@@ -1,6 +1,6 @@
 tracker.sendAppView('HistoryScreen');
 getOption("activeType").then(bungie.setActive);
-initUi(elements.container);
+initUi(document.body);
 getAllOptions().then(function(options) {
 	globalOptions = options;
 	tags.update();

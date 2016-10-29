@@ -123,7 +123,7 @@ function initUi(elementTarget) {
 			} else if (event.target.parentNode.classList.contains("item-container")) {
 				target = event.target.parentNode.children[0];
 			}
-			if (target && target.dataset.canTag) {
+			if (target && target.dataset.canTag && event.button === 0 && target.dataset.removed !== "true") {
 				event.preventDefault();
 				var tagFloat = document.getElementById("tagfloat");
 				tagFloat.dataset.itemInstanceId = target.dataset.itemInstanceId;
@@ -493,7 +493,7 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 		container = itemContainer.children[0];
 		quality = itemContainer.children[1];
 		stat = itemContainer.children[2];
-		stat.className = "";
+		stat.className = "primary-stat";
 		tag = itemContainer.children[3];
 		if (!tag) {
 			console.log(itemContainer)

@@ -170,6 +170,7 @@ function findIronBanner(inventoryCategories) {
 		titleContainer.appendChild(docfrag);
 		mainContainer.appendChild(titleContainer);
 	}
+	elements.status.classList.remove("active");
 	console.log(sortedGear);
 }
 
@@ -273,6 +274,7 @@ function findTrials(inventoryCategories) {
 		titleContainer.appendChild(docfrag);
 		mainContainer.appendChild(titleContainer);
 	}
+	elements.status.classList.remove("active");
 	console.log(sortedGear);
 }
 
@@ -370,6 +372,7 @@ function findRaid(inventoryCategories) {
 		titleContainer.appendChild(docfrag);
 		mainContainer.appendChild(titleContainer);
 	}
+	elements.status.classList.remove("active");
 	console.log(sortedGear);
 }
 
@@ -467,6 +470,7 @@ function findExotics(inventoryCategories) {
 		titleContainer.appendChild(docfrag);
 		mainContainer.appendChild(titleContainer);
 	}
+	elements.status.classList.remove("active");
 	console.log(sortedGear);
 }
 
@@ -677,6 +681,7 @@ function findGhosts(inventories) {
 		// mainContainer.innerHTML = "";
 		mainContainer.appendChild(titleContainer);
 	}
+	elements.status.classList.remove("active");
 	console.log(sortedGhosts);
 }
 
@@ -706,7 +711,7 @@ function displayMissingVendorItems(mainContainer, lastVendor, saleVendor) {
 				var missingHashes = [];
 				for (let category of kioskVendor.saleItemCategories) {
 					for (let emblem of category.saleItems) {
-						if (emblem.failureIndexes[0] || (emblem.requiredUnlockFlags && emblem.requiredUnlockFlags[0].isSet === false) || emblem.itemStatus & 8) {
+						if (emblem.failureIndexes[0] || (emblem.requiredUnlockFlags && emblem.requiredUnlockFlags[0] && emblem.requiredUnlockFlags[0].isSet === false) || emblem.itemStatus & 8) {
 							missingHashes.push(emblem.item.itemHash);
 							missingFragment.appendChild(makeItem(emblem.item, DestinyVendorDefinition[lastVendor].failureStrings[emblem.failureIndexes[0]]));
 						} else {
@@ -727,9 +732,11 @@ function displayMissingVendorItems(mainContainer, lastVendor, saleVendor) {
 				sellingContainer.appendChild(sellingFragment);
 				mainContainer.appendChild(sellingContainer);
 				mainContainer.appendChild(missingContainer);
+				elements.status.classList.remove("active");
 			} else {
 				console.log(lastVendor, saleVendor);
 				mainContainer.innerHTML = `<h2>${kioskVendor.Message}</h2>`;
+				elements.status.classList.remove("active");
 			}
 		});
 	});
@@ -766,6 +773,20 @@ function VendorResultTask(vendor, vendorHash) {
 		titleContainer.innerHTML = "<p>" + vendorItems[vendorHash].name + " " + date.vendorRefreshDate(vendor) + "</p>";
 		for (let category of vendor.saleItemCategories) {
 			for (let saleItem of category.saleItems) {
+				let itemDef = getItemDefinition(saleItem.item.itemHash);
+				if (!saleItem.item.primaryStat && itemDef.itemCategoryHashes) {
+					if (itemDef.itemCategoryHashes.indexOf(1) > -1) {
+						saleItem.item.primaryStat = {
+							value: 350,
+							statHash: 368428387
+						};
+					} else if (itemDef.itemCategoryHashes.indexOf(20) > -1) {
+						saleItem.item.primaryStat = {
+							value: 350,
+							statHash: 209426660
+						};
+					}
+				}
 				if (hasQuality(saleItem.item) && parseItemQuality(saleItem.item).min > 92) {
 					vendorItems[vendorHash].items.push(saleItem);
 					var costs = Item.getCosts(saleItem, vendor, newInventories, selectedCharacter);
@@ -796,6 +817,7 @@ function displayT12VendorItems(mainContainer) { // rerun hunter vanguard, titan 
 				}
 				titleContainer.appendChild(docFrag);
 				mainContainer.appendChild(titleContainer);
+				elements.status.classList.remove("active");
 			}
 		}
 	});
@@ -849,6 +871,7 @@ function postInitItems() {
 		element.addEventListener("click", function(event) {
 			if (event.target.checked === false) {
 				if (event.target.dataset.feature === "ghosts") {
+					elements.status.classList.add("active");
 					database.getAllEntries("inventories").then(function(data) {
 						// chrome.storage.local.get("inventories", function(data) {
 						console.log(data.inventories);
@@ -857,6 +880,7 @@ function postInitItems() {
 					});
 				}
 				if (event.target.dataset.feature === "ironbanner") {
+					elements.status.classList.add("active");
 					database.getAllEntries("inventories").then(function(data) {
 						// chrome.storage.local.get("inventories", function(data) {
 						console.log(data.inventories);
@@ -864,6 +888,7 @@ function postInitItems() {
 					});
 				}
 				if (event.target.dataset.feature === "trials") {
+					elements.status.classList.add("active");
 					database.getAllEntries("inventories").then(function(data) {
 						// chrome.storage.local.get("inventories", function(data) {
 						console.log(data.inventories);
@@ -871,6 +896,7 @@ function postInitItems() {
 					});
 				}
 				if (event.target.dataset.feature === "raid") {
+					elements.status.classList.add("active");
 					database.getAllEntries("inventories").then(function(data) {
 						// chrome.storage.local.get("inventories", function(data) {
 						console.log(data.inventories);
@@ -878,6 +904,7 @@ function postInitItems() {
 					});
 				}
 				if (event.target.dataset.feature === "exotics") {
+					elements.status.classList.add("active");
 					database.getAllEntries("inventories").then(function(data) {
 						// chrome.storage.local.get("inventories", function(data) {
 						console.log(data.inventories);
@@ -885,6 +912,7 @@ function postInitItems() {
 					});
 				}
 				if (event.target.dataset.feature === "emblems") {
+					elements.status.classList.add("active");
 					if (!bungieProfileLoaded) {
 						initItems(function() {
 							bungieProfileLoaded = true;
@@ -895,6 +923,7 @@ function postInitItems() {
 					}
 				}
 				if (event.target.dataset.feature === "shaders") {
+					elements.status.classList.add("active");
 					if (!bungieProfileLoaded) {
 						initItems(function() {
 							bungieProfileLoaded = true;
@@ -905,6 +934,7 @@ function postInitItems() {
 					}
 				}
 				if (event.target.dataset.feature === "ships") {
+					elements.status.classList.add("active");
 					if (!bungieProfileLoaded) {
 						initItems(function() {
 							bungieProfileLoaded = true;
@@ -915,6 +945,7 @@ function postInitItems() {
 					}
 				}
 				if (event.target.dataset.feature === "sparrows") {
+					elements.status.classList.add("active");
 					if (!bungieProfileLoaded) {
 						initItems(function() {
 							bungieProfileLoaded = true;
@@ -925,6 +956,7 @@ function postInitItems() {
 					}
 				}
 				if (event.target.dataset.feature === "t12") {
+					elements.status.classList.add("active");
 					database.getAllEntries("inventories").then(function(data) {
 						newInventories = data.inventories;
 						if (!bungieProfileLoaded) {
@@ -943,7 +975,7 @@ function postInitItems() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-	initUi(document.getElementById("debugHome"));
+	initUi(document.body);
 	characterDescriptions = JSON.parse(localStorage.characterDescriptions);
 
 	// findGhosts(data.inventories);

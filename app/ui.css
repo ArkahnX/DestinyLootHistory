@@ -1162,6 +1162,11 @@ fieldset ul {
 	padding-bottom: 50px;
 }
 
+#debugHome.collection .dropdowncontent {
+	    text-align: center;
+	        padding-bottom: 10px;
+}
+
 .transition,
 #debugHome div,
 #debugHome ul li i:before,
@@ -1180,12 +1185,13 @@ fieldset ul {
 
 #debugHome h1 {
 	font-size: 36px;
-	font-weight: 100;
+	font-weight: bold;
 	line-height: 42px;
 
 	animation: flipdown .5s ease both;
 	letter-spacing: 3px;
 	text-transform: uppercase;
+	text-align:center;
 }
 
 #debugHome h2 {
@@ -1948,4 +1954,12 @@ nav input[type=checkbox] {
 
 .inverted {
 	filter: invert(100%);
+}
+
+.collection-section {
+	text-align:center;
+}
+
+#debugHome:not(.solidBackground) ul li:nth-child(odd) {
+	background-color: rgba(255,255,255,.2);
 }

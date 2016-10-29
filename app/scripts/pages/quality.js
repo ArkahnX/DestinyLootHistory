@@ -347,7 +347,7 @@ function startUi(options) {
 			displayDescription: perkDef.displayDescription
 		});
 	}
-	initUi(document.getElementById("debugHome"));
+	initUi(document.body);
 	var list = document.getElementById("qualitySortOrderList");
 	var unusedList = document.getElementById("qualitySortOrderListUnused");
 	var perkSortList = document.getElementById("perkSortOrderList");

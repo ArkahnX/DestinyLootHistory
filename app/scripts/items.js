@@ -35,10 +35,21 @@ function initItems(callback) {
 			var maxLight = globalOptions.minLight;
 			for (let avatar of avatars) {
 				if (!characterDescriptions[avatar.characterBase.characterId]) {
+					let icon = "img/missing.png";
+					if (DestinyClassDefinition[avatar.characterBase.classHash].classType === 0) {
+						icon = DestinyCompactItemDefinition[1723894001].icon;
+					}
+					if (DestinyClassDefinition[avatar.characterBase.classHash].classType === 1) {
+						icon = DestinyCompactItemDefinition[855333071].icon;
+					}
+					if (DestinyClassDefinition[avatar.characterBase.classHash].classType === 2) {
+						icon = DestinyCompactItemDefinition[776529032].icon;
+					}
 					characterDescriptions[avatar.characterBase.characterId] = {
 						name: DestinyClassDefinition[avatar.characterBase.classHash].className,
 						gender: DestinyGenderDefinition[avatar.characterBase.genderHash].genderName,
 						level: avatar.baseCharacterLevel,
+						icon:icon,
 						light: avatar.characterBase.powerLevel,
 						race: DestinyRaceDefinition[avatar.characterBase.raceHash].raceName,
 						dateLastPlayed: avatar.characterBase.dateLastPlayed,
@@ -566,11 +577,22 @@ function grabRemoteInventory(resolve, reject) {
 			// record some descriptors for each character
 			for (let avatar of characters) {
 				if (!characterDescriptions[avatar.characterBase.characterId]) {
+					let icon = "img/missing.png";
+					if (DestinyClassDefinition[avatar.characterBase.classHash].classType === 0) {
+						icon = DestinyCompactItemDefinition[1723894001].icon;
+					}
+					if (DestinyClassDefinition[avatar.characterBase.classHash].classType === 1) {
+						icon = DestinyCompactItemDefinition[855333071].icon;
+					}
+					if (DestinyClassDefinition[avatar.characterBase.classHash].classType === 2) {
+						icon = DestinyCompactItemDefinition[776529032].icon;
+					}
 					characterDescriptions[avatar.characterBase.characterId] = {
 						name: DestinyClassDefinition[avatar.characterBase.classHash].className,
 						gender: DestinyGenderDefinition[avatar.characterBase.genderHash].genderName,
 						level: avatar.baseCharacterLevel,
 						light: avatar.characterBase.powerLevel,
+						icon: icon,
 						race: DestinyRaceDefinition[avatar.characterBase.raceHash].raceName,
 						dateLastPlayed: avatar.characterBase.dateLastPlayed,
 						currentActivityHash: avatar.characterBase.currentActivityHash

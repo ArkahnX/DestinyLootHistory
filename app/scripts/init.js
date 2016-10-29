@@ -137,15 +137,24 @@ function initializeStoredVariables() {
 				rewardSources: [],
 				minQuality: 90,
 				minLight: 350,
-				tags1: [],
-				tags2: [],
-				tags3: [],
-				tagHashes1: [],
-				tagHashes2: [],
-				tagHashes3: [],
-				tagComments1: [],
-				tagComments2: [],
-				tagComments3: []
+				tags1psn: [],
+				tags2psn: [],
+				tags3psn: [],
+				tagHashes1psn: [],
+				tagHashes2psn: [],
+				tagHashes3psn: [],
+				tagComments1psn: [],
+				tagComments2psn: [],
+				tagComments3psn: [],
+				tags1xbl: [],
+				tags2xbl: [],
+				tags3xbl: [],
+				tagHashes1xbl: [],
+				tagHashes2xbl: [],
+				tagHashes3xbl: [],
+				tagComments1xbl: [],
+				tagComments2xbl: [],
+				tagComments3xbl: []
 			};
 			var badOptions = [];
 			for (var option in options) {

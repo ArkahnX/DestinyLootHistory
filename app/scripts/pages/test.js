@@ -1,31 +1,31 @@
 tracker.sendAppView('TestScreen');
 // console.disable();
-initUi(elements.container);
+initUi(document.body);
 var data = {
 	inventories: {},
 	progression: {},
 	itemChanges: [],
 	factionChanges: []
 };
+var buckets = [];
 getAllOptions().then(function(options) {
 	globalOptions = options;
 });
 
 function cleanupInventories() {
-	var mainSection = document.getElementById("history");
-	for (var subSection of mainSection.children) {
-		if (subSection.children.length > 1) {
-			for (var itemContainer of subSection.children) {
-				itemCache.push(itemContainer);
-			}
-			subSection.innerHTML = "";
+	for (var bucketName of buckets) {
+		var mainSection = document.getElementById(bucketName);
+		for (var itemContainer of mainSection.children) {
+			itemCache.push(itemContainer);
 		}
+		mainSection.innerHTML = "";
 	}
 }
 
 function checkInventory() {
 	// console.startLogging("items");
 	console.time("Bungie Inventory");
+	elements.status.classList.add("active");
 	database.getAllEntries("inventories").then(function(remoteData) {
 		console.log(remoteData);
 		data = remoteData;
@@ -34,7 +34,7 @@ function checkInventory() {
 		cleanupInventories();
 		// sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
 		// sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
-		var characterHistory = document.getElementById("history");
+		var characterInventory = document.getElementById("debugHome");
 		var inventoryData = [];
 		var sortedInventoryData = {};
 		for (var inventory of data.inventories) {
@@ -75,7 +75,7 @@ function checkInventory() {
 			// 	// console.log(tags.getName(tag))
 			// }
 			let itemDefinition = getItemDefinition(item.itemHash);
-			if(itemDefinition.bucketTypeHash === 21559313 || itemDefinition.bucketTypeHash === undefined) {
+			if (itemDefinition.bucketTypeHash === 21559313 || itemDefinition.bucketTypeHash === undefined) {
 				itemDefinition.bucketTypeHash = 215593132;
 			}
 			if (!sortedInventoryData[itemDefinition.bucketTypeHash]) {
@@ -105,7 +105,6 @@ function checkInventory() {
 		console.log(sortedInventoryData);
 		let sortedBuckets = Object.keys(sortedInventoryData);
 		sortedBuckets.sort(function(a, b) {
-			console.log(a,b)
 			var aweight = DestinyInventoryBucketDefinition[a].bucketOrder;
 			var bweight = DestinyInventoryBucketDefinition[b].bucketOrder;
 			return aweight - bweight;
@@ -116,21 +115,30 @@ function checkInventory() {
 			for (let item of bucket) {
 				var bucketName = DestinyInventoryBucketDefinition[bucketHash] && DestinyInventoryBucketDefinition[bucketHash].bucketName || bucketHash;
 				if (document.getElementById(bucketName) === null) {
-					var div = document.createElement("div");
-					div.classList.add("sub-section");
-					var description = document.createElement("h1");
-					description.textContent = bucketName;
-					div.appendChild(description);
-					characterHistory.appendChild(div);
-					var nodeList = document.createElement("div");
-					nodeList.classList.add("sub-section");
-					nodeList.id = bucketName;
-					characterHistory.appendChild(nodeList);
+					buckets.push(bucketName);
+					// var div = document.createElement("div");
+					// div.classList.add("sub-section");
+					// var description = document.createElement("h1");
+					// description.textContent = bucketName;
+					// div.appendChild(description);
+					// characterInventory.appendChild(div);
+					// var nodeList = document.createElement("div");
+					// nodeList.classList.add("sub-section");
+					// nodeList.id = bucketName;
+					let template = `<li>
+					<input type="checkbox" class="collection-section">
+					<i></i>
+					<h1>${bucketName}</h1>
+					<div id="${bucketName}" class="dropdowncontent"></div>
+				</li>`;
+					characterInventory.children[0].innerHTML = characterInventory.children[0].innerHTML + template;
 				}
 				containingDiv = document.getElementById(bucketName);
 				containingDiv.appendChild(makeItem(item, item.characterId || "Vault"));
 			}
 		}
+		characterInventory.classList.remove("hidden");
+		elements.status.classList.remove("active");
 		console.timeEnd("Bungie Inventory");
 	});
 }
@@ -161,6 +169,7 @@ function hideItems() {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
+	elements.status.classList.remove("active");
 	document.getElementById("hideTaggedItems").addEventListener("change", hideItems);
 	document.getElementById("showOnly").addEventListener("change", hideItems);
 	document.getElementById("refreshInventory").addEventListener("click", checkInventory);

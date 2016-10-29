@@ -1,6 +1,9 @@
 window.tags = (function() {
+	console.log(localStorage.active);
+	let noTags = false;
 	let tags = {};
 	let localOptions = {};
+	let systemNames = ["xbl", "psn"];
 	let tagStorageArrays = ["tags1", "tags2", "tags3"];
 	let hashArrays = ["tagHashes1", "tagHashes2", "tagHashes3"];
 	let customCommentArrays = ["tagComments1", "tagComments2", "tagComments3"];
@@ -29,7 +32,14 @@ window.tags = (function() {
 		needstesting: "question-circle"
 	};
 
+	tags.noTagging = function() {
+		noTags = true;
+	};
+
 	tags.cleanup = function(inventories) {
+		if(noTags) {
+			return true;
+		}
 		console.time("newCleanup");
 		let deleteIndexes = {};
 		let itemHashes = [];
@@ -40,38 +50,40 @@ window.tags = (function() {
 				}
 			}
 		}
-		for (let arrayIndex = 0; arrayIndex < hashArrays.length; arrayIndex++) {
-			let hashArrayName = hashArrays[arrayIndex];
-			let storageArrayName = tagStorageArrays[arrayIndex];
-			let commentArrayName = customCommentArrays[arrayIndex];
-			for (let hashIndex = 0; hashIndex < localOptions[hashArrayName].length; hashIndex++) {
-				let hash = localOptions[hashArrayName][hashIndex];
-				if (typeof localOptions[commentArrayName][hashIndex] === "undefined") {
-					localOptions[commentArrayName][hashIndex] = "";
-				}
-				if (localOptions[storageArrayName][hashIndex].tagId) {
-					delete localOptions[storageArrayName][hashIndex].tagId;
-				}
-				if (itemHashes.indexOf(hash) === -1) {
-					if (!deleteIndexes[storageArrayName]) {
-						deleteIndexes[storageArrayName] = [];
+		for (let systemName of systemNames) {
+			for (let arrayIndex = 0; arrayIndex < hashArrays.length; arrayIndex++) {
+				let hashArrayName = hashArrays[arrayIndex] + systemName;
+				let storageArrayName = tagStorageArrays[arrayIndex] + systemName;
+				let commentArrayName = customCommentArrays[arrayIndex] + systemName;
+				for (let hashIndex = 0; hashIndex < localOptions[hashArrayName].length; hashIndex++) {
+					let hash = localOptions[hashArrayName][hashIndex];
+					if (typeof localOptions[commentArrayName][hashIndex] === "undefined") {
+						localOptions[commentArrayName][hashIndex] = "";
 					}
-					deleteIndexes[storageArrayName].push(hashIndex);
+					if (localOptions[storageArrayName][hashIndex].tagId) {
+						delete localOptions[storageArrayName][hashIndex].tagId;
+					}
+					if (itemHashes.indexOf(hash) === -1) {
+						if (!deleteIndexes[storageArrayName]) {
+							deleteIndexes[storageArrayName] = [];
+						}
+						deleteIndexes[storageArrayName].push(hashIndex);
+					}
 				}
 			}
-		}
-		for (let arrayIndex = 0; arrayIndex < hashArrays.length; arrayIndex++) {
-			let hashArrayName = hashArrays[arrayIndex];
-			let storageArrayName = tagStorageArrays[arrayIndex];
-			let commentArrayName = customCommentArrays[arrayIndex];
-			if (deleteIndexes[storageArrayName]) {
-				deleteIndexes[storageArrayName].sort(function(a, b) {
-					return b - a;
-				});
-				for (let index of deleteIndexes[storageArrayName]) {
-					localOptions[hashArrayName].splice(index, 1);
-					localOptions[storageArrayName].splice(index, 1);
-					localOptions[commentArrayName].splice(index, 1);
+			for (let arrayIndex = 0; arrayIndex < hashArrays.length; arrayIndex++) {
+				let hashArrayName = hashArrays[arrayIndex] + systemName;
+				let storageArrayName = tagStorageArrays[arrayIndex] + systemName;
+				let commentArrayName = customCommentArrays[arrayIndex] + systemName;
+				if (deleteIndexes[storageArrayName]) {
+					deleteIndexes[storageArrayName].sort(function(a, b) {
+						return b - a;
+					});
+					for (let index of deleteIndexes[storageArrayName]) {
+						localOptions[hashArrayName].splice(index, 1);
+						localOptions[storageArrayName].splice(index, 1);
+						localOptions[commentArrayName].splice(index, 1);
+					}
 				}
 			}
 		}
@@ -83,6 +95,9 @@ window.tags = (function() {
 	};
 
 	tags.getUI = function() {
+		if(noTags) {
+			return true;
+		}
 		let tagSelect = document.getElementById("tag");
 		var tagFloat = document.getElementById("tagfloat");
 		var showOnly = document.getElementById("showOnly");
@@ -171,14 +186,16 @@ window.tags = (function() {
 	};
 
 	tags.update = function() {
-		for (let name of tagStorageArrays) {
-			localOptions[name] = globalOptions[name];
-		}
-		for (let name of hashArrays) {
-			localOptions[name] = globalOptions[name];
-		}
-		for (let name of customCommentArrays) {
-			localOptions[name] = globalOptions[name];
+		for (let systemName of systemNames) {
+			for (let name of tagStorageArrays) {
+				localOptions[name + systemName] = globalOptions[name + systemName];
+			}
+			for (let name of hashArrays) {
+				localOptions[name + systemName] = globalOptions[name + systemName];
+			}
+			for (let name of customCommentArrays) {
+				localOptions[name + systemName] = globalOptions[name + systemName];
+			}
 		}
 	};
 
@@ -204,13 +221,16 @@ window.tags = (function() {
 	};
 
 	tags.getTag = function(item) {
+		if(noTags) {
+			return false;
+		}
 		let tagType = tags.canTag(item);
 		if (tagType === -1) {
 			return false;
 		}
-		let tagIndex = localOptions[hashArrays[tagType]].indexOf(item.itemInstanceId);
+		let tagIndex = localOptions[hashArrays[tagType] + globalOptions.activeType].indexOf(item.itemInstanceId);
 		if (tagIndex > -1) {
-			return localOptions[tagStorageArrays[tagType]][tagIndex];
+			return localOptions[tagStorageArrays[tagType] + globalOptions.activeType][tagIndex];
 		}
 		return defaultTag;
 	};
@@ -221,15 +241,15 @@ window.tags = (function() {
 			return false;
 		}
 		for (let arrayIndex = 0; arrayIndex < hashArrays.length; arrayIndex++) {
-			let tagIndex = localOptions[hashArrays[tagType]].indexOf(item.itemInstanceId);
+			let tagIndex = localOptions[hashArrays[tagType] + globalOptions.activeType].indexOf(item.itemInstanceId);
 			if (tagIndex > -1) {
-				localOptions[tagStorageArrays[tagType]][tagIndex].tagHash = tagHash;
+				localOptions[tagStorageArrays[tagType] + globalOptions.activeType][tagIndex].tagHash = tagHash;
 				return true;
 			}
 		}
-		if (localOptions[hashArrays[tagType]].length < 300) {
-			localOptions[hashArrays[tagType]].push(item.itemInstanceId);
-			localOptions[tagStorageArrays[tagType]].push({
+		if (localOptions[hashArrays[tagType] + globalOptions.activeType].length < 300) {
+			localOptions[hashArrays[tagType] + globalOptions.activeType].push(item.itemInstanceId);
+			localOptions[tagStorageArrays[tagType] + globalOptions.activeType].push({
 				tagHash: tagHash
 			});
 			return true;
@@ -257,17 +277,20 @@ window.tags = (function() {
 	}
 
 	tags.setTag = function(item, tagHash) {
+		if(noTags) {
+			return true;
+		}
 		console.time("setNewTag");
 		let tagType = tags.canTag(item);
 		if (tagType === -1) {
 			return false;
 		}
 		// for (let arrayIndex = 0; arrayIndex < hashArrays.length; arrayIndex++) {
-		let tagIndex = localOptions[hashArrays[tagType]].indexOf(item.itemInstanceId);
+		let tagIndex = localOptions[hashArrays[tagType] + globalOptions.activeType].indexOf(item.itemInstanceId);
 		if (tagIndex > -1) {
 			// return true;
-			if (localOptions[tagStorageArrays[tagType]][tagIndex].tagHash !== tagHash) {
-				localOptions[tagStorageArrays[tagType]][tagIndex].tagHash = tagHash;
+			if (localOptions[tagStorageArrays[tagType] + globalOptions.activeType][tagIndex].tagHash !== tagHash) {
+				localOptions[tagStorageArrays[tagType] + globalOptions.activeType][tagIndex].tagHash = tagHash;
 				return setOptionsObject(localOptions).then(function() {
 					console.timeEnd("setNewTag");
 					updateGlobalOptions();
@@ -279,9 +302,9 @@ window.tags = (function() {
 		}
 		// }
 		// for (let arrayIndex = 0; arrayIndex < hashArrays.length; arrayIndex++) {
-		if (localOptions[hashArrays[tagType]].length < 300) {
-			localOptions[hashArrays[tagType]].push(item.itemInstanceId);
-			localOptions[tagStorageArrays[tagType]].push({
+		if (localOptions[hashArrays[tagType] + globalOptions.activeType].length < 300) {
+			localOptions[hashArrays[tagType] + globalOptions.activeType].push(item.itemInstanceId);
+			localOptions[tagStorageArrays[tagType] + globalOptions.activeType].push({
 				tagHash: tagHash
 			});
 			// return true;

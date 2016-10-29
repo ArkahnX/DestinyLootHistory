@@ -143,6 +143,7 @@ if(chrome.runtime.id === "pibnhnopgkbocjnhinnnojckpnhkghkl") {
 } else if(chrome.runtime.id === "fhmfkcgmbdfofgkfpmnpdcofebgbiidg") {
 	API_KEY = "1f53b0bed72f4098a51d82c07a4c6603";
 }
+
 if (!manifest.key) {
 	DEBUG = true;
 } else {
