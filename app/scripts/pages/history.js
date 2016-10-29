@@ -1,9 +1,9 @@
 tracker.sendAppView('HistoryScreen');
 getOption("activeType").then(bungie.setActive);
-initUi();
-var globalOptions = {};
+initUi(document.body);
 getAllOptions().then(function(options) {
 	globalOptions = options;
+	tags.update();
 });
 var relevantStats = ["itemHash", "itemInstanceId", "isEquipped", "itemInstanceId", "stackSize", "itemLevel", "qualityLevel", "stats", "primaryStat", "equipRequiredLevel", "damageTypeHash", "progression", "talentGridHash", "nodes", "isGridComplete", "objectives"];
 var badBuckets = [375726501, 1469714392, 1626737477, 1801258597, 2197472680, 2422292810, 2689798308, 2689798304, 2689798309, 2689798310, 3161908920, 3772930460];
@@ -44,8 +44,7 @@ function goodItemToDisplay(item) {
 }
 
 function checkInventory() {
-	logger.startLogging("history");
-	logger.time("Bungie Inventory");
+	console.time("Bungie Inventory");
 	var characterHistory = document.getElementById("history");
 	characterHistory.innerHTML = "";
 	var inventoryData = [];
@@ -73,7 +72,7 @@ function checkInventory() {
 			inventoryData.splice(i, 1);
 		}
 	}
-	logger.info(inventoryData);
+	console.info(inventoryData);
 	// return false;
 	var sourceIndex = 0;
 	var sources = [3107502809, 36493462, 460228854, 3945957624, 344892955, 3739898362, 24296771];
@@ -125,7 +124,7 @@ database.open().then(function() {
 		console.log(result)
 			// chrome.storage.local.get(null, function(result) {
 		if (chrome.runtime.lastError) {
-			logger.error(chrome.runtime.lastError);
+			console.error(chrome.runtime.lastError);
 		}
 		data.itemChanges = result.itemChanges;
 		data.inventories = result.inventories;

@@ -4,7 +4,7 @@ function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, light
 	database.getMultipleStores(database.allStores).then(function(data) {
 	// chrome.storage.local.get(null, function(data) {
 		if (chrome.runtime.lastError) {
-			logger.error(chrome.runtime.lastError);
+			console.error(chrome.runtime.lastError);
 		}
 		// console.startLogging("export");
 		var exportDataButton = document.getElementById("exportData");
@@ -150,7 +150,7 @@ function join(object) {
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
-	initUi();
+	initUi(elements.container);
 	var exportDataButton = document.getElementById("exportData");
 	var minDateInput = document.getElementById("MinDate");
 	if (minDateInput) {

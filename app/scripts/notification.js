@@ -31,11 +31,10 @@ var notification = (function() {
 	const changelog = `New in ${manifest.version}:<br>
 <ul>
 	<li>Got problems or suggestions? <a href="https://www.reddit.com/message/compose/?to=ArkahnX" target="_blank">Message ArkahnX</a> on Reddit!</li>
-	<li><a href="http://imgur.com/a/ufCMc" target="_blank">Gallery of new features.</a></li>
-	<li>New "<a href="productivity.html" target="_blank">Productivity</a>" page, see your destiny inventory changes in a day, a week, or more.</li>
-	<li>New "<a href="search.html" target="_blank">Search</a>" page, new "<a href="test.html" target="_blank">Inventory</a>" page</li>
-	<li>New "<a href="collection.html" target="_blank">Collections</a>" page, discover what you might be missing from your collection, and where to obtain it.</li>
-	<li><a href="https://goo.gl/forms/vWNJpb849ZmtL8c03">Answer a two question survey to help direct the next version of destiny Loot History!</a></li>
+	<li><a href="http://imgur.com/a/Ybyvw" target="_blank">Gallery of new features.</a></li>
+	<li>Left click an item to tag!</li>
+	<li>"<a href="productivity.html" target="_blank">Productivity</a>" page, see your destiny inventory changes in a day, a week, or more.</li>
+	<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSclw25EYaJKXQ-iieH8TLYDV5qmGnqgQo79drn8Jkzuq-1bdQ/viewform">Answer a two question survey to help direct the next version of destiny Loot History!</a></li>
 </ul>`;
 
 	localStorage.notificationClosed = localStorage.notificationClosed || "true";

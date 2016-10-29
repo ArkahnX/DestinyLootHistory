@@ -3,6 +3,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Destiny Collection</title>
 		<link rel="stylesheet" type="text/css" href="ui.css">
+		<link rel="stylesheet" type="text/css" href="font-awesome.min.css">
 	</head>
 	<body>
 		<header id="status" class="active">
@@ -17,74 +18,77 @@
 					<input type="checkbox" checked class="collection-section" data-feature="t12">
 					<i></i>
 					<h2>Tier 12</h2>
-					<div id="t12Container">Loading...<br />
+					<div id="t12Container" class="dropdowncontent">Loading...<br />
 					</div>
 				</li>
 				<li>
 					<input type="checkbox" checked class="collection-section" data-feature="emblems">
 					<i></i>
 					<h2>Emblems</h2>
-					<div id="emblemContainer">Loading...
+					<div id="emblemContainer" class="dropdowncontent">Loading...
 					</div>
 				</li>
 				<li>
 					<input type="checkbox" checked class="collection-section" data-feature="shaders">
 					<i></i>
 					<h2>Shaders</h2>
-					<div id="shaderContainer">Loading...
+					<div id="shaderContainer" class="dropdowncontent">Loading...
 					</div>
 				</li>
 				<li>
 					<input type="checkbox" checked class="collection-section" data-feature="ships">
 					<i></i>
 					<h2>Ships</h2>
-					<div id="shipContainer">Loading...
+					<div id="shipContainer" class="dropdowncontent">Loading...
 					</div>
 				</li>
 				<li>
 					<input type="checkbox" checked class="collection-section" data-feature="sparrows">
 					<i></i>
 					<h2>Sparrows</h2>
-					<div id="sparrowContainer">Loading...
+					<div id="sparrowContainer" class="dropdowncontent">Loading...
 					</div>
 				</li>
 				<li>
 					<input type="checkbox" checked class="collection-section" data-feature="ghosts">
 					<i></i>
 					<h2>Ghosts</h2>
-					<div id="ghostContainer">
+					<div id="ghostContainer" class="dropdowncontent">
 					</div>
 				</li>
 				<li>
 					<input type="checkbox" checked class="collection-section" data-feature="exotics">
 					<i></i>
 					<h2>Exotics</h2>
-					<div id="exoticContainer">
+					<div id="exoticContainer" class="dropdowncontent">
 					</div>
 				</li>
 				<li>
 					<input type="checkbox" checked class="collection-section" data-feature="ironbanner">
 					<i></i>
 					<h2>Iron Banner</h2>
-					<div id="ironbannerContainer">
+					<div id="ironbannerContainer" class="dropdowncontent">
 					</div>
 				</li>
 				<li>
 					<input type="checkbox" checked class="collection-section" data-feature="trials">
 					<i></i>
 					<h2>Trials</h2>
-					<div id="trialsContainer">
+					<div id="trialsContainer" class="dropdowncontent">
 					</div>
 				</li>
 				<li>
 					<input type="checkbox" checked class="collection-section" data-feature="raid">
 					<i></i>
 					<h2>Raid</h2>
-					<div id="raidContainer">
+					<div id="raidContainer" class="dropdowncontent">
 					</div>
 				</li>
 			</ul>
 		</div>
+		<ul id="tagfloat" class="invisible">
+
+		</ul>
 		<div id="tooltip">
 			<section id="item-head">
 				<canvas id="squareProgress" width="71" height="71" class="bigProgress"></canvas>
@@ -100,6 +104,9 @@
 			</section>
 			<section id="item-body">
 				<div id="level-text">Requires Level <span id="item-required-equip-level"></span></div>
+				<select id="tag" class="hidden">
+				</select>
+				<br />
 				<h1 id="item-primary-stat"></h1>
 				<div id="item-stat-text"></div>
 				<div id="item-description"></div>
@@ -141,8 +148,8 @@
 		<script type="text/javascript" src="scripts/tools/date.js"></script>
 		<script type="text/javascript" src="scripts/tools/item.js"></script>
 		<script type="text/javascript" src="scripts/tools/db.js"></script>
+		<script type="text/javascript" src="scripts/tools/tags.js"></script>
 		<script type="text/javascript" src="scripts/shared.js"></script>
-		<script type="text/javascript" src="scripts/logger.js"></script>
 		<script type="text/javascript" src="scripts/bungie.js"></script>
 		<script type="text/javascript" src="scripts/quality.js"></script>
 		<script type="text/javascript" src="scripts/items.js"></script>

@@ -1,4 +1,116 @@
 var DestinyHistoricalItemDefinition = {
+	"177212691": {
+		"itemHash": 177212691,
+		"itemName": "Traveler Mask",
+		"itemDescription": "Shoddy construction and flimsy materials, but an upgrade with some Paper Glue might make it Legendary. \n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/79e98c164b63770e7e548b0fd9005d31.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Dismantle",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Mask",
+		"bucketTypeHash": 3448274439,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 3334541687,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": 3354,
+			"defaultDyes": [],
+			"lockedDyes": [
+				{
+					"channelHash": 662199250,
+					"dyeHash": 1362578396
+				},
+				{
+					"channelHash": 1367384683,
+					"dyeHash": 4216432681
+				},
+				{
+					"channelHash": 218592586,
+					"dyeHash": 2843484928
+				}
+			],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": [
+					{
+						"stepOperator": 1,
+						"flagHash": 1680320212,
+						"valueHash": 0,
+						"value": 2310
+					}
+				]
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [
+				{
+					"classHash": 0,
+					"gearArtArrangementIndex": 3354
+				}
+			],
+			"equipmentSlotHash": 3448274439
+		},
+		"hasGeometry": true,
+		"statGroupHash": 1116828683,
+		"itemLevels": [
+			0
+		],
+		"qualityLevel": 70,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 19,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 70,
+				"maxQuality": 70,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			55
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 177212691,
+		"index": 0,
+		"redacted": false
+	},
 	"187864721": {
 		"itemHash": 187864721,
 		"itemName": "Full Auto Expert",
@@ -164,6 +276,118 @@ var DestinyHistoricalItemDefinition = {
 		"uniquenessHash": 0,
 		"showActiveNodesInTooltip": false,
 		"hash": 399181517,
+		"index": 0,
+		"redacted": false
+	},
+	"403146261": {
+		"itemHash": 403146261,
+		"itemName": "Tiger Mask",
+		"itemDescription": "Shoddy construction and flimsy materials, but an upgrade with some Paper Glue might make it Legendary. \n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/8e0723ca659c4d00e7dab562049796a8.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Dismantle",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Mask",
+		"bucketTypeHash": 3448274439,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 3334541687,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": 3357,
+			"defaultDyes": [],
+			"lockedDyes": [
+				{
+					"channelHash": 662199250,
+					"dyeHash": 667727110
+				},
+				{
+					"channelHash": 1367384683,
+					"dyeHash": 2528623335
+				},
+				{
+					"channelHash": 218592586,
+					"dyeHash": 1899622342
+				}
+			],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": [
+					{
+						"stepOperator": 1,
+						"flagHash": 1680320212,
+						"valueHash": 0,
+						"value": 2310
+					}
+				]
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [
+				{
+					"classHash": 0,
+					"gearArtArrangementIndex": 3357
+				}
+			],
+			"equipmentSlotHash": 3448274439
+		},
+		"hasGeometry": true,
+		"statGroupHash": 1116828683,
+		"itemLevels": [
+			0
+		],
+		"qualityLevel": 70,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 19,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 70,
+				"maxQuality": 70,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			55
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 403146261,
 		"index": 0,
 		"redacted": false
 	},
@@ -412,6 +636,1132 @@ var DestinyHistoricalItemDefinition = {
 		"index": 0,
 		"redacted": false
 	},
+	"571199369": {
+		"itemHash": 571199369,
+		"itemName": "Speaker Mask",
+		"itemDescription": "Shoddy construction and flimsy materials, but an upgrade with some Paper Glue might make it Legendary. \n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/17597f9fadd7c973536195816f344023.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Dismantle",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Mask",
+		"bucketTypeHash": 3448274439,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 3334541687,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": 3351,
+			"defaultDyes": [],
+			"lockedDyes": [
+				{
+					"channelHash": 662199250,
+					"dyeHash": 3191895954
+				},
+				{
+					"channelHash": 1367384683,
+					"dyeHash": 4279962155
+				},
+				{
+					"channelHash": 218592586,
+					"dyeHash": 4097255178
+				}
+			],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": [
+					{
+						"stepOperator": 1,
+						"flagHash": 1680320212,
+						"valueHash": 0,
+						"value": 2310
+					}
+				]
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [
+				{
+					"classHash": 0,
+					"gearArtArrangementIndex": 3351
+				}
+			],
+			"equipmentSlotHash": 3448274439
+		},
+		"hasGeometry": true,
+		"statGroupHash": 1116828683,
+		"itemLevels": [
+			0
+		],
+		"qualityLevel": 70,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 19,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 70,
+				"maxQuality": 70,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			55
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 571199369,
+		"index": 0,
+		"redacted": false
+	},
+	"634687983": {
+		"itemHash": 634687983,
+		"itemName": "Atheon Mask",
+		"itemDescription": "Shoddy construction and flimsy materials, but an upgrade with some Paper Glue might make it Legendary. \n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/7705b982eaa4abfd1fbbf064fcddaab0.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Dismantle",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Mask",
+		"bucketTypeHash": 3448274439,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 3334541687,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": 3355,
+			"defaultDyes": [],
+			"lockedDyes": [
+				{
+					"channelHash": 662199250,
+					"dyeHash": 1160742432
+				},
+				{
+					"channelHash": 1367384683,
+					"dyeHash": 1980238837
+				},
+				{
+					"channelHash": 218592586,
+					"dyeHash": 3591157580
+				}
+			],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": [
+					{
+						"stepOperator": 1,
+						"flagHash": 1680320212,
+						"valueHash": 0,
+						"value": 2310
+					}
+				]
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [
+				{
+					"classHash": 0,
+					"gearArtArrangementIndex": 3355
+				}
+			],
+			"equipmentSlotHash": 3448274439
+		},
+		"hasGeometry": true,
+		"statGroupHash": 1116828683,
+		"itemLevels": [
+			0
+		],
+		"qualityLevel": 70,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 19,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 70,
+				"maxQuality": 70,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			55
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 634687983,
+		"index": 0,
+		"redacted": false
+	},
+	"719019281": {
+		"itemHash": 719019281,
+		"itemName": "Crota Mask",
+		"itemDescription": "Shoddy construction and flimsy materials, but an upgrade with some Paper Glue might make it Legendary. \n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/15954881540b9e6e1e4afb05112fb64e.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Dismantle",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Mask",
+		"bucketTypeHash": 3448274439,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 3334541687,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": 3356,
+			"defaultDyes": [],
+			"lockedDyes": [
+				{
+					"channelHash": 662199250,
+					"dyeHash": 4102056970
+				},
+				{
+					"channelHash": 1367384683,
+					"dyeHash": 4191917299
+				},
+				{
+					"channelHash": 218592586,
+					"dyeHash": 1859580098
+				}
+			],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": [
+					{
+						"stepOperator": 1,
+						"flagHash": 1680320212,
+						"valueHash": 0,
+						"value": 2310
+					}
+				]
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [
+				{
+					"classHash": 0,
+					"gearArtArrangementIndex": 3356
+				}
+			],
+			"equipmentSlotHash": 3448274439
+		},
+		"hasGeometry": true,
+		"statGroupHash": 1116828683,
+		"itemLevels": [
+			0
+		],
+		"qualityLevel": 70,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 19,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 70,
+				"maxQuality": 70,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			55
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 719019281,
+		"index": 0,
+		"redacted": false
+	},
+	"912876048": {
+		"itemHash": 912876048,
+		"itemName": "Bike Horn",
+		"itemDescription": "This horn only has a few good blasts left in it, but attaching a Horn Relay will make it Legendary.\n\nExpires at the end of SRL.",
+		"icon": "/common/destiny_content/icons/50e476f26ebb56dbefb266c0609ac8f7.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Discard",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Horn",
+		"bucketTypeHash": 3796357825,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 145237431,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": -1,
+			"defaultDyes": [],
+			"lockedDyes": [],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": []
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [],
+			"equipmentSlotHash": 3796357825
+		},
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [],
+		"sourceHashes": [],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 912876048,
+		"index": 0,
+		"redacted": false
+	},
+	"912876049": {
+		"itemHash": 912876049,
+		"itemName": "Air Horn",
+		"itemDescription": "This horn only has a few good blasts left in it, but attaching a Horn Relay will make it Legendary.\n\nExpires at the end of SRL.",
+		"icon": "/common/destiny_content/icons/089dda8a904ba383cde924a90bd0e8b6.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Discard",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Horn",
+		"bucketTypeHash": 3796357825,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 145237431,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": -1,
+			"defaultDyes": [],
+			"lockedDyes": [],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": []
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [],
+			"equipmentSlotHash": 3796357825
+		},
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [],
+		"sourceHashes": [],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 912876049,
+		"index": 0,
+		"redacted": false
+	},
+	"912876050": {
+		"itemHash": 912876050,
+		"itemName": "Duck Horn",
+		"itemDescription": "This horn only has a few good blasts left in it, but attaching a Horn Relay will make it Legendary.\n\nExpires at the end of SRL.",
+		"icon": "/common/destiny_content/icons/db82887c95848b2ba9c0a1b463364dd2.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Discard",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Horn",
+		"bucketTypeHash": 3796357825,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 145237431,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": -1,
+			"defaultDyes": [],
+			"lockedDyes": [],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": []
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [],
+			"equipmentSlotHash": 3796357825
+		},
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [],
+		"sourceHashes": [],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 912876050,
+		"index": 0,
+		"redacted": false
+	},
+	"912876051": {
+		"itemHash": 912876051,
+		"itemName": "Fog Horn",
+		"itemDescription": "This horn only has a few good blasts left in it, but attaching a Horn Relay will make it Legendary.\n\nExpires at the end of SRL.",
+		"icon": "/common/destiny_content/icons/ffc2b1cd86e9bf7916199c07a014e7bf.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Discard",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Horn",
+		"bucketTypeHash": 3796357825,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 145237431,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": -1,
+			"defaultDyes": [],
+			"lockedDyes": [],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": []
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [],
+			"equipmentSlotHash": 3796357825
+		},
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [],
+		"sourceHashes": [],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 912876051,
+		"index": 0,
+		"redacted": false
+	},
+	"912876052": {
+		"itemHash": 912876052,
+		"itemName": "Clarion Horn",
+		"itemDescription": "This horn only has a few good blasts left in it, but attaching a Horn Relay will make it Legendary.\n\nExpires at the end of SRL.",
+		"icon": "/common/destiny_content/icons/626f61c0feb0851268ffc5c01755b971.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Discard",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Horn",
+		"bucketTypeHash": 3796357825,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 145237431,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": -1,
+			"defaultDyes": [],
+			"lockedDyes": [],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": []
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [],
+			"equipmentSlotHash": 3796357825
+		},
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [],
+		"sourceHashes": [],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 912876052,
+		"index": 0,
+		"redacted": false
+	},
+	"912876053": {
+		"itemHash": 912876053,
+		"itemName": "Cadence Horn",
+		"itemDescription": "This horn only has a few good blasts left in it, but attaching a Horn Relay will make it Legendary.\n\nExpires at the end of SRL.",
+		"icon": "/common/destiny_content/icons/09f8f0ffd7f4f068bbced3c67ae390c7.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Discard",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Horn",
+		"bucketTypeHash": 3796357825,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 145237431,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": -1,
+			"defaultDyes": [],
+			"lockedDyes": [],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": []
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [],
+			"equipmentSlotHash": 3796357825
+		},
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [],
+		"sourceHashes": [],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 912876053,
+		"index": 0,
+		"redacted": false
+	},
+	"912876054": {
+		"itemHash": 912876054,
+		"itemName": "Antique Horn",
+		"itemDescription": "This horn only has a few good blasts left in it, but attaching a Horn Relay will make it Legendary.\n\nExpires at the end of SRL.",
+		"icon": "/common/destiny_content/icons/ca86abbe49af841609535ee79efb08a6.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Discard",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Horn",
+		"bucketTypeHash": 3796357825,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 145237431,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": -1,
+			"defaultDyes": [],
+			"lockedDyes": [],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": []
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [],
+			"equipmentSlotHash": 3796357825
+		},
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [],
+		"sourceHashes": [],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 912876054,
+		"index": 0,
+		"redacted": false
+	},
+	"912876055": {
+		"itemHash": 912876055,
+		"itemName": "King's Horn",
+		"itemDescription": "This horn only has a few good blasts left in it, but attaching a Horn Relay will make it Legendary.\n\nExpires at the end of SRL.",
+		"icon": "/common/destiny_content/icons/7068c0a6d3d66f98770cb8086f06da00.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Discard",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Horn",
+		"bucketTypeHash": 3796357825,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 145237431,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": -1,
+			"defaultDyes": [],
+			"lockedDyes": [],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": []
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [],
+			"equipmentSlotHash": 3796357825
+		},
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [],
+		"sourceHashes": [],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 912876055,
+		"index": 0,
+		"redacted": false
+	},
+	"912876060": {
+		"itemHash": 912876060,
+		"itemName": "Basic Horn",
+		"itemDescription": "This horn only has a few good blasts left in it, but attaching a Horn Relay will make it Legendary.\n\nExpires at the end of SRL.",
+		"icon": "/common/destiny_content/icons/b79eb1fb1396fd3b60285cb93b3b8a89.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Discard",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Horn",
+		"bucketTypeHash": 3796357825,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 145237431,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": -1,
+			"defaultDyes": [],
+			"lockedDyes": [],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": []
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [],
+			"equipmentSlotHash": 3796357825
+		},
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [],
+		"sourceHashes": [],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 912876060,
+		"index": 0,
+		"redacted": false
+	},
+	"912876061": {
+		"itemHash": 912876061,
+		"itemName": "Chime Horn",
+		"itemDescription": "This horn only has a few good blasts left in it, but attaching a Horn Relay will make it Legendary.\n\nExpires at the end of SRL.",
+		"icon": "/common/destiny_content/icons/f3d1335ce4f3a8120a05f618752830dc.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Discard",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Horn",
+		"bucketTypeHash": 3796357825,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 145237431,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": -1,
+			"defaultDyes": [],
+			"lockedDyes": [],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": []
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [],
+			"equipmentSlotHash": 3796357825
+		},
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [],
+		"sourceHashes": [],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 912876061,
+		"index": 0,
+		"redacted": false
+	},
 	"1023740504": {
 		"itemHash": 1023740504,
 		"itemName": "Iron Workhorse",
@@ -655,6 +2005,118 @@ var DestinyHistoricalItemDefinition = {
 		"index": 0,
 		"redacted": false
 	},
+	"1299166027": {
+		"itemHash": 1299166027,
+		"itemName": "Eris Morn Mask",
+		"itemDescription": "Shoddy construction and flimsy materials, but an upgrade with some Paper Glue might make it Legendary. \n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/d37290b0d08a745d4347306e3fa0359d.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Dismantle",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Mask",
+		"bucketTypeHash": 3448274439,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 3334541687,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": 3366,
+			"defaultDyes": [],
+			"lockedDyes": [
+				{
+					"channelHash": 662199250,
+					"dyeHash": 641082116
+				},
+				{
+					"channelHash": 1367384683,
+					"dyeHash": 4037554273
+				},
+				{
+					"channelHash": 218592586,
+					"dyeHash": 1422877928
+				}
+			],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": [
+					{
+						"stepOperator": 1,
+						"flagHash": 1680320212,
+						"valueHash": 0,
+						"value": 2310
+					}
+				]
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [
+				{
+					"classHash": 0,
+					"gearArtArrangementIndex": 3366
+				}
+			],
+			"equipmentSlotHash": 3448274439
+		},
+		"hasGeometry": true,
+		"statGroupHash": 1116828683,
+		"itemLevels": [
+			0
+		],
+		"qualityLevel": 70,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 19,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 70,
+				"maxQuality": 70,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			55
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 1299166027,
+		"index": 0,
+		"redacted": false
+	},
 	"1330572636": {
 		"itemHash": 1330572636,
 		"itemName": "Hard Fought",
@@ -737,6 +2199,118 @@ var DestinyHistoricalItemDefinition = {
 		"showActiveNodesInTooltip": false,
 		"hash": 1330572636,
 		"index": 0
+	},
+	"1350744011": {
+		"itemHash": 1350744011,
+		"itemName": "Exotic Engram Mask",
+		"itemDescription": "Shoddy construction and flimsy materials, but an upgrade with some Paper Glue might make it Legendary. \n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/21297fc3426a86ab213a7e4c60f96e84.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Dismantle",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Mask",
+		"bucketTypeHash": 3448274439,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 3334541687,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": 3359,
+			"defaultDyes": [],
+			"lockedDyes": [
+				{
+					"channelHash": 662199250,
+					"dyeHash": 4220322692
+				},
+				{
+					"channelHash": 1367384683,
+					"dyeHash": 3321827553
+				},
+				{
+					"channelHash": 218592586,
+					"dyeHash": 3792392808
+				}
+			],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": [
+					{
+						"stepOperator": 1,
+						"flagHash": 1680320212,
+						"valueHash": 0,
+						"value": 2310
+					}
+				]
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [
+				{
+					"classHash": 0,
+					"gearArtArrangementIndex": 3359
+				}
+			],
+			"equipmentSlotHash": 3448274439
+		},
+		"hasGeometry": true,
+		"statGroupHash": 1116828683,
+		"itemLevels": [
+			0
+		],
+		"qualityLevel": 70,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 19,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 70,
+				"maxQuality": 70,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			55
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 1350744011,
+		"index": 0,
+		"redacted": false
 	},
 	"1416280629": {
 		"itemHash": 1416280629,
@@ -902,6 +2476,517 @@ var DestinyHistoricalItemDefinition = {
 		"uniquenessHash": 0,
 		"showActiveNodesInTooltip": false,
 		"hash": 1490419239,
+		"index": 0,
+		"redacted": false
+	},
+	"1593524656": {
+		"itemHash": 1593524656,
+		"itemName": "Sugary Engram",
+		"itemDescription": "Festival of the Lost \n \nThis cunning confection increases the development of upgradeable Special Weapons for a short time.\n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/5b9b3479b07d7336230da939cac8daa1.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Use",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Common",
+		"tierType": 2,
+		"itemTypeName": "Consumable",
+		"bucketTypeHash": 1469714392,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 0,
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": false,
+		"instanced": false,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 9,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			35,
+			52
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 99,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 0,
+		"showActiveNodesInTooltip": false,
+		"hash": 1593524656,
+		"index": 0,
+		"redacted": false
+	},
+	"1593524657": {
+		"itemHash": 1593524657,
+		"itemName": "Sour Engram",
+		"itemDescription": "Festival of the Lost \n \nSo tart! This pucker-producing pleasure increases the development of upgradeable Heavy Weapons for a short time.\n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/b91730b813faac16bd0295c8cb2d4e1b.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Use",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Common",
+		"tierType": 2,
+		"itemTypeName": "Consumable",
+		"bucketTypeHash": 1469714392,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 0,
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": false,
+		"instanced": false,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 9,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			35,
+			52
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 99,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 0,
+		"showActiveNodesInTooltip": false,
+		"hash": 1593524657,
+		"index": 0,
+		"redacted": false
+	},
+	"1593524664": {
+		"itemHash": 1593524664,
+		"itemName": "Void Fizz",
+		"itemDescription": "Festival of the Lost \n \nThis sweet effervescent candy leaves Glimmer behind as you battle the Hive. It's terrible for your teeth.  \n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/5e5fb4366af1be469184efac3b51b448.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Use",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Common",
+		"tierType": 2,
+		"itemTypeName": "Consumable",
+		"bucketTypeHash": 1469714392,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 0,
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": false,
+		"instanced": false,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 9,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			35,
+			52
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 99,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 0,
+		"showActiveNodesInTooltip": false,
+		"hash": 1593524664,
+		"index": 0,
+		"redacted": false
+	},
+	"1593524665": {
+		"itemHash": 1593524665,
+		"itemName": "Salty Engram",
+		"itemDescription": "Festival of the Lost \n \nA savory snack that increases the development of upgradeable Primary Weapons for a short time. \n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/d0f32308147fd9ffee688766d4a92e5f.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Use",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Common",
+		"tierType": 2,
+		"itemTypeName": "Consumable",
+		"bucketTypeHash": 1469714392,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 0,
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": false,
+		"instanced": false,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 9,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			35,
+			52
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 99,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 0,
+		"showActiveNodesInTooltip": false,
+		"hash": 1593524665,
+		"index": 0,
+		"redacted": false
+	},
+	"1593524666": {
+		"itemHash": 1593524666,
+		"itemName": "Glimmer Chew",
+		"itemDescription": "Festival of the Lost \n \nLeave a trail of Glimmer when you enjoy this sweet treat while battling Vex.\n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/b0ce4c6c98ec36bf317cbb18970af1ab.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Use",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Common",
+		"tierType": 2,
+		"itemTypeName": "Consumable",
+		"bucketTypeHash": 1469714392,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 0,
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": false,
+		"instanced": false,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 9,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			35,
+			52
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 99,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 0,
+		"showActiveNodesInTooltip": false,
+		"hash": 1593524666,
+		"index": 0,
+		"redacted": false
+	},
+	"1593524667": {
+		"itemHash": 1593524667,
+		"itemName": "Fruit Motes",
+		"itemDescription": "Festival of the Lost \n \nThese chewy treats generate Glimmer as you fight the Fallen. Don't eat them all at once.\n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/8d101d03ab98c31e06c26c28c22b9bdd.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Use",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Common",
+		"tierType": 2,
+		"itemTypeName": "Consumable",
+		"bucketTypeHash": 1469714392,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 0,
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": false,
+		"instanced": false,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 9,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			35,
+			52
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 99,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 0,
+		"showActiveNodesInTooltip": false,
+		"hash": 1593524667,
+		"index": 0,
+		"redacted": false
+	},
+	"1593524668": {
+		"itemHash": 1593524668,
+		"itemName": "Chocolate Strange Coins",
+		"itemDescription": "Festival of the Lost \n \nDark deliciousness that dissolves into Glimmer as you defeat Cabal. Tales are told of a Guardian who offered these delicacies to an Agent of the Nine. It ended poorly.\n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/119ade91c6bc29a4cbe34d472d8f7631.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Use",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Common",
+		"tierType": 2,
+		"itemTypeName": "Consumable",
+		"bucketTypeHash": 1469714392,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 0,
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": false,
+		"instanced": false,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 9,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			35,
+			52
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 99,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 0,
+		"showActiveNodesInTooltip": false,
+		"hash": 1593524668,
 		"index": 0,
 		"redacted": false
 	},
@@ -1072,6 +3157,535 @@ var DestinyHistoricalItemDefinition = {
 		"hash": 1736150516,
 		"index": 0
 	},
+	"2112419342": {
+		"itemHash": 2112419342,
+		"itemName": "Legendary Engram Mask",
+		"itemDescription": "Shoddy construction and flimsy materials, but an upgrade with some Paper Glue might make it Legendary. \n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/f125153efe58dba0d9b6e66b488d0b39.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Dismantle",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Mask",
+		"bucketTypeHash": 3448274439,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 3334541687,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": 3358,
+			"defaultDyes": [],
+			"lockedDyes": [
+				{
+					"channelHash": 662199250,
+					"dyeHash": 2697014313
+				},
+				{
+					"channelHash": 1367384683,
+					"dyeHash": 1299041688
+				},
+				{
+					"channelHash": 218592586,
+					"dyeHash": 72349287
+				}
+			],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": [
+					{
+						"stepOperator": 1,
+						"flagHash": 1680320212,
+						"valueHash": 0,
+						"value": 2310
+					}
+				]
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [
+				{
+					"classHash": 0,
+					"gearArtArrangementIndex": 3358
+				}
+			],
+			"equipmentSlotHash": 3448274439
+		},
+		"hasGeometry": true,
+		"statGroupHash": 1116828683,
+		"itemLevels": [
+			0
+		],
+		"qualityLevel": 70,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 19,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 70,
+				"maxQuality": 70,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			55
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 2112419342,
+		"index": 0,
+		"redacted": false
+	},
+	"2136544540": {
+		"itemHash": 2136544540,
+		"itemName": "Cryptarch Mask",
+		"itemDescription": "Shoddy construction and flimsy materials, but an upgrade with some Paper Glue might make it Legendary. \n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/b642b0a4983acb0367f78e71c00eaf1a.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Dismantle",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Mask",
+		"bucketTypeHash": 3448274439,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 3334541687,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": 3352,
+			"defaultDyes": [],
+			"lockedDyes": [
+				{
+					"channelHash": 662199250,
+					"dyeHash": 1702173535
+				},
+				{
+					"channelHash": 1367384683,
+					"dyeHash": 3395779634
+				},
+				{
+					"channelHash": 218592586,
+					"dyeHash": 1749151161
+				}
+			],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": [
+					{
+						"stepOperator": 1,
+						"flagHash": 1680320212,
+						"valueHash": 0,
+						"value": 2310
+					}
+				]
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [
+				{
+					"classHash": 0,
+					"gearArtArrangementIndex": 3352
+				}
+			],
+			"equipmentSlotHash": 3448274439
+		},
+		"hasGeometry": true,
+		"statGroupHash": 1116828683,
+		"itemLevels": [
+			0
+		],
+		"qualityLevel": 70,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 19,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 70,
+				"maxQuality": 70,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			55
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 2136544540,
+		"index": 0,
+		"redacted": false
+	},
+	"2140586599": {
+		"itemHash": 2140586599,
+		"itemName": "Uncommon Engram Mask",
+		"itemDescription": "Shoddy construction and flimsy materials, but an upgrade with some Paper Glue might make it Legendary. \n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/6fff8b32078c10fccce98274dc1f8766.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Dismantle",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Mask",
+		"bucketTypeHash": 3448274439,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 3334541687,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": 3361,
+			"defaultDyes": [],
+			"lockedDyes": [
+				{
+					"channelHash": 662199250,
+					"dyeHash": 1297667976
+				},
+				{
+					"channelHash": 1367384683,
+					"dyeHash": 464425229
+				},
+				{
+					"channelHash": 218592586,
+					"dyeHash": 3492215508
+				}
+			],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": [
+					{
+						"stepOperator": 1,
+						"flagHash": 1680320212,
+						"valueHash": 0,
+						"value": 2310
+					}
+				]
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [
+				{
+					"classHash": 0,
+					"gearArtArrangementIndex": 3361
+				}
+			],
+			"equipmentSlotHash": 3448274439
+		},
+		"hasGeometry": true,
+		"statGroupHash": 1116828683,
+		"itemLevels": [
+			0
+		],
+		"qualityLevel": 70,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 19,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 70,
+				"maxQuality": 70,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			55
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 2140586599,
+		"index": 0,
+		"redacted": false
+	},
+	"2277754519": {
+		"itemHash": 2277754519,
+		"itemName": "Crumpled Mask",
+		"itemDescription": "Smashed and unwearable.",
+		"icon": "/common/destiny_content/icons/604b26211eebb1540a83b15799d98c8b.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Discard",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Common",
+		"tierType": 2,
+		"itemTypeName": "Junk",
+		"bucketTypeHash": 3448274439,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 0,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": -1,
+			"defaultDyes": [],
+			"lockedDyes": [],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": []
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [],
+			"equipmentSlotHash": 3448274439
+		},
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [
+			0
+		],
+		"qualityLevel": 70,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 70,
+				"maxQuality": 70,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [],
+		"sourceHashes": [],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 2277754519,
+		"index": 0,
+		"redacted": false
+	},
+	"2327193421": {
+		"itemHash": 2327193421,
+		"itemName": "Skolas Mask",
+		"itemDescription": "Shoddy construction and flimsy materials, but an upgrade with some Paper Glue might make it Legendary. \n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/02d5f0150ab637e80ba8a0ed0e0ecbcf.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Dismantle",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Mask",
+		"bucketTypeHash": 3448274439,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 3334541687,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": 3365,
+			"defaultDyes": [],
+			"lockedDyes": [
+				{
+					"channelHash": 662199250,
+					"dyeHash": 3493830318
+				},
+				{
+					"channelHash": 1367384683,
+					"dyeHash": 3860098367
+				},
+				{
+					"channelHash": 218592586,
+					"dyeHash": 3048372430
+				}
+			],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": [
+					{
+						"stepOperator": 1,
+						"flagHash": 1680320212,
+						"valueHash": 0,
+						"value": 2310
+					}
+				]
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [
+				{
+					"classHash": 0,
+					"gearArtArrangementIndex": 3365
+				}
+			],
+			"equipmentSlotHash": 3448274439
+		},
+		"hasGeometry": true,
+		"statGroupHash": 1116828683,
+		"itemLevels": [
+			0
+		],
+		"qualityLevel": 70,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 19,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 70,
+				"maxQuality": 70,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			55
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 2327193421,
+		"index": 0,
+		"redacted": false
+	},
 	"2358760135": {
 		"itemHash": 2358760135,
 		"itemName": "Bullet Grouping Expert",
@@ -1153,6 +3767,118 @@ var DestinyHistoricalItemDefinition = {
 		"uniquenessHash": 0,
 		"showActiveNodesInTooltip": false,
 		"hash": 2358760135,
+		"index": 0,
+		"redacted": false
+	},
+	"2380856833": {
+		"itemHash": 2380856833,
+		"itemName": "Rare Engram Mask",
+		"itemDescription": "Shoddy construction and flimsy materials, but an upgrade with some Paper Glue might make it Legendary. \n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/b8405cd3a83a614d57c75ee11a8a27ba.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Dismantle",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Mask",
+		"bucketTypeHash": 3448274439,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 3334541687,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": 3360,
+			"defaultDyes": [],
+			"lockedDyes": [
+				{
+					"channelHash": 662199250,
+					"dyeHash": 2023656698
+				},
+				{
+					"channelHash": 1367384683,
+					"dyeHash": 3695916931
+				},
+				{
+					"channelHash": 218592586,
+					"dyeHash": 3838706418
+				}
+			],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": [
+					{
+						"stepOperator": 1,
+						"flagHash": 1680320212,
+						"valueHash": 0,
+						"value": 2310
+					}
+				]
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [
+				{
+					"classHash": 0,
+					"gearArtArrangementIndex": 3360
+				}
+			],
+			"equipmentSlotHash": 3448274439
+		},
+		"hasGeometry": true,
+		"statGroupHash": 1116828683,
+		"itemLevels": [
+			0
+		],
+		"qualityLevel": 70,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 19,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 70,
+				"maxQuality": 70,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			55
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 2380856833,
 		"index": 0,
 		"redacted": false
 	},
@@ -1494,6 +4220,118 @@ var DestinyHistoricalItemDefinition = {
 		"hash": 2537786353,
 		"index": 0
 	},
+	"2652799928": {
+		"itemHash": 2652799928,
+		"itemName": "Petra Venj Mask",
+		"itemDescription": "Shoddy construction and flimsy materials, but an upgrade with some Paper Glue might make it Legendary. \n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/fa00189cf1a8ade884f0f2982db1d001.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Dismantle",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Mask",
+		"bucketTypeHash": 3448274439,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 3334541687,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": 3363,
+			"defaultDyes": [],
+			"lockedDyes": [
+				{
+					"channelHash": 662199250,
+					"dyeHash": 368632195
+				},
+				{
+					"channelHash": 1367384683,
+					"dyeHash": 1423031150
+				},
+				{
+					"channelHash": 218592586,
+					"dyeHash": 1994862165
+				}
+			],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": [
+					{
+						"stepOperator": 1,
+						"flagHash": 1680320212,
+						"valueHash": 0,
+						"value": 2310
+					}
+				]
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [
+				{
+					"classHash": 0,
+					"gearArtArrangementIndex": 3363
+				}
+			],
+			"equipmentSlotHash": 3448274439
+		},
+		"hasGeometry": true,
+		"statGroupHash": 1116828683,
+		"itemLevels": [
+			0
+		],
+		"qualityLevel": 70,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 19,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 70,
+				"maxQuality": 70,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			55
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 2652799928,
+		"index": 0,
+		"redacted": false
+	},
 	"2654484743": {
 		"itemHash": 2654484743,
 		"itemName": "Bullet Grouping",
@@ -1659,6 +4497,592 @@ var DestinyHistoricalItemDefinition = {
 		"uniquenessHash": 0,
 		"showActiveNodesInTooltip": false,
 		"hash": 2987696849,
+		"index": 0,
+		"redacted": false
+	},
+	"3080373385": {
+		"itemHash": 3080373385,
+		"itemName": "Warden Mask",
+		"itemDescription": "Shoddy construction and flimsy materials, but an upgrade with some Paper Glue might make it Legendary. \n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/f34b9093e9ddd5aa01fd1d9a3b529771.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Dismantle",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Mask",
+		"bucketTypeHash": 3448274439,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 3334541687,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": 3364,
+			"defaultDyes": [],
+			"lockedDyes": [
+				{
+					"channelHash": 662199250,
+					"dyeHash": 2108671122
+				},
+				{
+					"channelHash": 1367384683,
+					"dyeHash": 3196737323
+				},
+				{
+					"channelHash": 218592586,
+					"dyeHash": 1494140426
+				}
+			],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": [
+					{
+						"stepOperator": 1,
+						"flagHash": 1680320212,
+						"valueHash": 0,
+						"value": 2310
+					}
+				]
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [
+				{
+					"classHash": 0,
+					"gearArtArrangementIndex": 3364
+				}
+			],
+			"equipmentSlotHash": 3448274439
+		},
+		"hasGeometry": true,
+		"statGroupHash": 1116828683,
+		"itemLevels": [
+			0
+		],
+		"qualityLevel": 70,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 19,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 70,
+				"maxQuality": 70,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			55
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 3080373385,
+		"index": 0,
+		"redacted": false
+	},
+	"3152373064": {
+		"itemHash": 3152373064,
+		"itemName": "Odyssey Horn",
+		"itemDescription": "This horn only has a few good blasts left in it, but attaching a Horn Relay will make it Legendary.\n\nExpires at the end of SRL.",
+		"icon": "/common/destiny_content/icons/364a0f47c39795a7763c4eb425a88763.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Discard",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Horn",
+		"bucketTypeHash": 3796357825,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 145237431,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": -1,
+			"defaultDyes": [],
+			"lockedDyes": [],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": []
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [],
+			"equipmentSlotHash": 3796357825
+		},
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [],
+		"sourceHashes": [],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 3152373064,
+		"index": 0,
+		"redacted": false
+	},
+	"3152373065": {
+		"itemHash": 3152373065,
+		"itemName": "Alert Horn",
+		"itemDescription": "This horn only has a few good blasts left in it, but attaching a Horn Relay will make it Legendary.\n\nExpires at the end of SRL.",
+		"icon": "/common/destiny_content/icons/4a9415398bec314a22914c5120906f18.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Discard",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Horn",
+		"bucketTypeHash": 3796357825,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 145237431,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": -1,
+			"defaultDyes": [],
+			"lockedDyes": [],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": []
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [],
+			"equipmentSlotHash": 3796357825
+		},
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [],
+		"sourceHashes": [],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 3152373065,
+		"index": 0,
+		"redacted": false
+	},
+	"3152373066": {
+		"itemHash": 3152373066,
+		"itemName": "Flourish Horn",
+		"itemDescription": "This horn only has a few good blasts left in it, but attaching a Horn Relay will make it Legendary.\n\nExpires at the end of SRL.",
+		"icon": "/common/destiny_content/icons/a62a4807c7310558b7c2bf4107c0a462.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Discard",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Horn",
+		"bucketTypeHash": 3796357825,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 145237431,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": -1,
+			"defaultDyes": [],
+			"lockedDyes": [],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": []
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [],
+			"equipmentSlotHash": 3796357825
+		},
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [],
+		"sourceHashes": [],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 3152373066,
+		"index": 0,
+		"redacted": false
+	},
+	"3152373068": {
+		"itemHash": 3152373068,
+		"itemName": "Clown Horn",
+		"itemDescription": "This horn only has a few good blasts left in it, but attaching a Horn Relay will make it Legendary.\n\nExpires at the end of SRL.",
+		"icon": "/common/destiny_content/icons/424f048e8debc197697b268d11a8ad4b.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Discard",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Horn",
+		"bucketTypeHash": 3796357825,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 145237431,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": -1,
+			"defaultDyes": [],
+			"lockedDyes": [],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": []
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [],
+			"equipmentSlotHash": 3796357825
+		},
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [],
+		"sourceHashes": [],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 3152373068,
+		"index": 0,
+		"redacted": false
+	},
+	"3152373069": {
+		"itemHash": 3152373069,
+		"itemName": "Aquarian Horn",
+		"itemDescription": "This horn only has a few good blasts left in it, but attaching a Horn Relay will make it Legendary.\n\nExpires at the end of SRL.",
+		"icon": "/common/destiny_content/icons/28330fb7d387e6caf39bf38996b8a8e4.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Discard",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Horn",
+		"bucketTypeHash": 3796357825,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 145237431,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": -1,
+			"defaultDyes": [],
+			"lockedDyes": [],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": []
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [],
+			"equipmentSlotHash": 3796357825
+		},
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [],
+		"sourceHashes": [],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 3152373069,
+		"index": 0,
+		"redacted": false
+	},
+	"3152373071": {
+		"itemHash": 3152373071,
+		"itemName": "Electric Horn",
+		"itemDescription": "This horn only has a few good blasts left in it, but attaching a Horn Relay will make it Legendary.\n\nExpires at the end of SRL.",
+		"icon": "/common/destiny_content/icons/da409dd47a12ef4f0ff38917299da1cb.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Discard",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Horn",
+		"bucketTypeHash": 3796357825,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 145237431,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": -1,
+			"defaultDyes": [],
+			"lockedDyes": [],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": []
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [],
+			"equipmentSlotHash": 3796357825
+		},
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [],
+		"sourceHashes": [],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 3152373071,
 		"index": 0,
 		"redacted": false
 	},
@@ -2166,6 +5590,516 @@ var DestinyHistoricalItemDefinition = {
 		"uniquenessHash": 0,
 		"showActiveNodesInTooltip": false,
 		"hash": 3488197366,
+		"index": 0,
+		"redacted": false
+	},
+	"3507021084": {
+		"itemHash": 3507021084,
+		"itemName": "Oryx Mask",
+		"itemDescription": "Shoddy construction and flimsy materials, but an upgrade with some Paper Glue might make it Legendary. \n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/961e15fc6006661b843dd878febb9fdc.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Dismantle",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Mask",
+		"bucketTypeHash": 3448274439,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 3334541687,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": 3362,
+			"defaultDyes": [],
+			"lockedDyes": [
+				{
+					"channelHash": 662199250,
+					"dyeHash": 2334550879
+				},
+				{
+					"channelHash": 1367384683,
+					"dyeHash": 4028156978
+				},
+				{
+					"channelHash": 218592586,
+					"dyeHash": 333274553
+				}
+			],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": [
+					{
+						"stepOperator": 1,
+						"flagHash": 1680320212,
+						"valueHash": 0,
+						"value": 2310
+					}
+				]
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [
+				{
+					"classHash": 0,
+					"gearArtArrangementIndex": 3362
+				}
+			],
+			"equipmentSlotHash": 3448274439
+		},
+		"hasGeometry": true,
+		"statGroupHash": 1116828683,
+		"itemLevels": [
+			0
+		],
+		"qualityLevel": 70,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 19,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 70,
+				"maxQuality": 70,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			55
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 3507021084,
+		"index": 0,
+		"redacted": false
+	},
+	"3779317041": {
+		"itemHash": 3779317041,
+		"itemName": "Paper Scraps",
+		"itemDescription": "Festival of the Lost \n \nObtained from Mystery Bags or by dismantling a Rare mask. Can be traded to Eva Levante for a new Rare mask. \n \nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/604b26211eebb1540a83b15799d98c8b.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Discard",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Common",
+		"tierType": 2,
+		"itemTypeName": "Material",
+		"bucketTypeHash": 3865314626,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 0,
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": false,
+		"instanced": false,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			40,
+			52
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 99,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 0,
+		"showActiveNodesInTooltip": false,
+		"hash": 3779317041,
+		"index": 0,
+		"redacted": false
+	},
+	"3813534255": {
+		"itemHash": 3813534255,
+		"itemName": "Xûr Mask",
+		"itemDescription": "Shoddy construction and flimsy materials, but an upgrade with some Paper Glue might make it Legendary. \n\nExpires at the end of the Festival of the Lost.",
+		"icon": "/common/destiny_content/icons/49f01f528b56f3760a55601bf2c13c91.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Dismantle",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Mask",
+		"bucketTypeHash": 3448274439,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"specialItemType": 0,
+		"talentGridHash": 3334541687,
+		"equippingBlock": {
+			"weaponSandboxPatternIndex": -1,
+			"gearArtArrangementIndex": 3353,
+			"defaultDyes": [],
+			"lockedDyes": [
+				{
+					"channelHash": 662199250,
+					"dyeHash": 362806752
+				},
+				{
+					"channelHash": 1367384683,
+					"dyeHash": 1140726197
+				},
+				{
+					"channelHash": 218592586,
+					"dyeHash": 3612000268
+				}
+			],
+			"customDyes": [],
+			"customDyeExpression": {
+				"steps": [
+					{
+						"stepOperator": 1,
+						"flagHash": 1680320212,
+						"valueHash": 0,
+						"value": 2310
+					}
+				]
+			},
+			"weaponPatternHash": 0,
+			"arrangements": [
+				{
+					"classHash": 0,
+					"gearArtArrangementIndex": 3353
+				}
+			],
+			"equipmentSlotHash": 3448274439
+		},
+		"hasGeometry": true,
+		"statGroupHash": 1116828683,
+		"itemLevels": [
+			0
+		],
+		"qualityLevel": 70,
+		"equippable": true,
+		"instanced": true,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 19,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 70,
+				"maxQuality": 70,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [
+			55
+		],
+		"sourceHashes": [
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 1,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 2166136261,
+		"showActiveNodesInTooltip": false,
+		"hash": 3813534255,
+		"index": 0,
+		"redacted": false
+	},
+	"3836534492": {
+		"itemHash": 3836534492,
+		"itemName": "Gifts of the Lost",
+		"itemDescription": "Open a gift bag to reveal its contents.\nFestival of the Lost 2015\n\nGuaranteed Contents:\nRandom Rare Mask x1\nRandom Festival Candy x1\n\nPossible Contents:\nJackolyte x1\nFlight of Shadows x1",
+		"icon": "/common/destiny_content/icons/5783e7a778dec73d396e88fea02bb5ff.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Use",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Mystery Bag",
+		"bucketTypeHash": 1469714392,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"itemIdentifier": "",
+		"specialItemType": 0,
+		"talentGridHash": 0,
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": false,
+		"instanced": false,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [],
+		"sourceHashes": [],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 99,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 0,
+		"showActiveNodesInTooltip": false,
+		"hash": 3836534492,
+		"index": 0,
+		"redacted": false
+	},
+	"3836534493": {
+		"itemHash": 3836534493,
+		"itemName": "Bag of Flimsy Masks",
+		"itemDescription": "Festival of the Lost masks are rumored to deflect Death's gaze. That story may be as fragile as the paper from which these masks were made.",
+		"icon": "/common/destiny_content/icons/5783e7a778dec73d396e88fea02bb5ff.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Use",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Mystery Bag",
+		"bucketTypeHash": 1469714392,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"itemIdentifier": "",
+		"specialItemType": 0,
+		"talentGridHash": 0,
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": false,
+		"instanced": false,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					3672389432,
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [],
+		"sourceHashes": [
+			3672389432,
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 99,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 0,
+		"showActiveNodesInTooltip": false,
+		"hash": 3836534493,
+		"index": 0,
+		"redacted": false
+	},
+	"3836534495": {
+		"itemHash": 3836534495,
+		"itemName": "Gifts of the Lost",
+		"itemDescription": "Open a gift bag to reveal its contents.\nFestival of the Lost 2015\n\nGuaranteed Contents:\nRandom Rare Mask x1\nRandom Festival Candy x1\n\nPossible Contents:\nJackolyte x1\nFlight of Shadows x1",
+		"icon": "/common/destiny_content/icons/5783e7a778dec73d396e88fea02bb5ff.jpg",
+		"hasIcon": true,
+		"secondaryIcon": "/img/misc/missing_icon.png",
+		"actionName": "Use",
+		"hasAction": true,
+		"deleteOnAction": true,
+		"tierTypeName": "Rare",
+		"tierType": 4,
+		"itemTypeName": "Mystery Bag",
+		"bucketTypeHash": 1469714392,
+		"primaryBaseStatHash": 0,
+		"stats": {},
+		"perkHashes": [],
+		"itemIdentifier": "",
+		"specialItemType": 0,
+		"talentGridHash": 0,
+		"hasGeometry": false,
+		"statGroupHash": 0,
+		"itemLevels": [],
+		"qualityLevel": 0,
+		"equippable": false,
+		"instanced": false,
+		"rewardItemHash": 0,
+		"values": {},
+		"itemType": 0,
+		"itemSubType": 0,
+		"classType": 3,
+		"sources": [
+			{
+				"expansionIndex": 0,
+				"level": 0,
+				"minQuality": 0,
+				"maxQuality": 0,
+				"minLevelRequired": 0,
+				"maxLevelRequired": 0,
+				"exclusivity": 0,
+				"computedStats": {},
+				"sourceHashes": [
+					1920307024,
+					460228854
+				],
+				"spawnIndexes": [
+					0
+				]
+			}
+		],
+		"itemCategoryHashes": [],
+		"sourceHashes": [
+			1920307024,
+			460228854
+		],
+		"nonTransferrable": false,
+		"exclusive": 0,
+		"maxStackSize": 99,
+		"itemIndex": 0,
+		"setItemHashes": [],
+		"tooltipStyle": "",
+		"questlineItemHash": 0,
+		"needsFullCompletion": false,
+		"objectiveHashes": [],
+		"allowActions": true,
+		"questTrackingUnlockValueHash": 0,
+		"bountyResetUnlockHash": 0,
+		"uniquenessHash": 0,
+		"showActiveNodesInTooltip": false,
+		"hash": 3836534495,
 		"index": 0,
 		"redacted": false
 	},

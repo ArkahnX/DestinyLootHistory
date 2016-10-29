@@ -24,14 +24,20 @@ var elements = {
 	statTable: document.getElementById("stat-table"),
 	nodeTable: document.getElementById("node-table"),
 	costTable: document.getElementById("cost-table"),
-	ToCReminder: document.getElementById("ToCReminder"),
 	toggleSystem: document.getElementById("toggleSystem"),
 	autoLock: document.getElementById("autoLock"),
 	track3oC: document.getElementById("track3oC"),
+	trackBoosters: document.getElementById("trackBoosters"),
+	obeyCooldowns: document.getElementById("obeyCooldowns"),
+	autoTagInventory: document.getElementById("autoTagInventory"),
 	paginate: document.getElementById("paginate"),
 	showQuality: document.getElementById("showQuality"),
 	useGuardianLight: document.getElementById("useGuardianLight"),
 	lockHighLight: document.getElementById("lockHighLight"),
+	classType: document.getElementById("classType"),
+	categoryHash: document.getElementById("categoryHash"),
+	hideUnmatched: document.getElementById("hideUnmatched"),
+	refreshGear: document.getElementById("refreshGear"),
 	version: document.getElementById("version")
 };
 
@@ -60,7 +66,15 @@ if (moment) {
 	var timezone = moment.tz.guess();
 }
 
-function initUi() {
+function getOffset(el) {
+	el = el.getBoundingClientRect();
+	return {
+		left: el.left + window.scrollX,
+		top: el.top + window.scrollY
+	}
+}
+
+function initUi(elementTarget) {
 	for (var elementName in elements) {
 		if (elementNames[elementName]) {
 			elements[elementName] = document.getElementById(elementNames[elementName]);
@@ -68,11 +82,8 @@ function initUi() {
 			elements[elementName] = document.getElementById(elementName);
 		}
 	}
-	var manifest = chrome.runtime.getManifest();
-	if (typeof manifest.key === "undefined") {
-		if (elements.version) {
-			elements.version.textContent = (manifest.version_name);
-		}
+	if (elements.version && DEBUG) {
+		elements.version.textContent = (manifest.version_name);
 	}
 	var reloadButtons = document.querySelectorAll(".reload");
 	for (var reloadButton of reloadButtons) {
@@ -82,8 +93,8 @@ function initUi() {
 			});
 		});
 	}
-	if (elements.container) {
-		elements.container.addEventListener("mouseover", function(event) {
+	if (elementTarget) {
+		elementTarget.addEventListener("mouseover", function(event) {
 			var target = null;
 			if (event.target.classList.contains("item") || event.target.classList.contains("faction")) {
 				target = event.target;
@@ -103,30 +114,52 @@ function initUi() {
 				previousElement = null;
 			}
 		}, true);
-	}
-	if (elements.ToCReminder) {
-		getOption("track3oC").then(function(track3oC) {
-			if (track3oC === false) {
-				elements.ToCReminder.value = "Turn on 3oC reminder";
-				elements.ToCReminder.classList.add("grey");
-				elements.ToCReminder.classList.remove("green");
+		elementTarget.addEventListener("mousedown", function(event) {
+			var target = null;
+			if (event.target.classList.contains("item") || event.target.classList.contains("faction")) {
+				target = event.target;
+			} else if (event.target.parentNode.classList.contains("item") || event.target.parentNode.classList.contains("faction")) {
+				target = event.target.parentNode;
+			} else if (event.target.parentNode.classList.contains("item-container")) {
+				target = event.target.parentNode.children[0];
 			}
-			elements.ToCReminder.addEventListener("click", function(event) {
-				getOption("track3oC").then(function(track3oC) {
-					if (track3oC === false) {
-						setOption("track3oC", true);
-						elements.ToCReminder.value = "Turn off 3oC reminder";
-						elements.ToCReminder.classList.remove("grey");
-						elements.ToCReminder.classList.add("green");
-					} else {
-						setOption("track3oC", false);
-						elements.ToCReminder.value = "Turn on 3oC reminder";
-						elements.ToCReminder.classList.add("grey");
-						elements.ToCReminder.classList.remove("green");
-					}
-				});
+			if (target && target.dataset.canTag && event.button === 0 && target.dataset.removed !== "true") {
+				event.preventDefault();
+				var tagFloat = document.getElementById("tagfloat");
+				tagFloat.dataset.itemInstanceId = target.dataset.itemInstanceId;
+				tagFloat.dataset.itemHash = target.dataset.itemHash;
+				let tagFloatHeight = tagFloat.getBoundingClientRect().height;
+				var coords = getOffset(target);
+				if (coords.top + tagFloatHeight + 50 > window.innerHeight) {
+					tagFloat.style.top = coords.top - tagFloatHeight;
+					tagFloat.classList.add("flip");
+				} else {
+					tagFloat.style.top = coords.top + 50;
+					tagFloat.classList.remove("flip");
+				}
+				tagFloat.style.left = coords.left - 50;
+				tagFloat.classList.remove("invisible");
+			} else {
+				let tagFloat = document.getElementById("tagfloat");
+				tagFloat.classList.add("invisible");
+			}
+		}, true);
+		if (document.getElementById("width-wrapper")) {
+			document.getElementById("width-wrapper").addEventListener("scroll", function() {
+				// console.log(document.getElementById("tagfloat"));
+				document.getElementById("tagfloat").classList.add("invisible");
 			}, false);
-		});
+		}
+		if (document.getElementById("debugHome")) {
+			document.getElementById("debugHome").addEventListener("scroll", function() {
+				// console.log(document.getElementById("tagfloat"));
+				document.getElementById("tagfloat").classList.add("invisible");
+			}, false);
+		}
+		window.addEventListener("resize", function() {
+			// console.log(document.getElementById("tagfloat"));
+			document.getElementById("tagfloat").classList.add("invisible");
+		}, false);
 	}
 	if (elements.toggleSystem) {
 		getOption("activeType").then(function(activeType) {
@@ -164,6 +197,9 @@ function initUi() {
 			}
 		}
 	}
+	if (typeof tags !== "undefined") {
+		tags.getUI();
+	}
 	getAllOptions().then(function(options) {
 		if (elements.autoLock) {
 			elements.autoLock.checked = options.autoLock === true;
@@ -172,6 +208,18 @@ function initUi() {
 		if (elements.track3oC) {
 			elements.track3oC.checked = options.track3oC === true;
 			elements.track3oC.addEventListener("change", handleCheckboxChange, false);
+		}
+		if (elements.trackBoosters) {
+			elements.trackBoosters.checked = options.trackBoosters === true;
+			elements.trackBoosters.addEventListener("change", handleCheckboxChange, false);
+		}
+		if (elements.obeyCooldowns) {
+			elements.obeyCooldowns.checked = options.obeyCooldowns === true;
+			elements.obeyCooldowns.addEventListener("change", handleCheckboxChange, false);
+		}
+		if (elements.autoTagInventory) {
+			elements.autoTagInventory.checked = options.autoTagInventory === true;
+			elements.autoTagInventory.addEventListener("change", handleCheckboxChange, false);
 		}
 		if (elements.showQuality) {
 			elements.showQuality.checked = options.showQuality === true;
@@ -402,13 +450,13 @@ function itemType(item) {
 	if (itemDef.itemType === 4) {
 		return "bounty";
 	}
-	if(itemDef.bucketTypeHash === 1469714392) {
+	if (itemDef.bucketTypeHash === 1469714392) {
 		return "consumable";
 	}
-	if(itemDef.bucketTypeHash === 3865314626) {
+	if (itemDef.bucketTypeHash === 3865314626) {
 		return "material";
 	}
-	if(itemDef.bucketTypeHash === 3313201758) {
+	if (itemDef.bucketTypeHash === 3313201758) {
 		return "ornament";
 	}
 	if ([284967655, 2025709351].indexOf(itemDef.bucketTypeHash) > -1) {
@@ -439,12 +487,19 @@ var itemCache = [];
 
 function makeItem(itemData, classRequirement, optionalCosts) {
 	var docfrag = document.createDocumentFragment();
-	var itemContainer, container, stat, quality;
+	var itemContainer, container, stat, quality, tag;
 	if (itemCache.length) {
 		itemContainer = itemCache.pop();
 		container = itemContainer.children[0];
 		quality = itemContainer.children[1];
 		stat = itemContainer.children[2];
+		stat.className = "primary-stat";
+		tag = itemContainer.children[3];
+		if (!tag) {
+			console.log(itemContainer)
+		}
+		tag.innerHTML = "";
+		tag.classList.remove("tag-corner");
 		for (var attr in container.dataset) {
 			delete container.dataset[attr];
 		}
@@ -452,11 +507,13 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 		itemContainer = document.createElement("div");
 		container = document.createElement("div");
 		stat = document.createElement("div");
+		tag = document.createElement("div");
 		quality = document.createElement("div");
 		itemContainer.classList.add("item-container");
 		itemContainer.appendChild(container);
 		itemContainer.appendChild(quality);
 		itemContainer.appendChild(stat);
+		itemContainer.appendChild(tag);
 		stat.classList.add("primary-stat");
 	}
 	docfrag.appendChild(itemContainer);
@@ -467,6 +524,17 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 	}
 	itemContainer.dataset.itemType = itemType(itemData);
 	itemContainer.dataset.itemRarity = itemRarity(itemData.itemHash);
+	let tagData = tags.getTag(itemData);
+	if (tagData) {
+		itemContainer.dataset.id = `${itemData.itemInstanceId}`;
+		// tag.innerHTML = `<i class="fa fa-${tags.getIcon(tagData)}"></i><span class="tag-text">${tags.getName(tagData)}</span>`;
+		container.dataset.canTag = "true";
+		container.dataset.tagHash = tagData.tagHash;
+		if (tagData.tagHash !== 5) {
+			tag.classList.add("tag-corner");
+			tag.innerHTML = `<i class="fa fa-${tags.getIcon(tagData)} fa-lg"></i>`;
+		}
+	}
 	if (hasQuality(itemData) && globalOptions.showQuality) {
 		quality.className = "quality";
 		stat.classList.add("with-quality");
@@ -610,7 +678,6 @@ function makeProgress(progressData, classRequirement) {
 }
 
 function itemClasses(itemData) {
-	// logger.startLogging("UI");
 	var classList = [];
 	if (itemData.isGridComplete) {
 		classList.push("complete");
@@ -693,7 +760,6 @@ function primaryStatName(itemData) {
 }
 
 function passData(DomNode, itemData, classRequirement, optionalCosts) {
-	// logger.startLogging("UI");
 	if (optionalCosts) {
 		DomNode.dataset.costs = JSON.stringify(optionalCosts);
 	}
@@ -738,7 +804,7 @@ function passData(DomNode, itemData, classRequirement, optionalCosts) {
 		DomNode.dataset.primaryStat = primaryStat(itemData);
 		DomNode.dataset.primaryStatName = primaryStatName(itemData);
 	}
-	if(!DomNode.dataset.nodes && DomNode.dataset.talentGridHash) {
+	if (!DomNode.dataset.nodes && DomNode.dataset.talentGridHash) {
 		DomNode.dataset.nodes = JSON.stringify(buildFakeNodes(DomNode.dataset.talentGridHash));
 	}
 	// DomNode.dataset.itemDescription = itemDefinition.itemDescription;
@@ -832,7 +898,6 @@ function characterName(characterId, light) {
 	if (!characterDescriptions[characterId]) {
 		return "";
 	}
-	// logger.startLogging("UI");
 	if (light === null) {
 		return characterDescriptions[characterId].name;
 	}
@@ -840,7 +905,7 @@ function characterName(characterId, light) {
 		return "Vault";
 	}
 	if (!characterDescriptions[characterId]) {
-		// logger.log(light)
+		// console.log(light)
 	}
 	return characterDescriptions[characterId].race + " " + characterDescriptions[characterId].gender + " " + characterDescriptions[characterId].name + " (" + (light || characterDescriptions[characterId].light) + ")";
 }
@@ -848,7 +913,7 @@ function characterName(characterId, light) {
 function characterSource(itemDiff, moveType, index) {
 	var itemData = itemDiff[moveType][index];
 	var light = itemDiff.light;
-	// logger.log(itemDiff.characterId,itemData);
+	// console.log(itemDiff.characterId,itemData);
 	var toId = itemDiff.characterId;
 	var fromId = "";
 	var starter = "Added to ";

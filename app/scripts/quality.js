@@ -60,6 +60,25 @@ function containsNodes(item, nodeNameList) {
 	return Math.round((result / nodeNameList.length) * 100) || 0;
 }
 
+function talentsContainsPerkHashes(item, perkHashList) {
+	var result = 0;
+	if (!Array.isArray(perkHashList)) {
+		perkHashList = [perkHashList];
+	}
+	var itemDef = getItemDefinition(item.itemHash);
+	var grid = getNodes(item);
+	for (var perkHash of perkHashList) {
+		for (var node of grid) {
+			if (node.perkHashes && node.perkHashes.indexOf(parseInt(perkHash)) > -1) {
+				result++;
+				break;
+			}
+		}
+	}
+	var extra = 10 - grid.length;
+	return Math.round((result / 10) * 100) || 0;
+}
+
 function getItemCategoryName(item) {
 	var itemDef = getItemDefinition(item.itemHash);
 	if (itemDef.itemCategoryHashes.indexOf(38) > -1) {
@@ -149,7 +168,6 @@ function getColor(value) {
 }
 
 function getBonus(light, type) {
-	// logger.startLogging("quality");
 	switch (type) {
 		case 'helmet':
 			return light < 292 ? 15 :
@@ -188,7 +206,7 @@ function getBonus(light, type) {
 				light < 330 ? 41 :
 				light < 335 ? 42 : 43;
 	}
-	// logger.warn('item bonus not found', type);
+	// console.warn('item bonus not found', type);
 	return 0;
 }
 
@@ -227,6 +245,10 @@ function getNodes(item, nodes, talentGridHash) {
 						icon: step.icon,
 						nodeStepDescription: step.nodeStepDescription,
 						nodeStepHash: step.nodeStepHash,
+						nodeHash: node.nodeHash,
+						stepIndex: step.stepIndex,
+						perkHashes:step.perkHashes,
+						activatedAtGridLevel:step.activationRequirement.gridLevel,
 						nodeStepName: step.nodeStepName,
 						isActivated: node.isActivated,
 						state:node.state

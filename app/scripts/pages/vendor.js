@@ -1,8 +1,7 @@
 tracker.sendAppView('Vendor');
-logger.disable();
-var globalOptions = {};
 getAllOptions().then(function(options) {
 	globalOptions = options;
+	tags.update();
 });
 var saleItemStatuses = [
 	"Success",
@@ -185,6 +184,19 @@ function makeSaleItem(itemHash, unlockStatuses, saleItem, currencies) {
 			});
 		}
 	}
+	if (!saleItem.item.primaryStat && itemDef.itemCategoryHashes) {
+		if (itemDef.itemCategoryHashes.indexOf(1) > -1) {
+			saleItem.item.primaryStat = {
+				value: 350,
+				statHash:368428387
+			};
+		} else if (itemDef.itemCategoryHashes.indexOf(20) > -1) {
+			saleItem.item.primaryStat = {
+				value: 350,
+				statHash:209426660
+			};
+		}
+	}
 	var item = makeItem(saleItem.item, unlockFlag, costs);
 	if (acquired !== 0) {
 		item.children[0].classList.add("undiscovered");
@@ -245,7 +257,7 @@ function makeItemsFromVendor(vendor) {
 		subContainer.appendChild(docfrag);
 		mainContainer.appendChild(subContainer);
 	}
-	if(!manualVendorHashMap[localVendor.vendorHash]) {
+	if (!manualVendorHashMap[localVendor.vendorHash]) {
 		elements.status.classList.remove("active");
 		return;
 	}
@@ -381,16 +393,15 @@ function addPackagesToVendors() {
 var deadVendors = [415161769, 863056813, 3019290222, 2698860028, 1660667815, 1588933401, 2586808090, 1653856985, 529545063, 1353750121, 4275962006, 163657562, 3898086963, 3165969428, 892630493, 2016602161];
 var selectedCharacter = localStorage.newestCharacter;
 var lastVendor = "";
-var vendors = {
-	other: []
-};
+var vendors = {};
 database.open().then(function() {
 	database.getAllEntries("inventories").then(function(data) {
 		// chrome.storage.local.get("inventories", function(data) {
 		if (chrome.runtime.lastError) {
-			logger.error(chrome.runtime.lastError);
+			console.error(chrome.runtime.lastError);
 		}
 		newInventories = data.inventories;
+		tags.cleanup(data.inventories);
 		initItems(function() {
 			var characterHTML = "";
 			for (let characterId in characterDescriptions) {
@@ -414,7 +425,7 @@ database.open().then(function() {
 						vendors[vendor.summary.vendorSubcategoryHash].push(vendor.summary);
 					}
 				} else {
-					vendors.other.push(vendor.summary);
+					// vendors.other.push(vendor.summary);
 				}
 			}
 			for (let vendorCategory in vendors) {
@@ -452,6 +463,7 @@ database.open().then(function() {
 					getVendor(document.getElementById("vendor").value);
 				}
 			});
+			elements.status.classList.remove("active");
 		});
 	});
 });
@@ -465,15 +477,15 @@ function getVendor(hash) {
 	document.getElementById("compare").value = "None";
 	bungie.getVendorForCharacter(selectedCharacter, lastVendor).catch(function(err) {
 		if (err) {
-			logger.error(err);
+			console.error(err);
 		}
-	}).then(function(response) {
-		console.log(response, response.Response && response.Response.data, DestinyVendorDefinition[lastVendor]);
-		if (response.Response) {
+	}).then(function(vendorData) {
+		console.log(vendorData, DestinyVendorDefinition[lastVendor]);
+		if (vendorData.vendorHash) {
 			document.getElementById("history").innerHTML = "";
-			makeItemsFromVendor(response.Response.data.vendor);
+			makeItemsFromVendor(vendorData);
 		} else {
-			document.getElementById("history").innerHTML = `<h2>${response.Message}</h2>`;
+			document.getElementById("history").innerHTML = `<h2>${vendorData.Message}</h2>`;
 			console.log(lastVendor);
 			elements.status.classList.remove("active");
 		}
@@ -488,33 +500,33 @@ function compareVendor(vendorHash, compareHash) {
 	selectedCharacter = document.getElementById("character").value;
 	bungie.getVendorForCharacter(selectedCharacter, lastVendor).catch(function(err) {
 		if (err) {
-			logger.error(err);
+			console.error(err);
 		}
 	}).then(function(responseMain) {
 		bungie.getVendorForCharacter(selectedCharacter, compareHash).catch(function(err) {
 			if (err) {
-				logger.error(err);
+				console.error(err);
 			}
 		}).then(function(responseCompare) {
-			if (responseMain.Response && responseCompare.Response) {
-				var vendorSaleItems = responseMain.Response.data.vendor.saleItemCategories;
-				var vendorName = DestinyVendorDefinition[responseMain.Response.data.vendor.vendorHash].summary.vendorName;
-				var compareName = DestinyVendorDefinition[responseCompare.Response.data.vendor.vendorHash].summary.vendorName;
-				var compareSaleItems = responseCompare.Response.data.vendor.saleItemCategories;
+			if (responseMain.vendorHash && responseCompare.vendorHash) {
+				var vendorSaleItems = responseMain.saleItemCategories;
+				var vendorName = DestinyVendorDefinition[responseMain.vendorHash].summary.vendorName;
+				var compareName = DestinyVendorDefinition[responseCompare.vendorHash].summary.vendorName;
+				var compareSaleItems = responseCompare.saleItemCategories;
 				var flattenedVendorItems = flattenItems(vendorSaleItems);
 				var flattenedCompareItems = flattenItems(compareSaleItems);
 				var currencies = {};
-				if (Object.keys(responseMain.Response.data.vendor.currencies).length > 0) {
-					currencies = responseMain.Response.data.vendor.currencies;
+				if (Object.keys(responseMain.currencies).length > 0) {
+					currencies = responseMain.currencies;
 				}
-				if (Object.keys(responseCompare.Response.data.vendor.currencies).length > 0) {
-					currencies = responseCompare.Response.data.vendor.currencies;
+				if (Object.keys(responseCompare.currencies).length > 0) {
+					currencies = responseCompare.currencies;
 				}
 				var saleItemCategories = [{
-					categoryTitle: vendorName + " reset " + moment(responseMain.Response.data.vendor.nextRefreshDate).fromNow(),
+					categoryTitle: vendorName + " reset " + moment(responseMain.nextRefreshDate).fromNow(),
 					saleItems: []
 				}, {
-					categoryTitle: compareName + " reset " + moment(responseCompare.Response.data.vendor.nextRefreshDate).fromNow(),
+					categoryTitle: compareName + " reset " + moment(responseCompare.nextRefreshDate).fromNow(),
 					saleItems: []
 				}];
 				var vendor = {
@@ -548,6 +560,6 @@ function flattenItems(itemCategories) {
 	return result;
 }
 
-initUi();
+initUi(document.body);
 
 window.requestAnimationFrame(date.keepDatesUpdated);

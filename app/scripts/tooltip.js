@@ -1,19 +1,30 @@
 var tooltipTimeout = null;
 var newInventories = newInventories || {};
+var lastToolTipItemInstance = "";
 
 function handleTooltipData(dataset, element, event) {
 	clearTimeout(tooltipTimeout);
-	tooltipTimeout = setTimeout(function() {
-		setTooltipData(dataset, element, event);
-	}, 100);
+	if (lastToolTipItemInstance !== dataset.itemHash + "-" + dataset.itemInstanceId) {
+		tooltipTimeout = setTimeout(function() {
+			setTooltipData(dataset, element, event);
+		}, 100);
+	}
 }
 
 function setTooltipData(dataset, element, event) {
+	lastToolTipItemInstance = dataset.itemHash + "-" + dataset.itemInstanceId;
 	var itemDetails = dataset;
+	document.getElementById("tag").classList.add("hidden");
 	if (element.className.indexOf("faction") === -1 || element.className.indexOf("currency") > -1) {
 		itemDetails = getItemDefinition(dataset.itemHash);
 	}
 	if (dataset.itemName || itemDetails.itemName) {
+		elements.tooltip.dataset.itemInstanceId = dataset.itemInstanceId;
+		elements.tooltip.dataset.itemHash = dataset.itemHash;
+		if (dataset.canTag) {
+			document.getElementById("tag").value = dataset.tagHash;
+			document.getElementById("tag").classList.remove("hidden");
+		}
 		if (dataset.itemImage || itemDetails.icon) {
 			elements.itemImage.src = "https://www.bungie.net" + (dataset.itemImage || itemDetails.icon);
 		} else if (dataset.itemName === "Classified" || itemDetails.itemName === "Classified") {
@@ -70,7 +81,9 @@ function setTooltipData(dataset, element, event) {
 			}
 			elements.classRequirement.innerHTML = result.join("\n");
 		} catch (e) {
-			elements.classRequirement.innerHTML = "<span>" + json + "</span>";
+			if (json) {
+				elements.classRequirement.innerHTML = "<span>" + json + "</span>";
+			}
 		}
 		handleStats(dataset.itemTypeName, dataset).then(function() {
 			elements.tooltip.className = "";
@@ -290,12 +303,15 @@ function handleOtherStats(dataset, resolve) {
 		}
 		for (var characterInventory of sourceInventories) {
 			for (var item of characterInventory.inventory) {
-				if (item.itemHash === parseInt(dataset.itemHash) && item.itemInstanceId !== dataset.itemInstanceId) {
+				if (item.itemHash === parseInt(dataset.itemHash)) {
 					comparisonItems.push(item);
 				}
 			}
 		}
-		if (comparisonItems.length > 0) {
+		if (comparisonItems.length > 1) {
+			comparisonItems.sort(function(a, b) {
+				a.itemInstanceId.localeCompare(b.itemInstanceId);
+			});
 			let titleRow = document.createElement("tr");
 			titleRow.classList.add("node-list");
 			let titleText = document.createElement("td");
@@ -366,6 +382,7 @@ function handleOtherStats(dataset, resolve) {
 			elements.nodeTable.appendChild(NodeList);
 		}
 		if (nodeData && nodeData.nodes) {
+			// var talentDef = DestinyCompactTalentDefinition[dataset.talentGridHash];
 			for (let node of nodeData.nodes) {
 				let tableText = document.getElementById(`row${node.row}column${node.column}`);
 				tableText.dataset.state = node.state;
@@ -375,10 +392,17 @@ function handleOtherStats(dataset, resolve) {
 				}
 				if (node.isActivated) {
 					tableText.classList.add("node-selected");
-				} else if (node.state === 9 || node.state === 0) {
+				} else if (node.state === 9 || node.state === 1 || node.state === 5 || node.state === 6) {
 					tableText.classList.add("node-complete");
 				}
 				tableText.title = node.nodeStepName + " \n" + node.nodeStepDescription;
+				if (DEBUG) {
+					// console.log(node, talentDef);
+					// var nodeDef = talentDef.nodes[node.nodeHash];
+					// var stepDef = nodeDef.steps[node.stepIndex];
+					// var activatedAtGridLevel = stepDef.activationRequirement.gridLevel;
+					tableText.title = node.nodeStepName + " \n" + node.nodeStepDescription + " \nState: " + node.state + " \nGrid: " + node.activatedAtGridLevel;
+				}
 			}
 		}
 		if (itemDef.bucketTypeHash === 4023194814) { // ghost shell icons

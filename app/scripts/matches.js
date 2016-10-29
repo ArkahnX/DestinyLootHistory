@@ -2,12 +2,11 @@ var matchIdList = [];
 
 function getLocalMatches() {
 	return new Promise(function(resolve, reject) {
-		logger.startLogging("matches");
-		logger.time("Local Matches");
+		console.time("Local Matches");
 		database.getAllEntries("matches").then(function(result) {
 			// chrome.storage.local.get(["matches"], function(result) {
 			if (chrome.runtime.lastError) {
-				logger.error(chrome.runtime.lastError);
+				console.error(chrome.runtime.lastError);
 			}
 			data.matches = handleInput(result.matches, data.matches);
 			for (var activity of data.matches) {
@@ -15,7 +14,7 @@ function getLocalMatches() {
 					matchIdList.push(activity.characterId + "-" + activity.activityInstance);
 				}
 			}
-			logger.timeEnd("Local Matches");
+			console.timeEnd("Local Matches");
 			resolve(data);
 		});
 	});
@@ -23,14 +22,13 @@ function getLocalMatches() {
 
 function getRemoteMatches() {
 	return new Promise(function(resolve, reject) {
-		logger.startLogging("matches");
-		logger.time("Remote Matches");
+		console.time("Remote Matches");
 		if (data.itemChanges[0]) {
 			sequence(characterIdList, getBungieMatchData, function() {}).then(function() {
 				data.matches.sort(function(a, b) {
 					return new Date(a.timestamp) - new Date(b.timestamp);
 				});
-				logger.timeEnd("Remote Matches");
+				console.timeEnd("Remote Matches");
 				resolve();
 			});
 		} else {
@@ -52,8 +50,7 @@ function getBungieMatchData(characterId, resolve) {
 }
 
 function _remoteMatch(page, firstDateString, characterId, resolve) {
-	logger.startLogging("matches");
-	logger.time("Look Up Match");
+	console.time("Look Up Match");
 	bungie.activity(characterId, "None", 10, page).then(function(result) {
 		var foundOldDate = false;
 		if (result.data && result.data.activities.length) {
@@ -71,7 +68,7 @@ function _remoteMatch(page, firstDateString, characterId, resolve) {
 					break;
 				}
 			}
-			logger.timeEnd("Look Up Match");
+			console.timeEnd("Look Up Match");
 			if (!foundOldDate) {
 				_remoteMatch(page + 1, firstDateString, characterId, resolve);
 			} else {
@@ -80,7 +77,7 @@ function _remoteMatch(page, firstDateString, characterId, resolve) {
 		}
 	}).catch(function(err) {
 		if (err) {
-			logger.error(err);
+			console.error(err);
 		}
 		resolve();
 	});
@@ -99,7 +96,6 @@ function compactMatch(activity, characterId) {
 
 function applyMatchData() {
 	return new Promise(function(resolve, reject) {
-		logger.startLogging("matches");
 		console.time("Match Data");
 		var results = 0;
 		let i = data.itemChanges.length;
@@ -146,7 +142,7 @@ function applyMatchData() {
 		// 	currencies: data.currencies
 		// }, function() {
 		// 	if (chrome.runtime.lastError) {
-		// 		logger.error(chrome.runtime.lastError);
+		// 		console.error(chrome.runtime.lastError);
 		// 	}
 		// 	console.timeEnd("Match Data");
 		// 	resolve();

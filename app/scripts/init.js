@@ -83,7 +83,7 @@ function _stringToInt(string, defaultValue) {
 	return defaultValue;
 }
 
-var goodStorageValues = ["characterDescriptions", "error", "errorMessage", "itemChangeDetected", "listening", "move3oC", "move3oCCooldown", "newestCharacter", "notificationClosed", "disableQuality", "autoLockHighLight", "systems", "version", "threeOfCoinsProgress"];
+var goodStorageValues = ["characterDescriptions", "error", "errorMessage", "itemChangeDetected", "listening", "move3oC", "move3oCCooldown", "newestCharacter", "notificationClosed", "disableQuality", "autoLockHighLight", "systems", "version", "threeOfCoinsProgress", "coolDowns"];
 
 function initializeStoredVariables() {
 	return new Promise(function(resolve) {
@@ -94,6 +94,7 @@ function initializeStoredVariables() {
 		localStorage.listening = _checkValue(localStorage.listening, _checkBoolean, "false");
 		localStorage.move3oC = _checkValue(localStorage.move3oC, _checkBoolean, "false");
 		localStorage.move3oCCooldown = _checkValue(localStorage.move3oCCooldown, _checkBoolean, "false");
+		localStorage.coolDowns = JSON.stringify({});
 		localStorage.newestCharacter = _checkValue(localStorage.newestCharacter, _checkNumber, "vault");
 		localStorage.notificationClosed = _checkValue(localStorage.notificationClosed, _checkBoolean, "false");
 		localStorage.autoLockHighLight = _checkValue(localStorage.autoLockHighLight, _checkBoolean, "false");
@@ -114,12 +115,15 @@ function initializeStoredVariables() {
 		tracker.sendEvent('Backend Initialized', `No Issues`, `version ${localStorage.version}, systems ${localStorage.systems}`);
 		chrome.storage.sync.get(null, function(options) {
 			if (chrome.runtime.lastError) {
-				logger.error(chrome.runtime.lastError);
+				console.error(chrome.runtime.lastError);
 			}
 			var newOptions = {
+				options: {}, // used for exporting, eventually
 				activeType: "psn",
 				autoLock: false,
 				track3oC: true,
+				trackBoosters: true,
+				obeyCooldowns: false,
 				relativeDates: true,
 				pgcrImage: false,
 				showQuality: true,
@@ -128,11 +132,40 @@ function initializeStoredVariables() {
 				debugLogging: false,
 				keepSingleStackItems: [],
 				autoMoveItemsToVault: [],
+				qualitySortOrder: [],
+				perkSortOrder: [],
+				rewardSources: [],
 				minQuality: 90,
-				minLight: 350
+				minLight: 350,
+				tags1psn: [],
+				tags2psn: [],
+				tags3psn: [],
+				tagHashes1psn: [],
+				tagHashes2psn: [],
+				tagHashes3psn: [],
+				tagComments1psn: [],
+				tagComments2psn: [],
+				tagComments3psn: [],
+				tags1xbl: [],
+				tags2xbl: [],
+				tags3xbl: [],
+				tagHashes1xbl: [],
+				tagHashes2xbl: [],
+				tagHashes3xbl: [],
+				tagComments1xbl: [],
+				tagComments2xbl: [],
+				tagComments3xbl: []
 			};
+			var badOptions = [];
 			for (var option in options) {
-				newOptions[option] = options[option];
+				if (typeof newOptions[option] !== "undefined") {
+					newOptions[option] = options[option];
+				} else {
+					badOptions.push(option);
+				}
+			}
+			if (badOptions.length) {
+				chrome.storage.sync.remove(badOptions);
 			}
 			var dateObj = new Date();
 			var month = dateObj.getUTCMonth() + 1;
@@ -217,72 +250,65 @@ function initializeStoredVariables() {
 			}
 			chrome.storage.sync.set(newOptions, function() {
 				if (chrome.runtime.lastError) {
-					logger.error(chrome.runtime.lastError);
+					console.error(chrome.runtime.lastError);
 				}
-				resolve();
+				// resolve();
 			});
-		});
-		chrome.storage.local.get(null, function(data) {
-			if (chrome.runtime.lastError) {
-				logger.error(chrome.runtime.lastError);
-			}
-			var newData = {};
-			if (data.currencies) {
-				newData.currencies = data.currencies;
-			}
-			if (data.inventories) {
-				let newInventories = [];
-				for (let characterId in data.inventories) {
-					if (Array.isArray(data.inventories[characterId])) {
-						newInventories.push({
-							characterId: characterId,
-							inventory: data.inventories[characterId]
-						});
-					}
-				}
-				if (newInventories.length) {
-					newData.inventories = newInventories;
-				} else {
-					newData.inventories = data.inventories;
-				}
-			}
-			if (data.progression) {
-				let newProgression = [];
-				for (let characterId in data.progression) {
-					if (data.progression[characterId].baseCharacterLevel) {
-						newProgression.push({
-							characterId: characterId,
-							progression: data.progression[characterId]
-						});
-					}
-				}
-				if (newProgression.length) {
-					newData.progression = newProgression;
-				} else {
-					newData.progression = data.progression;
-				}
-			}
-			if (data.itemChanges) {
-				newData.itemChanges = data.itemChanges;
-			}
-			if (!data.logger) {
-				newData.logger = {
-					currentLog: null,
-					logList: []
-				};
-			} else {
-				newData.logger = data.logger;
-			}
-			if (data.matches) {
-				newData.matches = data.matches;
-			}
-			console.log(newData);
-			chrome.storage.local.set(newData, function() {
+
+			chrome.storage.local.get(null, function(data) {
 				if (chrome.runtime.lastError) {
-					logger.error(chrome.runtime.lastError);
+					console.error(chrome.runtime.lastError);
 				}
-				database.open().then(function() {
-					database.update(newData).then(resolve);
+				var newData = {};
+				if (data.currencies) {
+					newData.currencies = data.currencies;
+				}
+				if (data.inventories) {
+					let newInventories = [];
+					for (let characterId in data.inventories) {
+						if (Array.isArray(data.inventories[characterId])) {
+							newInventories.push({
+								characterId: characterId,
+								inventory: data.inventories[characterId]
+							});
+						}
+					}
+					if (newInventories.length) {
+						newData.inventories = newInventories;
+					} else {
+						newData.inventories = data.inventories;
+					}
+				}
+				if (data.progression) {
+					let newProgression = [];
+					for (let characterId in data.progression) {
+						if (data.progression[characterId].baseCharacterLevel) {
+							newProgression.push({
+								characterId: characterId,
+								progression: data.progression[characterId]
+							});
+						}
+					}
+					if (newProgression.length) {
+						newData.progression = newProgression;
+					} else {
+						newData.progression = data.progression;
+					}
+				}
+				if (data.itemChanges) {
+					newData.itemChanges = data.itemChanges;
+				}
+				if (data.matches) {
+					newData.matches = data.matches;
+				}
+				console.log(newData);
+				chrome.storage.local.set(newData, function() {
+					if (chrome.runtime.lastError) {
+						console.error(chrome.runtime.lastError);
+					}
+					database.open().then(function() { // database update only runs if the database version was 0, aka fresh install, otherwise it just passes through
+						database.update(newData).then(resolve);
+					});
 				});
 			});
 		});

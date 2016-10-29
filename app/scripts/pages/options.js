@@ -1,19 +1,33 @@
 tracker.sendAppView('OptionsScreen');
 database.open();
+
 function backupData() {
 	var backupDataButton = document.getElementById("backupData");
 	database.getMultipleStores(database.allStores).then(function(data) {
-		// chrome.storage.local.get(null, function(data) {
-		if (chrome.runtime.lastError) {
-			logger.error(chrome.runtime.lastError);
-		}
-		var url = 'data:application/json;base64,' + btoa(JSON.stringify(data.itemChanges));
-		chrome.downloads.download({
-			url: url,
-			filename: 'itemChanges.json'
+		var a = document.createElement("a");
+		var file = new Blob([JSON.stringify(data.itemChanges)], {
+			type: "application/json"
 		});
-		backupDataButton.classList.remove("loading");
-		backupDataButton.removeAttribute("disabled");
+		var url = URL.createObjectURL(file);
+		a.href = url;
+		a.download = 'itemChanges.json';
+		document.getElementById("backupLabel").appendChild(a);
+		a.click();
+		setTimeout(function() {
+			document.getElementById("backupLabel").removeChild(a);
+			window.URL.revokeObjectURL(url);
+			backupDataButton.classList.remove("loading");
+			backupDataButton.removeAttribute("disabled");
+		}, 0);
+		// chrome.storage.local.get(null, function(data) {
+		// if (chrome.runtime.lastError) {
+		// console.error(chrome.runtime.lastError);
+		// }
+		// var url = 'data:application/json;base64,' + btoa(JSON.stringify(data.itemChanges));
+		// chrome.downloads.download({
+		// url: url,
+		// filename: 'itemChanges.json'
+		// });
 	});
 }
 var insigniaInputs = {};
@@ -65,7 +79,7 @@ for (var itemDef of DestinyCompactItemDefinition) {
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
-	initUi();
+	initUi(elements.container);
 	var startOnLaunchButton = document.getElementById("startOnLaunch");
 	var backupDataButton = document.getElementById("backupData");
 	var exportDataButton = document.getElementById("exportData");
@@ -191,7 +205,7 @@ function handleFileSelect(evt) {
 				// 	"itemChanges": object
 				// }, function() {
 				if (chrome.runtime.lastError) {
-					logger.error(chrome.runtime.lastError);
+					console.error(chrome.runtime.lastError);
 				}
 				dropZone.classList.remove("loading");
 				dropZone.textContent = "Restoration Complete";
