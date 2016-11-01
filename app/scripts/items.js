@@ -30,9 +30,15 @@ function initItems(callback) {
 		});
 		bungie.search().then(function(e) {
 			var avatars = e.data.characters;
+			var membershipId = e.data.membershipId;
 			var newestCharacter = "vault";
 			var newestDate = 0;
 			var maxLight = globalOptions.minLight;
+			for(var character in characterDescriptions) {
+				if(characterDescriptions[character].membershipId !== membershipId) {
+					delete characterDescriptions[character];
+				}
+			}
 			for (let avatar of avatars) {
 				if (!characterDescriptions[avatar.characterBase.characterId]) {
 					let icon = "img/missing.png";
@@ -50,6 +56,7 @@ function initItems(callback) {
 						gender: DestinyGenderDefinition[avatar.characterBase.genderHash].genderName,
 						level: avatar.baseCharacterLevel,
 						icon:icon,
+						membershipId:membershipId,
 						light: avatar.characterBase.powerLevel,
 						race: DestinyRaceDefinition[avatar.characterBase.raceHash].raceName,
 						dateLastPlayed: avatar.characterBase.dateLastPlayed,
@@ -572,9 +579,15 @@ function grabRemoteInventory(resolve, reject) {
 		bungie.search().then(function afterBungieSearch(guardian) {
 			console.timeEnd("Bungie Search");
 			let characters = guardian.data.characters;
+			let membershipId = guardian.data.membershipId;
 			var newestDate = 0;
 			var maxLight = globalOptions.minLight;
 			// record some descriptors for each character
+			for(var character in characterDescriptions) {
+				if(characterDescriptions[character].membershipId !== membershipId) {
+					delete characterDescriptions[character];
+				}
+			}
 			for (let avatar of characters) {
 				if (!characterDescriptions[avatar.characterBase.characterId]) {
 					let icon = "img/missing.png";
@@ -593,6 +606,7 @@ function grabRemoteInventory(resolve, reject) {
 						level: avatar.baseCharacterLevel,
 						light: avatar.characterBase.powerLevel,
 						icon: icon,
+						membershipId:membershipId,
 						race: DestinyRaceDefinition[avatar.characterBase.raceHash].raceName,
 						dateLastPlayed: avatar.characterBase.dateLastPlayed,
 						currentActivityHash: avatar.characterBase.currentActivityHash
