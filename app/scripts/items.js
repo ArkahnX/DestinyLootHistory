@@ -744,7 +744,7 @@ function check3oC() {
 			if (repBoosterHash !== 0) {
 				var boosterCharacter = findCharacterWithItem(localStorage.newestCharacter, repBoosterHash, true);
 				console.log("Sending booster from " + boosterCharacter);
-				if (boosterCharacter && hasInventorySpace("vault", repBoosterHash)) {
+				if (boosterCharacter /*&& hasInventorySpace("vault", repBoosterHash)*/) {
 					clearTimeout(ThreeofCoinsTimeout);
 					let time = 5000;
 					if (globalOptions.obeyCooldowns && coolDowns[localStorage.newestCharacter + repBoosterHash]) {
@@ -770,7 +770,7 @@ function check3oC() {
 				}
 			}
 			console.log("Sending 3oC from " + threeOfCoinsCharacter);
-			if (threeOfCoinsCharacter && hasInventorySpace("vault", 417308266)) {
+			if (threeOfCoinsCharacter /*&& hasInventorySpace("vault", 417308266)*/) {
 				clearTimeout(BoosterTimeout);
 				let time = 5000;
 				if (globalOptions.obeyCooldowns && coolDowns[localStorage.newestCharacter + 417308266]) {
