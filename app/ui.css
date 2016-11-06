@@ -1163,8 +1163,9 @@ fieldset ul {
 }
 
 #debugHome.collection .dropdowncontent {
-	    text-align: center;
-	        padding-bottom: 10px;
+	padding-bottom: 10px;
+
+	text-align: center;
 }
 
 .transition,
@@ -1189,9 +1190,9 @@ fieldset ul {
 	line-height: 42px;
 
 	animation: flipdown .5s ease both;
+	text-align: center;
 	letter-spacing: 3px;
 	text-transform: uppercase;
-	text-align:center;
 }
 
 #debugHome h2 {
@@ -1213,7 +1214,6 @@ fieldset ul {
 	/*color: rgba(48, 69, 92, 0.8);*/
 	/*font-size: 17px;*/
 	/*line-height: 26px;*/
-
 	position: relative;
 	z-index: 2;
 
@@ -1420,7 +1420,7 @@ optgroup option {
 
 	cursor: pointer;
 
-	background-color: #CCC;
+	background-color: #FFF;
 }
 .nsg-tag-remove::after {
 	position: relative;
@@ -1459,7 +1459,7 @@ optgroup option {
 }
 .autocomplete-suggestion {
 	font-size: 1.02em;
-	line-height: 23px;
+	line-height: 31px;
 
 	position: relative;
 
@@ -1949,7 +1949,7 @@ ul > p {
 }
 
 nav input[type=checkbox] {
-	    vertical-align: middle;
+	vertical-align: middle;
 }
 
 .inverted {
@@ -1957,7 +1957,7 @@ nav input[type=checkbox] {
 }
 
 .collection-section {
-	text-align:center;
+	text-align: center;
 }
 
 #debugHome:not(.solidBackground) ul li:nth-child(odd) {

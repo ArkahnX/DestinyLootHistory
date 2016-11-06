@@ -308,7 +308,7 @@ function handleOtherStats(dataset, resolve) {
 				}
 			}
 		}
-		if (comparisonItems.length > 1) {
+		if (comparisonItems.length > 1 || typeof lastVendor !== "undefined") {
 			comparisonItems.sort(function(a, b) {
 				a.itemInstanceId.localeCompare(b.itemInstanceId);
 			});

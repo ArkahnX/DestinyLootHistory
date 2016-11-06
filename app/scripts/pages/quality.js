@@ -9,18 +9,70 @@ var rewardSourceHashIndex = [24296771, 36493462, 113998144, 147701865, 299200664
 
 
 function isGoodPerk(itemDef) {
-	if (!itemDef.displayName || !itemDef.displayDescription || !itemDef.isDisplayable || !itemDef.displayIcon) {
+	if (!itemDef.nodeStepName || !itemDef.nodeStepDescription || !itemDef.icon) {
 		return false;
 	}
-	if (itemDef.displayIcon === "/img/misc/missing_icon.png") {
+	if (itemDef.icon === "/img/misc/missing_icon.png") {
 		return false;
 	}
-	if (itemDef.displayName.indexOf("Chroma") > -1) {
+	if (itemDef.nodeStepName.indexOf("Chroma") > -1) {
+		return false;
+	}
+	if (itemDef.nodeStepName.indexOf("Ascend") > -1) {
+		return false;
+	}
+	if (itemDef.nodeStepName.indexOf("Upgrade Damage") > -1) {
 		return false;
 	}
 	return true;
 }
-var talentGridHashes = [];
+
+var weaponTalentGrids = [3537590230, 610379264, 101926142, 4208195429, 4208195428, 4267080965, 3313759472, 2145151405, 571301937, 4058565332, 2339676442, 186686495, 2740307196, 3634730057, 563589974, 3405327737, 1462003727, 1393344713, 3684294341, 520518493, 327510628, 2047220462, 556981091, 2142335891, 2878028369, 1038182623, 3687637571, 3687637570, 3652393328, 4026995771, 1043661638, 662694125, 1173596555, 264384074, 1221114914, 238559955, 2269451478, 3159146611, 1342013042, 3577215418, 887051485, 1002266788, 877327073, 277602097, 188529294, 3478559768, 267493576, 1664755985, 1664755984, 529240916, 3116083709, 879677959, 3981554245, 489939625, 54170120, 979806020, 657121322, 3944066983, 46313982, 4221122087, 1881959745, 3606052194, 243871591, 1224056596, 2078286123, 1027210955, 2521989033, 642859411, 1364837654, 1464793454, 2389155580, 1251155252, 3627288415, 2836478578, 37817076, 3807163128, 3592718601, 612612378, 3890973528, 4035310061, 3403448791, 1000895224, 1386452352, 1769196939, 1769196938, 642276198, 298070824, 127643265, 192082017, 1224728520, 982404318, 1572815191, 3649306017, 369411632, 2073748644, 3666290460, 2515260583, 214163140, 3004165488, 1024588185, 3526033362, 689346335, 1415170625, 2869840785, 2037340277, 2457418698, 2604886534, 3436925567, 3870885683, 1494420540, 3246669987];
+
+function findWeaponPerks() {
+	let weaponPerks = [];
+	let weaponPerkHashes = [];
+	for (let gridHash of weaponTalentGrids) {
+		let nodes = DestinyCompactTalentDefinition[gridHash].nodes;
+		for (let node of nodes) {
+			if (!node.isRandomRepurchasable) {
+				for (let step of node.steps) {
+					if (weaponPerkHashes.indexOf(step.nodeStepHash) === -1) {
+						// console.log(`Checking perk: ${step.nodeStepName} - ${step.nodeStepDescription}`);
+						if (isGoodPerk(step)) {
+							// perkList.push({
+							// 	nodeStepName: perkDef.nodeStepName,
+							// 	perkHash: perkDef.perkHash,
+							// 	icon: perkDef.icon,
+							// 	nodeStepDescription: perkDef.nodeStepDescription
+							// });
+							weaponPerkHashes.push(step.nodeStepHash);
+							weaponPerks.push({
+								perkName: step.nodeStepName,
+								perkHash: step.nodeStepHash,
+								icon: step.icon,
+								perkDescription: step.nodeStepDescription
+							});
+						}
+					}
+				}
+			}
+		}
+	}
+	console.log(JSON.stringify(weaponPerks));
+}
+
+function findWeaponTalentGrids() {
+	var talentGridHashes = [];
+	var itemList = [];
+	for (let itemDef of DestinyCompactItemDefinition) {
+		if (itemDef.tierType === 5 && itemDef.itemCategoryHashes && itemDef.itemCategoryHashes.indexOf(20) > -1 && itemDef.talentGridHash && talentGridHashes.indexOf(itemDef.talentGridHash) === -1) {
+			console.log(`Finding perks for ${itemDef.itemTypeName} - ${itemDef.itemName} - ${itemDef.itemDescription}`);
+			talentGridHashes.push(itemDef.talentGridHash)
+		}
+	}
+	console.log(JSON.stringify(talentGridHashes));
+}
 
 function findPerks() {
 	perkHashIndex = [];

@@ -19,7 +19,7 @@ Quest				15
 
 function hasQuality(item) {
 	var itemDef = getItemDefinition(item.itemHash);
-	return (itemDef.itemType === 2 && item.primaryStat && item.primaryStat.value > 199 && (itemDef.tierType === 5 || itemDef.tierType === 6) && item.stats);
+	return (item.primaryStat && ((itemDef.itemType === 2 && item.primaryStat.value > 199) || itemDef.itemType === 3) && (itemDef.tierType === 5 || itemDef.tierType === 6) && item.stats && item.nodes);
 }
 
 function fitValue(light) {
@@ -104,10 +104,92 @@ function getItemCategoryName(item) {
 	}
 }
 
+function getWeightForTalentGrid(talentGridHash) {
+	var columns = {};
+	var talentDef = DestinyCompactTalentDefinition[talentGridHash];
+	for (var node of talentDef.nodes) {
+		var column = (node.column || 0) + 1;
+		var row = (node.row || 0) + 1;
+		for (step of node.steps) {
+			if (globalOptions.highValuePerks.indexOf(step.nodeStepHash + "") > -1) {
+				if (!columns[column]) {
+					columns[column] = [];
+				}
+				// console.log(column, row, node, step, globalOptions.highValuePerks.indexOf(step.nodeStepHash + ""))
+				columns[column][row] = 3;
+				break;
+			} else if (globalOptions.midValuePerks.indexOf(step.nodeStepHash + "") > -1) {
+				if (!columns[column]) {
+					columns[column] = [];
+				}
+				columns[column][row] = 2;
+			} else if (globalOptions.lowValuePerks.indexOf(step.nodeStepHash + "") > -1) {
+				if (!columns[column]) {
+					columns[column] = [];
+				}
+				columns[column][row] = 1;
+			} else {
+				
+			}
+		}
+	}
+	return columns;
+}
+
+function parseWeaponPerkQuality(item, grid, itemDef, itemType) {
+	var stats = item.stats;
+	var light = item.primaryStat.value;
+	var columns = [];
+	var columnWeights = {};
+	var columnDefWeights = getWeightForTalentGrid(item.talentGridHash);
+	for (var node of grid) {
+		if (!columns[node.column]) {
+			columns[node.column] = [];
+			columnWeights[node.column] = [];
+		}
+		columns[node.column].push(node);
+		if (globalOptions.highValuePerks.indexOf(node.nodeStepHash + "") > -1) {
+			columnWeights[node.column][node.row] = 3;
+		} else if (globalOptions.midValuePerks.indexOf(node.nodeStepHash + "") > -1) {
+			columnWeights[node.column][node.row] = 2;
+		} else if (globalOptions.lowValuePerks.indexOf(node.nodeStepHash + "") > -1) {
+			columnWeights[node.column][node.row] = 1;
+		}
+	}
+	var weight = [];
+	for (let column = 0; column < columns.length; column++) {
+		if (columns[column]) {
+			for (let row = 0; row < columns[column].length; row++) {
+				if (columnDefWeights[column] && columnDefWeights[column][row]) {
+					weight.push((columnWeights[column][row] || 0) / columnDefWeights[column][row]);
+				} else {
+					weight.push(0)
+				}
+			}
+		}
+	}
+	console.log(weight)
+	var sum = 0;
+	for (var i = 0; i < weight.length; i++) {
+		sum += weight[i];
+	}
+
+	var avg = Math.round((sum / weight.length) * 100);
+	// console.log(grid, columns, columnDefWeights, columnWeights);
+	return {
+		min: avg,
+		max: avg,
+		color: getColor(avg)
+	};
+}
+
 function parseItemQuality(item) {
 	var grid = getNodes(item);
 	var itemDef = getItemDefinition(item.itemHash);
 	var itemType = getItemCategoryName(item);
+	if (itemDef.itemType === 3) {
+		return parseWeaponPerkQuality(item, grid, itemDef, itemType);
+	}
 	var stats = item.stats;
 	var light = item.primaryStat.value;
 
@@ -247,11 +329,11 @@ function getNodes(item, nodes, talentGridHash) {
 						nodeStepHash: step.nodeStepHash,
 						nodeHash: node.nodeHash,
 						stepIndex: step.stepIndex,
-						perkHashes:step.perkHashes,
-						activatedAtGridLevel:step.activationRequirement.gridLevel,
+						perkHashes: step.perkHashes,
+						activatedAtGridLevel: step.activationRequirement.gridLevel,
 						nodeStepName: step.nodeStepName,
 						isActivated: node.isActivated,
-						state:node.state
+						state: node.state
 					};
 					parsedNodes.push(nodeData);
 				}
@@ -421,3 +503,5 @@ var statValues = {
 	334: 61.2114,
 	335: 61.466
 };
+
+var goodWeaponPerks = [1647823253, 186107093, 3669692864, 2688431654, 577762578, 3168941623, 686081071, 453334051, 994456416, 2910350468, 2493727727, 3756868213, 3420574674, 1393124125, 1865110036, 265561391, 2443668841, 695712111, 190272820, 2875733392, 1891493121, 1450441122, 3985040583, 300289986, 324009713, 3359693707, 2335058401, 2164126547, 792270175, 3583346327, 2246149211, 2801245349, 2935707225, 762005899, 2960149342, 3355015915, 1008399900, 728329578, 1410981459, 4020792686, 1271574376, 868135889, 148132307, 62342138, 3160334135, 620788128, 3582177736, 1281897011, 3624251231, 556476910, 616081201, 1923295819, 4198030754, 1627795050, 3528431156, 3058480256, 3232540036, 2470010183, 2837264531, 1085914778, 2433187730, 3527977584, 387580157, 3352501118, 215264323, 2485527920, 60002887, 643689081, 1699141682, 1919385086, 882930025, 1795467064, 3742851299, 2098777628, 1345676076, 1821665467, 423261833, 386636896, 3979525328, 185449329, 2133887516, 431265444, 2788650063, 1759800752, 3279824990, 1278010675, 2978058659, 2806121217, 49794312, 1324739096, 3006914496, 1419200282, 3409718360, 1987488058, 1013303099, 221290636, 3125734432, 4081260527, 2889679361, 3975020101, 4179962704, 3383721778, 4017426047, 3842144658, 1094816219, 2546741293, 3342147638, 3671057472, 2555124303, 3687977041, 1640131399, 2110331143, 1509962390, 3044181713, 385634121, 3567563393, 3741288340, 1782221257, 3766810936, 2746971172, 1522616589, 1382212563, 2957484368, 2094642344, 1467131454, 817861275, 2479685401, 1975859941, 924252026, 3069944219, 1445276424, 169883190, 1734554166, 1738778771, 3986909762, 2502465203, 3024268258, 3895120982, 3803161218, 2201228393, 3468004786, 4169078065, 838935487, 116142342, 2484463758, 2127742624, 1086530641, 855592488, 3707521590, 472357138, 2715081031, 1789968129, 213547364, 904218236];
