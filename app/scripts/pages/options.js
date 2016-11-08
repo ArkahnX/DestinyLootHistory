@@ -30,6 +30,10 @@ function backupData() {
 		// });
 	});
 }
+
+var basicHighEndPerks = ["2806121217","838935487","2960149342"];
+var basicMidEndPerks = ["386636896","762005899","3359693707"];
+var basicLowEndPerks = ["556476910","762005899","3359693707"];
 var insigniaInputs = {};
 var itemSources = [];
 var hashIndex = [];

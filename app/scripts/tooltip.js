@@ -1,13 +1,28 @@
 var tooltipTimeout = null;
+var hideTooltipTimeout = null;
 var newInventories = newInventories || {};
 var lastToolTipItemInstance = "";
+var tooltipSide = "right";
 
-function handleTooltipData(dataset, element, event) {
+function hideTooltip() {
+	hideTooltipTimeout = null;
+	elements.tooltip.classList.add("hidden");
+	lastToolTipItemInstance = "";
+}
+
+function handleTooltipData(dataset, element, event, preventFlipping) {
 	clearTimeout(tooltipTimeout);
 	if (lastToolTipItemInstance !== dataset.itemHash + "-" + dataset.itemInstanceId) {
 		tooltipTimeout = setTimeout(function() {
+			if (!preventFlipping) {
+				if (window.innerWidth / 2 > element.getBoundingClientRect().left) {
+					tooltipSide = "right";
+				} else {
+					tooltipSide = "left";
+				}
+			}
 			setTooltipData(dataset, element, event);
-		}, 100);
+		}, 500);
 	}
 }
 
@@ -86,7 +101,7 @@ function setTooltipData(dataset, element, event) {
 			}
 		}
 		handleStats(dataset.itemTypeName, dataset).then(function() {
-			elements.tooltip.className = "";
+			elements.tooltip.className = "flex-tooltip " + tooltipSide;
 			var tierTypeName = dataset.tierTypeName || itemDetails.tierTypeName || "Common";
 			var damageTypeName = dataset.damageTypeName || (dataset.damageTypeHash && DestinyDamageTypeDefinition[dataset.damageTypeHash] && DestinyDamageTypeDefinition[dataset.damageTypeHash].damageTypeName) || "Kinetic";
 			elements.tooltip.classList.add(tierTypeName.toLowerCase(), damageTypeName.toLowerCase());

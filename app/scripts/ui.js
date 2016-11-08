@@ -94,7 +94,12 @@ function initUi(elementTarget) {
 		});
 	}
 	if (elementTarget) {
-		elementTarget.addEventListener("mouseover", function(event) {
+		elements.tooltip.addEventListener("mouseover", function(event) {
+			console.log("keep tooltip open")
+			console.log(event.target)
+			clearTimeout(hideTooltipTimeout);
+			hideTooltipTimeout = null;
+			clearTimeout(tooltipTimeout);
 			var target = null;
 			if (event.target.classList.contains("item") || event.target.classList.contains("faction")) {
 				target = event.target;
@@ -103,15 +108,41 @@ function initUi(elementTarget) {
 			} else if (event.target.parentNode.classList.contains("item-container")) {
 				target = event.target.parentNode.children[0];
 			}
-			if (target && target !== previousElement) {
-				// elements.tooltip.classList.add("hidden");
-				previousElement = target;
-				handleTooltipData(target.dataset, target, event);
+			if (target) {
+				handleTooltipData(target.dataset, target, event, true);
 			}
-			if (!target) {
+		}, true);
+		elementTarget.addEventListener("mouseover", function(event) {
+			if (event.target.classList.contains("sub-section") && !hideTooltipTimeout) {
+				console.log(`delay hide tooltip`, event.target)
+				hideTooltipTimeout = setTimeout(hideTooltip, 1000);
 				clearTimeout(tooltipTimeout);
-				// elements.tooltip.classList.add("hidden");
-				previousElement = null;
+			} else {
+				var target = null;
+				if (event.target.classList.contains("item") || event.target.classList.contains("faction")) {
+					target = event.target;
+				} else if (event.target.parentNode.classList.contains("item") || event.target.parentNode.classList.contains("faction")) {
+					target = event.target.parentNode;
+				} else if (event.target.parentNode.classList.contains("item-container")) {
+					target = event.target.parentNode.children[0];
+				}
+				if (target) {
+					clearTimeout(hideTooltipTimeout);
+					hideTooltipTimeout = null;
+					if (target !== previousElement) {
+						console.log(`new target`)
+							// elements.tooltip.classList.add("hidden");
+						previousElement = target;
+						handleTooltipData(target.dataset, target, event);
+					} else {
+						// console.log(`unhide tooltip`)
+						// elements.tooltip.classList.remove("hidden");
+					}
+				}
+				if (!target) {
+					// elements.tooltip.classList.add("hidden");
+					previousElement = null;
+				}
 			}
 		}, true);
 		elementTarget.addEventListener("mousedown", function(event) {
@@ -485,6 +516,21 @@ function itemRarity(itemHash) {
 
 var itemCache = [];
 
+function damageTypeName(itemData) {
+	var string = "kinetic";
+	if (itemData.damageTypeHash) {
+		var damageTypeName = DestinyDamageTypeDefinition[itemData.damageTypeHash].damageTypeName;
+		if (damageTypeName === "Arc") {
+			string = "arc";
+		} else if (damageTypeName === "Solar") {
+			string = "solar";
+		} else if (damageTypeName === "Void") {
+			string = "void";
+		}
+	}
+	return string;
+}
+
 function makeItem(itemData, classRequirement, optionalCosts) {
 	var docfrag = document.createDocumentFragment();
 	var itemContainer, container, stat, quality, tag;
@@ -522,6 +568,17 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 	} else {
 		itemContainer.classList.remove("undiscovered");
 	}
+	if (itemData.nodes && itemData.itemInstanceId === "0") {
+		var string = JSON.stringify(itemData.nodes);
+		var hash = 0,
+			i, chr, len;
+		for (i = 0, len = string.length; i < len; i++) {
+			chr = string.charCodeAt(i);
+			hash = ((hash << 5) - hash) + chr;
+			hash |= 0; // Convert to 32bit integer
+		}
+		itemData.itemInstanceId = hash;
+	}
 	itemContainer.dataset.itemType = itemType(itemData);
 	itemContainer.dataset.itemRarity = itemRarity(itemData.itemHash);
 	let tagData = tags.getTag(itemData);
@@ -536,14 +593,24 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 		}
 	}
 	if (hasQuality(itemData) && globalOptions.showQuality) {
-		quality.className = "quality";
-		stat.classList.add("with-quality");
-		var qualityData = parseItemQuality(itemData);
-		quality.style.background = qualityData.color;
-		quality.textContent = qualityData.min + "%";
-		container.dataset.qualityMin = qualityData.min;
-		container.dataset.qualityMax = qualityData.max;
-		container.dataset.qualityColor = qualityData.color;
+		var qualityData;
+		if (itemData._quality) {
+			qualityData = itemData._quality;
+		} else {
+			qualityData = parseItemQuality(itemData);
+		}
+		if (qualityData.min > 0) {
+			quality.className = "quality " + damageTypeName(itemData);
+			stat.classList.add("with-quality");
+			quality.style.background = qualityData.color;
+			quality.textContent = qualityData.min + "%";
+			container.dataset.qualityMin = qualityData.min;
+			container.dataset.qualityMax = qualityData.max;
+			container.dataset.qualityColor = qualityData.color;
+		} else {
+			quality.className = "hidden " + itemClasses(itemData).join(" ");
+			stat.classList.remove("with-quality");
+		}
 	} else {
 		quality.className = "hidden " + itemClasses(itemData).join(" ");
 		stat.classList.remove("with-quality");

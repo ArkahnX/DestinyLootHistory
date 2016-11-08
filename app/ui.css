@@ -309,15 +309,15 @@ header {
 }
 
 .arc + .primary-stat {
-	background: #85C5EC;
+	background: #85C5EC!important;
 }
 
 .solar + .primary-stat {
-	background: #F2721B;
+	background: #F2721B!important;
 }
 
 .void + .primary-stat {
-	background: #B184C5;
+	background: #B184C5!important;
 }
 
 .main-section {
@@ -1739,12 +1739,6 @@ optgroup option {
 	height: calc(100% - 75px);
 }
 
-#history {
-	width: 100%;
-	max-width: 1200px;
-	margin: 0 auto;
-}
-
 .node-selected {
 	background-color: #4887BA;
 }
@@ -1962,4 +1956,50 @@ nav input[type=checkbox] {
 
 #debugHome:not(.solidBackground) ul li:nth-child(odd) {
 	background-color: rgba(255,255,255,.2);
+}
+
+.flex-main {
+	    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.flex-nav {
+	    width: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex: 0 0 53px;
+}
+
+.flex-content {
+	    flex: 1 0 0px;
+	        display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%!important;
+    overflow-y:hidden;
+}
+
+.flex-tooltip {
+	position:absolute;
+	top:53px;
+	right:0;
+	z-index:3;
+}
+
+.right {
+	right:0;
+}
+
+.left {
+	left:0;
+}
+
+.flex-footer {
+	display: flex;
+	    align-items: center;
+	    justify-content: flex-end;
+	        flex: 0 0 20px;
 }

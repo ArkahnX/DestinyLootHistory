@@ -188,12 +188,12 @@ function makeSaleItem(itemHash, unlockStatuses, saleItem, currencies) {
 		if (itemDef.itemCategoryHashes.indexOf(1) > -1) {
 			saleItem.item.primaryStat = {
 				value: 350,
-				statHash:368428387
+				statHash: 368428387
 			};
 		} else if (itemDef.itemCategoryHashes.indexOf(20) > -1) {
 			saleItem.item.primaryStat = {
 				value: 350,
-				statHash:209426660
+				statHash: 209426660
 			};
 		}
 	}
@@ -242,6 +242,20 @@ function makeItemsFromVendor(vendor) {
 		subContainer.classList.add("sub-section");
 		var docfrag = document.createDocumentFragment();
 		for (var saleItem of category.saleItems) {
+			var itemDef = getItemDefinition(saleItem.item.itemHash, saleItem.item);
+			if (!saleItem.item.primaryStat && itemDef.itemCategoryHashes) {
+				if (itemDef.itemCategoryHashes.indexOf(1) > -1) {
+					saleItem.item.primaryStat = {
+						value: 350,
+						statHash: 368428387
+					};
+				} else if (itemDef.itemCategoryHashes.indexOf(20) > -1) {
+					saleItem.item.primaryStat = {
+						value: 350,
+						statHash: 209426660
+					};
+				}
+			}
 			docfrag.appendChild(makeSaleItem(saleItem.item.itemHash, saleItem.unlockStatuses, saleItem, vendor.currencies));
 			// for (var vendorItem of vendorCategory.saleItems) {
 			// 	var itemDef = DestinyCompactItemDefinition[saleItem.item.itemHash];
