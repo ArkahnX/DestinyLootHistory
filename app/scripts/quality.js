@@ -150,8 +150,6 @@ function getWeightForTalentGrid(talentGridHash, itemDef) {
 }
 
 function parseWeaponPerkQuality(item, grid, itemDef, itemType) {
-	console.log(item)
-	console.trace()
 	var stats = item.stats;
 	var light = item.primaryStat.value;
 	var columns = [];

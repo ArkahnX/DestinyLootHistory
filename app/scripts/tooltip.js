@@ -200,6 +200,9 @@ function handleOtherStats(dataset, resolve) {
 					}
 					for (let stat of stats) {
 						if (stat.statHash === statHash && statDef.statHash === statHash) {
+							if (statDef.maximum < stat.value) {
+								statDef.maximum = stat.value;
+							}
 							sortedStats.push({
 								minimum: statDef.minimum,
 								maximum: statDef.maximum,
@@ -209,7 +212,10 @@ function handleOtherStats(dataset, resolve) {
 							found = false;
 						}
 					}
-					if (found === true) {
+					if (found === true && statDef.value !== 0) {
+						if (statDef.maximum < statDef.value) {
+							statDef.maximum = statDef.value;
+						}
 						sortedStats.push({
 							minimum: statDef.minimum,
 							maximum: statDef.maximum,
@@ -391,7 +397,6 @@ function handleOtherStats(dataset, resolve) {
 			for (var e = 0; e < nodeData.columns; e++) {
 				let tableText = document.createElement("td");
 				tableText.id = `row${i+1}column${e+1}`;
-				tableText.classList.add("node");
 				NodeList.appendChild(tableText);
 			}
 			elements.nodeTable.appendChild(NodeList);
@@ -400,6 +405,7 @@ function handleOtherStats(dataset, resolve) {
 			// var talentDef = DestinyCompactTalentDefinition[dataset.talentGridHash];
 			for (let node of nodeData.nodes) {
 				let tableText = document.getElementById(`row${node.row}column${node.column}`);
+				tableText.classList.add("node");
 				tableText.dataset.state = node.state;
 				// tableText.classList.add("node");
 				if (node.icon) {

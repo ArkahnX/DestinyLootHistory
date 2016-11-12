@@ -95,8 +95,6 @@ function initUi(elementTarget) {
 	}
 	if (elementTarget) {
 		elements.tooltip.addEventListener("mouseover", function(event) {
-			console.log("keep tooltip open")
-			console.log(event.target)
 			clearTimeout(hideTooltipTimeout);
 			hideTooltipTimeout = null;
 			clearTimeout(tooltipTimeout);
@@ -113,8 +111,7 @@ function initUi(elementTarget) {
 			}
 		}, true);
 		elementTarget.addEventListener("mouseover", function(event) {
-			if (event.target.classList.contains("sub-section") && !hideTooltipTimeout) {
-				console.log(`delay hide tooltip`, event.target)
+			if ((event.target.classList.contains("sub-section") || event.target.classList.contains("dropdowncontent")) && !hideTooltipTimeout) {
 				hideTooltipTimeout = setTimeout(hideTooltip, 1000);
 				clearTimeout(tooltipTimeout);
 			} else {
@@ -130,8 +127,7 @@ function initUi(elementTarget) {
 					clearTimeout(hideTooltipTimeout);
 					hideTooltipTimeout = null;
 					if (target !== previousElement) {
-						console.log(`new target`)
-							// elements.tooltip.classList.add("hidden");
+						// elements.tooltip.classList.add("hidden");
 						previousElement = target;
 						handleTooltipData(target.dataset, target, event);
 					} else {
@@ -187,9 +183,24 @@ function initUi(elementTarget) {
 				document.getElementById("tagfloat").classList.add("invisible");
 			}, false);
 		}
+		var resizeTimeout = null;
 		window.addEventListener("resize", function() {
 			// console.log(document.getElementById("tagfloat"));
 			document.getElementById("tagfloat").classList.add("invisible");
+			clearTimeout(resizeTimeout);
+			resizeTimeout = setTimeout(function() {
+				let header = document.getElementById("sticky-title-bar").children[0];
+				let headerSections = {};
+				let rowIndex = 0;
+				for (let type of dataTypes) {
+					headerSections[type] = header.children[rowIndex];
+					rowIndex++;
+				}
+				let sections = tableRowSections(elements.container.children[0]);
+				for (let attr of dataTypes) {
+					headerSections[attr].style.width = sections[attr].getBoundingClientRect().width;
+				}
+			}, 100);
 		}, false);
 	}
 	if (elements.toggleSystem) {
@@ -271,6 +282,12 @@ function handleCheckboxChange(event) {
 	setOption(event.target.id, event.target.checked);
 }
 
+var pageQuantity = 50;
+var pageNumber = 0;
+var oldItemChangeQuantity = 0;
+var oldPageNumber = -1;
+var previousElement = null;
+
 function makePages() {
 	if (elements.paginate && oldItemChangeQuantity !== currentItemSet.length) {
 		while (elements.paginate.lastChild) {
@@ -293,12 +310,6 @@ function makePages() {
 		}, false);
 	}
 }
-
-var pageQuantity = 50;
-var pageNumber = 0;
-var oldItemChangeQuantity = 0;
-var oldPageNumber = -1;
-var previousElement = null;
 
 function rowHeight(list1Length, list2Length, list3Length, list4Length) {
 	if (list1Length < 5 && list2Length < 5 && list3Length < 5 && list4Length < 5) {
@@ -644,38 +655,50 @@ function sendToCache(DomNode) {
 
 function cleanupMainPage() {
 	var childrenList = [];
-	if (elements.progression.children.length) {
-		for (let subSection of elements.progression.children) {
-			for (let child of subSection.children) {
-				sendToCache(child);
-				childrenList.push(child);
+	if (elements.container.children.length) {
+		for (let tableRow of elements.container.children) {
+			for (let subSection of tableRow.children) {
+				if (subSection.dataset.type !== "date") {
+					for (let child of subSection.children) {
+						sendToCache(child);
+						childrenList.push(child);
+					}
+				}
 			}
 		}
 	}
-	if (elements.added.children.length) {
-		for (let subSection of elements.added.children) {
-			for (let child of subSection.children) {
-				sendToCache(child);
-				childrenList.push(child);
-			}
-		}
-	}
-	if (elements.removed.children.length) {
-		for (let subSection of elements.removed.children) {
-			for (let child of subSection.children) {
-				sendToCache(child);
-				childrenList.push(child);
-			}
-		}
-	}
-	if (elements.transferred.children.length) {
-		for (let subSection of elements.transferred.children) {
-			for (let child of subSection.children) {
-				sendToCache(child);
-				childrenList.push(child);
-			}
-		}
-	}
+	// if (elements.progression.children.length) {
+	// 	for (let subSection of elements.progression.children) {
+	// 		for (let child of subSection.children) {
+	// 			sendToCache(child);
+	// 			childrenList.push(child);
+	// 		}
+	// 	}
+	// }
+	// if (elements.added.children.length) {
+	// 	for (let subSection of elements.added.children) {
+	// 		for (let child of subSection.children) {
+	// 			sendToCache(child);
+	// 			childrenList.push(child);
+	// 		}
+	// 	}
+	// }
+	// if (elements.removed.children.length) {
+	// 	for (let subSection of elements.removed.children) {
+	// 		for (let child of subSection.children) {
+	// 			sendToCache(child);
+	// 			childrenList.push(child);
+	// 		}
+	// 	}
+	// }
+	// if (elements.transferred.children.length) {
+	// 	for (let subSection of elements.transferred.children) {
+	// 		for (let child of subSection.children) {
+	// 			sendToCache(child);
+	// 			childrenList.push(child);
+	// 		}
+	// 	}
+	// }
 	for (var DomNode of childrenList) {
 		DomNode.parentNode.removeChild(DomNode);
 	}
@@ -1001,6 +1024,21 @@ function characterSource(itemDiff, moveType, index) {
 	return starter + characterName(toId, light);
 }
 
+var dataTypes = ["date", "progression", "added", "removed", "transferred"];
+
+function makeEmptyTableRow(itemDiff) {
+	var tableRow = document.createElement("div");
+	tableRow.className = "table-row";
+	tableRow.dataset.index = itemDiff.id;
+	for (let type of dataTypes) {
+		var subContainer = document.createElement("div");
+		subContainer.className = "table-cell";
+		subContainer.dataset.type = type;
+		tableRow.appendChild(subContainer);
+	}
+	return tableRow;
+}
+
 function makeEmptySubSection(itemDiff, className) {
 	var subContainer = document.createElement("div");
 	subContainer.className = "sub-section " + className;
@@ -1009,7 +1047,8 @@ function makeEmptySubSection(itemDiff, className) {
 }
 
 function fillSubSection(subContainer, itemDiff, className, moveType) {
-	subContainer.className = "sub-section " + className;
+	// subContainer.className = "sub-section " + className;
+	subContainer.className = "table-cell sub-section";
 	subContainer.dataset.index = itemDiff.id;
 	if (itemDiff[moveType] && itemDiff[moveType].length) {
 		var docfrag = document.createDocumentFragment();
@@ -1045,7 +1084,7 @@ function fillDateSection(subContainer, itemDiff, className) {
 		activity = match.activityHash;
 		activityType = match.activityTypeHashOverride || DestinyActivityDefinition[match.activityHash].activityTypeHash;
 	}
-	subContainer.className = "sub-section " + className + " timestamp";
+	subContainer.className = "sub-section table-cell timestamp";
 
 	var localTime = moment.utc(timestamp).tz(timezone);
 	var activityString = "";
@@ -1081,7 +1120,15 @@ function fillDateSection(subContainer, itemDiff, className) {
 	// }
 }
 
-var dataTypes = ["date", "progression", "added", "removed", "transferred"];
+function tableRowSections(tableRow) {
+	let sections = {};
+	let index = 0;
+	for (let type of dataTypes) {
+		sections[type] = tableRow.children[index];
+		index++;
+	}
+	return sections;
+}
 
 function newDisplayResults() {
 	return new Promise(function(resolve) {
@@ -1112,40 +1159,62 @@ function newDisplayResults() {
 				transferredQty = itemDiff.transferred.length;
 			}
 			var className = rowHeight(addedQty, removedQty, transferredQty, progressionQty);
-			for (var attr of dataTypes) {
-				var childrenList = [];
-				var subSection = elements[attr].children[elements[attr].children.length - index - 1];
-				if (subSection) {
-					while (subSection && parseInt(subSection.dataset.index) !== itemDiff.id) {
+			// for (var attr of dataTypes) {
+			var childrenList = [];
+			var tableRow = elements.container.children[elements.container.children.length - index - 1];
+			if (tableRow) {
+				while (tableRow && parseInt(tableRow.dataset.index) !== itemDiff.id) {
+					for (let subSection of tableRow.children) {
 						for (let child of subSection.children) {
-							if (attr !== "date") {
+							if (subSection.dataset.type !== "date") {
 								sendToCache(child);
 							}
 							childrenList.push(child);
 						}
-						for (var DomNode of childrenList) {
-							if (DomNode.parentNode) {
-								DomNode.parentNode.removeChild(DomNode);
-							}
-						}
-						subSection.parentNode.removeChild(subSection);
-						subSection = elements[attr].children[elements[attr].children.length - index - 1];
 					}
-				} else if (subSection && attr === "date") {
-					fillDateSection(subSection, itemDiff, className);
-				} else if (!subSection) {
-					subSection = makeEmptySubSection(itemDiff, className);
-					elements[attr].insertBefore(subSection, elements[attr].firstChild);
+					for (var DomNode of childrenList) {
+						if (DomNode.parentNode) {
+							DomNode.parentNode.removeChild(DomNode);
+						}
+					}
+					tableRow.parentNode.removeChild(tableRow);
+					tableRow = elements.container.children[elements.container.children.length - index - 1];
+				}
+
+			} else if (!tableRow) {
+				tableRow = makeEmptyTableRow(itemDiff);
+				if (!elements.container.firstChild) {
+					elements.container.appendChild(tableRow);
+				} else {
+					elements.container.insertBefore(tableRow, elements.container.firstChild);
+				}
+				let sections = tableRowSections(tableRow);
+				for (var attr of dataTypes) {
 					if (attr === "added" || attr === "removed" || attr === "transferred" || attr === "progression") {
-						fillSubSection(subSection, itemDiff, className, attr);
+						fillSubSection(sections[attr], itemDiff, "", attr);
 					}
 					if (attr === "date") {
-						fillDateSection(subSection, itemDiff, className);
+						fillDateSection(sections[attr], itemDiff, "");
 					}
 				}
 			}
+			// }
 			index++;
 		}
+		setTimeout(function() {
+			let header = document.getElementById("sticky-title-bar").children[0];
+			let headerSections = {};
+			let rowIndex = 0;
+			for (let type of dataTypes) {
+				headerSections[type] = header.children[rowIndex];
+				rowIndex++;
+			}
+			let sections = tableRowSections(elements.container.children[0]);
+			for (let attr of dataTypes) {
+				headerSections[attr].style.width = sections[attr].getBoundingClientRect().width;
+			}
+		}, 100);
+
 		resolve();
 	});
 }
