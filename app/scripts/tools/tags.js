@@ -1,5 +1,4 @@
 window.tags = (function() {
-	console.log(localStorage.active);
 	let noTags = false;
 	let tags = {};
 	let localOptions = {};
@@ -8,6 +7,7 @@ window.tags = (function() {
 	let hashArrays = ["tagHashes1", "tagHashes2", "tagHashes3"];
 	let customCommentArrays = ["tagComments1", "tagComments2", "tagComments3"];
 	let tagHashes = ["keep", "junk", "infuseup", "infusionfodder", "custom", "default", "needstesting", "needsbetterstats"];
+	let DIMTagHashes = ["favorite", "junk", "infuse", "infuse", "keep", "keep", "keep", "keep"];
 	const defaultTag = {
 		tagHash: 5
 	};
@@ -37,7 +37,7 @@ window.tags = (function() {
 	};
 
 	tags.cleanup = function(inventories) {
-		if(noTags) {
+		if (noTags) {
 			return true;
 		}
 		console.time("newCleanup");
@@ -95,7 +95,7 @@ window.tags = (function() {
 	};
 
 	tags.getUI = function() {
-		if(noTags) {
+		if (noTags) {
 			return true;
 		}
 		let tagSelect = document.getElementById("tag");
@@ -221,7 +221,7 @@ window.tags = (function() {
 	};
 
 	tags.getTag = function(item) {
-		if(noTags) {
+		if (noTags) {
 			return false;
 		}
 		let tagType = tags.canTag(item);
@@ -276,8 +276,32 @@ window.tags = (function() {
 		}, 10000);
 	}
 
+	tags.exportJSON = function() {
+		let finalTags = {};
+		database.getAllEntries("inventories").then(function(databaseData) {
+			for (let character of databaseData.inventories) {
+				for (let item of character.inventory) {
+					if (item.itemInstanceId) {
+						let tagType = tags.canTag(item);
+						if (tagType > -1) {
+							let tagIndex = localOptions[hashArrays[tagType] + globalOptions.activeType].indexOf(item.itemInstanceId);
+							if (tagIndex > -1) {
+								let tagHash = localOptions[tagStorageArrays[tagType] + globalOptions.activeType][tagIndex].tagHash;
+								let tagValue = DIMTagHashes[tagHash];
+								finalTags[item.itemHash + "-" + item.itemInstanceId] = {
+									"tag": tagValue
+								};
+							}
+						}
+					}
+				}
+			}
+			console.log(finalTags, JSON.stringify(finalTags))
+		});
+	};
+
 	tags.setTag = function(item, tagHash) {
-		if(noTags) {
+		if (noTags) {
 			return true;
 		}
 		console.time("setNewTag");

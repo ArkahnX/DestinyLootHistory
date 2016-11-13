@@ -31,9 +31,6 @@ function backupData() {
 	});
 }
 
-var basicHighEndPerks = ["2806121217","838935487","2960149342"];
-var basicMidEndPerks = ["386636896","762005899","3359693707"];
-var basicLowEndPerks = ["556476910","762005899","3359693707"];
 var insigniaInputs = {};
 var itemSources = [];
 var hashIndex = [];
@@ -144,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		hash: "perkHash",
 		class: "inverted"
 	};
-
+findWeaponTalentGrids();
 	setupItemFields("keepSingleStackItems", itemSources, hashIndex, keyTranslate);
 	setupItemFields("autoMoveItemsToVault", itemSources, hashIndex, keyTranslate);
 	setupItemFields("highValuePerks", weaponPerks, weaponPerkHashList, weaponPerkTranslate);
@@ -174,7 +171,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			minLight.disabled = false;
 		}
 	});
+
 	getAllOptions().then(function(options) {
+		console.log(options)
 		minLight.value = options.minLight;
 		minQuality.value = options.minQuality;
 		minLight.addEventListener("change", handleQualityChange, false);

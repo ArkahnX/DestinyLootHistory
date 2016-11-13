@@ -15,6 +15,7 @@
 	"devel":true,
 	"globals": {
 		"moment": false,
+		"inventory":false,
 		"bungie": false,
 		"chrome": false,
 		"logger": false,
@@ -95,7 +96,7 @@
 		"makeItem": false,
 		"containsNodes": false,
 		"date": false,
-		"Item": false,
+		"item": false,
 		"initUi": false,
 		"elements": false
 	}

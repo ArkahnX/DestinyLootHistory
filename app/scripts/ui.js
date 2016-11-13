@@ -1,4 +1,4 @@
-var elements = {
+var elements = {// jshint ignore:line
 	date: document.getElementById("date"),
 	added: document.getElementById("added"),
 	removed: document.getElementById("removed"),
@@ -60,7 +60,7 @@ var elementNames = {
 };
 
 var currentItemSet = [];
-var moment = moment || null
+var moment = moment || null;// jshint ignore:line
 
 if (moment) {
 	var timezone = moment.tz.guess();
@@ -74,7 +74,7 @@ function getOffset(el) {
 	}
 }
 
-function initUi(elementTarget) {
+function initUi(elementTarget) {// jshint ignore:line
 	for (var elementName in elements) {
 		if (elementNames[elementName]) {
 			elements[elementName] = document.getElementById(elementNames[elementName]);

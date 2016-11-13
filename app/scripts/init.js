@@ -123,7 +123,7 @@ function initializeStoredVariables() {
 				autoLock: false,
 				track3oC: true,
 				trackBoosters: true,
-				obeyCooldowns: false,
+				obeyCooldowns: true,
 				relativeDates: true,
 				pgcrImage: false,
 				showQuality: true,

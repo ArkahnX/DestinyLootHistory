@@ -214,12 +214,14 @@ function processDifference(currentDateString, resolve) {
 						characterId: tempRemoval.characterId,
 						item: tempRemoval.item
 					});
+					setRepBoosterCooldown(tempRemoval.item);
 				}
 			} else {
 				removals.push({
 					characterId: tempRemoval.characterId,
 					item: tempRemoval.item
 				});
+				setRepBoosterCooldown(tempRemoval.item);
 			}
 		}
 	}

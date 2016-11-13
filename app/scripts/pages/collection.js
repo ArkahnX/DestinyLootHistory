@@ -722,7 +722,7 @@ function displayMissingVendorItems(mainContainer, lastVendor, saleVendor) {
 				for (let category of itemVendor.saleItemCategories) {
 					for (let saleItem of category.saleItems) {
 						if (missingHashes.indexOf(saleItem.item.itemHash) > -1) {
-							var costs = Item.getCosts(saleItem, itemVendor, newInventories, selectedCharacter);
+							var costs = item.getCosts(saleItem, itemVendor, newInventories, selectedCharacter);
 							sellingFragment.appendChild(makeItem(saleItem.item, DestinyVendorDefinition[lastVendor].failureStrings[saleItem.failureIndexes[0]], costs));
 						}
 					}
@@ -789,7 +789,7 @@ function VendorResultTask(vendor, vendorHash) {
 				}
 				if (hasQuality(saleItem.item) && parseItemQuality(saleItem.item).min > 92) {
 					vendorItems[vendorHash].items.push(saleItem);
-					var costs = Item.getCosts(saleItem, vendor, newInventories, selectedCharacter);
+					var costs = item.getCosts(saleItem, vendor, newInventories, selectedCharacter);
 					titleContainer.appendChild(makeItem(saleItem.item, vendorItems[vendorHash].name, costs));
 				}
 			}
@@ -812,7 +812,7 @@ function displayT12VendorItems(mainContainer) { // rerun hunter vanguard, titan 
 				titleContainer.classList.add("sub-section");
 				titleContainer.innerHTML = "<p>" + vendor.name + " " + date.vendorRefreshDate(vendor) + "</p>";
 				for (let saleItem of vendor.items) {
-					var costs = Item.getCosts(saleItem, vendor, newInventories, selectedCharacter);
+					var costs = item.getCosts(saleItem, vendor, newInventories, selectedCharacter);
 					docFrag.appendChild(makeItem(saleItem.item, vendor.name, costs));
 				}
 				titleContainer.appendChild(docFrag);
