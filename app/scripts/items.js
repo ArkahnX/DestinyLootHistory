@@ -34,8 +34,8 @@ function initItems(callback) {
 			var newestCharacter = "vault";
 			var newestDate = 0;
 			var maxLight = globalOptions.minLight;
-			for(var character in characterDescriptions) {
-				if(characterDescriptions[character].membershipId !== membershipId) {
+			for (var character in characterDescriptions) {
+				if (characterDescriptions[character].membershipId !== membershipId) {
 					delete characterDescriptions[character];
 				}
 			}
@@ -55,8 +55,8 @@ function initItems(callback) {
 						name: DestinyClassDefinition[avatar.characterBase.classHash].className,
 						gender: DestinyGenderDefinition[avatar.characterBase.genderHash].genderName,
 						level: avatar.baseCharacterLevel,
-						icon:icon,
-						membershipId:membershipId,
+						icon: icon,
+						membershipId: membershipId,
 						light: avatar.characterBase.powerLevel,
 						race: DestinyRaceDefinition[avatar.characterBase.raceHash].raceName,
 						dateLastPlayed: avatar.characterBase.dateLastPlayed,
@@ -583,8 +583,8 @@ function grabRemoteInventory(resolve, reject) {
 			var newestDate = 0;
 			var maxLight = globalOptions.minLight;
 			// record some descriptors for each character
-			for(var character in characterDescriptions) {
-				if(characterDescriptions[character].membershipId !== membershipId) {
+			for (var character in characterDescriptions) {
+				if (characterDescriptions[character].membershipId !== membershipId) {
 					delete characterDescriptions[character];
 				}
 			}
@@ -606,7 +606,7 @@ function grabRemoteInventory(resolve, reject) {
 						level: avatar.baseCharacterLevel,
 						light: avatar.characterBase.powerLevel,
 						icon: icon,
-						membershipId:membershipId,
+						membershipId: membershipId,
 						race: DestinyRaceDefinition[avatar.characterBase.raceHash].raceName,
 						dateLastPlayed: avatar.characterBase.dateLastPlayed,
 						currentActivityHash: avatar.characterBase.currentActivityHash
@@ -727,6 +727,14 @@ var crucible = [4047366879, 4013076195, 3990775146, 3957072814, 3923114990, 3887
 var ThreeofCoinsTimeout;
 var BoosterTimeout;
 
+function setRepBoosterCooldown(removedItem) {
+	if (removedItem.itemHash === 1603376703 || removedItem.itemHash === 2220921114 || removedItem.itemHash === 1500229041) {
+		var coolDowns = JSON.parse(localStorage.coolDowns);
+		coolDowns[localStorage.newestCharacter + removedItem.itemHash] = new Date().getTime();
+		localStorage.coolDowns = JSON.stringify(coolDowns);
+	}
+}
+
 function check3oC() {
 	return new Promise(function(resolve) {
 		if (globalOptions.track3oC !== true && globalOptions.trackBoosters !== true) {
@@ -758,23 +766,22 @@ function check3oC() {
 			if (repBoosterHash !== 0) {
 				var boosterCharacter = findCharacterWithItem(localStorage.newestCharacter, repBoosterHash, true);
 				console.log("Sending booster from " + boosterCharacter);
-				if (boosterCharacter /*&& hasInventorySpace("vault", repBoosterHash)*/) {
-					clearTimeout(ThreeofCoinsTimeout);
+				if (boosterCharacter /*&& hasInventorySpace("vault", repBoosterHash)*/ ) {
+					clearTimeout(BoosterTimeout);
 					let time = 5000;
 					if (globalOptions.obeyCooldowns && coolDowns[localStorage.newestCharacter + repBoosterHash]) {
-						time = 1800000 - (new Date().getTime() - coolDowns[localStorage.newestCharacter + repBoosterHash]);
+						time = 2 * 60 * 60 * 1000 - (new Date().getTime() - coolDowns[localStorage.newestCharacter + repBoosterHash]);
 					}
 					if (time < 5000) {
 						time = 5000;
 					}
 					console.log("Booster time " + time)
-					ThreeofCoinsTimeout = setTimeout(function() {
+					BoosterTimeout = setTimeout(function() {
 						bungie.transfer(boosterCharacter, "0", repBoosterHash, 1, true).then(function(response) {
 							console.log(response);
 							bungie.transfer(localStorage.newestCharacter, "0", repBoosterHash, 1, false).then(function(response) {
 								console.log("reputation booster reminder sent");
-								coolDowns[localStorage.newestCharacter + repBoosterHash] = new Date().getTime();
-								localStorage.coolDowns = JSON.stringify(coolDowns);
+
 								console.log(response);
 							});
 						});
@@ -784,17 +791,11 @@ function check3oC() {
 				}
 			}
 			console.log("Sending 3oC from " + threeOfCoinsCharacter);
-			if (threeOfCoinsCharacter /*&& hasInventorySpace("vault", 417308266)*/) {
-				clearTimeout(BoosterTimeout);
+			if (threeOfCoinsCharacter /*&& hasInventorySpace("vault", 417308266)*/ ) {
+				clearTimeout(ThreeofCoinsTimeout);
 				let time = 5000;
-				if (globalOptions.obeyCooldowns && coolDowns[localStorage.newestCharacter + 417308266]) {
-					time = 600000 - (new Date().getTime() - coolDowns[localStorage.newestCharacter + 417308266]);
-				}
-				if (time < 5000) {
-					time = 5000;
-				}
 				console.log("3oC time " + time)
-				BoosterTimeout = setTimeout(function() {
+				ThreeofCoinsTimeout = setTimeout(function() {
 					bungie.transfer(threeOfCoinsCharacter, "0", 417308266, 1, true).then(function(response) {
 						console.log(response);
 						bungie.transfer(localStorage.newestCharacter, "0", 417308266, 1, false).then(function(response) {

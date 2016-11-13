@@ -1,4 +1,4 @@
-var elements = {
+var elements = {// jshint ignore:line
 	date: document.getElementById("date"),
 	added: document.getElementById("added"),
 	removed: document.getElementById("removed"),
@@ -60,7 +60,7 @@ var elementNames = {
 };
 
 var currentItemSet = [];
-var moment = moment || null
+var moment = moment || null;// jshint ignore:line
 
 if (moment) {
 	var timezone = moment.tz.guess();
@@ -74,7 +74,7 @@ function getOffset(el) {
 	}
 }
 
-function initUi(elementTarget) {
+function initUi(elementTarget) {// jshint ignore:line
 	for (var elementName in elements) {
 		if (elementNames[elementName]) {
 			elements[elementName] = document.getElementById(elementNames[elementName]);
@@ -94,7 +94,10 @@ function initUi(elementTarget) {
 		});
 	}
 	if (elementTarget) {
-		elementTarget.addEventListener("mouseover", function(event) {
+		elements.tooltip.addEventListener("mouseover", function(event) {
+			clearTimeout(hideTooltipTimeout);
+			hideTooltipTimeout = null;
+			clearTimeout(tooltipTimeout);
 			var target = null;
 			if (event.target.classList.contains("item") || event.target.classList.contains("faction")) {
 				target = event.target;
@@ -103,15 +106,39 @@ function initUi(elementTarget) {
 			} else if (event.target.parentNode.classList.contains("item-container")) {
 				target = event.target.parentNode.children[0];
 			}
-			if (target && target !== previousElement) {
-				// elements.tooltip.classList.add("hidden");
-				previousElement = target;
-				handleTooltipData(target.dataset, target, event);
+			if (target) {
+				handleTooltipData(target.dataset, target, event, true);
 			}
-			if (!target) {
+		}, true);
+		elementTarget.addEventListener("mouseover", function(event) {
+			if ((event.target.classList.contains("sub-section") || event.target.classList.contains("dropdowncontent")) && !hideTooltipTimeout) {
+				hideTooltipTimeout = setTimeout(hideTooltip, 1000);
 				clearTimeout(tooltipTimeout);
-				// elements.tooltip.classList.add("hidden");
-				previousElement = null;
+			} else {
+				var target = null;
+				if (event.target.classList.contains("item") || event.target.classList.contains("faction")) {
+					target = event.target;
+				} else if (event.target.parentNode.classList.contains("item") || event.target.parentNode.classList.contains("faction")) {
+					target = event.target.parentNode;
+				} else if (event.target.parentNode.classList.contains("item-container")) {
+					target = event.target.parentNode.children[0];
+				}
+				if (target) {
+					clearTimeout(hideTooltipTimeout);
+					hideTooltipTimeout = null;
+					if (target !== previousElement) {
+						// elements.tooltip.classList.add("hidden");
+						previousElement = target;
+						handleTooltipData(target.dataset, target, event);
+					} else {
+						// console.log(`unhide tooltip`)
+						// elements.tooltip.classList.remove("hidden");
+					}
+				}
+				if (!target) {
+					// elements.tooltip.classList.add("hidden");
+					previousElement = null;
+				}
 			}
 		}, true);
 		elementTarget.addEventListener("mousedown", function(event) {
@@ -156,9 +183,24 @@ function initUi(elementTarget) {
 				document.getElementById("tagfloat").classList.add("invisible");
 			}, false);
 		}
+		var resizeTimeout = null;
 		window.addEventListener("resize", function() {
 			// console.log(document.getElementById("tagfloat"));
 			document.getElementById("tagfloat").classList.add("invisible");
+			clearTimeout(resizeTimeout);
+			resizeTimeout = setTimeout(function() {
+				let header = document.getElementById("sticky-title-bar").children[0];
+				let headerSections = {};
+				let rowIndex = 0;
+				for (let type of dataTypes) {
+					headerSections[type] = header.children[rowIndex];
+					rowIndex++;
+				}
+				let sections = tableRowSections(elements.container.children[0]);
+				for (let attr of dataTypes) {
+					headerSections[attr].style.width = sections[attr].getBoundingClientRect().width;
+				}
+			}, 100);
 		}, false);
 	}
 	if (elements.toggleSystem) {
@@ -240,6 +282,12 @@ function handleCheckboxChange(event) {
 	setOption(event.target.id, event.target.checked);
 }
 
+var pageQuantity = 50;
+var pageNumber = 0;
+var oldItemChangeQuantity = 0;
+var oldPageNumber = -1;
+var previousElement = null;
+
 function makePages() {
 	if (elements.paginate && oldItemChangeQuantity !== currentItemSet.length) {
 		while (elements.paginate.lastChild) {
@@ -262,12 +310,6 @@ function makePages() {
 		}, false);
 	}
 }
-
-var pageQuantity = 50;
-var pageNumber = 0;
-var oldItemChangeQuantity = 0;
-var oldPageNumber = -1;
-var previousElement = null;
 
 function rowHeight(list1Length, list2Length, list3Length, list4Length) {
 	if (list1Length < 5 && list2Length < 5 && list3Length < 5 && list4Length < 5) {
@@ -485,6 +527,21 @@ function itemRarity(itemHash) {
 
 var itemCache = [];
 
+function damageTypeName(itemData) {
+	var string = "kinetic";
+	if (itemData.damageTypeHash) {
+		var damageTypeName = DestinyDamageTypeDefinition[itemData.damageTypeHash].damageTypeName;
+		if (damageTypeName === "Arc") {
+			string = "arc";
+		} else if (damageTypeName === "Solar") {
+			string = "solar";
+		} else if (damageTypeName === "Void") {
+			string = "void";
+		}
+	}
+	return string;
+}
+
 function makeItem(itemData, classRequirement, optionalCosts) {
 	var docfrag = document.createDocumentFragment();
 	var itemContainer, container, stat, quality, tag;
@@ -522,6 +579,17 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 	} else {
 		itemContainer.classList.remove("undiscovered");
 	}
+	if (itemData.nodes && itemData.itemInstanceId === "0") {
+		var string = JSON.stringify(itemData.nodes);
+		var hash = 0,
+			i, chr, len;
+		for (i = 0, len = string.length; i < len; i++) {
+			chr = string.charCodeAt(i);
+			hash = ((hash << 5) - hash) + chr;
+			hash |= 0; // Convert to 32bit integer
+		}
+		itemData.itemInstanceId = hash;
+	}
 	itemContainer.dataset.itemType = itemType(itemData);
 	itemContainer.dataset.itemRarity = itemRarity(itemData.itemHash);
 	let tagData = tags.getTag(itemData);
@@ -536,14 +604,24 @@ function makeItem(itemData, classRequirement, optionalCosts) {
 		}
 	}
 	if (hasQuality(itemData) && globalOptions.showQuality) {
-		quality.className = "quality";
-		stat.classList.add("with-quality");
-		var qualityData = parseItemQuality(itemData);
-		quality.style.background = qualityData.color;
-		quality.textContent = qualityData.min + "%";
-		container.dataset.qualityMin = qualityData.min;
-		container.dataset.qualityMax = qualityData.max;
-		container.dataset.qualityColor = qualityData.color;
+		var qualityData;
+		if (itemData._quality) {
+			qualityData = itemData._quality;
+		} else {
+			qualityData = parseItemQuality(itemData);
+		}
+		if (qualityData.min > 0) {
+			quality.className = "quality " + damageTypeName(itemData);
+			stat.classList.add("with-quality");
+			quality.style.background = qualityData.color;
+			quality.textContent = qualityData.min + "%";
+			container.dataset.qualityMin = qualityData.min;
+			container.dataset.qualityMax = qualityData.max;
+			container.dataset.qualityColor = qualityData.color;
+		} else {
+			quality.className = "hidden " + itemClasses(itemData).join(" ");
+			stat.classList.remove("with-quality");
+		}
 	} else {
 		quality.className = "hidden " + itemClasses(itemData).join(" ");
 		stat.classList.remove("with-quality");
@@ -577,38 +655,50 @@ function sendToCache(DomNode) {
 
 function cleanupMainPage() {
 	var childrenList = [];
-	if (elements.progression.children.length) {
-		for (let subSection of elements.progression.children) {
-			for (let child of subSection.children) {
-				sendToCache(child);
-				childrenList.push(child);
+	if (elements.container.children.length) {
+		for (let tableRow of elements.container.children) {
+			for (let subSection of tableRow.children) {
+				if (subSection.dataset.type !== "date") {
+					for (let child of subSection.children) {
+						sendToCache(child);
+						childrenList.push(child);
+					}
+				}
 			}
 		}
 	}
-	if (elements.added.children.length) {
-		for (let subSection of elements.added.children) {
-			for (let child of subSection.children) {
-				sendToCache(child);
-				childrenList.push(child);
-			}
-		}
-	}
-	if (elements.removed.children.length) {
-		for (let subSection of elements.removed.children) {
-			for (let child of subSection.children) {
-				sendToCache(child);
-				childrenList.push(child);
-			}
-		}
-	}
-	if (elements.transferred.children.length) {
-		for (let subSection of elements.transferred.children) {
-			for (let child of subSection.children) {
-				sendToCache(child);
-				childrenList.push(child);
-			}
-		}
-	}
+	// if (elements.progression.children.length) {
+	// 	for (let subSection of elements.progression.children) {
+	// 		for (let child of subSection.children) {
+	// 			sendToCache(child);
+	// 			childrenList.push(child);
+	// 		}
+	// 	}
+	// }
+	// if (elements.added.children.length) {
+	// 	for (let subSection of elements.added.children) {
+	// 		for (let child of subSection.children) {
+	// 			sendToCache(child);
+	// 			childrenList.push(child);
+	// 		}
+	// 	}
+	// }
+	// if (elements.removed.children.length) {
+	// 	for (let subSection of elements.removed.children) {
+	// 		for (let child of subSection.children) {
+	// 			sendToCache(child);
+	// 			childrenList.push(child);
+	// 		}
+	// 	}
+	// }
+	// if (elements.transferred.children.length) {
+	// 	for (let subSection of elements.transferred.children) {
+	// 		for (let child of subSection.children) {
+	// 			sendToCache(child);
+	// 			childrenList.push(child);
+	// 		}
+	// 	}
+	// }
 	for (var DomNode of childrenList) {
 		DomNode.parentNode.removeChild(DomNode);
 	}
@@ -934,6 +1024,21 @@ function characterSource(itemDiff, moveType, index) {
 	return starter + characterName(toId, light);
 }
 
+var dataTypes = ["date", "progression", "added", "removed", "transferred"];
+
+function makeEmptyTableRow(itemDiff) {
+	var tableRow = document.createElement("div");
+	tableRow.className = "table-row";
+	tableRow.dataset.index = itemDiff.id;
+	for (let type of dataTypes) {
+		var subContainer = document.createElement("div");
+		subContainer.className = "table-cell";
+		subContainer.dataset.type = type;
+		tableRow.appendChild(subContainer);
+	}
+	return tableRow;
+}
+
 function makeEmptySubSection(itemDiff, className) {
 	var subContainer = document.createElement("div");
 	subContainer.className = "sub-section " + className;
@@ -942,7 +1047,8 @@ function makeEmptySubSection(itemDiff, className) {
 }
 
 function fillSubSection(subContainer, itemDiff, className, moveType) {
-	subContainer.className = "sub-section " + className;
+	// subContainer.className = "sub-section " + className;
+	subContainer.className = "table-cell sub-section";
 	subContainer.dataset.index = itemDiff.id;
 	if (itemDiff[moveType] && itemDiff[moveType].length) {
 		var docfrag = document.createDocumentFragment();
@@ -978,7 +1084,7 @@ function fillDateSection(subContainer, itemDiff, className) {
 		activity = match.activityHash;
 		activityType = match.activityTypeHashOverride || DestinyActivityDefinition[match.activityHash].activityTypeHash;
 	}
-	subContainer.className = "sub-section " + className + " timestamp";
+	subContainer.className = "sub-section table-cell timestamp";
 
 	var localTime = moment.utc(timestamp).tz(timezone);
 	var activityString = "";
@@ -1014,7 +1120,15 @@ function fillDateSection(subContainer, itemDiff, className) {
 	// }
 }
 
-var dataTypes = ["date", "progression", "added", "removed", "transferred"];
+function tableRowSections(tableRow) {
+	let sections = {};
+	let index = 0;
+	for (let type of dataTypes) {
+		sections[type] = tableRow.children[index];
+		index++;
+	}
+	return sections;
+}
 
 function newDisplayResults() {
 	return new Promise(function(resolve) {
@@ -1045,40 +1159,62 @@ function newDisplayResults() {
 				transferredQty = itemDiff.transferred.length;
 			}
 			var className = rowHeight(addedQty, removedQty, transferredQty, progressionQty);
-			for (var attr of dataTypes) {
-				var childrenList = [];
-				var subSection = elements[attr].children[elements[attr].children.length - index - 1];
-				if (subSection) {
-					while (subSection && parseInt(subSection.dataset.index) !== itemDiff.id) {
+			// for (var attr of dataTypes) {
+			var childrenList = [];
+			var tableRow = elements.container.children[elements.container.children.length - index - 1];
+			if (tableRow) {
+				while (tableRow && parseInt(tableRow.dataset.index) !== itemDiff.id) {
+					for (let subSection of tableRow.children) {
 						for (let child of subSection.children) {
-							if (attr !== "date") {
+							if (subSection.dataset.type !== "date") {
 								sendToCache(child);
 							}
 							childrenList.push(child);
 						}
-						for (var DomNode of childrenList) {
-							if (DomNode.parentNode) {
-								DomNode.parentNode.removeChild(DomNode);
-							}
-						}
-						subSection.parentNode.removeChild(subSection);
-						subSection = elements[attr].children[elements[attr].children.length - index - 1];
 					}
-				} else if (subSection && attr === "date") {
-					fillDateSection(subSection, itemDiff, className);
-				} else if (!subSection) {
-					subSection = makeEmptySubSection(itemDiff, className);
-					elements[attr].insertBefore(subSection, elements[attr].firstChild);
+					for (var DomNode of childrenList) {
+						if (DomNode.parentNode) {
+							DomNode.parentNode.removeChild(DomNode);
+						}
+					}
+					tableRow.parentNode.removeChild(tableRow);
+					tableRow = elements.container.children[elements.container.children.length - index - 1];
+				}
+
+			} else if (!tableRow) {
+				tableRow = makeEmptyTableRow(itemDiff);
+				if (!elements.container.firstChild) {
+					elements.container.appendChild(tableRow);
+				} else {
+					elements.container.insertBefore(tableRow, elements.container.firstChild);
+				}
+				let sections = tableRowSections(tableRow);
+				for (var attr of dataTypes) {
 					if (attr === "added" || attr === "removed" || attr === "transferred" || attr === "progression") {
-						fillSubSection(subSection, itemDiff, className, attr);
+						fillSubSection(sections[attr], itemDiff, "", attr);
 					}
 					if (attr === "date") {
-						fillDateSection(subSection, itemDiff, className);
+						fillDateSection(sections[attr], itemDiff, "");
 					}
 				}
 			}
+			// }
 			index++;
 		}
+		setTimeout(function() {
+			let header = document.getElementById("sticky-title-bar").children[0];
+			let headerSections = {};
+			let rowIndex = 0;
+			for (let type of dataTypes) {
+				headerSections[type] = header.children[rowIndex];
+				rowIndex++;
+			}
+			let sections = tableRowSections(elements.container.children[0]);
+			for (let attr of dataTypes) {
+				headerSections[attr].style.width = sections[attr].getBoundingClientRect().width;
+			}
+		}, 100);
+
 		resolve();
 	});
 }

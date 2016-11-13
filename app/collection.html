@@ -5,14 +5,14 @@
 		<link rel="stylesheet" type="text/css" href="ui.css">
 		<link rel="stylesheet" type="text/css" href="font-awesome.min.css">
 	</head>
-	<body>
-		<header id="status" class="active">
+	<body class="flex-main">
+		<header id="status" class="active flex-nav">
 			<nav>
 				<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
 				<label for="character">Character: <select id="character"></select></label>
 			</nav>
 		</header>
-		<div id="debugHome" class="collection solidBackground hidden">
+		<div id="debugHome" class="collection solidBackground hidden flex-content">
 			<ul>
 				<li>
 					<input type="checkbox" checked class="collection-section" data-feature="t12">
@@ -89,7 +89,7 @@
 		<ul id="tagfloat" class="invisible">
 
 		</ul>
-		<div id="tooltip">
+		<div id="tooltip" class="flex-tooltip hidden">
 			<section id="item-head">
 				<canvas id="squareProgress" width="71" height="71" class="bigProgress"></canvas>
 				<img id="item-image" />
@@ -137,7 +137,7 @@
 				</table>
 			</section>
 		</div>
-		<div id="copyright">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
+		<div id="copyright" class="flex-footer">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
 		<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js"></script>
 		<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>
 		<script type="text/javascript" src="DestinyDatabase/DestinyCompactTalentDefinition.js"></script>
