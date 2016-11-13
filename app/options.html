@@ -6,7 +6,7 @@
 	</head>
 	<body>
 		<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
-		<section class="center solidBackground scrollable">
+		<section class="center solidBackground scrollable auto-complete-scroll">
 			<!-- <label for="startOnLaunch" class="sub-section">Start Tracking on Launch<input type="checkbox" id="startOnLaunch" /></label> -->
 			<div id="drop_zone">Place itemChanges.json here to restore</div>
 			<fieldset>
@@ -25,6 +25,19 @@
 				<legend>Show Quality on Items</legend>
 				<label>Show Quality:</label><input type="checkbox" id="showQuality">
 			</fieldset>
+			<!--<fieldset>
+				<p>Add perks that you like to use, from most preferred (High Value) to least preferred (Low Value) all other perks are ignored.</p>
+				<legend>High Value Weapon Perks</legend>
+				<span><input id="highValuePerks" type="text" name="q" placeholder="Perk Name or Description ..."></span>
+			</fieldset>
+			<fieldset>
+				<legend>Mid Value Weapon Perks</legend>
+				<span><input id="midValuePerks" type="text" name="q" placeholder="Perk Name or Description ..."></span>
+			</fieldset>
+			<fieldset>
+				<legend>Low Value Weapon Perks</legend>
+				<span><input id="lowValuePerks" type="text" name="q" placeholder="Perk Name or Description ..."></span>
+			</fieldset>-->
 			<fieldset>
 				<legend>Auto Lock New High Quality Items</legend>
 				<label>Enable Automatic Locking of Items (High Quality):</label><input type="checkbox" id="autoLock">
@@ -64,8 +77,7 @@
 				<br />
 				<label>Reputation Boosters:</label><input type="checkbox" id="trackBoosters">
 				<br />
-				<!-- Cooldown feature is not ready yet. -->
-				<!-- <label>Obey Cooldowns:</label><input type="checkbox" id="obeyCooldowns"> -->
+				<label>Obey Reb Booster Cooldown:</label><input type="checkbox" id="obeyCooldowns">
 			</fieldset>
 		</section>
 		<div id="copyright">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
@@ -75,7 +87,9 @@
 		<script type="text/javascript" src="scripts/vendor/fuse.min.js"></script>
 		<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>
 		<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js"></script>
+		<script type="text/javascript" src="DestinyDatabase/DestinyCompactTalentDefinition.js"></script>
 		<script type="text/javascript" src="scripts/tools/db.js"></script>
+		<script type="text/javascript" src="scripts/tools/weaponPerks.js"></script>
 		<script type="text/javascript" src="scripts/shared.js"></script>
 		<script type="text/javascript" src="scripts/pages/options.js"></script>
 		<script type="text/javascript" src="scripts/ui.js"></script>

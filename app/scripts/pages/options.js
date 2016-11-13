@@ -30,6 +30,7 @@ function backupData() {
 		// });
 	});
 }
+
 var insigniaInputs = {};
 var itemSources = [];
 var hashIndex = [];
@@ -127,8 +128,25 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		});
 	}
 
-	setupItemFields("keepSingleStackItems");
-	setupItemFields("autoMoveItemsToVault");
+	var keyTranslate = {
+		name: "itemName",
+		description: "itemDescription",
+		hash: "itemHash",
+		class: ""
+	};
+
+	var weaponPerkTranslate = {
+		name: "perkName",
+		description: "perkDescription",
+		hash: "perkHash",
+		class: "inverted"
+	};
+findWeaponTalentGrids();
+	setupItemFields("keepSingleStackItems", itemSources, hashIndex, keyTranslate);
+	setupItemFields("autoMoveItemsToVault", itemSources, hashIndex, keyTranslate);
+	setupItemFields("highValuePerks", weaponPerks, weaponPerkHashList, weaponPerkTranslate);
+	setupItemFields("midValuePerks", weaponPerks, weaponPerkHashList, weaponPerkTranslate);
+	setupItemFields("lowValuePerks", weaponPerks, weaponPerkHashList, weaponPerkTranslate);
 
 	// Setup the dnd listeners.
 	var dropZone = document.getElementById('drop_zone');
@@ -153,7 +171,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			minLight.disabled = false;
 		}
 	});
+
 	getAllOptions().then(function(options) {
+		console.log(options)
 		minLight.value = options.minLight;
 		minQuality.value = options.minQuality;
 		minLight.addEventListener("change", handleQualityChange, false);
@@ -221,20 +241,20 @@ function handleDragOver(evt) {
 	evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
 }
 
-function setupItemFields(ID) {
+function setupItemFields(ID, properties, hashList, translation) {
 	var insigniaInput = insignia(document.getElementById(ID), {
 		free: false,
 		deletion: true,
 		render: function render(container, item) {
 			var hash = parseInt(item.data, 10);
-			var data = itemSources[hashIndex.indexOf(hash)];
-			container.innerHTML = `<img src="https://www.bungie.net${data.icon}" width="16" height="16"><span>${data.itemName}</span>`;
-			container.title = data.itemDescription;
+			var data = properties[hashList.indexOf(hash)];
+			container.innerHTML = `<img src="https://www.bungie.net${data.icon}" width="16" height="16" class="${translation.class}"><span>${data[translation.name]}</span>`;
+			container.title = data[translation.description];
 		},
 		getText: function(item) {
 			var hash = parseInt(item, 10);
-			var data = itemSources[hashIndex.indexOf(hash)];
-			return data.itemName;
+			var data = properties[hashList.indexOf(hash)];
+			return data[translation.name];
 		}
 	});
 	insigniaInputs[ID] = insigniaInput;
@@ -254,17 +274,17 @@ function setupItemFields(ID) {
 			var suggestions = [];
 			var suggestionList = null;
 			if (term.length === 0) {
-				suggestionList = itemSources;
+				suggestionList = properties;
 			} else {
-				var f = new Fuse(itemSources, {
-					keys: ['itemName', 'itemDescription'],
+				var f = new Fuse(properties, {
+					keys: [translation.name, translation.description],
 					threshold: 0.1,
 					distance: 1000
 				});
 				suggestionList = f.search(term.toLowerCase());
 			}
 			for (var suggestion of suggestionList) {
-				if (insigniaInput.findItem("" + suggestion.itemHash) === null) {
+				if (insigniaInput.findItem("" + suggestion[translation.hash]) === null) {
 					suggestions.push(suggestion);
 				}
 			}
@@ -273,15 +293,15 @@ function setupItemFields(ID) {
 		renderItem: function(item, search, index) {
 			var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
 			if (search.split(' ')[0] === "") {
-				return `<div class="autocomplete-suggestion${index === 0 ? " selected" : ""}" data-hash="${item.itemHash}" data-name="${item.itemName}" title="${item.itemDescription}"><img src="https://www.bungie.net${item.icon}" width="25" height="25"><span>${item.itemName}</span></div>`;
+				return `<div class="autocomplete-suggestion${index === 0 ? " selected" : ""}" data-hash="${item[translation.hash]}" data-name="${item[translation.name]}" title="${item[translation.description]}"><img src="https://www.bungie.net${item.icon}" width="32" height="32" class="${translation.class}"><span>${item[translation.name]}</span></div>`;
 			} else {
-				return `<div class="autocomplete-suggestion${index === 0 ? " selected" : ""}" data-hash="${item.itemHash}" data-name="${item.itemName}" title="${item.itemDescription}"><img src="https://www.bungie.net${item.icon}" width="25" height="25"><span>${item.itemName.replace(re, "<b>$1</b>")}</span></div>`;
+				return `<div class="autocomplete-suggestion${index === 0 ? " selected" : ""}" data-hash="${item[translation.hash]}" data-name="${item[translation.name]}" title="${item[translation.description]}"><img src="https://www.bungie.net${item.icon}" width="32" height="32" class="${translation.class}"><span>${(item[translation.name]).replace(re, "<b>$1</b>")}</span></div>`;
 			}
 		},
 		onSelect: function(e, term, item) {
 			var hash = parseInt(item.getAttribute('data-hash'), 10);
-			var data = itemSources[hashIndex.indexOf(hash)];
-			console.log(`Item "${data.itemName} (${data.itemDescription})" selected by ${(e.type == 'keydown' ? 'pressing enter' : 'mouse click')}.`);
+			var data = properties[hashList.indexOf(hash)];
+			console.log(`Item "${data[translation.name]} (${data[translation.description]})" selected by ${(e.type === 'keydown' ? 'pressing enter' : 'mouse click')}.`);
 			if (insigniaInput.findItem(item.getAttribute('data-hash')) === null) {
 				insigniaInput.addItem(item.getAttribute('data-hash'));
 			}
@@ -291,24 +311,66 @@ function setupItemFields(ID) {
 				newArray.push(item);
 			}
 			setOption(ID, newArray);
-			var otherInput = insigniaInput;
-			var otherId = ID;
-			if (ID === "keepSingleStackItems") {
-				otherId = "autoMoveItemsToVault";
-				otherInput = insigniaInputs.autoMoveItemsToVault;
-			} else {
-				otherId = "keepSingleStackItems";
-				otherInput = insigniaInputs.keepSingleStackItems;
+			if (ID === "keepSingleStackItems" || "autoMoveItemsToVault") {
+				let otherInput = insigniaInput;
+				let otherId = ID;
+				if (ID === "keepSingleStackItems") {
+					otherId = "autoMoveItemsToVault";
+					otherInput = insigniaInputs.autoMoveItemsToVault;
+				} else {
+					otherId = "keepSingleStackItems";
+					otherInput = insigniaInputs.keepSingleStackItems;
+				}
+				if (otherInput.findItem(item.getAttribute('data-hash')) !== null) {
+					otherInput.removeItem(item.getAttribute('data-hash'));
+				}
+				let newArray2 = [];
+				let oldArray2 = otherInput.value();
+				for (let item of oldArray2) {
+					newArray2.push(item);
+				}
+				setOption(otherId, newArray2);
 			}
-			if (otherInput.findItem(item.getAttribute('data-hash')) !== null) {
-				otherInput.removeItem(item.getAttribute('data-hash'));
+			if(ID === "highValuePerks" || ID === "midValuePerks" || ID === "lowValuePerks") {
+				let otherInput1 = insigniaInput;
+				let otherInput2 = insigniaInput;
+				let otherId1 = ID;
+				let otherId2 = ID;
+				if (ID === "highValuePerks") {
+					otherId1 = "midValuePerks";
+					otherId2 = "lowValuePerks";
+					otherInput1 = insigniaInputs.midValuePerks;
+					otherInput2 = insigniaInputs.lowValuePerks;
+				} else if (ID === "midValuePerks") {
+					otherId1 = "highValuePerks";
+					otherId2 = "lowValuePerks";
+					otherInput1 = insigniaInputs.highValuePerks;
+					otherInput2 = insigniaInputs.lowValuePerks;
+				} else {
+					otherId1 = "midValuePerks";
+					otherId2 = "highValuePerks";
+					otherInput1 = insigniaInputs.midValuePerks;
+					otherInput2 = insigniaInputs.highValuePerks;
+				}
+				if (otherInput1.findItem(item.getAttribute('data-hash')) !== null) {
+					otherInput1.removeItem(item.getAttribute('data-hash'));
+				}
+				if (otherInput2.findItem(item.getAttribute('data-hash')) !== null) {
+					otherInput2.removeItem(item.getAttribute('data-hash'));
+				}
+				let newArray2 = [];
+				let newArray3 = [];
+				let oldArray2 = otherInput1.value();
+				let oldArray3 = otherInput2.value();
+				for (let item of oldArray2) {
+					newArray2.push(item);
+				}
+				for (let item of oldArray3) {
+					newArray3.push(item);
+				}
+				setOption(otherId1, newArray2);
+				setOption(otherId2, newArray3);
 			}
-			var newArray2 = [];
-			var oldArray2 = otherInput.value();
-			for (let item of oldArray2) {
-				newArray2.push(item);
-			}
-			setOption(otherId, newArray2);
 		}
 	});
 
@@ -324,3 +386,107 @@ function setupItemFields(ID) {
 		}
 	});
 }
+
+// function setupItemFields(ID) {
+// 	var insigniaInput = insignia(document.getElementById(ID), {
+// 		free: false,
+// 		deletion: true,
+// 		render: function render(container, item) {
+// 			var hash = parseInt(item.data, 10);
+// 			var data = itemSources[hashIndex.indexOf(hash)];
+// 			container.innerHTML = `<img src="https://www.bungie.net${data.icon}" width="16" height="16"><span>${data.itemName}</span>`;
+// 			container.title = data.itemDescription;
+// 		},
+// 		getText: function(item) {
+// 			var hash = parseInt(item, 10);
+// 			var data = itemSources[hashIndex.indexOf(hash)];
+// 			return data.itemName;
+// 		}
+// 	});
+// 	insigniaInputs[ID] = insigniaInput;
+// 	insigniaInput.on('remove', function() {
+// 		var newArray = [];
+// 		var oldArray = insigniaInput.value();
+// 		for (var item of oldArray) {
+// 			newArray.push(item);
+// 		}
+// 		setOption(ID, newArray);
+// 	});
+// 	new autoComplete({
+// 		selector: '#' + ID,
+// 		minChars: 0,
+// 		delay: 500,
+// 		source: function(term, suggest) {
+// 			var suggestions = [];
+// 			var suggestionList = null;
+// 			if (term.length === 0) {
+// 				suggestionList = itemSources;
+// 			} else {
+// 				var f = new Fuse(itemSources, {
+// 					keys: ['itemName', 'itemDescription'],
+// 					threshold: 0.1,
+// 					distance: 1000
+// 				});
+// 				suggestionList = f.search(term.toLowerCase());
+// 			}
+// 			for (var suggestion of suggestionList) {
+// 				if (insigniaInput.findItem("" + suggestion.itemHash) === null) {
+// 					suggestions.push(suggestion);
+// 				}
+// 			}
+// 			suggest(suggestions);
+// 		},
+// 		renderItem: function(item, search, index) {
+// 			var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
+// 			if (search.split(' ')[0] === "") {
+// 				return `<div class="autocomplete-suggestion${index === 0 ? " selected" : ""}" data-hash="${item.itemHash}" data-name="${item.itemName}" title="${item.itemDescription}"><img src="https://www.bungie.net${item.icon}" width="25" height="25"><span>${item.itemName}</span></div>`;
+// 			} else {
+// 				return `<div class="autocomplete-suggestion${index === 0 ? " selected" : ""}" data-hash="${item.itemHash}" data-name="${item.itemName}" title="${item.itemDescription}"><img src="https://www.bungie.net${item.icon}" width="25" height="25"><span>${item.itemName.replace(re, "<b>$1</b>")}</span></div>`;
+// 			}
+// 		},
+// 		onSelect: function(e, term, item) {
+// 			var hash = parseInt(item.getAttribute('data-hash'), 10);
+// 			var data = itemSources[hashIndex.indexOf(hash)];
+// 			console.log(`Item "${data.itemName} (${data.itemDescription})" selected by ${(e.type == 'keydown' ? 'pressing enter' : 'mouse click')}.`);
+// 			if (insigniaInput.findItem(item.getAttribute('data-hash')) === null) {
+// 				insigniaInput.addItem(item.getAttribute('data-hash'));
+// 			}
+// 			var newArray = [];
+// 			var oldArray = insigniaInput.value();
+// 			for (let item of oldArray) {
+// 				newArray.push(item);
+// 			}
+// 			setOption(ID, newArray);
+// 			var otherInput = insigniaInput;
+// 			var otherId = ID;
+// 			if (ID === "keepSingleStackItems") {
+// 				otherId = "autoMoveItemsToVault";
+// 				otherInput = insigniaInputs.autoMoveItemsToVault;
+// 			} else {
+// 				otherId = "keepSingleStackItems";
+// 				otherInput = insigniaInputs.keepSingleStackItems;
+// 			}
+// 			if (otherInput.findItem(item.getAttribute('data-hash')) !== null) {
+// 				otherInput.removeItem(item.getAttribute('data-hash'));
+// 			}
+// 			var newArray2 = [];
+// 			var oldArray2 = otherInput.value();
+// 			for (let item of oldArray2) {
+// 				newArray2.push(item);
+// 			}
+// 			setOption(otherId, newArray2);
+// 		}
+// 	});
+
+// 	// document.getElementById("insigificant").addEventListener('keypress', function(e) {
+// 	// 	if (e.keyCode === 13) {
+// 	// 		insigniaInput.refresh();
+// 	// 		e.preventDefault(); // prevent form submission
+// 	// 	}
+// 	// });
+// 	getOption(ID).then(function(value) {
+// 		for (let item of value) {
+// 			insigniaInput.addItem(item);
+// 		}
+// 	});
+// }

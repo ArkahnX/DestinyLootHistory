@@ -51,19 +51,19 @@ function checkInventory() {
 	for (var characterInventory of data.inventories) {
 		Array.prototype.push.apply(inventoryData, characterInventory.inventory);
 	}
-	for (var itemDiff of data.itemChanges) {
-		for (var removedItem of itemDiff.removed) {
-			if (removedItem.item) {
-				removedItem = removedItem.item;
-			}
-			let parsedItem = JSON.parse(removedItem);
-			parsedItem.removed = true;
-			if (parsedItem.itemInstanceId !== "0" && isGoodHistoryItem(parsedItem.itemHash) && !itemInArray(inventoryData, parsedItem.itemInstanceId)) {
-				inventoryData.push(parsedItem);
-			}
-		}
-		// Array.prototype.push.apply(inventoryData, itemDiff.removed);
-	}
+	// for (var itemDiff of data.itemChanges) {
+	// 	for (var removedItem of itemDiff.removed) {
+	// 		if (removedItem.item) {
+	// 			removedItem = removedItem.item;
+	// 		}
+	// 		let parsedItem = JSON.parse(removedItem);
+	// 		parsedItem.removed = true;
+	// 		if (parsedItem.itemInstanceId !== "0" && isGoodHistoryItem(parsedItem.itemHash) && !itemInArray(inventoryData, parsedItem.itemInstanceId)) {
+	// 			inventoryData.push(parsedItem);
+	// 		}
+	// 	}
+	// 	// Array.prototype.push.apply(inventoryData, itemDiff.removed);
+	// }
 	inventoryData.sort(function(a, b) {
 		return a.itemInstanceId - b.itemInstanceId;
 	});
