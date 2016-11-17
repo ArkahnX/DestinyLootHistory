@@ -138,6 +138,88 @@ function bungieInventories() {
 	});
 }
 
+function bungieVendors() {
+	var result = 0;
+	var messages = [];
+	var icon = "exclamation";
+	return new Promise(function(resolve) {
+		var inventoryCharacterIds = [];
+		for (var systemDetail of systemDetails) {
+			if (systemDetail.membership) {
+				for (var characterId of systemDetail.characters) {
+					inventoryCharacterIds.push({
+						systemType: systemDetail.type,
+						characterId: characterId,
+						membershipId: systemDetail.membership
+					});
+				}
+			}
+		}
+		sequence(inventoryCharacterIds, function network(element, resolve) {
+			request({
+				route: `/Destiny/${element.systemType}/MyAccount/Character/${element.characterId}/Vendor/3902439767/Metadata/`,
+				method: 'GET',
+				incomplete: function() {
+					console.error("Empty incomplete");
+				},
+				complete: resolve
+			});
+		}, function afterNetwork(response) {
+			console.log(response);
+			if (response.ErrorCode !== 1) {
+				result = response.ErrorCode;
+				messages.push(response.ErrorStatus);
+			}
+		}).then(function complete() {
+			if (result === 0) {
+				messages.push("Vendors are functioning normally");
+			}
+			handleResultDisplay(result, messages, "bungievendors", icon, resolve);
+		});
+	});
+}
+
+function bungieFactions() {
+	var result = 0;
+	var messages = [];
+	var icon = "exclamation";
+	return new Promise(function(resolve) {
+		var inventoryCharacterIds = [];
+		for (var systemDetail of systemDetails) {
+			if (systemDetail.membership) {
+				for (var characterId of systemDetail.characters) {
+					inventoryCharacterIds.push({
+						systemType: systemDetail.type,
+						characterId: characterId,
+						membershipId: systemDetail.membership
+					});
+				}
+			}
+		}
+		sequence(inventoryCharacterIds, function network(element, resolve) {
+			request({
+				route: `/Destiny/${element.systemType}/Account/${element.membershipId}/Character/${element.characterId}/Progression/?definitions=false`,
+				method: 'GET',
+				incomplete: function() {
+					console.error("Empty incomplete");
+				},
+				complete: resolve
+			});
+		}, function afterNetwork(response) {
+			console.log(response);
+			if (response.ErrorCode !== 1) {
+				result = response.ErrorCode;
+				messages.push(response.ErrorStatus);
+			}
+		}).then(function complete() {
+			if (result === 0) {
+				messages.push("Found " + inventoryCharacterIds.length + " inventories");
+			}
+			handleResultDisplay(result, messages, "bungiefactions", icon, resolve);
+		});
+	});
+}
+
 function bungieActivities() {
 	var result = 0;
 	var messages = [];
@@ -250,8 +332,6 @@ function bungieConsoleData(systemDetail, outputId) {
 					messages.push(response.ErrorStatus);
 					handleResultDisplay(result, messages, outputId, icon, resolve);
 				}
-
-
 			}
 		});
 	});
@@ -296,10 +376,29 @@ function bungieCookieStep() {
 	});
 }
 
+function bungieDatabase() {
+	var result = 0;
+	var messages = [];
+	var icon = "exclamation";
+	return new Promise(function(resolve) {
+		var img = new Image();
+		img.onload = function() {
+			messages.push("Bungie manifest is up to date");
+			handleResultDisplay(result, messages, "database", icon, resolve);
+		};
+		img.onerror = function() {
+			result = 1;
+			messages.push("Bungie manifest is outdated");
+			handleResultDisplay(result, messages, "database", icon, resolve);
+		};
+		img.src = "https://www.bungie.net" + DestinyFactionDefinition[174528503].factionIcon;
+	});
+}
+
 document.addEventListener("DOMContentLoaded", function() {
 	bungieCookieStep().then(bungieLogin).then(function() {
 		return bungieConsoleData(systemDetails.xbo, "bungiexbone");
 	}).then(function() {
 		return bungieConsoleData(systemDetails.ps4, "bungieps4");
-	}).then(bungieInventories).then(bungieActivities).then(bungieCarnage);
+	}).then(bungieInventories).then(bungieActivities).then(bungieCarnage).then(bungieVendors).then(bungieFactions).then(bungieDatabase);
 });
