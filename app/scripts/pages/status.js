@@ -22,14 +22,18 @@ var carnageNumbers = [];
 
 var characterIdList = [];
 
-function handleResultDisplay(result, messages, className, icon, resolve) {
-	if (result === 0) {
-		messages.unshift("Success");
-		document.getElementById(className).className = "success";
-		icon = "check";
+function handleNetworkError(statusCode, address, status) {
+	console.log(arguments)
+	var message = "";
+	if (statusCode === 0) {
+		message = "Internet is Disconnected";
+	} else if (statusCode === 404) {
+		message = "Unable to reach URL: " + address;
 	}
-	document.getElementById(className).innerHTML = `<i class="fa fa-${icon}" aria-hidden="true"></i><pre>${result}</pre> - <pre>${messages.join(", ")}</pre>`;
-	resolve();
+	if (message) {
+		status.messages.push(message);
+		status.result = statusCode === 0 ? 1337 : statusCode;
+	}
 }
 
 function processStatusResult(status, statusLocation, resolve) {
@@ -46,16 +50,19 @@ function request(opts) {
 	let r = new XMLHttpRequest();
 	r.open(opts.method, "https://www.bungie.net/Platform" + opts.route, true);
 	r.setRequestHeader('X-API-Key', API_KEY);
-	r.onload = function() {
-		if (this.status >= 200 && this.status < 400) {
-			var response = JSON.parse(this.response);
-			opts.complete(response);
+	r.onreadystatechange = function() {
+		if (r.readyState === 4) {
+			if (this.status >= 200 && this.status < 400) {
+				var response = JSON.parse(this.response);
+				opts.complete(response);
+			} else {
+				opts.incomplete(r.status, opts.route);
+			}
 		}
 	};
-	r.onerror = function(error) {
-		console.error(error);
-		opts.incomplete();
-	};
+	// r.onerror = function(error) {
+	// 	opts.incomplete(r.status, opts.route);
+	// };
 	r.withCredentials = true;
 	r.setRequestHeader('x-csrf', cookieResults.bungled);
 	opts.csrf = cookieResults.bungled;
@@ -73,8 +80,8 @@ function checkStatus(statusLocation, route, incomplete, complete) {
 		request({
 			route: route,
 			method: 'GET',
-			incomplete: function(response) {
-				incomplete(response, status);
+			incomplete: function(response, address) {
+				incomplete(response, address, status);
 				processStatusResult(status, statusLocation, resolve);
 			},
 			complete: function(response) {
@@ -85,46 +92,51 @@ function checkStatus(statusLocation, route, incomplete, complete) {
 	});
 }
 
-function checkStatusWithCharacters(statusLocation, route, incomplete, afterNetwork, complete) {
+function checkStatusWithCharacters(list, statusLocation, route, incomplete, afterNetwork, complete) {
 	var status = {
 		result: 0,
 		messages: [],
 		icon: "exclamation"
 	};
 	return new Promise(function(resolve) {
-		sequence(characterIdList, function network(characterDetail, resolve) {
-			var routeString = route(characterDetail);
-			if (routeString) {
-				request({
-					route: routeString,
-					method: 'GET',
-					incomplete: function(response) {
-						incomplete(response, characterDetail, status);
-					},
-					complete: resolve
-				});
-			} else {
-				resolve({
-					ErrorCode: 1
-				});
-			}
-		}, function(response) {
-			if (response.ErrorCode !== 1) {
-				status.result = response.ErrorCode;
-				status.messages.push(response.ErrorStatus);
-			}
-			afterNetwork(response, status);
-		}).then(function() {
-			complete(status);
+		if (list.length) {
+			sequence(list, function network(characterDetail, resolve) {
+				var routeString = route(characterDetail);
+				if (routeString) {
+					request({
+						route: routeString,
+						method: 'GET',
+						incomplete: function(response, address) {
+							incomplete(response, address, status);
+							processStatusResult(status, statusLocation, resolve);
+						},
+						complete: resolve
+					});
+				} else {
+					resolve({
+						ErrorCode: 1
+					});
+				}
+			}, function(response) {
+				if (response.ErrorCode !== 1) {
+					status.result = response.ErrorCode;
+					status.messages.push(response.ErrorStatus);
+				}
+				afterNetwork(response, status);
+			}).then(function() {
+				complete(status);
+				processStatusResult(status, statusLocation, resolve);
+			});
+		} else {
+			status.result = 7331;
+			status.messages.push("No characters found");
 			processStatusResult(status, statusLocation, resolve);
-		});
+		}
 	});
 }
 
 function bungieLogin() {
-	return checkStatus("bungielogin", "/User/GetBungieNetUser/", function(response, status) {
-		console.error("Empty incomplete", response);
-	}, function(response, status) {
+	return checkStatus("bungielogin", "/User/GetBungieNetUser/", handleNetworkError, function(response, status) {
 		console.log(response);
 		if (response.ErrorCode === 1) {
 			var data = response.Response;
@@ -149,15 +161,13 @@ function bungieLogin() {
 }
 
 function bungieInventories() {
-	return checkStatusWithCharacters("bungieinventories", function route(characterDetail) {
+	return checkStatusWithCharacters(characterIdList, "bungieinventories", function route(characterDetail) {
 		var route = '/Destiny/' + characterDetail.systemType + '/Account/' + characterDetail.membershipId + '/Character/' + characterDetail.characterId + '/Inventory/?definitions=false';
 		if (characterDetail.characterId === "vault") {
 			route = '/Destiny/' + characterDetail.systemType + '/MyAccount/Vault/';
 		}
 		return route;
-	}, function(response, characterDetail, status) {
-		console.error("Empty incomplete");
-	}, function afterNetwork(response, status) {
+	}, handleNetworkError, function afterNetwork(response, status) {
 		console.log(response);
 	}, function complete(status) {
 		if (status.result === 0) {
@@ -167,15 +177,13 @@ function bungieInventories() {
 }
 
 function bungieVendors() {
-	return checkStatusWithCharacters("bungievendors", function route(characterDetail) {
+	return checkStatusWithCharacters(characterIdList, "bungievendors", function route(characterDetail) {
 		var route = `/Destiny/${characterDetail.systemType}/MyAccount/Character/${characterDetail.characterId}/Vendor/3902439767/Metadata/`;
 		if (characterDetail.characterId === "vault") {
 			route = false;
 		}
 		return route;
-	}, function(response, characterDetail, status) {
-		console.error("Empty incomplete");
-	}, function afterNetwork(response, status) {
+	}, handleNetworkError, function afterNetwork(response, status) {
 		console.log(response);
 	}, function complete(status) {
 		if (status.result === 0) {
@@ -185,15 +193,13 @@ function bungieVendors() {
 }
 
 function bungieFactions() {
-	return checkStatusWithCharacters("bungiefactions", function route(characterDetail) {
+	return checkStatusWithCharacters(characterIdList, "bungiefactions", function route(characterDetail) {
 		var route = `/Destiny/${characterDetail.systemType}/Account/${characterDetail.membershipId}/Character/${characterDetail.characterId}/Progression/?definitions=false`;
 		if (characterDetail.characterId === "vault") {
 			route = false;
 		}
 		return route;
-	}, function(response, characterDetail, status) {
-		console.error("Empty incomplete");
-	}, function afterNetwork(response, status) {
+	}, handleNetworkError, function afterNetwork(response, status) {
 		console.log(response);
 	}, function complete(status) {
 		if (status.result === 0) {
@@ -203,17 +209,15 @@ function bungieFactions() {
 }
 
 function bungieActivities() {
-	return checkStatusWithCharacters("bungieactivities", function route(characterDetail) {
+	return checkStatusWithCharacters(characterIdList, "bungieactivities", function route(characterDetail) {
 		var route = '/Destiny/Stats/ActivityHistory/' + characterDetail.systemType + '/' + characterDetail.membershipId + '/' + characterDetail.characterId + "/?mode=None&count=10&page=1";
 		if (characterDetail.characterId === "vault") {
 			route = false;
 		}
 		return route;
-	}, function(response, characterDetail, status) {
-		console.error("Empty incomplete");
-	}, function afterNetwork(response, status) {
+	}, handleNetworkError, function afterNetwork(response, status) {
 		console.log(response);
-		if (response.ErrorCode === 1 && response.Response.data.activities[0]) {
+		if (response.ErrorCode === 1 && response.Response && response.Response.data.activities[0]) {
 			carnageNumbers.push(response.Response.data.activities[0].activityDetails.instanceId);
 		}
 	}, function complete(status) {
@@ -224,45 +228,31 @@ function bungieActivities() {
 }
 
 function bungieCarnage() {
-	// return checkStatusWithCharacters(statusLocation, route, incomplete, afterNetwork, complete);
-	var result = 0;
-	var messages = [];
-	var icon = "exclamation";
-	return new Promise(function(resolve) {
-		sequence(carnageNumbers, function network(element, resolve) {
-			request({
-				route: '/Destiny/Stats/PostGameCarnageReport/' + element + '/?definitions=false',
-				method: 'GET',
-				incomplete: function() {
-					console.error("Empty incomplete");
-				},
-				complete: resolve
-			});
-		}, function afterNetwork(response) {
-			console.log(response);
-			if (response.ErrorCode !== 1) {
-				result = response.ErrorCode;
-				messages.push(response.ErrorStatus);
-			}
-		}).then(function complete() {
-			if (result === 0) {
-				messages.push("Found in depth activity details");
-			}
-			handleResultDisplay(result, messages, "bungiecarnage", icon, resolve);
-		});
+	return checkStatusWithCharacters(carnageNumbers, "bungieactivities", function route(carnageInstanceId) {
+		var route = '/Destiny/Stats/PostGameCarnageReport/' + carnageInstanceId + '/?definitions=false';
+		return route;
+	}, handleNetworkError, function afterNetwork(response, status) {
+		console.log(response);
+	}, function complete(status) {
+		if (status.result === 0) {
+			status.messages.push("Found in depth activity details");
+		}
 	});
 }
 
 function bungieConsoleData(systemDetail, outputId) {
-	var result = 0;
-	var messages = [];
-	var icon = "exclamation";
+	var status = {
+		result: 0,
+		messages: [],
+		icon: "exclamation"
+	};
 	return new Promise(function(resolve) {
 		request({
 			route: `/Destiny/SearchDestinyPlayer/${systemDetail.type}/${systemDetail.id}/`,
 			method: 'GET',
-			incomplete: function() {
-				console.error("Empty incomplete");
+			incomplete: function(response, address) {
+				handleNetworkError(response, address, status);
+				processStatusResult(status, outputId, resolve);
 			},
 			complete: function(response) {
 				console.log("membership", response);
@@ -271,8 +261,9 @@ function bungieConsoleData(systemDetail, outputId) {
 					request({
 						route: '/Destiny/' + systemDetail.type + '/Account/' + response.Response[0].membershipId + '/Summary/',
 						method: 'GET',
-						incomplete: function() {
-							console.error("Empty incomplete");
+						incomplete: function(response, address) {
+							handleNetworkError(response, address, status);
+							processStatusResult(status, outputId, resolve);
 						},
 						complete: function(account) {
 							console.log("account", account);
@@ -289,23 +280,23 @@ function bungieConsoleData(systemDetail, outputId) {
 									systemType: systemDetail.type,
 									characterId: "vault"
 								});
-								messages.push("Characters: " + systemDetail.characters.length);
+								status.messages.push("Characters: " + systemDetail.characters.length);
 							} else {
-								result = response.ErrorCode;
-								messages.push(response.ErrorStatus);
+								status.result = response.ErrorCode;
+								status.messages.push(response.ErrorStatus);
 							}
-							handleResultDisplay(result, messages, outputId, icon, resolve);
+							processStatusResult(status, outputId, resolve);
 						}
 					});
 				} else {
-					result = response.ErrorCode;
+					status.result = response.ErrorCode;
 					if (response.ErrorCode !== 1) {
-						messages.push(response.ErrorStatus);
+						status.messages.push(response.ErrorStatus);
 					} else {
 						var systemName = (systemDetail.type === 1) ? "Xbox" : "Playstation";
-						messages.push("Unable to find Destiny Account for " + systemName);
+						status.messages.push("Unable to find Destiny Account for " + systemName);
 					}
-					handleResultDisplay(result, messages, outputId, icon, resolve);
+					processStatusResult(status, outputId, resolve);
 				}
 			}
 		});
@@ -316,18 +307,18 @@ function bungieConsoleData(systemDetail, outputId) {
 
 function bungieCookieStep() {
 	return new Promise(function(resolve) {
-		var result = 0;
-		var messages = [];
-		var icon = "exclamation";
+		var status = {
+			result: 0,
+			messages: [],
+			icon: "exclamation"
+		};
 		chrome.cookies.getAll({
 			domain: "www.bungie.net"
 		}, function(cookies) {
-			console.log(cookies)
 			if (chrome.runtime.lastError) {
 				tracker.sendEvent('unable to read cookies', JSON.stringify(chrome.runtime.lastError), `version ${localStorage.version}, systems ${localStorage.systems}`);
-				result = 1;
-				messages.push(chrome.runtime.lastError);
-				console.error(chrome.runtime.lastError);
+				status.result = 1;
+				status.messages.push(chrome.runtime.lastError);
 			}
 			if (Array.isArray(cookies)) {
 				for (var cookie of cookies) {
@@ -339,33 +330,34 @@ function bungieCookieStep() {
 				}
 			}
 			if (cookieResults.bungled.length && !cookieResults.bungleatk.length) {
-				result = 2;
-				messages.push("Missing bungleatk cookie");
+				status.result = 2;
+				status.messages.push("Missing bungleatk cookie");
 			}
 			if (!cookieResults.bungled.length && cookieResults.bungleatk.length) {
-				result = 3;
-				messages.push("Missing bungled cookie");
+				status.result = 3;
+				status.messages.push("Missing bungled cookie");
 			}
-			console.log("Cookies", result, messages, messages.length === 1 ? messages[0] : messages.join(", "), cookieResults);
-			handleResultDisplay(result, messages, "cookies", icon, resolve);
+			processStatusResult(status, "cookies", resolve);
 		});
 	});
 }
 
 function bungieDatabase() {
-	var result = 0;
-	var messages = [];
-	var icon = "exclamation";
+	var status = {
+			result: 0,
+			messages: [],
+			icon: "exclamation"
+		};
 	return new Promise(function(resolve) {
 		var img = new Image();
 		img.onload = function() {
-			messages.push("Bungie manifest is up to date");
-			handleResultDisplay(result, messages, "database", icon, resolve);
+			status.messages.push("Bungie manifest is up to date");
+			processStatusResult(status, "database", resolve);
 		};
 		img.onerror = function() {
-			result = 1;
-			messages.push("Bungie manifest is outdated");
-			handleResultDisplay(result, messages, "database", icon, resolve);
+			status.result = 1;
+			status.messages.push("Bungie manifest is outdated");
+			processStatusResult(status, "database", resolve);
 		};
 		img.src = "https://www.bungie.net" + DestinyFactionDefinition[174528503].factionIcon;
 	});
