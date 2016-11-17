@@ -110,7 +110,6 @@ function bungieInventories() {
 		}
 		sequence(inventoryCharacterIds, function network(element, resolve) {
 			var route = '/Account/' + element.membershipId + '/Character/' + element.characterId + '/Inventory/?definitions=false';
-			console.log(element);
 			if (element.characterId === "vault") {
 				route = '/MyAccount/Vault/';
 			}
@@ -122,7 +121,7 @@ function bungieInventories() {
 				},
 				complete: resolve
 			});
-		}, function afterNetwrok(response) {
+		}, function afterNetwork(response) {
 			console.log(response);
 			if (response.ErrorCode !== 1) {
 				result = response.ErrorCode;
@@ -133,6 +132,47 @@ function bungieInventories() {
 				messages.push("Found "+inventoryCharacterIds.length+" inventories");
 			}
 			handleResultDisplay(result, messages, "bungieinventories", icon, resolve);
+		});
+	});
+}
+
+function bungieActivities() {
+	var result = 0;
+	var messages = [];
+	var icon = "exclamation";
+	return new Promise(function(resolve) {
+		var inventoryCharacterIds = [];
+		for (var systemDetail of systemDetails) {
+			if (systemDetail.membership) {
+				for (var characterId of systemDetail.characters) {
+					inventoryCharacterIds.push({
+						systemType: systemDetail.type,
+						characterId: characterId,
+						membershipId: systemDetail.membership
+					});
+				}
+			}
+		}
+		sequence(inventoryCharacterIds, function network(element, resolve) {
+			request({
+				route: '/Destiny/Stats/ActivityHistory/' + element.systemType + '/' + element.membershipId + '/' + element.characterId + "/?mode=None&count=10&page=1",
+				method: 'GET',
+				incomplete: function() {
+					console.error("Empty incomplete");
+				},
+				complete: resolve
+			});
+		}, function afterNetwork(response) {
+			console.log(response);
+			if (response.ErrorCode !== 1) {
+				result = response.ErrorCode;
+				messages.push(response.ErrorStatus);
+			}
+		}).then(function complete() {
+			if(result === 0) {
+				messages.push("Found activities for "+inventoryCharacterIds.length+" characters");
+			}
+			handleResultDisplay(result, messages, "bungieactivities", icon, resolve);
 		});
 	});
 }
@@ -228,5 +268,5 @@ document.addEventListener("DOMContentLoaded", function() {
 		return bungieConsoleData(systemDetails.xbo, "bungiexbone");
 	}).then(function() {
 		return bungieConsoleData(systemDetails.ps4, "bungieps4");
-	}).then(bungieInventories);
+	}).then(bungieInventories).then(bungieActivities);
 });
