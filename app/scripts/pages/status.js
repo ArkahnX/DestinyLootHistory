@@ -20,6 +20,8 @@ var systemDetails = {
 
 var carnageNumbers = [];
 
+var characterIdList = [];
+
 function handleResultDisplay(result, messages, className, icon, resolve) {
 	if (result === 0) {
 		messages.unshift("Success");
@@ -27,6 +29,16 @@ function handleResultDisplay(result, messages, className, icon, resolve) {
 		icon = "check";
 	}
 	document.getElementById(className).innerHTML = `<i class="fa fa-${icon}" aria-hidden="true"></i><pre>${result}</pre> - <pre>${messages.join(", ")}</pre>`;
+	resolve();
+}
+
+function processStatusResult(status, statusLocation, resolve) {
+	if (status.result === 0) {
+		status.messages.unshift("Success");
+		document.getElementById(statusLocation).className = "success";
+		status.icon = "check";
+	}
+	document.getElementById(statusLocation).innerHTML = `<i class="fa fa-${status.icon}" aria-hidden="true"></i><pre>${status.result}</pre> - <pre>${status.messages.join(", ")}</pre>`;
 	resolve();
 }
 
@@ -51,219 +63,168 @@ function request(opts) {
 	r.send(JSON.stringify(opts.payload));
 }
 
-function bungieLogin() {
-	var result = 0;
-	var messages = [];
-	var icon = "exclamation";
+function checkStatus(statusLocation, route, incomplete, complete) {
+	var status = {
+		result: 0,
+		messages: [],
+		icon: "exclamation"
+	};
 	return new Promise(function(resolve) {
 		request({
-			route: '/User/GetBungieNetUser/',
+			route: route,
 			method: 'GET',
-			incomplete: function() {
-				console.error("Empty incomplete");
+			incomplete: function(response) {
+				incomplete(response, status);
+				processStatusResult(status, statusLocation, resolve);
 			},
-			complete: function(res) {
-				console.log(res);
-				if (res.ErrorCode === 1) {
-					var data = res.Response;
-					if (data.gamerTag && data.publicCredentialTypes.indexOf(1) > -1) {
-						systemDetails.xbo.id = data.gamerTag;
-						messages.push("XBL: " + data.gamerTag);
-					}
-					if (data.psnId && data.publicCredentialTypes.indexOf(2) > -1) {
-						systemDetails.ps4.id = data.psnId;
-						messages.push("PSN: " + data.psnId);
-					}
-					if (!systemDetails.xbo.id && !systemDetails.ps4.id) {
-						result = 1;
-						messages.push("Unable to find linked PSN or XBL account names.");
-					}
-				} else {
-					result = res.ErrorCode;
-					messages.push(res.ErrorStatus);
-				}
-				console.log("bungielogin", result, messages, systemDetails);
-				handleResultDisplay(result, messages, "bungielogin", icon, resolve);
+			complete: function(response) {
+				complete(response, status);
+				processStatusResult(status, statusLocation, resolve);
 			}
 		});
+	});
+}
+
+function checkStatusWithCharacters(statusLocation, route, incomplete, afterNetwork, complete) {
+	var status = {
+		result: 0,
+		messages: [],
+		icon: "exclamation"
+	};
+	return new Promise(function(resolve) {
+		sequence(characterIdList, function network(characterDetail, resolve) {
+			var routeString = route(characterDetail);
+			if (routeString) {
+				request({
+					route: routeString,
+					method: 'GET',
+					incomplete: function(response) {
+						incomplete(response, characterDetail, status);
+					},
+					complete: resolve
+				});
+			} else {
+				resolve({
+					ErrorCode: 1
+				});
+			}
+		}, function(response) {
+			if (response.ErrorCode !== 1) {
+				status.result = response.ErrorCode;
+				status.messages.push(response.ErrorStatus);
+			}
+			afterNetwork(response, status);
+		}).then(function() {
+			complete(status);
+			processStatusResult(status, statusLocation, resolve);
+		});
+	});
+}
+
+function bungieLogin() {
+	return checkStatus("bungielogin", "/User/GetBungieNetUser/", function(response, status) {
+		console.error("Empty incomplete", response);
+	}, function(response, status) {
+		console.log(response);
+		if (response.ErrorCode === 1) {
+			var data = response.Response;
+			if (data.gamerTag && data.publicCredentialTypes.indexOf(1) > -1) {
+				systemDetails.xbo.id = data.gamerTag;
+				status.messages.push("XBL: " + data.gamerTag);
+			}
+			if (data.psnId && data.publicCredentialTypes.indexOf(2) > -1) {
+				systemDetails.ps4.id = data.psnId;
+				status.messages.push("PSN: " + data.psnId);
+			}
+			if (!systemDetails.xbo.id && !systemDetails.ps4.id) {
+				status.result = 1;
+				status.messages.push("Unable to find linked PSN or XBL account names.");
+			}
+		} else {
+			status.result = response.ErrorCode;
+			status.messages.push(response.ErrorStatus);
+		}
+		console.log("bungielogin", status, systemDetails);
 	});
 }
 
 function bungieInventories() {
-	var result = 0;
-	var messages = [];
-	var icon = "exclamation";
-	return new Promise(function(resolve) {
-		var inventoryCharacterIds = [];
-		for (var systemDetail of systemDetails) {
-			if (systemDetail.membership) {
-				inventoryCharacterIds.push({
-					systemType: systemDetail.type,
-					characterId: "vault"
-				});
-				for (var characterId of systemDetail.characters) {
-					inventoryCharacterIds.push({
-						systemType: systemDetail.type,
-						characterId: characterId,
-						membershipId: systemDetail.membership
-					});
-				}
-			}
+	return checkStatusWithCharacters("bungieinventories", function route(characterDetail) {
+		var route = '/Destiny/' + characterDetail.systemType + '/Account/' + characterDetail.membershipId + '/Character/' + characterDetail.characterId + '/Inventory/?definitions=false';
+		if (characterDetail.characterId === "vault") {
+			route = '/Destiny/' + characterDetail.systemType + '/MyAccount/Vault/';
 		}
-		sequence(inventoryCharacterIds, function network(element, resolve) {
-			var route = '/Account/' + element.membershipId + '/Character/' + element.characterId + '/Inventory/?definitions=false';
-			if (element.characterId === "vault") {
-				route = '/MyAccount/Vault/';
-			}
-			request({
-				route: '/Destiny/' + element.systemType + route,
-				method: 'GET',
-				incomplete: function() {
-					console.error("Empty incomplete");
-				},
-				complete: resolve
-			});
-		}, function afterNetwork(response) {
-			console.log(response);
-			if (response.ErrorCode !== 1) {
-				result = response.ErrorCode;
-				messages.push(response.ErrorStatus);
-			}
-		}).then(function complete() {
-			if (result === 0) {
-				messages.push("Found " + inventoryCharacterIds.length + " inventories");
-			}
-			handleResultDisplay(result, messages, "bungieinventories", icon, resolve);
-		});
+		return route;
+	}, function(response, characterDetail, status) {
+		console.error("Empty incomplete");
+	}, function afterNetwork(response, status) {
+		console.log(response);
+	}, function complete(status) {
+		if (status.result === 0) {
+			status.messages.push("Found " + characterIdList.length + " inventories");
+		}
 	});
 }
 
 function bungieVendors() {
-	var result = 0;
-	var messages = [];
-	var icon = "exclamation";
-	return new Promise(function(resolve) {
-		var inventoryCharacterIds = [];
-		for (var systemDetail of systemDetails) {
-			if (systemDetail.membership) {
-				for (var characterId of systemDetail.characters) {
-					inventoryCharacterIds.push({
-						systemType: systemDetail.type,
-						characterId: characterId,
-						membershipId: systemDetail.membership
-					});
-				}
-			}
+	return checkStatusWithCharacters("bungievendors", function route(characterDetail) {
+		var route = `/Destiny/${characterDetail.systemType}/MyAccount/Character/${characterDetail.characterId}/Vendor/3902439767/Metadata/`;
+		if (characterDetail.characterId === "vault") {
+			route = false;
 		}
-		sequence(inventoryCharacterIds, function network(element, resolve) {
-			request({
-				route: `/Destiny/${element.systemType}/MyAccount/Character/${element.characterId}/Vendor/3902439767/Metadata/`,
-				method: 'GET',
-				incomplete: function() {
-					console.error("Empty incomplete");
-				},
-				complete: resolve
-			});
-		}, function afterNetwork(response) {
-			console.log(response);
-			if (response.ErrorCode !== 1) {
-				result = response.ErrorCode;
-				messages.push(response.ErrorStatus);
-			}
-		}).then(function complete() {
-			if (result === 0) {
-				messages.push("Vendors are functioning normally");
-			}
-			handleResultDisplay(result, messages, "bungievendors", icon, resolve);
-		});
+		return route;
+	}, function(response, characterDetail, status) {
+		console.error("Empty incomplete");
+	}, function afterNetwork(response, status) {
+		console.log(response);
+	}, function complete(status) {
+		if (status.result === 0) {
+			status.messages.push("Vendors are functioning normally");
+		}
 	});
 }
 
 function bungieFactions() {
-	var result = 0;
-	var messages = [];
-	var icon = "exclamation";
-	return new Promise(function(resolve) {
-		var inventoryCharacterIds = [];
-		for (var systemDetail of systemDetails) {
-			if (systemDetail.membership) {
-				for (var characterId of systemDetail.characters) {
-					inventoryCharacterIds.push({
-						systemType: systemDetail.type,
-						characterId: characterId,
-						membershipId: systemDetail.membership
-					});
-				}
-			}
+	return checkStatusWithCharacters("bungiefactions", function route(characterDetail) {
+		var route = `/Destiny/${characterDetail.systemType}/Account/${characterDetail.membershipId}/Character/${characterDetail.characterId}/Progression/?definitions=false`;
+		if (characterDetail.characterId === "vault") {
+			route = false;
 		}
-		sequence(inventoryCharacterIds, function network(element, resolve) {
-			request({
-				route: `/Destiny/${element.systemType}/Account/${element.membershipId}/Character/${element.characterId}/Progression/?definitions=false`,
-				method: 'GET',
-				incomplete: function() {
-					console.error("Empty incomplete");
-				},
-				complete: resolve
-			});
-		}, function afterNetwork(response) {
-			console.log(response);
-			if (response.ErrorCode !== 1) {
-				result = response.ErrorCode;
-				messages.push(response.ErrorStatus);
-			}
-		}).then(function complete() {
-			if (result === 0) {
-				messages.push("Found " + inventoryCharacterIds.length + " inventories");
-			}
-			handleResultDisplay(result, messages, "bungiefactions", icon, resolve);
-		});
+		return route;
+	}, function(response, characterDetail, status) {
+		console.error("Empty incomplete");
+	}, function afterNetwork(response, status) {
+		console.log(response);
+	}, function complete(status) {
+		if (status.result === 0) {
+			status.messages.push("Found faction reputation for all characters");
+		}
 	});
 }
 
 function bungieActivities() {
-	var result = 0;
-	var messages = [];
-	var icon = "exclamation";
-	return new Promise(function(resolve) {
-		var inventoryCharacterIds = [];
-		for (var systemDetail of systemDetails) {
-			if (systemDetail.membership) {
-				for (var characterId of systemDetail.characters) {
-					inventoryCharacterIds.push({
-						systemType: systemDetail.type,
-						characterId: characterId,
-						membershipId: systemDetail.membership
-					});
-				}
-			}
+	return checkStatusWithCharacters("bungieactivities", function route(characterDetail) {
+		var route = '/Destiny/Stats/ActivityHistory/' + characterDetail.systemType + '/' + characterDetail.membershipId + '/' + characterDetail.characterId + "/?mode=None&count=10&page=1";
+		if (characterDetail.characterId === "vault") {
+			route = false;
 		}
-		sequence(inventoryCharacterIds, function network(element, resolve) {
-			request({
-				route: '/Destiny/Stats/ActivityHistory/' + element.systemType + '/' + element.membershipId + '/' + element.characterId + "/?mode=None&count=10&page=1",
-				method: 'GET',
-				incomplete: function() {
-					console.error("Empty incomplete");
-				},
-				complete: resolve
-			});
-		}, function afterNetwork(response) {
-			console.log(response);
-			if (response.ErrorCode !== 1) {
-				result = response.ErrorCode;
-				messages.push(response.ErrorStatus);
-			} else if (response.Response.data.activities[0]) {
-				carnageNumbers.push(response.Response.data.activities[0].activityDetails.instanceId);
-			}
-		}).then(function complete() {
-			if (result === 0) {
-				messages.push("Found activities for " + inventoryCharacterIds.length + " characters");
-			}
-			handleResultDisplay(result, messages, "bungieactivities", icon, resolve);
-		});
+		return route;
+	}, function(response, characterDetail, status) {
+		console.error("Empty incomplete");
+	}, function afterNetwork(response, status) {
+		console.log(response);
+		if (response.ErrorCode === 1 && response.Response.data.activities[0]) {
+			carnageNumbers.push(response.Response.data.activities[0].activityDetails.instanceId);
+		}
+	}, function complete(status) {
+		if (status.result === 0) {
+			status.messages.push("Found activities for all characters");
+		}
 	});
 }
 
 function bungieCarnage() {
+	// return checkStatusWithCharacters(statusLocation, route, incomplete, afterNetwork, complete);
 	var result = 0;
 	var messages = [];
 	var icon = "exclamation";
@@ -298,17 +259,17 @@ function bungieConsoleData(systemDetail, outputId) {
 	var icon = "exclamation";
 	return new Promise(function(resolve) {
 		request({
-			route: '/Destiny/' + systemDetail.type + '/Stats/GetMembershipIdByDisplayName/' + systemDetail.id + '/',
+			route: `/Destiny/SearchDestinyPlayer/${systemDetail.type}/${systemDetail.id}/`,
 			method: 'GET',
 			incomplete: function() {
 				console.error("Empty incomplete");
 			},
 			complete: function(response) {
 				console.log("membership", response);
-				if (response.ErrorCode === 1) {
-					systemDetail.membership = response.Response;
+				if (response.ErrorCode === 1 && response.Response.length) {
+					systemDetail.membership = response.Response[0].membershipId;
 					request({
-						route: '/Destiny/' + systemDetail.type + '/Account/' + response.Response + '/Summary/',
+						route: '/Destiny/' + systemDetail.type + '/Account/' + response.Response[0].membershipId + '/Summary/',
 						method: 'GET',
 						incomplete: function() {
 							console.error("Empty incomplete");
@@ -318,7 +279,16 @@ function bungieConsoleData(systemDetail, outputId) {
 							if (account.ErrorCode === 1) {
 								for (var character of account.Response.data.characters) {
 									systemDetail.characters.push(character.characterBase.characterId);
+									characterIdList.push({
+										systemType: systemDetail.type,
+										characterId: character.characterBase.characterId,
+										membershipId: systemDetail.membership
+									});
 								}
+								characterIdList.push({
+									systemType: systemDetail.type,
+									characterId: "vault"
+								});
 								messages.push("Characters: " + systemDetail.characters.length);
 							} else {
 								result = response.ErrorCode;
@@ -329,7 +299,12 @@ function bungieConsoleData(systemDetail, outputId) {
 					});
 				} else {
 					result = response.ErrorCode;
-					messages.push(response.ErrorStatus);
+					if (response.ErrorCode !== 1) {
+						messages.push(response.ErrorStatus);
+					} else {
+						var systemName = (systemDetail.type === 1) ? "Xbox" : "Playstation";
+						messages.push("Unable to find Destiny Account for " + systemName);
+					}
 					handleResultDisplay(result, messages, outputId, icon, resolve);
 				}
 			}
@@ -347,6 +322,7 @@ function bungieCookieStep() {
 		chrome.cookies.getAll({
 			domain: "www.bungie.net"
 		}, function(cookies) {
+			console.log(cookies)
 			if (chrome.runtime.lastError) {
 				tracker.sendEvent('unable to read cookies', JSON.stringify(chrome.runtime.lastError), `version ${localStorage.version}, systems ${localStorage.systems}`);
 				result = 1;
