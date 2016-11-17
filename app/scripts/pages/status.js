@@ -18,6 +18,8 @@ var systemDetails = {
 	}
 };
 
+var carnageNumbers = [];
+
 function handleResultDisplay(result, messages, className, icon, resolve) {
 	if (result === 0) {
 		messages.unshift("Success");
@@ -96,9 +98,9 @@ function bungieInventories() {
 		for (var systemDetail of systemDetails) {
 			if (systemDetail.membership) {
 				inventoryCharacterIds.push({
-						systemType: systemDetail.type,
-						characterId: "vault"
-					});
+					systemType: systemDetail.type,
+					characterId: "vault"
+				});
 				for (var characterId of systemDetail.characters) {
 					inventoryCharacterIds.push({
 						systemType: systemDetail.type,
@@ -128,8 +130,8 @@ function bungieInventories() {
 				messages.push(response.ErrorStatus);
 			}
 		}).then(function complete() {
-			if(result === 0) {
-				messages.push("Found "+inventoryCharacterIds.length+" inventories");
+			if (result === 0) {
+				messages.push("Found " + inventoryCharacterIds.length + " inventories");
 			}
 			handleResultDisplay(result, messages, "bungieinventories", icon, resolve);
 		});
@@ -167,12 +169,43 @@ function bungieActivities() {
 			if (response.ErrorCode !== 1) {
 				result = response.ErrorCode;
 				messages.push(response.ErrorStatus);
+			} else if (response.Response.data.activities[0]) {
+				carnageNumbers.push(response.Response.data.activities[0].activityDetails.instanceId);
 			}
 		}).then(function complete() {
-			if(result === 0) {
-				messages.push("Found activities for "+inventoryCharacterIds.length+" characters");
+			if (result === 0) {
+				messages.push("Found activities for " + inventoryCharacterIds.length + " characters");
 			}
 			handleResultDisplay(result, messages, "bungieactivities", icon, resolve);
+		});
+	});
+}
+
+function bungieCarnage() {
+	var result = 0;
+	var messages = [];
+	var icon = "exclamation";
+	return new Promise(function(resolve) {
+		sequence(carnageNumbers, function network(element, resolve) {
+			request({
+				route: '/Destiny/Stats/PostGameCarnageReport/' + element + '/?definitions=false',
+				method: 'GET',
+				incomplete: function() {
+					console.error("Empty incomplete");
+				},
+				complete: resolve
+			});
+		}, function afterNetwork(response) {
+			console.log(response);
+			if (response.ErrorCode !== 1) {
+				result = response.ErrorCode;
+				messages.push(response.ErrorStatus);
+			}
+		}).then(function complete() {
+			if (result === 0) {
+				messages.push("Found in depth activity details");
+			}
+			handleResultDisplay(result, messages, "bungiecarnage", icon, resolve);
 		});
 	});
 }
@@ -268,5 +301,5 @@ document.addEventListener("DOMContentLoaded", function() {
 		return bungieConsoleData(systemDetails.xbo, "bungiexbone");
 	}).then(function() {
 		return bungieConsoleData(systemDetails.ps4, "bungieps4");
-	}).then(bungieInventories).then(bungieActivities);
+	}).then(bungieInventories).then(bungieActivities).then(bungieCarnage);
 });
