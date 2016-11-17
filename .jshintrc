@@ -28,6 +28,7 @@
 		"newCurrencies": true,
 		"data": true,
 		"sequence": false,
+		"API_KEY": false,
 		"Sortable": false,
 		"getItemDefinition": false,
 		"DestinyHistoricalItemDefinition": false,

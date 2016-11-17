@@ -12,7 +12,7 @@
 		"48": "icon48.png",
 		"128": "icon128.png"
 	},
-	"content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
+	"content_security_policy": "script-src 'self' https://www.google-analytics.com https://apis.google.com; object-src 'self'",
 	"background": {
 		"scripts": [
 			"scripts/vendor/moment.js",
@@ -35,12 +35,18 @@
 	},
 	"permissions": [
 		"storage",
-		"*://*.bungie.net/*",
-		"https://www.google-analytics.com/",
+		"*://www.bungie.net/*",
 		"cookies",
 		"unlimitedStorage",
-		"background"
+		"background",
+		"identity"
 	],
+	"oauth2": {
+		"client_id": "417718484181-n8vkc731qdjvj21cjok0udjis76nmp76.apps.googleusercontent.com",
+		"scopes": [
+			"https://www.googleapis.com/auth/drive.appfolder"
+		]
+	},
 	"optional_permissions": ["downloads"],
 	"browser_action": {
 		"default_icon": "icon16.png"
