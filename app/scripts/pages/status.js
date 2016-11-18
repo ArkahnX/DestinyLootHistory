@@ -120,7 +120,7 @@ function checkStatusWithCharacters(list, statusLocation, route, incomplete, afte
 			}, function(response) {
 				if (response.ErrorCode !== 1) {
 					status.result = response.ErrorCode;
-					status.messages.push(response.ErrorStatus);
+					status.messages.push(response.ErrorStatus + " - " + response.Message);
 				}
 				afterNetwork(response, status);
 			}).then(function() {
@@ -154,7 +154,7 @@ function bungieLogin() {
 			}
 		} else {
 			status.result = response.ErrorCode;
-			status.messages.push(response.ErrorStatus);
+			status.messages.push(response.ErrorStatus + " - " + response.Message);
 		}
 		console.log("bungielogin", status, systemDetails);
 	});
@@ -228,7 +228,7 @@ function bungieActivities() {
 }
 
 function bungieCarnage() {
-	return checkStatusWithCharacters(carnageNumbers, "bungieactivities", function route(carnageInstanceId) {
+	return checkStatusWithCharacters(carnageNumbers, "bungiecarnage", function route(carnageInstanceId) {
 		var route = '/Destiny/Stats/PostGameCarnageReport/' + carnageInstanceId + '/?definitions=false';
 		return route;
 	}, handleNetworkError, function afterNetwork(response, status) {
@@ -283,7 +283,7 @@ function bungieConsoleData(systemDetail, outputId) {
 								status.messages.push("Characters: " + systemDetail.characters.length);
 							} else {
 								status.result = response.ErrorCode;
-								status.messages.push(response.ErrorStatus);
+								status.messages.push(response.ErrorStatus + " - " + response.Message);
 							}
 							processStatusResult(status, outputId, resolve);
 						}
@@ -291,7 +291,7 @@ function bungieConsoleData(systemDetail, outputId) {
 				} else {
 					status.result = response.ErrorCode;
 					if (response.ErrorCode !== 1) {
-						status.messages.push(response.ErrorStatus);
+						status.messages.push(response.ErrorStatus + " - " + response.Message);
 					} else {
 						var systemName = (systemDetail.type === 1) ? "Xbox" : "Playstation";
 						status.messages.push("Unable to find Destiny Account for " + systemName);
