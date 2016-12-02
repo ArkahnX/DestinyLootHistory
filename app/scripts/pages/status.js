@@ -120,7 +120,9 @@ function checkStatusWithCharacters(list, statusLocation, route, incomplete, afte
 			}, function(response) {
 				if (response.ErrorCode !== 1) {
 					status.result = response.ErrorCode;
-					status.messages.push(response.ErrorStatus + " - " + response.Message);
+					if (status.messages.indexOf(response.ErrorStatus + " - " + response.Message) === -1) {
+						status.messages.push(response.ErrorStatus + " - " + response.Message);
+					}
 				}
 				afterNetwork(response, status);
 			}).then(function() {
@@ -283,7 +285,9 @@ function bungieConsoleData(systemDetail, outputId) {
 								status.messages.push("Characters: " + systemDetail.characters.length);
 							} else {
 								status.result = response.ErrorCode;
-								status.messages.push(response.ErrorStatus + " - " + response.Message);
+								if (status.messages.indexOf(response.ErrorStatus + " - " + response.Message) === -1) {
+									status.messages.push(response.ErrorStatus + " - " + response.Message);
+								}
 							}
 							processStatusResult(status, outputId, resolve);
 						}
@@ -291,7 +295,9 @@ function bungieConsoleData(systemDetail, outputId) {
 				} else {
 					status.result = response.ErrorCode;
 					if (response.ErrorCode !== 1) {
-						status.messages.push(response.ErrorStatus + " - " + response.Message);
+						if (status.messages.indexOf(response.ErrorStatus + " - " + response.Message) === -1) {
+							status.messages.push(response.ErrorStatus + " - " + response.Message);
+						}
 					} else {
 						var systemName = (systemDetail.type === 1) ? "Xbox" : "Playstation";
 						status.messages.push("Unable to find Destiny Account for " + systemName);
@@ -344,10 +350,10 @@ function bungieCookieStep() {
 
 function bungieDatabase() {
 	var status = {
-			result: 0,
-			messages: [],
-			icon: "exclamation"
-		};
+		result: 0,
+		messages: [],
+		icon: "exclamation"
+	};
 	return new Promise(function(resolve) {
 		var img = new Image();
 		img.onload = function() {
