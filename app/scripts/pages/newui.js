@@ -60,6 +60,8 @@ function frontEndUpdate() {
 		for (var item of timestamps) {
 			var localTime = moment.utc(item.dataset.timestamp).tz(timezone);
 			var activityString = "";
+			var link1 = "";
+			var link2 = "";
 			if (item.dataset.activity) {
 				var activityDef = DestinyActivityDefinition[item.dataset.activity];
 				var activityTypeDef = DestinyActivityTypeDefinition[item.dataset.activityType];
@@ -67,6 +69,8 @@ function frontEndUpdate() {
 					var activityName = activityDef.activityName;
 					var activityTypeName = activityTypeDef.activityTypeName;
 					activityString = activityTypeName + " - " + activityName;
+					link1 = `<a href="http://destinytracker.com/dg/${item.dataset.instance}" target='_blank'>`;
+					link2 = "</a>";
 				}
 				if (globalOptions.pgcrImage) {
 					item.style.backgroundImage = `url(https://www.bungie.net${activityDef.pgcrImage})`;
@@ -77,9 +81,9 @@ function frontEndUpdate() {
 				}
 			}
 			if (globalOptions.relativeDates) {
-				item.innerHTML = localTime.fromNow() + "<br>" + activityString;
+				item.innerHTML = link1 + localTime.fromNow() + "<br>" + activityString + link2;
 			} else {
-				item.innerHTML = localTime.format("ddd[,] ll LTS") + "<br>" + activityString;
+				item.innerHTML = link1 + localTime.format("ddd[,] ll LTS") + "<br>" + activityString + link2;
 			}
 			item.setAttribute("title", localTime.format("ddd[,] ll LTS") + "\n" + activityString);
 		}
@@ -114,16 +118,32 @@ function frontEndUpdate() {
 		window.requestAnimationFrame(frontEndUpdate);
 	}
 }
+
+
+
 getAllOptions().then(function(options) {
 	globalOptions = options;
 	database.open().then(function() {
 		database.getMultipleStores(database.allStores).then(function(result) {
 			localStorage.updateUI = "true";
 			frontEndUpdate();
-			// chrome.storage.local.get(null, function(result) {
-			if (chrome.runtime.lastError) {
-				console.error(chrome.runtime.lastError);
-			}
+			chrome.storage.sync.get(["authCode", "accessToken", "refreshToken"], function(tokens) {
+				if (chrome.runtime.lastError) {
+					console.error(chrome.runtime.lastError);
+				}
+				var authCode = "";
+				if (Object.keys(tokens).length === 0) {
+					if (location.search.length && location.search.split("=")[1]) {
+						authCode = location.search.split("=")[1];
+						chrome.runtime.sendMessage({
+							authCode: authCode
+						});
+					} else {
+						document.getElementById("bungieLoginButton").setAttribute("HREF", AUTH_URL);
+						document.getElementById("loginPrompt").classList.remove("hidden");
+					}
+				}
+			});
 			console.log(result);
 		});
 	});

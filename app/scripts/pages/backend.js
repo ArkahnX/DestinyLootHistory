@@ -72,6 +72,29 @@ function init() {
 		setTimeout(init, 1000);
 	}
 }
+
+function bungiePOST(url, data) {
+	return new Promise(function(resolve) {
+		let r = new XMLHttpRequest();
+		r.open("POST", url, true);
+		r.setRequestHeader('X-API-Key', API_KEY);
+		r.onreadystatechange = function() {
+			if (r.readyState === 4) {
+				if (this.status >= 200 && this.status < 400) {
+					resolve(JSON.parse(this.response));
+				}
+			}
+		};
+		r.send(JSON.stringify(data));
+	});
+}
+
+function generateTokens(code) {
+	return bungiePOST("https://www.bungie.net/Platform/App/GetAccessTokensFromCode/", {
+		"code": code
+	});
+}
+
 /**
  * STEP 1
  * This is the starting point for my application.
@@ -86,8 +109,53 @@ database.open().then(function() {
 			console.error(chrome.runtime.lastError);
 		}
 		console.info(result);
-		init();
+		chrome.storage.sync.get(["authCode", "accessToken", "refreshToken"], function(tokens) {
+			if (chrome.runtime.lastError) {
+				console.error(chrome.runtime.lastError);
+			}
+			console.log(tokens);
+			if (Object.keys(tokens).length === 3) {
+				globalTokens = tokens;
+				// refreshAccessToken();
+				// bungie.refreshAccessToken(globalTokens).then(init);
+				init();
+			} else {
+				chrome.tabs.create({
+					active: true,
+					url: chrome.extension.getURL("index.html")
+				});
+			}
+		});
+		// init();
 	});
+});
+
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+	if (request.authCode) {
+		generateTokens(request.authCode).then(function(response) {
+			var tokens = {
+				authCode: request.authCode
+			};
+			if (response.Response.accessToken && response.Response.refreshToken) {
+				console.log(response);
+				tokens.accessToken = {
+					value: response.Response.accessToken.value,
+					readyin: new Date().getTime() + (response.Response.accessToken.readyin * 1000),
+					expires: new Date().getTime() + (response.Response.accessToken.expires * 1000)
+				};
+				tokens.refreshToken = {
+					value: response.Response.refreshToken.value,
+					readyin: new Date().getTime() + (response.Response.refreshToken.readyin * 1000),
+					expires: new Date().getTime() + (response.Response.refreshToken.expires * 1000)
+				};
+				globalTokens = tokens;
+				chrome.storage.sync.set(tokens, function() {
+					// bungie.refreshAccessToken(globalTokens).then(init);
+					init();
+				});
+			}
+		});
+	}
 });
 
 // When the user clicks the chrome extension icon (Exotic Helmet) use the appClicked function (Found above)

@@ -2,8 +2,8 @@
 	"manifest_version": 2,
 	"name": "Destiny Loot History",
 	"short_name": "LootHistory",
-	"version": "1.6.2",
-	"version_name": "Release 1.6 Patch 2",
+	"version": "1.7.0",
+	"version_name": "Release 1.7",
 	"minimum_chrome_version": "51",
 	"description": "Track your Destiny item changes.",
 	"icons": {
@@ -13,6 +13,7 @@
 		"128": "icon128.png"
 	},
 	"content_security_policy": "script-src 'self' https://www.google-analytics.com https://apis.google.com; object-src 'self'",
+	"web_accessible_resources": ["index.html"],
 	"background": {
 		"scripts": [
 			"scripts/vendor/moment.js",
@@ -21,6 +22,7 @@
 			"DestinyDatabase/DestinyCompactTalentDefinition.js",
 			"DestinyDatabase/DestinyCompactDefinition.js",
 			"scripts/vendor/google-analytics-bundle.js",
+			"private.js",
 			"scripts/tools/db.js",
 			"scripts/shared.js",
 			"scripts/init.js",

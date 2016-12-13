@@ -416,7 +416,7 @@ database.open().then(function() {
 		}
 		newInventories = data.inventories;
 		tags.cleanup(data.inventories);
-		initItems(function() {
+		refreshCharacterData().then(function() {
 			var characterHTML = "";
 			for (let characterId in characterDescriptions) {
 				if (characterId !== "vault") {

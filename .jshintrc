@@ -73,6 +73,7 @@
 		"DestinyVendorDefinition": false,
 		"notification": false,
 		"initItems": false,
+		"globalTokens":true,
 		"characterDescriptions": true,
 		"parseItemQuality": false,
 		"getAllOptions": false,

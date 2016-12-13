@@ -30,7 +30,7 @@ function activityTracker() {
 	console.log("activityTracker");
 	getAllOptions().then(function(options) {
 		globalOptions = options;
-		initItems(function afterInitItems() {
+		refreshCharacterData().then(function afterInitItems() {
 			if (localStorage.error === "true") {
 				console.log("Extension has an error.");
 				localStorage.listening = "false";

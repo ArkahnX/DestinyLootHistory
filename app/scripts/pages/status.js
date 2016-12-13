@@ -47,27 +47,30 @@ function processStatusResult(status, statusLocation, resolve) {
 }
 
 function request(opts) {
-	let r = new XMLHttpRequest();
-	r.open(opts.method, "https://www.bungie.net/Platform" + opts.route, true);
-	r.setRequestHeader('X-API-Key', API_KEY);
-	r.onreadystatechange = function() {
-		if (r.readyState === 4) {
-			if (this.status >= 200 && this.status < 400) {
-				var response = JSON.parse(this.response);
-				opts.complete(response);
-			} else {
-				opts.incomplete(r.status, opts.route);
+	chrome.storage.sync.get(["authCode", "accessToken", "refreshToken"], function(localTokens) {
+		let r = new XMLHttpRequest();
+		r.open(opts.method, "https://www.bungie.net/Platform" + opts.route, true);
+		r.setRequestHeader('X-API-Key', API_KEY);
+		r.setRequestHeader('Authorization', "Bearer " + localTokens.accessToken.value);
+		r.onreadystatechange = function() {
+			if (r.readyState === 4) {
+				if (this.status >= 200 && this.status < 400) {
+					var response = JSON.parse(this.response);
+					opts.complete(response);
+				} else {
+					opts.incomplete(r.status, opts.route);
+				}
 			}
-		}
-	};
-	// r.onerror = function(error) {
-	// 	opts.incomplete(r.status, opts.route);
-	// };
-	r.withCredentials = true;
-	r.setRequestHeader('x-csrf', cookieResults.bungled);
-	opts.csrf = cookieResults.bungled;
-	opts.atk = cookieResults.bungleatk.length;
-	r.send(JSON.stringify(opts.payload));
+		};
+		// r.onerror = function(error) {
+		// 	opts.incomplete(r.status, opts.route);
+		// };
+		r.withCredentials = true;
+		r.setRequestHeader('x-csrf', cookieResults.bungled);
+		opts.csrf = cookieResults.bungled;
+		opts.atk = cookieResults.bungleatk.length;
+		r.send(JSON.stringify(opts.payload));
+	});
 }
 
 function checkStatus(statusLocation, route, incomplete, complete) {
@@ -138,6 +141,16 @@ function checkStatusWithCharacters(list, statusLocation, route, incomplete, afte
 }
 
 function bungieLogin() {
+	// request({
+	// 	route: "/User/GetCurrentBungieAccount/",
+	// 	method: 'GET',
+	// 	incomplete: function(response, address) {
+	// 		console.log(response, address);
+	// 	},
+	// 	complete: function(response) {
+	// 		console.log(response);
+	// 	}
+	// });
 	return checkStatus("bungielogin", "/User/GetBungieNetUser/", handleNetworkError, function(response, status) {
 		console.log(response);
 		if (response.ErrorCode === 1) {
@@ -374,5 +387,22 @@ document.addEventListener("DOMContentLoaded", function() {
 		return bungieConsoleData(systemDetails.xbo, "bungiexbone");
 	}).then(function() {
 		return bungieConsoleData(systemDetails.ps4, "bungieps4");
-	}).then(bungieInventories).then(bungieActivities).then(bungieCarnage).then(bungieVendors).then(bungieFactions).then(bungieDatabase);
+	}).then(bungieInventories).then(bungieActivities).then(bungieCarnage).then(bungieVendors).then(bungieFactions).then(bungieDatabase).then(function() {
+		bungie.getCurrentBungieAccount().then(function(response) {
+			console.log(response);
+			bungie.vault().then(function(vault) {
+				console.log(vault);
+				bungie.vaultSummary().then(function(vaultSummary) {
+					console.log(vaultSummary);
+					let accounts = bungie.getCurrentAccount();
+					bungie.inventory(accounts.characters[0].characterId).then(function(data1) {
+						console.log(data1);
+						bungie.inventorySummary(accounts.characters[0].characterId).then(function(data2) {
+							console.log(data2);
+						});
+					});
+				});
+			});
+		});
+	});
 });

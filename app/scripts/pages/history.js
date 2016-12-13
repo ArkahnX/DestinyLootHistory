@@ -128,6 +128,6 @@ database.open().then(function() {
 		}
 		data.itemChanges = result.itemChanges;
 		data.inventories = result.inventories;
-		initItems(checkInventory);
+		refreshCharacterData().then(checkInventory);
 	});
 });

@@ -914,7 +914,7 @@ function postInitItems() {
 				if (event.target.dataset.feature === "emblems") {
 					elements.status.classList.add("active");
 					if (!bungieProfileLoaded) {
-						initItems(function() {
+						refreshCharacterData().then(function() {
 							bungieProfileLoaded = true;
 							findEmblems();
 						});
@@ -925,7 +925,7 @@ function postInitItems() {
 				if (event.target.dataset.feature === "shaders") {
 					elements.status.classList.add("active");
 					if (!bungieProfileLoaded) {
-						initItems(function() {
+						refreshCharacterData().then(function() {
 							bungieProfileLoaded = true;
 							findShaders();
 						});
@@ -936,7 +936,7 @@ function postInitItems() {
 				if (event.target.dataset.feature === "ships") {
 					elements.status.classList.add("active");
 					if (!bungieProfileLoaded) {
-						initItems(function() {
+						refreshCharacterData().then(function() {
 							bungieProfileLoaded = true;
 							findShips();
 						});
@@ -947,7 +947,7 @@ function postInitItems() {
 				if (event.target.dataset.feature === "sparrows") {
 					elements.status.classList.add("active");
 					if (!bungieProfileLoaded) {
-						initItems(function() {
+						refreshCharacterData().then(function() {
 							bungieProfileLoaded = true;
 							findSparrows();
 						});
@@ -960,7 +960,7 @@ function postInitItems() {
 					database.getAllEntries("inventories").then(function(data) {
 						newInventories = data.inventories;
 						if (!bungieProfileLoaded) {
-							initItems(function() {
+							refreshCharacterData().then(function() {
 								bungieProfileLoaded = true;
 								findT12();
 							});
