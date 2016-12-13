@@ -24,7 +24,7 @@ function refreshCharacterData() {
 		console.log("refreshCharacterData");
 		console.time("load Bungie Data");
 		let updatefn = bungie.getCurrentBungieAccount;
-		if(bungie.ready()) {
+		if (bungie.ready()) {
 			updatefn = bungie.accountInfo;
 		}
 		getOption("activeType").then(bungie.setActive).then(updatefn).then(function(response) {
@@ -362,7 +362,10 @@ function buildCompactItem(itemData) {
 				progress: itemData.objectives[l].progress
 			};
 			completed += newItemData.objectives[l].progress;
-			completionValue += DestinyObjectiveDefinition[itemData.objectives[l].objectiveHash].completionValue;
+			var objective = DestinyObjectiveDefinition[itemData.objectives[l].objectiveHash];
+			if (objective && objective.completionValue) {
+				completionValue += objective.completionValue;
+			}
 		}
 		if (completed === completionValue) {
 			newItemData.isGridComplete = true;
@@ -413,22 +416,26 @@ function buildCompactItem(itemData) {
 		var talentDef = DestinyCompactTalentDefinition[itemData.talentGridHash];
 		var finalNode;
 		var progressDef = DestinyProgressionDefinition[itemData.progression.progressionHash];
-		for (let node of newItemData.nodes) {
-			var nodeDef = talentDef.nodes[node.nodeHash];
-			var stepDef = nodeDef.steps[node.stepIndex];
-			var activatedAtGridLevel = stepDef.activationRequirement.gridLevel;
-			if (activatedAtGridLevel <= totalLevel && node.state === 0) {
-				node.state = 1;
-			}
-			if (activatedAtGridLevel > maxGridLevel) {
-				maxGridLevel = activatedAtGridLevel;
-				finalNode = node;
-			}
-			if (!finalNode) {
-				finalNode = node;
+		if (talentDef && progressDef) {
+			for (let node of newItemData.nodes) {
+				var nodeDef = talentDef.nodes[node.nodeHash];
+				if (nodeDef) {
+					var stepDef = nodeDef.steps[node.stepIndex];
+					var activatedAtGridLevel = stepDef.activationRequirement.gridLevel;
+					if (activatedAtGridLevel <= totalLevel && node.state === 0) {
+						node.state = 1;
+					}
+					if (activatedAtGridLevel > maxGridLevel) {
+						maxGridLevel = activatedAtGridLevel;
+						finalNode = node;
+					}
+					if (!finalNode) {
+						finalNode = node;
+					}
+				}
 			}
 		}
-		if (newItemData.nodes && newItemData.nodes.length && finalNode.isActivated) {
+		if (newItemData.nodes && newItemData.nodes.length && finalNode && finalNode.isActivated) {
 			newItemData.isGridComplete = true;
 		}
 		if (maxGridLevel > 0) {
