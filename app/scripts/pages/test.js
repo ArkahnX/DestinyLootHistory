@@ -26,6 +26,7 @@ function checkInventory() {
 	// console.startLogging("items");
 	console.time("Bungie Inventory");
 	elements.status.classList.add("active");
+	tracker.sendEvent('Inventory', 'Check', 'True');
 	database.getAllEntries("inventories").then(function(remoteData) {
 		getAllOptions().then(function(options) {
 			globalOptions = options;

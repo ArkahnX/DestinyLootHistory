@@ -28,16 +28,16 @@ function itemInArray(array, value) {
 function goodItemToDisplay(item) {
 	var itemDataType = itemType(item);
 	var itemDataRarity = itemRarity(item.itemHash);
-	if(itemDataType === "engram" || itemDataType === "currency" || itemDataType === "bounty") {
+	if (itemDataType === "engram" || itemDataType === "currency" || itemDataType === "bounty") {
 		return false;
 	}
-	if(itemDataRarity === "uncommon" && (itemDataType === "armor" || itemDataType === "weapon")) {
+	if (itemDataRarity === "uncommon" && (itemDataType === "armor" || itemDataType === "weapon")) {
 		return false;
 	}
-	if(itemDataRarity === "rare" && (itemDataType === "armor" || itemDataType === "weapon")) {
+	if (itemDataRarity === "rare" && (itemDataType === "armor" || itemDataType === "weapon")) {
 		return false;
 	}
-	if(itemDataRarity === "common" && (itemDataType === "armor" || itemDataType === "weapon")) {
+	if (itemDataRarity === "common" && (itemDataType === "armor" || itemDataType === "weapon")) {
 		return false;
 	}
 	return true;
@@ -76,7 +76,7 @@ function checkInventory() {
 	// return false;
 	var sourceIndex = 0;
 	var sources = [3107502809, 36493462, 460228854, 3945957624, 344892955, 3739898362, 24296771];
-	var descriptions = ["Dark Below", "House of Wolves", "The Taken King", "Sparrow Racing League", "Crimson Doubles", "April Update", "Rise of Iron"];
+	var descriptions = ["Dark Below", "House of Wolves", "The Taken King", "Sparrow Racing League", "Crimson Doubles", "April Update", "Rise of Iron", "Dawning"];
 	var div = document.createElement("div");
 	div.classList.add("sub-section");
 	var description = document.createElement("h1");
@@ -128,6 +128,7 @@ database.open().then(function() {
 		}
 		data.itemChanges = result.itemChanges;
 		data.inventories = result.inventories;
-		initItems(checkInventory);
+		tracker.sendEvent('History', 'Load', 'True');
+		refreshCharacterData().then(checkInventory);
 	});
 });

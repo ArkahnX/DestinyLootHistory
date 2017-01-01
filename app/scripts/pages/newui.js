@@ -21,6 +21,10 @@ function frontEndUpdate() {
 		globalOptions = options;
 		tags.update();
 	});
+	if(location.hash === "#notifications") {
+		window.location.hash = "";
+		notification.show();
+	}
 	if (elements.toggleSystem) {
 		getOption("activeType").then(function(activeType) {
 			if (activeType === "xbl" && elements.toggleSystem.value !== "Swap to PSN") {
@@ -35,16 +39,15 @@ function frontEndUpdate() {
 	}
 	if (localStorage.error === "true") {
 		if (notificationCooldown === 0) {
-			notification.show();
 			elements.status.classList.add("active", "error");
 			elements.status.classList.remove("idle");
 			localStorage.listening = "false";
 		}
 	} else {
 		if (localStorage.notificationClosed === "false") {
-			notification.show(notification.changelog);
+			notification.update();
 		} else {
-			notification.hide();
+			// notification.hide();
 		}
 		if (localStorage.listening === "false") {
 			elements.status.classList.add("idle");
@@ -60,6 +63,8 @@ function frontEndUpdate() {
 		for (var item of timestamps) {
 			var localTime = moment.utc(item.dataset.timestamp).tz(timezone);
 			var activityString = "";
+			var link1 = "";
+			var link2 = "";
 			if (item.dataset.activity) {
 				var activityDef = DestinyActivityDefinition[item.dataset.activity];
 				var activityTypeDef = DestinyActivityTypeDefinition[item.dataset.activityType];
@@ -67,6 +72,8 @@ function frontEndUpdate() {
 					var activityName = activityDef.activityName;
 					var activityTypeName = activityTypeDef.activityTypeName;
 					activityString = activityTypeName + " - " + activityName;
+					link1 = `<a href="http://destinytracker.com/dg/${item.dataset.instance}" target='_blank'>`;
+					link2 = "</a>";
 				}
 				if (globalOptions.pgcrImage) {
 					item.style.backgroundImage = `url(https://www.bungie.net${activityDef.pgcrImage})`;
@@ -77,9 +84,9 @@ function frontEndUpdate() {
 				}
 			}
 			if (globalOptions.relativeDates) {
-				item.innerHTML = localTime.fromNow() + "<br>" + activityString;
+				item.innerHTML = link1 + localTime.fromNow() + "<br>" + activityString + link2;
 			} else {
-				item.innerHTML = localTime.format("ddd[,] ll LTS") + "<br>" + activityString;
+				item.innerHTML = link1 + localTime.format("ddd[,] ll LTS") + "<br>" + activityString + link2;
 			}
 			item.setAttribute("title", localTime.format("ddd[,] ll LTS") + "\n" + activityString);
 		}
@@ -114,17 +121,23 @@ function frontEndUpdate() {
 		window.requestAnimationFrame(frontEndUpdate);
 	}
 }
-getAllOptions().then(function(options) {
-	globalOptions = options;
-	database.open().then(function() {
-		database.getMultipleStores(database.allStores).then(function(result) {
-			localStorage.updateUI = "true";
-			frontEndUpdate();
-			// chrome.storage.local.get(null, function(result) {
-			if (chrome.runtime.lastError) {
-				console.error(chrome.runtime.lastError);
-			}
-			console.log(result);
+
+chrome.storage.sync.get(["authCode", "accessToken", "refreshToken"], function(tokens) {
+	if (chrome.runtime.lastError) {
+		console.error(chrome.runtime.lastError);
+	}
+	if (Object.keys(tokens).length === 0) {
+		window.location.href = "auth.html";
+	} else {
+		getAllOptions().then(function(options) {
+			globalOptions = options;
+			database.open().then(function() {
+				database.getMultipleStores(database.allStores).then(function(result) {
+					localStorage.updateUI = "true";
+					frontEndUpdate();
+					console.log(result);
+				});
+			});
 		});
-	});
+	}
 });

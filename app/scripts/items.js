@@ -19,6 +19,84 @@ var characterDescriptions = {
 	}
 };
 
+function refreshCharacterData() {
+	return new Promise(function(resolve) {
+		console.log("refreshCharacterData");
+		console.time("load Bungie Data");
+		let updatefn = bungie.getCurrentBungieAccount;
+		if (bungie.ready()) {
+			updatefn = bungie.accountInfo;
+		}
+		getOption("activeType").then(bungie.setActive).then(updatefn).then(function(response) {
+			let account = bungie.getCurrentAccount();
+			if (account) {
+				var avatars = account.characters;
+				var membershipId = account.membershipId;
+				var newestCharacter = "vault";
+				var newestDate = 0;
+				var maxLight = globalOptions.minLight;
+				for (var character in characterDescriptions) {
+					if (characterDescriptions[character].membershipId !== membershipId) {
+						delete characterDescriptions[character];
+					}
+				}
+				for (let avatar of avatars) {
+					if (!characterDescriptions[avatar.characterId]) {
+						let icon = "img/missing.png";
+						if (DestinyClassDefinition[avatar.classHash].classType === 0) {
+							icon = DestinyCompactItemDefinition[1723894001].icon;
+						}
+						if (DestinyClassDefinition[avatar.classHash].classType === 1) {
+							icon = DestinyCompactItemDefinition[855333071].icon;
+						}
+						if (DestinyClassDefinition[avatar.classHash].classType === 2) {
+							icon = DestinyCompactItemDefinition[776529032].icon;
+						}
+						characterDescriptions[avatar.characterId] = {
+							name: DestinyClassDefinition[avatar.classHash].className,
+							gender: DestinyGenderDefinition[avatar.genderHash].genderName,
+							level: avatar.baseCharacterLevel,
+							icon: icon,
+							membershipId: membershipId,
+							light: avatar.powerLevel,
+							race: DestinyRaceDefinition[avatar.raceHash].raceName,
+							dateLastPlayed: avatar.dateLastPlayed,
+							currentActivityHash: avatar.currentActivityHash
+						};
+					} else { // we already have set these characters so just update their data.
+						characterDescriptions[avatar.characterId].level = avatar.baseCharacterLevel;
+						characterDescriptions[avatar.characterId].light = avatar.powerLevel;
+						characterDescriptions[avatar.characterId].dateLastPlayed = avatar.dateLastPlayed;
+						characterDescriptions[avatar.characterId].currentActivityHash = avatar.currentActivityHash;
+					}
+					if (avatar.powerLevel > maxLight) {
+						maxLight = avatar.powerLevel;
+					}
+					if (new Date(avatar.dateLastPlayed).getTime() > new Date(newestDate).getTime()) { // set newest character for 3oC reminder
+						newestDate = avatar.dateLastPlayed;
+						newestCharacter = avatar.characterId;
+					}
+					if (characterIdList.indexOf(avatar.characterId) === -1) {
+						characterIdList.push(avatar.characterId);
+					}
+				}
+				localStorage.newestCharacter = newestCharacter;
+				localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
+				if (globalOptions.useGuardianLight && maxLight !== globalOptions.minLight) {
+					setOption("minLight", maxLight);
+				}
+			}
+			console.timeEnd("load Bungie Data");
+			resolve();
+		}).catch(function(err) {
+			if (err) {
+				console.error(err);
+			}
+			resolve();
+		});
+	});
+}
+
 function initItems(callback) {
 	console.log("initItems");
 	// console.log("Arrived at initItems");
@@ -286,7 +364,10 @@ function buildCompactItem(itemData) {
 				progress: itemData.objectives[l].progress
 			};
 			completed += newItemData.objectives[l].progress;
-			completionValue += DestinyObjectiveDefinition[itemData.objectives[l].objectiveHash].completionValue;
+			var objective = DestinyObjectiveDefinition[itemData.objectives[l].objectiveHash];
+			if (objective && objective.completionValue) {
+				completionValue += objective.completionValue;
+			}
 		}
 		if (completed === completionValue) {
 			newItemData.isGridComplete = true;
@@ -337,22 +418,26 @@ function buildCompactItem(itemData) {
 		var talentDef = DestinyCompactTalentDefinition[itemData.talentGridHash];
 		var finalNode;
 		var progressDef = DestinyProgressionDefinition[itemData.progression.progressionHash];
-		for (let node of newItemData.nodes) {
-			var nodeDef = talentDef.nodes[node.nodeHash];
-			var stepDef = nodeDef.steps[node.stepIndex];
-			var activatedAtGridLevel = stepDef.activationRequirement.gridLevel;
-			if (activatedAtGridLevel <= totalLevel && node.state === 0) {
-				node.state = 1;
-			}
-			if (activatedAtGridLevel > maxGridLevel) {
-				maxGridLevel = activatedAtGridLevel;
-				finalNode = node;
-			}
-			if (!finalNode) {
-				finalNode = node;
+		if (talentDef && progressDef) {
+			for (let node of newItemData.nodes) {
+				var nodeDef = talentDef.nodes[node.nodeHash];
+				if (nodeDef) {
+					var stepDef = nodeDef.steps[node.stepIndex];
+					var activatedAtGridLevel = stepDef.activationRequirement.gridLevel;
+					if (activatedAtGridLevel <= totalLevel && node.state === 0) {
+						node.state = 1;
+					}
+					if (activatedAtGridLevel > maxGridLevel) {
+						maxGridLevel = activatedAtGridLevel;
+						finalNode = node;
+					}
+					if (!finalNode) {
+						finalNode = node;
+					}
+				}
 			}
 		}
-		if (newItemData.nodes && newItemData.nodes.length && finalNode.isActivated) {
+		if (newItemData.nodes && newItemData.nodes.length && finalNode && finalNode.isActivated) {
 			newItemData.isGridComplete = true;
 		}
 		if (maxGridLevel > 0) {
@@ -575,87 +660,28 @@ function grabRemoteInventory(resolve, reject) {
 	var currentDateString = moment().utc().format();
 	getOption("activeType").then(bungie.setActive);
 	// found in bungie.js
-	bungie.user().then(function afterBungieUser() {
-		bungie.search().then(function afterBungieSearch(guardian) {
-			console.timeEnd("Bungie Search");
-			let characters = guardian.data.characters;
-			let membershipId = guardian.data.membershipId;
-			var newestDate = 0;
-			var maxLight = globalOptions.minLight;
-			// record some descriptors for each character
-			for (var character in characterDescriptions) {
-				if (characterDescriptions[character].membershipId !== membershipId) {
-					delete characterDescriptions[character];
-				}
-			}
-			for (let avatar of characters) {
-				if (!characterDescriptions[avatar.characterBase.characterId]) {
-					let icon = "img/missing.png";
-					if (DestinyClassDefinition[avatar.characterBase.classHash].classType === 0) {
-						icon = DestinyCompactItemDefinition[1723894001].icon;
+	refreshCharacterData().then(function() {
+		console.timeEnd("Bungie Search");
+
+		console.time("Bungie Items");
+		// Loop through all found characters and save their new Item data to newInventories
+		console.info("Character List", characterIdList);
+		sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
+			console.timeEnd("Bungie Items");
+			console.time("Bungie Faction");
+			// loop through all characters and save their new Faction data to newProgression
+			sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
+				console.timeEnd("Bungie Faction");
+				console.time("Bungie Advisors");
+				bungie.advisorsForAccount().catch(function(err) {
+					if (err) {
+						console.error(err);
 					}
-					if (DestinyClassDefinition[avatar.characterBase.classHash].classType === 1) {
-						icon = DestinyCompactItemDefinition[855333071].icon;
-					}
-					if (DestinyClassDefinition[avatar.characterBase.classHash].classType === 2) {
-						icon = DestinyCompactItemDefinition[776529032].icon;
-					}
-					characterDescriptions[avatar.characterBase.characterId] = {
-						name: DestinyClassDefinition[avatar.characterBase.classHash].className,
-						gender: DestinyGenderDefinition[avatar.characterBase.genderHash].genderName,
-						level: avatar.baseCharacterLevel,
-						light: avatar.characterBase.powerLevel,
-						icon: icon,
-						membershipId: membershipId,
-						race: DestinyRaceDefinition[avatar.characterBase.raceHash].raceName,
-						dateLastPlayed: avatar.characterBase.dateLastPlayed,
-						currentActivityHash: avatar.characterBase.currentActivityHash
-					};
-				} else { // we already have set these characters so just update their data.
-					characterDescriptions[avatar.characterBase.characterId].level = avatar.baseCharacterLevel;
-					characterDescriptions[avatar.characterBase.characterId].light = avatar.characterBase.powerLevel;
-					characterDescriptions[avatar.characterBase.characterId].dateLastPlayed = avatar.characterBase.dateLastPlayed;
-					characterDescriptions[avatar.characterBase.characterId].currentActivityHash = avatar.characterBase.currentActivityHash;
-				}
-				if (avatar.characterBase.powerLevel > maxLight) {
-					maxLight = avatar.characterBase.powerLevel;
-				}
-				if (new Date(avatar.characterBase.dateLastPlayed).getTime() > new Date(newestDate).getTime()) { // set newest character for 3oC reminder
-					newestDate = avatar.characterBase.dateLastPlayed;
-					newestCharacter = avatar.characterBase.characterId;
-				}
-				if (characterIdList.indexOf(avatar.characterBase.characterId) === -1) {
-					characterIdList.push(avatar.characterBase.characterId);
-				}
-			}
-			localStorage.newestCharacter = newestCharacter;
-			localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
-			if (globalOptions.useGuardianLight && maxLight !== globalOptions.minLight) {
-				setOption("minLight", maxLight);
-			}
-			console.time("Bungie Items");
-			// Loop through all found characters and save their new Item data to newInventories
-			console.info("Character List", characterIdList);
-			sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
-				console.timeEnd("Bungie Items");
-				console.time("Bungie Faction");
-				// loop through all characters and save their new Faction data to newProgression
-				sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
-					console.timeEnd("Bungie Faction");
-					console.time("Bungie Advisors");
-					bungie.advisorsForAccount().catch(function(err) {
-						if (err) {
-							console.error(err);
-						}
-						afterAdvisors(false, resolve, currentDateString);
-					}).then(function(advisorData) {
-						afterAdvisors(advisorData, resolve, currentDateString);
-					});
+					afterAdvisors(false, resolve, currentDateString);
+				}).then(function(advisorData) {
+					afterAdvisors(advisorData, resolve, currentDateString);
 				});
 			});
-		}).catch(function() {
-			// console.log("left at grabRemoteInventory");
-			reject();
 		});
 	}).catch(function() {
 		// console.log("left at grabRemoteInventory");

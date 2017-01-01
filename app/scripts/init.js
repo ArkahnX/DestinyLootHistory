@@ -120,6 +120,9 @@ function initializeStoredVariables() {
 			var newOptions = {
 				options: {}, // used for exporting, eventually
 				activeType: "psn",
+				authCode:"",
+				accessToken:"",
+				refreshToken:"",
 				autoLock: false,
 				track3oC: true,
 				trackBoosters: true,
