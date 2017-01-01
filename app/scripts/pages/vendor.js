@@ -416,7 +416,7 @@ database.open().then(function() {
 		}
 		newInventories = data.inventories;
 		tags.cleanup(data.inventories);
-		initItems(function() {
+		refreshCharacterData().then(function() {
 			var characterHTML = "";
 			for (let characterId in characterDescriptions) {
 				if (characterId !== "vault") {
@@ -427,12 +427,14 @@ database.open().then(function() {
 			for (let vendor of DestinyVendorDefinition) {
 				if (vendor.summary.vendorCategoryHashes.length || vendor.summary.vendorSubcategoryHash) {
 					for (let categoryHash of vendor.summary.vendorCategoryHashes) {
-						if (!vendors[categoryHash]) {
-							vendors[categoryHash] = [];
+						if (categoryHash !== 700) {
+							if (!vendors[categoryHash]) {
+								vendors[categoryHash] = [];
+							}
+							vendors[categoryHash].push(vendor.summary);
 						}
-						vendors[categoryHash].push(vendor.summary);
 					}
-					if (vendor.summary.vendorSubcategoryHash) {
+					if (vendor.summary.vendorSubcategoryHash && vendor.summary.vendorSubcategoryHash !== 700) {
 						if (!vendors[vendor.summary.vendorSubcategoryHash]) {
 							vendors[vendor.summary.vendorSubcategoryHash] = [];
 						}
@@ -483,6 +485,7 @@ database.open().then(function() {
 });
 
 function getVendor(hash) {
+	tracker.sendEvent('Vendor', 'Get', hash);
 	elements.status.classList.add("active");
 	var mainContainer = document.getElementById("history");
 	mainContainer.innerHTML = "";
@@ -494,8 +497,8 @@ function getVendor(hash) {
 			console.error(err);
 		}
 	}).then(function(vendorData) {
-		console.log(vendorData, DestinyVendorDefinition[lastVendor]);
-		if (vendorData.vendorHash) {
+		if (vendorData && vendorData.vendorHash) {
+			console.log(vendorData, DestinyVendorDefinition[lastVendor]);
 			document.getElementById("history").innerHTML = "";
 			makeItemsFromVendor(vendorData);
 		} else {
@@ -507,6 +510,7 @@ function getVendor(hash) {
 }
 
 function compareVendor(vendorHash, compareHash) {
+	tracker.sendEvent('Vendor', 'Compare', vendorHash + '-' + compareHash);
 	elements.status.classList.add("active");
 	var mainContainer = document.getElementById("history");
 	mainContainer.innerHTML = "";

@@ -1,4 +1,4 @@
-var elements = {// jshint ignore:line
+var elements = { // jshint ignore:line
 	date: document.getElementById("date"),
 	added: document.getElementById("added"),
 	removed: document.getElementById("removed"),
@@ -60,7 +60,7 @@ var elementNames = {
 };
 
 var currentItemSet = [];
-var moment = moment || null;// jshint ignore:line
+var moment = moment || null; // jshint ignore:line
 
 if (moment) {
 	var timezone = moment.tz.guess();
@@ -74,7 +74,7 @@ function getOffset(el) {
 	}
 }
 
-function initUi(elementTarget) {// jshint ignore:line
+function initUi(elementTarget) { // jshint ignore:line
 	for (var elementName in elements) {
 		if (elementNames[elementName]) {
 			elements[elementName] = document.getElementById(elementNames[elementName]);
@@ -279,6 +279,7 @@ function initUi(elementTarget) {// jshint ignore:line
 }
 
 function handleCheckboxChange(event) {
+	tracker.sendEvent('Options', event.target.id, event.target.checked);
 	setOption(event.target.id, event.target.checked);
 }
 
@@ -392,52 +393,6 @@ function createProgress(itemDiff, className, moveType, searchData) {
 		}
 		subContainer.appendChild(docfrag);
 	}
-	for (var typeInfo in searchData) {
-		subContainer.dataset[typeInfo] = searchData[typeInfo];
-	}
-	return subContainer;
-}
-
-function createDate(itemDiff, className, searchData) {
-	var timestamp = itemDiff.timestamp;
-	var activity = "";
-	var activityType = "";
-	if (itemDiff.match) {
-		var match = JSON.parse(itemDiff.match);
-		activity = match.activityHash;
-		activityType = match.activityTypeHashOverride || DestinyActivityDefinition[match.activityHash].activityTypeHash;
-	}
-	var subContainer = document.createElement("div");
-	subContainer.classList.add("sub-section", className, "timestamp");
-
-	var localTime = moment.utc(timestamp).tz(timezone);
-	var activityString = "";
-	if (activity) {
-		var activityDef = DestinyActivityDefinition[activity];
-		var activityTypeDef = DestinyActivityTypeDefinition[activityType];
-		if (activityDef && activityTypeDef) {
-			var activityName = activityDef.activityName;
-			var activityTypeName = activityTypeDef.activityTypeName;
-			activityString = activityTypeName + " - " + activityName;
-		}
-		if (globalOptions.pgcrImage) {
-			subContainer.style.backgroundImage = `url(https://www.bungie.net${activityDef.pgcrImage})`;
-			subContainer.classList.add("bg");
-		} else {
-			subContainer.style.backgroundImage = "";
-			subContainer.classList.remove("bg");
-		}
-	}
-	if (globalOptions.relativeDates) {
-		subContainer.innerHTML = localTime.fromNow() + "<br>" + activityString;
-	} else {
-		subContainer.innerHTML = localTime.format("ddd[,] ll LTS") + "<br>" + activityString;
-	}
-	subContainer.setAttribute("title", localTime.format("ddd[,] ll LTS") + "\n" + activityString);
-	subContainer.dataset.timestamp = timestamp;
-	subContainer.dataset.activity = activity;
-	subContainer.dataset.activityType = activityType;
-	subContainer.dataset.index = itemDiff.id;
 	for (var typeInfo in searchData) {
 		subContainer.dataset[typeInfo] = searchData[typeInfo];
 	}
@@ -1079,8 +1034,14 @@ function fillDateSection(subContainer, itemDiff, className) {
 	var timestamp = itemDiff.timestamp;
 	var activity = "";
 	var activityType = "";
+	var link1 = "";
+	var link2 = "";
+	var instance = "";
 	if (itemDiff.match) {
 		var match = JSON.parse(itemDiff.match);
+		link1 = `<a href="http://destinytracker.com/dg/${match.activityInstance}" target='_blank'>`;
+		link2 = "</a>";
+		instance = match.activityInstance;
 		activity = match.activityHash;
 		activityType = match.activityTypeHashOverride || DestinyActivityDefinition[match.activityHash].activityTypeHash;
 	}
@@ -1105,15 +1066,16 @@ function fillDateSection(subContainer, itemDiff, className) {
 		}
 	}
 	if (globalOptions.relativeDates) {
-		subContainer.innerHTML = localTime.fromNow() + "<br>" + activityString;
+		subContainer.innerHTML = link1 + localTime.fromNow() + "<br>" + activityString + link2;
 	} else {
-		subContainer.innerHTML = localTime.format("ddd[,] ll LTS") + "<br>" + activityString;
+		subContainer.innerHTML = link1 + localTime.format("ddd[,] ll LTS") + "<br>" + activityString + link2;
 	}
 	subContainer.setAttribute("title", localTime.format("ddd[,] ll LTS") + "\n" + activityString);
 	subContainer.dataset.timestamp = timestamp;
 	subContainer.dataset.activity = activity;
 	subContainer.dataset.activityType = activityType;
 	subContainer.dataset.index = itemDiff.id;
+	subContainer.dataset.instance = instance;
 	// var searchData = makeSearchData(itemDiff);
 	// for (var typeInfo in searchData) {
 	// 	subContainer.dataset[typeInfo] = searchData[typeInfo];

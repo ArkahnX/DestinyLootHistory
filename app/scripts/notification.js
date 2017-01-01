@@ -1,63 +1,41 @@
 var notification = (function() {
 	let active = true;
 	let container = document.getElementById("notification");
-	let text = document.getElementById("notification-text");
+	let closeButton = document.getElementById("notification-close");
+	let icon = document.getElementById("notification-icon");
 
-	function show(content) {
-		if (content && container.style.top === "0px") {
-			return false;
-		}
-		active = false;
-		if (!content) {
-			active = true;
-			container.classList.add("error");
-		} else {
-			container.classList.remove("error");
-		}
-		text.innerHTML = content || localStorage.errorMessage + '<br />Please click "Restart Tracking" to try again.';
-		// container.classList.add("live");
-		container.style.top = "0px";
+	function show() {
+		container.classList.add("live");
+		icon.children[0].classList.remove("fa-envelope");
+		icon.children[0].classList.add("fa-envelope-o");
+		localStorage.notificationClosed = "true";
+		icon.dataset.title = "Notifications";
+		icon.classList.remove("green");
 	}
 
 	function hide() {
-		if (active) {
-			active = false;
-			container.style.top = ((container.offsetHeight + 5) * -1) + "px";
-			container.classList.remove("error");
+		container.classList.remove("live");
+	}
+
+	function update() {
+		localStorage.notificationClosed = localStorage.notificationClosed || "true";
+		if (localStorage.notificationClosed === "false") {
+			icon.children[0].classList.remove("fa-envelope-o");
+			icon.children[0].classList.add("fa-envelope");
+			icon.dataset.title = "Unread Notifications";
+			icon.classList.add("green");
 		}
 	}
 
-	let manifest = chrome.runtime.getManifest();
-	const changelog = `New in ${manifest.version}:<br>
-<ul>
-	<li>Got problems or suggestions? <a href="https://www.reddit.com/message/compose/?to=ArkahnX" target="_blank">Message ArkahnX</a> on Reddit!</li>
-	<li><a href="http://imgur.com/a/Ybyvw" target="_blank">Gallery of new features.</a></li>
-	<li>Left click an item to tag!</li>
-	<li>"<a href="productivity.html" target="_blank">Productivity</a>" page, see your destiny inventory changes in a day, a week, or more.</li>
-	<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSclw25EYaJKXQ-iieH8TLYDV5qmGnqgQo79drn8Jkzuq-1bdQ/viewform">Answer a two question survey to help direct the next version of destiny Loot History!</a></li>
-</ul>`;
+	update();
 
-	localStorage.notificationClosed = localStorage.notificationClosed || "true";
-	if (localStorage.notificationClosed === "false") {
-		show(changelog);
-	} else {
+	closeButton.addEventListener("click", function() {
 		hide();
-	}
-
-	container.addEventListener("click", function(event) {
-		if (event.target.nodeName !== "A") {
-			active = false;
-			container.style.top = ((container.offsetHeight + 5) * -1) + "px";
-			if (container.classList.contains("error") === false) {
-				localStorage.notificationClosed = "true";
-			}
-			container.classList.remove("error");
-		}
 	}, true);
 
 	return {
+		update,
 		hide,
-		show,
-		changelog
+		show
 	};
 }());

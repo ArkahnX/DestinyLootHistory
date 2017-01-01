@@ -72,7 +72,7 @@ var service = analytics.getService('DestinyLootHistory');
 
 // You can create as many trackers as you want. Each tracker has its own state
 // independent of other tracker instances.
-var tracker = service.getTracker('UA-77020265-2'); // Supply your GA Tracking ID.
+var tracker = service.getTracker('UA-77020265-3'); // Supply your GA Tracking ID.
 
 function recursive(index, array, networkTask, resultTask, endRecursion) {
 	if (array[index]) {
@@ -137,12 +137,7 @@ function pad(pad, str, padLeft) {
 var globalOptions = {};
 var DEBUG = false;
 var manifest = chrome.runtime.getManifest();
-var API_KEY = "4a6cc3aa21d94c949e3f44736d036a8f";
-if(chrome.runtime.id === "pibnhnopgkbocjnhinnnojckpnhkghkl") {
-	API_KEY = "f4881b8a8df441e3a5168180ce209e48";
-} else if(chrome.runtime.id === "fhmfkcgmbdfofgkfpmnpdcofebgbiidg") {
-	API_KEY = "1f53b0bed72f4098a51d82c07a4c6603";
-}
+var globalTokens = {};
 
 if (!manifest.key) {
 	DEBUG = true;

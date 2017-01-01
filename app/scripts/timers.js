@@ -30,7 +30,7 @@ function activityTracker() {
 	console.log("activityTracker");
 	getAllOptions().then(function(options) {
 		globalOptions = options;
-		initItems(function afterInitItems() {
+		refreshCharacterData().then(function afterInitItems() {
 			if (localStorage.error === "true") {
 				console.log("Extension has an error.");
 				localStorage.listening = "false";
@@ -65,7 +65,7 @@ function inventoryCheck() {
 		console.log(`Error: ${localStorage.error}, Listening: ${localStorage.listening}, Item Change: ${localStorage.itemChangeDetected}`);
 		var endTime = window.performance.now();
 		var resultTime = Math.floor(endTime - startTime);
-		tracker.sendEvent('Passed BungieTracking and CheckInventory', `No Issues`, `version ${localStorage.version}, systems ${localStorage.systems}`, resultTime);
+		// tracker.sendEvent('Passed BungieTracking and CheckInventory', `No Issues`, `version ${localStorage.version}, systems ${localStorage.systems}`, resultTime);
 		// localStorage.listening = "false";
 		console.log(`Scheduling check for ${moment().add(((20 * 60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((20 * 60 * 1000) - resultTime) / 1000} seconds`);
 		startTimer("inventoryCheck", (20 * 60 * 1000) - resultTime);

@@ -1,6 +1,6 @@
 tracker.sendAppView('SearchScreen');
 characterDescriptions = JSON.parse(localStorage.characterDescriptions);
-var searchTypes = ["itemName", "itemTypeName", "itemDescription", "tierTypeName", "damageTypeName", "primaryStat"];
+var searchTypes = ["itemName", "itemTypeName", "itemDescription", "tierTypeName", "damageTypeName", "primaryStat", "itemHash"];
 
 function makeSearchData(itemDiff) {
 	var searchData = {};
@@ -34,6 +34,8 @@ function makeSearchData(itemDiff) {
 								itemTypeValue = itemDefinition.itemDescription || "";
 							} else if (type === "damageTypeName") {
 								itemTypeValue = elementType(itemData);
+							} else if (type === "itemHash") {
+								itemTypeValue = "" + itemData.itemHash;
 							}
 						} else {
 							if (itemData.factionHash) {
@@ -84,17 +86,18 @@ function processSearchTerm() {
 	document.querySelector('#paginate').innerHTML = "";
 	var searchElement = document.querySelector('#searchInput');
 	var searchTerm = searchElement.value.toLowerCase();
+	tracker.sendEvent('Search', 'Value', searchTerm);
 	database.getAllEntries("itemChanges").then(function chromeStorageGet(localData) {
 		var searchResults = [];
-		var testChange = localData.itemChanges[1];
-		var testData = makeSearchData(testChange);
-		var testResult = false;
-		for (let attr in testData) {
-			if (testResult === false) {
-				testResult = testData[attr].indexOf(searchTerm) > -1;
-			}
-		}
-		console.log(testResult, searchTerm, testData, testChange);
+		// var testChange = localData.itemChanges[1];
+		// var testData = makeSearchData(testChange);
+		// var testResult = false;
+		// for (let attr in testData) {
+		// 	if (testResult === false) {
+		// 		testResult = testData[attr].indexOf(searchTerm) > -1;
+		// 	}
+		// }
+		// console.log(testResult, searchTerm, testData, testChange);
 		console.log(window.performance.now(), "Start Search");
 		for (let itemDiff of localData.itemChanges) {
 			var itemDiffMatched = false;
@@ -102,6 +105,9 @@ function processSearchTerm() {
 			for (let attr in searchData) {
 				if (itemDiffMatched === false) {
 					itemDiffMatched = searchData[attr].indexOf(searchTerm) > -1;
+					if (itemDiffMatched === true) {
+						console.log("match", searchData[attr], attr, searchTerm, itemDiffMatched);
+					}
 				}
 			}
 			if (itemDiffMatched) {
@@ -131,7 +137,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		var searchTimeout = null;
 		searchElement.addEventListener("keyup", function() {
 			clearTimeout(searchTimeout);
-			searchTimeout = setTimeout(processSearchTerm, 300);
+			if (searchElement.value.length > 2) {
+				searchTimeout = setTimeout(processSearchTerm, 300);
+			} else {
+				document.querySelector('#resultQuantityBox').value = "Search Term must be greater than 2 letters"
+			}
 		}, false);
 		var pageElement = document.querySelector('#paginate');
 		pageElement.addEventListener("change", function() {
