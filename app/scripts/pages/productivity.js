@@ -406,7 +406,7 @@ function getProductivity() {
 			}
 		}
 		console.log(matches)
-		mainContainer.innerHTML = `<p>Disclaimer: icons do not always represent which items were removed or added.</p>`;
+		mainContainer.innerHTML = ``;
 		var currencyContainer = document.createElement("div");
 		currencyContainer.classList.add("sub-section");
 		var currencyFrag = document.createDocumentFragment();
@@ -692,13 +692,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		startDateInput.value = startDate.format("YYYY-MM-DDTHH:mm");
 		startDateInput.setAttribute("disabled", true);
 		endDateInput.setAttribute("disabled", true);
+		tracker.sendEvent('Productivity', 'Preset', presetDateInput.value);
 		getProductivity();
 		startDateInput.addEventListener("change", function() {
 			startDate = moment(startDateInput.value);
+			tracker.sendEvent('Productivity', 'StartDate', startDate);
 			getProductivity();
 		}, false);
 		endDateInput.addEventListener("change", function() {
 			endDate = moment(endDateInput.value);
+			tracker.sendEvent('Productivity', 'EndDate', endDate);
 			getProductivity();
 		}, false);
 		presetDateInput.addEventListener("change", function() {
@@ -720,6 +723,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 				endDateInput.setAttribute("disabled", true);
 				endDateInput.value = endDate.format("YYYY-MM-DDTHH:mm");
 				startDateInput.value = startDate.format("YYYY-MM-DDTHH:mm");
+				tracker.sendEvent('Productivity', 'Preset', presetDateInput.value);
 				getProductivity();
 			}
 		}, false);

@@ -427,11 +427,14 @@ function handleOtherStats(dataset, resolve) {
 			}
 		}
 		if (itemDef.bucketTypeHash === 4023194814) { // ghost shell icons
+			console.log(nodeData)
 			if (nodeData.rows > 1 && nodeData.columns > 1) {
 				let materialIcon = document.getElementById(`row${1}column${nodeData.columns}`);
 				let guardianIcon = document.getElementById(`row${2}column${nodeData.columns}`);
 				let guardianText = document.getElementById(`row${1}column${4}`).title.split(" ")[0];
 				let materialText = document.getElementById(`row${1}column${3}`).title.split(" ")[0];
+				materialIcon.classList.add("node");
+				guardianIcon.classList.add("node");
 				if (materialText === "Relic") {
 					materialIcon.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + DestinyCompactItemDefinition[3242866270].icon + "')");
 				} else if (materialText === "Spinmetal") {

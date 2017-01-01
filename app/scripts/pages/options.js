@@ -98,6 +98,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	var resultsInput = document.getElementById("Results");
 	var lightLevelInput = document.getElementById("lightLevel");
 	if (backupDataButton) {
+		tracker.sendEvent('Options', 'Backup', 'True');
 		backupDataButton.addEventListener("click", function() {
 			chrome.permissions.contains({
 				permissions: ['downloads']
@@ -189,6 +190,7 @@ findWeaponTalentGrids();
 });
 
 function handleQualityChange(event) {
+	tracker.sendEvent('Options', event.target.id, event.target.value);
 	var target = event.target;
 	var value = parseInt(target.value, 10);
 	var minimum = parseInt(target.min, 10);
@@ -207,6 +209,7 @@ function handleQualityChange(event) {
 }
 
 function handleFileSelect(evt) {
+	tracker.sendEvent('Options', 'Restore', 'True');
 	var dropZone = document.getElementById('drop_zone');
 	dropZone.classList.add("loading");
 	dropZone.textContent = "Restoration In Progress";

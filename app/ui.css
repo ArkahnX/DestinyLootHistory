@@ -839,40 +839,71 @@ h1 {
 
 	position: fixed;
 	z-index: 99999;
-	top: -100px;
 
-	display: table;
 	/*display: none;*/
+	/* max-width: 800px; */
 
 	width: 100%;
+	height: 100%;
+	/* top: -100px; */
+	/* display: table; */
+	/* display: none; */
+	/* width: 100%; */
 
 	transition: all .3s ease;
+	transform: rotateY( 90deg );
 	text-align: center;
+
+	background-color: rgba(125, 125, 125, .88);
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
+}
+
+#notification.live {
+	/* top: 0; */
+	display: table;
+
+	transition: all .3s ease;
+	transform: rotateY( 0deg );
+}
+
+#notification-inner {
+	/* font-size: 24px; */
+	/* position: fixed; */
+	/* z-index: 99999; */
+	/* top: -100px; */
+	display: table;
+
+	width: 100%;
+	max-width: 800px;
+	height: 100%;
+	margin: 0 auto;
+	padding: 20px;
+	/* display: none; */
+	/* width: 100%; */
+
+	transition: all .3s ease;
+	/* text-align: center; */
 
 	background-color: #7AC0FF;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
 }
 
-#notification.live {
-	/*top: 0;*/
-	display: table;
-
-	transition: all .3s ease;
-}
-
-#notification-inner {
-	display: table-cell;
-
-	padding: 20px;
-}
-
 #notification-content {
-	max-width: 1200px;
-	margin: 0 auto;
+	font-size: 18px;
+
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+
+	color: black;
+	background: #DEDEDE;
+	    overflow: auto;
 }
 
-#notification-text {
-	color: #FFF;
+.notification-section:not(:last-child) {
+	margin-bottom:20px;
+	border-bottom:2px dashed black;
+	padding-bottom:20px;
 }
 
 
@@ -887,15 +918,7 @@ h1 {
 #notification-close {
 	font-size: 16px;
 
-	position: absolute;
-	right: 0;
-	bottom: 0;
-
-	display: inline-block;
-
-	padding: 10px;
-
-	color: white;
+	margin-bottom: 20px;
 }
 
 .solidBackground {
@@ -1004,6 +1027,8 @@ ul.drop-down li ul li .button,
 ul.drop-down li ul li {
 	display: block;
 
+	max-width: 298px;
+
 	white-space: nowrap;
 
 	color: #FFF;
@@ -1037,7 +1062,10 @@ fieldset:not(:last-child) {
 legend {
 	font-size: 24px;
 
-	text-align: left;
+	text-align: center;
+}
+.center {
+	text-align:center;
 }
 li label {
 	font-size: 13px;
@@ -1520,7 +1548,7 @@ optgroup option {
 	overflow-y: scroll;
 
 	max-width: 100%;
-	    max-height: calc(100% - 22px);
+	max-height: calc(100% - 22px);
 	padding-top: 40px;
 }
 
@@ -2077,27 +2105,75 @@ nav input[type=checkbox] {
 }
 
 fieldset pre {
-	display:inline-block;
-	    font-size: large;
-	    padding:5px;
+	font-size: large;
+
+	display: inline-block;
+
+	padding: 5px;
 }
 
 fieldset .success {
-	color:green;
+	color: green;
 }
 
 fieldset .failure {
-	color:red;
+	color: red;
 }
 
 .prompt {
-	position:absolute;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
-	background-color:rgba(0,0,0,0.7);
-	padding:50px;
-	text-align:center;
-	z-index:7;
+	position: absolute;
+	z-index: 7;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+	padding: 50px;
+
+	text-align: center;
+
+	background-color: rgba(0,0,0,.7);
+}
+
+.icon-button {
+	font-size: 19px;
+
+	vertical-align: sub;
+}
+
+.icon-button i {
+	cursor: pointer;
+}
+
+.button span,
+.button i {
+	cursor: pointer;
+}
+
+.icon-button:hover:after {
+	position: absolute;
+	z-index: 98;
+	top: 39px;
+	left: -50%;
+
+	padding: 5px 15px;
+
+	content: attr(data-title);
+
+	color: #FFF;
+	border-radius: 5px;
+	background: rgba(0,0,0,.8);
+}
+
+.icon-button:hover:before {
+	position: absolute;
+	z-index: 99;
+	top: 33px;
+	left: 39%;
+
+	content: '';
+
+	border: solid;
+	border-width: 0 6px 6px 6px;
+	border-color: #333 transparent;
 }

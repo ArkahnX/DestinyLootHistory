@@ -8,38 +8,61 @@
 	<body class="flex-main">
 		<div id="notification" class="">
 			<div id="notification-inner">
+			<div id="notification-close" class="button">Close Notifications</div>
 				<div id="notification-content">
-					<span id="notification-text">Success!</span>
+					<section class="notification-section">
+						<span>New in Version 1.7</span>
+						<ul>
+							<li>Got problems or suggestions? <a href="https://www.reddit.com/message/compose/?to=ArkahnX" target="_blank">Message ArkahnX</a> on Reddit!</li>
+							<li>This version operates on the new official bungie authentication method. Please let me know if you have any issues!</li>
+						</ul>
+					</section>
+					<section class="notification-section">
+						<span>List of features</span>
+						<ul>
+							<li>Three of Coins reminders, faction booster reminders, auto locking items, and auto transferring items can be set in <a href="/options.html" target="_blank">Options</a></li>
+							<li>View a history of your items at the <a href="/history.html" target="_blank">History page</a></li>
+							<li>Browse the vendors at the <a href="/vendor.html" target="_blank">Vendors page</a></li>
+							<li>Complete your in game collection at the <a href="/collection.html" target="_blank">Collection page</a></li>
+							<li>Tag your inventory at the <a href="/test.html" target="_blank">Inventory page</a></li>
+							<li>Check your productivity at the <a href="/test.html" target="_blank">Productivity page</a></li>
+							<li>Search for when you found certain gear at the <a href="/search.html" target="_blank">Search page</a></li>
+						</ul>
+					</section>
 				</div>
 			</div>
-			<div id="notification-close">Click to close.</div>
 		</div>
 		<header id="status" class="flex-nav">
 			<nav>
+
 				<ul class="drop-down">
-					<li><a class="button" href="/status.html">Status</a></li>
-					<li><input type="button" value="Restart Tracking" class="button reload" /></li>
+					<li><a class="icon-button button hidden admin" href="/status.html" data-title="Status"><i class="fa fa-question-circle" aria-hidden="true"></i></a></li>
+					<li><a class="icon-button button" href="/options.html" data-title="Options"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
+					<li><a class="icon-button button" href="/auth.html#logout" data-title="Logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+					<li><a class="icon-button button" href="/index.html#notifications" data-title="Notifications" id="notification-icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+					<li><a class="icon-button button reload" href="/index.html#restartTracking" data-title="Restart Tracking"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
+					<!-- <li><input type="button" value="Restart Tracking" class="button reload" /></li> -->
 					<li><input type="button" value="Toggle System" id="toggleSystem" class="button hidden" /></li>
 					<li class="button">Features
 						<ul>
-							<li><a class="button" href="/history.html">History</a></li>
-							<li><a class="button" href="/vendor.html">Vendors</a></li>
-							<li><a class="button" href="/collection.html">Collection</a></li>
+							<li><a class="button" href="/history.html" title="History"><i class="fa fa-history" aria-hidden="true"></i><span> History</span></a></li>
+							<li><a class="button" href="/vendor.html" title="Vendors"><i class="fa fa-usd" aria-hidden="true"></i><span> Vendors</span></a></li>
+							<li><a class="button" href="/collection.html" title="Collection"><i class="fa fa-check-circle-o" aria-hidden="true"></i><span> Collection</span></a></li>
+							<li><a class="button" href="/search.html" title="Search"><i class="fa fa-search" aria-hidden="true"></i><span> Search</span></a></li>
+							<li><a class="button" href="/test.html" title="Inventory"><i class="fa fa-th" aria-hidden="true"></i><span> Inventory</span></a></li>
+							<li><a class="button" href="/productivity.html" title="Productivity"><i class="fa fa-list" aria-hidden="true"></i><span> Productivity</span></a></li>
 							<li><a class="button hidden admin" href="/export.html">Export</a></li>
 							<li><a class="button hidden admin" href="/quality.html">Quality</a></li>
-							<li><a class="button" href="/search.html">Search</a></li>
-							<li><a class="button" href="/test.html">Inventory</a></li>
-							<li><a class="button" href="/productivity.html">Productivity</a></li>
 							<li><a class="button hidden admin" href="/debug.html">Report Issue</a></li>
 						</ul>
 					</li>
-					<li><a class="button" href="/options.html">Options</a></li>
 					<li>
 						<label for="track3oC" class="button">Three of Coins Reminder <input type="checkbox" id="track3oC"></label>
 						<ul>
 							<li><label for="trackBoosters" class="button">Reputation Booster Reminder <input type="checkbox" id="trackBoosters"></label></li>
 							<li><label for="autoLock" class="button">Lock New High Quality Items <input type="checkbox" id="autoLock"></label></li>
 							<li><label for="lockHighLight" class="button">Lock New High Light Items <input type="checkbox" id="lockHighLight"></label></li>
+							<li><a class="button" href="/options.html" title="Options"><i class="fa fa-cog" aria-hidden="true"></i><span> More in Options</span></a></li>
 						</ul>
 					</li>
 					<li><select id="paginate"></select></li>
@@ -121,7 +144,6 @@
 				</table>
 			</section>
 		</div>
-		<div id="loginPrompt" class="hidden prompt"><a class="button" href="https://www.bungie.net/en/Application/Authorize/659" id="bungieLoginButton">Login with Bungie</a></div>
 		<div id="copyright" class="flex-footer">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
 		<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js"></script>
 		<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>

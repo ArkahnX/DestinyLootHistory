@@ -122,7 +122,7 @@ database.open().then(function() {
 			} else {
 				chrome.tabs.create({
 					active: true,
-					url: chrome.extension.getURL("index.html")
+					url: chrome.extension.getURL("auth.html")
 				});
 			}
 		});
@@ -141,15 +141,20 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 				tokens.accessToken = {
 					value: response.Response.accessToken.value,
 					readyin: new Date().getTime() + (response.Response.accessToken.readyin * 1000),
-					expires: new Date().getTime() + (response.Response.accessToken.expires * 1000)
+					expires: new Date().getTime() + (response.Response.accessToken.expires * 1000),
+					added: new Date().getTime()
 				};
 				tokens.refreshToken = {
 					value: response.Response.refreshToken.value,
 					readyin: new Date().getTime() + (response.Response.refreshToken.readyin * 1000),
-					expires: new Date().getTime() + (response.Response.refreshToken.expires * 1000)
+					expires: new Date().getTime() + (response.Response.refreshToken.expires * 1000),
+					added: new Date().getTime()
 				};
 				globalTokens = tokens;
 				chrome.storage.sync.set(tokens, function() {
+					chrome.runtime.sendMessage({
+						loggedIn: true
+					});
 					// bungie.refreshAccessToken(globalTokens).then(init);
 					init();
 				});

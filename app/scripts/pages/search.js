@@ -35,7 +35,7 @@ function makeSearchData(itemDiff) {
 							} else if (type === "damageTypeName") {
 								itemTypeValue = elementType(itemData);
 							} else if (type === "itemHash") {
-								itemTypeValue = ""+itemData.itemHash;
+								itemTypeValue = "" + itemData.itemHash;
 							}
 						} else {
 							if (itemData.factionHash) {
@@ -86,6 +86,7 @@ function processSearchTerm() {
 	document.querySelector('#paginate').innerHTML = "";
 	var searchElement = document.querySelector('#searchInput');
 	var searchTerm = searchElement.value.toLowerCase();
+	tracker.sendEvent('Search', 'Value', searchTerm);
 	database.getAllEntries("itemChanges").then(function chromeStorageGet(localData) {
 		var searchResults = [];
 		// var testChange = localData.itemChanges[1];
@@ -104,8 +105,8 @@ function processSearchTerm() {
 			for (let attr in searchData) {
 				if (itemDiffMatched === false) {
 					itemDiffMatched = searchData[attr].indexOf(searchTerm) > -1;
-					if(itemDiffMatched === true) {
-						console.log("match",searchData[attr],attr,searchTerm, itemDiffMatched);
+					if (itemDiffMatched === true) {
+						console.log("match", searchData[attr], attr, searchTerm, itemDiffMatched);
 					}
 				}
 			}

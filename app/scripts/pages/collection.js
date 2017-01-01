@@ -787,7 +787,7 @@ function VendorResultTask(vendor, vendorHash) {
 						};
 					}
 				}
-				if (hasQuality(saleItem.item) && parseItemQuality(saleItem.item).min > 92) {
+				if (hasQuality(saleItem.item) && parseItemQuality(saleItem.item).min > 95) {
 					vendorItems[vendorHash].items.push(saleItem);
 					var costs = item.getCosts(saleItem, vendor, newInventories, selectedCharacter);
 					titleContainer.appendChild(makeItem(saleItem.item, vendorItems[vendorHash].name, costs));
@@ -871,6 +871,7 @@ function postInitItems() {
 		element.addEventListener("click", function(event) {
 			if (event.target.checked === false) {
 				if (event.target.dataset.feature === "ghosts") {
+					tracker.sendEvent('Collection', 'Open', 'Ghosts');
 					elements.status.classList.add("active");
 					database.getAllEntries("inventories").then(function(data) {
 						// chrome.storage.local.get("inventories", function(data) {
@@ -880,6 +881,7 @@ function postInitItems() {
 					});
 				}
 				if (event.target.dataset.feature === "ironbanner") {
+					tracker.sendEvent('Collection', 'Open', 'Iron Banner');
 					elements.status.classList.add("active");
 					database.getAllEntries("inventories").then(function(data) {
 						// chrome.storage.local.get("inventories", function(data) {
@@ -888,6 +890,7 @@ function postInitItems() {
 					});
 				}
 				if (event.target.dataset.feature === "trials") {
+					tracker.sendEvent('Collection', 'Open', 'Trials');
 					elements.status.classList.add("active");
 					database.getAllEntries("inventories").then(function(data) {
 						// chrome.storage.local.get("inventories", function(data) {
@@ -896,6 +899,7 @@ function postInitItems() {
 					});
 				}
 				if (event.target.dataset.feature === "raid") {
+					tracker.sendEvent('Collection', 'Open', 'Raid');
 					elements.status.classList.add("active");
 					database.getAllEntries("inventories").then(function(data) {
 						// chrome.storage.local.get("inventories", function(data) {
@@ -904,6 +908,7 @@ function postInitItems() {
 					});
 				}
 				if (event.target.dataset.feature === "exotics") {
+					tracker.sendEvent('Collection', 'Open', 'Exotics');
 					elements.status.classList.add("active");
 					database.getAllEntries("inventories").then(function(data) {
 						// chrome.storage.local.get("inventories", function(data) {
@@ -912,6 +917,7 @@ function postInitItems() {
 					});
 				}
 				if (event.target.dataset.feature === "emblems") {
+					tracker.sendEvent('Collection', 'Open', 'Emblems');
 					elements.status.classList.add("active");
 					if (!bungieProfileLoaded) {
 						refreshCharacterData().then(function() {
@@ -923,6 +929,7 @@ function postInitItems() {
 					}
 				}
 				if (event.target.dataset.feature === "shaders") {
+					tracker.sendEvent('Collection', 'Open', 'Shaders');
 					elements.status.classList.add("active");
 					if (!bungieProfileLoaded) {
 						refreshCharacterData().then(function() {
@@ -934,6 +941,7 @@ function postInitItems() {
 					}
 				}
 				if (event.target.dataset.feature === "ships") {
+					tracker.sendEvent('Collection', 'Open', 'Ships');
 					elements.status.classList.add("active");
 					if (!bungieProfileLoaded) {
 						refreshCharacterData().then(function() {
@@ -945,6 +953,7 @@ function postInitItems() {
 					}
 				}
 				if (event.target.dataset.feature === "sparrows") {
+					tracker.sendEvent('Collection', 'Open', 'Sparrows');
 					elements.status.classList.add("active");
 					if (!bungieProfileLoaded) {
 						refreshCharacterData().then(function() {
@@ -956,6 +965,7 @@ function postInitItems() {
 					}
 				}
 				if (event.target.dataset.feature === "t12") {
+					tracker.sendEvent('Collection', 'Open', 'Tier 12');
 					elements.status.classList.add("active");
 					database.getAllEntries("inventories").then(function(data) {
 						newInventories = data.inventories;

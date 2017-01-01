@@ -29,60 +29,62 @@ function refreshCharacterData() {
 		}
 		getOption("activeType").then(bungie.setActive).then(updatefn).then(function(response) {
 			let account = bungie.getCurrentAccount();
-			var avatars = account.characters;
-			var membershipId = account.membershipId;
-			var newestCharacter = "vault";
-			var newestDate = 0;
-			var maxLight = globalOptions.minLight;
-			for (var character in characterDescriptions) {
-				if (characterDescriptions[character].membershipId !== membershipId) {
-					delete characterDescriptions[character];
-				}
-			}
-			for (let avatar of avatars) {
-				if (!characterDescriptions[avatar.characterId]) {
-					let icon = "img/missing.png";
-					if (DestinyClassDefinition[avatar.classHash].classType === 0) {
-						icon = DestinyCompactItemDefinition[1723894001].icon;
+			if (account) {
+				var avatars = account.characters;
+				var membershipId = account.membershipId;
+				var newestCharacter = "vault";
+				var newestDate = 0;
+				var maxLight = globalOptions.minLight;
+				for (var character in characterDescriptions) {
+					if (characterDescriptions[character].membershipId !== membershipId) {
+						delete characterDescriptions[character];
 					}
-					if (DestinyClassDefinition[avatar.classHash].classType === 1) {
-						icon = DestinyCompactItemDefinition[855333071].icon;
+				}
+				for (let avatar of avatars) {
+					if (!characterDescriptions[avatar.characterId]) {
+						let icon = "img/missing.png";
+						if (DestinyClassDefinition[avatar.classHash].classType === 0) {
+							icon = DestinyCompactItemDefinition[1723894001].icon;
+						}
+						if (DestinyClassDefinition[avatar.classHash].classType === 1) {
+							icon = DestinyCompactItemDefinition[855333071].icon;
+						}
+						if (DestinyClassDefinition[avatar.classHash].classType === 2) {
+							icon = DestinyCompactItemDefinition[776529032].icon;
+						}
+						characterDescriptions[avatar.characterId] = {
+							name: DestinyClassDefinition[avatar.classHash].className,
+							gender: DestinyGenderDefinition[avatar.genderHash].genderName,
+							level: avatar.baseCharacterLevel,
+							icon: icon,
+							membershipId: membershipId,
+							light: avatar.powerLevel,
+							race: DestinyRaceDefinition[avatar.raceHash].raceName,
+							dateLastPlayed: avatar.dateLastPlayed,
+							currentActivityHash: avatar.currentActivityHash
+						};
+					} else { // we already have set these characters so just update their data.
+						characterDescriptions[avatar.characterId].level = avatar.baseCharacterLevel;
+						characterDescriptions[avatar.characterId].light = avatar.powerLevel;
+						characterDescriptions[avatar.characterId].dateLastPlayed = avatar.dateLastPlayed;
+						characterDescriptions[avatar.characterId].currentActivityHash = avatar.currentActivityHash;
 					}
-					if (DestinyClassDefinition[avatar.classHash].classType === 2) {
-						icon = DestinyCompactItemDefinition[776529032].icon;
+					if (avatar.powerLevel > maxLight) {
+						maxLight = avatar.powerLevel;
 					}
-					characterDescriptions[avatar.characterId] = {
-						name: DestinyClassDefinition[avatar.classHash].className,
-						gender: DestinyGenderDefinition[avatar.genderHash].genderName,
-						level: avatar.baseCharacterLevel,
-						icon: icon,
-						membershipId: membershipId,
-						light: avatar.powerLevel,
-						race: DestinyRaceDefinition[avatar.raceHash].raceName,
-						dateLastPlayed: avatar.dateLastPlayed,
-						currentActivityHash: avatar.currentActivityHash
-					};
-				} else { // we already have set these characters so just update their data.
-					characterDescriptions[avatar.characterId].level = avatar.baseCharacterLevel;
-					characterDescriptions[avatar.characterId].light = avatar.powerLevel;
-					characterDescriptions[avatar.characterId].dateLastPlayed = avatar.dateLastPlayed;
-					characterDescriptions[avatar.characterId].currentActivityHash = avatar.currentActivityHash;
+					if (new Date(avatar.dateLastPlayed).getTime() > new Date(newestDate).getTime()) { // set newest character for 3oC reminder
+						newestDate = avatar.dateLastPlayed;
+						newestCharacter = avatar.characterId;
+					}
+					if (characterIdList.indexOf(avatar.characterId) === -1) {
+						characterIdList.push(avatar.characterId);
+					}
 				}
-				if (avatar.powerLevel > maxLight) {
-					maxLight = avatar.powerLevel;
+				localStorage.newestCharacter = newestCharacter;
+				localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
+				if (globalOptions.useGuardianLight && maxLight !== globalOptions.minLight) {
+					setOption("minLight", maxLight);
 				}
-				if (new Date(avatar.dateLastPlayed).getTime() > new Date(newestDate).getTime()) { // set newest character for 3oC reminder
-					newestDate = avatar.dateLastPlayed;
-					newestCharacter = avatar.characterId;
-				}
-				if (characterIdList.indexOf(avatar.characterId) === -1) {
-					characterIdList.push(avatar.characterId);
-				}
-			}
-			localStorage.newestCharacter = newestCharacter;
-			localStorage.characterDescriptions = JSON.stringify(characterDescriptions);
-			if (globalOptions.useGuardianLight && maxLight !== globalOptions.minLight) {
-				setOption("minLight", maxLight);
 			}
 			console.timeEnd("load Bungie Data");
 			resolve();

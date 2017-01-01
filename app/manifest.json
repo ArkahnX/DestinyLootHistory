@@ -13,7 +13,7 @@
 		"128": "icon128.png"
 	},
 	"content_security_policy": "script-src 'self' https://www.google-analytics.com https://apis.google.com; object-src 'self'",
-	"web_accessible_resources": ["index.html"],
+	"web_accessible_resources": ["auth.html"],
 	"background": {
 		"scripts": [
 			"scripts/vendor/moment.js",
@@ -36,6 +36,7 @@
 		]
 	},
 	"permissions": [
+		"https://www.google-analytics.com/",
 		"storage",
 		"*://www.bungie.net/*",
 		"cookies",

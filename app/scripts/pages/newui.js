@@ -21,6 +21,10 @@ function frontEndUpdate() {
 		globalOptions = options;
 		tags.update();
 	});
+	if(location.hash === "#notifications") {
+		window.location.hash = "";
+		notification.show();
+	}
 	if (elements.toggleSystem) {
 		getOption("activeType").then(function(activeType) {
 			if (activeType === "xbl" && elements.toggleSystem.value !== "Swap to PSN") {
@@ -35,16 +39,15 @@ function frontEndUpdate() {
 	}
 	if (localStorage.error === "true") {
 		if (notificationCooldown === 0) {
-			notification.show();
 			elements.status.classList.add("active", "error");
 			elements.status.classList.remove("idle");
 			localStorage.listening = "false";
 		}
 	} else {
 		if (localStorage.notificationClosed === "false") {
-			notification.show(notification.changelog);
+			notification.update();
 		} else {
-			notification.hide();
+			// notification.hide();
 		}
 		if (localStorage.listening === "false") {
 			elements.status.classList.add("idle");
@@ -119,32 +122,22 @@ function frontEndUpdate() {
 	}
 }
 
-
-
-getAllOptions().then(function(options) {
-	globalOptions = options;
-	database.open().then(function() {
-		database.getMultipleStores(database.allStores).then(function(result) {
-			localStorage.updateUI = "true";
-			frontEndUpdate();
-			chrome.storage.sync.get(["authCode", "accessToken", "refreshToken"], function(tokens) {
-				if (chrome.runtime.lastError) {
-					console.error(chrome.runtime.lastError);
-				}
-				var authCode = "";
-				if (Object.keys(tokens).length === 0) {
-					if (location.search.length && location.search.split("=")[1]) {
-						authCode = location.search.split("=")[1];
-						chrome.runtime.sendMessage({
-							authCode: authCode
-						});
-					} else {
-						document.getElementById("bungieLoginButton").setAttribute("HREF", AUTH_URL);
-						document.getElementById("loginPrompt").classList.remove("hidden");
-					}
-				}
+chrome.storage.sync.get(["authCode", "accessToken", "refreshToken"], function(tokens) {
+	if (chrome.runtime.lastError) {
+		console.error(chrome.runtime.lastError);
+	}
+	if (Object.keys(tokens).length === 0) {
+		window.location.href = "auth.html";
+	} else {
+		getAllOptions().then(function(options) {
+			globalOptions = options;
+			database.open().then(function() {
+				database.getMultipleStores(database.allStores).then(function(result) {
+					localStorage.updateUI = "true";
+					frontEndUpdate();
+					console.log(result);
+				});
 			});
-			console.log(result);
 		});
-	});
+	}
 });

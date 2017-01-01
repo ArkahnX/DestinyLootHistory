@@ -54,6 +54,7 @@ var bungie = (function Bungie() {
 							requestResponse = JSON.parse(this.response);
 						} catch (e) {
 							console.error(e);
+							opts.incomplete();
 						}
 						if (requestResponse !== null) {
 							if (requestResponse.ErrorCode !== 1 && !opts.noerror) {
@@ -105,20 +106,43 @@ var bungie = (function Bungie() {
 	bungie.refreshAccessToken = function(tokens) {
 		return new Promise(function(resolve) {
 			let currentTime = new Date().getTime();
-			if (tokens.refreshToken.readyin < currentTime) {
-				if (tokens.accessToken.expires <= currentTime + 60000) { // simulate one minute ahead so we can refresh this token before it expires, hopefully
+			if(tokens.refreshToken.expires <= currentTime) {
+				bungiePOST("https://www.bungie.net/Platform/App/GetAccessTokensFromCode/", {
+					"code": tokens.authCode
+				}).then(function(response) {
+					localTokens.accessToken = {
+						value: response.Response.accessToken.value,
+						readyin: new Date().getTime() + (response.Response.accessToken.readyin * 1000),
+						expires: new Date().getTime() + (response.Response.accessToken.expires * 1000),
+						added: new Date().getTime()
+					};
+					localTokens.refreshToken = {
+						value: response.Response.refreshToken.value,
+						readyin: new Date().getTime() + (response.Response.refreshToken.readyin * 1000),
+						expires: new Date().getTime() + (response.Response.refreshToken.expires * 1000),
+						added: new Date().getTime()
+					};
+					chrome.storage.sync.set(localTokens, function() {
+						globalTokens = localTokens;
+						resolve();
+					});
+				});
+			} else if (tokens.refreshToken.readyin < currentTime || tokens.accessToken.readyin > currentTime) {
+				if (tokens.accessToken.expires <= currentTime + 60000 || tokens.accessToken.readyin > currentTime) { // simulate one minute ahead so we can refresh this token before it expires, hopefully
 					bungiePOST("https://www.bungie.net/Platform/App/GetAccessTokensFromRefreshToken/", {
 						"refreshToken": tokens.refreshToken.value
 					}).then(function(response) {
 						localTokens.accessToken = {
 							value: response.Response.accessToken.value,
 							readyin: new Date().getTime() + (response.Response.accessToken.readyin * 1000),
-							expires: new Date().getTime() + (response.Response.accessToken.expires * 1000)
+							expires: new Date().getTime() + (response.Response.accessToken.expires * 1000),
+							added: new Date().getTime()
 						};
 						localTokens.refreshToken = {
 							value: response.Response.refreshToken.value,
 							readyin: new Date().getTime() + (response.Response.refreshToken.readyin * 1000),
-							expires: new Date().getTime() + (response.Response.refreshToken.expires * 1000)
+							expires: new Date().getTime() + (response.Response.refreshToken.expires * 1000),
+							added: new Date().getTime()
 						};
 						chrome.storage.sync.set(localTokens, function() {
 							globalTokens = localTokens;
@@ -174,7 +198,9 @@ var bungie = (function Bungie() {
 							ACTIVE_TYPE = 2;
 							setOption("activeType", "psn");
 						}
-						MEMBERSHIP_ID = systemDetails[ACTIVE_TYPE].membershipId;
+						if (systemDetails[ACTIVE_TYPE]) {
+							MEMBERSHIP_ID = systemDetails[ACTIVE_TYPE].membershipId;
+						}
 						localStorage.systems = JSON.stringify(simpleSystems);
 						resolve(res);
 					});
@@ -194,22 +220,22 @@ var bungie = (function Bungie() {
 					let flattenedCharacters = [];
 					for (let character of response.data.characters) {
 						let flatCharacter = {
-							characterId:character.characterBase.characterId,
-							classHash:character.characterBase.classHash,
-							classType:character.characterBase.classType,
-							currentActivityHash:character.characterBase.currentActivityHash,
-							dateLastPlayed:character.characterBase.dateLastPlayed,
-							emblemHash:character.emblemHash,
-							emblemPath:character.emblemPath,
-							genderHash:character.characterBase.genderHash,
-							genderType:character.characterBase.genderType,
-							isPrestigeLevel:character.isPrestigeLevel,
-							level:character.characterLevel,
-							membershipId:character.characterBase.membershipId,
-							membershipType:character.characterBase.membershipType,
-							percentToNextLevel:character.percentToNextLevel,
-							powerLevel:character.characterBase.powerLevel,
-							raceHash:character.characterBase.raceHash
+							characterId: character.characterBase.characterId,
+							classHash: character.characterBase.classHash,
+							classType: character.characterBase.classType,
+							currentActivityHash: character.characterBase.currentActivityHash,
+							dateLastPlayed: character.characterBase.dateLastPlayed,
+							emblemHash: character.emblemHash,
+							emblemPath: character.emblemPath,
+							genderHash: character.characterBase.genderHash,
+							genderType: character.characterBase.genderType,
+							isPrestigeLevel: character.isPrestigeLevel,
+							level: character.characterLevel,
+							membershipId: character.characterBase.membershipId,
+							membershipType: character.characterBase.membershipType,
+							percentToNextLevel: character.percentToNextLevel,
+							powerLevel: character.characterBase.powerLevel,
+							raceHash: character.characterBase.raceHash
 						};
 						flattenedCharacters.push(flatCharacter);
 					}
@@ -309,13 +335,13 @@ var bungie = (function Bungie() {
 						noerror: true,
 						incomplete: reject,
 						complete: function(bungieResult) {
-							if (bungieResult.Response) {
-								if (moment(bungieResult.Response.data.vendor.nextRefreshDate).format("YYYY") === "9999" || moment(bungieResult.Response.data.vendor.nextRefreshDate).isBefore(moment())) {
-									bungieResult.Response.data.vendor.nextRefreshDate = moment().add(1, "days").format("YYYY-MM-DDTHH:mm:ssZ");
+							if (bungieResult.data) {
+								if (moment(bungieResult.data.vendor.nextRefreshDate).format("YYYY") === "9999" || moment(bungieResult.data.vendor.nextRefreshDate).isBefore(moment())) {
+									bungieResult.data.vendor.nextRefreshDate = moment().add(1, "days").format("YYYY-MM-DDTHH:mm:ssZ");
 								}
-								bungieResult.Response.data.vendor.vendorCharacterHash = vendorId + "-" + characterId;
-								database.addSingle("vendors", bungieResult.Response.data.vendor).then(resolve);
-							} else {
+								bungieResult.data.vendor.vendorCharacterHash = vendorId + "-" + characterId;
+								database.addSingle("vendors", bungieResult.data.vendor).then(resolve);
+							} else { // Vendor not found
 								resolve(bungieResult);
 							}
 						}
@@ -383,6 +409,10 @@ var bungie = (function Bungie() {
 	bungie.ready = function() {
 		return ACTIVE_TYPE !== 0 && MEMBERSHIP_ID !== "" && typeof systemDetails[ACTIVE_TYPE] !== "undefined";
 	};
+
+	bungie.getMemberships = function() {
+		return Object.keys(systemDetails);
+	}
 
 	return bungie;
 }());

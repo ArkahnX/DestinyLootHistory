@@ -279,6 +279,7 @@ function initUi(elementTarget) { // jshint ignore:line
 }
 
 function handleCheckboxChange(event) {
+	tracker.sendEvent('Options', event.target.id, event.target.checked);
 	setOption(event.target.id, event.target.checked);
 }
 
