@@ -11,6 +11,7 @@ var notification = (function() {
 		localStorage.notificationClosed = "true";
 		icon.dataset.title = "Notifications";
 		icon.classList.remove("green");
+		tracker.sendEvent('Notifications', 'Open', "True");
 	}
 
 	function hide() {
