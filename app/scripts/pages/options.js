@@ -3,7 +3,7 @@ database.open();
 
 function backupData() {
 	var backupDataButton = document.getElementById("backupData");
-	database.getMultipleStores(database.allStores).then(function(data) {
+	database.getMultipleStores(database.allStores).then(function (data) {
 		var a = document.createElement("a");
 		var file = new Blob([JSON.stringify(data.itemChanges)], {
 			type: "application/json"
@@ -13,7 +13,7 @@ function backupData() {
 		a.download = 'itemChanges.json';
 		document.getElementById("backupLabel").appendChild(a);
 		a.click();
-		setTimeout(function() {
+		setTimeout(function () {
 			document.getElementById("backupLabel").removeChild(a);
 			window.URL.revokeObjectURL(url);
 			backupDataButton.classList.remove("loading");
@@ -79,7 +79,7 @@ for (var itemDef of DestinyCompactItemDefinition) {
 	}
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function (event) {
 	initUi(elements.container);
 	var startOnLaunchButton = document.getElementById("startOnLaunch");
 	var backupDataButton = document.getElementById("backupData");
@@ -99,10 +99,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	var lightLevelInput = document.getElementById("lightLevel");
 	if (backupDataButton) {
 		tracker.sendEvent('Options', 'Backup', 'True');
-		backupDataButton.addEventListener("click", function() {
+		backupDataButton.addEventListener("click", function () {
 			chrome.permissions.contains({
 				permissions: ['downloads']
-			}, function(result) {
+			}, function (result) {
 				if (result) {
 					backupDataButton.classList.add("loading");
 					backupDataButton.setAttribute("disabled", true);
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 				} else {
 					chrome.permissions.request({
 						permissions: ['downloads']
-					}, function(granted) {
+					}, function (granted) {
 						if (granted) {
 							backupDataButton.classList.add("loading");
 							backupDataButton.setAttribute("disabled", true);
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		});
 	}
 	if (exportDataButton) {
-		exportDataButton.addEventListener("click", function() {
+		exportDataButton.addEventListener("click", function () {
 			exportDataButton.classList.add("loading");
 			exportDataButton.setAttribute("disabled", true);
 			exportData(gameModeInput.value, moment(minDateInput.value).utc().format(), moment(maxDateInput.value).utc().format(), parseInt(resultsInput.value), ironBannerInput.checked, lightLevelInput.checked);
@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		hash: "perkHash",
 		class: "inverted"
 	};
-findWeaponTalentGrids();
+	findWeaponTalentGrids();
 	setupItemFields("keepSingleStackItems", itemSources, hashIndex, keyTranslate);
 	setupItemFields("autoMoveItemsToVault", itemSources, hashIndex, keyTranslate);
 	setupItemFields("highValuePerks", weaponPerks, weaponPerkHashList, weaponPerkTranslate);
@@ -165,7 +165,7 @@ findWeaponTalentGrids();
 	var pgcrImage = document.getElementById('pgcrImage');
 	var relativeDates = document.getElementById('relativeDates');
 	var useGuardianLight = document.getElementById('useGuardianLight');
-	useGuardianLight.addEventListener("change", function() {
+	useGuardianLight.addEventListener("change", function () {
 		if (useGuardianLight.checked) {
 			minLight.disabled = true;
 		} else {
@@ -173,7 +173,7 @@ findWeaponTalentGrids();
 		}
 	});
 
-	getAllOptions().then(function(options) {
+	getAllOptions().then(function (options) {
 		console.log(options)
 		minLight.value = options.minLight;
 		minQuality.value = options.minQuality;
@@ -220,10 +220,10 @@ function handleFileSelect(evt) {
 
 	if (files) {
 		var r = new FileReader();
-		r.onload = function(e) {
+		r.onload = function (e) {
 			var contents = e.target.result;
 			var object = JSON.parse(contents);
-			database.addFromArray("itemChanges", object).then(function() {
+			database.addFromArray("itemChanges", object).then(function () {
 				// chrome.storage.local.set({
 				// 	"itemChanges": object
 				// }, function() {
@@ -254,14 +254,14 @@ function setupItemFields(ID, properties, hashList, translation) {
 			container.innerHTML = `<img src="https://www.bungie.net${data.icon}" width="16" height="16" class="${translation.class}"><span>${data[translation.name]}</span>`;
 			container.title = data[translation.description];
 		},
-		getText: function(item) {
+		getText: function (item) {
 			var hash = parseInt(item, 10);
 			var data = properties[hashList.indexOf(hash)];
 			return data[translation.name];
 		}
 	});
 	insigniaInputs[ID] = insigniaInput;
-	insigniaInput.on('remove', function() {
+	insigniaInput.on('remove', function () {
 		var newArray = [];
 		var oldArray = insigniaInput.value();
 		for (var item of oldArray) {
@@ -273,7 +273,7 @@ function setupItemFields(ID, properties, hashList, translation) {
 		selector: '#' + ID,
 		minChars: 0,
 		delay: 500,
-		source: function(term, suggest) {
+		source: function (term, suggest) {
 			var suggestions = [];
 			var suggestionList = null;
 			if (term.length === 0) {
@@ -293,7 +293,7 @@ function setupItemFields(ID, properties, hashList, translation) {
 			}
 			suggest(suggestions);
 		},
-		renderItem: function(item, search, index) {
+		renderItem: function (item, search, index) {
 			var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
 			if (search.split(' ')[0] === "") {
 				return `<div class="autocomplete-suggestion${index === 0 ? " selected" : ""}" data-hash="${item[translation.hash]}" data-name="${item[translation.name]}" title="${item[translation.description]}"><img src="https://www.bungie.net${item.icon}" width="32" height="32" class="${translation.class}"><span>${item[translation.name]}</span></div>`;
@@ -301,7 +301,7 @@ function setupItemFields(ID, properties, hashList, translation) {
 				return `<div class="autocomplete-suggestion${index === 0 ? " selected" : ""}" data-hash="${item[translation.hash]}" data-name="${item[translation.name]}" title="${item[translation.description]}"><img src="https://www.bungie.net${item.icon}" width="32" height="32" class="${translation.class}"><span>${(item[translation.name]).replace(re, "<b>$1</b>")}</span></div>`;
 			}
 		},
-		onSelect: function(e, term, item) {
+		onSelect: function (e, term, item) {
 			var hash = parseInt(item.getAttribute('data-hash'), 10);
 			var data = properties[hashList.indexOf(hash)];
 			console.log(`Item "${data[translation.name]} (${data[translation.description]})" selected by ${(e.type === 'keydown' ? 'pressing enter' : 'mouse click')}.`);
@@ -334,7 +334,7 @@ function setupItemFields(ID, properties, hashList, translation) {
 				}
 				setOption(otherId, newArray2);
 			}
-			if(ID === "highValuePerks" || ID === "midValuePerks" || ID === "lowValuePerks") {
+			if (ID === "highValuePerks" || ID === "midValuePerks" || ID === "lowValuePerks") {
 				let otherInput1 = insigniaInput;
 				let otherInput2 = insigniaInput;
 				let otherId1 = ID;
@@ -383,7 +383,7 @@ function setupItemFields(ID, properties, hashList, translation) {
 	// 		e.preventDefault(); // prevent form submission
 	// 	}
 	// });
-	getOption(ID).then(function(value) {
+	getOption(ID).then(function (value) {
 		for (let item of value) {
 			insigniaInput.addItem(item);
 		}

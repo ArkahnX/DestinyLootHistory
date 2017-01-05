@@ -86,7 +86,7 @@ function _stringToInt(string, defaultValue) {
 var goodStorageValues = ["characterDescriptions", "error", "errorMessage", "itemChangeDetected", "listening", "move3oC", "move3oCCooldown", "newestCharacter", "notificationClosed", "disableQuality", "autoLockHighLight", "systems", "version", "threeOfCoinsProgress", "coolDowns"];
 
 function initializeStoredVariables() {
-	return new Promise(function(resolve) {
+	return new Promise(function (resolve) {
 		localStorage.characterDescriptions = _checkValue(localStorage.characterDescriptions, _checkJSON, "{}");
 		localStorage.error = _checkValue(localStorage.error, _checkBoolean, "false");
 		localStorage.errorMessage = _checkValue(localStorage.errorMessage, "");
@@ -113,16 +113,16 @@ function initializeStoredVariables() {
 		}
 		localStorage.version = manifest.version;
 		tracker.sendEvent('Backend Initialized', `No Issues`, `version ${localStorage.version}, systems ${localStorage.systems}`);
-		chrome.storage.sync.get(null, function(options) {
+		chrome.storage.sync.get(null, function (options) {
 			if (chrome.runtime.lastError) {
 				console.error(chrome.runtime.lastError);
 			}
 			var newOptions = {
 				options: {}, // used for exporting, eventually
 				activeType: "psn",
-				authCode:"",
-				accessToken:"",
-				refreshToken:"",
+				authCode: "",
+				accessToken: "",
+				refreshToken: "",
 				autoLock: false,
 				track3oC: true,
 				trackBoosters: true,
@@ -135,9 +135,9 @@ function initializeStoredVariables() {
 				debugLogging: false,
 				keepSingleStackItems: [],
 				autoMoveItemsToVault: [],
-				highValuePerks:[],
-				midValuePerks:[],
-				lowValuePerks:[],
+				highValuePerks: [],
+				midValuePerks: [],
+				lowValuePerks: [],
 				qualitySortOrder: [],
 				perkSortOrder: [],
 				rewardSources: [],
@@ -254,14 +254,14 @@ function initializeStoredVariables() {
 					localStorage.removeItem(item);
 				}
 			}
-			chrome.storage.sync.set(newOptions, function() {
+			chrome.storage.sync.set(newOptions, function () {
 				if (chrome.runtime.lastError) {
 					console.error(chrome.runtime.lastError);
 				}
 				// resolve();
 			});
 
-			chrome.storage.local.get(null, function(data) {
+			chrome.storage.local.get(null, function (data) {
 				if (chrome.runtime.lastError) {
 					console.error(chrome.runtime.lastError);
 				}
@@ -308,11 +308,11 @@ function initializeStoredVariables() {
 					newData.matches = data.matches;
 				}
 				console.log(newData);
-				chrome.storage.local.set(newData, function() {
+				chrome.storage.local.set(newData, function () {
 					if (chrome.runtime.lastError) {
 						console.error(chrome.runtime.lastError);
 					}
-					database.open().then(function() { // database update only runs if the database version was 0, aka fresh install, otherwise it just passes through
+					database.open().then(function () { // database update only runs if the database version was 0, aka fresh install, otherwise it just passes through
 						database.update(newData).then(resolve);
 					});
 				});

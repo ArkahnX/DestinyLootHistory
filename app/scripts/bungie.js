@@ -11,9 +11,9 @@ var bungie = (function Bungie() {
 	let localTokens = null;
 
 	function validateTokens() {
-		return new Promise(function(resolve) {
+		return new Promise(function (resolve) {
 			if (localTokens === null) {
-				chrome.storage.sync.get(["authCode", "accessToken", "refreshToken"], function(tokens) {
+				chrome.storage.sync.get(["authCode", "accessToken", "refreshToken"], function (tokens) {
 					localTokens = tokens;
 					bungie.refreshAccessToken(localTokens).then(resolve);
 				});
@@ -46,7 +46,7 @@ var bungie = (function Bungie() {
 			r.open(method, "https://www.bungie.net/Platform" + opts.route, true);
 			r.setRequestHeader('X-API-Key', API_KEY);
 			r.setRequestHeader('Authorization', "Bearer " + localTokens.accessToken.value);
-			r.onreadystatechange = function() {
+			r.onreadystatechange = function () {
 				if (r.readyState === 4) {
 					if ((this.status >= 200 && this.status < 400) || opts.noerror) {
 						let requestResponse = null;
@@ -71,7 +71,7 @@ var bungie = (function Bungie() {
 					}
 				}
 			};
-			r.onerror = function() {
+			r.onerror = function () {
 				console.error("Request Failed to " + opts.route);
 				opts.incomplete();
 			};
@@ -81,18 +81,18 @@ var bungie = (function Bungie() {
 				r.send();
 			}
 		} else {
-			setTimeout(function() {
+			setTimeout(function () {
 				_request(opts);
 			}, 1000);
 		}
 	}
 
 	function bungiePOST(url, data) {
-		return new Promise(function(resolve) {
+		return new Promise(function (resolve) {
 			let r = new XMLHttpRequest();
 			r.open("POST", url, true);
 			r.setRequestHeader('X-API-Key', API_KEY);
-			r.onreadystatechange = function() {
+			r.onreadystatechange = function () {
 				if (r.readyState === 4) {
 					if (this.status >= 200 && this.status < 400) {
 						resolve(JSON.parse(this.response));
@@ -103,13 +103,13 @@ var bungie = (function Bungie() {
 		});
 	}
 
-	bungie.refreshAccessToken = function(tokens) {
-		return new Promise(function(resolve) {
+	bungie.refreshAccessToken = function (tokens) {
+		return new Promise(function (resolve) {
 			let currentTime = new Date().getTime();
-			if(tokens.refreshToken.expires <= currentTime) {
+			if (tokens.refreshToken.expires <= currentTime) {
 				bungiePOST("https://www.bungie.net/Platform/App/GetAccessTokensFromCode/", {
 					"code": tokens.authCode
-				}).then(function(response) {
+				}).then(function (response) {
 					localTokens.accessToken = {
 						value: response.Response.accessToken.value,
 						readyin: new Date().getTime() + (response.Response.accessToken.readyin * 1000),
@@ -122,7 +122,7 @@ var bungie = (function Bungie() {
 						expires: new Date().getTime() + (response.Response.refreshToken.expires * 1000),
 						added: new Date().getTime()
 					};
-					chrome.storage.sync.set(localTokens, function() {
+					chrome.storage.sync.set(localTokens, function () {
 						globalTokens = localTokens;
 						resolve();
 					});
@@ -131,7 +131,7 @@ var bungie = (function Bungie() {
 				if (tokens.accessToken.expires <= currentTime + 60000 || tokens.accessToken.readyin > currentTime) { // simulate one minute ahead so we can refresh this token before it expires, hopefully
 					bungiePOST("https://www.bungie.net/Platform/App/GetAccessTokensFromRefreshToken/", {
 						"refreshToken": tokens.refreshToken.value
-					}).then(function(response) {
+					}).then(function (response) {
 						localTokens.accessToken = {
 							value: response.Response.accessToken.value,
 							readyin: new Date().getTime() + (response.Response.accessToken.readyin * 1000),
@@ -144,7 +144,7 @@ var bungie = (function Bungie() {
 							expires: new Date().getTime() + (response.Response.refreshToken.expires * 1000),
 							added: new Date().getTime()
 						};
-						chrome.storage.sync.set(localTokens, function() {
+						chrome.storage.sync.set(localTokens, function () {
 							globalTokens = localTokens;
 							resolve();
 						});
@@ -159,19 +159,19 @@ var bungie = (function Bungie() {
 	};
 
 	function networkRequest(opts) {
-		validateTokens().then(function() {
+		validateTokens().then(function () {
 			_request(opts);
 		});
 	}
 
-	bungie.getCurrentBungieAccount = function() {
-		return new Promise(function(resolve, reject) {
+	bungie.getCurrentBungieAccount = function () {
+		return new Promise(function (resolve, reject) {
 			networkRequest({
 				route: '/User/GetCurrentBungieAccount/',
 				shortRoute: '/User/GetCurrentBungieAccount/',
 				incomplete: reject,
-				complete: function(res) {
-					getOption("activeType").then(function(activeType) {
+				complete: function (res) {
+					getOption("activeType").then(function (activeType) {
 						ACTIVE_TYPE = activeType;
 						for (let account of res.destinyAccounts) {
 							systemDetails[account.userInfo.membershipType] = {
@@ -209,14 +209,14 @@ var bungie = (function Bungie() {
 		});
 	};
 
-	bungie.accountInfo = function() {
-		return new Promise(function(resolve, reject) {
+	bungie.accountInfo = function () {
+		return new Promise(function (resolve, reject) {
 			networkRequest({
 				route: '/Destiny/' + ACTIVE_TYPE + '/Account/' + MEMBERSHIP_ID + '/Summary/',
 				shortRoute: '/Destiny/Account/Summary/',
 				method: 'GET',
 				incomplete: reject,
-				complete: function(response) {
+				complete: function (response) {
 					let flattenedCharacters = [];
 					for (let character of response.data.characters) {
 						let flatCharacter = {
@@ -246,8 +246,8 @@ var bungie = (function Bungie() {
 		});
 	};
 
-	bungie.activity = function(characterId, gameMode, count, page) {
-		return new Promise(function(resolve, reject) {
+	bungie.activity = function (characterId, gameMode, count, page) {
+		return new Promise(function (resolve, reject) {
 			networkRequest({
 				route: '/Destiny/Stats/ActivityHistory/' + ACTIVE_TYPE + '/' + MEMBERSHIP_ID + '/' + characterId + "/?mode=" + gameMode + "&count=" + count + "&page=" + page,
 				shortRoute: '/Destiny/Stats/ActivityHistory/',
@@ -257,21 +257,21 @@ var bungie = (function Bungie() {
 		});
 	};
 
-	bungie.vault = function() {
-		return new Promise(function(resolve, reject) {
+	bungie.vault = function () {
+		return new Promise(function (resolve, reject) {
 			networkRequest({
 				route: '/Destiny/' + ACTIVE_TYPE + '/MyAccount/Vault/',
 				shortRoute: '/Destiny//MyAccount/Vault/',
 				incomplete: reject,
-				complete: function(result) {
+				complete: function (result) {
 					resolve(result);
 				}
 			});
 		});
 	};
 
-	bungie.inventory = function(characterId) {
-		return new Promise(function(resolve, reject) {
+	bungie.inventory = function (characterId) {
+		return new Promise(function (resolve, reject) {
 			networkRequest({
 				route: '/Destiny/' + ACTIVE_TYPE + '/Account/' + MEMBERSHIP_ID + '/Character/' + characterId + '/Inventory/?definitions=false',
 				shortRoute: '/Destiny//Account//Character//Inventory/?definitions=false',
@@ -281,8 +281,8 @@ var bungie = (function Bungie() {
 		});
 	};
 
-	bungie.inventory2 = function(characterId) {
-		return new Promise(function(resolve, reject) {
+	bungie.inventory2 = function (characterId) {
+		return new Promise(function (resolve, reject) {
 			networkRequest({
 				route: '/Destiny/' + ACTIVE_TYPE + '/Account/' + MEMBERSHIP_ID + '/Character/' + characterId + '/Complete/?definitions=false',
 				shortRoute: '/Destiny//Account//Character//Inventory/?definitions=false',
@@ -292,8 +292,8 @@ var bungie = (function Bungie() {
 		});
 	};
 
-	bungie.carnage = function(activityId) {
-		return new Promise(function(resolve, reject) {
+	bungie.carnage = function (activityId) {
+		return new Promise(function (resolve, reject) {
 			networkRequest({
 				route: '/Destiny/Stats/PostGameCarnageReport/' + activityId + '/?definitions=false',
 				shortRoute: '/Destiny/Stats/PostGameCarnageReport//?definitions=false',
@@ -303,8 +303,8 @@ var bungie = (function Bungie() {
 		});
 	};
 
-	bungie.advisorsForAccount = function() {
-		return new Promise(function(resolve, reject) {
+	bungie.advisorsForAccount = function () {
+		return new Promise(function (resolve, reject) {
 			networkRequest({
 				route: '/Destiny/' + ACTIVE_TYPE + '/Account/' + MEMBERSHIP_ID + '/Advisors/?definitions=false',
 				shortRoute: '/Destiny/Account/Advisors/',
@@ -314,8 +314,8 @@ var bungie = (function Bungie() {
 		});
 	};
 
-	bungie.factions = function(characterId) {
-		return new Promise(function(resolve, reject) {
+	bungie.factions = function (characterId) {
+		return new Promise(function (resolve, reject) {
 			networkRequest({
 				route: '/Destiny/' + ACTIVE_TYPE + '/Account/' + MEMBERSHIP_ID + '/Character/' + characterId + '/Progression/?definitions=false',
 				shortRoute: '/Destiny//Account//Character//Progression/?definitions=false',
@@ -325,16 +325,16 @@ var bungie = (function Bungie() {
 		});
 	};
 
-	bungie.getVendorForCharacter = function(characterId, vendorId) {
-		return new Promise(function(resolve, reject) {
-			database.getEntry("vendors", vendorId + "-" + characterId).then(function(data) {
+	bungie.getVendorForCharacter = function (characterId, vendorId) {
+		return new Promise(function (resolve, reject) {
+			database.getEntry("vendors", vendorId + "-" + characterId).then(function (data) {
 				if (!data || moment(data.nextRefreshDate).isBefore(moment()) || moment(data.nextRefreshDate).format("YYYY") === "9999") {
 					networkRequest({
 						route: `/Destiny/${ACTIVE_TYPE}/MyAccount/Character/${characterId}/Vendor/${vendorId}/Metadata/`,
 						shortRoute: '/Destiny//MyAccount/Character//Vendor//Metadata/',
 						noerror: true,
 						incomplete: reject,
-						complete: function(bungieResult) {
+						complete: function (bungieResult) {
 							if (bungieResult.data) {
 								if (moment(bungieResult.data.vendor.nextRefreshDate).format("YYYY") === "9999" || moment(bungieResult.data.vendor.nextRefreshDate).isBefore(moment())) {
 									bungieResult.data.vendor.nextRefreshDate = moment().add(1, "days").format("YYYY-MM-DDTHH:mm:ssZ");
@@ -353,8 +353,8 @@ var bungie = (function Bungie() {
 		});
 	};
 
-	bungie.getXur = function() {
-		return new Promise(function(resolve, reject) {
+	bungie.getXur = function () {
+		return new Promise(function (resolve, reject) {
 			networkRequest({
 				route: `/Destiny/Advisors/Xur/?definitions=false`,
 				shortRoute: '/Destiny/Advisors/Xur/',
@@ -364,8 +364,8 @@ var bungie = (function Bungie() {
 		});
 	};
 
-	bungie.transfer = function(characterId, itemId, itemReferenceHash, stackSize, transferToVault) {
-		return new Promise(function(resolve, reject) {
+	bungie.transfer = function (characterId, itemId, itemReferenceHash, stackSize, transferToVault) {
+		return new Promise(function (resolve, reject) {
 			networkRequest({
 				route: '/Destiny/TransferItem/',
 				shortRoute: '/Destiny/TransferItem/',
@@ -384,8 +384,8 @@ var bungie = (function Bungie() {
 		});
 	};
 
-	bungie.lock = function(characterId, instanceId) {
-		return new Promise(function(resolve, reject) {
+	bungie.lock = function (characterId, instanceId) {
+		return new Promise(function (resolve, reject) {
 			networkRequest({
 				route: '/Destiny/SetLockState/',
 				shortRoute: '/Destiny/SetLockState/',
@@ -402,15 +402,15 @@ var bungie = (function Bungie() {
 		});
 	};
 
-	bungie.getCurrentAccount = function() {
+	bungie.getCurrentAccount = function () {
 		return systemDetails[ACTIVE_TYPE];
 	};
 
-	bungie.ready = function() {
+	bungie.ready = function () {
 		return ACTIVE_TYPE !== 0 && MEMBERSHIP_ID !== "" && typeof systemDetails[ACTIVE_TYPE] !== "undefined";
 	};
 
-	bungie.getMemberships = function() {
+	bungie.getMemberships = function () {
 		return Object.keys(systemDetails);
 	}
 

@@ -10,23 +10,23 @@ Gallery: http://imgur.com/a/QGLZf
 Reddit: https://www.reddit.com/message/compose/?to=ArkahnX`;
 console.log(debugMessage);
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 	initUi(document.body);
 }, false);
 
 var notificationCooldown = 0;
 
 function frontEndUpdate() {
-	getAllOptions().then(function(options) {
+	getAllOptions().then(function (options) {
 		globalOptions = options;
 		tags.update();
 	});
-	if(location.hash === "#notifications") {
+	if (location.hash === "#notifications") {
 		window.location.hash = "";
 		notification.show();
 	}
 	if (elements.toggleSystem) {
-		getOption("activeType").then(function(activeType) {
+		getOption("activeType").then(function (activeType) {
 			if (activeType === "xbl" && elements.toggleSystem.value !== "Swap to PSN") {
 				elements.toggleSystem.value = "Swap to PSN";
 				elements.toggleSystem.classList.remove("green");
@@ -111,7 +111,7 @@ function frontEndUpdate() {
 			newInventories = localData.inventories;
 			tags.cleanup(newInventories);
 			console.time("UpdateUI");
-			newDisplayResults().then(function() {
+			newDisplayResults().then(function () {
 				postDisplay();
 				console.timeEnd("UpdateUI");
 				window.requestAnimationFrame(frontEndUpdate);
@@ -122,17 +122,17 @@ function frontEndUpdate() {
 	}
 }
 
-chrome.storage.sync.get(["authCode", "accessToken", "refreshToken"], function(tokens) {
+chrome.storage.sync.get(["authCode", "accessToken", "refreshToken"], function (tokens) {
 	if (chrome.runtime.lastError) {
 		console.error(chrome.runtime.lastError);
 	}
 	if (Object.keys(tokens).length === 0) {
 		window.location.href = "auth.html";
 	} else {
-		getAllOptions().then(function(options) {
+		getAllOptions().then(function (options) {
 			globalOptions = options;
-			database.open().then(function() {
-				database.getMultipleStores(database.allStores).then(function(result) {
+			database.open().then(function () {
+				database.getMultipleStores(database.allStores).then(function (result) {
 					localStorage.updateUI = "true";
 					frontEndUpdate();
 					console.log(result);

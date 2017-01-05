@@ -456,7 +456,7 @@ function processDifference(currentDateString, resolve) {
 	console.timeEnd("Process Difference");
 	console.time("grab matches");
 	trackingTimer++;
-	getLocalMatches().then(getRemoteMatches).catch(function(err) {
+	getLocalMatches().then(getRemoteMatches).catch(function (err) {
 		if (err) {
 			console.error(err);
 		}

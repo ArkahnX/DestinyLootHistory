@@ -1,4 +1,4 @@
-var badNames = ["Chroma", "Ascend", "Infuse", "Upgrade Damage", "Void", "Solar", "Arc", "Kinetic", "Häkke Pulse Rifle", "Häkke Sidearm", "Focused Firefly", "Triple Double", "Sign of Four", "Wait for It", "Two for One", "Quick Reaction", "Hive Disruptor", "Oracle Disruptor", "Running Interference", "Whirlwind's Curse", "White Nail", "Cocoon", "Burn","Reforge","Rewind","Phantom Gift","Reserve Ammo","Perfectionist","Private Eye","MIRV Mini","Dark Breaker","Burgeoning Hunger"];
+var badNames = ["Chroma", "Ascend", "Infuse", "Upgrade Damage", "Void", "Solar", "Arc", "Kinetic", "Häkke Pulse Rifle", "Häkke Sidearm", "Focused Firefly", "Triple Double", "Sign of Four", "Wait for It", "Two for One", "Quick Reaction", "Hive Disruptor", "Oracle Disruptor", "Running Interference", "Whirlwind's Curse", "White Nail", "Cocoon", "Burn", "Reforge", "Rewind", "Phantom Gift", "Reserve Ammo", "Perfectionist", "Private Eye", "MIRV Mini", "Dark Breaker", "Burgeoning Hunger"];
 var weaponPerkHashList = [];
 var weaponPerks = [];
 
@@ -50,11 +50,11 @@ function findWeaponPerks(weaponTalentGrids) {
 			}
 		}
 	}
-	weaponPerks.sort(function(a, b) {
+	weaponPerks.sort(function (a, b) {
 		return a.perkName.localeCompare(b.perkName);
 	});
 	weaponPerkHashList = [];
-	for(let perk of weaponPerks) {
+	for (let perk of weaponPerks) {
 		weaponPerkHashList.push(perk.perkHash);
 	}
 	// console.log(JSON.stringify(weaponPerks));

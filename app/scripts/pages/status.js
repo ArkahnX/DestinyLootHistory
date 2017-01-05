@@ -47,12 +47,12 @@ function processStatusResult(status, statusLocation, resolve) {
 }
 
 function request(opts) {
-	chrome.storage.sync.get(["authCode", "accessToken", "refreshToken"], function(localTokens) {
+	chrome.storage.sync.get(["authCode", "accessToken", "refreshToken"], function (localTokens) {
 		let r = new XMLHttpRequest();
 		r.open(opts.method, "https://www.bungie.net/Platform" + opts.route, true);
 		r.setRequestHeader('X-API-Key', API_KEY);
 		r.setRequestHeader('Authorization', "Bearer " + localTokens.accessToken.value);
-		r.onreadystatechange = function() {
+		r.onreadystatechange = function () {
 			if (r.readyState === 4) {
 				if (this.status >= 200 && this.status < 400) {
 					var response = JSON.parse(this.response);
@@ -79,15 +79,15 @@ function checkStatus(statusLocation, route, incomplete, complete) {
 		messages: [],
 		icon: "exclamation"
 	};
-	return new Promise(function(resolve) {
+	return new Promise(function (resolve) {
 		request({
 			route: route,
 			method: 'GET',
-			incomplete: function(response, address) {
+			incomplete: function (response, address) {
 				incomplete(response, address, status);
 				processStatusResult(status, statusLocation, resolve);
 			},
-			complete: function(response) {
+			complete: function (response) {
 				complete(response, status);
 				processStatusResult(status, statusLocation, resolve);
 			}
@@ -101,7 +101,7 @@ function checkStatusWithCharacters(list, statusLocation, route, incomplete, afte
 		messages: [],
 		icon: "exclamation"
 	};
-	return new Promise(function(resolve) {
+	return new Promise(function (resolve) {
 		if (list.length) {
 			sequence(list, function network(characterDetail, resolve) {
 				var routeString = route(characterDetail);
@@ -109,7 +109,7 @@ function checkStatusWithCharacters(list, statusLocation, route, incomplete, afte
 					request({
 						route: routeString,
 						method: 'GET',
-						incomplete: function(response, address) {
+						incomplete: function (response, address) {
 							incomplete(response, address, status);
 							processStatusResult(status, statusLocation, resolve);
 						},
@@ -120,7 +120,7 @@ function checkStatusWithCharacters(list, statusLocation, route, incomplete, afte
 						ErrorCode: 1
 					});
 				}
-			}, function(response) {
+			}, function (response) {
 				if (response.ErrorCode !== 1) {
 					status.result = response.ErrorCode;
 					if (status.messages.indexOf(response.ErrorStatus + " - " + response.Message) === -1) {
@@ -128,7 +128,7 @@ function checkStatusWithCharacters(list, statusLocation, route, incomplete, afte
 					}
 				}
 				afterNetwork(response, status);
-			}).then(function() {
+			}).then(function () {
 				complete(status);
 				processStatusResult(status, statusLocation, resolve);
 			});
@@ -151,7 +151,7 @@ function bungieLogin() {
 	// 		console.log(response);
 	// 	}
 	// });
-	return checkStatus("bungielogin", "/User/GetBungieNetUser/", handleNetworkError, function(response, status) {
+	return checkStatus("bungielogin", "/User/GetBungieNetUser/", handleNetworkError, function (response, status) {
 		console.log(response);
 		if (response.ErrorCode === 1) {
 			var data = response.Response;
@@ -261,26 +261,26 @@ function bungieConsoleData(systemDetail, outputId) {
 		messages: [],
 		icon: "exclamation"
 	};
-	return new Promise(function(resolve) {
+	return new Promise(function (resolve) {
 		request({
 			route: `/Destiny/SearchDestinyPlayer/${systemDetail.type}/${systemDetail.id}/`,
 			method: 'GET',
-			incomplete: function(response, address) {
+			incomplete: function (response, address) {
 				handleNetworkError(response, address, status);
 				processStatusResult(status, outputId, resolve);
 			},
-			complete: function(response) {
+			complete: function (response) {
 				console.log("membership", response);
 				if (response.ErrorCode === 1 && response.Response.length) {
 					systemDetail.membership = response.Response[0].membershipId;
 					request({
 						route: '/Destiny/' + systemDetail.type + '/Account/' + response.Response[0].membershipId + '/Summary/',
 						method: 'GET',
-						incomplete: function(response, address) {
+						incomplete: function (response, address) {
 							handleNetworkError(response, address, status);
 							processStatusResult(status, outputId, resolve);
 						},
-						complete: function(account) {
+						complete: function (account) {
 							console.log("account", account);
 							if (account.ErrorCode === 1) {
 								for (var character of account.Response.data.characters) {
@@ -325,7 +325,7 @@ function bungieConsoleData(systemDetail, outputId) {
 
 
 function bungieCookieStep() {
-	return new Promise(function(resolve) {
+	return new Promise(function (resolve) {
 		var status = {
 			result: 0,
 			messages: [],
@@ -333,7 +333,7 @@ function bungieCookieStep() {
 		};
 		chrome.cookies.getAll({
 			domain: "www.bungie.net"
-		}, function(cookies) {
+		}, function (cookies) {
 			if (chrome.runtime.lastError) {
 				tracker.sendEvent('unable to read cookies', JSON.stringify(chrome.runtime.lastError), `version ${localStorage.version}, systems ${localStorage.systems}`);
 				status.result = 1;
@@ -367,13 +367,13 @@ function bungieDatabase() {
 		messages: [],
 		icon: "exclamation"
 	};
-	return new Promise(function(resolve) {
+	return new Promise(function (resolve) {
 		var img = new Image();
-		img.onload = function() {
+		img.onload = function () {
 			status.messages.push("Bungie manifest is up to date");
 			processStatusResult(status, "database", resolve);
 		};
-		img.onerror = function() {
+		img.onerror = function () {
 			status.result = 1;
 			status.messages.push("Bungie manifest is outdated");
 			processStatusResult(status, "database", resolve);
@@ -382,22 +382,22 @@ function bungieDatabase() {
 	});
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-	bungieCookieStep().then(bungieLogin).then(function() {
+document.addEventListener("DOMContentLoaded", function () {
+	bungieCookieStep().then(bungieLogin).then(function () {
 		return bungieConsoleData(systemDetails.xbo, "bungiexbone");
-	}).then(function() {
+	}).then(function () {
 		return bungieConsoleData(systemDetails.ps4, "bungieps4");
-	}).then(bungieInventories).then(bungieActivities).then(bungieCarnage).then(bungieVendors).then(bungieFactions).then(bungieDatabase).then(function() {
-		bungie.getCurrentBungieAccount().then(function(response) {
+	}).then(bungieInventories).then(bungieActivities).then(bungieCarnage).then(bungieVendors).then(bungieFactions).then(bungieDatabase).then(function () {
+		bungie.getCurrentBungieAccount().then(function (response) {
 			console.log(response);
-			bungie.vault().then(function(vault) {
+			bungie.vault().then(function (vault) {
 				console.log(vault);
-				bungie.vaultSummary().then(function(vaultSummary) {
+				bungie.vaultSummary().then(function (vaultSummary) {
 					console.log(vaultSummary);
 					let accounts = bungie.getCurrentAccount();
-					bungie.inventory(accounts.characters[0].characterId).then(function(data1) {
+					bungie.inventory(accounts.characters[0].characterId).then(function (data1) {
 						console.log(data1);
-						bungie.inventorySummary(accounts.characters[0].characterId).then(function(data2) {
+						bungie.inventorySummary(accounts.characters[0].characterId).then(function (data2) {
 							console.log(data2);
 						});
 					});

@@ -13,7 +13,7 @@ function hideTooltip() {
 function handleTooltipData(dataset, element, event, preventFlipping) {
 	clearTimeout(tooltipTimeout);
 	if (lastToolTipItemInstance !== dataset.itemHash + "-" + dataset.itemInstanceId) {
-		tooltipTimeout = setTimeout(function() {
+		tooltipTimeout = setTimeout(function () {
 			if (!preventFlipping) {
 				if (window.innerWidth / 2 > element.getBoundingClientRect().left) {
 					tooltipSide = "right";
@@ -100,7 +100,7 @@ function setTooltipData(dataset, element, event) {
 				elements.classRequirement.innerHTML = "<span>" + json + "</span>";
 			}
 		}
-		handleStats(dataset.itemTypeName, dataset).then(function() {
+		handleStats(dataset.itemTypeName, dataset).then(function () {
 			elements.tooltip.className = "flex-tooltip " + tooltipSide;
 			var tierTypeName = dataset.tierTypeName || itemDetails.tierTypeName || "Common";
 			var damageTypeName = dataset.damageTypeName || (dataset.damageTypeHash && DestinyDamageTypeDefinition[dataset.damageTypeHash] && DestinyDamageTypeDefinition[dataset.damageTypeHash].damageTypeName) || "Kinetic";
@@ -119,7 +119,7 @@ function setTooltipData(dataset, element, event) {
 }
 
 function handleStats(statType, dataset) {
-	return new Promise(function(resolve, reject) {
+	return new Promise(function (resolve, reject) {
 
 		elements.statTable.innerHTML = "";
 
@@ -330,7 +330,7 @@ function handleOtherStats(dataset, resolve) {
 			}
 		}
 		if (comparisonItems.length > 1 || typeof lastVendor !== "undefined") {
-			comparisonItems.sort(function(a, b) {
+			comparisonItems.sort(function (a, b) {
 				a.itemInstanceId.localeCompare(b.itemInstanceId);
 			});
 			let titleRow = document.createElement("tr");

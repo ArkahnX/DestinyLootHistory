@@ -1,4 +1,4 @@
-window.tags = (function() {
+window.tags = (function () {
 	let noTags = false;
 	let tags = {};
 	let localOptions = {};
@@ -32,11 +32,11 @@ window.tags = (function() {
 		needstesting: "question-circle"
 	};
 
-	tags.noTagging = function() {
+	tags.noTagging = function () {
 		noTags = true;
 	};
 
-	tags.cleanup = function(inventories) {
+	tags.cleanup = function (inventories) {
 		if (noTags) {
 			return true;
 		}
@@ -76,7 +76,7 @@ window.tags = (function() {
 				let storageArrayName = tagStorageArrays[arrayIndex] + systemName;
 				let commentArrayName = customCommentArrays[arrayIndex] + systemName;
 				if (deleteIndexes[storageArrayName]) {
-					deleteIndexes[storageArrayName].sort(function(a, b) {
+					deleteIndexes[storageArrayName].sort(function (a, b) {
 						return b - a;
 					});
 					for (let index of deleteIndexes[storageArrayName]) {
@@ -89,12 +89,12 @@ window.tags = (function() {
 		}
 		console.timeEnd("newCleanup");
 		console.log(localOptions);
-		return setOptionsObject(localOptions).then(function() {
+		return setOptionsObject(localOptions).then(function () {
 			// console.timeEnd("newCleanup");
 		});
 	};
 
-	tags.getUI = function() {
+	tags.getUI = function () {
 		if (noTags) {
 			return true;
 		}
@@ -131,7 +131,7 @@ window.tags = (function() {
 				}
 			}
 		}
-		tagSelect.addEventListener("change", function() {
+		tagSelect.addEventListener("change", function () {
 			var origin = elements.tooltip.dataset.itemInstanceId;
 			var itemHash = parseInt(elements.tooltip.dataset.itemHash);
 			var tagType = parseInt(tagSelect.value);
@@ -147,7 +147,7 @@ window.tags = (function() {
 				itemHash: itemHash,
 			}, tagType);
 		});
-		tagFloat.addEventListener("click", function(event) {
+		tagFloat.addEventListener("click", function (event) {
 			var value = event.target.value;
 			if (typeof value !== "undefined") {
 				var origin = tagFloat.dataset.itemInstanceId;
@@ -169,7 +169,7 @@ window.tags = (function() {
 		}, true);
 	};
 
-	tags.getIcon = function(tag) {
+	tags.getIcon = function (tag) {
 		if (tag === false) {
 			return "tag";
 		}
@@ -177,7 +177,7 @@ window.tags = (function() {
 		return tagIcons[name];
 	};
 
-	tags.getName = function(tag) {
+	tags.getName = function (tag) {
 		if (tag === false) {
 			return tagNames["default"];
 		}
@@ -185,7 +185,7 @@ window.tags = (function() {
 		return tagNames[name];
 	};
 
-	tags.update = function() {
+	tags.update = function () {
 		for (let systemName of systemNames) {
 			for (let name of tagStorageArrays) {
 				localOptions[name + systemName] = globalOptions[name + systemName];
@@ -213,14 +213,14 @@ window.tags = (function() {
 		return -1;
 	}
 
-	tags.canTag = function(item) {
+	tags.canTag = function (item) {
 		if (!item.itemInstanceId) {
 			return -1;
 		}
 		return tagType(item);
 	};
 
-	tags.getTag = function(item) {
+	tags.getTag = function (item) {
 		if (noTags) {
 			return false;
 		}
@@ -235,7 +235,7 @@ window.tags = (function() {
 		return defaultTag;
 	};
 
-	tags.setTagWithoutSaving = function(item, tagHash) {
+	tags.setTagWithoutSaving = function (item, tagHash) {
 		let tagType = tags.canTag(item);
 		if (tagType === -1) {
 			return false;
@@ -258,8 +258,8 @@ window.tags = (function() {
 		}
 	};
 
-	tags.saveAll = function() {
-		return setOptionsObject(localOptions).then(function() {
+	tags.saveAll = function () {
+		return setOptionsObject(localOptions).then(function () {
 			console.log("Done");
 		});
 	};
@@ -268,17 +268,17 @@ window.tags = (function() {
 
 	function updateGlobalOptions() {
 		clearTimeout(timer);
-		timer = setTimeout(function() {
-			getAllOptions().then(function(options) {
+		timer = setTimeout(function () {
+			getAllOptions().then(function (options) {
 				globalOptions = options;
 				tags.update();
 			});
 		}, 10000);
 	}
 
-	tags.exportJSON = function() {
+	tags.exportJSON = function () {
 		let finalTags = {};
-		database.getAllEntries("inventories").then(function(databaseData) {
+		database.getAllEntries("inventories").then(function (databaseData) {
 			for (let character of databaseData.inventories) {
 				for (let item of character.inventory) {
 					if (item.itemInstanceId) {
@@ -300,7 +300,7 @@ window.tags = (function() {
 		});
 	};
 
-	tags.setTag = function(item, tagHash) {
+	tags.setTag = function (item, tagHash) {
 		if (noTags) {
 			return true;
 		}
@@ -315,7 +315,7 @@ window.tags = (function() {
 			// return true;
 			if (localOptions[tagStorageArrays[tagType] + globalOptions.activeType][tagIndex].tagHash !== tagHash) {
 				localOptions[tagStorageArrays[tagType] + globalOptions.activeType][tagIndex].tagHash = tagHash;
-				return setOptionsObject(localOptions).then(function() {
+				return setOptionsObject(localOptions).then(function () {
 					console.timeEnd("setNewTag");
 					updateGlobalOptions();
 				});
@@ -332,7 +332,7 @@ window.tags = (function() {
 				tagHash: tagHash
 			});
 			// return true;
-			return setOptionsObject(localOptions).then(function() {
+			return setOptionsObject(localOptions).then(function () {
 				console.timeEnd("setNewTag");
 				updateGlobalOptions();
 			});
