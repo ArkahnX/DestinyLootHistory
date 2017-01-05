@@ -485,7 +485,7 @@ database.open().then(function() {
 });
 
 function getVendor(hash) {
-	tracker.sendEvent('Vendor', 'Get', hash);
+	tracker.sendEvent('Vendor', 'Get', DestinyVendorDefinition[hash] && DestinyVendorDefinition[hash].summary.vendorName || hash);
 	elements.status.classList.add("active");
 	var mainContainer = document.getElementById("history");
 	mainContainer.innerHTML = "";
