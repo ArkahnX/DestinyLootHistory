@@ -521,6 +521,9 @@ function checkReminderEligibility(characterId) {
 		if (characterDescriptions[characterId].currentActivityHash !== old3oCProgress) {
 			console.log("MOVING TO ", DestinyActivityDefinition[characterDescriptions[characterId].currentActivityHash]);
 			localStorage.move3oCCooldown = "false";
+			if (old3oCProgress !== 0 && characterDescriptions[characterId].currentActivityHash === 0) {
+				setTimeout(bulkMoveItemsToVault, 1000);
+			}
 		}
 	}
 	if (localStorage.move3oCCooldown === "false") {
@@ -902,6 +905,35 @@ function eligibleToLock(item, characterId) {
 		}
 	});
 }
+
+function bulkMoveItemsToVault() {
+	getAllOptions().then(function (options) {
+		let characterId = localStorage.newestCharacter;
+		let characterInventory = findInArray(newInventories, "characterId", characterId);
+		for (let item of characterInventory.inventory) {
+			let singleStackItem = options.keepSingleStackItems.indexOf("" + item.itemHash) > -1;
+			let zeroStackItem = options.autoMoveItemsToVault.indexOf("" + item.itemHash) > -1;
+			let minStacks = 0; // zero stack item
+			let quantity = 0;
+			let transferQuantity = 0;
+			if (singleStackItem || zeroStackItem) {
+				let itemDef = getItemDefinition(item.itemHash);
+				if (singleStackItem) {
+					minStacks = 1;
+				}
+				quantity = item.stackSize;
+				transferQuantity = quantity - (itemDef.maxStackSize * minStacks);
+				if (transferQuantity > 0) {
+					console.log(`name:${itemDef.itemName}, transferQuantity:${transferQuantity}, quantity:${quantity}, minStacks:${minStacks}, stackSize:${itemDef.maxStackSize}, singleStack:${singleStackItem}, zeroStack:${zeroStackItem}`);
+					bungie.transfer(characterId, "0", item.itemHash, transferQuantity, true).then(function (response) {
+						console.log(response);
+					});
+				}
+			}
+		}
+	});
+}
+
 
 function autoMoveToVault(item, characterId) {
 	getAllOptions().then(function (options) {

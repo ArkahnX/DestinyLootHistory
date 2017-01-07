@@ -35,7 +35,7 @@ var bungie = (function Bungie() {
 		}
 		var currentTime = new Date().getTime();
 		if ((lastRoute === opts.shortRoute && currentTime - lastRequestTime >= 800) || lastRoute !== opts.shortRoute) { // make sure not to poll more than once per second for the same type of request
-			console.info(`Bungie API Query Route ${opts.route}`);
+			console.info(`Bungie API Query Route ${opts.route}`, opts.payload);
 			lastRoute = opts.shortRoute;
 			lastRequestTime = currentTime;
 			let r = new XMLHttpRequest();
