@@ -98,8 +98,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 	var resultsInput = document.getElementById("Results");
 	var lightLevelInput = document.getElementById("lightLevel");
 	if (backupDataButton) {
-		tracker.sendEvent('Options', 'Backup', 'True');
 		backupDataButton.addEventListener("click", function () {
+			tracker.sendEvent('Options', 'Backup', 'True');
 			chrome.permissions.contains({
 				permissions: ['downloads']
 			}, function (result) {
@@ -307,6 +307,7 @@ function setupItemFields(ID, properties, hashList, translation) {
 			console.log(`Item "${data[translation.name]} (${data[translation.description]})" selected by ${(e.type === 'keydown' ? 'pressing enter' : 'mouse click')}.`);
 			if (insigniaInput.findItem(item.getAttribute('data-hash')) === null) {
 				insigniaInput.addItem(item.getAttribute('data-hash'));
+				tracker.sendEvent('Options', ID, data[translation.name]);
 			}
 			var newArray = [];
 			var oldArray = insigniaInput.value();
