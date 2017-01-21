@@ -83,6 +83,15 @@ function _stringToInt(string, defaultValue) {
 	return defaultValue;
 }
 
+function validate() {
+	return new Promise(function (resolve, reject) {
+		database.getMultipleStores(["itemChanges", "matches", "progression", "vendors", "inventories", "currencies"]).then(function (entries) {
+			console.log(entries);
+			resolve();
+		});
+	});
+}
+
 var goodStorageValues = ["characterDescriptions", "error", "errorMessage", "itemChangeDetected", "listening", "move3oC", "move3oCCooldown", "newestCharacter", "notificationClosed", "disableQuality", "autoLockHighLight", "systems", "version", "threeOfCoinsProgress", "coolDowns"];
 
 function initializeStoredVariables() {
@@ -313,7 +322,7 @@ function initializeStoredVariables() {
 						console.error(chrome.runtime.lastError);
 					}
 					database.open().then(function () { // database update only runs if the database version was 0, aka fresh install, otherwise it just passes through
-						database.update(newData).then(resolve);
+						database.update(newData).then(validate).then(resolve);
 					});
 				});
 			});
