@@ -86,8 +86,43 @@ function _stringToInt(string, defaultValue) {
 function validate() {
 	return new Promise(function (resolve, reject) {
 		database.getMultipleStores(["itemChanges", "matches", "progression", "vendors", "inventories", "currencies"]).then(function (entries) {
-			console.log(entries);
-			resolve();
+			let rewriteStore = [];
+			let newData = {
+				itemChanges: [],
+				matches: [],
+				progression: [],
+				vendors: [],
+				inventories: [],
+				currencies: []
+			};
+			for (let inventoryContainer of entries.inventories) {
+				if (inventoryContainer.characterId && Array.isArray(inventoryContainer.inventory) && inventoryContainer.inventory.length > 0) {
+					newData.inventories.push(inventoryContainer);
+				} else {
+					if (rewriteStore.indexOf("inventories") === -1) {
+						rewriteStore.push("inventories");
+					}
+				}
+			}
+			for (let progressionContainer of entries.progression) {
+				if (progressionContainer.characterId && typeof progressionContainer.progression === "object" && Array.isArray(progressionContainer.progression.progressions)) {
+					newData.progression.push(progressionContainer);
+				} else {
+					if (rewriteStore.indexOf("progression") === -1) {
+						rewriteStore.push("progression");
+					}
+				}
+			}
+			if (rewriteStore.length) {
+				sequence(rewriteStore, function (entry, complete) {
+					database.addFromArray(entry, newData[entry]).then(complete);
+				}, function () {}).then(function () {
+					resolve();
+					// console.log("DONE!");
+				});
+			} else {
+				resolve();
+			}
 		});
 	});
 }
