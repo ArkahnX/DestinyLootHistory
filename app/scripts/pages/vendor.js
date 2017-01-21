@@ -1,5 +1,5 @@
 tracker.sendAppView('Vendor');
-getAllOptions().then(function(options) {
+getAllOptions().then(function (options) {
 	globalOptions = options;
 	tags.update();
 });
@@ -408,15 +408,15 @@ var deadVendors = [415161769, 863056813, 3019290222, 2698860028, 1660667815, 158
 var selectedCharacter = localStorage.newestCharacter;
 var lastVendor = "";
 var vendors = {};
-database.open().then(function() {
-	database.getAllEntries("inventories").then(function(data) {
+database.open().then(function () {
+	database.getAllEntries("inventories").then(function (data) {
 		// chrome.storage.local.get("inventories", function(data) {
 		if (chrome.runtime.lastError) {
 			console.error(chrome.runtime.lastError);
 		}
 		newInventories = data.inventories;
 		tags.cleanup(data.inventories);
-		refreshCharacterData().then(function() {
+		refreshCharacterData().then(function () {
 			var characterHTML = "";
 			for (let characterId in characterDescriptions) {
 				if (characterId !== "vault") {
@@ -445,7 +445,7 @@ database.open().then(function() {
 				}
 			}
 			for (let vendorCategory in vendors) {
-				vendors[vendorCategory].sort(function(a, b) {
+				vendors[vendorCategory].sort(function (a, b) {
 					var textA = a.vendorName.toUpperCase();
 					var textB = b.vendorName.toUpperCase();
 					return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
@@ -462,17 +462,17 @@ database.open().then(function() {
 			}
 			document.getElementById("vendor").innerHTML = `<option value="None" selected>None</option>` + vendorHTML;
 			document.getElementById("compare").innerHTML = `<option value="None" selected>None</option>` + vendorHTML;
-			document.getElementById("character").addEventListener("change", function() {
+			document.getElementById("character").addEventListener("change", function () {
 				if (document.getElementById("vendor").value !== "None") {
 					getVendor(lastVendor);
 				}
 			});
-			document.getElementById("vendor").addEventListener("change", function(event) {
+			document.getElementById("vendor").addEventListener("change", function (event) {
 				if (event.target.value !== "None") {
 					getVendor(event.target.value);
 				}
 			});
-			document.getElementById("compare").addEventListener("change", function(event) {
+			document.getElementById("compare").addEventListener("change", function (event) {
 				if (document.getElementById("vendor").value !== "None" && event.target.value !== "None") {
 					compareVendor(document.getElementById("vendor").value, event.target.value);
 				} else if (document.getElementById("vendor").value !== "None") {
@@ -492,11 +492,11 @@ function getVendor(hash) {
 	lastVendor = parseInt(hash);
 	selectedCharacter = document.getElementById("character").value;
 	document.getElementById("compare").value = "None";
-	bungie.getVendorForCharacter(selectedCharacter, lastVendor).catch(function(err) {
+	bungie.getVendorForCharacter(selectedCharacter, lastVendor).catch(function (err) {
 		if (err) {
 			console.error(err);
 		}
-	}).then(function(vendorData) {
+	}).then(function (vendorData) {
 		if (vendorData && vendorData.vendorHash) {
 			console.log(vendorData, DestinyVendorDefinition[lastVendor]);
 			document.getElementById("history").innerHTML = "";
@@ -516,16 +516,16 @@ function compareVendor(vendorHash, compareHash) {
 	mainContainer.innerHTML = "";
 	lastVendor = parseInt(vendorHash);
 	selectedCharacter = document.getElementById("character").value;
-	bungie.getVendorForCharacter(selectedCharacter, lastVendor).catch(function(err) {
+	bungie.getVendorForCharacter(selectedCharacter, lastVendor).catch(function (err) {
 		if (err) {
 			console.error(err);
 		}
-	}).then(function(responseMain) {
-		bungie.getVendorForCharacter(selectedCharacter, compareHash).catch(function(err) {
+	}).then(function (responseMain) {
+		bungie.getVendorForCharacter(selectedCharacter, compareHash).catch(function (err) {
 			if (err) {
 				console.error(err);
 			}
-		}).then(function(responseCompare) {
+		}).then(function (responseCompare) {
 			if (responseMain.vendorHash && responseCompare.vendorHash) {
 				var vendorSaleItems = responseMain.saleItemCategories;
 				var vendorName = DestinyVendorDefinition[responseMain.vendorHash].summary.vendorName;

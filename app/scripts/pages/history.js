@@ -1,7 +1,7 @@
 tracker.sendAppView('HistoryScreen');
 getOption("activeType").then(bungie.setActive);
 initUi(document.body);
-getAllOptions().then(function(options) {
+getAllOptions().then(function (options) {
 	globalOptions = options;
 	tags.update();
 });
@@ -64,7 +64,7 @@ function checkInventory() {
 	// 	}
 	// 	// Array.prototype.push.apply(inventoryData, itemDiff.removed);
 	// }
-	inventoryData.sort(function(a, b) {
+	inventoryData.sort(function (a, b) {
 		return a.itemInstanceId - b.itemInstanceId;
 	});
 	for (var i = inventoryData.length - 1; i >= 0; i--) {
@@ -119,10 +119,10 @@ function checkInventory() {
 	}
 	characterHistory.appendChild(div);
 }
-database.open().then(function() {
-	database.getMultipleStores(database.allStores).then(function(result) {
+database.open().then(function () {
+	database.getMultipleStores(database.allStores).then(function (result) {
 		console.log(result)
-			// chrome.storage.local.get(null, function(result) {
+		// chrome.storage.local.get(null, function(result) {
 		if (chrome.runtime.lastError) {
 			console.error(chrome.runtime.lastError);
 		}

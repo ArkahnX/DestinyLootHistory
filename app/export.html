@@ -1,28 +1,30 @@
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Loot History Options</title>
-		<link rel="stylesheet" type="text/css" href="ui.css">
-	</head>
-	<body>
-		<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
-		<section class="center solidBackground scrollable options">
-			<div id="overlay" class="hidden">Do not close or refresh this window, progress will be lost.</div>
-			<fieldset>
-				<legend>Tips for using this app:</legend>
-				<ul>
-					<li>Guardian names are case-sensitive.</li>
-					<li>The further back you look, the longer it will take. It takes one second per guardian per 25 activities.</li>
-					<li>After finding all of the matches, it takes an additional 1 second per activity to download.</li>
-					<li>The larger the search criteria (a week is ideal) the longer it will take to return results.</li>
-					<li>This app saves your activity data after each search.</li>
-					<li>This makes running the same search using different target guardians fast.</li>
-					<li>It also can take up a lot of space. Each Activity takes up roughly 64Kb of space.</li>
-				</ul>
-			</fieldset>
-			<fieldset>
-				<legend>Activity Options</legend>
-				<label for="gameMode">Game Mode: <select id="gameMode">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Loot History Options</title>
+	<link rel="stylesheet" type="text/css" href="ui.css">
+</head>
+
+<body>
+	<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
+	<section class="center solidBackground scrollable options">
+		<div id="overlay" class="hidden">Do not close or refresh this window, progress will be lost.</div>
+		<fieldset>
+			<legend>Tips for using this app:</legend>
+			<ul>
+				<li>Guardian names are case-sensitive.</li>
+				<li>The further back you look, the longer it will take. It takes one second per guardian per 25 activities.</li>
+				<li>After finding all of the matches, it takes an additional 1 second per activity to download.</li>
+				<li>The larger the search criteria (a week is ideal) the longer it will take to return results.</li>
+				<li>This app saves your activity data after each search.</li>
+				<li>This makes running the same search using different target guardians fast.</li>
+				<li>It also can take up a lot of space. Each Activity takes up roughly 64Kb of space.</li>
+			</ul>
+		</fieldset>
+		<fieldset>
+			<legend>Activity Options</legend>
+			<label for="gameMode">Game Mode: <select id="gameMode">
 					<optgroup label="All Activities">
 						<option value="None">All Activities</option>
 						<option value="AllPvE">All PVE Activities</option>
@@ -59,9 +61,9 @@
 						<option value="ArenaElderChallenge">Challenge of Elders</option>
 					</optgroup>
 				</select></label>
-				<label for="minDate">Start Date: <input type="datetime-local" id="minDate"></label>
-				<label for="maxDate">End Date: <input type="datetime-local" id="maxDate"></label>
-				<label for="presets">(Optional) Presets: <select id="presets">
+			<label for="minDate">Start Date: <input type="datetime-local" id="minDate"></label>
+			<label for="maxDate">End Date: <input type="datetime-local" id="maxDate"></label>
+			<label for="presets">(Optional) Presets: <select id="presets">
 					<optgroup label="Iron Banner">
 						<option value="IronBannerJuly2016">July 2016</option>
 						<option value="IronBannerJune2016">June 2016</option>
@@ -80,25 +82,25 @@
 						<option value="SparrowRacing">Sparrow Racing</option>
 					</optgroup>
 				</select></label>
-			</fieldset>
-			<fieldset>
-				<legend>Guardian Options (Case Sensitive)</legend>
-				<label for="system">Console: <select id="system">
+		</fieldset>
+		<fieldset>
+			<legend>Guardian Options (Case Sensitive)</legend>
+			<label for="system">Console: <select id="system">
 					<optgroup label="Console Family">
 						<option value="1">Xbox Live</option>
 						<option value="2">Playstation Network</option>
 					</optgroup>
 				</select></label>
-				<label for="playerNames">Guardian Names (comma separated): <input type="text" id="playerNames" spellcheck="false"></label>
-				<label for="mainGuardian">Show Results For: <select id="mainGuardian">
+			<label for="playerNames">Guardian Names (comma separated): <input type="text" id="playerNames" spellcheck="false"></label>
+			<label for="mainGuardian">Show Results For: <select id="mainGuardian">
 					<option value="" selected>All Named Guardians</option>
 				</select></label>
-			</fieldset>
-			<fieldset>
-				<legend>Item Options</legend>
-				<label for="ironBanner">Iron Banner: <input type="checkbox" id="ironBanner" checked></label>
-				<label for="lightLevel">Light Level: <input type="checkbox" id="lightLevel" checked></label>
-				<label for="Results" class="hidden">Results: <select id="Results">
+		</fieldset>
+		<fieldset>
+			<legend>Item Options</legend>
+			<label for="ironBanner">Iron Banner: <input type="checkbox" id="ironBanner" checked></label>
+			<label for="lightLevel">Light Level: <input type="checkbox" id="lightLevel" checked></label>
+			<label for="Results" class="hidden">Results: <select id="Results">
 					<option value="1">One Item</option>
 					<option value="2">Two Items</option>
 					<option value="3">Three Items</option>
@@ -107,34 +109,39 @@
 					<!-- <option value="6">Six Items</option> -->
 					<!-- <option value="7">Seven Items</option> -->
 				</select></label>
-				<!-- <br /> -->
-			</fieldset>
-			<a href="https://docs.google.com/spreadsheets/d/1aQUtGLoBQ4vagrImekx8xBaGPCzGqizMBX2qYSpsFuA/edit?usp=sharing" target="_blank" id="individualSheet" class="hidden">Use this spreadsheet</a>
-			<a href="https://docs.google.com/spreadsheets/d/17l2o9YnFh42stiOYK8XC-GNdomx4wwMV7PlTU86USsE/edit?usp=sharing" target="_blank" id="multipleSheet" class="hidden">Use this spreadsheet</a>
-			<input type="button" value="Export Iron Banner Items" id="exportData" title="Export item data for use with Iron Banner Tracker." />
-			<input type="button" value="Gather match data" id="gatherData" title="Gather Bungie match data." />
-			<span id="status">Status: Waiting for input</span>
-			<fieldset>
-				<legend>Item Results</legend>
-				<textarea id="export" spellcheck="false" readonly></textarea>
-			</fieldset>
-			<fieldset>
-				<legend>Activity Results</legend>
-				<textarea id="export" spellcheck="false" readonly></textarea>
-			</fieldset>
-		</section>
-		<div id="copyright">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
-		<script type="text/javascript" src="scripts/vendor/moment.js"></script>
-		<script type="text/javascript" src="scripts/vendor/moment-timezone.js"></script>
-		<script type="text/javascript" src="scripts/vendor/google-analytics-bundle.js"></script>
-		<script type="text/javascript" src="private.js"></script>
-		<script type="text/javascript" src="scripts/tools/db.js"></script>
-		<script type="text/javascript" src="scripts/shared.js"></script>
-		<script type="text/javascript" src="scripts/pages/exportItems.js"></script>
-		<script type="text/javascript" src="scripts/pages/exportMatches.js"></script>
-		<script type="text/javascript" src="scripts/ui.js"></script>
-		<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js"></script>
-		<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>
-		<script type="text/javascript" src="DestinyDatabase/DestinyCompactDefinition.js"></script>
-	</body>
+			<!-- <br /> -->
+		</fieldset>
+		<a href="https://docs.google.com/spreadsheets/d/1aQUtGLoBQ4vagrImekx8xBaGPCzGqizMBX2qYSpsFuA/edit?usp=sharing" target="_blank"
+						id="individualSheet" class="hidden">Use this spreadsheet</a>
+			<a href="https://docs.google.com/spreadsheets/d/17l2o9YnFh42stiOYK8XC-GNdomx4wwMV7PlTU86USsE/edit?usp=sharing" target="_blank"
+							id="multipleSheet" class="hidden">Use this spreadsheet</a>
+				<input type="button" value="Export Iron Banner Items" id="exportData" title="Export item data for use with Iron Banner Tracker."
+				/>
+				<input type="button" value="Gather match data" id="gatherData" title="Gather Bungie match data." />
+				<span id="status">Status: Waiting for input</span>
+				<fieldset>
+					<legend>Item Results</legend>
+					<textarea id="export" spellcheck="false" readonly></textarea>
+				</fieldset>
+				<fieldset>
+					<legend>Activity Results</legend>
+					<textarea id="export" spellcheck="false" readonly></textarea>
+				</fieldset>
+	</section>
+	<div id="copyright">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie
+		and the Bungie logo are among the trademarks of Bungie, Inc.</div>
+	<script type="text/javascript" src="scripts/vendor/moment.js"></script>
+	<script type="text/javascript" src="scripts/vendor/moment-timezone.js"></script>
+	<script type="text/javascript" src="scripts/vendor/google-analytics-bundle.js"></script>
+	<script type="text/javascript" src="private.js"></script>
+	<script type="text/javascript" src="scripts/tools/db.js"></script>
+	<script type="text/javascript" src="scripts/shared.js"></script>
+	<script type="text/javascript" src="scripts/pages/exportItems.js"></script>
+	<script type="text/javascript" src="scripts/pages/exportMatches.js"></script>
+	<script type="text/javascript" src="scripts/ui.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyCompactDefinition.js"></script>
+</body>
+
 </html>

@@ -46,7 +46,7 @@ function getSortWeight(itemDef) {
 }
 
 function sortList(list) {
-	list.sort(function(a, b) {
+	list.sort(function (a, b) {
 		var aDef = getItemDefinition(a);
 		var bDef = getItemDefinition(b);
 		var aWeight = getSortWeight(aDef);

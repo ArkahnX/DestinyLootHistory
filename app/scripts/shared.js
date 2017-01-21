@@ -1,4 +1,4 @@
-Object.prototype[Symbol.iterator] = function() {
+Object.prototype[Symbol.iterator] = function () {
 	var keyList = Object.keys(this);
 	let index = 0;
 	return {
@@ -15,8 +15,8 @@ Object.prototype[Symbol.iterator] = function() {
 };
 
 function getOption(name) {
-	return new Promise(function(resolve) {
-		chrome.storage.sync.get(name, function(options) {
+	return new Promise(function (resolve) {
+		chrome.storage.sync.get(name, function (options) {
 			if (chrome.runtime.lastError) {
 				console.error(chrome.runtime.lastError);
 			}
@@ -26,12 +26,12 @@ function getOption(name) {
 }
 
 function getAllOptions() {
-	return new Promise(function(resolve) {
-		chrome.storage.sync.get(null, function(options) {
+	return new Promise(function (resolve) {
+		chrome.storage.sync.get(null, function (options) {
 			if (chrome.runtime.lastError) {
 				console.error(chrome.runtime.lastError);
 			}
-			if(options.debugLogging) {
+			if (options.debugLogging) {
 				DEBUG = true;
 			} else {
 				DEBUG = false;
@@ -42,8 +42,8 @@ function getAllOptions() {
 }
 
 function setOptionsObject(obj) {
-	return new Promise(function(resolve) {
-		chrome.storage.sync.set(obj, function() {
+	return new Promise(function (resolve) {
+		chrome.storage.sync.set(obj, function () {
 			if (chrome.runtime.lastError) {
 				console.error(chrome.runtime.lastError);
 			}
@@ -76,10 +76,10 @@ var tracker = service.getTracker('UA-77020265-3'); // Supply your GA Tracking ID
 
 function recursive(index, array, networkTask, resultTask, endRecursion) {
 	if (array[index]) {
-		new Promise(function(resolve) {
+		new Promise(function (resolve) {
 			// console.time("sequence")
 			networkTask(array[index], resolve, index);
-		}).then(function(result) {
+		}).then(function (result) {
 			// console.timeEnd("sequence")
 			resultTask(result, array[index], index);
 			recursive(index + 1, array, networkTask, resultTask, endRecursion);
@@ -90,7 +90,7 @@ function recursive(index, array, networkTask, resultTask, endRecursion) {
 }
 
 function sequence(array, networkTask, resultTask) {
-	return new Promise(function(resolve) {
+	return new Promise(function (resolve) {
 		recursive(0, array, networkTask, resultTask, resolve);
 	});
 }
@@ -142,9 +142,9 @@ var globalTokens = {};
 if (!manifest.key) {
 	DEBUG = true;
 } else {
-	console.log = function(){};
-	console.info = function(){};
-	console.warn = function(){};
-	console.time = function(){};
-	console.timeEnd = function(){};
+	console.log = function () {};
+	console.info = function () {};
+	console.warn = function () {};
+	console.time = function () {};
+	console.timeEnd = function () {};
 }

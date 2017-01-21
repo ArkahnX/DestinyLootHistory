@@ -8,7 +8,7 @@ if (location.search.length && location.search.split("=")[1]) {
 	});
 	tracker.sendEvent('Auth', 'Login', "True");
 } else if (location.hash === "#login") {
-	chrome.runtime.getBackgroundPage(function(backgroundPage) {
+	chrome.runtime.getBackgroundPage(function (backgroundPage) {
 		backgroundPage.stopTimer("extensionIcon");
 		backgroundPage.stopTimer("activityTracker");
 		backgroundPage.stopTimer("inventoryCheck");
@@ -20,7 +20,7 @@ if (location.search.length && location.search.split("=")[1]) {
 } else if (location.hash === "#logout") {
 	tracker.sendEvent('Auth', 'Logout', "Page");
 	// location.href = "auth.html#login";
-	chrome.runtime.getBackgroundPage(function(backgroundPage) {
+	chrome.runtime.getBackgroundPage(function (backgroundPage) {
 		backgroundPage.stopTimer("extensionIcon");
 		backgroundPage.stopTimer("activityTracker");
 		backgroundPage.stopTimer("inventoryCheck");
@@ -33,7 +33,7 @@ if (location.search.length && location.search.split("=")[1]) {
 	});
 }
 
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	if (request.loggedIn) {
 		tracker.sendEvent('Auth', 'Redirect', "True");
 		location.href = "index.html";

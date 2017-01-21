@@ -1,171 +1,188 @@
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Loot History</title>
-		<link rel="stylesheet" type="text/css" href="ui.css">
-		<link rel="stylesheet" type="text/css" href="font-awesome.min.css">
-	</head>
-	<body class="flex-main">
-		<div id="notification" class="">
-			<div id="notification-inner">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Loot History</title>
+	<link rel="stylesheet" type="text/css" href="ui.css">
+	<link rel="stylesheet" type="text/css" href="font-awesome.min.css">
+</head>
+
+<body class="flex-main">
+	<div id="notification" class="">
+		<div id="notification-inner">
 			<div id="notification-close" class="button">Close Notifications</div>
-				<div id="notification-content">
-					<section class="notification-section">
-						<span>New in Version 1.7</span>
-						<ul>
-							<li>Got problems or suggestions? <a href="https://www.reddit.com/message/compose/?to=ArkahnX" target="_blank">Message ArkahnX</a> on Reddit!</li>
-							<li>This version operates on the new official bungie authentication method. Please let me know if you have any issues!</li>
-						</ul>
-					</section>
-					<section class="notification-section">
-						<span>List of features</span>
-						<ul>
-							<li>Three of Coins reminders, faction booster reminders, auto locking items, and auto transferring items can be set in <a href="/options.html" target="_blank">Options</a></li>
-							<li>View a history of your items at the <a href="/history.html" target="_blank">History page</a></li>
-							<li>Browse the vendors at the <a href="/vendor.html" target="_blank">Vendors page</a></li>
-							<li>Complete your in game collection at the <a href="/collection.html" target="_blank">Collection page</a></li>
-							<li>Tag your inventory at the <a href="/test.html" target="_blank">Inventory page</a></li>
-							<li>Check your productivity at the <a href="/test.html" target="_blank">Productivity page</a></li>
-							<li>Search for when you found certain gear at the <a href="/search.html" target="_blank">Search page</a></li>
-						</ul>
-					</section>
-				</div>
+			<div id="notification-content">
+				<section class="notification-section">
+					<span>New in Version 1.7</span>
+					<ul>
+						<li>Got problems or suggestions? <a href="https://www.reddit.com/message/compose/?to=ArkahnX" target="_blank">Message ArkahnX</a> on Reddit!</li>
+						<li>When you visit orbit after an activity, your current characters consumable and material inventory is cleaned based on your "auto move" settings.</li>
+						<li>I'm currently tracking an issue where the extension does not update for extended periods of time. This build has a potential fix, but if this fix does not solve your issue, please let me know.</li>
+						<li>This version operates on the new official bungie authentication method. Please let me know if you have any issues!</li>
+					</ul>
+				</section>
+				<section class="notification-section">
+					<span>List of features</span>
+					<ul>
+						<li>Three of Coins reminders, faction booster reminders, auto locking items, and auto transferring items can be set in
+							<a href="/options.html" target="_blank">Options</a></li>
+						<li>View a history of your items at the <a href="/history.html" target="_blank">History page</a></li>
+						<li>Browse the vendors at the <a href="/vendor.html" target="_blank">Vendors page</a></li>
+						<li>Complete your in game collection at the <a href="/collection.html" target="_blank">Collection page</a></li>
+						<li>Tag your inventory at the <a href="/test.html" target="_blank">Inventory page</a></li>
+						<li>Check your productivity at the <a href="/test.html" target="_blank">Productivity page</a></li>
+						<li>Search for when you found certain gear at the <a href="/search.html" target="_blank">Search page</a></li>
+					</ul>
+				</section>
 			</div>
 		</div>
-		<header id="status" class="flex-nav">
-			<nav>
-
-				<ul class="drop-down">
-					<li><a class="icon-button button hidden admin" href="/status.html" data-title="Status"><i class="fa fa-question-circle" aria-hidden="true"></i></a></li>
-					<li><a class="icon-button button" href="/options.html" data-title="Options"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
-					<li><a class="icon-button button" href="/auth.html#logout" data-title="Logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
-					<li><a class="icon-button button" href="/index.html#notifications" data-title="Notifications" id="notification-icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-					<li><a class="icon-button button reload" href="/index.html#restartTracking" data-title="Restart Tracking"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
-					<!-- <li><input type="button" value="Restart Tracking" class="button reload" /></li> -->
-					<li><input type="button" value="Toggle System" id="toggleSystem" class="button hidden" /></li>
-					<li class="button">Features
-						<ul>
-							<li><a class="button" href="/history.html" title="History"><i class="fa fa-history" aria-hidden="true"></i><span> History</span></a></li>
-							<li><a class="button" href="/vendor.html" title="Vendors"><i class="fa fa-usd" aria-hidden="true"></i><span> Vendors</span></a></li>
-							<li><a class="button" href="/collection.html" title="Collection"><i class="fa fa-check-circle-o" aria-hidden="true"></i><span> Collection</span></a></li>
-							<li><a class="button" href="/search.html" title="Search"><i class="fa fa-search" aria-hidden="true"></i><span> Search</span></a></li>
-							<li><a class="button" href="/test.html" title="Inventory"><i class="fa fa-th" aria-hidden="true"></i><span> Inventory</span></a></li>
-							<li><a class="button" href="/productivity.html" title="Productivity"><i class="fa fa-list" aria-hidden="true"></i><span> Productivity</span></a></li>
-							<li><a class="button hidden admin" href="/export.html">Export</a></li>
-							<li><a class="button hidden admin" href="/quality.html">Quality</a></li>
-							<li><a class="button hidden admin" href="/debug.html">Report Issue</a></li>
-						</ul>
-					</li>
-					<li>
-						<label for="track3oC" class="button">Three of Coins Reminder <input type="checkbox" id="track3oC"></label>
-						<ul>
-							<li><label for="trackBoosters" class="button">Reputation Booster Reminder <input type="checkbox" id="trackBoosters"></label></li>
-							<li><label for="autoLock" class="button">Lock New High Quality Items <input type="checkbox" id="autoLock"></label></li>
-							<li><label for="lockHighLight" class="button">Lock New High Light Items <input type="checkbox" id="lockHighLight"></label></li>
-							<li><a class="button" href="/options.html" title="Options"><i class="fa fa-cog" aria-hidden="true"></i><span> More in Options</span></a></li>
-						</ul>
-					</li>
-					<li><select id="paginate"></select></li>
-				</ul>
-				<span id="version"></span>
-			</nav>
-		</header>
-		<section id="noItemOverlay" class="hidden">
-			<h2>Looks like you haven't made any inventory changes yet.</h2>
-			<h2>Go play Destiny, or check out the links below.</h2>
-			<br>
-			<ul>
-				<li>See what you need in your collection: <a class="" href="/collection.html">Collection</a></li>
-				<li>Check out your item history: <a class="" href="/history.html">History</a></li>
-				<li>Look at what the vendors are selling: <a class="" href="/vendor.html">Vendors</a></li>
+	</div>
+	<header id="status" class="flex-nav">
+		<nav>
+			<ul class="drop-down">
+				<li><a class="icon-button button hidden admin" href="/status.html" data-title="Status"><i class="fa fa-question-circle" aria-hidden="true"></i></a></li>
+				<li><a class="icon-button button" href="/options.html" data-title="Options"><i class="fa fa-cog" aria-hidden="true"></i></a></li>
+				<li><a class="icon-button button" href="/auth.html#logout" data-title="Logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+				<li>
+					<a class="icon-button button" href="/index.html#notifications" data-title="Notifications" id="notification-icon"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+				</li>
+				<li>
+					<a class="icon-button button reload" href="/index.html#restartTracking" data-title="Restart Tracking"><i class="fa fa-refresh" aria-hidden="true"></i></a>
+				</li>
+				<!-- <li><input type="button" value="Restart Tracking" class="button reload" /></li> -->
+				<li><input type="button" value="Toggle System" id="toggleSystem" class="button hidden" /></li>
+				<li class="button">Features
+					<ul>
+						<li><a class="button" href="/history.html" title="History"><i class="fa fa-history" aria-hidden="true"></i><span> History</span></a></li>
+						<li><a class="button" href="/vendor.html" title="Vendors"><i class="fa fa-usd" aria-hidden="true"></i><span> Vendors</span></a></li>
+						<li><a class="button" href="/collection.html" title="Collection"><i class="fa fa-check-circle-o" aria-hidden="true"></i><span> Collection</span></a></li>
+						<li><a class="button" href="/search.html" title="Search"><i class="fa fa-search" aria-hidden="true"></i><span> Search</span></a></li>
+						<li><a class="button" href="/test.html" title="Inventory"><i class="fa fa-th" aria-hidden="true"></i><span> Inventory</span></a></li>
+						<li><a class="button" href="/productivity.html" title="Productivity"><i class="fa fa-list" aria-hidden="true"></i><span> Productivity</span></a></li>
+						<li><a class="button hidden admin" href="/export.html">Export</a></li>
+						<li><a class="button hidden admin" href="/quality.html">Quality</a></li>
+						<li><a class="button hidden admin" href="/debug.html">Report Issue</a></li>
+					</ul>
+				</li>
+				<li>
+					<label for="track3oC" class="button">Three of Coins Reminder <input type="checkbox" id="track3oC"></label>
+					<ul>
+						<li><label for="trackBoosters" class="button">Reputation Booster Reminder <input type="checkbox" id="trackBoosters"></label></li>
+						<li><label for="autoLock" class="button">Lock New High Quality Items <input type="checkbox" id="autoLock"></label></li>
+						<li><label for="lockHighLight" class="button">Lock New High Light Items <input type="checkbox" id="lockHighLight"></label></li>
+						<li><a class="button" href="/options.html" title="Options"><i class="fa fa-cog" aria-hidden="true"></i><span> More in Options</span></a></li>
+					</ul>
+				</li>
+				<li><select id="paginate"></select></li>
 			</ul>
-		</section>
-		<div id="width-wrapper" class="flex-content">
-			<div id="sticky-title-bar">
-				<div class="title-bar">
-					<div class="title table-cell" data-type="date"><h1 class="section-title">DATE</h1></div>
-					<div class="title table-cell" data-type="progression"><h1 class="section-title">PROGRESS</h1></div>
-					<div class="title table-cell" data-type="added"><h1 class="section-title">ADDED</h1></div>
-					<div class="title table-cell" data-type="removed"><h1 class="section-title">REMOVED</h1></div>
-					<div class="title table-cell" data-type="transferred"><h1 class="section-title">TRANSFERRED</h1></div>
-				</div>
-			</div>
-			<div id="container" class="container">
-			</div>
-		</div>
-		<ul id="tagfloat" class="invisible">
-
+			<span id="version"></span>
+		</nav>
+	</header>
+	<section id="noItemOverlay" class="hidden">
+		<h2>Looks like you haven't made any inventory changes yet.</h2>
+		<h2>Go play Destiny, or check out the links below.</h2>
+		<br>
+		<ul>
+			<li>See what you need in your collection: <a class="" href="/collection.html">Collection</a></li>
+			<li>Check out your item history: <a class="" href="/history.html">History</a></li>
+			<li>Look at what the vendors are selling: <a class="" href="/vendor.html">Vendors</a></li>
 		</ul>
-		<div id="tooltip" class="flex-tooltip hidden">
-			<section id="item-head">
-				<canvas id="squareProgress" width="71" height="71" class="bigProgress"></canvas>
-				<img id="item-image" />
-				<h2 id="item-name"></h2>
-				<div>
-					<span id="item-type"></span>
-					<span id="item-rarity"></span>
+	</section>
+	<div id="width-wrapper" class="flex-content">
+		<div id="sticky-title-bar">
+			<div class="title-bar">
+				<div class="title table-cell" data-type="date">
+					<h1 class="section-title">DATE</h1>
 				</div>
-			</section>
-			<section id="class-requirement">
-				
-			</section>
-			<section id="item-body">
-				<div id="level-text">Requires Level <span id="item-required-equip-level"></span></div>
-				<select id="tag" class="hidden">
-				</select>
-				<br />
-				<h1 id="item-primary-stat"></h1>
-				<div id="item-stat-text"></div>
-				<div id="item-description"></div>
-			</section>
-			<section id="item-stats">
-				<table>
-					<tbody id="stat-table">
-						
-					</tbody>
-				</table>
-			</section>
-			<section id="item-nodes">
-				<table>
-					<tbody id="node-table">
-					</tbody>
-				</table>
-			</section>
-			<section id="item-cost">
-				<table>
-					<tbody id="cost-table">
-					</tbody>
-				</table>
-			</section>
-			<section id="item-compare">
-				<table>
-					<tbody id="compare-table">
-					</tbody>
-				</table>
-			</section>
+				<div class="title table-cell" data-type="progression">
+					<h1 class="section-title">PROGRESS</h1>
+				</div>
+				<div class="title table-cell" data-type="added">
+					<h1 class="section-title">ADDED</h1>
+				</div>
+				<div class="title table-cell" data-type="removed">
+					<h1 class="section-title">REMOVED</h1>
+				</div>
+				<div class="title table-cell" data-type="transferred">
+					<h1 class="section-title">TRANSFERRED</h1>
+				</div>
+			</div>
 		</div>
-		<div id="copyright" class="flex-footer">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
-		<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js"></script>
-		<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>
-		<script type="text/javascript" src="DestinyDatabase/DestinyCompactTalentDefinition.js"></script>
-		<script type="text/javascript" src="DestinyDatabase/DestinyCompactDefinition.js"></script>
-		<script type="text/javascript" src="scripts/vendor/moment.js"></script>
-		<script type="text/javascript" src="scripts/vendor/moment-timezone.js"></script>
-		<script type="text/javascript" src="scripts/vendor/google-analytics-bundle.js"></script>
-		<script type="text/javascript" src="scripts/vendor/SquareProgress.js"></script>
-		<script type="text/javascript" src="private.js"></script>
-		<script type="text/javascript" src="scripts/tools/db.js"></script>
-		<script type="text/javascript" src="scripts/tools/tags.js"></script>
-		<script type="text/javascript" src="scripts/shared.js"></script>
-		<script type="text/javascript" src="scripts/bungie.js"></script>
-		<script type="text/javascript" src="scripts/quality.js"></script>
-		<script type="text/javascript" src="scripts/items.js"></script>
-		<script type="text/javascript" src="scripts/itemDiff.js"></script>
-		<script type="text/javascript" src="scripts/tooltip.js"></script>
-		<script type="text/javascript" src="scripts/ui.js"></script>
-		<script type="text/javascript" src="scripts/matches.js"></script>
-		<script type="text/javascript" src="scripts/notification.js"></script>
-		<script type="text/javascript" src="scripts/timers.js"></script>
-		<script type="text/javascript" src="scripts/pages/newui.js"></script>
-	</body>
+		<div id="container" class="container">
+		</div>
+	</div>
+	<ul id="tagfloat" class="invisible">
+	</ul>
+	<div id="tooltip" class="flex-tooltip hidden">
+		<section id="item-head">
+			<canvas id="squareProgress" width="71" height="71" class="bigProgress"></canvas>
+			<img id="item-image" />
+			<h2 id="item-name"></h2>
+			<div>
+				<span id="item-type"></span>
+				<span id="item-rarity"></span>
+			</div>
+		</section>
+		<section id="class-requirement">
+		</section>
+		<section id="item-body">
+			<div id="level-text">Requires Level <span id="item-required-equip-level"></span></div>
+			<select id="tag" class="hidden">
+				</select>
+			<br />
+			<h1 id="item-primary-stat"></h1>
+			<div id="item-stat-text"></div>
+			<div id="item-description"></div>
+		</section>
+		<section id="item-stats">
+			<table>
+				<tbody id="stat-table">
+				</tbody>
+			</table>
+		</section>
+		<section id="item-nodes">
+			<table>
+				<tbody id="node-table">
+				</tbody>
+			</table>
+		</section>
+		<section id="item-cost">
+			<table>
+				<tbody id="cost-table">
+				</tbody>
+			</table>
+		</section>
+		<section id="item-compare">
+			<table>
+				<tbody id="compare-table">
+				</tbody>
+			</table>
+		</section>
+	</div>
+	<div id="copyright" class="flex-footer">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie
+		and the Bungie logo are among the trademarks of Bungie, Inc.</div>
+	<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyCompactTalentDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyCompactDefinition.js"></script>
+	<script type="text/javascript" src="scripts/vendor/moment.js"></script>
+	<script type="text/javascript" src="scripts/vendor/moment-timezone.js"></script>
+	<script type="text/javascript" src="scripts/vendor/google-analytics-bundle.js"></script>
+	<script type="text/javascript" src="scripts/vendor/SquareProgress.js"></script>
+	<script type="text/javascript" src="private.js"></script>
+	<script type="text/javascript" src="scripts/tools/db.js"></script>
+	<script type="text/javascript" src="scripts/tools/tags.js"></script>
+	<script type="text/javascript" src="scripts/shared.js"></script>
+	<script type="text/javascript" src="scripts/bungie.js"></script>
+	<script type="text/javascript" src="scripts/quality.js"></script>
+	<script type="text/javascript" src="scripts/items.js"></script>
+	<script type="text/javascript" src="scripts/itemDiff.js"></script>
+	<script type="text/javascript" src="scripts/tooltip.js"></script>
+	<script type="text/javascript" src="scripts/ui.js"></script>
+	<script type="text/javascript" src="scripts/matches.js"></script>
+	<script type="text/javascript" src="scripts/notification.js"></script>
+	<script type="text/javascript" src="scripts/timers.js"></script>
+	<script type="text/javascript" src="scripts/pages/newui.js"></script>
+</body>
+
 </html>

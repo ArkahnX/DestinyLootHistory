@@ -1,6 +1,6 @@
 tracker.sendAppView('DebugScreen');
 
-document.addEventListener("DOMContentLoaded",function() {
+document.addEventListener("DOMContentLoaded", function () {
 	// var outPutArea = document.getElementById("logOutput");
 	// var logOption = document.getElementById("showLog");
 	// var infoOption = document.getElementById("showInfo");
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded",function() {
 	var reloadButtons = document.querySelectorAll(".reload");
 	for (var reloadButton of reloadButtons) {
 		reloadButton.addEventListener("click", function reloadBackgroundPage() {
-			chrome.runtime.getBackgroundPage(function(bp) {
+			chrome.runtime.getBackgroundPage(function (bp) {
 				bp.location.reload();
 			});
 		});

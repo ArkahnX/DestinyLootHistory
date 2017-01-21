@@ -1,98 +1,100 @@
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Destiny Inventory</title>
-		<link rel="stylesheet" type="text/css" href="ui.css">
-		<link rel="stylesheet" type="text/css" href="font-awesome.min.css">
-	</head>
-	<body class="flex-main">
-		<header id="status" class="active flex-nav">
-			<nav>
-				<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
-				<ul class="drop-down">
-					<li><input type="button" class="button" value="Refresh Inventory" id="refreshInventory"></li>
-					<li><label>Hide Tagged Items <input type="checkbox" id="hideTaggedItems" /></label></li>
-					<li><label>Show Only <select id="showOnly">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Destiny Inventory</title>
+	<link rel="stylesheet" type="text/css" href="ui.css">
+	<link rel="stylesheet" type="text/css" href="font-awesome.min.css">
+</head>
+
+<body class="flex-main">
+	<header id="status" class="active flex-nav">
+		<nav>
+			<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
+			<ul class="drop-down">
+				<li><input type="button" class="button" value="Refresh Inventory" id="refreshInventory"></li>
+				<li><label>Hide Tagged Items <input type="checkbox" id="hideTaggedItems" /></label></li>
+				<li><label>Show Only <select id="showOnly">
 					</select></label></li>
-				</ul>
-			</nav>
-		</header>
-		<!-- <div id="width-wrapper" class="center">
+			</ul>
+		</nav>
+	</header>
+	<!-- <div id="width-wrapper" class="center">
 			<div id="container">
 				<div id="history" class="main-section" style="width: inherit;"></div>
 			</div>
 		</div> -->
-		<div id="debugHome" class="collection hidden flex-content">
-			<ul>
-			</ul>
-		</div>
-		<ul id="tagfloat" class="invisible">
+	<div id="debugHome" class="collection hidden flex-content">
+		<ul>
 		</ul>
-		<div id="tooltip" class="flex-tooltip hidden">
-			<section id="item-head">
-				<canvas id="squareProgress" width="71" height="71" class="bigProgress"></canvas>
-				<img id="item-image" />
-				<h2 id="item-name"></h2>
-				<div>
-					<span id="item-type"></span>
-					<span id="item-rarity"></span>
-				</div>
-			</section>
-			<section id="class-requirement">
-				
-			</section>
-			<section id="item-body">
-				<div id="level-text">Requires Level <span id="item-required-equip-level"></span></div>
-				<select id="tag" class="hidden">
+	</div>
+	<ul id="tagfloat" class="invisible">
+	</ul>
+	<div id="tooltip" class="flex-tooltip hidden">
+		<section id="item-head">
+			<canvas id="squareProgress" width="71" height="71" class="bigProgress"></canvas>
+			<img id="item-image" />
+			<h2 id="item-name"></h2>
+			<div>
+				<span id="item-type"></span>
+				<span id="item-rarity"></span>
+			</div>
+		</section>
+		<section id="class-requirement">
+		</section>
+		<section id="item-body">
+			<div id="level-text">Requires Level <span id="item-required-equip-level"></span></div>
+			<select id="tag" class="hidden">
 				</select>
-				<br />
-				<h1 id="item-primary-stat"></h1>
-				<div id="item-stat-text"></div>
-				<div id="item-description"></div>
-			</section>
-			<section id="item-stats">
-				<table>
-					<tbody id="stat-table">
-						
-					</tbody>
-				</table>
-			</section>
-			<section id="item-nodes">
-				<table>
-					<tbody id="node-table">
-					</tbody>
-				</table>
-			</section>
-			<section id="item-cost">
-				<table>
-					<tbody id="cost-table">
-					</tbody>
-				</table>
-			</section>
-			<section id="item-compare">
-				<table>
-					<tbody id="compare-table">
-					</tbody>
-				</table>
-			</section>
-		</div>
-		<div id="copyright" class="flex-footer">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
-		<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js"></script>
-		<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>
-		<script type="text/javascript" src="DestinyDatabase/DestinyCompactTalentDefinition.js"></script>
-		<script type="text/javascript" src="DestinyDatabase/DestinyCompactDefinition.js"></script>
-		<script type="text/javascript" src="scripts/vendor/moment.js"></script>
-		<script type="text/javascript" src="scripts/vendor/moment-timezone.js"></script>
-		<script type="text/javascript" src="scripts/vendor/google-analytics-bundle.js"></script>
-		<script type="text/javascript" src="private.js"></script>
-		<script type="text/javascript" src="scripts/tools/db.js"></script>
-		<script type="text/javascript" src="scripts/tools/tags.js"></script>
-		<script type="text/javascript" src="scripts/shared.js"></script>
-		<script type="text/javascript" src="scripts/bungie.js"></script>
-		<script type="text/javascript" src="scripts/quality.js"></script>
-		<script type="text/javascript" src="scripts/items.js"></script>
-		<script type="text/javascript" src="scripts/ui.js"></script>
-		<script type="text/javascript" src="scripts/tooltip.js"></script>
-		<script type="text/javascript" src="scripts/pages/test.js"></script>
-	</body>
+			<br />
+			<h1 id="item-primary-stat"></h1>
+			<div id="item-stat-text"></div>
+			<div id="item-description"></div>
+		</section>
+		<section id="item-stats">
+			<table>
+				<tbody id="stat-table">
+				</tbody>
+			</table>
+		</section>
+		<section id="item-nodes">
+			<table>
+				<tbody id="node-table">
+				</tbody>
+			</table>
+		</section>
+		<section id="item-cost">
+			<table>
+				<tbody id="cost-table">
+				</tbody>
+			</table>
+		</section>
+		<section id="item-compare">
+			<table>
+				<tbody id="compare-table">
+				</tbody>
+			</table>
+		</section>
+	</div>
+	<div id="copyright" class="flex-footer">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie
+		and the Bungie logo are among the trademarks of Bungie, Inc.</div>
+	<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyCompactTalentDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyCompactDefinition.js"></script>
+	<script type="text/javascript" src="scripts/vendor/moment.js"></script>
+	<script type="text/javascript" src="scripts/vendor/moment-timezone.js"></script>
+	<script type="text/javascript" src="scripts/vendor/google-analytics-bundle.js"></script>
+	<script type="text/javascript" src="private.js"></script>
+	<script type="text/javascript" src="scripts/tools/db.js"></script>
+	<script type="text/javascript" src="scripts/tools/tags.js"></script>
+	<script type="text/javascript" src="scripts/shared.js"></script>
+	<script type="text/javascript" src="scripts/bungie.js"></script>
+	<script type="text/javascript" src="scripts/quality.js"></script>
+	<script type="text/javascript" src="scripts/items.js"></script>
+	<script type="text/javascript" src="scripts/ui.js"></script>
+	<script type="text/javascript" src="scripts/tooltip.js"></script>
+	<script type="text/javascript" src="scripts/pages/test.js"></script>
+</body>
+
 </html>

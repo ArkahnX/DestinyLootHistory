@@ -1,6 +1,6 @@
 tracker.sendAppView('Collection');
 getOption("activeType").then(bungie.setActive);
-getAllOptions().then(function(options) {
+getAllOptions().then(function (options) {
 	globalOptions = options;
 	tags.update();
 });
@@ -9,7 +9,7 @@ var newInventories = newInventories || {};
 var bungieProfileLoaded = false;
 
 function flattenInventories(inventories) {
-	return new Promise(function(resolve) {
+	return new Promise(function (resolve) {
 		tags.cleanup(inventories);
 		newInventories = inventories;
 		var endResult = {
@@ -687,16 +687,16 @@ function findGhosts(inventories) {
 
 function displayMissingVendorItems(mainContainer, lastVendor, saleVendor) {
 	selectedCharacter = document.getElementById("character").value;
-	bungie.getVendorForCharacter(selectedCharacter, lastVendor).catch(function(err) {
+	bungie.getVendorForCharacter(selectedCharacter, lastVendor).catch(function (err) {
 		if (err) {
 			console.error(err);
 		}
-	}).then(function(kioskVendor) {
-		bungie.getVendorForCharacter(selectedCharacter, saleVendor).catch(function(err) {
+	}).then(function (kioskVendor) {
+		bungie.getVendorForCharacter(selectedCharacter, saleVendor).catch(function (err) {
 			if (err) {
 				console.error(err);
 			}
-		}).then(function(itemVendor) {
+		}).then(function (itemVendor) {
 			console.log(kioskVendor, DestinyVendorDefinition[lastVendor]);
 			if (kioskVendor.vendorHash && itemVendor.vendorHash) {
 				mainContainer.innerHTML = "";
@@ -746,11 +746,11 @@ var vendorItems = {};
 
 function VendorNetworkTask(vendorHash, resolve) {
 	selectedCharacter = document.getElementById("character").value;
-	bungie.getVendorForCharacter(selectedCharacter, vendorHash).catch(function(err) {
+	bungie.getVendorForCharacter(selectedCharacter, vendorHash).catch(function (err) {
 		if (err) {
 			console.error(err);
 		}
-	}).then(function(vendorResponse) {
+	}).then(function (vendorResponse) {
 		if (vendorResponse.vendorHash) {
 			resolve(vendorResponse);
 		} else {
@@ -803,7 +803,7 @@ function VendorResultTask(vendor, vendorHash) {
 }
 
 function displayT12VendorItems(mainContainer) { // rerun hunter vanguard, titan vanguard, warlock vanguard and house of judgement if 
-	sequence([2796397637, 3746647075, 3611686524, 174528503, 3902439767, 1821699360, 3003633346, 242140165, 1808244981, 2680694281, 1990950, 1575820975, 1998812735, 2610555297, 2190824860, 2190824863], VendorNetworkTask, VendorResultTask).then(function() {
+	sequence([2796397637, 3746647075, 3611686524, 174528503, 3902439767, 1821699360, 3003633346, 242140165, 1808244981, 2680694281, 1990950, 1575820975, 1998812735, 2610555297, 2190824860, 2190824863], VendorNetworkTask, VendorResultTask).then(function () {
 		var docFrag = document.createDocumentFragment();
 		mainContainer.innerHTML = "";
 		for (var vendor of vendorItems) {
@@ -867,13 +867,13 @@ function postInitItems() {
 	elements.status.classList.remove("active");
 	document.getElementById("character").innerHTML = characterHTML;
 	document.getElementById("debugHome").classList.remove("hidden");
-	document.querySelectorAll(".collection-section").forEach(function(element) {
-		element.addEventListener("click", function(event) {
+	document.querySelectorAll(".collection-section").forEach(function (element) {
+		element.addEventListener("click", function (event) {
 			if (event.target.checked === false) {
 				if (event.target.dataset.feature === "ghosts") {
 					tracker.sendEvent('Collection', 'Open', 'Ghosts');
 					elements.status.classList.add("active");
-					database.getAllEntries("inventories").then(function(data) {
+					database.getAllEntries("inventories").then(function (data) {
 						// chrome.storage.local.get("inventories", function(data) {
 						console.log(data.inventories);
 						newInventories = data.inventories;
@@ -883,7 +883,7 @@ function postInitItems() {
 				if (event.target.dataset.feature === "ironbanner") {
 					tracker.sendEvent('Collection', 'Open', 'Iron Banner');
 					elements.status.classList.add("active");
-					database.getAllEntries("inventories").then(function(data) {
+					database.getAllEntries("inventories").then(function (data) {
 						// chrome.storage.local.get("inventories", function(data) {
 						console.log(data.inventories);
 						flattenInventories(data.inventories).then(findIronBanner);
@@ -892,7 +892,7 @@ function postInitItems() {
 				if (event.target.dataset.feature === "trials") {
 					tracker.sendEvent('Collection', 'Open', 'Trials');
 					elements.status.classList.add("active");
-					database.getAllEntries("inventories").then(function(data) {
+					database.getAllEntries("inventories").then(function (data) {
 						// chrome.storage.local.get("inventories", function(data) {
 						console.log(data.inventories);
 						flattenInventories(data.inventories).then(findTrials);
@@ -901,7 +901,7 @@ function postInitItems() {
 				if (event.target.dataset.feature === "raid") {
 					tracker.sendEvent('Collection', 'Open', 'Raid');
 					elements.status.classList.add("active");
-					database.getAllEntries("inventories").then(function(data) {
+					database.getAllEntries("inventories").then(function (data) {
 						// chrome.storage.local.get("inventories", function(data) {
 						console.log(data.inventories);
 						flattenInventories(data.inventories).then(findRaid);
@@ -910,7 +910,7 @@ function postInitItems() {
 				if (event.target.dataset.feature === "exotics") {
 					tracker.sendEvent('Collection', 'Open', 'Exotics');
 					elements.status.classList.add("active");
-					database.getAllEntries("inventories").then(function(data) {
+					database.getAllEntries("inventories").then(function (data) {
 						// chrome.storage.local.get("inventories", function(data) {
 						console.log(data.inventories);
 						flattenInventories(data.inventories).then(findExotics);
@@ -920,7 +920,7 @@ function postInitItems() {
 					tracker.sendEvent('Collection', 'Open', 'Emblems');
 					elements.status.classList.add("active");
 					if (!bungieProfileLoaded) {
-						refreshCharacterData().then(function() {
+						refreshCharacterData().then(function () {
 							bungieProfileLoaded = true;
 							findEmblems();
 						});
@@ -932,7 +932,7 @@ function postInitItems() {
 					tracker.sendEvent('Collection', 'Open', 'Shaders');
 					elements.status.classList.add("active");
 					if (!bungieProfileLoaded) {
-						refreshCharacterData().then(function() {
+						refreshCharacterData().then(function () {
 							bungieProfileLoaded = true;
 							findShaders();
 						});
@@ -944,7 +944,7 @@ function postInitItems() {
 					tracker.sendEvent('Collection', 'Open', 'Ships');
 					elements.status.classList.add("active");
 					if (!bungieProfileLoaded) {
-						refreshCharacterData().then(function() {
+						refreshCharacterData().then(function () {
 							bungieProfileLoaded = true;
 							findShips();
 						});
@@ -956,7 +956,7 @@ function postInitItems() {
 					tracker.sendEvent('Collection', 'Open', 'Sparrows');
 					elements.status.classList.add("active");
 					if (!bungieProfileLoaded) {
-						refreshCharacterData().then(function() {
+						refreshCharacterData().then(function () {
 							bungieProfileLoaded = true;
 							findSparrows();
 						});
@@ -967,10 +967,10 @@ function postInitItems() {
 				if (event.target.dataset.feature === "t12") {
 					tracker.sendEvent('Collection', 'Open', 'Tier 12');
 					elements.status.classList.add("active");
-					database.getAllEntries("inventories").then(function(data) {
+					database.getAllEntries("inventories").then(function (data) {
 						newInventories = data.inventories;
 						if (!bungieProfileLoaded) {
-							refreshCharacterData().then(function() {
+							refreshCharacterData().then(function () {
 								bungieProfileLoaded = true;
 								findT12();
 							});
@@ -984,7 +984,7 @@ function postInitItems() {
 	});
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 	initUi(document.body);
 	characterDescriptions = JSON.parse(localStorage.characterDescriptions);
 

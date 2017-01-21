@@ -74,7 +74,7 @@ function makeSearchData(itemDiff) {
 	return searchData;
 }
 
-getAllOptions().then(function(options) {
+getAllOptions().then(function (options) {
 	globalOptions = options;
 	tags.update();
 });
@@ -118,7 +118,7 @@ function processSearchTerm() {
 		currentItemSet = searchResults;
 		document.querySelector('#resultQuantityBox').value = searchResults.length + " Results";
 		console.log(window.performance.now(), "End Search");
-		newDisplayResults().then(function() {
+		newDisplayResults().then(function () {
 			console.log(window.performance.now(), "End Results");
 			postDisplay();
 			document.getElementById("status").classList.remove("active");
@@ -126,16 +126,16 @@ function processSearchTerm() {
 	});
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
-	database.open().then(function() {
-		database.getMultipleStores(database.allStores).then(function(result) {
+document.addEventListener("DOMContentLoaded", function (event) {
+	database.open().then(function () {
+		database.getMultipleStores(database.allStores).then(function (result) {
 			console.log(result);
 		});
 		initUi(document.body);
 		document.getElementById("status").classList.remove("active");
 		var searchElement = document.querySelector('#searchInput');
 		var searchTimeout = null;
-		searchElement.addEventListener("keyup", function() {
+		searchElement.addEventListener("keyup", function () {
 			clearTimeout(searchTimeout);
 			if (searchElement.value.length > 2) {
 				searchTimeout = setTimeout(processSearchTerm, 300);
@@ -144,10 +144,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			}
 		}, false);
 		var pageElement = document.querySelector('#paginate');
-		pageElement.addEventListener("change", function() {
+		pageElement.addEventListener("change", function () {
 			pageNumber = parseInt(elements.paginate.value, 10);
 			document.getElementById("status").classList.add("active");
-			newDisplayResults().then(function() {
+			newDisplayResults().then(function () {
 				document.getElementById("status").classList.remove("active");
 			});
 		}, false);
