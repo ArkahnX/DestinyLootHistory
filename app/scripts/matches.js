@@ -1,9 +1,9 @@
 var matchIdList = [];
 
 function getLocalMatches() {
-	return new Promise(function(resolve, reject) {
+	return new Promise(function (resolve, reject) {
 		console.time("Local Matches");
-		database.getAllEntries("matches").then(function(result) {
+		database.getAllEntries("matches").then(function (result) {
 			// chrome.storage.local.get(["matches"], function(result) {
 			if (chrome.runtime.lastError) {
 				console.error(chrome.runtime.lastError);
@@ -21,11 +21,11 @@ function getLocalMatches() {
 }
 
 function getRemoteMatches() {
-	return new Promise(function(resolve, reject) {
+	return new Promise(function (resolve, reject) {
 		console.time("Remote Matches");
 		if (data.itemChanges[0]) {
-			sequence(characterIdList, getBungieMatchData, function() {}).then(function() {
-				data.matches.sort(function(a, b) {
+			sequence(characterIdList, getBungieMatchData, function () {}).then(function () {
+				data.matches.sort(function (a, b) {
 					return new Date(a.timestamp) - new Date(b.timestamp);
 				});
 				console.timeEnd("Remote Matches");
@@ -51,7 +51,7 @@ function getBungieMatchData(characterId, resolve) {
 
 function _remoteMatch(page, firstDateString, characterId, resolve) {
 	console.time("Look Up Match");
-	bungie.activity(characterId, "None", 10, page).then(function(result) {
+	bungie.activity(characterId, "None", 10, page).then(function (result) {
 		var foundOldDate = false;
 		if (result.data && result.data.activities.length) {
 			for (var activity of result.data.activities) {
@@ -75,7 +75,7 @@ function _remoteMatch(page, firstDateString, characterId, resolve) {
 				resolve();
 			}
 		}
-	}).catch(function(err) {
+	}).catch(function (err) {
 		if (err) {
 			console.error(err);
 		}
@@ -95,7 +95,7 @@ function compactMatch(activity, characterId) {
 }
 
 function applyMatchData() {
-	return new Promise(function(resolve, reject) {
+	return new Promise(function (resolve, reject) {
 		console.time("Match Data");
 		var results = 0;
 		let i = data.itemChanges.length;
@@ -129,7 +129,7 @@ function applyMatchData() {
 			matches: data.matches,
 			currencies: data.currencies
 		};
-		database.addFromObject(newData).then(function() {
+		database.addFromObject(newData).then(function () {
 			console.timeEnd("Match Data");
 			localStorage.updateUI = "true";
 			resolve();

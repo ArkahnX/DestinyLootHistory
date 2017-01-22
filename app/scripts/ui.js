@@ -88,13 +88,13 @@ function initUi(elementTarget) { // jshint ignore:line
 	var reloadButtons = document.querySelectorAll(".reload");
 	for (var reloadButton of reloadButtons) {
 		reloadButton.addEventListener("click", function reloadBackgroundPage() {
-			chrome.runtime.getBackgroundPage(function(bp) {
+			chrome.runtime.getBackgroundPage(function (bp) {
 				bp.location.reload();
 			});
 		});
 	}
 	if (elementTarget) {
-		elements.tooltip.addEventListener("mouseover", function(event) {
+		elements.tooltip.addEventListener("mouseover", function (event) {
 			clearTimeout(hideTooltipTimeout);
 			hideTooltipTimeout = null;
 			clearTimeout(tooltipTimeout);
@@ -110,7 +110,7 @@ function initUi(elementTarget) { // jshint ignore:line
 				handleTooltipData(target.dataset, target, event, true);
 			}
 		}, true);
-		elementTarget.addEventListener("mouseover", function(event) {
+		elementTarget.addEventListener("mouseover", function (event) {
 			if ((event.target.classList.contains("sub-section") || event.target.classList.contains("dropdowncontent")) && !hideTooltipTimeout) {
 				hideTooltipTimeout = setTimeout(hideTooltip, 1000);
 				clearTimeout(tooltipTimeout);
@@ -141,7 +141,7 @@ function initUi(elementTarget) { // jshint ignore:line
 				}
 			}
 		}, true);
-		elementTarget.addEventListener("mousedown", function(event) {
+		elementTarget.addEventListener("mousedown", function (event) {
 			var target = null;
 			if (event.target.classList.contains("item") || event.target.classList.contains("faction")) {
 				target = event.target;
@@ -172,23 +172,23 @@ function initUi(elementTarget) { // jshint ignore:line
 			}
 		}, true);
 		if (document.getElementById("width-wrapper")) {
-			document.getElementById("width-wrapper").addEventListener("scroll", function() {
+			document.getElementById("width-wrapper").addEventListener("scroll", function () {
 				// console.log(document.getElementById("tagfloat"));
 				document.getElementById("tagfloat").classList.add("invisible");
 			}, false);
 		}
 		if (document.getElementById("debugHome")) {
-			document.getElementById("debugHome").addEventListener("scroll", function() {
+			document.getElementById("debugHome").addEventListener("scroll", function () {
 				// console.log(document.getElementById("tagfloat"));
 				document.getElementById("tagfloat").classList.add("invisible");
 			}, false);
 		}
 		var resizeTimeout = null;
-		window.addEventListener("resize", function() {
+		window.addEventListener("resize", function () {
 			// console.log(document.getElementById("tagfloat"));
 			document.getElementById("tagfloat").classList.add("invisible");
 			clearTimeout(resizeTimeout);
-			resizeTimeout = setTimeout(function() {
+			resizeTimeout = setTimeout(function () {
 				let header = document.getElementById("sticky-title-bar").children[0];
 				let headerSections = {};
 				let rowIndex = 0;
@@ -204,7 +204,7 @@ function initUi(elementTarget) { // jshint ignore:line
 		}, false);
 	}
 	if (elements.toggleSystem) {
-		getOption("activeType").then(function(activeType) {
+		getOption("activeType").then(function (activeType) {
 			if (bungie.getMemberships().length > 1) {
 				elements.toggleSystem.classList.remove("hidden");
 			}
@@ -216,8 +216,8 @@ function initUi(elementTarget) { // jshint ignore:line
 				elements.toggleSystem.value = "Swap to XBOX";
 				elements.toggleSystem.classList.add("green");
 			}
-			elements.toggleSystem.addEventListener("click", function() {
-				getOption("activeType").then(function(activeType) {
+			elements.toggleSystem.addEventListener("click", function () {
+				getOption("activeType").then(function (activeType) {
 					if (activeType === "psn") {
 						elements.toggleSystem.value = "Swap to PSN";
 						elements.toggleSystem.classList.remove("green");
@@ -242,7 +242,7 @@ function initUi(elementTarget) { // jshint ignore:line
 	if (typeof tags !== "undefined") {
 		tags.getUI();
 	}
-	getAllOptions().then(function(options) {
+	getAllOptions().then(function (options) {
 		if (elements.autoLock) {
 			elements.autoLock.checked = options.autoLock === true;
 			elements.autoLock.addEventListener("change", handleCheckboxChange, false);
@@ -305,7 +305,7 @@ function makePages() {
 			tempContainer.appendChild(option);
 		}
 		elements.paginate.appendChild(tempContainer);
-		elements.paginate.addEventListener("change", function() {
+		elements.paginate.addEventListener("change", function () {
 			pageNumber = parseInt(elements.paginate.value, 10);
 			notificationCooldown = 0;
 		}, false);
@@ -1093,7 +1093,7 @@ function tableRowSections(tableRow) {
 }
 
 function newDisplayResults() {
-	return new Promise(function(resolve) {
+	return new Promise(function (resolve) {
 		var endPoint = currentItemSet.length - ((pageNumber + 1) * 50);
 		if (endPoint < 0) {
 			endPoint = 0;
@@ -1163,7 +1163,7 @@ function newDisplayResults() {
 			// }
 			index++;
 		}
-		setTimeout(function() {
+		setTimeout(function () {
 			let header = document.getElementById("sticky-title-bar").children[0];
 			let headerSections = {};
 			let rowIndex = 0;

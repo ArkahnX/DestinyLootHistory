@@ -1,6 +1,6 @@
 var endDate = moment();
 var startDate = moment(moment().subtract(24, "hours"));
-getAllOptions().then(function(options) {
+getAllOptions().then(function (options) {
 	globalOptions = options;
 	tags.update();
 });
@@ -322,7 +322,7 @@ function getProductivity() {
 			timeSpent: 0
 		}
 	};
-	database.getMultipleStores(["itemChanges", "progression", "inventories"]).then(function(localResult) {
+	database.getMultipleStores(["itemChanges", "progression", "inventories"]).then(function (localResult) {
 		itemInstanceIds = [];
 		for (let character of localResult.inventories) {
 			for (let item of character.inventory) {
@@ -677,9 +677,9 @@ function getProductivity() {
 	});
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
-	database.open().then(function() {
-		database.getMultipleStores(database.allStores).then(function(result) {
+document.addEventListener("DOMContentLoaded", function (event) {
+	database.open().then(function () {
+		database.getMultipleStores(database.allStores).then(function (result) {
 			console.log(result);
 		});
 		initUi(document.body);
@@ -694,17 +694,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		endDateInput.setAttribute("disabled", true);
 		tracker.sendEvent('Productivity', 'Preset', presetDateInput.value);
 		getProductivity();
-		startDateInput.addEventListener("change", function() {
+		startDateInput.addEventListener("change", function () {
 			startDate = moment(startDateInput.value);
 			tracker.sendEvent('Productivity', 'StartDate', startDate);
 			getProductivity();
 		}, false);
-		endDateInput.addEventListener("change", function() {
+		endDateInput.addEventListener("change", function () {
 			endDate = moment(endDateInput.value);
 			tracker.sendEvent('Productivity', 'EndDate', endDate);
 			getProductivity();
 		}, false);
-		presetDateInput.addEventListener("change", function() {
+		presetDateInput.addEventListener("change", function () {
 			if (presetDateInput.value === "lastday") {
 				startDate = moment(moment().subtract(24, "hours"));
 			}

@@ -50,3 +50,4 @@ node_modules/
 *.zip
 test/
 private.js
+.vscode/

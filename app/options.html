@@ -1,68 +1,71 @@
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>Loot History Options</title>
-		<link rel="stylesheet" type="text/css" href="ui.css">
-	</head>
-	<body>
-		<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
-		<section class="center solidBackground scrollable auto-complete-scroll">
-			<!-- <label for="startOnLaunch" class="sub-section">Start Tracking on Launch<input type="checkbox" id="startOnLaunch" /></label> -->
-			<div id="drop_zone">Place itemChanges.json here to restore</div>
-			<fieldset>
-				<legend>Options</legend>
-				<label id="backupLabel">Create Backup:</label><input type="button" class="button" value="Create itemChanges.json backup" id="backupData" title="Download a copy of your data to move elsewhere." />
-				<br />
-				<label>Version:</label><span id="version"></span>
-				<br />
-				<label>Show Relative Dates:</label><input type="checkbox" id="relativeDates">
-				<br />
-				<label>Show Map Image as Date Background:</label><input type="checkbox" id="pgcrImage">
-				<!-- <br />
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Loot History Options</title>
+	<link rel="stylesheet" type="text/css" href="ui.css">
+</head>
+
+<body>
+	<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
+	<section class="center solidBackground scrollable auto-complete-scroll">
+		<!-- <label for="startOnLaunch" class="sub-section">Start Tracking on Launch<input type="checkbox" id="startOnLaunch" /></label> -->
+		<div id="drop_zone">Place itemChanges.json here to restore</div>
+		<fieldset>
+			<legend>Options</legend>
+			<label id="backupLabel">Create Backup:</label><input type="button" class="button" value="Create itemChanges.json backup"
+							id="backupData" title="Download a copy of your data to move elsewhere." />
+			<br />
+			<label>Version:</label><span id="version"></span>
+			<br />
+			<label>Show Relative Dates:</label><input type="checkbox" id="relativeDates">
+			<br />
+			<label>Show Map Image as Date Background:</label><input type="checkbox" id="pgcrImage">
+			<!-- <br />
 				<label>Enable Debug Logging:</label><input type="checkbox" id="debugLogging"> -->
-			</fieldset>
-			<fieldset>
-				<legend>Show Quality on Items</legend>
-				<label>Show Quality:</label><input type="checkbox" id="showQuality">
-			</fieldset>
-			<fieldset class="hidden admin">
-				<p>Add perks that you like to use, from most preferred (High Value) to least preferred (Low Value) all other perks are ignored.</p>
-				<legend>High Value Weapon Perks</legend>
-				<span><input id="highValuePerks" type="text" name="q" placeholder="Perk Name or Description ..."></span>
-			</fieldset>
-			<fieldset class="hidden admin">
-				<legend>Mid Value Weapon Perks</legend>
-				<span><input id="midValuePerks" type="text" name="q" placeholder="Perk Name or Description ..."></span>
-			</fieldset>
-			<fieldset class="hidden admin">
-				<legend>Low Value Weapon Perks</legend>
-				<span><input id="lowValuePerks" type="text" name="q" placeholder="Perk Name or Description ..."></span>
-			</fieldset>
-			<fieldset>
-				<legend>Auto Lock New High Quality Items</legend>
-				<label>Enable Automatic Locking of Items (High Quality):</label><input type="checkbox" id="autoLock">
-				<br />
-				<label>Minimum Quality Percentage:</label><input type="number" min="80" max="100" value="90" id="minQuality">
-				<!-- <br /> -->
-				<!-- <label>Gear Perks:</label><input type="button" class="button" value="Select Perks" id="gearPerks"> -->
-			</fieldset>
-			<fieldset>
-				<legend>Auto Lock New High Light Items</legend>
-				<label>Enable Automatic Locking of Items (High Light):</label><input type="checkbox" id="lockHighLight">
-				<br />
-				<label>Use Guardian Maximum Light Level:</label><input type="checkbox" id="useGuardianLight">
-				<br />
-				<label>Minimum Light Level:</label><input type="number" min="300" max="400" value="335" id="minLight">
-			</fieldset>
-			<fieldset class="center">
-				<legend>Auto Move All But One Stack To Vault</legend>
-				<span><input id="keepSingleStackItems" type="text" name="q" placeholder="Stackable Item Name ..."></span>
-			</fieldset>
-			<fieldset class="center">
-				<legend>Auto Move All To Vault</legend>
-				<span><input id="autoMoveItemsToVault" type="text" name="q" placeholder="Stackable Item Name ..."></span>
-			</fieldset>
-			<!-- Also not ready yet -->
+		</fieldset>
+		<fieldset>
+			<legend>Show Quality on Items</legend>
+			<label>Show Quality:</label><input type="checkbox" id="showQuality">
+		</fieldset>
+		<fieldset class="hidden admin">
+			<p>Add perks that you like to use, from most preferred (High Value) to least preferred (Low Value) all other perks are ignored.</p>
+			<legend>High Value Weapon Perks</legend>
+			<span><input id="highValuePerks" type="text" name="q" placeholder="Perk Name or Description ..."></span>
+		</fieldset>
+		<fieldset class="hidden admin">
+			<legend>Mid Value Weapon Perks</legend>
+			<span><input id="midValuePerks" type="text" name="q" placeholder="Perk Name or Description ..."></span>
+		</fieldset>
+		<fieldset class="hidden admin">
+			<legend>Low Value Weapon Perks</legend>
+			<span><input id="lowValuePerks" type="text" name="q" placeholder="Perk Name or Description ..."></span>
+		</fieldset>
+		<fieldset>
+			<legend>Auto Lock New High Quality Items</legend>
+			<label>Enable Automatic Locking of Items (High Quality):</label><input type="checkbox" id="autoLock">
+			<br />
+			<label>Minimum Quality Percentage:</label><input type="number" min="80" max="100" value="90" id="minQuality">
+			<!-- <br /> -->
+			<!-- <label>Gear Perks:</label><input type="button" class="button" value="Select Perks" id="gearPerks"> -->
+		</fieldset>
+		<fieldset>
+			<legend>Auto Lock New High Light Items</legend>
+			<label>Enable Automatic Locking of Items (High Light):</label><input type="checkbox" id="lockHighLight">
+			<br />
+			<label>Use Guardian Maximum Light Level:</label><input type="checkbox" id="useGuardianLight">
+			<br />
+			<label>Minimum Light Level:</label><input type="number" min="300" max="400" value="335" id="minLight">
+		</fieldset>
+		<fieldset class="center">
+			<legend>Auto Move All But One Stack To Vault</legend>
+			<span><input id="keepSingleStackItems" type="text" name="q" placeholder="Stackable Item Name ..."></span>
+		</fieldset>
+		<fieldset class="center">
+			<legend>Auto Move All To Vault</legend>
+			<span><input id="autoMoveItemsToVault" type="text" name="q" placeholder="Stackable Item Name ..."></span>
+		</fieldset>
+		<!-- Also not ready yet -->
 		<!-- 	<fieldset>
 				<legend>Tagging</legend>
 				<label>Auto Tag Untagged items on the Inventory Page:</label><input type="checkbox" id="autoTagInventory">
@@ -71,28 +74,30 @@
 				<br />
 				<label>Obey Cooldowns:</label><input type="checkbox" id="obeyCooldowns">
 			</fieldset> -->
-			<fieldset>
-				<legend>Reminders</legend>
-				<label>Three of Coins:</label><input type="checkbox" id="track3oC">
-				<br />
-				<label>Reputation Boosters:</label><input type="checkbox" id="trackBoosters">
-				<br />
-				<label>Obey Rep Booster Cooldown:</label><input type="checkbox" id="obeyCooldowns">
-			</fieldset>
-		</section>
-		<div id="copyright">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.</div>
-		<script type="text/javascript" src="scripts/vendor/google-analytics-bundle.js"></script>
-		<script type="text/javascript" src="scripts/vendor/insignia.min.js"></script>
-		<script type="text/javascript" src="scripts/vendor/auto-complete.min.js"></script>
-		<script type="text/javascript" src="scripts/vendor/fuse.min.js"></script>
-		<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>
-		<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js"></script>
-		<script type="text/javascript" src="DestinyDatabase/DestinyCompactTalentDefinition.js"></script>
-		<script type="text/javascript" src="private.js"></script>
-		<script type="text/javascript" src="scripts/tools/db.js"></script>
-		<script type="text/javascript" src="scripts/tools/weaponPerks.js"></script>
-		<script type="text/javascript" src="scripts/shared.js"></script>
-		<script type="text/javascript" src="scripts/pages/options.js"></script>
-		<script type="text/javascript" src="scripts/ui.js"></script>
-	</body>
+		<fieldset>
+			<legend>Reminders</legend>
+			<label>Three of Coins:</label><input type="checkbox" id="track3oC">
+			<br />
+			<label>Reputation Boosters:</label><input type="checkbox" id="trackBoosters">
+			<br />
+			<label>Obey Rep Booster Cooldown:</label><input type="checkbox" id="obeyCooldowns">
+		</fieldset>
+	</section>
+	<div id="copyright">Destiny loot History &copy; Christopher Hall 2016. &copy; Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie
+		and the Bungie logo are among the trademarks of Bungie, Inc.</div>
+	<script type="text/javascript" src="scripts/vendor/google-analytics-bundle.js"></script>
+	<script type="text/javascript" src="scripts/vendor/insignia.min.js"></script>
+	<script type="text/javascript" src="scripts/vendor/auto-complete.min.js"></script>
+	<script type="text/javascript" src="scripts/vendor/fuse.min.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyCompactItemDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyHistoricalItemDefinition.js"></script>
+	<script type="text/javascript" src="DestinyDatabase/DestinyCompactTalentDefinition.js"></script>
+	<script type="text/javascript" src="private.js"></script>
+	<script type="text/javascript" src="scripts/tools/db.js"></script>
+	<script type="text/javascript" src="scripts/tools/weaponPerks.js"></script>
+	<script type="text/javascript" src="scripts/shared.js"></script>
+	<script type="text/javascript" src="scripts/pages/options.js"></script>
+	<script type="text/javascript" src="scripts/ui.js"></script>
+</body>
+
 </html>

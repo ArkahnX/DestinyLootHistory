@@ -1,4 +1,4 @@
-const item = (function() {// jshint ignore:line
+const item = (function () { // jshint ignore:line
 	var item = {};
 	item.getCosts = function getCosts(saleItem, vendor, inventories, characterId) {
 		let costs = [];

@@ -1,4 +1,4 @@
-var notification = (function() {
+var notification = (function () {
 	let active = true;
 	let container = document.getElementById("notification");
 	let closeButton = document.getElementById("notification-close");
@@ -30,7 +30,7 @@ var notification = (function() {
 
 	update();
 
-	closeButton.addEventListener("click", function() {
+	closeButton.addEventListener("click", function () {
 		hide();
 	}, true);
 

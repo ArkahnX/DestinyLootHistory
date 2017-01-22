@@ -1,7 +1,7 @@
 tracker.sendAppView('BackgroundScreen');
 
 function _backup() {
-	database.getAllEntries("itemChanges").then(function( /*data*/ ) {
+	database.getAllEntries("itemChanges").then(function ( /*data*/ ) {
 		// chrome.storage.local.get(null, function(data) {
 		if (chrome.runtime.lastError) {
 			console.error(chrome.runtime.lastError);
@@ -13,7 +13,7 @@ function _backup() {
 		// });
 	});
 }
-getAllOptions().then(function(options) {
+getAllOptions().then(function (options) {
 	globalOptions = options;
 });
 
@@ -25,13 +25,13 @@ getAllOptions().then(function(options) {
 function backupHistory() {
 	chrome.permissions.contains({
 		permissions: ['downloads']
-	}, function(result) {
+	}, function (result) {
 		if (result) {
 			_backup();
 		} else {
 			chrome.permissions.request({
 				permissions: ['downloads']
-			}, function(granted) {
+			}, function (granted) {
 				if (granted) {
 					_backup();
 				}
@@ -61,7 +61,7 @@ function init() {
 				if (DEBUG) {
 					backupHistory();
 				}
-				initializeStoredVariables().then(function() {
+				initializeStoredVariables().then(function () {
 					// found in timers.js
 					startTimer("activityTracker", 50);
 				});
@@ -74,11 +74,11 @@ function init() {
 }
 
 function bungiePOST(url, data) {
-	return new Promise(function(resolve) {
+	return new Promise(function (resolve) {
 		let r = new XMLHttpRequest();
 		r.open("POST", url, true);
 		r.setRequestHeader('X-API-Key', API_KEY);
-		r.onreadystatechange = function() {
+		r.onreadystatechange = function () {
 			if (r.readyState === 4) {
 				if (this.status >= 200 && this.status < 400) {
 					resolve(JSON.parse(this.response));
@@ -102,14 +102,14 @@ function generateTokens(code) {
  */
 // setTimeout(init, 50);
 // logging some backend data. Saved my butt during the issue that deleted my saved data.
-database.open().then(function() {
-	database.getMultipleStores(database.allStores).then(function(result) {
+database.open().then(function () {
+	database.getMultipleStores(database.allStores).then(function (result) {
 		// chrome.storage.local.get(null, function(result) {
 		if (chrome.runtime.lastError) {
 			console.error(chrome.runtime.lastError);
 		}
 		console.info(result);
-		chrome.storage.sync.get(["authCode", "accessToken", "refreshToken"], function(tokens) {
+		chrome.storage.sync.get(["authCode", "accessToken", "refreshToken"], function (tokens) {
 			if (chrome.runtime.lastError) {
 				console.error(chrome.runtime.lastError);
 			}
@@ -130,9 +130,9 @@ database.open().then(function() {
 	});
 });
 
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 	if (request.authCode) {
-		generateTokens(request.authCode).then(function(response) {
+		generateTokens(request.authCode).then(function (response) {
 			var tokens = {
 				authCode: request.authCode
 			};
@@ -151,7 +151,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 					added: new Date().getTime()
 				};
 				globalTokens = tokens;
-				chrome.storage.sync.set(tokens, function() {
+				chrome.storage.sync.set(tokens, function () {
 					chrome.runtime.sendMessage({
 						loggedIn: true
 					});

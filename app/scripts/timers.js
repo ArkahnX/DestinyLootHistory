@@ -28,7 +28,7 @@ function extensionIcon() {
 
 function activityTracker() {
 	console.log("activityTracker");
-	getAllOptions().then(function(options) {
+	getAllOptions().then(function (options) {
 		globalOptions = options;
 		refreshCharacterData().then(function afterInitItems() {
 			if (localStorage.error === "true") {
@@ -70,7 +70,7 @@ function inventoryCheck() {
 		console.log(`Scheduling check for ${moment().add(((20 * 60 * 1000) - resultTime) / 1000,"s").format("dddd, MMMM Do YYYY, h:mm:ss a")} or ${((20 * 60 * 1000) - resultTime) / 1000} seconds`);
 		startTimer("inventoryCheck", (20 * 60 * 1000) - resultTime);
 		startTimer("activityTracker");
-	}).catch(function(e) {
+	}).catch(function (e) {
 		if (e) {
 			console.error(e);
 		}

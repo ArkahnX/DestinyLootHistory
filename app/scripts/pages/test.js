@@ -8,7 +8,7 @@ var data = {
 	factionChanges: []
 };
 var buckets = [];
-getAllOptions().then(function(options) {
+getAllOptions().then(function (options) {
 	globalOptions = options;
 });
 
@@ -27,8 +27,8 @@ function checkInventory() {
 	console.time("Bungie Inventory");
 	elements.status.classList.add("active");
 	tracker.sendEvent('Inventory', 'Check', 'True');
-	database.getAllEntries("inventories").then(function(remoteData) {
-		getAllOptions().then(function(options) {
+	database.getAllEntries("inventories").then(function (remoteData) {
+		getAllOptions().then(function (options) {
 			globalOptions = options;
 
 			console.log(remoteData);
@@ -85,13 +85,13 @@ function checkInventory() {
 				if (!sortedInventoryData[itemDefinition.bucketTypeHash]) {
 					sortedInventoryData[itemDefinition.bucketTypeHash] = [];
 				}
-				if(hasQuality(item)) {
+				if (hasQuality(item)) {
 					item._quality = parseItemQuality(item);
 				}
 				sortedInventoryData[itemDefinition.bucketTypeHash].push(item);
 			}
 			for (let bucket of sortedInventoryData) {
-				bucket.sort(function(a, b) {
+				bucket.sort(function (a, b) {
 					if (a.primaryStat && !b.primaryStat) {
 						return 0 - parseInt(a.primaryStat.value);
 					} else if (b.primaryStat && !a.primaryStat) {
@@ -111,7 +111,7 @@ function checkInventory() {
 			}
 			console.log(sortedInventoryData);
 			let sortedBuckets = Object.keys(sortedInventoryData);
-			sortedBuckets.sort(function(a, b) {
+			sortedBuckets.sort(function (a, b) {
 				var aweight = DestinyInventoryBucketDefinition[a].bucketOrder;
 				var bweight = DestinyInventoryBucketDefinition[b].bucketOrder;
 				return aweight - bweight;
@@ -176,7 +176,7 @@ function hideItems() {
 	}
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 	elements.status.classList.remove("active");
 	document.getElementById("hideTaggedItems").addEventListener("change", hideItems);
 	document.getElementById("showOnly").addEventListener("change", hideItems);

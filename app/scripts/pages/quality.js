@@ -6,7 +6,7 @@ var perkHashIndex = [1228656138, 709737102, 1269473995, 3326413736, 1880426832, 
 
 var rewardSourceHashIndex = [24296771, 36493462, 113998144, 147701865, 299200664, 344892955, 346792680, 460228854, 478645002, 482203941, 541934873, 686593720, 709638738, 831813627, 846654930, 866383853, 941581325, 950592345, 1011133026, 1141011754, 1257353826, 1381856260, 1389125983, 1391763834, 1396812895, 1536427767, 1587918730, 1662396737, 1835600269, 1882189853, 1920307024, 1963381593, 2155337848, 2294933711, 2644169369, 2770509343, 2859308742, 2861499388, 2975148657, 3080587303, 3107502809, 3116705946, 3147905712, 3286066462, 3405266230, 3413298620, 3496730577, 3498761033, 3523074641, 3551688287, 3654364561, 3660582080, 3672389432, 3739898362, 3870113141, 3945957624, 4065765153, 4074277503, 4131549852];
 
-var badNames = ["Chroma", "Ascend", "Infuse", "Upgrade Damage", "Void", "Solar", "Arc", "Kinetic", "Häkke Pulse Rifle", "Häkke Sidearm", "Focused Firefly", "Triple Double", "Sign of Four", "Wait for It", "Two for One", "Quick Reaction", "Hive Disruptor", "Oracle Disruptor", "Running Interference", "Whirlwind's Curse", "White Nail", "Cocoon", "Burn","Reforge","Rewind","Phantom Gift","Reserve Ammo","Perfectionist","Private Eye","MIRV Mini","Dark Breaker","Burgeoning Hunger"];
+var badNames = ["Chroma", "Ascend", "Infuse", "Upgrade Damage", "Void", "Solar", "Arc", "Kinetic", "Häkke Pulse Rifle", "Häkke Sidearm", "Focused Firefly", "Triple Double", "Sign of Four", "Wait for It", "Two for One", "Quick Reaction", "Hive Disruptor", "Oracle Disruptor", "Running Interference", "Whirlwind's Curse", "White Nail", "Cocoon", "Burn", "Reforge", "Rewind", "Phantom Gift", "Reserve Ammo", "Perfectionist", "Private Eye", "MIRV Mini", "Dark Breaker", "Burgeoning Hunger"];
 
 function isGoodPerk(itemDef) {
 	if (!itemDef.nodeStepName || !itemDef.nodeStepDescription || !itemDef.icon) {
@@ -58,7 +58,7 @@ function findWeaponPerks() {
 			}
 		}
 	}
-	weaponPerks.sort(function(a, b) {
+	weaponPerks.sort(function (a, b) {
 		return a.perkName.localeCompare(b.perkName);
 	});
 	console.log(JSON.stringify(weaponPerks));
@@ -130,14 +130,14 @@ function setupItemFields(ID, properties, hashList, sortList) {
 			container.innerHTML = `<img src="https://www.bungie.net${data.displayIcon}" width="16" height="16" class="perkIcon"><span>${data.displayName}</span>`;
 			container.title = data.displayDescription;
 		},
-		getText: function(item) {
+		getText: function (item) {
 			var hash = parseInt(item, 10);
 			var data = properties[hashList.indexOf(hash)];
 			return data.displayName;
 		}
 	});
 	insigniaInputs[ID] = insigniaInput;
-	insigniaInput.on('remove', function() {
+	insigniaInput.on('remove', function () {
 		var newArray = [];
 		var oldArray = insigniaInput.value();
 		for (var item of oldArray) {
@@ -149,7 +149,7 @@ function setupItemFields(ID, properties, hashList, sortList) {
 		selector: '#' + ID,
 		minChars: 0,
 		delay: 500,
-		source: function(term, suggest) {
+		source: function (term, suggest) {
 			var suggestions = [];
 			var suggestionList = null;
 			if (term.length === 0) {
@@ -169,7 +169,7 @@ function setupItemFields(ID, properties, hashList, sortList) {
 			}
 			suggest(suggestions);
 		},
-		renderItem: function(item, search, index) {
+		renderItem: function (item, search, index) {
 			var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
 			if (search.split(' ')[0] === "") {
 				return `<div class="autocomplete-suggestion${index === 0 ? " selected" : ""}" data-hash="${item.perkHash}" data-name="${item.displayName}" title="${item.displayDescription}"><img src="https://www.bungie.net${item.displayIcon}" width="32" height="32" class="perkIcon"><span>${item.displayName}</span></div>`;
@@ -177,7 +177,7 @@ function setupItemFields(ID, properties, hashList, sortList) {
 				return `<div class="autocomplete-suggestion${index === 0 ? " selected" : ""}" data-hash="${item.perkHash}" data-name="${item.displayName}" title="${item.displayDescription}"><img src="https://www.bungie.net${item.displayIcon}" width="32" height="32" class="perkIcon"><span>${item.displayName.replace(re, "<b>$1</b>")}</span></div>`;
 			}
 		},
-		onSelect: function(e, term, item) {
+		onSelect: function (e, term, item) {
 			var hash = parseInt(item.getAttribute('data-hash'), 10);
 			var data = properties[hashList.indexOf(hash)];
 			console.log(`Item "${data.displayName} (${data.displayDescription})" selected by ${(e.type === 'keydown' ? 'pressing enter' : 'mouse click')}.`);
@@ -206,7 +206,7 @@ function setupItemFields(ID, properties, hashList, sortList) {
 	// 		e.preventDefault(); // prevent form submission
 	// 	}
 	// });
-	getOption(ID).then(function(value) {
+	getOption(ID).then(function (value) {
 		for (let item of value) {
 			insigniaInput.addItem(item);
 		}
@@ -224,7 +224,7 @@ function getSortOrder(list) {
 var duplicates = [];
 
 function findGearForFilter(data) {
-	return new Promise(function(resolve) {
+	return new Promise(function (resolve) {
 		duplicates = [];
 		var uniqueHashes = [];
 		var classType = parseInt(elements.classType.value);
@@ -266,13 +266,13 @@ var stringMap = {
 };
 
 var weightFns = {
-	gearDuplicates: function(itemDef, item) {
+	gearDuplicates: function (itemDef, item) {
 		if (duplicates.indexOf(item.itemHash) > -1) {
 			return 1000;
 		}
 		return 0;
 	},
-	gearSource: function(itemDef, item) {
+	gearSource: function (itemDef, item) {
 		let found = 0;
 		if (itemDef.sourceHashes) {
 			for (let rewardSource of itemDef.sourceHashes) {
@@ -286,40 +286,40 @@ var weightFns = {
 		}
 		return 0;
 	},
-	gearXPIncomplete: function(itemDef, item) {
+	gearXPIncomplete: function (itemDef, item) {
 		if (item.xpComplete === false && !item.isGridComplete) {
 			return 1000;
 		}
 		return 0;
 	},
-	gearNeedsUpgrades: function(itemDef, item) {
+	gearNeedsUpgrades: function (itemDef, item) {
 		if (item.isGridComplete) {
 			return 0;
 		}
 		return 1000;
 	},
-	gearXPMax: function(itemDef, item) {
+	gearXPMax: function (itemDef, item) {
 		if (item.xpComplete || item.isGridComplete) {
 			return 1000;
 		}
 		return 0;
 	},
-	gearLevel: function(itemDef, item) {
+	gearLevel: function (itemDef, item) {
 		return Math.round((item.xpTotal / item.xpMax) * 1000);
 	},
-	gearRarity: function(itemDef) {
+	gearRarity: function (itemDef) {
 		return Math.round((itemDef.tierType / 6) * 1000) || 0;
 	},
-	gearPerks: function(itemDef, item) {
+	gearPerks: function (itemDef, item) {
 		return talentsContainsPerkHashes(item, globalOptions.perkSortOrder) * 10;
 	},
-	gearLight: function(itemDef, item) {
+	gearLight: function (itemDef, item) {
 		if (item.primaryStat && item.primaryStat.value) {
 			return Math.round((item.primaryStat.value / 400) * 1000);
 		}
 		return 0;
 	},
-	gearQuality: function(itemDef, item) {
+	gearQuality: function (itemDef, item) {
 		if (hasQuality(item)) {
 			return Math.round((parseItemQuality(item).min / 350) * 1000);
 		}
@@ -341,8 +341,8 @@ function getWeight(itemDef, item) {
 }
 
 function sortGear(gearList) {
-	return new Promise(function(resolve) {
-		gearList.sort(function(a, b) {
+	return new Promise(function (resolve) {
+		gearList.sort(function (a, b) {
 			var aDef = getItemDefinition(a.itemHash, a);
 			var bDef = getItemDefinition(b.itemHash, b);
 			var aWeight = getWeight(aDef, a);
@@ -439,7 +439,7 @@ function startUi(options) {
 	}
 	new Sortable(list, {
 		group: "sort",
-		onSort: function() {
+		onSort: function () {
 			var order = getSortOrder(list);
 			setOption("qualitySortOrder", order);
 		}
@@ -459,7 +459,7 @@ function startUi(options) {
 	}
 	new Sortable(perkSortList, {
 		group: "perks",
-		onSort: function() {
+		onSort: function () {
 			var order = getSortOrder(perkSortList);
 			setOption("perkSortOrder", order);
 		}
@@ -468,7 +468,7 @@ function startUi(options) {
 		group: "perks"
 	});
 	// setupItemFields("qualitySortOrder", perkList, perkHashIndex);
-	elements.refreshGear.addEventListener("click", function() {
+	elements.refreshGear.addEventListener("click", function () {
 		getAllOptions().then(organiseGear);
 	});
 	document.getElementById("debugHome").classList.remove("hidden");
@@ -476,7 +476,7 @@ function startUi(options) {
 	elements.status.classList.remove("active");
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 	elements.status.classList.add("active");
 	database.open().then(getAllOptions).then(startUi);
 });
