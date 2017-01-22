@@ -369,6 +369,7 @@ function processDifference(currentDateString, resolve) {
 			oldInventories = newInventories;
 			if (Object.keys(oldInventories).length === 0) {
 				console.error(newInventories);
+				tracker.sendEvent('error', `inventory`, JSON.stringify(Object.keys(newInventories)));
 			}
 			data.inventories = newInventories;
 			oldCurrencies = newCurrencies;
@@ -379,6 +380,7 @@ function processDifference(currentDateString, resolve) {
 			oldInventories = newInventories;
 			if (Object.keys(oldInventories).length === 0) {
 				console.error(newInventories);
+				tracker.sendEvent('error', `inventory`, JSON.stringify(Object.keys(newInventories)));
 			}
 			data.inventories = newInventories;
 			oldCurrencies = newCurrencies;
