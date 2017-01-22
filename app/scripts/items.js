@@ -249,11 +249,14 @@ function itemResultTask(result, characterId) {
 			if (result.data) {
 				if (result.data.buckets) {
 					console.error(result.data.buckets);
+					tracker.sendEvent('error', `newInventory`, JSON.stringify(Object.keys(result.data.buckets)));
 				} else {
 					console.error(result.data);
+					tracker.sendEvent('error', `newInventory`, JSON.stringify(Object.keys(result.data)));
 				}
 			} else {
 				console.error(result);
+				tracker.sendEvent('error', `newInventory`, JSON.stringify(Object.keys(result)));
 			}
 		}
 	}
