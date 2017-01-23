@@ -5,6 +5,7 @@ var trackingTimer = 0;
 
 function processDifference(currentDateString, resolve) {
 	// reset variables
+	FINALCHANGESHUGE = false;
 	transferQ.length = 0;
 	addedCurrencyQ.length = 0;
 	removedCurrencyQ.length = 0;
@@ -388,7 +389,6 @@ function processDifference(currentDateString, resolve) {
 		}
 		if (finalDiff.added.length < 50 && finalDiff.removed.length < 50) {
 			finalChanges.push(finalDiff);
-			FINALCHANGESHUGE = false;
 		} else {
 			FINALCHANGESHUGE = true;
 			// tracker.sendEvent('finalChanges Huge', `Added ${finalDiff.added.length}, Removed ${finalDiff.removed.length}, Progression ${finalDiff.progression && finalDiff.progression.length || 0}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
