@@ -652,6 +652,17 @@ function afterAdvisors(advisorData, resolve, currentDateString) {
 			oldProgression[attr] = handleInput(result.progression[attr], newProgression[attr]);
 		}
 		oldInventories = handleInput(result.inventories, newInventories);
+		for (let newInventoryContainer of newInventories) {
+			let foundCharacterId = false;
+			for (let oldInventoryContainer of oldInventories) {
+				if (oldInventoryContainer.characterId === newInventoryContainer.characterId) {
+					foundCharacterId = true;
+				}
+			}
+			if (!foundCharacterId) {
+				oldInventories.push(newInventoryContainer);
+			}
+		}
 		oldCurrencies = handleInput(result.currencies, newCurrencies);
 		console.timeEnd("Local Inventory");
 		// itemDiff.js
@@ -771,6 +782,9 @@ function check3oC() {
 	return new Promise(function (resolve) {
 		if (globalOptions.track3oC !== true && globalOptions.trackBoosters !== true) {
 			console.log("We are NOT tracking 3oC");
+			if (FINALCHANGESHUGE) {
+				tracker.sendEvent('Inventory Error', bungie.getCurrentAccount().displayName, "Resolve 3oC");
+			}
 			resolve();
 			return false;
 		}
@@ -841,9 +855,15 @@ function check3oC() {
 			} else {
 				console.log("three of coins reminder sent, but no space in vault.");
 			}
+			if (FINALCHANGESHUGE) {
+				tracker.sendEvent('Inventory Error', bungie.getCurrentAccount().displayName, "Resolve 3oC");
+			}
 			resolve();
 		} else {
 			console.log(`We cannot move 3oC because move3oC = ${localStorage.move3oC}`);
+			if (FINALCHANGESHUGE) {
+				tracker.sendEvent('Inventory Error', bungie.getCurrentAccount().displayName, "Resolve 3oC");
+			}
 			resolve();
 		}
 	});

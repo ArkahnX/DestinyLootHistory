@@ -138,6 +138,7 @@ var globalOptions = {};
 var DEBUG = false;
 var manifest = chrome.runtime.getManifest();
 var globalTokens = {};
+var FINALCHANGESHUGE = false;
 
 if (!manifest.key) {
 	DEBUG = true;

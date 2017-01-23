@@ -388,9 +388,12 @@ function processDifference(currentDateString, resolve) {
 		}
 		if (finalDiff.added.length < 50 && finalDiff.removed.length < 50) {
 			finalChanges.push(finalDiff);
+			FINALCHANGESHUGE = false;
 		} else {
-			tracker.sendEvent('finalChanges Huge', `Added ${finalDiff.added.length}, Removed ${finalDiff.removed.length}, Progression ${finalDiff.progression && finalDiff.progression.length || 0}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
-			console.warn(`bungie systems ${JSON.stringify(bungie.getMemberships())}, bungie active ${JSON.stringify(bungie.getActive())}`);
+			FINALCHANGESHUGE = true;
+			// tracker.sendEvent('finalChanges Huge', `Added ${finalDiff.added.length}, Removed ${finalDiff.removed.length}, Progression ${finalDiff.progression && finalDiff.progression.length || 0}`, `version ${localStorage.version}, systems ${localStorage.systems}`);
+			tracker.sendEvent('Inventory Error', bungie.getCurrentAccount().displayName, localStorage.version);
+			// console.warn(`bungie systems ${JSON.stringify(bungie.getMemberships())}, bungie active ${JSON.stringify(bungie.getActive())}`);
 		}
 		for (var itemDiff of finalDiff.added) {
 			var localCharacterId = finalDiff.characterId;
@@ -408,6 +411,9 @@ function processDifference(currentDateString, resolve) {
 		trackingTimer = 0;
 		addedCurrencyQ.length = 0;
 		removedCurrencyQ.length = 0;
+		if (FINALCHANGESHUGE) {
+			tracker.sendEvent('Inventory Error', bungie.getCurrentAccount().displayName, "Finished Scope");
+		}
 	} else {
 		// var _inventories = {};
 		// for (let bucket of data.inventories) {
@@ -458,7 +464,11 @@ function processDifference(currentDateString, resolve) {
 	console.timeEnd("Process Difference");
 	console.time("grab matches");
 	trackingTimer++;
+
 	getLocalMatches().then(getRemoteMatches).catch(function (err) {
+		if (FINALCHANGESHUGE) {
+			tracker.sendEvent('Inventory Error', bungie.getCurrentAccount().displayName, "Remote Matches Error");
+		}
 		if (err) {
 			console.error(err);
 		}
