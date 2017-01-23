@@ -115,8 +115,11 @@ function validate() {
 			}
 			if (rewriteStore.length) {
 				sequence(rewriteStore, function (entry, complete) {
-					database.addFromArray(entry, newData[entry]).then(complete);
-				}, function () {}).then(function () {
+					database.clear(entry).then(complete);
+					// .then(complete);
+				}, function (entry) {
+					database.addFromArray(entry, newData[entry]);
+				}).then(function () {
 					resolve();
 					// console.log("DONE!");
 				});

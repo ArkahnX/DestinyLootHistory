@@ -29,9 +29,15 @@ function getRemoteMatches() {
 					return new Date(a.timestamp) - new Date(b.timestamp);
 				});
 				console.timeEnd("Remote Matches");
+				if (FINALCHANGESHUGE) {
+					tracker.sendEvent('Inventory Error', bungie.getCurrentAccount().displayName, "Resolve Remote Matches");
+				}
 				resolve();
 			});
 		} else {
+			if (FINALCHANGESHUGE) {
+				tracker.sendEvent('Inventory Error', bungie.getCurrentAccount().displayName, "Resolve Remote Matches");
+			}
 			resolve();
 		}
 		// resolve();
@@ -130,6 +136,9 @@ function applyMatchData() {
 			currencies: data.currencies
 		};
 		database.addFromObject(newData).then(function () {
+			if (FINALCHANGESHUGE) {
+				tracker.sendEvent('Inventory Error', bungie.getCurrentAccount().displayName, "Data Saved");
+			}
 			console.timeEnd("Match Data");
 			localStorage.updateUI = "true";
 			resolve();
