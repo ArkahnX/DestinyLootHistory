@@ -12,13 +12,21 @@
 		<nav>
 			<a value="Return to Item Tracking" id="viewHome" class="button" href="/index.html">Return to Item Tracking</a>
 			<div class="main-select">
-				<label for="season">Season: <select id="season">
+				<label for="season">Season: <select id="season" disabled>
 					<option selected>Select Season</option>
 				</select></label>
 				<label for="page" class="hidden">Page: <select id="page">
 					<option selected value="matchdata">Match Data</option>
-					<option value="stats">Stats</option>
+					<option value="loot">Loot Drops</option>
+					<option value="primary">Primary Stats</option>
+					<option value="special">Special Stats</option>
+					<option value="heavy">Heavy Stats</option>
+					<option value="weapon">Weapon Stats</option>
+					<option value="player">Player Stats</option>
+					<option value="map">Map Stats</option>
+					<option value="mapspawn">Map Spawn Stats</option>
 					<option value="bests">Bests</option>
+					<option value="stats">Stats</option>
 				</select></label>
 				<button></button>
 			</div>
@@ -97,7 +105,9 @@
 	<script type="text/javascript" src="scripts/vendor/tablesort.date.js"></script>
 	<script type="text/javascript" src="scripts/vendor/tablesort.number.js"></script>
 	<script type="text/javascript" src="scripts/tools/ironbanner.js"></script>
+	<script type="text/javascript" src="scripts/pages/exportitems.js"></script>
 	<script type="text/javascript" src="scripts/pages/ironbanner.js"></script>
+	<script type="text/javascript" src="scripts/pages/ironbannerdata.js"></script>
 	<script type="text/javascript" src="scripts/pages/ironbannerui.js"></script>
 </body>
 

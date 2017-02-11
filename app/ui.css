@@ -2027,9 +2027,33 @@ fieldset .failure {
 	max-width: 34px;
 }
 
-.data-table .win {
+.data-table .win,
+.data-table .values {
 	min-width: 48px;
 	max-width: 48px;
+}
+
+.data-table .stat {
+	font-weight: bold;
+}
+
+.data-table .ThreeOfCoins {
+	min-width: 121px;
+	max-width: 121px;
+}
+
+.data-table .RewardOne,
+.data-table .RewardTwo,
+.data-table .RewardThree,
+.data-table .RewardFour {
+	min-width: 166px;
+	max-width: 166px;
+}
+
+.data-table .rank,
+.data-table .place {
+	min-width: 40px;
+	max-width: 40px;
 }
 
 .data-table .score {

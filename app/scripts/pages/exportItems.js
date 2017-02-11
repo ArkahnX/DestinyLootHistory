@@ -1,13 +1,14 @@
 tracker.sendAppView('ExportScreen');
 
 function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, lightLevel) {
+	return new Promise(function(resolve) {
 	database.getMultipleStores(database.allStores).then(function(data) {
 	// chrome.storage.local.get(null, function(data) {
 		if (chrome.runtime.lastError) {
 			console.error(chrome.runtime.lastError);
 		}
 		// console.startLogging("export");
-		var exportDataButton = document.getElementById("exportData");
+		// var exportDataButton = document.getElementById("exportData");
 		var regexMatch = new RegExp(gameMode, "i");
 		var matchDrops = {};
 		var sortedData = [];
@@ -125,17 +126,19 @@ function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, light
 			if (ironBanner) {
 				result.Rank = matchDrops[attr].level;
 			}
-			sortedData.push(join(result) + "\n");
+			sortedData.push(result);
 			if (rewards[4]) {
 				console.info(rewards);
 			}
 			console.log(join(result));
 		}
+		resolve(sortedData);
 		console.log(sortedData.length);
-		var textarea = document.getElementById("export");
-		textarea.value = sortedData.join("");
-		exportDataButton.classList.remove("loading");
-		exportDataButton.removeAttribute("disabled");
+		// var textarea = document.getElementById("export");
+		// textarea.value = sortedData.join("");
+		// exportDataButton.classList.remove("loading");
+		// exportDataButton.removeAttribute("disabled");
+	});
 	});
 }
 
@@ -149,26 +152,26 @@ function join(object) {
 	return string;
 }
 
-document.addEventListener("DOMContentLoaded", function(event) {
-	initUi(elements.container);
-	var exportDataButton = document.getElementById("exportData");
-	var minDateInput = document.getElementById("MinDate");
-	if (minDateInput) {
-		minDateInput.value = moment("2016-07-19T17:00:00Z").format("YYYY-MM-DDTHH:mm:ss");
-	}
-	var maxDateInput = document.getElementById("MaxDate");
-	if (maxDateInput) {
-		maxDateInput.value = moment("2016-07-26T09:00:00Z").format("YYYY-MM-DDTHH:mm:ss");
-	}
-	var gameModeInput = document.getElementById("GameMode");
-	var ironBannerInput = document.getElementById("ironBanner");
-	var resultsInput = document.getElementById("Results");
-	var lightLevelInput = document.getElementById("lightLevel");
-	if (exportDataButton) {
-		exportDataButton.addEventListener("click", function() {
-			exportDataButton.classList.add("loading");
-			exportDataButton.setAttribute("disabled", true);
-			exportData(gameModeInput.value, moment(minDateInput.value).utc().format(), moment(maxDateInput.value).utc().format(), parseInt(resultsInput.value), ironBannerInput.checked, lightLevelInput.checked);
-		});
-	}
-});
+// document.addEventListener("DOMContentLoaded", function(event) {
+// 	initUi(elements.container);
+// 	var exportDataButton = document.getElementById("exportData");
+// 	var minDateInput = document.getElementById("MinDate");
+// 	if (minDateInput) {
+// 		minDateInput.value = moment("2016-07-19T17:00:00Z").format("YYYY-MM-DDTHH:mm:ss");
+// 	}
+// 	var maxDateInput = document.getElementById("MaxDate");
+// 	if (maxDateInput) {
+// 		maxDateInput.value = moment("2016-07-26T09:00:00Z").format("YYYY-MM-DDTHH:mm:ss");
+// 	}
+// 	var gameModeInput = document.getElementById("GameMode");
+// 	var ironBannerInput = document.getElementById("ironBanner");
+// 	var resultsInput = document.getElementById("Results");
+// 	var lightLevelInput = document.getElementById("lightLevel");
+// 	if (exportDataButton) {
+// 		exportDataButton.addEventListener("click", function() {
+// 			exportDataButton.classList.add("loading");
+// 			exportDataButton.setAttribute("disabled", true);
+// 			exportData(gameModeInput.value, moment(minDateInput.value).utc().format(), moment(maxDateInput.value).utc().format(), parseInt(resultsInput.value), ironBannerInput.checked, lightLevelInput.checked);
+// 		});
+// 	}
+// });
