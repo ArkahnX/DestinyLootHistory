@@ -160,19 +160,6 @@ select:not(#tags):focus,
 	cursor: pointer;
 }
 
-input[disabled],
-select[disabled] {
-	cursor: default;
-	color: #607D8B;
-	background-color: #CFD8DC;
-}
-
-input[disabled]:hover,
-select[disabled]:hover {
-	color: #607D8B;
-	background-color: #B0BEC5;
-}
-
 header {
 	transition: box-shadow .2s linear, background-color .2s ease-in, background-image .2s ease-in;
 	background-color: rgba(238, 238, 238, .7);
@@ -1783,6 +1770,19 @@ nav input[type=checkbox] {
 	vertical-align: middle;
 }
 
+input[disabled],
+select[disabled] {
+	cursor: default!important;
+	color: #607D8B!important;
+	background-color: #CFD8DC!important;
+}
+
+input[disabled]:hover,
+select[disabled]:hover {
+	color: #607D8B!important;
+	background-color: #B0BEC5!important;
+}
+
 .inverted {
 	filter: invert(100%);
 }
@@ -1959,4 +1959,124 @@ fieldset .failure {
 	border: solid;
 	border-width: 0 6px 6px 6px;
 	border-color: #333 transparent;
+}
+
+.data-table {
+	background-color: white;
+	table-layout: fixed;
+	border-collapse: collapse;
+	white-space: nowrap;
+	padding-bottom: 40px;
+	width: auto;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+.data-table td {
+	overflow: hidden;
+	border-right: 1px solid grey;
+	border-bottom: 1px solid grey;
+	padding: 2px;
+	font-size: 14px;
+}
+
+.data-table thead tr {
+	display: block;
+	position: relative;
+}
+
+.data-table tbody {
+	display: block;
+	overflow: auto;
+	height: 100%;
+}
+
+.data-table td,
+.data-table th {
+	min-width: 70px;
+	max-width: 70px;
+}
+
+.data-table .id {
+	min-width: 22px;
+	max-width: 22px;
+}
+
+.data-table .map {
+	min-width: 82px;
+	max-width: 82px;
+}
+
+.data-table .assists {
+	min-width: 51px;
+	max-width: 51px;
+}
+
+.data-table .deaths {
+	min-width: 48px;
+	max-width: 48px;
+}
+
+.data-table .kd {
+	min-width: 31px;
+	max-width: 31px;
+}
+
+.data-table .kad {
+	min-width: 34px;
+	max-width: 34px;
+}
+
+.data-table .win {
+	min-width: 48px;
+	max-width: 48px;
+}
+
+.data-table .score {
+	min-width: 42px;
+	max-width: 42px;
+}
+
+.data-table .primary,
+.data-table .primaryKills,
+.data-table .special,
+.data-table .specialKills,
+.data-table .heavy,
+.data-table .heavyKills,
+.data-table .melee,
+.data-table .grenade,
+.data-table .super,
+.data-table .sparksCaptured {
+	min-width: 55px;
+	max-width: 55px;
+}
+
+.data-table .special {
+	min-width: 55px;
+	max-width: 55px;
+}
+
+.data-table .heavy {
+	min-width: 55px;
+	max-width: 55px;
+}
+
+.data-gold {
+	background-color: #fce8b2;
+}
+
+.data-green {
+	background-color: #b7e1cd;
+}
+
+.data-red {
+	background-color: #f4c7c3;
+}
+
+.data-win {
+	background-color: #ebfcef
+}
+
+.data-loss {
+	background-color: #fce5cd;
 }
