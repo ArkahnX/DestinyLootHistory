@@ -1991,8 +1991,8 @@ fieldset .failure {
 	height: 100%;
 }
 
-.data-table td,
-.data-table th {
+.data-table:not(.noresize) td,
+.data-table:not(.noresize) th {
 	min-width: 70px;
 	max-width: 70px;
 }

@@ -146,11 +146,13 @@ function lootUi(storedCarnageData, season) {
 		let carnageData = array[i];
 		let lootData = storedCarnageData.lootRows[i];
 		let tableBody = [];
-		for (let attribute of lootHeaders) {
-			if (typeof carnageData[attribute.id] !== "undefined") {
-				tableBody.push(`<td class="${winStyle(carnageData.win)} ${attribute.id}" title="${carnageData[attribute.id]}">${carnageData[attribute.id]}</td>`);
-			} else if (typeof lootData[attribute.id] !== "undefined") {
-				tableBody.push(`<td class="${winStyle(carnageData.win)} ${attribute.id}" title="${carnageData[attribute.id]}">${lootData[attribute.id]}</td>`);
+		if (lootData) {
+			for (let attribute of lootHeaders) {
+				if (typeof carnageData[attribute.id] !== "undefined") {
+					tableBody.push(`<td class="${winStyle(carnageData.win)} ${attribute.id}" title="${carnageData[attribute.id]}">${carnageData[attribute.id]}</td>`);
+				} else if (typeof lootData[attribute.id] !== "undefined") {
+					tableBody.push(`<td class="${winStyle(carnageData.win)} ${attribute.id}" title="${carnageData[attribute.id]}">${lootData[attribute.id]}</td>`);
+				}
 			}
 		}
 		tableContents.push(tableBody.join(""));
@@ -158,4 +160,8 @@ function lootUi(storedCarnageData, season) {
 	let table = tableStart + tableHead.join("") + tableMid + tableContents.join("</tr><tr>") + tableEnd;
 	document.getElementById("loot").innerHTML += table;
 	new Tablesort(document.getElementById('lootData'));
+}
+
+function statsUi(storedCarnageData) {
+	document.getElementById("width-wrapper").innerHTML += `<div id="loot" class="hidden"></div>`;
 }

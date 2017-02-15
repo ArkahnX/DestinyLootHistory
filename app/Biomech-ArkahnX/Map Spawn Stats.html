@@ -1,0 +1,39 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><link type="text/css" rel="stylesheet" href="resources/sheet.css" >
+<style type="text/css">.ritz .waffle a { color: inherit; }.ritz .waffle .s0{background-color:#ebfcef;text-align:center;font-weight:bold;color:#000000;font-family:'Arial';font-size:10pt;vertical-align:bottom;white-space:nowrap;direction:ltr;padding:2px 3px 2px 3px;}</style><div class="ritz grid-container" dir="ltr"><table class="waffle" cellspacing="0" cellpadding="0"><thead><tr><th class="row-header freezebar-vertical-handle"></th><th id="1293308325C0" style="width:100px" class="column-headers-background">A</th><th id="1293308325C1" style="width:100px" class="column-headers-background">B</th><th id="1293308325C2" style="width:100px" class="column-headers-background">C</th><th id="1293308325C3" style="width:100px" class="column-headers-background">D</th><th id="1293308325C4" style="width:100px" class="column-headers-background">E</th><th id="1293308325C5" style="width:100px" class="column-headers-background">F</th><th id="1293308325C6" style="width:100px" class="column-headers-background">G</th><th id="1293308325C7" style="width:100px" class="column-headers-background">H</th><th id="1293308325C8" style="width:100px" class="column-headers-background">I</th><th id="1293308325C9" style="width:100px" class="column-headers-background">J</th><th id="1293308325C10" style="width:100px" class="column-headers-background">K</th><th id="1293308325C11" style="width:100px" class="column-headers-background">L</th><th id="1293308325C12" style="width:100px" class="column-headers-background">M</th><th id="1293308325C13" style="width:100px" class="column-headers-background">N</th></tr></thead><tbody><tr style='height:20px;'><th id="1293308325R0" style="height: 20px;" class="row-headers-background"><div class="row-header-wrapper" style="line-height: 20px;">1</div></th><td class="s0" dir="ltr">Map</td><td class="s0" dir="ltr">Team</td><td class="s0" dir="ltr">Matches</td><td class="s0" dir="ltr">Chances</td><td class="s0" dir="ltr">Wins</td><td class="s0" dir="ltr">Win %</td><td class="s0" dir="ltr">Kills</td><td class="s0" dir="ltr">Assists</td><td class="s0" dir="ltr">Deaths</td><td class="s0" dir="ltr">K/d</td><td class="s0" dir="ltr">Ka/d</td><td class="s0" dir="ltr">Kill Avg</td><td class="s0" dir="ltr">Assist Avg</td><td class="s0" dir="ltr">Death Avg</td></tr><tr><th style="height:3px" class="freezebar-cell freezebar-horizontal-handle"></th><td class="freezebar-cell"></td><td class="freezebar-cell"></td><td class="freezebar-cell"></td><td class="freezebar-cell"></td><td class="freezebar-cell"></td><td class="freezebar-cell"></td><td class="freezebar-cell"></td><td class="freezebar-cell"></td><td class="freezebar-cell"></td><td class="freezebar-cell"></td><td class="freezebar-cell"></td><td class="freezebar-cell"></td><td class="freezebar-cell"></td><td class="freezebar-cell"></td></tr></tbody></table></div>
+<script type='text/javascript'>
+function posObj(sheet, id, row, col, x, y) {
+  var rtl = false;
+  var sheetElement = document.getElementById(sheet);
+  if (!sheetElement) {
+    sheetElement = document.getElementById(sheet + '-grid-container');
+  }
+  if (sheetElement) {
+    rtl = sheetElement.getAttribute('dir') == 'rtl';
+  }
+  var r = document.getElementById(sheet+'R'+row);
+  var c = document.getElementById(sheet+'C'+col);
+  if (r && c) {
+    var objElement = document.getElementById(id);
+    var s = objElement.style;
+    var t = y;
+    while (r && r != sheetElement) {
+      t += r.offsetTop;
+      r = r.offsetParent;
+    }
+    var offsetX = x;
+    while (c && c != sheetElement) {
+      offsetX += c.offsetLeft;
+      c = c.offsetParent;
+    }
+    if (rtl) {
+      offsetX -= objElement.offsetWidth;
+    }
+    s.left = offsetX + 'px';
+    s.top = t + 'px';
+    s.display = 'block';
+    s.border = '1px solid #000000';
+  }
+};
+function posObjs() {
+};
+posObjs();</script>

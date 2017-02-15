@@ -7,6 +7,10 @@ function recursiveActivities(characterId, seasonData, activityInstanceIds, page,
 		data = [];
 	}
 	bungie.activity(characterId, seasonData.gameMode, 25, ++page).then(function (Response) {
+		if (typeof Response.data.activities === "undefined") {
+			finish(data);
+			return false;
+		}
 		for (let activity of Response.data.activities) {
 			// console.log(moment(activity.period).format(), moment(activity.period).isSameOrBefore(seasonData.maxDate), moment(activity.period).isBefore(seasonData.minDate));
 			if (moment(activity.period).isSameOrBefore(seasonData.maxDate) && moment(activity.period).isSameOrAfter(seasonData.minDate) && activityInstanceIds.indexOf(activity.activityDetails.instanceId) === -1) {
@@ -17,7 +21,7 @@ function recursiveActivities(characterId, seasonData, activityInstanceIds, page,
 				return false;
 			}
 		}
-		recursiveActivities(characterId, seasonData, page, finish, data);
+		recursiveActivities(characterId, seasonData, activityInstanceIds, page, finish, data);
 	});
 }
 
@@ -323,13 +327,13 @@ function getCarnageData(activityInstanceIds, databaseActivityId, seasonData) {
 					}
 					let lootColumns = {};
 					for (let sortedAttribute of lootHeaders) {
-						if (typeof lootDrops[0][sortedAttribute.id] !== "undefined") {
+						if (lootDrops[0] && typeof lootDrops[0][sortedAttribute.id] !== "undefined") {
 							lootColumns[sortedAttribute.id] = [];
 						}
 					}
 					for (let lootDrop of lootDrops) {
 						for (let sortedAttribute of lootHeaders) {
-							if (typeof lootDrops[0][sortedAttribute.id] !== "undefined") {
+							if (lootDrops[0] && typeof lootDrops[0][sortedAttribute.id] !== "undefined") {
 								lootColumns[sortedAttribute.id].push(lootDrops[0][sortedAttribute.id]);
 							}
 						}
