@@ -270,12 +270,362 @@ function winStyle(win) {
 	return "data-loss";
 }
 
+function countItems(storedCarnageData, item) {
+	return count(storedCarnageData.lootColumns.RewardOne, item) + count(storedCarnageData.lootColumns.RewardTwo, item) + count(storedCarnageData.lootColumns.RewardThree, item) + count(storedCarnageData.lootColumns.RewardFour, item);
+}
+
+function sumIf(array, property, condition, value) {
+	return array.reduce(function (a, b) {
+		console.log(a, b)
+		if (b[condition] === value) {
+			return a + b[property];
+		}
+		return a;
+	}, 0);
+}
+
+function onlyUnique(value, index, self) {
+	return self.indexOf(value) === index;
+}
+
+function onlyHunters(value, index, self) {
+	return value === "Hunter";
+}
+
+function onlyWarlocks(value, index, self) {
+	return value === "Warlock";
+}
+
+function onlyTitans(value, index, self) {
+	return value === "Titan";
+}
+
+function onlyWins(value, index, self) {
+	return value === "TRUE";
+}
+
+function onlyLosses(value, index, self) {
+	return value === "FALSE";
+}
+
+function onlyAlpha(value, index, self) {
+	return value === "Alpha";
+}
+
+function onlyBravo(value, index, self) {
+	return value === "Bravo";
+}
+
+function onlyNonEmptyLoot(value, index, self) {
+	return value !== "";
+}
+
+function averageArray(array) {
+	let total = 0;
+	for (let i = 0; i < array.length; i++) {
+		total += array[i];
+	}
+	return total / array.length;
+}
+
+function averageSpecialArray(array) {
+	let total = 0;
+	let totalLength = 0;
+	for (let i = 0; i < array.length; i++) {
+		if (array[i] < 500) {
+			total += array[i];
+			totalLength++;
+		}
+	}
+	return total / totalLength;
+}
+
+function sumArray(a, b) {
+	return a + b;
+}
+
+function count(array, item) {
+	let count = 0;
+	for (let entry of array) {
+		if (entry.indexOf(item) > -1) {
+			count++;
+		}
+	}
+	return count;
+}
+
+function usedThreeOfCoins(value) {
+	return value && value !== "unused";
+}
+
+function earnedExotics(value) {
+	return value && value !== "unused" && value !== "used";
+}
+
+function getStatValue(property, storedCarnageData) {
+	let REPLACEME = false;
+	if (property.id === "matches") {
+		return storedCarnageData.columns.link.filter(onlyUnique).length;
+	} else if (property.id === "uniqueguardians") {
+		return storedCarnageData.columns.guardian.filter(onlyUnique).length;
+	} else if (property.id === "guardiandata") {
+		return storedCarnageData.rows.length;
+	} else if (property.id === "gameswon") {
+		return storedCarnageData.columns.win.filter(onlyWins).length;
+	} else if (property.id === "gameslost") {
+		return storedCarnageData.columns.win.filter(onlyLosses).length;
+	} else if (property.id === "win") {
+		let wins = storedCarnageData.columns.win.filter(onlyWins).length;
+		let games = storedCarnageData.rows.length;
+		if (games === 0) {
+			games = 1;
+		}
+		return Math.round((wins / games) * 100) + "%";
+	} else if (property.id === "rewards") {
+		let result1 = storedCarnageData.lootColumns.RewardOne.filter(onlyNonEmptyLoot).length;
+		let result2 = storedCarnageData.lootColumns.RewardTwo.filter(onlyNonEmptyLoot).length;
+		let result3 = storedCarnageData.lootColumns.RewardThree.filter(onlyNonEmptyLoot).length;
+		let result4 = storedCarnageData.lootColumns.RewardFour.filter(onlyNonEmptyLoot).length;
+		return result1 + result2 + result3 + result4;
+	} else if (property.id === "rewardspergame") {
+		console.log(storedCarnageData.lootColumns.RewardOne)
+		let result1 = storedCarnageData.lootColumns.RewardOne.filter(onlyNonEmptyLoot).length;
+		let result2 = storedCarnageData.lootColumns.RewardTwo.filter(onlyNonEmptyLoot).length;
+		let result3 = storedCarnageData.lootColumns.RewardThree.filter(onlyNonEmptyLoot).length;
+		let result4 = storedCarnageData.lootColumns.RewardFour.filter(onlyNonEmptyLoot).length;
+		let rewards = result1 + result2 + result3 + result4;
+		let games = storedCarnageData.columns.link.filter(onlyUnique).length;
+		return (rewards / games).toFixed(2);
+	} else if (property.id === "gamesperreward") {
+		return REPLACEME;
+	} else if (property.id === "hunters") {
+		return storedCarnageData.columns.classType.filter(onlyHunters).length;
+	} else if (property.id === "titans") {
+		return storedCarnageData.columns.classType.filter(onlyTitans).length;
+	} else if (property.id === "warlocks") {
+		return storedCarnageData.columns.classType.filter(onlyWarlocks).length;
+	} else if (property.id === "averagematchtimem") {
+		return (averageArray(storedCarnageData.columns.time) / 60).toFixed(1);
+	} else if (property.id === "averagetimematchmakings") {
+		return averageSpecialArray(storedCarnageData.columns.betweenGames).toFixed(1);
+	} else if (property.id === "teamalpha") {
+		return storedCarnageData.columns.team.filter(onlyAlpha).length;
+	} else if (property.id === "teambravo") {
+		return storedCarnageData.columns.team.filter(onlyBravo).length;
+	} else if (property.id === "bestkillingspree") {
+		return Math.max.apply(null, storedCarnageData.columns.killSpree);
+	} else if (property.id === "longestlosingstreak") {
+		let compressed = storedCarnageData.columns.win.join("").split("TRUE");
+		let maxLossStreak = 0;
+		for (let streak of compressed) {
+			if (streak.length / 5 > maxLossStreak) {
+				maxLossStreak = streak.length / 5;
+			}
+		}
+		return maxLossStreak;
+	} else if (property.id === "longestwinningstreak") {
+		let compressed = storedCarnageData.columns.win.join("").split("FALSE");
+		let maxWinStreak = 0;
+		for (let streak of compressed) {
+			if (streak.length / 4 > maxWinStreak) {
+				maxWinStreak = streak.length / 4;
+			}
+		}
+		return maxWinStreak;
+	} else if (property.id === "winningstreaks") {
+		let compressed = storedCarnageData.columns.win.join("").split("FALSE");
+		let count = 0;
+		for (let streak of compressed) {
+			if (streak.length > 4) {
+				count++;
+			}
+		}
+		return count;
+	} else if (property.id === "losingstreaks") {
+		let compressed = storedCarnageData.columns.win.join("").split("TRUE");
+		let count = 0;
+		for (let streak of compressed) {
+			if (streak.length > 5) {
+				count++;
+			}
+		}
+		return count;
+	} else if (property.id === "carriesneutralized") {
+		return storedCarnageData.columns.sparksCaptured.reduce(sumArray, 0);
+	} else if (property.id === "dunkscaptures") {
+		return storedCarnageData.columns.dunks.reduce(sumArray, 0);
+	} else if (property.id === "avenges") {
+		return storedCarnageData.columns.avenger.reduce(sumArray, 0);
+	} else if (property.id === "paybacks") {
+		return storedCarnageData.columns.payBack.reduce(sumArray, 0);
+	} else if (property.id === "medals") {
+		return storedCarnageData.columns.medals.reduce(sumArray, 0);
+	} else if (property.id === "kills") {
+		return storedCarnageData.columns.kills.reduce(sumArray, 0);
+	} else if (property.id === "assists") {
+		return storedCarnageData.columns.assists.reduce(sumArray, 0);
+	} else if (property.id === "deaths") {
+		return storedCarnageData.columns.deaths.reduce(sumArray, 0);
+	} else if (property.id === "kd") {
+		return (storedCarnageData.columns.kills.reduce(sumArray, 0) / storedCarnageData.columns.deaths.reduce(sumArray, 0)).toFixed(2);
+	} else if (property.id === "kad") {
+		return ((storedCarnageData.columns.kills.reduce(sumArray, 0) + storedCarnageData.columns.assists.reduce(sumArray, 0)) / storedCarnageData.columns.deaths.reduce(sumArray, 0)).toFixed(2);
+	} else if (property.id === "primarykills") {
+		return storedCarnageData.columns.primaryKills.reduce(sumArray, 0);
+	} else if (property.id === "specialkills") {
+		return storedCarnageData.columns.specialKills.reduce(sumArray, 0);
+	} else if (property.id === "heavykills") {
+		return storedCarnageData.columns.heavyKills.reduce(sumArray, 0);
+	} else if (property.id === "meleekills") {
+		return storedCarnageData.columns.melee.reduce(sumArray, 0);
+	} else if (property.id === "grenadekills") {
+		return storedCarnageData.columns.grenade.reduce(sumArray, 0);
+	} else if (property.id === "superkills") {
+		return storedCarnageData.columns.super.reduce(sumArray, 0);
+	} else if (property.id === "autorifle") {
+		return count(storedCarnageData.columns.primaryType, "Auto Rifle");
+	} else if (property.id === "scoutrifle") {
+		return count(storedCarnageData.columns.primaryType, "Scout Rifle");
+	} else if (property.id === "pulserifle") {
+		return count(storedCarnageData.columns.primaryType, "Pulse Rifle");
+	} else if (property.id === "handcannon") {
+		return count(storedCarnageData.columns.primaryType, "Hand Cannon");
+	} else if (property.id === "shotgun") {
+		return count(storedCarnageData.columns.specialType, "Shotgun");
+	} else if (property.id === "sniperrifle") {
+		return count(storedCarnageData.columns.specialType, "Sniper Rifle");
+	} else if (property.id === "fusionrifle") {
+		return count(storedCarnageData.columns.specialType, "Fusion Rifle");
+	} else if (property.id === "sidearm") {
+		return count(storedCarnageData.columns.specialType, "Sidearm");
+	} else if (property.id === "rocketlauncher") {
+		return count(storedCarnageData.columns.heavyType, "Rocket Launcher");
+	} else if (property.id === "machinegun") {
+		return count(storedCarnageData.columns.heavyType, "Machine Gun");
+	} else if (property.id === "sword") {
+		return count(storedCarnageData.columns.heavyType, "Sword");
+	} else if (rareItemNames.indexOf(property.name) > -1) {
+		return countItems(storedCarnageData, property.name);
+	} else if (property.id === "totaldropsandraterare") {
+		let total = 0;
+		for (let name of rareItemNames) {
+			if (name !== "Mote of Light" && name !== "Strange Coin") {
+				total += countItems(storedCarnageData, name);
+			}
+		}
+		return total;
+	} else if (property.id === "withmotesandcoins") {
+		let total = 0;
+		for (let name of rareItemNames) {
+			total += countItems(storedCarnageData, name);
+		}
+		return total;
+	} else if (legendaryItemNames.indexOf(property.name) > -1) {
+		return countItems(storedCarnageData, property.name);
+	} else if (property.id === "totaldropsandratelegendary") {
+		let total = 0;
+		for (let name of legendaryItemNames) {
+			total += countItems(storedCarnageData, name);
+		}
+		return total;
+	} else if (property.id === "threeofcoinsused") {
+		return storedCarnageData.lootColumns.ThreeOfCoins.filter(usedThreeOfCoins).length;
+	} else if (property.id === "exoticsearned") {
+		return storedCarnageData.lootColumns.ThreeOfCoins.filter(earnedExotics).length;
+	} else if (property.id === "tocperexotic") {
+		return Math.round(storedCarnageData.lootColumns.ThreeOfCoins.filter(usedThreeOfCoins).length / (storedCarnageData.lootColumns.ThreeOfCoins.filter(earnedExotics).length || 1));
+	} else if (property.id === "exoticpertoc") {
+		return REPLACEME;
+	} else if (exoticItemNames.indexOf(property.name) > -1) {
+		return count(storedCarnageData.lootColumns.ThreeOfCoins, property.name);
+	} else if (property.id === "exoticcost") {
+		return Math.round(((7 / 5) * storedCarnageData.lootColumns.ThreeOfCoins.filter(usedThreeOfCoins).length) / storedCarnageData.lootColumns.ThreeOfCoins.filter(earnedExotics).length);
+	} else if (property.id === "droprate") {
+		return Math.round(storedCarnageData.lootColumns.ThreeOfCoins.filter(earnedExotics).length / (storedCarnageData.lootColumns.ThreeOfCoins.filter(usedThreeOfCoins).length || 1) * 100) + "%";
+	}
+	return false;
+}
+
+function getPercentValue(property, storedCarnageData) {
+	let REPLACEME = "%%%";
+	let kills = storedCarnageData.columns.kills.reduce(sumArray, 0);
+	let matches = storedCarnageData.columns.link.filter(onlyUnique).length;
+	if (property.id === "primarykills") {
+		return Math.round(storedCarnageData.columns.primaryKills.reduce(sumArray, 0) / kills * 100) + "%";
+	} else if (property.id === "specialkills") {
+		return Math.round(storedCarnageData.columns.specialKills.reduce(sumArray, 0) / kills * 100) + "%";
+	} else if (property.id === "heavykills") {
+		return Math.round(storedCarnageData.columns.heavyKills.reduce(sumArray, 0) / kills * 100) + "%";
+	} else if (property.id === "meleekills") {
+		return Math.round(storedCarnageData.columns.melee.reduce(sumArray, 0) / kills * 100) + "%";
+	} else if (property.id === "grenadekills") {
+		return Math.round(storedCarnageData.columns.grenade.reduce(sumArray, 0) / kills * 100) + "%";
+	} else if (property.id === "superkills") {
+		return Math.round(storedCarnageData.columns.super.reduce(sumArray, 0) / kills * 100) + "%";
+	} else if (property.id === "autorifle") {
+		return Math.round(count(storedCarnageData.columns.primaryType, "Auto Rifle") / matches * 100) + "%";
+	} else if (property.id === "scoutrifle") {
+		return Math.round(count(storedCarnageData.columns.primaryType, "Scout Rifle") / matches * 100) + "%";
+	} else if (property.id === "pulserifle") {
+		return Math.round(count(storedCarnageData.columns.primaryType, "Pulse Rifle") / matches * 100) + "%";
+	} else if (property.id === "handcannon") {
+		return Math.round(count(storedCarnageData.columns.primaryType, "Hand Cannon") / matches * 100) + "%";
+	} else if (property.id === "shotgun") {
+		return Math.round(count(storedCarnageData.columns.specialType, "Shotgun") / matches * 100) + "%";
+	} else if (property.id === "sniperrifle") {
+		return Math.round(count(storedCarnageData.columns.specialType, "Sniper Rifle") / matches * 100) + "%";
+	} else if (property.id === "fusionrifle") {
+		return Math.round(count(storedCarnageData.columns.specialType, "Fusion Rifle") / matches * 100) + "%";
+	} else if (property.id === "sidearm") {
+		return Math.round(count(storedCarnageData.columns.specialType, "Sidearm") / matches * 100) + "%";
+	} else if (property.id === "rocketlauncher") {
+		return Math.round(count(storedCarnageData.columns.heavyType, "Rocket Launcher") / matches * 100) + "%";
+	} else if (property.id === "machinegun") {
+		return Math.round(count(storedCarnageData.columns.heavyType, "Machine Gun") / matches * 100) + "%";
+	} else if (property.id === "sword") {
+		return Math.round(count(storedCarnageData.columns.heavyType, "Sword") / matches * 100) + "%";
+	} else if (rareItemNames.indexOf(property.name) > -1) {
+		return Math.round(countItems(storedCarnageData, property.name) / storedCarnageData.columns.link.filter(onlyUnique).length * 100) + "%";
+	} else if (property.id === "totaldropsandraterare") {
+		let total = 0;
+		for (let name of rareItemNames) {
+			if (name !== "Mote of Light" && name !== "Strange Coin") {
+				total += countItems(storedCarnageData, name);
+			}
+		}
+		return Math.round(total / storedCarnageData.columns.link.filter(onlyUnique).length * 100) + "%";
+	} else if (property.id === "withmotesandcoins") {
+		let total = 0;
+		for (let name of rareItemNames) {
+			total += countItems(storedCarnageData, name);
+		}
+		return Math.round(total / storedCarnageData.columns.link.filter(onlyUnique).length * 100) + "%";
+	} else if (legendaryItemNames.indexOf(property.name) > -1) {
+		return Math.round(countItems(storedCarnageData, property.name) / storedCarnageData.columns.link.filter(onlyUnique).length * 100) + "%";
+	} else if (property.id === "totaldropsandratelegendary") {
+		let total = 0;
+		for (let name of legendaryItemNames) {
+			total += countItems(storedCarnageData, name);
+		}
+		return Math.round(total / storedCarnageData.columns.link.filter(onlyUnique).length * 100) + "%";
+	} else if (exoticItemNames.indexOf(property.name) > -1) {
+		return Math.round(count(storedCarnageData.lootColumns.ThreeOfCoins, property.name) / storedCarnageData.lootColumns.ThreeOfCoins.filter(usedThreeOfCoins).length * 100) + "%";
+	} else if (property.id === "droprate") {
+		return false;
+	}
+	return false;
+}
+
 function ui(databaseActivityId) {
 	ironBannerDatabase.getEntry("carnageData", databaseActivityId).then(function (storedCarnageData) {
+		document.getElementById("width-wrapper").innerHTML = "";
 		matchDataUi(storedCarnageData);
-		bestsUi(storedCarnageData);
-		lootUi(storedCarnageData, presetEvents[document.getElementById("season").value]);
-		changePage();
+		if (storedCarnageData && storedCarnageData.rows.length) {
+			bestsUi(storedCarnageData);
+			lootUi(storedCarnageData, presetEvents[document.getElementById("season").value]);
+			statsUi(storedCarnageData);
+			changePage();
+		}
 	});
 }
 
@@ -333,8 +683,8 @@ function getCarnageData(activityInstanceIds, databaseActivityId, seasonData) {
 					}
 					for (let lootDrop of lootDrops) {
 						for (let sortedAttribute of lootHeaders) {
-							if (lootDrops[0] && typeof lootDrops[0][sortedAttribute.id] !== "undefined") {
-								lootColumns[sortedAttribute.id].push(lootDrops[0][sortedAttribute.id]);
+							if (lootDrop && typeof lootDrop[sortedAttribute.id] !== "undefined") {
+								lootColumns[sortedAttribute.id].push(lootDrop[sortedAttribute.id]);
 							}
 						}
 					}
@@ -397,6 +747,7 @@ function onlyUnique(value, index, self) {
 
 function changeSeason() {
 	let season = document.getElementById("season");
+	document.getElementById("page").parentNode.classList.add("hidden");
 	elements.status.classList.add("active");
 	if (season.value) {
 		season.setAttribute("disabled", "true");

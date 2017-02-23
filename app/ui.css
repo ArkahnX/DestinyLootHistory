@@ -1997,6 +1997,124 @@ fieldset .failure {
 	max-width: 70px;
 }
 
+.data-table .gameStats,
+.data-table .mainStats,
+.data-table .abilityKills,
+.data-table .weaponsUsed,
+.data-table .specialStats {
+	background-color: rgb(217, 234, 211);
+}
+
+.data-table .rareRewards {
+	background-color: rgb(207, 226, 243);
+}
+
+.data-table .legendaryRewards {
+	background-color: rgb(234, 209, 220);
+}
+
+.data-table .exoticRewards {
+	background-color: rgb(255, 242, 204);
+}
+
+.data-table .stat-header {
+	text-align: center;
+	font-weight: bold;
+}
+
+.data-table .spacer {
+	max-width: 40px!important;
+	min-width: 40px!important;
+	border-right: none;
+	border-bottom: none;
+}
+
+.data-table .spacer+td:not(.spacer) {
+	border-left: 1px solid grey;
+}
+
+.data-table td.gameStats.stat-header,
+.data-table td.specialStats.stat-header {
+	max-width: 248px;
+	min-width: 248px;
+}
+
+.data-table td.legendaryRewards.stat-header,
+.data-table td.rareRewards.stat-header {
+	max-width: 220px;
+	min-width: 220px;
+}
+
+.data-table td.abilityKills.stat-header,
+.data-table td.weaponsUsed.stat-header,
+.data-table td.mainStats.stat-header {
+	max-width: 138px;
+	min-width: 138px;
+}
+
+.data-table td.exoticRewards.stat-header {
+	max-width: 165px;
+	min-width: 165px;
+}
+
+.data-table td.gameStats.stat-name,
+.data-table td.specialStats.stat-name {
+	max-width: 198px;
+	min-width: 198px;
+}
+
+.data-table td.abilityKills.stat-name,
+.data-table td.weaponsUsed.stat-name,
+.data-table td.mainStats.stat-name {
+	max-width: 88px;
+	min-width: 88px;
+}
+
+.data-table td.exoticRewards.stat-name {
+	max-width: 125px;
+	min-width: 125px;
+}
+
+.data-table td.legendaryRewards.stat-name,
+.data-table td.rareRewards.stat-name {
+	max-width: 170px;
+	min-width: 170px;
+}
+
+.data-table td.stat-data,
+.data-table td.stat-percent {
+	text-align: right;
+}
+
+.data-table td.gameStats.stat-data,
+.data-table td.mainStats.stat-data,
+.data-table td.rareRewards.stat-data,
+.data-table td.legendaryRewards.stat-data,
+.data-table td.abilityKills.stat-data,
+.data-table td.weaponsUsed.stat-data,
+.data-table td.specialStats.stat-data {
+	max-width: 50px;
+	min-width: 50px;
+}
+
+.data-table td.exoticRewards.stat-data {
+	max-width: 31px;
+	min-width: 31px;
+}
+
+.data-table td.abilityKills.stat-percent,
+.data-table td.weaponsUsed.stat-percent {
+	max-width: 40px;
+	min-width: 40px;
+}
+
+.data-table td.legendaryRewards.stat-percent,
+.data-table td.exoticRewards.stat-percent,
+.data-table td.rareRewards.stat-percent {
+	max-width: 67px;
+	min-width: 67px;
+}
+
 .data-table .id {
 	min-width: 22px;
 	max-width: 22px;
