@@ -132,22 +132,33 @@ var bungie = (function Bungie() {
 					bungiePOST("https://www.bungie.net/Platform/App/GetAccessTokensFromRefreshToken/", {
 						"refreshToken": tokens.refreshToken.value
 					}).then(function (response) {
-						localTokens.accessToken = {
-							value: response.Response.accessToken.value,
-							readyin: new Date().getTime() + (response.Response.accessToken.readyin * 1000),
-							expires: new Date().getTime() + (response.Response.accessToken.expires * 1000),
-							added: new Date().getTime()
-						};
-						localTokens.refreshToken = {
-							value: response.Response.refreshToken.value,
-							readyin: new Date().getTime() + (response.Response.refreshToken.readyin * 1000),
-							expires: new Date().getTime() + (response.Response.refreshToken.expires * 1000),
-							added: new Date().getTime()
-						};
-						chrome.storage.sync.set(localTokens, function () {
-							globalTokens = localTokens;
-							resolve();
-						});
+						if (response.ErrorCode !== 1) {
+							stopTimer("extensionIcon");
+							stopTimer("activityTracker");
+							stopTimer("inventoryCheck");
+							chrome.storage.sync.remove(["authCode", "accessToken", "refreshToken"]);
+							localStorage.characterDescriptions = "{}";
+							localStorage.systems = "{}";
+							localStorage.threeOfCoinsProgress = "{}";
+							window.location.reload();
+						} else {
+							localTokens.accessToken = {
+								value: response.Response.accessToken.value,
+								readyin: new Date().getTime() + (response.Response.accessToken.readyin * 1000),
+								expires: new Date().getTime() + (response.Response.accessToken.expires * 1000),
+								added: new Date().getTime()
+							};
+							localTokens.refreshToken = {
+								value: response.Response.refreshToken.value,
+								readyin: new Date().getTime() + (response.Response.refreshToken.readyin * 1000),
+								expires: new Date().getTime() + (response.Response.refreshToken.expires * 1000),
+								added: new Date().getTime()
+							};
+							chrome.storage.sync.set(localTokens, function () {
+								globalTokens = localTokens;
+								resolve();
+							});
+						}
 					});
 				} else {
 					resolve();
