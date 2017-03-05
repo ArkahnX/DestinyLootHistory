@@ -430,12 +430,12 @@ function gatherSpreadsheetData(storedCarnageData) {
 		let alpha = data.map[mapName].Alpha || {};
 		let bravo = data.map[mapName].Bravo || {};
 		data.map[mapName].map = mapName;
-		data.map[mapName].matches = (alpha.matches||0) + (bravo.matches||0);
+		data.map[mapName].matches = (alpha.matches || 0) + (bravo.matches || 0);
 		data.map[mapName].chances = ((data.map[mapName].matches / storedCarnageData.columns.mapName.length) * 100).toFixed(2) + "%";
-		data.map[mapName].wins = (alpha.wins||0) + (bravo.wins||0);
-		data.map[mapName].kills = (alpha.kills||0) + (bravo.kills||0);
-		data.map[mapName].deaths = (alpha.deaths||0) + (bravo.deaths||0);
-		data.map[mapName].assists = (alpha.assists||0) + (bravo.assists||0);
+		data.map[mapName].wins = (alpha.wins || 0) + (bravo.wins || 0);
+		data.map[mapName].kills = (alpha.kills || 0) + (bravo.kills || 0);
+		data.map[mapName].deaths = (alpha.deaths || 0) + (bravo.deaths || 0);
+		data.map[mapName].assists = (alpha.assists || 0) + (bravo.assists || 0);
 		if (data.map[mapName].wins === 0) {
 			data.map[mapName].win = "0%";
 		} else {
@@ -447,224 +447,67 @@ function gatherSpreadsheetData(storedCarnageData) {
 		data.map[mapName].kd = (data.map[mapName].kills / data.map[mapName].deaths || 1).toFixed(2);
 		data.map[mapName].kad = ((data.map[mapName].kills + data.map[mapName].assists) / data.map[mapName].deaths || 1).toFixed(2);
 	}
+	let uniqueGuardians = storedCarnageData.columns.guardian.filter(onlyUnique);
+	data.guardian = {};
+	for (let guardianName of uniqueGuardians) {
+		data.guardian[guardianName] = {}
+		for (let guardianClass of ["Hunter", "Titan", "Warlock"]) {
+			data.guardian[guardianName][guardianClass] = {};
+			data.guardian[guardianName][guardianClass].player = guardianName;
+			data.guardian[guardianName][guardianClass].class = guardianClass;
+			data.guardian[guardianName][guardianClass].encountered = countIf(storedCarnageData.columns.guardian, guardianName, storedCarnageData.columns.classType, guardianClass);
+			data.guardian[guardianName][guardianClass].wins = countIfs(storedCarnageData.columns.guardian, guardianName, storedCarnageData.columns.classType, guardianClass, storedCarnageData.columns.win, "TRUE");
+			data.guardian[guardianName][guardianClass].kills = sumIfs(storedCarnageData.rows, "kills", "guardian", guardianName, "classType", guardianClass);
+			data.guardian[guardianName][guardianClass].deaths = sumIfs(storedCarnageData.rows, "deaths", "guardian", guardianName, "classType", guardianClass);
+			data.guardian[guardianName][guardianClass].assists = sumIfs(storedCarnageData.rows, "assists", "guardian", guardianName, "classType", guardianClass);
+			if (data.guardian[guardianName][guardianClass].wins === 0) {
+				data.guardian[guardianName][guardianClass].win = "0%";
+			} else {
+				data.guardian[guardianName][guardianClass].win = Math.round((data.guardian[guardianName][guardianClass].wins / data.guardian[guardianName][guardianClass].encountered || 1) * 100) + "%";
+			}
+			data.guardian[guardianName][guardianClass].killavg = (data.guardian[guardianName][guardianClass].kills / data.guardian[guardianName][guardianClass].encountered || 1).toFixed(2);
+			data.guardian[guardianName][guardianClass].deathavg = (data.guardian[guardianName][guardianClass].deaths / data.guardian[guardianName][guardianClass].encountered || 1).toFixed(2);
+			data.guardian[guardianName][guardianClass].assistavg = (data.guardian[guardianName][guardianClass].assists / data.guardian[guardianName][guardianClass].encountered || 1).toFixed(2);
+			data.guardian[guardianName][guardianClass].kd = (data.guardian[guardianName][guardianClass].kills / data.guardian[guardianName][guardianClass].deaths || 1).toFixed(2);
+			data.guardian[guardianName][guardianClass].kad = ((data.guardian[guardianName][guardianClass].kills + data.guardian[guardianName][guardianClass].assists) / data.guardian[guardianName][guardianClass].deaths || 1).toFixed(2);
+		}
+	}
+	data.weaponsByType = {};
+	data.weaponsBySlot = {};
+	data.weaponsByName = {};
+	for (let row of storedCarnageData.rows) {
+		for (let weaponType of ["primary", "special", "heavy"]) {
+		let weaponTypeName = row[weaponType + "Type"];
+		let weaponName = row[weaponType];
+			data.weaponsBySlot[weaponType] = data.weaponsBySlot[weaponType] || {};
+			data.weaponsByType[weaponTypeName] = data.weaponsByType[weaponTypeName] || {};
+			data.weaponsByName[weaponName] = data.weaponsByName[weaponName] || {};
+			let weaponStats = data.weaponsByName[weaponName] || {};
+			weaponStats.weapon = weaponName;
+			data.weaponsByType[weaponTypeName].weapon = weaponTypeName;
+			weaponStats.type = weaponTypeName;
+			weaponStats.used = (weaponStats.used||0)+1;
+			data.weaponsBySlot[weaponType].used = (data.weaponsBySlot[weaponType].used||0)+1;
+			data.weaponsByType[weaponTypeName].used = (data.weaponsByType[weaponTypeName].used||0)+1;
+			if(row.win === "TRUE") {
+				weaponStats.wins = (weaponStats.wins||0)+1;
+				data.weaponsBySlot[weaponType].wins = (data.weaponsBySlot[weaponType].wins||0)+1;
+			data.weaponsByType[weaponTypeName].wins = (data.weaponsByType[weaponTypeName].wins||0)+1;
+			}
+			weaponStats.kills = (weaponStats.kills||0)+row[weaponType+"Kills"];
+			data.weaponsBySlot[weaponType].kills = (data.weaponsBySlot[weaponType].kills||0)+row[weaponType+"Kills"];
+			data.weaponsByType[weaponTypeName].kills = (data.weaponsByType[weaponTypeName].kills||0)+row[weaponType+"Kills"];
+			weaponStats.assists = (weaponStats.assists||0)+row.assists;
+			data.weaponsBySlot[weaponType].assists = (data.weaponsBySlot[weaponType].assists||0)+row.assists;
+			data.weaponsByType[weaponTypeName].assists = (data.weaponsByType[weaponTypeName].assists||0)+row.assists;
+			weaponStats.deaths = (weaponStats.deaths||0)+row.deaths;
+			data.weaponsBySlot[weaponType].deaths = (data.weaponsBySlot[weaponType].deaths||0)+row.deaths;
+			data.weaponsByType[weaponTypeName].deaths = (data.weaponsByType[weaponTypeName].deaths||0)+row.deaths;
+			data.weaponsByName[weaponName] = weaponStats;
+		}
+	}
+	console.log(data)
 	return data;
-}
-
-function findMapSpawnStats(statName, mapName, teamName, storedCarnageData) {
-	if (statName === "map") {
-		return mapName;
-	} else if (statName === "team") {
-		return teamName;
-	} else if (statName === "chances") {
-		let matches = countIf(storedCarnageData.columns.mapName, mapName, storedCarnageData.columns.team, teamName);
-		return ((matches / storedCarnageData.columns.mapName.length) * 100).toFixed(2) + "%";
-	} else if (statName === "matches") {
-		return countIf(storedCarnageData.columns.mapName, mapName, storedCarnageData.columns.team, teamName);
-	} else if (statName === "wins") {
-		return countIfs(storedCarnageData.columns.mapName, mapName, storedCarnageData.columns.win, "TRUE", storedCarnageData.columns.team, teamName);
-	} else if (statName === "kills") {
-		return sumIfs(storedCarnageData.rows, "kills", "mapName", mapName, "team", teamName);
-	} else if (statName === "deaths") {
-		return sumIfs(storedCarnageData.rows, "deaths", "mapName", mapName, "team", teamName);
-	} else if (statName === "assists") {
-		return sumIfs(storedCarnageData.rows, "assists", "mapName", mapName, "team", teamName);
-	} else if (statName === "win") {
-		let encountered = countIf(storedCarnageData.columns.mapName, mapName, storedCarnageData.columns.team, teamName);
-		let wins = countIfs(storedCarnageData.columns.mapName, mapName, storedCarnageData.columns.win, "TRUE", storedCarnageData.columns.team, teamName);
-		if (wins === 0) {
-			return "0%";
-		}
-		return Math.round((wins / encountered || 1) * 100) + "%";
-	} else if (statName === "killavg") {
-		let encountered = countIf(storedCarnageData.columns.mapName, mapName, storedCarnageData.columns.team, teamName);
-		let kills = sumIfs(storedCarnageData.rows, "kills", "mapName", mapName, "team", teamName);
-		return (kills / encountered || 1).toFixed(2);
-	} else if (statName === "deathavg") {
-		let encountered = countIf(storedCarnageData.columns.mapName, mapName, storedCarnageData.columns.team, teamName);
-		let deaths = sumIfs(storedCarnageData.rows, "deaths", "mapName", mapName, "team", teamName);
-		return (deaths / encountered || 1).toFixed(2);
-	} else if (statName === "assistavg") {
-		let encountered = countIf(storedCarnageData.columns.mapName, mapName, storedCarnageData.columns.team, teamName);
-		let assists = sumIfs(storedCarnageData.rows, "assists", "mapName", mapName, "team", teamName);
-		return (assists / encountered || 1).toFixed(2);
-	} else if (statName === "kd") {
-		let kills = sumIfs(storedCarnageData.rows, "kills", "mapName", mapName, "team", teamName);
-		let deaths = sumIfs(storedCarnageData.rows, "deaths", "mapName", mapName, "team", teamName);
-		return (kills / deaths || 1).toFixed(2);
-	} else if (statName === "kad") {
-		let kills = sumIfs(storedCarnageData.rows, "kills", "mapName", mapName, "team", teamName);
-		let deaths = sumIfs(storedCarnageData.rows, "deaths", "mapName", mapName, "team", teamName);
-		let assists = sumIfs(storedCarnageData.rows, "assists", "mapName", mapName, "team", teamName);
-		return ((kills + assists) / deaths || 1).toFixed(2);
-	}
-}
-
-function findMapStats(statName, mapName, storedCarnageData) {
-	if (statName === "map") {
-		return mapName;
-	} else if (statName === "chances") {
-		let matches = count(storedCarnageData.columns.mapName, mapName);
-		return ((matches / storedCarnageData.columns.mapName.length) * 100).toFixed(2) + "%";
-	} else if (statName === "matches") {
-		return count(storedCarnageData.columns.mapName, mapName);
-	} else if (statName === "wins") {
-		return countIf(storedCarnageData.columns.mapName, mapName, storedCarnageData.columns.win, "TRUE");
-	} else if (statName === "kills") {
-		return sumIf(storedCarnageData.rows, "kills", "mapName", mapName);
-	} else if (statName === "deaths") {
-		return sumIf(storedCarnageData.rows, "deaths", "mapName", mapName);
-	} else if (statName === "assists") {
-		return sumIf(storedCarnageData.rows, "assists", "mapName", mapName);
-	} else if (statName === "win") {
-		let encountered = count(storedCarnageData.columns.mapName, mapName);
-		let wins = countIf(storedCarnageData.columns.mapName, mapName, storedCarnageData.columns.win, "TRUE");
-		if (wins === 0) {
-			return "0%";
-		}
-		return Math.round((wins / encountered || 1) * 100) + "%";
-	} else if (statName === "killavg") {
-		let encountered = count(storedCarnageData.columns.mapName, mapName);
-		let kills = sumIf(storedCarnageData.rows, "kills", "mapName", mapName);
-		return (kills / encountered || 1).toFixed(2);
-	} else if (statName === "deathavg") {
-		let encountered = count(storedCarnageData.columns.mapName, mapName);
-		let deaths = sumIf(storedCarnageData.rows, "deaths", "mapName", mapName);
-		return (deaths / encountered || 1).toFixed(2);
-	} else if (statName === "assistavg") {
-		let encountered = count(storedCarnageData.columns.mapName, mapName);
-		let assists = sumIf(storedCarnageData.rows, "assists", "mapName", mapName);
-		return (assists / encountered || 1).toFixed(2);
-	} else if (statName === "kd") {
-		let kills = sumIf(storedCarnageData.rows, "kills", "mapName", mapName);
-		let deaths = sumIf(storedCarnageData.rows, "deaths", "mapName", mapName);
-		return (kills / deaths || 1).toFixed(2);
-	} else if (statName === "kad") {
-		let kills = sumIf(storedCarnageData.rows, "kills", "mapName", mapName);
-		let deaths = sumIf(storedCarnageData.rows, "deaths", "mapName", mapName);
-		let assists = sumIf(storedCarnageData.rows, "assists", "mapName", mapName);
-		return ((kills + assists) / deaths || 1).toFixed(2);
-	}
-}
-
-function findGuardianStats(statName, guardianName, guardianClass, storedCarnageData) {
-	console.log(arguments)
-	if (statName === "player") {
-		return guardianName;
-	} else if (statName === "class") {
-		return guardianClass;
-	} else if (statName === "encountered") {
-		return countIf(storedCarnageData.columns.guardian, guardianName, storedCarnageData.columns.classType, guardianClass);
-	} else if (statName === "wins") {
-		return countIfs(storedCarnageData.columns.guardian, guardianName, storedCarnageData.columns.classType, guardianClass, storedCarnageData.columns.win, "TRUE");
-	} else if (statName === "kills") {
-		return sumIfs(storedCarnageData.rows, "kills", "guardian", guardianName, "classType", guardianClass);
-	} else if (statName === "deaths") {
-		return sumIfs(storedCarnageData.rows, "deaths", "guardian", guardianName, "classType", guardianClass);
-	} else if (statName === "assists") {
-		return sumIfs(storedCarnageData.rows, "assists", "guardian", guardianName, "classType", guardianClass);
-	} else if (statName === "win") {
-		let encountered = countIf(storedCarnageData.columns.guardian, guardianName, storedCarnageData.columns.classType, guardianClass);
-		let wins = countIfs(storedCarnageData.columns.guardian, guardianName, storedCarnageData.columns.classType, guardianClass, storedCarnageData.columns.win, "TRUE");
-		if (wins === 0) {
-			return "0%";
-		}
-		return Math.round((wins / encountered || 1) * 100) + "%";
-	} else if (statName === "killavg") {
-		let encountered = countIf(storedCarnageData.columns.guardian, guardianName, storedCarnageData.columns.classType, guardianClass);
-		let kills = sumIfs(storedCarnageData.rows, "kills", "guardian", guardianName, "classType", guardianClass);
-		return (kills / encountered || 1).toFixed(2);
-	} else if (statName === "deathavg") {
-		let encountered = countIf(storedCarnageData.columns.guardian, guardianName, storedCarnageData.columns.classType, guardianClass);
-		let deaths = sumIfs(storedCarnageData.rows, "deaths", "guardian", guardianName, "classType", guardianClass);
-		return (deaths / encountered || 1).toFixed(2);
-	} else if (statName === "assistavg") {
-		let encountered = countIf(storedCarnageData.columns.guardian, guardianName, storedCarnageData.columns.classType, guardianClass);
-		let assists = sumIfs(storedCarnageData.rows, "assists", "guardian", guardianName, "classType", guardianClass);
-		return (assists / encountered || 1).toFixed(2);
-	} else if (statName === "kd") {
-		let kills = sumIfs(storedCarnageData.rows, "kills", "guardian", guardianName, "classType", guardianClass);
-		let deaths = sumIfs(storedCarnageData.rows, "deaths", "guardian", guardianName, "classType", guardianClass);
-		return (kills / deaths || 1).toFixed(2);
-	} else if (statName === "kad") {
-		let kills = sumIfs(storedCarnageData.rows, "kills", "guardian", guardianName, "classType", guardianClass);
-		let deaths = sumIfs(storedCarnageData.rows, "deaths", "guardian", guardianName, "classType", guardianClass);
-		let assists = sumIfs(storedCarnageData.rows, "assists", "guardian", guardianName, "classType", guardianClass);
-		return ((kills + assists) / deaths || 1).toFixed(2);
-	}
-}
-
-function findUniqueWeaponStats(statName, weaponName, weaponType, storedCarnageData) {
-	if (statName === "weapon") {
-		return weaponName;
-	} else if (statName === "type") {
-		return findByProperty(storedCarnageData, weaponType, weaponName)[weaponType + "Type"];
-	} else if (statName === "used") {
-		return count(storedCarnageData.columns[weaponType], weaponName);
-	} else if (statName === "wins") {
-		return countIf(storedCarnageData.columns[weaponType], weaponName, storedCarnageData.columns.win, "TRUE");
-	} else if (statName === "kills") {
-		return sumIf(storedCarnageData.rows, weaponType + "Kills", weaponType, weaponName);
-	} else if (statName === "deaths") {
-		return sumIf(storedCarnageData.rows, "deaths", weaponType, weaponName);
-	} else if (statName === "assists") {
-		return sumIf(storedCarnageData.rows, "assists", weaponType, weaponName);
-	}
-}
-
-function findWeaponStat(statName, weaponName, storedCarnageData) {
-	if (statName === "weapon") {
-		return weaponName;
-	} else if (statName === "used") {
-		if (primaries.indexOf(weaponName) > -1) {
-			return count(storedCarnageData.columns.primaryType, weaponName);
-		} else if (specials.indexOf(weaponName) > -1) {
-			return count(storedCarnageData.columns.specialType, weaponName);
-		} else if (heavies.indexOf(weaponName) > -1) {
-			return count(storedCarnageData.columns.heavyType, weaponName);
-		} else {
-			return "ERROR";
-		}
-	} else if (statName === "wins") {
-		if (primaries.indexOf(weaponName) > -1) {
-			return countIf(storedCarnageData.columns.primaryType, weaponName, storedCarnageData.columns.win, "TRUE");
-		} else if (specials.indexOf(weaponName) > -1) {
-			return countIf(storedCarnageData.columns.specialType, weaponName, storedCarnageData.columns.win, "TRUE");
-		} else if (heavies.indexOf(weaponName) > -1) {
-			return countIf(storedCarnageData.columns.heavyType, weaponName, storedCarnageData.columns.win, "TRUE");
-		} else {
-			return "ERROR";
-		}
-	} else if (statName === "kills") {
-		if (primaries.indexOf(weaponName) > -1) {
-			return sumIf(storedCarnageData.rows, "primaryKills", "primaryType", weaponName);
-		} else if (specials.indexOf(weaponName) > -1) {
-			return sumIf(storedCarnageData.rows, "specialKills", "specialType", weaponName);
-		} else if (heavies.indexOf(weaponName) > -1) {
-			return sumIf(storedCarnageData.rows, "heavyKills", "heavyType", weaponName);
-		} else {
-			return "ERROR";
-		}
-	} else if (statName === "deaths") {
-		if (primaries.indexOf(weaponName) > -1) {
-			return sumIf(storedCarnageData.rows, "deaths", "primaryType", weaponName);
-		} else if (specials.indexOf(weaponName) > -1) {
-			return sumIf(storedCarnageData.rows, "deaths", "specialType", weaponName);
-		} else if (heavies.indexOf(weaponName) > -1) {
-			return sumIf(storedCarnageData.rows, "deaths", "heavyType", weaponName);
-		} else {
-			return "ERROR";
-		}
-	} else if (statName === "assists") {
-		if (primaries.indexOf(weaponName) > -1) {
-			return sumIf(storedCarnageData.rows, "assists", "primaryType", weaponName);
-		} else if (specials.indexOf(weaponName) > -1) {
-			return sumIf(storedCarnageData.rows, "assists", "specialType", weaponName);
-		} else if (heavies.indexOf(weaponName) > -1) {
-			return sumIf(storedCarnageData.rows, "assists", "heavyType", weaponName);
-		} else {
-			return "ERROR";
-		}
-	}
 }
 
 function getStatValue(property, storedCarnageData) {
@@ -926,14 +769,15 @@ function ui(databaseActivityId) {
 		document.getElementById("width-wrapper").innerHTML = "";
 		matchDataUi(storedCarnageData);
 		if (storedCarnageData && storedCarnageData.rows.length) {
-			individualWeaponUi(storedCarnageData);
-			guardianUi(storedCarnageData);
-			mapUi(storedCarnageData);
-			mapSpawnUi(storedCarnageData);
-			weaponUi(storedCarnageData);
-			bestsUi(storedCarnageData);
-			lootUi(storedCarnageData, presetEvents[document.getElementById("season").value]);
-			statsUi(storedCarnageData);
+			let data = gatherSpreadsheetData(storedCarnageData);
+			individualWeaponUi(storedCarnageData, data);
+			guardianUi(storedCarnageData, data);
+			mapUi(storedCarnageData, data);
+			mapSpawnUi(storedCarnageData, data);
+			weaponUi(storedCarnageData, data);
+			bestsUi(storedCarnageData, data);
+			lootUi(storedCarnageData, presetEvents[document.getElementById("season").value], data);
+			statsUi(storedCarnageData, data);
 			changePage();
 		}
 	});

@@ -92,7 +92,7 @@ function makeMultiTable(tableData, tableId, tableContainer, hidden) {
 	// new Tablesort(document.getElementById(tableId));
 }
 
-function weaponUi(storedCarnageData) {
+function weaponUi(storedCarnageData, data) {
 	document.getElementById("width-wrapper").innerHTML += `<div id="weapon" class="hidden"></div>`;
 	let tableStart = `<table id="weaponData" class="data-table container"><thead><tr>`;
 	let tableMid = `</tr></thead><tbody><tr>`;
@@ -106,8 +106,10 @@ function weaponUi(storedCarnageData) {
 	for (let weaponArray of weaponArrays) {
 		for (let weaponName of weaponArray) {
 			let temp = [];
-			for (let stat of weaponStats) {
-				temp.push(`<td title="${findWeaponStat(stat, weaponName, storedCarnageData)}" class="${stat === "weapon" ? "stat-name" : "stat-data"}">${findWeaponStat(stat, weaponName, storedCarnageData)}</td>`)
+			if (data.weaponsByType[weaponName]) {
+				for (let stat of weaponStats) {
+					temp.push(`<td title="${data.weaponsByType[weaponName][stat]}" class="${stat === "weapon" ? "stat-name" : "stat-data"}">${data.weaponsByType[weaponName][stat]}</td>`)
+				}
 			}
 			bodyHTML.push(temp.join(""));
 		}
@@ -117,7 +119,7 @@ function weaponUi(storedCarnageData) {
 	new Tablesort(document.getElementById('weaponData'));
 }
 
-function individualWeaponUi(storedCarnageData) {
+function individualWeaponUi(storedCarnageData, data) {
 	for (let weaponType of ["primary", "special", "heavy"]) {
 		document.getElementById("width-wrapper").innerHTML += `<div id="${weaponType}" class="hidden"></div>`;
 		let tableStart = `<table id="${weaponType}Data" class="data-table container"><thead><tr>`;
@@ -132,11 +134,10 @@ function individualWeaponUi(storedCarnageData) {
 		for (let weaponName of weaponsOfType) {
 			let temp = [];
 			for (let stat of additionalWeaponStats) {
-				let result = findUniqueWeaponStats(stat, weaponName, weaponType, storedCarnageData);
-				if (stat === "weapon" && result === "No Kills") {
+				if (stat === "weapon" && data.weaponsByName[weaponName][stat] === "No Kills") {
 					break;
 				} else {
-					temp.push(`<td title="${result}" class="${stat === "weapon" ? "stat-name" : "stat-data"} stat-${stat}">${result}</td>`);
+					temp.push(`<td title="${data.weaponsByName[weaponName][stat]}" class="${stat === "weapon" ? "stat-name" : "stat-data"} stat-${stat}">${data.weaponsByName[weaponName][stat]}</td>`);
 				}
 			}
 			bodyHTML.push(temp.join(""));
@@ -147,7 +148,7 @@ function individualWeaponUi(storedCarnageData) {
 	}
 }
 
-function guardianUi(storedCarnageData) {
+function guardianUi(storedCarnageData, data) {
 	document.getElementById("width-wrapper").innerHTML += `<div id="guardian" class="hidden"></div>`;
 	let tableStart = `<table id="guardianData" class="data-table container"><thead><tr>`;
 	let tableMid = `</tr></thead><tbody><tr>`;
@@ -163,16 +164,11 @@ function guardianUi(storedCarnageData) {
 			let playedGuardianClassCount = countIf(storedCarnageData.columns.classType, guardianClass, storedCarnageData.columns.guardian, guardianName);
 			if (playedGuardianClassCount > 0) {
 				let temp = [];
-				let statObject = {};
-				for (let stat of guardianStats) {
-					let result = findGuardianStats(stat.id, guardianName, guardianClass, storedCarnageData);
-					statObject[stat.id] = result;
-				}
 				for (let stat of guardianStats) {
 					if (stat.id === "kd") {
-						temp.push(`<td class="${kdStyle(statObject[stat.id])} ${stat.style} ${stat.id === "player" ? "stat-name" : "stat-data"}" title="${statObject[stat.id]}">${statObject[stat.id]}</td>`);
+						temp.push(`<td class="${kdStyle(data.guardian[guardianName][guardianClass][stat.id])} ${stat.style} ${stat.id === "player" ? "stat-name" : "stat-data"}" title="${data.guardian[guardianName][guardianClass][stat.id]}">${data.guardian[guardianName][guardianClass][stat.id]}</td>`);
 					} else {
-						temp.push(`<td title="${statObject[stat.id]}" class="${stat.style} ${stat.id === "player" ? "stat-name" : "stat-data"} ${winStyle(parseInt(statObject.win) >= 50 ? "TRUE" : "FALSE")}">${statObject[stat.id]}</td>`);
+						temp.push(`<td title="${data.guardian[guardianName][guardianClass][stat.id]}" class="${stat.style} ${stat.id === "player" ? "stat-name" : "stat-data"} ${winStyle(parseInt(data.guardian[guardianName][guardianClass].win) >= 50 ? "TRUE" : "FALSE")}">${data.guardian[guardianName][guardianClass][stat.id]}</td>`);
 					}
 				}
 				bodyHTML.push(temp.join(""));
@@ -184,7 +180,7 @@ function guardianUi(storedCarnageData) {
 	new Tablesort(document.getElementById(`guardianData`));
 }
 
-function mapSpawnUi(storedCarnageData) {
+function mapSpawnUi(storedCarnageData, data) {
 	console.time("stuff");
 	document.getElementById("width-wrapper").innerHTML += `<div id="mapspawn" class="hidden"></div>`;
 	let tableStart = `<table id="mapSpawnData" class="data-table container"><thead><tr>`;
@@ -196,7 +192,6 @@ function mapSpawnUi(storedCarnageData) {
 		headerHTML.push(`<td title="${stat.id}" class="stat-header ${stat.style} ${stat.id === "map" ? "stat-name" : "stat-data"}">${stat.name}</td>`);
 	}
 	let uniqueMaps = storedCarnageData.columns.mapName.filter(onlyUnique);
-	let data = gatherSpreadsheetData(storedCarnageData);
 	for (let mapName of uniqueMaps) {
 		for (let mapTeam of ["Alpha", "Bravo"]) {
 			let playedGuardianClassCount = countIf(storedCarnageData.columns.team, mapTeam, storedCarnageData.columns.mapName, mapName);
@@ -219,7 +214,7 @@ function mapSpawnUi(storedCarnageData) {
 	console.timeEnd("stuff");
 }
 
-function mapUi(storedCarnageData) {
+function mapUi(storedCarnageData, data) {
 	document.getElementById("width-wrapper").innerHTML += `<div id="map" class="hidden"></div>`;
 	let tableStart = `<table id="mapData" class="data-table container"><thead><tr>`;
 	let tableMid = `</tr></thead><tbody><tr>`;
@@ -230,7 +225,6 @@ function mapUi(storedCarnageData) {
 		headerHTML.push(`<td title="${stat.id}" class="stat-header ${stat.style} ${stat.id === "map" ? "stat-name" : "stat-data"}">${stat.name}</td>`);
 	}
 	let uniqueMaps = storedCarnageData.columns.mapName.filter(onlyUnique);
-	let data = gatherSpreadsheetData(storedCarnageData);
 	for (let mapName of uniqueMaps) {
 		let temp = [];
 		for (let stat of mapStats) {
@@ -247,7 +241,7 @@ function mapUi(storedCarnageData) {
 	new Tablesort(document.getElementById(`mapData`));
 }
 
-function bestsUi(storedCarnageData) {
+function bestsUi(storedCarnageData, data) {
 	document.getElementById("width-wrapper").innerHTML += `<div id="bests" class="hidden"></div>`;
 	let multiTable = [];
 	for (let category of categories) {
@@ -267,7 +261,7 @@ function bestsUi(storedCarnageData) {
 	makeMultiTable(multiTable, "bests-table", "bests");
 }
 
-function lootUi(storedCarnageData, season) {
+function lootUi(storedCarnageData, season, data) {
 	document.getElementById("width-wrapper").innerHTML += `<div id="loot" class="hidden"></div>`;
 	let array = sortBy(storedCarnageData.rows, "id");
 	let tableStart = `<table id="lootData" class="data-table container"><thead><tr>`;
@@ -298,7 +292,7 @@ function lootUi(storedCarnageData, season) {
 	new Tablesort(document.getElementById('lootData'));
 }
 
-function statsUi(storedCarnageData) {
+function statsUi(storedCarnageData, data) {
 	document.getElementById("width-wrapper").innerHTML += `<div id="stats" class="hidden"></div>`;
 	let tableStart = `<table id="statData" class="data-table container"><thead><tr>`;
 	let tableMid = `</tr></thead><tbody><tr>`;
