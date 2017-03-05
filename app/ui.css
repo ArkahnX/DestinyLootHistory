@@ -1980,6 +1980,10 @@ fieldset .failure {
 	font-size: 14px;
 }
 
+.data-table td:last-child {
+	border-right: none;
+}
+
 .data-table thead tr {
 	display: block;
 	position: relative;
@@ -2018,7 +2022,7 @@ fieldset .failure {
 }
 
 .data-table .stat-header {
-	text-align: center;
+	text-align: center!important;
 	font-weight: bold;
 }
 
@@ -2065,6 +2069,7 @@ fieldset .failure {
 
 .data-table td.abilityKills.stat-name,
 .data-table td.weaponsUsed.stat-name,
+.data-table td.stat-name,
 .data-table td.mainStats.stat-name {
 	max-width: 88px;
 	min-width: 88px;
@@ -2092,9 +2097,21 @@ fieldset .failure {
 .data-table td.legendaryRewards.stat-data,
 .data-table td.abilityKills.stat-data,
 .data-table td.weaponsUsed.stat-data,
+.data-table td.stat-data,
 .data-table td.specialStats.stat-data {
 	max-width: 50px;
 	min-width: 50px;
+}
+
+.data-table td.guardianStats.stat-data {
+	max-width: 72px;
+	min-width: 72px;
+}
+
+.data-table td.stat-weapon,
+.data-table td.stat-type {
+	max-width: 150px;
+	min-width: 150px;
 }
 
 .data-table td.exoticRewards.stat-data {

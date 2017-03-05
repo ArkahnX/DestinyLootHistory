@@ -20,6 +20,13 @@ const presetEvents = {
         minDate: moment("2015-12-08T18:00:00Z").format(),
         maxDate: moment("2015-12-29T09:00:00Z").format()
     },
+    IronBannerFebruary2017: {
+        id: "IronBannerFebruary2017",
+        gameMode: "Supremacy",
+        name: "Iron Banner February 2017",
+        minDate: moment("2017-02-28T18:00:00Z").format(),
+        maxDate: moment("2017-03-07T09:00:00Z").format()
+    },
     IronBannerJanuary2017: {
         id: "IronBannerJanuary2017",
         gameMode: "Team",
@@ -589,3 +596,13 @@ const legendaryItemNames = ["Legendary Helmet", "Legendary Chest", "Legendary Ga
 const exoticRewardStats = [{ "id": "primaryengram", "style": "exoticRewards", "name": "Primary Engram" }, { "id": "specialengram", "style": "exoticRewards", "name": "Special Engram" }, { "id": "heavyengram", "style": "exoticRewards", "name": "Heavy Engram" }, { "id": "helmetengram", "style": "exoticRewards", "name": "Helmet Engram" }, { "id": "chestengram", "style": "exoticRewards", "name": "Chest Engram" }, { "id": "gloveengram", "style": "exoticRewards", "name": "Gauntlet Engram" }, { "id": "bootengram", "style": "exoticRewards", "name": "Leg Engram" }, { "id": "droprate", "style": "exoticRewards stat-header", "name": "Drop Rate" }, { "id": "threeofcoinsused", "style": "exoticRewards", "name": "Three of Coins Used" }, { "id": "exoticsearned", "style": "exoticRewards", "name": "Exotics Earned" }, { "id": "tocperexotic", "style": "exoticRewards", "name": "ToC Per Exotic" }, { "id": "exoticcost", "style": "exoticRewards", "name": "Exotic Cost" }];
 
 const exoticItemNames = ["Primary Engram", "Special Engram", "Heavy Engram", "Helmet Engram", "Chest Engram", "Gauntlet Engram", "Leg Engram"];
+
+const weaponStats = ["weapon","used","wins","kills","deaths","assists"];
+
+const additionalWeaponStats = ["weapon", "type", "used", "wins", "kills", "deaths", "assists"];
+
+const guardianStats = [{ "id": "player", "style": "guardianStats", "name": "Player" }, { "id": "class", "style": "guardianStats", "name": "Class" }, { "id": "encountered", "style": "guardianStats", "name": "Encountered" }, { "id": "wins", "style": "guardianStats", "name": "Wins" }, { "id": "win", "style": "guardianStats", "name": "Win %" }, { "id": "kills", "style": "guardianStats", "name": "Kills" }, { "id": "killavg", "style": "guardianStats", "name": "Kill Avg" }, { "id": "deaths", "style": "guardianStats", "name": "Deaths" }, { "id": "deathavg", "style": "guardianStats", "name": "Death Avg" }, { "id": "assists", "style": "guardianStats", "name": "Assists" }, { "id": "assistavg", "style": "guardianStats", "name": "Assist Avg" }, { "id": "kd", "style": "guardianStats kd", "name": "K/d" }, { "id": "kad", "style": "guardianStats", "name": "K/ad" }];
+
+const mapStats = [{ "id": "map", "style": "guardianStats", "name": "Map" }, { "id": "matches", "style": "guardianStats", "name": "Matches" }, { "id": "chances", "style": "guardianStats", "name": "Chances" }, { "id": "wins", "style": "guardianStats", "name": "Wins" }, { "id": "win", "style": "guardianStats", "name": "Win %" }, { "id": "kills", "style": "guardianStats", "name": "Kills" }, { "id": "assists", "style": "guardianStats", "name": "Assists" }, { "id": "deaths", "style": "guardianStats", "name": "Deaths" }, { "id": "kd", "style": "guardianStats", "name": "K/d" }, { "id": "kad", "style": "guardianStats", "name": "Ka/d" }, { "id": "killavg", "style": "guardianStats", "name": "Kill Avg" }, { "id": "assistavg", "style": "guardianStats", "name": "Assist Avg" }, { "id": "deathavg", "style": "guardianStats", "name": "Death Avg" }];
+
+const mapSpawnStats = [{ "id": "map", "style": "guardianStats", "name": "Map" }, { "id": "team", "style": "guardianStats", "name": "Team" }, { "id": "matches", "style": "guardianStats", "name": "Matches" }, { "id": "chances", "style": "guardianStats", "name": "Chances" }, { "id": "wins", "style": "guardianStats", "name": "Wins" }, { "id": "win", "style": "guardianStats", "name": "Win %" }, { "id": "kills", "style": "guardianStats", "name": "Kills" }, { "id": "assists", "style": "guardianStats", "name": "Assists" }, { "id": "deaths", "style": "guardianStats", "name": "Deaths" }, { "id": "kd", "style": "guardianStats", "name": "K/d" }, { "id": "kad", "style": "guardianStats", "name": "Ka/d" }, { "id": "killavg", "style": "guardianStats", "name": "Kill Avg" }, { "id": "assistavg", "style": "guardianStats", "name": "Assist Avg" }, { "id": "deathavg", "style": "guardianStats", "name": "Death Avg" }];

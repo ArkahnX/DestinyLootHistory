@@ -89,7 +89,162 @@ function makeMultiTable(tableData, tableId, tableContainer, hidden) {
 	}
 	let table = tableStart + tableHead.join("") + tableMid + tableContents.join("</tr><tr>") + tableEnd;
 	document.getElementById(tableContainer).innerHTML += table;
-	new Tablesort(document.getElementById(tableId));
+	// new Tablesort(document.getElementById(tableId));
+}
+
+function weaponUi(storedCarnageData) {
+	document.getElementById("width-wrapper").innerHTML += `<div id="weapon" class="hidden"></div>`;
+	let tableStart = `<table id="weaponData" class="data-table container"><thead><tr>`;
+	let tableMid = `</tr></thead><tbody><tr>`;
+	let tableEnd = `</tr></tbody></table>`;
+	let headerHTML = [];
+	let bodyHTML = [];
+	for (let stat of weaponStats) {
+		headerHTML.push(`<td title="${stat}" class="stat-header${stat === "weapon" ? " stat-name" : " stat-data"}">${stat}</td>`);
+	}
+	let weaponArrays = [primaries, specials, heavies];
+	for (let weaponArray of weaponArrays) {
+		for (let weaponName of weaponArray) {
+			let temp = [];
+			for (let stat of weaponStats) {
+				temp.push(`<td title="${findWeaponStat(stat, weaponName, storedCarnageData)}" class="${stat === "weapon" ? "stat-name" : "stat-data"}">${findWeaponStat(stat, weaponName, storedCarnageData)}</td>`)
+			}
+			bodyHTML.push(temp.join(""));
+		}
+	}
+	let table = tableStart + headerHTML.join(``) + tableMid + bodyHTML.join("</tr><tr>") + tableEnd;
+	document.getElementById("weapon").innerHTML += table;
+	new Tablesort(document.getElementById('weaponData'));
+}
+
+function individualWeaponUi(storedCarnageData) {
+	for (let weaponType of ["primary", "special", "heavy"]) {
+		document.getElementById("width-wrapper").innerHTML += `<div id="${weaponType}" class="hidden"></div>`;
+		let tableStart = `<table id="${weaponType}Data" class="data-table container"><thead><tr>`;
+		let tableMid = `</tr></thead><tbody><tr>`;
+		let tableEnd = `</tr></tbody></table>`;
+		let headerHTML = [];
+		let bodyHTML = [];
+		for (let stat of additionalWeaponStats) {
+			headerHTML.push(`<td title="${stat}" class="stat-header${stat === "weapon" ? " stat-name" : " stat-data"} stat-${stat}">${stat}</td>`);
+		}
+		let weaponsOfType = storedCarnageData.columns[weaponType].filter(onlyUnique);
+		for (let weaponName of weaponsOfType) {
+			let temp = [];
+			for (let stat of additionalWeaponStats) {
+				let result = findUniqueWeaponStats(stat, weaponName, weaponType, storedCarnageData);
+				if (stat === "weapon" && result === "No Kills") {
+					break;
+				} else {
+					temp.push(`<td title="${result}" class="${stat === "weapon" ? "stat-name" : "stat-data"} stat-${stat}">${result}</td>`);
+				}
+			}
+			bodyHTML.push(temp.join(""));
+		}
+		let table = tableStart + headerHTML.join(``) + tableMid + bodyHTML.join("</tr><tr>") + tableEnd;
+		document.getElementById(weaponType).innerHTML += table;
+		new Tablesort(document.getElementById(`${weaponType}Data`));
+	}
+}
+
+function guardianUi(storedCarnageData) {
+	document.getElementById("width-wrapper").innerHTML += `<div id="guardian" class="hidden"></div>`;
+	let tableStart = `<table id="guardianData" class="data-table container"><thead><tr>`;
+	let tableMid = `</tr></thead><tbody><tr>`;
+	let tableEnd = `</tr></tbody></table>`;
+	let headerHTML = [];
+	let bodyHTML = [];
+	for (let stat of guardianStats) {
+		headerHTML.push(`<td title="${stat.id}" class="stat-header ${stat.style} ${stat.id === "player" ? "stat-name" : "stat-data"}">${stat.name}</td>`);
+	}
+	let uniqueGuardians = storedCarnageData.columns.guardian.filter(onlyUnique);
+	for (let guardianName of uniqueGuardians) {
+		for (let guardianClass of ["Hunter", "Titan", "Warlock"]) {
+			let playedGuardianClassCount = countIf(storedCarnageData.columns.classType, guardianClass, storedCarnageData.columns.guardian, guardianName);
+			if (playedGuardianClassCount > 0) {
+				let temp = [];
+				let statObject = {};
+				for (let stat of guardianStats) {
+					let result = findGuardianStats(stat.id, guardianName, guardianClass, storedCarnageData);
+					statObject[stat.id] = result;
+				}
+				for (let stat of guardianStats) {
+					if (stat.id === "kd") {
+						temp.push(`<td class="${kdStyle(statObject[stat.id])} ${stat.style} ${stat.id === "player" ? "stat-name" : "stat-data"}" title="${statObject[stat.id]}">${statObject[stat.id]}</td>`);
+					} else {
+						temp.push(`<td title="${statObject[stat.id]}" class="${stat.style} ${stat.id === "player" ? "stat-name" : "stat-data"} ${winStyle(parseInt(statObject.win) >= 50 ? "TRUE" : "FALSE")}">${statObject[stat.id]}</td>`);
+					}
+				}
+				bodyHTML.push(temp.join(""));
+			}
+		}
+	}
+	let table = tableStart + headerHTML.join(``) + tableMid + bodyHTML.join("</tr><tr>") + tableEnd;
+	document.getElementById("guardian").innerHTML += table;
+	new Tablesort(document.getElementById(`guardianData`));
+}
+
+function mapSpawnUi(storedCarnageData) {
+	console.time("stuff");
+	document.getElementById("width-wrapper").innerHTML += `<div id="mapspawn" class="hidden"></div>`;
+	let tableStart = `<table id="mapSpawnData" class="data-table container"><thead><tr>`;
+	let tableMid = `</tr></thead><tbody><tr>`;
+	let tableEnd = `</tr></tbody></table>`;
+	let headerHTML = [];
+	let bodyHTML = [];
+	for (let stat of mapSpawnStats) {
+		headerHTML.push(`<td title="${stat.id}" class="stat-header ${stat.style} ${stat.id === "map" ? "stat-name" : "stat-data"}">${stat.name}</td>`);
+	}
+	let uniqueMaps = storedCarnageData.columns.mapName.filter(onlyUnique);
+	let data = gatherSpreadsheetData(storedCarnageData);
+	for (let mapName of uniqueMaps) {
+		for (let mapTeam of ["Alpha", "Bravo"]) {
+			let playedGuardianClassCount = countIf(storedCarnageData.columns.team, mapTeam, storedCarnageData.columns.mapName, mapName);
+			if (playedGuardianClassCount > 0) {
+				let temp = [];
+				for (let stat of mapSpawnStats) {
+					if (stat.id === "kd") {
+						temp.push(`<td class="${stat.id === "map" ? "stat-name" : "stat-data"} ${kdStyle(data.map[mapName][mapTeam][stat.id])} ${stat.style}" title="${data.map[mapName][mapTeam][stat.id]}">${data.map[mapName][mapTeam][stat.id]}</td>`);
+					} else {
+						temp.push(`<td title="${data.map[mapName][mapTeam][stat.id]}" class="${stat.id === "map" ? "stat-name" : "stat-data"} ${winStyle(parseInt(data.map[mapName][mapTeam].win) >= 50 ? "TRUE" : "FALSE")} ${stat.style}">${data.map[mapName][mapTeam][stat.id]}</td>`);
+					}
+				}
+				bodyHTML.push(temp.join(""));
+			}
+		}
+	}
+	let table = tableStart + headerHTML.join(``) + tableMid + bodyHTML.join("</tr><tr>") + tableEnd;
+	document.getElementById("mapspawn").innerHTML += table;
+	new Tablesort(document.getElementById(`mapSpawnData`));
+	console.timeEnd("stuff");
+}
+
+function mapUi(storedCarnageData) {
+	document.getElementById("width-wrapper").innerHTML += `<div id="map" class="hidden"></div>`;
+	let tableStart = `<table id="mapData" class="data-table container"><thead><tr>`;
+	let tableMid = `</tr></thead><tbody><tr>`;
+	let tableEnd = `</tr></tbody></table>`;
+	let headerHTML = [];
+	let bodyHTML = [];
+	for (let stat of mapStats) {
+		headerHTML.push(`<td title="${stat.id}" class="stat-header ${stat.style} ${stat.id === "map" ? "stat-name" : "stat-data"}">${stat.name}</td>`);
+	}
+	let uniqueMaps = storedCarnageData.columns.mapName.filter(onlyUnique);
+	let data = gatherSpreadsheetData(storedCarnageData);
+	for (let mapName of uniqueMaps) {
+		let temp = [];
+		for (let stat of mapStats) {
+			if (stat.id === "kd") {
+				temp.push(`<td class="${stat.id === "map" ? "stat-name" : "stat-data"} ${kdStyle(data.map[mapName][stat.id])} ${stat.style}" title="${data.map[mapName][stat.id]}">${data.map[mapName][stat.id]}</td>`);
+			} else {
+				temp.push(`<td title="${data.map[mapName][stat.id]}" class="${stat.id === "map" ? "stat-name" : "stat-data"} ${winStyle(parseInt(data.map[mapName].win) >= 50 ? "TRUE" : "FALSE")} ${stat.style}">${data.map[mapName][stat.id]}</td>`);
+			}
+		}
+		bodyHTML.push(temp.join(""));
+	}
+	let table = tableStart + headerHTML.join(``) + tableMid + bodyHTML.join("</tr><tr>") + tableEnd;
+	document.getElementById("map").innerHTML += table;
+	new Tablesort(document.getElementById(`mapData`));
 }
 
 function bestsUi(storedCarnageData) {
@@ -176,8 +331,8 @@ function statsUi(storedCarnageData) {
 		let dataColumn = [];
 		let percentColumn = [];
 		for (let property of array) {
-			if(property.id === "droprate") {
-			nameColumn.push(`<td class="${property.style} stat-name" title="${property.name}" colspan="2">${property.name}</td>`);
+			if (property.id === "droprate") {
+				nameColumn.push(`<td class="${property.style} stat-name" title="${property.name}" colspan="2">${property.name}</td>`);
 			} else {
 				nameColumn.push(`<td class="${property.style} stat-name" title="${property.name}">${property.name}</td>`);
 			}
@@ -215,5 +370,5 @@ function statsUi(storedCarnageData) {
 	}
 	let table = tableStart + tableHeaders.join(`<td class="spacer"></td>`) + tableMid + tableContents.join("</tr><tr>") + tableEnd;
 	document.getElementById("stats").innerHTML += table;
-	new Tablesort(document.getElementById('statData'));
+	// new Tablesort(document.getElementById('statData'));
 }

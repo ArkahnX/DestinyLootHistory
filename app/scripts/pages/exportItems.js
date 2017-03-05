@@ -14,9 +14,10 @@ function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, light
 		var sortedData = [];
 		var exoticQue = "";
 		var factionLevel = 0;
+		console.log(regexMatch)
 		for (var match of data.matches) {
 			if (match.activityTypeHashOverride) {
-				if (regexMatch.test(DestinyActivityTypeDefinition[match.activityTypeHashOverride].statGroup) && moment(match.timestamp).isSameOrBefore(maxDate) && moment(match.timestamp).isSameOrAfter(minDate) && match.activityTime > 300) {
+				if (regexMatch.test(DestinyActivityTypeDefinition[match.activityTypeHashOverride].identifier) && moment(match.timestamp).isSameOrBefore(maxDate) && moment(match.timestamp).isSameOrAfter(minDate) && match.activityTime > 300) {
 					var activityTypeData = DestinyActivityDefinition[match.activityHash];
 					var name = activityTypeData.activityName;
 					matchDrops[match.activityInstance] = {
@@ -89,7 +90,7 @@ function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, light
 												matchDrops[match.activityInstance].rewards.push("PS " + mainItemData.tierTypeName + " " + bucketData.bucketName.split(" ")[0] + " (" + light + ")");
 											} else if (/(rare)/i.test(mainItemData.tierTypeName)) {
 												matchDrops[match.activityInstance].rewards.push(mainItemData.tierTypeName + " " + bucketData.bucketName.split(" ")[0] + " " + (mainItemData.itemTypeName.split(" ")[2] || "") + " (" + light + ")");
-											} else if (mainItemData.sourceHashes.indexOf(2770509343) > -1 || mainItemData.sourceHashes.indexOf(478645002) > -1) {
+											} else if (mainItemData.sourceHashes && (mainItemData.sourceHashes.indexOf(2770509343) > -1 || mainItemData.sourceHashes.indexOf(478645002) > -1)) {
 												matchDrops[match.activityInstance].rewards.push(mainItemData.tierTypeName + " " + bucketData.bucketName.split(" ")[0] + " " + (mainItemData.itemTypeName.split(" ")[2] || "") + " (" + light + ")");
 											}
 										}
