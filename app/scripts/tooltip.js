@@ -404,30 +404,31 @@ function handleOtherStats(dataset, resolve) {
 		if (nodeData && nodeData.nodes) {
 			// var talentDef = DestinyCompactTalentDefinition[dataset.talentGridHash];
 			for (let node of nodeData.nodes) {
-				let tableText = document.getElementById(`row${node.row}column${node.column}`);
-				tableText.classList.add("node");
-				tableText.dataset.state = node.state;
-				// tableText.classList.add("node");
-				if (node.icon) {
-					tableText.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + node.icon + "')");
-				}
-				if (node.isActivated) {
-					tableText.classList.add("node-selected");
-				} else if (node.state === 9 || node.state === 1 || node.state === 5 || node.state === 6) {
-					tableText.classList.add("node-complete");
-				}
-				tableText.title = node.nodeStepName + " \n" + node.nodeStepDescription;
-				if (DEBUG) {
-					// console.log(node, talentDef);
-					// var nodeDef = talentDef.nodes[node.nodeHash];
-					// var stepDef = nodeDef.steps[node.stepIndex];
-					// var activatedAtGridLevel = stepDef.activationRequirement.gridLevel;
-					tableText.title = node.nodeStepName + " \n" + node.nodeStepDescription + " \nState: " + node.state + " \nGrid: " + node.activatedAtGridLevel;
+				if (node.row > -1 && node.column > -1) {
+					let tableText = document.getElementById(`row${node.row}column${node.column}`);
+					tableText.classList.add("node");
+					tableText.dataset.state = node.state;
+					// tableText.classList.add("node");
+					if (node.icon) {
+						tableText.setAttribute("style", "background-image: url(" + "'https://www.bungie.net" + node.icon + "')");
+					}
+					if (node.isActivated) {
+						tableText.classList.add("node-selected");
+					} else if (node.state === 9 || node.state === 1 || node.state === 5 || node.state === 6) {
+						tableText.classList.add("node-complete");
+					}
+					tableText.title = node.nodeStepName + " \n" + node.nodeStepDescription;
+					if (DEBUG) {
+						// console.log(node, talentDef);
+						// var nodeDef = talentDef.nodes[node.nodeHash];
+						// var stepDef = nodeDef.steps[node.stepIndex];
+						// var activatedAtGridLevel = stepDef.activationRequirement.gridLevel;
+						tableText.title = node.nodeStepName + " \n" + node.nodeStepDescription + " \nState: " + node.state + " \nGrid: " + node.activatedAtGridLevel;
+					}
 				}
 			}
 		}
 		if (itemDef.bucketTypeHash === 4023194814) { // ghost shell icons
-			console.log(nodeData)
 			if (nodeData.rows > 1 && nodeData.columns > 1) {
 				let materialIcon = document.getElementById(`row${1}column${nodeData.columns}`);
 				let guardianIcon = document.getElementById(`row${2}column${nodeData.columns}`);

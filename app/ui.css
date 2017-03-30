@@ -160,19 +160,6 @@ select:not(#tags):focus,
 	cursor: pointer;
 }
 
-input[disabled],
-select[disabled] {
-	cursor: default;
-	color: #607D8B;
-	background-color: #CFD8DC;
-}
-
-input[disabled]:hover,
-select[disabled]:hover {
-	color: #607D8B;
-	background-color: #B0BEC5;
-}
-
 header {
 	transition: box-shadow .2s linear, background-color .2s ease-in, background-image .2s ease-in;
 	background-color: rgba(238, 238, 238, .7);
@@ -1783,6 +1770,19 @@ nav input[type=checkbox] {
 	vertical-align: middle;
 }
 
+input[disabled],
+select[disabled] {
+	cursor: default!important;
+	color: #607D8B!important;
+	background-color: #CFD8DC!important;
+}
+
+input[disabled]:hover,
+select[disabled]:hover {
+	color: #607D8B!important;
+	background-color: #B0BEC5!important;
+}
+
 .inverted {
 	filter: invert(100%);
 }
@@ -1959,4 +1959,283 @@ fieldset .failure {
 	border: solid;
 	border-width: 0 6px 6px 6px;
 	border-color: #333 transparent;
+}
+
+.data-table {
+	background-color: white;
+	table-layout: fixed;
+	border-collapse: collapse;
+	white-space: nowrap;
+	padding-bottom: 40px;
+	width: auto;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+.data-table td {
+	overflow: hidden;
+	border-right: 1px solid grey;
+	border-bottom: 1px solid grey;
+	padding: 2px;
+	font-size: 14px;
+}
+
+.data-table td:last-child {
+	border-right: none;
+}
+
+.data-table thead tr {
+	display: block;
+	position: relative;
+}
+
+.data-table tbody {
+	display: block;
+	overflow: auto;
+	height: 100%;
+}
+
+.data-table:not(.noresize) td,
+.data-table:not(.noresize) th {
+	min-width: 70px;
+	max-width: 70px;
+}
+
+.data-table .gameStats,
+.data-table .mainStats,
+.data-table .abilityKills,
+.data-table .weaponsUsed,
+.data-table .specialStats {
+	background-color: rgb(217, 234, 211);
+}
+
+.data-table .rareRewards {
+	background-color: rgb(207, 226, 243);
+}
+
+.data-table .legendaryRewards {
+	background-color: rgb(234, 209, 220);
+}
+
+.data-table .exoticRewards {
+	background-color: rgb(255, 242, 204);
+}
+
+.data-table .stat-header {
+	text-align: center!important;
+	font-weight: bold;
+}
+
+.data-table .spacer {
+	max-width: 40px!important;
+	min-width: 40px!important;
+	border-right: none;
+	border-bottom: none;
+}
+
+.data-table .spacer+td:not(.spacer) {
+	border-left: 1px solid grey;
+}
+
+.data-table td.gameStats.stat-header,
+.data-table td.specialStats.stat-header {
+	max-width: 248px;
+	min-width: 248px;
+}
+
+.data-table td.legendaryRewards.stat-header,
+.data-table td.rareRewards.stat-header {
+	max-width: 220px;
+	min-width: 220px;
+}
+
+.data-table td.abilityKills.stat-header,
+.data-table td.weaponsUsed.stat-header,
+.data-table td.mainStats.stat-header {
+	max-width: 138px;
+	min-width: 138px;
+}
+
+.data-table td.exoticRewards.stat-header {
+	max-width: 165px;
+	min-width: 165px;
+}
+
+.data-table td.gameStats.stat-name,
+.data-table td.specialStats.stat-name {
+	max-width: 198px;
+	min-width: 198px;
+}
+
+.data-table td.abilityKills.stat-name,
+.data-table td.weaponsUsed.stat-name,
+.data-table td.stat-name,
+.data-table td.mainStats.stat-name {
+	max-width: 88px;
+	min-width: 88px;
+}
+
+.data-table td.exoticRewards.stat-name {
+	max-width: 125px;
+	min-width: 125px;
+}
+
+.data-table td.legendaryRewards.stat-name,
+.data-table td.rareRewards.stat-name {
+	max-width: 170px;
+	min-width: 170px;
+}
+
+.data-table td.stat-data,
+.data-table td.stat-percent {
+	text-align: right;
+}
+
+.data-table td.gameStats.stat-data,
+.data-table td.mainStats.stat-data,
+.data-table td.rareRewards.stat-data,
+.data-table td.legendaryRewards.stat-data,
+.data-table td.abilityKills.stat-data,
+.data-table td.weaponsUsed.stat-data,
+.data-table td.stat-data,
+.data-table td.specialStats.stat-data {
+	max-width: 50px;
+	min-width: 50px;
+}
+
+.data-table td.guardianStats.stat-data {
+	max-width: 72px;
+	min-width: 72px;
+}
+
+.data-table td.stat-weapon,
+.data-table td.stat-type {
+	max-width: 150px;
+	min-width: 150px;
+}
+
+.data-table td.exoticRewards.stat-data {
+	max-width: 31px;
+	min-width: 31px;
+}
+
+.data-table td.abilityKills.stat-percent,
+.data-table td.weaponsUsed.stat-percent {
+	max-width: 40px;
+	min-width: 40px;
+}
+
+.data-table td.legendaryRewards.stat-percent,
+.data-table td.exoticRewards.stat-percent,
+.data-table td.rareRewards.stat-percent {
+	max-width: 67px;
+	min-width: 67px;
+}
+
+.data-table .id {
+	min-width: 22px;
+	max-width: 22px;
+}
+
+.data-table .map {
+	min-width: 82px;
+	max-width: 82px;
+}
+
+.data-table .assists {
+	min-width: 51px;
+	max-width: 51px;
+}
+
+.data-table .deaths {
+	min-width: 48px;
+	max-width: 48px;
+}
+
+.data-table .kd {
+	min-width: 31px;
+	max-width: 31px;
+}
+
+.data-table .kad {
+	min-width: 34px;
+	max-width: 34px;
+}
+
+.data-table .win,
+.data-table .values {
+	min-width: 48px;
+	max-width: 48px;
+}
+
+.data-table .stat {
+	font-weight: bold;
+}
+
+.data-table .ThreeOfCoins {
+	min-width: 121px;
+	max-width: 121px;
+}
+
+.data-table .RewardOne,
+.data-table .RewardTwo,
+.data-table .RewardThree,
+.data-table .RewardFour {
+	min-width: 166px;
+	max-width: 166px;
+}
+
+.data-table .rank,
+.data-table .place {
+	min-width: 40px;
+	max-width: 40px;
+}
+
+.data-table .score {
+	min-width: 42px;
+	max-width: 42px;
+}
+
+.data-table .primary,
+.data-table .primaryKills,
+.data-table .special,
+.data-table .specialKills,
+.data-table .heavy,
+.data-table .heavyKills,
+.data-table .melee,
+.data-table .grenade,
+.data-table .super,
+.data-table .sparksCaptured {
+	min-width: 55px;
+	max-width: 55px;
+}
+
+.data-table .special {
+	min-width: 55px;
+	max-width: 55px;
+}
+
+.data-table .heavy {
+	min-width: 55px;
+	max-width: 55px;
+}
+
+.data-gold {
+	background-color: #fce8b2;
+}
+
+.data-green {
+	background-color: #b7e1cd;
+}
+
+.data-red {
+	background-color: #f4c7c3;
+}
+
+.data-win {
+	background-color: #ebfcef
+}
+
+.data-loss {
+	background-color: #fce5cd;
 }
