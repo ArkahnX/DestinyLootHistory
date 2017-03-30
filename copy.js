@@ -5,11 +5,11 @@ var version = manifest.version.split(".");
 var today = new Date();
 version[0] = "" + today.getFullYear();
 version[1] = "" + (today.getMonth() + 1) + today.getDate();
-version[2] = "" + today.getHours() + today.getMinutes();
+version[2] = "" + today.getHours() + ("0000" + today.getMinutes()).slice(-2);
 manifest.version = version.join(".");
-manifest.version_name = "Test Branch " + today.getFullYear()+"-"+(today.getMonth() + 1)+"-"+today.getDate();
+manifest.version_name = "Test Branch " + today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
 manifest.name = "Destiny Loot History Test Branch";
-fs.writeFile("./test/manifest.json", JSON.stringify(manifest, null, "\t"), function(err) {
+fs.writeFile("./test/manifest.json", JSON.stringify(manifest, null, "\t"), function (err) {
 	if (err) {
 		return console.log(err);
 	}
@@ -18,7 +18,7 @@ fs.writeFile("./test/manifest.json", JSON.stringify(manifest, null, "\t"), funct
 
 function copy(file, route) {
 	if (["gdrive.html", "gdrive.js", "icon16.png", "icon32.png", "icon48.png", "icon128.png", "manifest.json"].indexOf(file) === -1) {
-		fs.stat(path.resolve(__dirname, "app", route, file), function(err, stats) {
+		fs.stat(path.resolve(__dirname, "app", route, file), function (err, stats) {
 			console.log(file);
 			if (!stats.isDirectory()) {
 				fs.createReadStream(path.join("app", route, file)).pipe(fs.createWriteStream(path.join("test", route, file)));
