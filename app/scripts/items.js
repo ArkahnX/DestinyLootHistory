@@ -797,7 +797,7 @@ function check3oC() {
 			var activityHash = characterDescriptions[localStorage.newestCharacter].currentActivityHash;
 			var activityType = 0;
 			var repBoosterHash = 0;
-			if (activityHash !== 0) {
+			if (activityHash !== 0 && DestinyActivityDefinition[activityHash]) {
 				activityType = DestinyActivityDefinition[activityHash].activityTypeHash;
 				if (arena.indexOf(activityType) > -1) {
 					repBoosterHash = 1603376703;
