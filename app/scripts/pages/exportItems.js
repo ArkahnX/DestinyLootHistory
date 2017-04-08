@@ -15,7 +15,7 @@ function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, light
 		var exoticQue = "";
 		var factionLevel = 0;
 		console.log(regexMatch)
-		for (var match of data.matches) {
+		for (var match of matches) {
 			if (match.activityTypeHashOverride) {
 				if (regexMatch.test(DestinyActivityTypeDefinition[match.activityTypeHashOverride].identifier) && moment(match.timestamp).isSameOrBefore(maxDate) && moment(match.timestamp).isSameOrAfter(minDate) && match.activityTime > 300) {
 					var activityTypeData = DestinyActivityDefinition[match.activityHash];
@@ -30,7 +30,7 @@ function exportData(gameMode, minDate, maxDate, resulstLength, ironBanner, light
 						matchDrops[match.activityInstance].exotic = exoticQue;
 						exoticQue = "";
 					}
-					for (var itemDiff of data.itemChanges) {
+					for (var itemDiff of itemChanges) {
 						if (itemDiff.removed.length) {
 							var timestamp = new Date(itemDiff.timestamp).getTime();
 							var minTime = new Date(match.timestamp).getTime();

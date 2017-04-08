@@ -5,13 +5,13 @@ getAllOptions().then(function (options) {
 	tags.update();
 });
 var selectedCharacter = localStorage.newestCharacter;
-var newInventories = newInventories || {};
+var currentInventories = currentInventories || {};
 var bungieProfileLoaded = false;
 
 function flattenInventories(inventories) {
 	return new Promise(function (resolve) {
 		tags.cleanup(inventories);
-		newInventories = inventories;
+		currentInventories = inventories;
 		var endResult = {
 			weapons: {
 				category: 1,
@@ -747,7 +747,7 @@ function displayMissingVendorItems(mainContainer, lastVendor, saleVendor) {
 				for (let category of itemVendor.saleItemCategories) {
 					for (let saleItem of category.saleItems) {
 						if (missingHashes.indexOf(saleItem.item.itemHash) > -1) {
-							var costs = item.getCosts(saleItem, itemVendor, newInventories, selectedCharacter);
+							var costs = item.getCosts(saleItem, itemVendor, currentInventories, selectedCharacter);
 							sellingFragment.appendChild(makeItem(saleItem.item, DestinyVendorDefinition[lastVendor].failureStrings[saleItem.failureIndexes[0]], costs));
 						}
 					}
@@ -814,7 +814,7 @@ function VendorResultTask(vendor, vendorHash) {
 				}
 				if (hasQuality(saleItem.item) && parseItemQuality(saleItem.item).min > 95) {
 					vendorItems[vendorHash].items.push(saleItem);
-					var costs = item.getCosts(saleItem, vendor, newInventories, selectedCharacter);
+					var costs = item.getCosts(saleItem, vendor, currentInventories, selectedCharacter);
 					titleContainer.appendChild(makeItem(saleItem.item, vendorItems[vendorHash].name, costs));
 				}
 			}
@@ -837,7 +837,7 @@ function displayT12VendorItems(mainContainer) { // rerun hunter vanguard, titan 
 				titleContainer.classList.add("sub-section");
 				titleContainer.innerHTML = "<p>" + vendor.name + " " + date.vendorRefreshDate(vendor) + "</p>";
 				for (let saleItem of vendor.items) {
-					var costs = item.getCosts(saleItem, vendor, newInventories, selectedCharacter);
+					var costs = item.getCosts(saleItem, vendor, currentInventories, selectedCharacter);
 					docFrag.appendChild(makeItem(saleItem.item, vendor.name, costs));
 				}
 				titleContainer.appendChild(docFrag);
@@ -898,47 +898,46 @@ function postInitItems() {
 				if (event.target.dataset.feature === "ghosts") {
 					tracker.sendEvent('Collection', 'Open', 'Ghosts');
 					elements.status.classList.add("active");
-					database.getAllEntries("inventories").then(function (data) {
-						// chrome.storage.local.get("inventories", function(data) {
-						console.log(data.inventories);
-						newInventories = data.inventories;
-						findGhosts(data.inventories);
+					database.getAllEntries("inventories").then(function (result) {
+						console.log(result.inventories);
+						currentInventories = result.inventories;
+						findGhosts(result.inventories);
 					});
 				}
 				if (event.target.dataset.feature === "ironbanner") {
 					tracker.sendEvent('Collection', 'Open', 'Iron Banner');
 					elements.status.classList.add("active");
-					database.getAllEntries("inventories").then(function (data) {
-						// chrome.storage.local.get("inventories", function(data) {
-						console.log(data.inventories);
-						flattenInventories(data.inventories).then(findIronBanner);
+					database.getAllEntries("inventories").then(function (result) {
+						console.log(result.inventories);
+						currentInventories = result.inventories;
+						flattenInventories(result.inventories).then(findIronBanner);
 					});
 				}
 				if (event.target.dataset.feature === "trials") {
 					tracker.sendEvent('Collection', 'Open', 'Trials');
 					elements.status.classList.add("active");
-					database.getAllEntries("inventories").then(function (data) {
-						// chrome.storage.local.get("inventories", function(data) {
-						console.log(data.inventories);
-						flattenInventories(data.inventories).then(findTrials);
+					database.getAllEntries("inventories").then(function (result) {
+						console.log(result.inventories);
+						currentInventories = result.inventories;
+						flattenInventories(result.inventories).then(findTrials);
 					});
 				}
 				if (event.target.dataset.feature === "raid") {
 					tracker.sendEvent('Collection', 'Open', 'Raid');
 					elements.status.classList.add("active");
-					database.getAllEntries("inventories").then(function (data) {
-						// chrome.storage.local.get("inventories", function(data) {
-						console.log(data.inventories);
-						flattenInventories(data.inventories).then(findRaid);
+					database.getAllEntries("inventories").then(function (result) {
+						console.log(result.inventories);
+						currentInventories = result.inventories;
+						flattenInventories(result.inventories).then(findRaid);
 					});
 				}
 				if (event.target.dataset.feature === "exotics") {
 					tracker.sendEvent('Collection', 'Open', 'Exotics');
 					elements.status.classList.add("active");
-					database.getAllEntries("inventories").then(function (data) {
-						// chrome.storage.local.get("inventories", function(data) {
-						console.log(data.inventories);
-						flattenInventories(data.inventories).then(findExotics);
+					database.getAllEntries("inventories").then(function (result) {
+						console.log(result.inventories);
+						currentInventories = result.inventories;
+						flattenInventories(result.inventories).then(findExotics);
 					});
 				}
 				if (event.target.dataset.feature === "emblems") {
@@ -992,8 +991,8 @@ function postInitItems() {
 				if (event.target.dataset.feature === "t12") {
 					tracker.sendEvent('Collection', 'Open', 'Tier 12');
 					elements.status.classList.add("active");
-					database.getAllEntries("inventories").then(function (data) {
-						newInventories = data.inventories;
+					database.getAllEntries("inventories").then(function (result) {
+						currentInventories = result.inventories;
 						if (!bungieProfileLoaded) {
 							refreshCharacterData().then(function () {
 								bungieProfileLoaded = true;
@@ -1012,37 +1011,7 @@ function postInitItems() {
 document.addEventListener("DOMContentLoaded", function () {
 	initUi(document.body);
 	characterDescriptions = JSON.parse(localStorage.characterDescriptions);
-
-	// findGhosts(data.inventories);
-	// initItems(function() {
-	// findEmblems();
-	// findShaders();
-	// findShips();
-	// });
-
-	// document.getElementById("debugHome").addEventListener("mouseover", function(event) {
-	// 	var target = null;
-	// 	if (event.target.classList.contains("item") || event.target.classList.contains("faction")) {
-	// 		target = event.target;
-	// 	} else if (event.target.parentNode.classList.contains("item") || event.target.parentNode.classList.contains("faction")) {
-	// 		target = event.target.parentNode;
-	// 	} else if (event.target.parentNode.classList.contains("item-container")) {
-	// 		target = event.target.parentNode.children[0];
-	// 	}
-	// 	if (target && target !== previousElement) {
-	// 		// elements.tooltip.classList.add("hidden");
-	// 		previousElement = target;
-	// 		handleTooltipData(target.dataset, target, event);
-	// 	}
-	// 	if (!target) {
-	// 		clearTimeout(tooltipTimeout);
-	// 		// elements.tooltip.classList.add("hidden");
-	// 		previousElement = null;
-	// 	}
-	// }, true);
-	// initItems(function() {
 	database.open().then(postInitItems);
-	// });
 });
 
 window.requestAnimationFrame(date.keepDatesUpdated);

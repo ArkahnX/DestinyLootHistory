@@ -308,61 +308,8 @@ function initializeStoredVariables() {
 				// resolve();
 			});
 
-			chrome.storage.local.get(null, function (data) {
-				if (chrome.runtime.lastError) {
-					console.error(chrome.runtime.lastError);
-				}
-				var newData = {};
-				if (data.currencies) {
-					newData.currencies = data.currencies;
-				}
-				if (data.inventories) {
-					let newInventories = [];
-					for (let characterId in data.inventories) {
-						if (Array.isArray(data.inventories[characterId])) {
-							newInventories.push({
-								characterId: characterId,
-								inventory: data.inventories[characterId]
-							});
-						}
-					}
-					if (newInventories.length) {
-						newData.inventories = newInventories;
-					} else {
-						newData.inventories = data.inventories;
-					}
-				}
-				if (data.progression) {
-					let newProgression = [];
-					for (let characterId in data.progression) {
-						if (data.progression[characterId].baseCharacterLevel) {
-							newProgression.push({
-								characterId: characterId,
-								progression: data.progression[characterId]
-							});
-						}
-					}
-					if (newProgression.length) {
-						newData.progression = newProgression;
-					} else {
-						newData.progression = data.progression;
-					}
-				}
-				if (data.itemChanges) {
-					newData.itemChanges = data.itemChanges;
-				}
-				if (data.matches) {
-					newData.matches = data.matches;
-				}
-				console.log(newData);
-				chrome.storage.local.set(newData, function () {
-					if (chrome.runtime.lastError) {
-						console.error(chrome.runtime.lastError);
-					}
-					database.open().then(function () { // database update only runs if the database version was 0, aka fresh install, otherwise it just passes through
-						database.update(newData).then(validate).then(resolve);
-					});
-				});
+			database.open().then(function () { // database update only runs if the database version was 0, aka fresh install, otherwise it just passes through
+				database.update({}).then(validate).then(resolve);
 			});
 		});
 	});

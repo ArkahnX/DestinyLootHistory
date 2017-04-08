@@ -8,14 +8,14 @@ function getLocalMatches() {
 			if (chrome.runtime.lastError) {
 				console.error(chrome.runtime.lastError);
 			}
-			data.matches = handleInput(result.matches, data.matches);
-			for (var activity of data.matches) {
+			matches = handleInput(result.matches, matches);
+			for (var activity of matches) {
 				if (matchIdList.indexOf(activity.characterId + "-" + activity.activityInstance) === -1) {
 					matchIdList.push(activity.characterId + "-" + activity.activityInstance);
 				}
 			}
 			console.timeEnd("Local Matches");
-			resolve(data);
+			resolve();
 		});
 	});
 }
@@ -23,9 +23,9 @@ function getLocalMatches() {
 function getRemoteMatches() {
 	return new Promise(function (resolve, reject) {
 		console.time("Remote Matches");
-		if (data.itemChanges[0]) {
+		if (itemChanges[0]) {
 			sequence(characterIdList, getBungieMatchData, function () {}).then(function () {
-				data.matches.sort(function (a, b) {
+				matches.sort(function (a, b) {
 					return new Date(a.timestamp) - new Date(b.timestamp);
 				});
 				console.timeEnd("Remote Matches");
@@ -47,7 +47,7 @@ function getRemoteMatches() {
 function deleteMatchData() {}
 
 function getBungieMatchData(characterId, resolve) {
-	var firstDateString = data.itemChanges[0].timestamp;
+	var firstDateString = itemChanges[0].timestamp;
 	if (characterId !== "vault") {
 		_remoteMatch(0, firstDateString, characterId, resolve);
 	} else {
@@ -64,7 +64,7 @@ function _remoteMatch(page, firstDateString, characterId, resolve) {
 				if (new Date(activity.period) >= new Date(firstDateString)) {
 					if (matchIdList.indexOf(characterId + "-" + activity.activityDetails.instanceId) === -1) {
 						matchIdList.push(characterId + "-" + activity.activityDetails.instanceId);
-						data.matches.push(compactMatch(activity, characterId));
+						matches.push(compactMatch(activity, characterId));
 					} else {
 						foundOldDate = true;
 						break;
@@ -104,9 +104,9 @@ function applyMatchData() {
 	return new Promise(function (resolve, reject) {
 		console.time("Match Data");
 		var results = 0;
-		let i = data.itemChanges.length;
+		let i = itemChanges.length;
 		while (i--) {
-			var itemDiff = data.itemChanges[i];
+			var itemDiff = itemChanges[i];
 			if (itemDiff.match) {
 				results++;
 			}
@@ -114,9 +114,9 @@ function applyMatchData() {
 				break;
 			}
 			var timestamp = new Date(itemDiff.timestamp).getTime();
-			let e = data.matches.length;
+			let e = matches.length;
 			while (e--) {
-				var match = data.matches[e];
+				var match = matches[e];
 				var minTime = new Date(match.timestamp).getTime();
 				var maxTime = minTime + ((match.activityTime + 120) * 1000);
 				if (timestamp < minTime) {
@@ -129,11 +129,11 @@ function applyMatchData() {
 			}
 		}
 		var newData = {
-			inventories: data.inventories,
-			itemChanges: CLEANUP(data.itemChanges),
-			progression: data.progression,
-			matches: data.matches,
-			currencies: data.currencies
+			inventories: currentInventories,
+			itemChanges: itemChanges,
+			progression: currentProgression,
+			matches: matches,
+			currencies: currentCurrencies
 		};
 		database.addFromObject(newData).then(function () {
 			if (FINALCHANGESHUGE) {
@@ -143,19 +143,6 @@ function applyMatchData() {
 			localStorage.updateUI = "true";
 			resolve();
 		});
-		// chrome.storage.local.set({
-		// 	inventories: data.inventories,
-		// 	itemChanges: CLEANUP(data.itemChanges),
-		// 	progression: data.progression,
-		// 	matches: data.matches,
-		// 	currencies: data.currencies
-		// }, function() {
-		// 	if (chrome.runtime.lastError) {
-		// 		console.error(chrome.runtime.lastError);
-		// 	}
-		// 	console.timeEnd("Match Data");
-		// 	resolve();
-		// });
 	});
 }
 
@@ -164,7 +151,7 @@ function constructMatchInterface() {
 	for (var node of nodes) {
 		if (node.dataset.activity === "") {
 			var index = parseInt(node.dataset.index, 10);
-			for (var itemDiff of data.itemChanges) {
+			for (var itemDiff of itemChanges) {
 				if (itemDiff.id === index) {
 					if (itemDiff.match) {
 						var match = JSON.parse(itemDiff.match);

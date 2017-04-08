@@ -3,9 +3,9 @@ database.open();
 
 function backupData() {
 	var backupDataButton = document.getElementById("backupData");
-	database.getMultipleStores(database.allStores).then(function (data) {
+	database.getMultipleStores(database.allStores).then(function (result) {
 		var a = document.createElement("a");
-		var file = new Blob([JSON.stringify(data.itemChanges)], {
+		var file = new Blob([JSON.stringify(result.itemChanges)], {
 			type: "application/json"
 		});
 		var url = URL.createObjectURL(file);
@@ -19,15 +19,6 @@ function backupData() {
 			backupDataButton.classList.remove("loading");
 			backupDataButton.removeAttribute("disabled");
 		}, 0);
-		// chrome.storage.local.get(null, function(data) {
-		// if (chrome.runtime.lastError) {
-		// console.error(chrome.runtime.lastError);
-		// }
-		// var url = 'data:application/json;base64,' + btoa(JSON.stringify(data.itemChanges));
-		// chrome.downloads.download({
-		// url: url,
-		// filename: 'itemChanges.json'
-		// });
 	});
 }
 

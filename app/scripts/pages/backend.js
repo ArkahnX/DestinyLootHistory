@@ -6,7 +6,7 @@ function _backup() {
 		if (chrome.runtime.lastError) {
 			console.error(chrome.runtime.lastError);
 		}
-		// var url = 'data:application/json;base64,' + btoa(JSON.stringify(data.itemChanges));
+		// var url = 'data:application/json;base64,' + btoa(JSON.stringify(itemChanges));
 		// chrome.downloads.download({
 		// 	url: url,
 		// 	filename: `itemChanges-${moment().format("YYYY-MM-DD_hh-mm-A")}.json`

@@ -10,7 +10,7 @@ function processDifference(currentDateString, resolve) {
 	addedCurrencyQ.length = 0;
 	removedCurrencyQ.length = 0;
 	console.time("Process Difference");
-	var previousItem = data.itemChanges[data.itemChanges.length - 1];
+	var previousItem = itemChanges[itemChanges.length - 1];
 	var uniqueIndex = 0;
 	var forceupdate = false;
 	if (previousItem) {
@@ -26,8 +26,8 @@ function processDifference(currentDateString, resolve) {
 	var transfers = [];
 	var progression = [];
 	var finalChanges = [];
-	if (oldInventories) {
-		for (let oldInventory of oldInventories) {
+	if (currentInventories) {
+		for (let oldInventory of currentInventories) {
 			// build diffs for each character, comparing old inventory vs new inventory
 			var newInventory = findInArray(newInventories, "characterId", oldInventory.characterId);
 			var diff = {
@@ -227,8 +227,8 @@ function processDifference(currentDateString, resolve) {
 		}
 	}
 
-	if (oldProgression) {
-		for (let oldCharacterProgression of oldProgression) {
+	if (currentProgression) {
+		for (let oldCharacterProgression of currentProgression) {
 			var newCharacterProgression = findInArray(newProgression, "characterId", oldCharacterProgression.characterId);
 			var progressDiff = checkFactionDiff(oldCharacterProgression.progression.progressions, newCharacterProgression.progression.progressions, oldCharacterProgression.characterId);
 			for (let progress of progressDiff) {
@@ -256,8 +256,8 @@ function processDifference(currentDateString, resolve) {
 	/**
 	 * Track currency Diffs
 	 */
-	if (oldCurrencies) {
-		for (var oldCurrency of oldCurrencies) {
+	if (currentCurrencies) {
+		for (var oldCurrency of currentCurrencies) {
 			for (var newCurrency of newCurrencies) {
 				if (newCurrency.itemHash === oldCurrency.itemHash) {
 					if (newCurrency.value > oldCurrency.value) {
@@ -347,45 +347,23 @@ function processDifference(currentDateString, resolve) {
 		}
 		console.log(finalDiff.progression && finalDiff.progression.length)
 		if (finalDiff.progression && finalDiff.progression.length) {
-			// for (var i = 0; i < newProgression.length; i++) {
-			// 	for (let characterId of progressionCharacters) {
-			// 		if (newProgression[i].characterId === characterId) {
-			// 			for (let e = 0; e < oldProgression.length; e++) {
-			// 				if (oldProgression[e].characterId === characterId) {
-			// 					oldProgression[e].progression = newProgression[i].progression;
-			// 					break;
-			// 				}
-			// 			}
-			// 			for (let e = 0; e < data.progression.length; e++) {
-			// 				if (data.progression[e].characterId === characterId) {
-			// 					data.progression[e].progression = newProgression[i].progression;
-			// 					break;
-			// 				}
-			// 			}
-			// 		}
-			// 	}
-			// }
-			oldProgression = newProgression;
-			data.progression = newProgression;
-			oldInventories = newInventories;
-			if (Object.keys(oldInventories).length === 0) {
+			currentProgression = newProgression;
+			currentInventories = newInventories;
+			if (Object.keys(currentInventories).length === 0) {
 				console.error(newInventories);
 				tracker.sendEvent('error', `inventory`, JSON.stringify(Object.keys(newInventories)));
 			}
-			data.inventories = newInventories;
-			oldCurrencies = newCurrencies;
-			data.currencies = newCurrencies;
+			currentCurrencies = newCurrencies;
+			currentCurrencies = newCurrencies;
 		} else {
-			oldProgression = oldProgression;
-			data.progression = oldProgression;
-			oldInventories = newInventories;
-			if (Object.keys(oldInventories).length === 0) {
+			currentProgression = currentProgression;
+			currentInventories = newInventories;
+			if (Object.keys(currentInventories).length === 0) {
 				console.error(newInventories);
 				tracker.sendEvent('error', `inventory`, JSON.stringify(Object.keys(newInventories)));
 			}
-			data.inventories = newInventories;
-			oldCurrencies = newCurrencies;
-			data.currencies = newCurrencies;
+			currentCurrencies = newCurrencies;
+			currentCurrencies = newCurrencies;
 		}
 		if (finalDiff.added.length < 50 && finalDiff.removed.length < 50) {
 			finalChanges.push(finalDiff);
@@ -439,28 +417,24 @@ function processDifference(currentDateString, resolve) {
 		// }
 		// // console.log(_inventories,_inventories2);
 		// console.log(`Vault ${_inventories.vault}/${_inventories2.vault}/${inventories.vault} Char1 ${_inventories[characterIdList[1]]}/${_inventories2[characterIdList[1]]}/${inventories[characterIdList[1]]} Char2 ${_inventories[characterIdList[2]]}/${_inventories2[characterIdList[2]]}/${inventories[characterIdList[2]]} Char3 ${_inventories[characterIdList[3]]}/${_inventories2[characterIdList[3]]}/${inventories[characterIdList[3]]} TRANSFER ${transferQ.length}`);
-		// console.log(`GLIMMER ${oldCurrencies[0].value}/${newCurrencies[0].value}` + ` LEGENDARY MARKS ${oldCurrencies[1].value}/${newCurrencies[1].value}` + ` SILVER ${oldCurrencies[2].value}/${newCurrencies[2].value}`);
-		if (Object.keys(oldInventories).length === 0) {
-			oldInventories = newInventories;
+		if (Object.keys(currentInventories).length === 0) {
+			currentInventories = newInventories;
 		}
-		if (Object.keys(oldProgression).length === 0) {
-			oldProgression = newProgression;
+		if (Object.keys(currentProgression).length === 0) {
+			currentProgression = newProgression;
 		}
-		if (oldCurrencies.length === 0) {
-			oldCurrencies = newCurrencies;
+		if (currentCurrencies.length === 0) {
+			currentCurrencies = newCurrencies;
 		}
-		oldProgression = oldProgression;
-		data.progression = oldProgression;
-		oldInventories = oldInventories;
-		data.inventories = oldInventories;
-		data.currencies = oldCurrencies;
-		oldCurrencies = oldCurrencies;
+		currentProgression = currentProgression;
+		currentInventories = currentInventories;
+		currentCurrencies = currentCurrencies;
 	}
 	if (additions.length || removals.length || transfers.length || progression.length) {
 		// trackIdle();
 		// console.log(currentDateString, "\nAdditions:", additions, "\nRemovals:", removals, "\nTransfers:", transfers, "\nChanges:", changes, "\nFinal Changes:", finalChanges);
 	}
-	Array.prototype.push.apply(data.itemChanges, finalChanges);
+	Array.prototype.push.apply(itemChanges, finalChanges);
 	console.timeEnd("Process Difference");
 	console.time("grab matches");
 	trackingTimer++;

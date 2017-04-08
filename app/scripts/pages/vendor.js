@@ -168,9 +168,8 @@ function makeSaleItem(itemHash, unlockStatuses, saleItem, currencies) {
 			var currencyTotal = currencies[cost.itemHash];
 			if (typeof currencyTotal !== "number") {
 				currencyTotal = 0;
-				var inventory = findInArray(newInventories, "characterId", selectedCharacter);
+				var inventory = findInArray(currentInventories, "characterId", selectedCharacter);
 				for (let item of inventory.inventory || []) {
-					// for (var item of newInventories[selectedCharacter]) {
 					if (item.itemHash === cost.itemHash) {
 						currencyTotal = item.stackSize;
 						break;
@@ -215,8 +214,6 @@ function makeItemsFromVendor(vendor) {
 			}
 		}
 	}
-	// var categories = emblemData.data.vendor.saleItemCategories;
-	// var vendorCategory = outfitterData.data.vendor.saleItemCategories[0];
 	if (localVendor.vendorName) {
 		var vendorContainer = document.createElement("div");
 		var vendorName = document.createElement("h1");
@@ -409,13 +406,9 @@ var selectedCharacter = localStorage.newestCharacter;
 var lastVendor = "";
 var vendors = {};
 database.open().then(function () {
-	database.getAllEntries("inventories").then(function (data) {
-		// chrome.storage.local.get("inventories", function(data) {
-		if (chrome.runtime.lastError) {
-			console.error(chrome.runtime.lastError);
-		}
-		newInventories = data.inventories;
-		tags.cleanup(data.inventories);
+	database.getAllEntries("inventories").then(function (result) {
+		currentInventories = result.inventories;
+		tags.cleanup(currentInventories);
 		refreshCharacterData().then(function () {
 			var characterHTML = "";
 			for (let characterId in characterDescriptions) {

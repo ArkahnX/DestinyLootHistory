@@ -1,14 +1,11 @@
-var data = {
-	inventories: [],
-	progression: [],
-	itemChanges: [],
-	matches: [],
-	currencies: []
-};
-var oldInventories = [];
-var oldProgression = [];
+var currentProgression = [];
+var currentInventories = [];
+var currentCurrencies = [];
 var newProgression = [];
 var newInventories = [];
+var newCurrencies = [];
+var matches = [];
+var itemChanges = [];
 var relevantStats = ["itemHash", "itemInstanceId", "stackSize", "damageTypeHash", "talentGridHash", "isGridComplete", "state", "equipRequiredLevel"];
 var characterIdList = ["vault"];
 var characterDescriptions = {
@@ -184,9 +181,7 @@ function initItems(callback) {
 	});
 }
 
-var inventories = {};
-var oldCurrencies = [];
-var newCurrencies = [];
+
 
 function itemNetworkTask(characterId, callback) {
 	console.time("itemTask");
@@ -224,82 +219,45 @@ function factionNetworkTask(characterId, callback) {
 function itemResultTask(result, characterId) {
 	console.timeEnd("itemTask");
 	if (result) {
-		var dataInventory = findInArray(data.inventories, "characterId", characterId);
-		var newInventory = findInArray(newInventories, "characterId", characterId);
-		if (!dataInventory.inventory) {
-			dataInventory = {
-				characterId: characterId,
-				inventory: []
-			};
-			data.inventories.push(dataInventory);
+		let index = -1;
+		for (let i = 0; i < newInventories.length; i++) {
+			if (newInventories[i].characterId === characterId) {
+				index = i;
+				break;
+			}
 		}
-		if (!newInventory.inventory) {
-			newInventory = {
+		if (index === -1) {
+			index = newInventories.length;
+			newInventories.push({
 				characterId: characterId,
 				inventory: []
-			};
-			newInventories.push(newInventory);
+			});
 		}
 		if (result.data.currencies) {
 			newCurrencies = result.data.currencies;
 		}
-		newInventory.inventory = concatItems(result.data.buckets);
-
-		if (newInventories.length === 0) {
-			if (result.data) {
-				if (result.data.buckets) {
-					console.error(result.data.buckets);
-					tracker.sendEvent('error', `newInventory`, JSON.stringify(Object.keys(result.data.buckets)));
-				} else {
-					console.error(result.data);
-					tracker.sendEvent('error', `newInventory`, JSON.stringify(Object.keys(result.data)));
-				}
-			} else {
-				console.error(result);
-				tracker.sendEvent('error', `newInventory`, JSON.stringify(Object.keys(result)));
-			}
-		}
-	}
-	inventories[characterId] = 0;
-	if (result) {
-		if (Array.isArray(result.data.buckets)) {
-			for (var bucket of result.data.buckets) {
-				for (var i = 0; i < bucket.items.length; i++) {
-					inventories[characterId] += bucket.items[i].stackSize || 1;
-				}
-			}
-		} else {
-			for (var attr in result.data.buckets) {
-				for (var i = 0; i < result.data.buckets[attr].length; i++) {
-					for (var e = 0; e < result.data.buckets[attr][i].items.length; e++) {
-						inventories[characterId] += result.data.buckets[attr][i].items[e].stackSize || 1;
-					}
-				}
-			}
-		}
+		newInventories[index].inventory = concatItems(result.data.buckets);
 	}
 }
 
 function factionResultTask(result, characterId) {
 	console.timeEnd("factionTask");
 	if (result) {
-		var dataProgress = findInArray(data.progression, "characterId", characterId);
-		var newProgress = findInArray(newProgression, "characterId", characterId);
-		if (!dataProgress.progression) {
-			dataProgress = {
-				characterId: characterId,
-				progression: []
-			};
-			data.progression.push(dataProgress);
+		let index = -1;
+		for (let i = 0; i < newProgression.length; i++) {
+			if (newProgression[i].characterId === characterId) {
+				index = i;
+				break;
+			}
 		}
-		if (!newProgress.progression) {
-			newProgress = {
+		if (index === -1) {
+			index = newProgression.length;
+			newProgression.push({
 				characterId: characterId,
-				progression: []
-			};
-			newProgression.push(newProgress);
+				progression: {}
+			});
 		}
-		newProgress.progression = result.data;
+		newProgression[index].progression = result.data;
 	}
 }
 
@@ -600,9 +558,11 @@ function checkInventory() {
 }
 
 /**
- * Step 5
+ * @description Grab record book data then fill current ram values with database.
+ * @param {Object} advisorData 
+ * @param {Function} resolve 
+ * @param {String} currentDateString 
  */
-
 function afterAdvisors(advisorData, resolve, currentDateString) {
 	if (advisorData) {
 		var recordBooks = advisorData.data.recordBooks;
@@ -640,30 +600,25 @@ function afterAdvisors(advisorData, resolve, currentDateString) {
 	console.time("Local Inventory");
 	// get old data saved from the last pass
 	database.getMultipleStores(["itemChanges", "progression", "currencies", "inventories"]).then(function afterStorageGet(result) {
-		// chrome.storage.local.get(["itemChanges", "progression", "currencies", "inventories"], function afterStorageGet(result) {
-		if (chrome.runtime.lastError) {
-			console.error(chrome.runtime.lastError);
-		}
 		// check if data is valid. If not, use newly grabbed data instead.
-		data.itemChanges = handleInput(result.itemChanges, data.itemChanges);
-		data.factionChanges = handleInput(result.factionChanges, data.factionChanges);
-		oldProgression = handleInput(result.progression, newProgression);
+		itemChanges = handleInput(result.itemChanges, itemChanges);
+		currentProgression = handleInput(result.progression, newProgression);
 		for (var attr in result.progression) {
-			oldProgression[attr] = handleInput(result.progression[attr], newProgression[attr]);
+			currentProgression[attr] = handleInput(result.progression[attr], newProgression[attr]);
 		}
-		oldInventories = handleInput(result.inventories, newInventories);
+		currentInventories = handleInput(result.inventories, newInventories);
 		for (let newInventoryContainer of newInventories) {
 			let foundCharacterId = false;
-			for (let oldInventoryContainer of oldInventories) {
+			for (let oldInventoryContainer of currentInventories) {
 				if (oldInventoryContainer.characterId === newInventoryContainer.characterId) {
 					foundCharacterId = true;
 				}
 			}
 			if (!foundCharacterId) {
-				oldInventories.push(newInventoryContainer);
+				currentInventories.push(newInventoryContainer);
 			}
 		}
-		oldCurrencies = handleInput(result.currencies, newCurrencies);
+		currentCurrencies = handleInput(result.currencies, newCurrencies);
 		console.timeEnd("Local Inventory");
 		// itemDiff.js
 		processDifference(currentDateString, resolve);

@@ -1,6 +1,6 @@
 var tooltipTimeout = null;
 var hideTooltipTimeout = null;
-var newInventories = newInventories || {};
+var currentInventories = currentInventories || {};
 var lastToolTipItemInstance = "";
 var tooltipSide = "right";
 
@@ -318,18 +318,14 @@ function handleOtherStats(dataset, resolve) {
 	}
 	if (elements.itemCompare && itemDef.itemCategoryHashes && (itemDef.itemCategoryHashes.indexOf(20) > -1 || itemDef.itemCategoryHashes.indexOf(1) > -1)) {
 		var comparisonItems = [];
-		var sourceInventories = newInventories;
-		if (Object.keys(data.inventories).length) {
-			sourceInventories = data.inventories;
-		}
-		for (var characterInventory of sourceInventories) {
+		for (var characterInventory of currentInventories) {
 			for (var item of characterInventory.inventory) {
-				if (item.itemHash === parseInt(dataset.itemHash)) {
+				if (item.itemHash === itemDef.itemHash) {
 					comparisonItems.push(item);
 				}
 			}
 		}
-		if (comparisonItems.length > 1 || typeof lastVendor !== "undefined") {
+		if ((comparisonItems.length > 0 && dataset.costs && dataset.costs !== "") || typeof lastVendor !== "undefined" || comparisonItems.length > 1) {
 			comparisonItems.sort(function (a, b) {
 				a.itemInstanceId.localeCompare(b.itemInstanceId);
 			});

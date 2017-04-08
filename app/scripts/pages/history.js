@@ -48,22 +48,9 @@ function checkInventory() {
 	var characterHistory = document.getElementById("history");
 	characterHistory.innerHTML = "";
 	var inventoryData = [];
-	for (var characterInventory of data.inventories) {
+	for (var characterInventory of currentInventories) {
 		Array.prototype.push.apply(inventoryData, characterInventory.inventory);
 	}
-	// for (var itemDiff of data.itemChanges) {
-	// 	for (var removedItem of itemDiff.removed) {
-	// 		if (removedItem.item) {
-	// 			removedItem = removedItem.item;
-	// 		}
-	// 		let parsedItem = JSON.parse(removedItem);
-	// 		parsedItem.removed = true;
-	// 		if (parsedItem.itemInstanceId !== "0" && isGoodHistoryItem(parsedItem.itemHash) && !itemInArray(inventoryData, parsedItem.itemInstanceId)) {
-	// 			inventoryData.push(parsedItem);
-	// 		}
-	// 	}
-	// 	// Array.prototype.push.apply(inventoryData, itemDiff.removed);
-	// }
 	inventoryData.sort(function (a, b) {
 		return a.itemInstanceId - b.itemInstanceId;
 	});
@@ -75,8 +62,24 @@ function checkInventory() {
 	console.info(inventoryData);
 	// return false;
 	var sourceIndex = 0;
-	var sources = [3107502809, 36493462, 460228854, 3945957624, 344892955, 3739898362, 24296771];
-	var descriptions = ["Dark Below", "House of Wolves", "The Taken King", "Sparrow Racing League", "Crimson Doubles", "April Update", "Rise of Iron", "Dawning"];
+	var sources = [2585003248, 2784812137, 2659839637, 1234918199, 2775576620, 1537575125, [2964550958, 4160622434], 3475869915, 3131490494, [4161861381, 3068521220]];
+	var descriptions = ["Dark Below", "House of Wolves", "The Taken King", "Sparrow Racing League", "Crimson Doubles", "April Update", "Rise of Iron", "Festival of the Lost", "Dawning", "Age of Triumph"];
+
+	function containsSourceHash(itemDefinition, sourceHashes) {
+		if(typeof sourceHashes === "undefined") {
+			return false;
+		}
+		if (typeof sourceHashes === "number") {
+			return itemDefinition.sourceHashes.indexOf(sourceHashes) > -1;
+		}
+		for (let sourceHash of sourceHashes) {
+			let result = itemDefinition.sourceHashes.indexOf(sourceHash) > -1;
+			if (result) {
+				return true;
+			}
+		}
+		return false;
+	}
 	var div = document.createElement("div");
 	div.classList.add("sub-section");
 	var description = document.createElement("h1");
@@ -89,9 +92,9 @@ function checkInventory() {
 		if (goodItemToDisplay(item)) {
 			var itemDefinition = getItemDefinition(item.itemHash);
 			var found = false;
-			if (itemDefinition.sourceHashes && itemDefinition.sourceHashes.length && sources[sourceIndex] && itemDefinition.sourceHashes.indexOf(sources[sourceIndex]) > -1) {
-				if (sources[sourceIndex - 1] && sources[sourceIndex - 1] !== 460228854) {
-					if (itemDefinition.sourceHashes.indexOf(sources[sourceIndex - 1]) === -1) {
+			if (itemDefinition.sourceHashes && itemDefinition.sourceHashes.length && sources[sourceIndex] && (containsSourceHash(itemDefinition, sources[sourceIndex]) || containsSourceHash(itemDefinition, sources[sourceIndex+1]))) {
+				if (sources[sourceIndex - 1] && sources[sourceIndex - 1] !== 2659839637) {
+					if (containsSourceHash(itemDefinition, sources[sourceIndex - 1]) === false) {
 						if (itemDefinition.tierTypeName !== "Exotic" && itemDefinition.bucketTypeHash !== 284967655 && itemDefinition.tierTypeName !== "Rare") {
 							found = true;
 						}
@@ -100,7 +103,11 @@ function checkInventory() {
 					found = true;
 				}
 				if (found) {
-					var source = DestinyRewardSourceDefinition[sources[sourceIndex]];
+					if (Array.isArray(sources[sourceIndex])) {
+						var source = DestinyRewardSourceDefinition[sources[sourceIndex][0]]
+					} else {
+						var source = DestinyRewardSourceDefinition[sources[sourceIndex]];
+					}
 					characterHistory.appendChild(div);
 					div = document.createElement("div");
 					div.classList.add("sub-section");
@@ -122,12 +129,8 @@ function checkInventory() {
 database.open().then(function () {
 	database.getMultipleStores(database.allStores).then(function (result) {
 		console.log(result)
-		// chrome.storage.local.get(null, function(result) {
-		if (chrome.runtime.lastError) {
-			console.error(chrome.runtime.lastError);
-		}
-		data.itemChanges = result.itemChanges;
-		data.inventories = result.inventories;
+		itemChanges = result.itemChanges;
+		currentInventories = result.inventories;
 		tracker.sendEvent('History', 'Load', 'True');
 		refreshCharacterData().then(checkInventory);
 	});

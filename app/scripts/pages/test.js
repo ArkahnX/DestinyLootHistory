@@ -5,7 +5,6 @@ var data = {
 	inventories: {},
 	progression: {},
 	itemChanges: [],
-	factionChanges: []
 };
 var buckets = [];
 getAllOptions().then(function (options) {
@@ -27,21 +26,17 @@ function checkInventory() {
 	console.time("Bungie Inventory");
 	elements.status.classList.add("active");
 	tracker.sendEvent('Inventory', 'Check', 'True');
-	database.getAllEntries("inventories").then(function (remoteData) {
+	database.getAllEntries("inventories").then(function (result) {
 		getAllOptions().then(function (options) {
 			globalOptions = options;
-
-			console.log(remoteData);
-			data = remoteData;
+			currentInventories = result.inventories;
 			tags.update();
-			tags.cleanup(remoteData.inventories);
+			tags.cleanup(result.inventories);
 			cleanupInventories();
-			// sequence(characterIdList, itemNetworkTask, itemResultTask).then(function() {
-			// sequence(characterIdList, factionNetworkTask, factionResultTask).then(function() {
 			var characterInventory = document.getElementById("debugHome");
 			var inventoryData = [];
 			var sortedInventoryData = {};
-			for (var inventory of data.inventories) {
+			for (var inventory of currentInventories) {
 				if (inventoryData.length === 0) {
 					Array.prototype.push.apply(inventoryData, inventory.inventory);
 				} else {
@@ -74,10 +69,6 @@ function checkInventory() {
 
 					}
 				}
-				// var tag = tags.getTag(item);
-				// if(tag) {
-				// 	// console.log(tags.getName(tag))
-				// }
 				let itemDefinition = getItemDefinition(item.itemHash);
 				if (itemDefinition.bucketTypeHash === 21559313 || itemDefinition.bucketTypeHash === undefined) {
 					itemDefinition.bucketTypeHash = 215593132;

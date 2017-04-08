@@ -230,7 +230,7 @@ function findGearForFilter(data) {
 		var classType = parseInt(elements.classType.value);
 		var categoryHash = parseInt(elements.categoryHash.value);
 		var gear = [];
-		for (var characterInventory of data.inventories) {
+		for (var characterInventory of currentInventories) {
 			var _characterName = characterName(characterInventory.characterId);
 			for (var item of characterInventory.inventory) {
 				var itemDef = getItemDefinition(item.itemHash, item);
