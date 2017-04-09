@@ -4,12 +4,14 @@ var removedCurrencyQ = [];
 var trackingTimer = 0;
 
 function processDifference(currentDateString, resolve) {
+	// diffInventories(currentDateString, resolve);
+	console.time("===========OLD DIFF===============");
 	// reset variables
 	FINALCHANGESHUGE = false;
 	transferQ.length = 0;
 	addedCurrencyQ.length = 0;
 	removedCurrencyQ.length = 0;
-	console.time("Process Difference");
+	// console.time("Process Difference");
 	var previousItem = itemChanges[itemChanges.length - 1];
 	var uniqueIndex = 0;
 	var forceupdate = false;
@@ -435,10 +437,9 @@ function processDifference(currentDateString, resolve) {
 		// console.log(currentDateString, "\nAdditions:", additions, "\nRemovals:", removals, "\nTransfers:", transfers, "\nChanges:", changes, "\nFinal Changes:", finalChanges);
 	}
 	Array.prototype.push.apply(itemChanges, finalChanges);
-	console.timeEnd("Process Difference");
 	console.time("grab matches");
 	trackingTimer++;
-
+	console.timeEnd("===========OLD DIFF===============");
 	getLocalMatches().then(getRemoteMatches).catch(function (err) {
 		if (FINALCHANGESHUGE) {
 			tracker.sendEvent('Inventory Error', bungie.getCurrentAccount().displayName, "Remote Matches Error");

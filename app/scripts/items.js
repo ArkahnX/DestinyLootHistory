@@ -621,7 +621,8 @@ function afterAdvisors(advisorData, resolve, currentDateString) {
 		currentCurrencies = handleInput(result.currencies, newCurrencies);
 		console.timeEnd("Local Inventory");
 		// itemDiff.js
-		processDifference(currentDateString, resolve);
+		// processDifference(currentDateString, resolve);
+		diffInventories(currentDateString, resolve);
 	});
 }
 

@@ -4,7 +4,7 @@
 	"short_name": "LootHistory",
 	"version": "1.8",
 	"version_name": "Release 1.8",
-	"minimum_chrome_version": "51",
+	"minimum_chrome_version": "56",
 	"description": "Track your Destiny item changes.",
 	"icons": {
 		"16": "icon16.png",
@@ -31,6 +31,7 @@
 			"scripts/quality.js",
 			"scripts/items.js",
 			"scripts/itemDiff.js",
+			"scripts/diffInventories.js",
 			"scripts/timers.js",
 			"scripts/pages/backend.js"
 		]

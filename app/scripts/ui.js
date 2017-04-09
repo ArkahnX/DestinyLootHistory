@@ -940,14 +940,14 @@ function passFactionData(DomNode, diffData, classRequirement) {
 }
 
 function characterName(characterId, light) {
+	if (characterId === "vault") {
+		return "Vault";
+	}
 	if (!characterDescriptions[characterId]) {
 		return "";
 	}
 	if (light === null) {
 		return characterDescriptions[characterId].name;
-	}
-	if (characterId === "vault") {
-		return "Vault";
 	}
 	if (!characterDescriptions[characterId]) {
 		// console.log(light)
