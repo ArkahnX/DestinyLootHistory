@@ -333,7 +333,14 @@ function buildCompactItem(itemData) {
 		if (completed === completionValue) {
 			newItemData.isGridComplete = true;
 		}
-		newItemData.stackSize = Math.round(((completed / completionValue) * 100)) + "%";
+		if (completed === 0 && completionValue === 0) {
+			newItemData.stackSize = "0%";
+		} else {
+			newItemData.stackSize = Math.round(((completed / completionValue) * 100)) + "%";
+		}
+		if (newItemData.stackSize === "NaN%") {
+			debugger;
+		}
 	}
 	if (itemData.primaryStat) {
 		newItemData.primaryStat = {

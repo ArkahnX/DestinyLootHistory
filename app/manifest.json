@@ -30,7 +30,6 @@
 			"scripts/matches.js",
 			"scripts/quality.js",
 			"scripts/items.js",
-			"scripts/itemDiff.js",
 			"scripts/diffInventories.js",
 			"scripts/timers.js",
 			"scripts/pages/backend.js"

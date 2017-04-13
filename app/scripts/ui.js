@@ -966,7 +966,7 @@ function characterSource(itemDiff, moveType, index) {
 		if (itemData.from && itemData.to) {
 			fromId = itemData.from;
 			toId = itemData.to;
-		} else {
+		} else if (itemData.characterId) {
 			toId = itemData.characterId;
 		}
 	}

@@ -68,6 +68,7 @@ function organizeInventories() {
 					}
 					organizedInventories[array[1]].unique[`${item.itemHash}-${item.itemInstanceId}`] = {
 						characterId: character.characterId,
+						light:item.primaryStat && item.primaryStat.value || 0,
 						item: JSON.stringify(item)
 					}
 				}
@@ -95,12 +96,38 @@ function matching(array1, array2) {
 
 function repair() {
 	for (let itemChange of itemChanges) {
-		if (itemChange.transfer) {
-			itemChange.transferred = [];
-			for (let item of itemChange.transfer) {
-				itemChange.transferred.push(item);
+		if (itemChange.progression) {
+			let newProgression = [];
+			for (let item of itemChange.progression) {
+				if(item.character || typeof item.characterId === "undefined") {
+					newProgression.push(item.item);
+				} else {
+					newProgression.push(item);
+				}
 			}
-			delete itemChange.transfer;
+			itemChange.progression = newProgression;
+		}
+		if (itemChange.added.length) {
+		let newAdded = [];
+			for (let item of itemChange.added) {
+				if(item.character || typeof item.characterId === "undefined") {
+					newAdded.push(item.item);
+				} else {
+					newAdded.push(item);
+				}
+			}
+			itemChange.added = newAdded;
+		}
+		if (itemChange.removed.length) {
+		let newRemoved = [];
+			for (let item of itemChange.removed) {
+				if(item.character || typeof item.characterId === "undefined") {
+					newRemoved.push(item.item);
+				} else {
+					newRemoved.push(item);
+				}
+			}
+			itemChange.removed = newRemoved;
 		}
 	}
 }
@@ -161,9 +188,9 @@ function diffInventories(currentDateString, resolve) {
 	for (let key of temporary.addedKeys.unique) {
 		let item = organizedInventories.new.unique[key];
 		let result = item.item;
-		if (item.character !== primaryCharacter) {
+		if (item.characterId !== primaryCharacter) {
 			result = {};
-			result.characterId = item.character;
+			result.characterId = item.characterId;
 			result.item = item.item;
 		}
 		diffedInventory.added.push(result);
@@ -171,9 +198,9 @@ function diffInventories(currentDateString, resolve) {
 	for (let key of temporary.removedKeys.unique) {
 		let item = organizedInventories.old.unique[key];
 		let result = item.item;
-		if (item.character !== primaryCharacter) {
+		if (item.characterId !== primaryCharacter) {
 			result = {};
-			result.characterId = item.character;
+			result.characterId = item.characterId;
 			result.item = item.item;
 		}
 		diffedInventory.removed.push(result);
@@ -181,9 +208,9 @@ function diffInventories(currentDateString, resolve) {
 	for (let key of temporary.addedKeys.progression) {
 		let item = organizedInventories.new.progression[key];
 		let result = item.item;
-		if (item.character !== primaryCharacter) {
+		if (item.characterId !== primaryCharacter) {
 			result = {};
-			result.characterId = item.character;
+			result.characterId = item.characterId;
 			result.item = item.item;
 		}
 		diffedInventory.added.push(result);
@@ -191,9 +218,9 @@ function diffInventories(currentDateString, resolve) {
 	for (let key of temporary.removedKeys.progression) {
 		let item = organizedInventories.old.progression[key];
 		let result = item.item;
-		if (item.character !== primaryCharacter) {
+		if (item.characterId !== primaryCharacter) {
 			result = {};
-			result.characterId = item.character;
+			result.characterId = item.characterId;
 			result.item = item.item;
 		}
 		diffedInventory.removed.push(result);
@@ -203,9 +230,9 @@ function diffInventories(currentDateString, resolve) {
 		let newItem = organizedInventories.new.progression[key];
 		if (oldItem.percent !== newItem.percent) {
 			let result = newItem.item;
-			if (newItem.character !== primaryCharacter) {
+			if (newItem.characterId !== primaryCharacter) {
 				result = {};
-				result.characterId = newItem.character;
+				result.characterId = newItem.characterId;
 				result.item = newItem.item;
 			}
 			parkedProgression.push(result);
@@ -228,7 +255,7 @@ function diffInventories(currentDateString, resolve) {
 			}
 		}
 		if (toIds.length || fromIds.length) {
-			console.log(fromQuantities, toQuantities);
+			// console.log(fromQuantities, toQuantities);
 			for (let i = 0; i < toIds.length; i++) {
 				for (let e = 0; e < fromIds.length; e++) {
 					if (toQuantities[i] - fromQuantities[e] > 0 && fromQuantities[e] > 0) {
@@ -272,7 +299,7 @@ function diffInventories(currentDateString, resolve) {
 					}
 				}
 			}
-			console.log(fromQuantities, toQuantities);
+			// console.log(fromQuantities, toQuantities);
 			for (let i = 0; i < fromIds.length; i++) {
 				if (fromQuantities[i] > 0) {
 					let result = JSON.stringify({
@@ -359,7 +386,7 @@ function diffInventories(currentDateString, resolve) {
 		eligibleToLock(JSON.parse(itemData), localCharacterId);
 		autoMoveToVault(JSON.parse(itemData), localCharacterId);
 	}
-	console.log(diffedInventory, organizedInventories);
+	console.log(diffedInventory, parkedAddedCurrency, parkedRemovedCurrency, parkedTransfers, parkedProgression);
 	if (diffedInventory.added.length || diffedInventory.removed.length) {
 		for (let added of parkedAddedCurrency) {
 			diffedInventory.added.push(added);
@@ -379,7 +406,7 @@ function diffInventories(currentDateString, resolve) {
 		for (let progression of parkedProgression) {
 			diffedInventory.progression.push(progression);
 		}
-		if (diffedInventory.progression.length) {
+		if (diffedInventory.progression && diffedInventory.progression.length) {
 			currentProgression = newProgression;
 			currentInventories = newInventories;
 			currentCurrencies = newCurrencies;
