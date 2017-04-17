@@ -20,6 +20,13 @@ const presetEvents = {
         minDate: moment("2015-12-08T18:00:00Z").format(),
         maxDate: moment("2015-12-29T09:00:00Z").format()
     },
+    IronBannerApril2017: {
+        id: "IronBannerApril2017",
+        gameMode: "IronBanner",
+        name: "Iron Banner April 2017",
+        minDate: moment("2017-04-11T18:00:00Z").format(),
+        maxDate: moment("2017-04-18T09:00:00Z").format()
+    },
     IronBannerFebruary2017: {
         id: "IronBannerFebruary2017",
         gameMode: "Supremacy",

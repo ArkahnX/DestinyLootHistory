@@ -336,7 +336,6 @@ function handleOtherStats(dataset, resolve) {
 				}
 			}
 		}
-		console.log(comparisonItems, newInventories)
 		if ((comparisonItems.length > 0 && dataset.costs && dataset.costs !== "") || typeof lastVendor !== "undefined" || comparisonItems.length > 1) {
 			comparisonItems.sort(function (a, b) {
 				a.itemInstanceId.localeCompare(b.itemInstanceId);
